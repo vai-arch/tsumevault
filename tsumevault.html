@@ -198,6 +198,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   #main{display:flex;align-items:center;justify-content:center;padding-top:0;overflow:visible;}
   #board-wrap{margin:6px;}
 #app.mob-board #main { display:flex }
+.ctrl-btn{font-size:8px;padding:3px 8px;}
 }
 </style>
 </head>
@@ -1499,8 +1500,11 @@ function getMarkup(node) { return node.markup ? node.markup.map(m=>({...m})) : [
 function initBoard(size) {
   boardSize = size||19;
   const main = document.getElementById('main');
-  const avail = Math.min(main.clientWidth-32, main.clientHeight-90);
+  const margin = window.innerWidth < 768 ? 24 : 32;
+  const availH = window.innerWidth < 768 ? window.innerHeight - 90 : main.clientHeight - 90;
+  const avail = Math.min(main.clientWidth - margin, availH);
   const sz = Math.max(240, Math.min(avail, 620));
+  console.log('avail:', avail, 'sz:', sz);
   document.getElementById('board').innerHTML = '';
   wgoBoard = new WGo.Board(document.getElementById('board'), { size:boardSize, width:sz, background:'#c4943a' });
   wgoBoard.setSection(-0.5,-0.5,-0.5,-0.5);
