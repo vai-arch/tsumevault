@@ -1,0 +1,105 @@
+======================================================================
+ANÁLISIS SGF — GUO JUAN
+======================================================================
+Total SGFs analizados : 14280
+Carpetas problems_*   : 1120
+
+── RESUMEN POR CATEGORÍA ──────────────────────────────────────────
+  RIGHT_ONLY                       9664  ( 67.7%)  Solo C[RIGHT] — incluye reveal con jj placeholder
+  RIGHT_WRONG                      4562  ( 31.9%)  Formato estándar GJ (C[RIGHT] y C[WRONG] en hojas)
+  NO_COMMENTS                        23  (  0.2%)  Sin comentarios en hojas
+  WRONG_ONLY                         15  (  0.1%)  Solo C[WRONG] en hojas (sin C[RIGHT])
+  DONOTSWAP_NO_RIGHT                 13  (  0.1%)  DONOTSWAP sin C[RIGHT] — revisar manualmente
+  UNKNOWN                             3  (  0.0%)  Comentarios en hojas no reconocidos
+
+── COLOR TO PLAY ───────────────────────────────────────────────────
+  B            6817
+  W            6577
+  None/unknown    886
+
+── PASS MOVES (B[jj]/W[jj]) ────────────────────────────────────────
+  SGFs con pass move: 108
+
+── DISTRIBUCIÓN DE RAMAS (primer nivel) ────────────────────────────
+  1 rama(s): 11488
+  2 rama(s): 2156
+  3 rama(s): 401
+  4 rama(s): 148
+  5 rama(s): 52
+  6 rama(s): 31
+  7 rama(s): 3
+  10 rama(s): 1
+
+── CARPETAS CON PROBLEMAS NO ESTÁNDAR ──────────────────────────────
+  problems_1011: {'UNKNOWN': 1}
+  problems_1016: {'NO_COMMENTS': 1}
+  problems_1023: {'UNKNOWN': 1}
+  problems_1058: {'NO_COMMENTS': 1}
+  problems_1066: {'WRONG_ONLY': 1}
+  problems_1112: {'DONOTSWAP_NO_RIGHT': 1}
+  problems_1120: {'NO_COMMENTS': 1}
+  problems_1124: {'NO_COMMENTS': 1}
+  problems_1125: {'DONOTSWAP_NO_RIGHT': 1}
+  problems_1127: {'NO_COMMENTS': 1}
+  problems_1129: {'WRONG_ONLY': 2}
+  problems_1130: {'NO_COMMENTS': 1, 'DONOTSWAP_NO_RIGHT': 1}
+  problems_1144: {'NO_COMMENTS': 1}
+  problems_1145: {'WRONG_ONLY': 1}
+  problems_1151: {'DONOTSWAP_NO_RIGHT': 1}
+  problems_1165: {'DONOTSWAP_NO_RIGHT': 1}
+  problems_1188: {'NO_COMMENTS': 1, 'DONOTSWAP_NO_RIGHT': 1}
+  problems_1192: {'WRONG_ONLY': 1}
+  problems_1195: {'WRONG_ONLY': 1}
+  problems_1307: {'NO_COMMENTS': 1}
+  problems_1355: {'WRONG_ONLY': 1}
+  problems_1391: {'NO_COMMENTS': 1}
+  problems_1406: {'NO_COMMENTS': 1}
+  problems_1412: {'NO_COMMENTS': 1}
+  problems_1453: {'NO_COMMENTS': 1}
+  problems_1458: {'WRONG_ONLY': 1}
+  problems_1574: {'NO_COMMENTS': 1}
+  problems_1834: {'NO_COMMENTS': 1}
+  problems_2142: {'WRONG_ONLY': 1}
+  problems_2162: {'WRONG_ONLY': 1}
+  problems_400: {'DONOTSWAP_NO_RIGHT': 1}
+  problems_403: {'DONOTSWAP_NO_RIGHT': 1}
+  problems_422: {'DONOTSWAP_NO_RIGHT': 1}
+  problems_492: {'NO_COMMENTS': 1}
+  problems_495: {'NO_COMMENTS': 1}
+  problems_539: {'DONOTSWAP_NO_RIGHT': 1}
+  problems_540: {'DONOTSWAP_NO_RIGHT': 1}
+  problems_547: {'DONOTSWAP_NO_RIGHT': 1}
+  problems_553: {'UNKNOWN': 1}
+  problems_627: {'NO_COMMENTS': 1}
+  problems_632: {'NO_COMMENTS': 2}
+  problems_696: {'WRONG_ONLY': 1}
+  problems_709: {'DONOTSWAP_NO_RIGHT': 1}
+  problems_896: {'WRONG_ONLY': 1}
+  problems_902: {'WRONG_ONLY': 1}
+  problems_921: {'NO_COMMENTS': 1}
+  problems_933: {'NO_COMMENTS': 1}
+  problems_959: {'WRONG_ONLY': 1}
+  problems_987: {'NO_COMMENTS': 1}
+  problems_993: {'WRONG_ONLY': 1}
+
+── MUESTRA UNKNOWN (primeros 10) ───────────────────────────────────
+  problems_1011/1011_01.sgf
+    Comentarios hojas: ['Black can continue with A, B or C.\nA is played if Black needs to connect. \nB and C attack White.']
+  problems_1023/1023_11.sgf
+    Comentarios hojas: ['Black dies.']
+  problems_553/553_02b.sgf
+    Comentarios hojas: ['Good for Black. White move A is an overplay.', 'Good for Black. White move A is an overplay.']
+
+── DONOTSWAP SIN C[RIGHT] (primeros 5) ─────────────────────────────
+  problems_1112/1112_03a.sgf
+    Comentarios hojas: ['']
+  problems_1125/1125_01.sgf
+    Comentarios hojas: ['']
+  problems_1130/1130_15a.sgf
+    Comentarios hojas: ['']
+  problems_1151/1151_07.sgf
+    Comentarios hojas: ['']
+  problems_1165/1165_05c.sgf
+    Comentarios hojas: ['']
+
+======================================================================

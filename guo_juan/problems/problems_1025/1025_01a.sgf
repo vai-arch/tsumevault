@@ -1,0 +1,11 @@
+(;SZ[19]AW[rn][pp][qp][rp][nq][oq][nr]AB[pq][qq][rq][or][os]PL[W](;W[sq];B[sr];W[rs];B[qs];W[qr];B[pr];W[ps]C[RIGHT
+Ko, White takes first.])(;W[rr];B[sr];W[qr];B[pr](;W[qs];B[rs];W[ss]LB[sr:A][qs:B]C[RIGHT
+Notice that if White wins the ko by capturing A, there will be no aji remaining. White B is correct. ])(;W[rs];B[qs];W[ps]LB[rs:A]C[WRONG
+Notice that even if White wins the ko, Black still has many liberties. White A is not correct. ]))(;W[qs];B[rs];W[rr](;B[sr];W[ss];B[sq](;W[pr];B[rs]C[WRONG
+Black takes first.])(;W[rs];B[qr]C[WRONG
+Black's alive.])(;W[qr];B[rs];W[sp];B[pr];W[ss]C[RIGHT
+White takes first.]))(;B[qr];W[ss];B[sq];W[sp];B[ps]C[RIGHT
+Ko, but White can take sente now, Black still needs to play two moves to finish the Ko. ]))(;W[rs];B[qs];W[qr];B[rr];W[ps];B[pr](;W[qs];B[sq]LB[rs::(]C[WRONG
+Black is alive.])(;W[sq];B[qs]LB[rs::(]C[WRONG
+Black is alive.])(;W[sr];B[sq]LB[rs::(]C[WRONG
+Black is alive.])))

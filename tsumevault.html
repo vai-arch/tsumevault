@@ -97,8 +97,8 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 #welcome{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--dim);pointer-events:none;}
 #welcome .kanji{font-size:56px;opacity:.12;line-height:1;}
 #welcome p{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;}
-.board-ok{box-shadow:0 0 0 4px var(--ok-bright) !important;}
-.board-bad{box-shadow:0 0 0 4px var(--accent) !important;}
+.board-ok{outline:4px solid var(--ok-bright);}
+.board-bad{outline:4px solid var(--accent);}
 #board-controls{display:flex;gap:8px;padding:6px 12px;background:rgba(0,0,0,.6);justify-content:center;}
 .ctrl-btn{font-family:var(--mono);font-size:9px;letter-spacing:.08em;padding:4px 14px;background:transparent;border:1px solid var(--border2);color:var(--dim);cursor:pointer;border-radius:2px;transition:all .18s;}
 .ctrl-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
@@ -209,10 +209,12 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   <!-- HEADER -->
   <header id="hdr">
     <button id="menu-btn" onclick="toggleMobilePanel()" title="Menu">☰</button>
-    <a href="../player/index.html" style="font-family:var(--mono);font-size:11px;color:var(--dim);text-decoration:none;letter-spacing:.1em;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--dim)'">← Index</a>
-    <div class="logo">TsumeVault</div>
+    <select id="source-sel" class="fsel" style="margin-bottom:0;width:auto;font-size:10px;letter-spacing:.12em;border-color:var(--gold-dim);color:var(--gold);">
+      <option value="tsumego_hero">tsumego_hero</option>
+      <option value="guo_juan">guo_juan</option>
+    </select>
     <div style="flex:1"></div>
-    <span id="sync-status" style="font-family:var(--mono);font-size:9px;margin-right:4px;"></span>
+    <span id="sync-status" style="font-family:var(--mono);font-size:9px;margin-right:4px;position:absolute;left:50%;transform:translateX(-50%);"></span>
     <input id="sync-url" type="text"
       style="font-family:var(--mono);font-size:9px;background:transparent;border:1px solid var(--border2);color:var(--dim);padding:3px 8px;border-radius:2px;width:190px;margin-right:6px;"
       placeholder="http://192.168.1.x:3002">
@@ -396,6 +398,10 @@ let wgoBoard = null, boardSize = 19;
 let waitingForNext = false;
 let sessionOk = 0, sessionNo = 0;
 let lastRunStatsAll = {};
+let attemptsSinceLastSave = 0;
+	
+let currentSource = 'tsumego_hero';
+const SGF_BASE = '/tsumevault/';
 
 let pausedAt = 0;
 let totalPaused = 0;
@@ -502,6 +508,7 @@ async function initDB() {
     console.log('[DB] Cargada desde IndexedDB');
     // Asegurar columna uuid en runs (migración)
     try { dbExec("ALTER TABLE runs ADD COLUMN uuid TEXT"); } catch(e) {}
+	try { dbExec("ALTER TABLE chapters ADD COLUMN name TEXT"); } catch(e) {}
     return true;
   }
 
@@ -514,7 +521,10 @@ async function initDB() {
     db = new SQL.Database();
     createSchema();
     importSnapshot(snap);
-    await saveDB();
+    if (!lightMode) {
+	  await saveDB();
+	  precacheSgfs();
+	}
     console.log('[DB] Snapshot descargado e importado');
     return true;
   } catch(e) {
@@ -551,10 +561,11 @@ function createSchema() {
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
       set_id INTEGER NOT NULL, chapter_num INTEGER NOT NULL,
       diff_min INTEGER, diff_max INTEGER, diff_avg INTEGER,
+	  name TEXT,
       problem_count INTEGER NOT NULL DEFAULT 0
     );
     CREATE TABLE IF NOT EXISTS problems (
-      source TEXT NOT NULL, problem_id INTEGER NOT NULL, set_id INTEGER NOT NULL,
+      source TEXT NOT NULL, problem_id TEXT NOT NULL, set_id INTEGER NOT NULL,
       chapter_id INTEGER, order_in_chapter INTEGER, sgf_path TEXT NOT NULL,
       sgf_exists INTEGER NOT NULL DEFAULT 0, difficulty_raw TEXT,
       difficulty_num INTEGER, color_to_play TEXT,
@@ -562,7 +573,7 @@ function createSchema() {
     );
     CREATE TABLE IF NOT EXISTS attempts (
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
-      problem_id INTEGER NOT NULL, run_id INTEGER, result TEXT NOT NULL,
+      problem_id TEXT NOT NULL, run_id INTEGER, result TEXT NOT NULL,
       time_ms INTEGER, created_at TEXT NOT NULL
     );
     CREATE TABLE IF NOT EXISTS runs (
@@ -574,7 +585,7 @@ function createSchema() {
     );
     CREATE TABLE IF NOT EXISTS run_items (
       run_id INTEGER NOT NULL, source TEXT NOT NULL,
-      problem_id INTEGER NOT NULL, order_in_run INTEGER NOT NULL,
+      problem_id TEXT NOT NULL, order_in_run INTEGER NOT NULL,
       result TEXT,
       PRIMARY KEY (run_id, problem_id)
     );
@@ -596,7 +607,7 @@ function importSnapshot(snap) {
     stmt.free();
   };
   ins('collections', ['source','set_id','name','folder','difficulty_raw','difficulty_num','num_problems','on_disk','chapter_count'], snap.collections);
-  ins('chapters',    ['id','source','set_id','chapter_num','diff_min','diff_max','diff_avg','problem_count'], snap.chapters);
+  ins('chapters', ['id','source','set_id','chapter_num','name','diff_min','diff_max','diff_avg','problem_count'], snap.chapters);
   ins('problems',    ['source','problem_id','set_id','chapter_id','order_in_chapter','sgf_path','sgf_exists','difficulty_raw','difficulty_num','color_to_play'], snap.problems);
 }
 
@@ -875,12 +886,12 @@ function localUpdateRunStatus(run_id, status) {
 // ══════════════════════════════════════════════════════════════
 //  SYNC
 // ══════════════════════════════════════════════════════════════
-async function tryAutoSync() {
+async function tryAutoSync(silent = false) {
   if (syncInProgress) return;
   syncInProgress = true;
-  setSyncStatus('syncing');
+  if (!silent) setSyncStatus('syncing');
   try {
-    await doSync();
+    await doSync(silent);
     setSyncStatus('ok');
   } catch(e) {
     setSyncStatus('idle');
@@ -889,13 +900,13 @@ async function tryAutoSync() {
   }
 }
 
-async function doSync() {
+async function doSync(lightMode = false) {
   // 1. Obtener IDs máximos que el servidor ya conoce (los nuestros)
   const maxAttemptId = dbQueryOne('SELECT MAX(id) AS m FROM attempts', [])?.m || 0;
   const maxRunId     = dbQueryOne('SELECT MAX(id) AS m FROM runs', [])?.m || 0;
 
   // 2. Pull: traer lo nuevo del servidor
-  const pullR = await fetch(`${SYNC_SERVER}/sync/pull?since_attempt_id=0&since_run_id=0`,
+  const pullR = await fetch(`${SYNC_SERVER}/sync/pull?since_attempt_id=${maxAttemptId}&since_run_id=${maxRunId}`,
     { signal: AbortSignal.timeout(8000) });
   if (!pullR.ok) throw new Error('pull failed');
   const pulled = await pullR.json();
@@ -947,10 +958,12 @@ async function doSync() {
   }
 
   // 4. Refresh snapshot de tablas estáticas
-  const snapR = await fetch(`${SYNC_SERVER}/sync/snapshot`, { signal: AbortSignal.timeout(10000) });
-  if (snapR.ok) {
-    const snap = await snapR.json();
-    importSnapshot(snap);
+  if (!lightMode) {
+    const snapR = await fetch(`${SYNC_SERVER}/sync/snapshot`, { signal: AbortSignal.timeout(10000) });
+    if (snapR.ok) {
+      const snap = await snapR.json();
+      importSnapshot(snap);
+    }
   }
 
   await saveDB();
@@ -959,10 +972,19 @@ async function doSync() {
 
 function setSyncStatus(state) {
   const el = document.getElementById('sync-status');
+  const btn = document.getElementById('sync-btn');
   if (!el) return;
-  if (state === 'syncing') { el.textContent = '↻ Syncing…'; el.style.color = 'var(--gold)'; }
-  else if (state === 'ok')  { el.textContent = '✓ Synced';   el.style.color = 'var(--ok-bright)'; setTimeout(()=>{ el.textContent=''; }, 3000); }
-  else                      { el.textContent = '';            }
+  if (state === 'syncing') {
+    el.textContent = '↻ Syncing…'; el.style.color = 'var(--gold)';
+    if (btn) btn.style.display = 'none';
+  } else if (state === 'ok') {
+    el.textContent = '✓ Synced'; el.style.color = 'var(--ok-bright)';
+    if (btn) btn.style.display = 'none';
+    setTimeout(()=>{ el.textContent=''; if (btn) btn.style.display=''; }, 3000);
+  } else {
+    el.textContent = '';
+    if (btn) btn.style.display = '';
+  }
 }
 
 // ══════════════════════════════════════════════════════════════
@@ -970,8 +992,8 @@ function setSyncStatus(state) {
 // ══════════════════════════════════════════════════════════════
 async function loadCollections() {
   try {
-    allCollections  = localGetCollections('tsumego_hero');
-    lastRunStatsAll = localGetLastRunStatsAll('tsumego_hero');
+    allCollections  = localGetCollections(currentSource);
+    lastRunStatsAll = localGetLastRunStatsAll(currentSource);
     renderCollectionsList();
     populateCollectionDiffFilter();
     populateFreeFilters();
@@ -1007,7 +1029,7 @@ function renderCollectionsList() {
     item.querySelector('.col-name').addEventListener('click', () => toggleCollection(col, item));
     item.querySelector('.run-col-btn').addEventListener('click', e => {
       e.stopPropagation();
-      startRun({ source:'tsumego_hero', type:'collection', set_id: col.set_id, colName: col.name });
+      startRun({ source:currentSource, type:'collection', set_id: col.set_id, colName: col.name });
     });
     list.appendChild(item);
   }
@@ -1074,7 +1096,7 @@ document.getElementById('cf-perfect').addEventListener('change', applyCollection
 
 async function refreshCollectionStats() {
   try {
-    lastRunStatsAll = localGetLastRunStatsAll('tsumego_hero');
+    lastRunStatsAll = localGetLastRunStatsAll(currentSource);
     document.querySelectorAll('.col-item.expanded').forEach(item => {
       const setId = parseInt(item.dataset.setId);
       const s = lastRunStatsAll[setId];
@@ -1100,8 +1122,8 @@ async function toggleCollection(col, item) {
 
   chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--dim2)">Loading…</div>`;
   try {
-    const chapters = localGetChapters('tsumego_hero', col.set_id);
-    const runStats = localGetLastRunStats('tsumego_hero', col.set_id);
+    const chapters = localGetChapters(currentSource, col.set_id);
+    const runStats = localGetLastRunStats(currentSource, col.set_id);
     chaptersCache[col.set_id] = chapters;
 
     const colPctEl = document.getElementById(`cpct-${col.set_id}`);
@@ -1125,12 +1147,12 @@ async function toggleCollection(col, item) {
       const chapPctColor = cs ? (cs.pct >= 80 ? 'var(--ok-bright)' : cs.pct >= 50 ? 'var(--gold)' : 'var(--accent)') : 'var(--dim2)';
 
       ci.innerHTML = `
-        <span class="chap-name">Ch ${chap.chapter_num} <span style="color:var(--dim2)">(${diffStr})</span></span>
+		<span class="chap-name">${chap.name || `Ch ${chap.chapter_num}`} <span style="color:var(--dim2)">(${diffStr})</span></span>
         <span class="chap-stats">${chap.problem_count}p <span class="chap-pct" style="color:${chapPctColor}">${chapPctStr}</span></span>
         <button class="chap-btn" data-chapid="${chap.id}" data-chapnum="${chap.chapter_num}" data-colname="${col.name}">▶ Run</button>`;
       ci.querySelector('.chap-btn').addEventListener('click', e => {
         e.stopPropagation();
-        startRun({ source:'tsumego_hero', type:'chapter', chapter_id: chap.id,
+        startRun({ source:currentSource, type:'chapter', chapter_id: chap.id,
                    colName: col.name, chapNum: chap.chapter_num });
       });
       chapDiv.appendChild(ci);
@@ -1183,7 +1205,7 @@ async function loadRuns() {
   const list = document.getElementById('runs-list');
   list.innerHTML = `<div class="runs-empty">Loading…</div>`;
   try {
-    const runs = localGetRuns('tsumego_hero');
+    const runs = localGetRuns(currentSource);
     if (!runs.length) { list.innerHTML = `<div class="runs-empty">No runs yet</div>`; return; }
     list.innerHTML = '';
     for (const run of runs) {
@@ -1276,7 +1298,7 @@ async function populateFreeFilters() {
   maxSel.innerHTML = '<option value="">Max: Any</option>';
 
   try {
-    const range = localGetDifficultyRange('tsumego_hero');
+    const range = localGetDifficultyRange(currentSource);
     if (range && range.min != null && range.max != null) {
       for (let n = range.min; n <= range.max; n += 100) {
         const lbl = diffLabel(n);
@@ -1300,12 +1322,12 @@ async function updateFreeChapters() {
   sel.innerHTML = '<option value="">All</option>';
   if (!setId) return;
   try {
-    const chapters = localGetChapters('tsumego_hero', parseInt(setId));
+    const chapters = localGetChapters(currentSource, parseInt(setId));
     chaptersCache[setId] = chapters;
     for (const c of chapters) {
       const o = document.createElement('option');
       o.value = c.id;
-      o.textContent = `Ch ${c.chapter_num} (${diffLabel(c.diff_min)}–${diffLabel(c.diff_max)})`;
+      o.textContent = c.name || `Ch ${c.chapter_num}`;
       sel.appendChild(o);
     }
   } catch(e) {}
@@ -1321,7 +1343,7 @@ async function startFreePractice() {
   const order   = document.getElementById('fp-order').value;
 
   try {
-    let problems = localGetProblems('tsumego_hero', {
+    let problems = localGetProblems(currentSource, {
       set_id: setId ? parseInt(setId) : undefined,
       chapter_id: chapId ? parseInt(chapId) : undefined
     });
@@ -1332,7 +1354,7 @@ async function startFreePractice() {
 
     if (status.startsWith('struggling')) {
       const n = parseInt(status.split('-')[1]);
-      const strIds = new Set(localGetStruggling('tsumego_hero', {
+      const strIds = new Set(localGetStruggling(currentSource, {
         set_id: setId ? parseInt(setId) : undefined,
         chapter_id: chapId ? parseInt(chapId) : undefined
       }, n));
@@ -1403,10 +1425,11 @@ async function loadAndRender(probMeta) {
   document.getElementById('btn-pause').textContent = '⏸ Pause';
 
   try {
-    const prob = localGetProblem('tsumego_hero', probMeta.problem_id);
+    const prob = localGetProblem(currentSource, probMeta.problem_id);
     if (!prob || !prob.sgf_path) { nextProblem(); return; }
 
-    const sgfPath = prob.sgf_path.replace(/\\/g, '/');
+    const sgfPath = SGF_BASE + prob.sgf_path.replace(/\\/g, '/');
+	console.log('prob.sgf_path:', prob.sgf_path, 'sgfPath:', sgfPath);
     const res = await fetch(sgfPath);
     if (!res.ok) throw new Error('SGF not found');
     const sgf = await res.text();
@@ -1500,12 +1523,12 @@ function getMarkup(node) { return node.markup ? node.markup.map(m=>({...m})) : [
 
 function initBoard(size) {
   boardSize = size||19;
-  const main = document.getElementById('main');
-  const margin = window.innerWidth < 768 ? 24 : 32;
-  const availH = window.innerWidth < 768 ? window.innerHeight - 90 : main.clientHeight - 90;
-  const avail = Math.min(main.clientWidth - margin, availH);
+  const margin = 24;
+  const availW = window.innerWidth - margin;
+  const availH = window.innerHeight - 140;
+  const avail = Math.min(availW, availH);
   const sz = Math.max(240, Math.min(avail, 620));
-  console.log('avail:', avail, 'sz:', sz);
+  console.log('initBoard: availW:', availW, 'availH:', availH, 'sz:', sz);
   document.getElementById('board').innerHTML = '';
   wgoBoard = new WGo.Board(document.getElementById('board'), { size:boardSize, width:sz, background:'#c4943a' });
   wgoBoard.setSection(-0.5,-0.5,-0.5,-0.5);
@@ -1675,8 +1698,14 @@ function recordAttempt(result) {
     else sessionNo++;
   }
   const time_ms = Date.now() - problemStartTime - totalPaused;
-  localInsertAttempt('tsumego_hero', currentProblem.problem_id, activeRunId || null, result, time_ms);
-  saveDB().then(() => tryAutoSync()).catch(() => {});
+  localInsertAttempt(currentSource, currentProblem.problem_id, activeRunId || null, result, time_ms);
+  attemptsSinceLastSave = (attemptsSinceLastSave || 0) + 1;
+	if (attemptsSinceLastSave >= 10) {
+	  attemptsSinceLastSave = 0;
+	  saveDB().then(() => tryAutoSync(true)).catch(() => {});
+	} else {
+	  tryAutoSync(true).catch(() => {});
+	}
   if (runMode && runItems[runIdx]) runItems[runIdx].result = result;
 }
 
@@ -1721,6 +1750,7 @@ function recordAttempt(result) {
   }
 
   function onBoardClick(x,y) {
+    clearGhost();  // ← añadir esta línea
     if (answered||waitingForNext) return;
     if (wgoBoard.obj_arr[x][y]&&wgoBoard.obj_arr[x][y].some(o=>o.c===1||o.c===-1)) return;
     const children=currentNode.children||[];
@@ -1769,6 +1799,30 @@ window._studyRestart = () => {
     document.getElementById('result-flash').className='';
     restoreSnapshot(prev.snap);
   };
+
+// ── Ghost stone cursor ──
+let ghostPos = null;
+const boardEl = wgoBoard.element;
+
+function updateGhost(e) {
+  if (answered || waitingForNext) return;
+  const rect = boardEl.getBoundingClientRect();
+  const mx = (e.clientX - rect.left) * wgoBoard.pixelRatio;
+  const my = (e.clientY - rect.top)  * wgoBoard.pixelRatio;
+  const x = Math.round((mx - wgoBoard.left) / wgoBoard.fieldWidth);
+  const y = Math.round((my - wgoBoard.top)  / wgoBoard.fieldHeight);
+  if (x < 0 || y < 0 || x >= boardSize || y >= boardSize) { clearGhost(); return; }
+  if (ghostPos && ghostPos.x === x && ghostPos.y === y) return;
+  clearGhost();
+  if (wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1)) return;
+  ghostPos = {x, y};
+  wgoBoard.addObject({x, y, c: playerC, type: 'outline'});
+}
+function clearGhost() {
+  if (ghostPos) { wgoBoard.removeObject({x: ghostPos.x, y: ghostPos.y, type: 'outline'}); ghostPos = null; }
+}
+boardEl.addEventListener('mousemove', updateGhost);
+boardEl.addEventListener('mouseleave', clearGhost);
 
   window._boardClickHandler = onBoardClick;
   if (!wgoBoard._globalListenerSet) {
@@ -1905,11 +1959,8 @@ function isTablet()         { return window.innerWidth >= 768 && window.innerWid
 function switchToBoard() {
   if (isMobilePortrait()) {
     document.getElementById('app').classList.add('mob-board');
-    // Recalc board size after layout settles
-    setTimeout(()=>{ if (wgoBoard && currentProblem) { initBoard(currentProblem.size||19); renderProblem(currentProblem); } }, 80);
   }
 }
-
 function switchToPanel() {
   if (isMobilePortrait()) {
     document.getElementById('app').classList.remove('mob-board');
@@ -1939,6 +1990,7 @@ function closeMobilePanel() {
 // ── Patch: switch to board view when a problem loads on mobile ──
 const _origLoadAndRender = loadAndRender;
 loadAndRender = async function(probMeta) {
+console.log('loadAndRender patch, probMeta:', probMeta);
   await _origLoadAndRender(probMeta);
   switchToBoard();
 };
@@ -1967,6 +2019,20 @@ startFreePractice = async function(...args) {
 let rsTO;
 window.addEventListener('resize', ()=>{ clearTimeout(rsTO); rsTO=setTimeout(()=>{ if (wgoBoard&&currentProblem) { initBoard(currentProblem.size||19); renderProblem(currentProblem); } },200); });
 
+// ── Source selector ──
+document.getElementById('source-sel').addEventListener('change', async e => {
+  currentSource = e.target.value;
+  activeRunId = null;
+  runMode = false;
+  runItems = [];
+  allProblems = [];
+  chaptersCache = {};
+  document.getElementById('run-progress').style.display = 'none';
+  showSessionEnd();
+  switchTab('collections');
+  await loadCollections();
+});
+
 // ── Init ──
 (async () => {
   await initDB();
@@ -1980,7 +2046,7 @@ if ('serviceWorker' in navigator) {
 function precacheSgfs() {
   if (!('serviceWorker' in navigator)) return;
   const urls = dbQuery('SELECT sgf_path FROM problems WHERE sgf_exists=1', [])
-    .map(r => '/' + r.sgf_path.replace(/\\/g, '/'));
+    .map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
   navigator.serviceWorker.ready.then(reg => {
     reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls });
   });

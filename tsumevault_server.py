@@ -174,7 +174,7 @@ def handle_get_problem(qs):
             LEFT JOIN chapters    ch ON ch.id=p.chapter_id
             LEFT JOIN problem_stats s USING (source, problem_id)
             WHERE p.source = ? AND p.problem_id = ?
-        """, (source, int(problem_id))).fetchone()
+        """, (source, problem_id)).fetchone()
     if not row:
         return {'error': 'not found'}, 404
     return {'problem': dict(row)}
