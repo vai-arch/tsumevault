@@ -1,0 +1,1825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0e0c08">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>TsumeVault</title>
+<script src="wgo/wgo.min.js"></script>
+<script src="wgo/sgfparser.js"></script>
+<script src="wgo/kifu.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Serif+JP:wght@300;400&display=swap');
+:root {
+  --bg:#0e0c08;--panel:#161410;--border:#2e2a1e;--border2:#3a3526;
+  --gold:#d4a84a;--gold-dim:#7a5e22;--text:#ede4cc;--dim:#6a6050;--dim2:#4a4438;
+  --accent:#d45030;--ok:#4a8a50;--ok-bright:#5cb868;
+  --mono:'IBM Plex Mono',monospace;--serif:'Noto Serif JP',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--serif);overflow:hidden;}
+
+/* ── LAYOUT ── */
+#app{height:100vh;display:grid;
+  grid-template-rows:42px 1fr;
+  grid-template-columns:300px 1fr 280px;
+  grid-template-areas:"hdr hdr hdr""left main side";}
+
+/* ── HEADER ── */
+#hdr{grid-area:hdr;display:flex;align-items:center;gap:14px;padding:0 18px;border-bottom:1px solid var(--border);background:var(--panel);}
+.logo{font-family:var(--mono);font-size:11px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;}
+#session-pill{font-family:var(--mono);font-size:9px;letter-spacing:.18em;padding:3px 11px;border-radius:99px;border:1px solid var(--border2);color:var(--dim);display:flex;align-items:center;gap:8px;}
+.s-ok{color:var(--ok-bright);}
+.s-no{color:var(--accent);}
+
+/* ── LEFT PANEL ── */
+#left{grid-area:left;border-right:1px solid var(--border);background:var(--panel);display:flex;flex-direction:column;overflow:hidden;}
+.tab-bar{display:flex;border-bottom:1px solid var(--border);flex-shrink:0;}
+.tab{flex:1;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:9px 4px;text-align:center;cursor:pointer;color:var(--dim);border-bottom:2px solid transparent;transition:all .18s;}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--gold);border-bottom-color:var(--gold);}
+.tab-pane{display:none;flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;flex-direction:column;}
+.tab-pane.active{display:flex;}
+
+/* Collections tree */
+.col-item{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.03);cursor:pointer;transition:background .1s;}
+.col-item:hover{background:rgba(212,168,74,.04);}
+.col-item.expanded{background:rgba(212,168,74,.05);}
+.col-item.hidden{display:none;}
+.col-name{font-family:var(--mono);font-size:10px;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:6px;}
+.col-arrow{color:var(--dim2);font-size:8px;transition:transform .15s;}
+.col-item.expanded .col-arrow{transform:rotate(90deg);}
+.col-stats{font-family:var(--mono);font-size:8px;color:var(--dim);display:flex;gap:10px;}
+.col-pct{color:var(--gold);}
+.col-diff{color:var(--dim2);}
+.col-chapters{display:none;background:rgba(0,0,0,.25);}
+.col-item.expanded .col-chapters{display:block;}
+.chap-item{padding:7px 14px 7px 24px;border-bottom:1px solid rgba(255,255,255,.02);cursor:pointer;display:flex;align-items:center;gap:8px;transition:background .1s;}
+.chap-item:hover{background:rgba(212,168,74,.06);}
+.chap-name{font-family:var(--mono);font-size:9px;color:var(--dim);flex:1;}
+.chap-stats{font-family:var(--mono);font-size:8px;color:var(--dim2);}
+.chap-pct{color:var(--gold-dim);}
+.chap-btn{font-family:var(--mono);font-size:8px;padding:2px 7px;border:1px solid var(--border2);background:transparent;color:var(--dim);cursor:pointer;border-radius:2px;flex-shrink:0;transition:all .15s;}
+.chap-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+.run-col-btn{display:block;width:calc(100% - 28px);margin:6px 14px;font-family:var(--mono);font-size:8px;padding:4px 0;border:1px solid var(--border2);background:transparent;color:var(--dim2);cursor:pointer;text-align:center;border-radius:2px;transition:all .15s;}
+.run-col-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+
+/* Runs list */
+.run-item{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.03);cursor:pointer;transition:background .1s;}
+.run-item:hover{background:rgba(212,168,74,.04);}
+.run-item.active-run{border-left:2px solid var(--gold-dim);background:rgba(212,168,74,.06);}
+.run-title{font-family:var(--mono);font-size:9px;color:var(--text);margin-bottom:3px;}
+.run-meta{font-family:var(--mono);font-size:8px;color:var(--dim);display:flex;gap:10px;}
+.run-status-open{color:var(--ok-bright);}
+.run-status-closed{color:var(--dim2);}
+.runs-empty{padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--dim2);text-align:center;}
+
+/* Free practice filters */
+.fp-section{padding:10px 14px;border-bottom:1px solid var(--border);}
+.fp-label{font-family:var(--mono);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim2);margin-bottom:6px;}
+.fsel{width:100%;font-family:var(--mono);font-size:9px;background:transparent;border:1px solid var(--border2);color:var(--dim);padding:4px 8px;border-radius:2px;cursor:pointer;outline:none;margin-bottom:4px;}
+.fsel:hover,.fsel:focus{border-color:var(--gold-dim);color:var(--text);}
+.fsel option{background:var(--panel);color:var(--text);}
+.fp-btn{width:100%;font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:7px 0;background:transparent;border:1px solid var(--gold-dim);color:var(--gold);cursor:pointer;border-radius:2px;transition:all .2s;margin-top:4px;}
+.fp-btn:hover{background:rgba(212,168,74,.08);}
+
+/* ── MAIN ── */
+#main{grid-area:main;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+#board-wrap{position:relative;box-shadow:0 0 0 1px var(--gold-dim),0 12px 48px rgba(0,0,0,.75);border-radius:1px;overflow:hidden;flex-shrink:0;}
+#board-wrap canvas{display:block;}
+#board-hint{height:28px;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:var(--dim);text-transform:uppercase;}
+#comment-box{width:100%;max-width:560px;min-height:32px;padding:7px 14px;background:rgba(22,20,16,.9);border-top:1px solid var(--border);font-family:var(--serif);font-size:12px;line-height:1.6;color:var(--text);text-align:center;display:none;}
+#result-flash{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--mono);font-size:48px;pointer-events:none;opacity:0;transition:opacity .15s;}
+#result-flash.show{opacity:1;}
+#result-flash.hide{opacity:0;transition:opacity .6s;}
+#welcome{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--dim);pointer-events:none;}
+#welcome .kanji{font-size:56px;opacity:.12;line-height:1;}
+#welcome p{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;}
+.board-ok{box-shadow:0 0 0 4px var(--ok-bright) !important;}
+.board-bad{box-shadow:0 0 0 4px var(--accent) !important;}
+#board-controls{display:flex;gap:8px;padding:6px 12px;background:rgba(0,0,0,.6);justify-content:center;}
+.ctrl-btn{font-family:var(--mono);font-size:9px;letter-spacing:.08em;padding:4px 14px;background:transparent;border:1px solid var(--border2);color:var(--dim);cursor:pointer;border-radius:2px;transition:all .18s;}
+.ctrl-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+
+/* ── SIDEBAR ── */
+#sidebar{grid-area:side;border-left:1px solid var(--border);background:var(--panel);display:flex;flex-direction:column;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
+.sb-section{padding:12px 14px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.sb-label{font-family:var(--mono);font-size:8px;letter-spacing:.28em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;}
+.sb-row{font-family:var(--mono);font-size:9px;line-height:2;color:var(--dim);}
+.sb-row .v{color:var(--text);}
+.sb-row .vg{color:var(--gold);}
+#stats-bar{display:flex;gap:12px;padding:10px 14px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.stat{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.stat-n{font-family:var(--mono);font-size:16px;color:var(--text);}
+.stat-n.ok{color:var(--ok-bright);}
+.stat-n.no{color:var(--accent);}
+.stat-l{font-family:var(--mono);font-size:7px;letter-spacing:.15em;color:var(--dim2);text-transform:uppercase;}
+/* run progress */
+#run-progress{padding:10px 14px;border-bottom:1px solid var(--border);flex-shrink:0;display:none;}
+.rp-label{font-family:var(--mono);font-size:8px;letter-spacing:.2em;color:var(--dim);margin-bottom:6px;text-transform:uppercase;}
+.rp-bar-bg{height:4px;background:var(--border2);border-radius:2px;overflow:hidden;margin-bottom:6px;}
+.rp-bar{height:100%;background:var(--gold-dim);border-radius:2px;transition:width .4s;}
+.rp-counts{font-family:var(--mono);font-size:8px;color:var(--dim);display:flex;gap:10px;}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- HEADER -->
+  <header id="hdr">
+    <a href="../player/index.html" style="font-family:var(--mono);font-size:11px;color:var(--dim);text-decoration:none;letter-spacing:.1em;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--dim)'">← Index</a>
+    <div class="logo">TsumeVault</div>
+    <div style="flex:1"></div>
+    <span id="sync-status" style="font-family:var(--mono);font-size:9px;margin-right:4px;"></span>
+    <input id="sync-url" type="text"
+      style="font-family:var(--mono);font-size:9px;background:transparent;border:1px solid var(--border2);color:var(--dim);padding:3px 8px;border-radius:2px;width:190px;margin-right:6px;"
+      placeholder="http://192.168.1.x:3002">
+    <button id="sync-btn"
+      style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:3px 12px;background:transparent;border:1px solid var(--gold-dim);color:var(--gold);cursor:pointer;border-radius:2px;margin-right:10px;">
+      ↻ Sync
+    </button>
+    <div id="session-pill">
+	  <span>Session</span>
+	  <span class="s-ok" id="pill-ok">0✓</span>
+	  <span class="s-no" id="pill-no">0✗</span>
+	  <span id="pill-rem" style="color:var(--dim)">—</span>
+	  <span id="pill-total" style="color:var(--dim2)"></span>
+	</div>
+  </header>
+
+  <!-- LEFT PANEL -->
+  <div id="left">
+    <div class="tab-bar">
+      <div class="tab active" data-tab="collections">Collections</div>
+      <div class="tab" data-tab="runs">Runs</div>
+      <div class="tab" data-tab="free">Free</div>
+    </div>
+
+    <!-- Collections tab -->
+    <div class="tab-pane active" id="tab-collections">
+      <!-- Filtros de colecciones -->
+      <div id="col-filters" style="padding:8px 14px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
+        <div>
+          <div class="fp-label" style="margin-bottom:4px">Max difficulty</div>
+          <select class="fsel" id="cf-diff" style="margin-bottom:0">
+            <option value="">All</option>
+          </select>
+        </div>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);padding-bottom:2px;">
+          <input type="checkbox" id="cf-incomplete" style="accent-color:var(--gold);cursor:pointer;">
+          With attempts &amp; &lt; 100%
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);padding-bottom:2px;">
+          <input type="checkbox" id="cf-perfect" style="accent-color:var(--gold);cursor:pointer;">
+          Hide perfect runs
+        </label>
+      </div>
+      <div id="col-list" style="flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;">
+        <div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--dim2);text-align:center">Loading…</div>
+      </div>
+    </div>
+
+    <!-- Runs tab -->
+    <div class="tab-pane" id="tab-runs">
+      <div id="runs-list">
+        <div class="runs-empty">No runs yet</div>
+      </div>
+    </div>
+
+    <!-- Free practice tab -->
+    <div class="tab-pane" id="tab-free">
+      <div class="fp-section">
+        <div class="fp-label">Collection</div>
+        <select class="fsel" id="fp-col"><option value="">All</option></select>
+      </div>
+      <div class="fp-section">
+        <div class="fp-label">Chapter</div>
+        <select class="fsel" id="fp-chap"><option value="">All</option></select>
+      </div>
+      <div class="fp-section">
+        <div class="fp-label">Difficulty</div>
+        <select class="fsel" id="fp-diff"><option value="">Min: Any</option></select>
+        <select class="fsel" id="fp-diff-max"><option value="">Max: Any</option></select>
+      </div>
+      <div class="fp-section">
+        <div class="fp-label">Color</div>
+        <select class="fsel" id="fp-color">
+          <option value="">Any</option>
+          <option value="B">Black</option>
+          <option value="W">White</option>
+        </select>
+      </div>
+      <div class="fp-section">
+        <div class="fp-label">Status</div>
+        <select class="fsel" id="fp-status">
+          <option value="">All</option>
+          <option value="unseen">Unseen</option>
+          <option value="wrong">Had wrong</option>
+          <option value="correct">Correct only</option>
+          <option value="struggling-3">Struggling (last 3)</option>
+		  <option value="struggling-5">Struggling (last 5)</option>
+		  <option value="struggling-10">Struggling (last 10)</option>
+		  <option value="struggling-20">Struggling (last 20)</option>
+        </select>
+        <div class="fp-label" style="margin-top:8px">Order</div>
+        <select class="fsel" id="fp-order">
+          <option value="difficulty">By difficulty</option>
+          <option value="random">Random</option>
+        </select>
+        <button class="fp-btn" id="fp-start">▶ Start practice</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="main">
+    <div id="welcome"><div class="kanji">詰碁</div><p>Select a chapter · Start a run</p></div>
+    <div id="board-wrap" style="display:none">
+      <div id="board"></div>
+      <div id="board-hint">—</div>
+		<div id="board-controls">
+		  <button class="ctrl-btn" id="btn-back">← Back</button>
+		  <button class="ctrl-btn" id="btn-restart">↺ Restart</button>
+		  <button class="ctrl-btn" id="btn-pause">⏸ Pause</button>
+		  <button class="ctrl-btn" id="btn-next">→ Next</button>
+		</div>
+    </div>
+    <div id="comment-box"></div>
+    <div id="result-flash"></div>
+	<div id="pause-overlay" style="display:none;position:absolute;inset:0;background:rgba(14,12,8,.92);flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:10;cursor:pointer;">
+	  <div style="font-family:var(--mono);font-size:32px;color:var(--gold);letter-spacing:.2em">PAUSED</div>
+	  <div style="font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:.2em">Tap or press P to resume</div>
+	</div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div id="stats-bar">
+      <div class="stat"><span class="stat-n ok" id="st-ok">0</span><span class="stat-l">Correct</span></div>
+      <div class="stat"><span class="stat-n no" id="st-no">0</span><span class="stat-l">Wrong</span></div>
+      <div class="stat"><span class="stat-n" id="st-seen">0</span><span class="stat-l">Seen</span></div>
+      <div class="stat"><span class="stat-n" id="st-pct" style="color:var(--gold)">—</span><span class="stat-l">%</span></div>
+    </div>
+    <div id="run-progress">
+      <div class="rp-label" id="rp-title">Run progress</div>
+      <div class="rp-bar-bg"><div class="rp-bar" id="rp-bar" style="width:0%"></div></div>
+      <div class="rp-counts" id="rp-counts"></div>
+    </div>
+    <div class="sb-section" id="prob-info">
+      <div class="sb-label">Problem</div>
+      <div class="sb-row">ID&nbsp;&nbsp;&nbsp;&nbsp; <span class="v" id="pi-id">—</span></div>
+      <div class="sb-row">Collection <span class="v" id="pi-col">—</span></div>
+      <div class="sb-row">Chapter&nbsp; <span class="v" id="pi-chap">—</span></div>
+      <div class="sb-row">Diff&nbsp;&nbsp;&nbsp;&nbsp; <span class="vg" id="pi-diff">—</span></div>
+      <div class="sb-row">Color&nbsp;&nbsp;&nbsp; <span class="v" id="pi-color">—</span></div>
+    </div>
+    <div class="sb-section">
+      <div class="sb-label">Problem stats</div>
+      <div class="sb-row">Seen&nbsp;&nbsp;&nbsp;&nbsp; <span class="v" id="ps-seen">—</span></div>
+      <div class="sb-row">Correct&nbsp; <span class="v" id="ps-ok">—</span></div>
+      <div class="sb-row">Wrong&nbsp;&nbsp;&nbsp; <span class="v" id="ps-no">—</span></div>
+      <div class="sb-row">%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="vg" id="ps-pct">—</span></div>
+      <div class="sb-row">Avg time <span class="v" id="ps-ms">—</span></div>
+    </div>
+  </aside>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/sql-wasm.js"></script>
+<script>
+// ══════════════════════════════════════════════════════════════
+//  TSUMEVAULT.HTML
+// ══════════════════════════════════════════════════════════════
+
+// ── Config ──
+const IDB_NAME    = 'tsumevault';
+const IDB_STORE   = 'kv';
+const DB_KEY      = 'tsumeVault_db';
+const SYNC_SERVER_KEY = 'sync_server_url';
+
+// URL del servidor de sync (editable en UI, guardada en localStorage)
+let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'http://localhost:3002';
+
+// ── State ──
+let SQL = null;       // sql.js module
+let db  = null;       // sql.js Database instance
+
+let allCollections = [];
+let chaptersCache  = {};
+let allProblems    = [];
+let currentProblem = null;
+let wgoBoard = null, boardSize = 19;
+let waitingForNext = false;
+let sessionOk = 0, sessionNo = 0;
+let lastRunStatsAll = {};
+
+let pausedAt = 0;
+let totalPaused = 0;
+let isPaused = false;
+
+// Run state
+let activeRunId = null;
+let runItems = [];
+let runIdx   = -1;
+let runMode  = false;
+let problemStartTime = 0;
+
+// Sync state
+let syncInProgress = false;
+
+// ── Sounds ──
+const SFX = {
+  stone: new Audio('audio/stone.mp3'),
+  right: new Audio('audio/right.mp3'),
+  wrong: new Audio('audio/wrong.mp3'),
+};
+function playSound(n) { try { SFX[n].currentTime=0; SFX[n].play(); } catch(e){} }
+
+// ── Difficulty label ──
+function diffLabel(num) {
+  if (num == null) return '—';
+  if (num <= 2000) return (Math.round((2000 - num) / 100) + 1) + 'k';
+  return Math.round((num - 2000) / 100) + 'd';
+}
+
+// ── UUID ──
+function makeUUID() {
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
+}
+
+// ══════════════════════════════════════════════════════════════
+//  INDEXEDDB persistence
+// ══════════════════════════════════════════════════════════════
+function idbOpen() {
+  return new Promise((res, rej) => {
+    const req = indexedDB.open(IDB_NAME, 1);
+    req.onupgradeneeded = e => e.target.result.createObjectStore(IDB_STORE);
+    req.onsuccess = e => res(e.target.result);
+    req.onerror   = e => rej(e.target.error);
+  });
+}
+
+async function idbGet(key) {
+  const idb = await idbOpen();
+  return new Promise((res, rej) => {
+    const tx  = idb.transaction(IDB_STORE, 'readonly');
+    const req = tx.objectStore(IDB_STORE).get(key);
+    req.onsuccess = e => res(e.target.result);
+    req.onerror   = e => rej(e.target.error);
+  });
+}
+
+async function idbSet(key, value) {
+  const idb = await idbOpen();
+  return new Promise((res, rej) => {
+    const tx  = idb.transaction(IDB_STORE, 'readwrite');
+    const req = tx.objectStore(IDB_STORE).put(value, key);
+    req.onsuccess = () => res();
+    req.onerror   = e  => rej(e.target.error);
+  });
+}
+
+// ══════════════════════════════════════════════════════════════
+//  SQL.JS DB layer
+// ══════════════════════════════════════════════════════════════
+function dbExec(sql, params) {
+  db.run(sql, params);
+}
+
+function dbQuery(sql, params) {
+  const stmt = db.prepare(sql);
+  if (params) stmt.bind(params);
+  const rows = [];
+  while (stmt.step()) rows.push(stmt.getAsObject());
+  stmt.free();
+  return rows;
+}
+
+function dbQueryOne(sql, params) {
+  const rows = dbQuery(sql, params);
+  return rows.length ? rows[0] : null;
+}
+
+async function saveDB() {
+  const data = db.export();
+  await idbSet(DB_KEY, data);
+}
+
+async function initDB() {
+  SQL = await initSqlJs({
+    locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${file}`
+  });
+
+  // Intentar cargar DB desde IndexedDB
+  const saved = await idbGet(DB_KEY);
+  if (saved) {
+    db = new SQL.Database(saved);
+    console.log('[DB] Cargada desde IndexedDB');
+    // Asegurar columna uuid en runs (migración)
+    try { dbExec("ALTER TABLE runs ADD COLUMN uuid TEXT"); } catch(e) {}
+    return true;
+  }
+
+  // No hay DB local — intentar descargar snapshot del servidor
+  console.log('[DB] Sin DB local, intentando snapshot del servidor…');
+  try {
+    const r = await fetch(SYNC_SERVER + '/sync/snapshot', { signal: AbortSignal.timeout(5000) });
+    if (!r.ok) throw new Error(r.status);
+    const snap = await r.json();
+    db = new SQL.Database();
+    createSchema();
+    importSnapshot(snap);
+    await saveDB();
+    console.log('[DB] Snapshot descargado e importado');
+    return true;
+  } catch(e) {
+    console.warn('[DB] Servidor no disponible:', e.message);
+    // Crear DB vacía — la app funcionará sin datos hasta que haya sync
+    db = new SQL.Database();
+    createSchema();
+    return false;
+  }
+}
+
+function createSchema() {
+  db.run(`
+    CREATE TABLE IF NOT EXISTS collections (
+      source TEXT NOT NULL, set_id INTEGER NOT NULL, name TEXT NOT NULL,
+      folder TEXT NOT NULL, difficulty_raw TEXT, difficulty_num INTEGER,
+      num_problems INTEGER, on_disk INTEGER NOT NULL DEFAULT 0,
+      chapter_count INTEGER NOT NULL DEFAULT 0,
+      PRIMARY KEY (source, set_id)
+    );
+    CREATE TABLE IF NOT EXISTS chapters (
+      id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
+      set_id INTEGER NOT NULL, chapter_num INTEGER NOT NULL,
+      diff_min INTEGER, diff_max INTEGER, diff_avg INTEGER,
+      problem_count INTEGER NOT NULL DEFAULT 0
+    );
+    CREATE TABLE IF NOT EXISTS problems (
+      source TEXT NOT NULL, problem_id INTEGER NOT NULL, set_id INTEGER NOT NULL,
+      chapter_id INTEGER, order_in_chapter INTEGER, sgf_path TEXT NOT NULL,
+      sgf_exists INTEGER NOT NULL DEFAULT 0, difficulty_raw TEXT,
+      difficulty_num INTEGER, color_to_play TEXT,
+      PRIMARY KEY (source, problem_id)
+    );
+    CREATE TABLE IF NOT EXISTS attempts (
+      id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
+      problem_id INTEGER NOT NULL, run_id INTEGER, result TEXT NOT NULL,
+      time_ms INTEGER, created_at TEXT NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS runs (
+      id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
+      set_id INTEGER, chapter_id INTEGER, vc_id INTEGER,
+      type TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open',
+      total INTEGER NOT NULL DEFAULT 0, done INTEGER NOT NULL DEFAULT 0,
+      started_at TEXT NOT NULL, closed_at TEXT, uuid TEXT
+    );
+    CREATE TABLE IF NOT EXISTS run_items (
+      run_id INTEGER NOT NULL, source TEXT NOT NULL,
+      problem_id INTEGER NOT NULL, order_in_run INTEGER NOT NULL,
+      result TEXT,
+      PRIMARY KEY (run_id, problem_id)
+    );
+    CREATE INDEX IF NOT EXISTS idx_problems_set  ON problems(source, set_id);
+    CREATE INDEX IF NOT EXISTS idx_problems_diff ON problems(source, difficulty_num);
+    CREATE INDEX IF NOT EXISTS idx_problems_chap ON problems(chapter_id);
+    CREATE INDEX IF NOT EXISTS idx_attempts_prob ON attempts(source, problem_id);
+    CREATE INDEX IF NOT EXISTS idx_attempts_run  ON attempts(run_id);
+    CREATE INDEX IF NOT EXISTS idx_run_items_run ON run_items(run_id);
+  `);
+}
+
+function importSnapshot(snap) {
+  const ins = (table, cols, rows) => {
+    if (!rows || !rows.length) return;
+    const ph = cols.map(() => '?').join(',');
+    const stmt = db.prepare(`INSERT OR REPLACE INTO ${table} (${cols.join(',')}) VALUES (${ph})`);
+    for (const r of rows) { stmt.run(cols.map(c => r[c] ?? null)); }
+    stmt.free();
+  };
+  ins('collections', ['source','set_id','name','folder','difficulty_raw','difficulty_num','num_problems','on_disk','chapter_count'], snap.collections);
+  ins('chapters',    ['id','source','set_id','chapter_num','diff_min','diff_max','diff_avg','problem_count'], snap.chapters);
+  ins('problems',    ['source','problem_id','set_id','chapter_id','order_in_chapter','sgf_path','sgf_exists','difficulty_raw','difficulty_num','color_to_play'], snap.problems);
+}
+
+// ══════════════════════════════════════════════════════════════
+//  LOCAL DB queries (reemplazan las llamadas al servidor)
+// ══════════════════════════════════════════════════════════════
+
+function localGetCollections(source) {
+  return dbQuery(`
+    SELECT c.*,
+      COALESCE(s.total_attempts,0) AS total_attempts,
+      COALESCE(s.total_correct,0)  AS total_correct
+    FROM collections c
+    LEFT JOIN (
+      SELECT p.source, p.set_id,
+        COUNT(a.id) AS total_attempts,
+        SUM(CASE WHEN a.result='correct' THEN 1 ELSE 0 END) AS total_correct
+      FROM problems p
+      LEFT JOIN attempts a ON a.source=p.source AND a.problem_id=p.problem_id
+      GROUP BY p.source, p.set_id
+    ) s ON c.source=s.source AND c.set_id=s.set_id
+    WHERE c.source=?
+    ORDER BY c.difficulty_num ASC, c.name ASC
+  `, [source]);
+}
+
+function localGetLastRunStatsAll(source) {
+  // Último run cerrado por set_id (colección completa)
+  const colRuns = dbQuery(`
+    SELECT set_id, id FROM runs
+    WHERE source=? AND status='closed' AND set_id IS NOT NULL AND chapter_id IS NULL
+    GROUP BY set_id HAVING id=MAX(id)
+  `, [source]);
+
+  // Último run cerrado por chapter_id
+  const chapRuns = dbQuery(`
+    SELECT chapter_id, set_id, id FROM runs
+    WHERE source=? AND status='closed' AND chapter_id IS NOT NULL
+    GROUP BY chapter_id HAVING id=MAX(id)
+  `, [source]);
+
+  const result = {};
+  for (const row of colRuns) {
+    const items = dbQueryOne(`
+      SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
+      FROM run_items WHERE run_id=?
+    `, [row.id]);
+    const total = items?.total || 0, ok = items?.ok || 0;
+    const pct = total > 0 ? Math.round(ok/total*100) : null;
+    if (!result[row.set_id]) result[row.set_id] = { collection: null, by_chapter: {} };
+    result[row.set_id].collection = { ok, total, pct };
+  }
+  for (const row of chapRuns) {
+    const items = dbQueryOne(`
+      SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
+      FROM run_items WHERE run_id=?
+    `, [row.id]);
+    const total = items?.total || 0, ok = items?.ok || 0;
+    const pct = total > 0 ? Math.round(ok/total*100) : null;
+    if (!result[row.set_id]) result[row.set_id] = { collection: null, by_chapter: {} };
+    result[row.set_id].by_chapter[row.chapter_id] = { ok, total, pct };
+  }
+  return result;
+}
+
+function localGetChapters(source, set_id) {
+  return dbQuery(`
+    SELECT ch.*,
+      COALESCE(s.total_attempts,0) AS total_attempts,
+      COALESCE(s.total_correct,0)  AS total_correct
+    FROM chapters ch
+    LEFT JOIN (
+      SELECT p.chapter_id,
+        COUNT(a.id) AS total_attempts,
+        SUM(CASE WHEN a.result='correct' THEN 1 ELSE 0 END) AS total_correct
+      FROM problems p LEFT JOIN attempts a ON a.source=p.source AND a.problem_id=p.problem_id
+      GROUP BY p.chapter_id
+    ) s ON ch.id=s.chapter_id
+    WHERE ch.source=? AND ch.set_id=?
+    ORDER BY ch.chapter_num ASC
+  `, [source, set_id]);
+}
+
+function localGetLastRunStats(source, set_id) {
+  const colRun = dbQueryOne(`
+    SELECT id FROM runs
+    WHERE source=? AND set_id=? AND chapter_id IS NULL AND status='closed'
+    ORDER BY closed_at DESC LIMIT 1
+  `, [source, set_id]);
+
+  const chapRuns = dbQuery(`
+    SELECT chapter_id, id FROM runs
+    WHERE source=? AND set_id=? AND chapter_id IS NOT NULL AND status='closed'
+    GROUP BY chapter_id HAVING id=MAX(id)
+  `, [source, set_id]);
+
+  const by_chapter = {};
+  for (const row of chapRuns) {
+    const items = dbQueryOne(`
+      SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
+      FROM run_items WHERE run_id=?
+    `, [row.id]);
+    const total = items?.total || 0, ok = items?.ok || 0;
+    by_chapter[row.chapter_id] = { ok, total, pct: total > 0 ? Math.round(ok/total*100) : null };
+  }
+
+  let collection = { ok:0, total:0, pct:null };
+  if (colRun) {
+    const items = dbQueryOne(`
+      SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
+      FROM run_items WHERE run_id=?
+    `, [colRun.id]);
+    const total = items?.total || 0, ok = items?.ok || 0;
+    collection = { ok, total, pct: total > 0 ? Math.round(ok/total*100) : null };
+  }
+  return { collection, by_chapter };
+}
+
+function localGetProblems(source, { set_id, chapter_id } = {}) {
+  let sql = `
+    SELECT p.*,
+      COALESCE(s.total_attempts,0) AS total_attempts,
+      COALESCE(s.total_correct,0)  AS total_correct,
+      COALESCE(s.pct_correct,0)    AS pct_correct,
+      s.last_seen
+    FROM problems p
+    LEFT JOIN (
+      SELECT source, problem_id,
+        COUNT(*) AS total_attempts,
+        SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,
+        ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,
+        MAX(created_at) AS last_seen
+      FROM attempts GROUP BY source, problem_id
+    ) s ON p.source=s.source AND p.problem_id=s.problem_id
+    WHERE p.source=?`;
+  const params = [source];
+  if (chapter_id) { sql += ' AND p.chapter_id=?'; params.push(chapter_id); }
+  else if (set_id) { sql += ' AND p.set_id=?'; params.push(set_id); }
+  sql += ' ORDER BY p.order_in_chapter ASC';
+  return dbQuery(sql, params);
+}
+
+function localGetProblem(source, problem_id) {
+  return dbQueryOne(`
+    SELECT p.*,
+      c.name AS collection_name,
+      ch.chapter_num,
+      COALESCE(s.total_attempts,0) AS total_attempts,
+      COALESCE(s.total_correct,0)  AS total_correct,
+      COALESCE(s.pct_correct,0)    AS pct_correct,
+      COALESCE(s.avg_time_ms,0)    AS avg_time_ms,
+      s.last_seen
+    FROM problems p
+    LEFT JOIN collections c  ON c.source=p.source AND c.set_id=p.set_id
+    LEFT JOIN chapters    ch ON ch.id=p.chapter_id
+    LEFT JOIN (
+      SELECT source, problem_id,
+        COUNT(*) AS total_attempts,
+        SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,
+        ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,
+        AVG(time_ms) AS avg_time_ms,
+        MAX(created_at) AS last_seen
+      FROM attempts GROUP BY source, problem_id
+    ) s ON p.source=s.source AND p.problem_id=s.problem_id
+    WHERE p.source=? AND p.problem_id=?
+  `, [source, problem_id]);
+}
+
+function localGetDifficultyRange(source) {
+  return dbQueryOne(`
+    SELECT MIN(difficulty_num) AS min, MAX(difficulty_num) AS max
+    FROM problems WHERE source=? AND difficulty_num IS NOT NULL
+  `, [source]);
+}
+
+function localGetStruggling(source, { set_id, chapter_id } = {}, n = 3) {
+  let sql = 'SELECT problem_id FROM problems WHERE source=? AND sgf_exists=1';
+  const params = [source];
+  if (chapter_id) { sql += ' AND chapter_id=?'; params.push(chapter_id); }
+  else if (set_id) { sql += ' AND set_id=?'; params.push(set_id); }
+  const probs = dbQuery(sql, params).map(r => r.problem_id);
+  const struggling = [];
+  for (const pid of probs) {
+    const rows = dbQuery(`
+      SELECT result FROM attempts WHERE source=? AND problem_id=?
+      ORDER BY created_at DESC LIMIT ?
+    `, [source, pid, n]);
+    if (rows.length && rows.some(r => r.result === 'wrong')) struggling.push(pid);
+  }
+  return struggling;
+}
+
+function localGetRuns(source) {
+  return dbQuery(`
+    SELECT r.*,
+      CASE
+        WHEN r.chapter_id IS NOT NULL THEN c.name || ' · Ch ' || ch.chapter_num
+        WHEN r.set_id IS NOT NULL THEN c.name
+        ELSE 'Run #' || r.id
+      END AS label
+    FROM runs r
+    LEFT JOIN collections c  ON c.source=r.source AND c.set_id=r.set_id
+    LEFT JOIN chapters    ch ON ch.id=r.chapter_id
+    WHERE r.source=?
+    ORDER BY r.started_at DESC
+  `, [source]);
+}
+
+function localGetRunItems(run_id) {
+  return dbQuery(`
+    SELECT ri.*, p.sgf_path, p.difficulty_raw, p.difficulty_num, p.color_to_play
+    FROM run_items ri
+    JOIN problems p ON p.source=ri.source AND p.problem_id=ri.problem_id
+    WHERE ri.run_id=?
+    ORDER BY ri.order_in_run ASC
+  `, [run_id]);
+}
+
+function localInsertAttempt(source, problem_id, run_id, result, time_ms) {
+  const created_at = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+  dbExec(`
+    INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at)
+    VALUES (?,?,?,?,?,?)
+  `, [source, problem_id, run_id ?? null, result, time_ms ?? null, created_at]);
+  if (run_id) {
+    dbExec(`UPDATE runs SET done=done+1 WHERE id=?`, [run_id]);
+    dbExec(`
+      UPDATE runs SET status='closed', closed_at=?
+      WHERE id=? AND done>=total AND status='open'
+    `, [created_at, run_id]);
+    dbExec(`UPDATE run_items SET result=? WHERE run_id=? AND problem_id=?`,
+      [result, run_id, problem_id]);
+  }
+}
+
+function localInsertRun(source, type, { set_id, chapter_id } = {}) {
+  // Resolver set_id si hace falta
+  if (chapter_id && !set_id) {
+    const ch = dbQueryOne('SELECT set_id FROM chapters WHERE id=?', [chapter_id]);
+    if (ch) set_id = ch.set_id;
+  }
+  // Obtener problemas
+  let rows;
+  if (type === 'chapter' && chapter_id) {
+    rows = dbQuery(`SELECT source, problem_id FROM problems WHERE chapter_id=? AND sgf_exists=1 ORDER BY order_in_chapter`, [chapter_id]);
+  } else if (type === 'collection' && set_id) {
+    rows = dbQuery(`SELECT source, problem_id FROM problems WHERE source=? AND set_id=? AND sgf_exists=1 ORDER BY order_in_chapter`, [source, set_id]);
+  } else {
+    return null;
+  }
+  // Shuffle
+  for (let i = rows.length-1; i > 0; i--) {
+    const j = Math.floor(Math.random()*(i+1));
+    [rows[i], rows[j]] = [rows[j], rows[i]];
+  }
+  const total = rows.length;
+  const uuid  = makeUUID();
+  const started_at = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+  dbExec(`
+    INSERT INTO runs (source, set_id, chapter_id, type, status, total, done, started_at, uuid)
+    VALUES (?,?,?,?,?,?,0,?,?)
+  `, [source, set_id ?? null, chapter_id ?? null, type, 'open', total, started_at, uuid]);
+  const run_id = dbQueryOne('SELECT last_insert_rowid() AS id', []).id;
+  for (let order = 0; order < rows.length; order++) {
+    dbExec(`INSERT INTO run_items (run_id, source, problem_id, order_in_run) VALUES (?,?,?,?)`,
+      [run_id, rows[order].source, rows[order].problem_id, order+1]);
+  }
+  return { run_id, total };
+}
+
+function localUpdateRunStatus(run_id, status) {
+  const closed_at = status === 'closed' ? new Date().toISOString().replace(/\.\d+Z$/, 'Z') : null;
+  dbExec(`UPDATE runs SET status=?, closed_at=? WHERE id=?`, [status, closed_at, run_id]);
+}
+
+// ══════════════════════════════════════════════════════════════
+//  SYNC
+// ══════════════════════════════════════════════════════════════
+async function tryAutoSync() {
+  if (syncInProgress) return;
+  syncInProgress = true;
+  setSyncStatus('syncing');
+  try {
+    await doSync();
+    setSyncStatus('ok');
+  } catch(e) {
+    setSyncStatus('idle');
+  } finally {
+    syncInProgress = false;
+  }
+}
+
+async function doSync() {
+  // 1. Obtener IDs máximos que el servidor ya conoce (los nuestros)
+  const maxAttemptId = dbQueryOne('SELECT MAX(id) AS m FROM attempts', [])?.m || 0;
+  const maxRunId     = dbQueryOne('SELECT MAX(id) AS m FROM runs', [])?.m || 0;
+
+  // 2. Pull: traer lo nuevo del servidor
+  const pullR = await fetch(`${SYNC_SERVER}/sync/pull?since_attempt_id=0&since_run_id=0`,
+    { signal: AbortSignal.timeout(8000) });
+  if (!pullR.ok) throw new Error('pull failed');
+  const pulled = await pullR.json();
+
+  // Insertar attempts del servidor que no tengamos
+  const stmtA = db.prepare(`
+    INSERT OR IGNORE INTO attempts (id, source, problem_id, run_id, result, time_ms, created_at)
+    VALUES (?,?,?,?,?,?,?)
+  `);
+  for (const a of pulled.attempts) {
+    stmtA.run([a.id, a.source, a.problem_id, a.run_id, a.result, a.time_ms, a.created_at]);
+  }
+  stmtA.free();
+
+  // Insertar runs del servidor que no tengamos (por uuid o id)
+  for (const r of pulled.runs) {
+    const exists = r.uuid
+      ? dbQueryOne('SELECT id FROM runs WHERE uuid=?', [r.uuid])
+      : dbQueryOne('SELECT id FROM runs WHERE id=?', [r.id]);
+    if (!exists) {
+      dbExec(`INSERT OR IGNORE INTO runs (id,source,set_id,chapter_id,vc_id,type,status,total,done,started_at,closed_at,uuid)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
+        [r.id, r.source, r.set_id, r.chapter_id, r.vc_id, r.type, r.status,
+         r.total, r.done, r.started_at, r.closed_at, r.uuid]);
+      for (const ri of (pulled.run_items || []).filter(i => i.run_id === r.id)) {
+        dbExec(`INSERT OR IGNORE INTO run_items (run_id,source,problem_id,order_in_run,result) VALUES (?,?,?,?,?)`,
+          [ri.run_id, ri.source, ri.problem_id, ri.order_in_run, ri.result]);
+      }
+    }
+  }
+
+  // 3. Push: mandar nuestros attempts/runs nuevos (id > lo que el servidor tenía)
+  const newAttempts = dbQuery('SELECT * FROM attempts WHERE id > ?', [maxAttemptId])
+    .map(a => ({ ...a, client_id: a.id }));
+  const newRuns = dbQuery('SELECT * FROM runs WHERE id > ? AND uuid IS NOT NULL', [maxRunId])
+    .map(r => ({
+      ...r,
+      run_items: dbQuery('SELECT * FROM run_items WHERE run_id=?', [r.id])
+    }));
+
+  if (newAttempts.length || newRuns.length) {
+    const pushR = await fetch(`${SYNC_SERVER}/sync/push`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ attempts: newAttempts, runs: newRuns }),
+      signal: AbortSignal.timeout(8000)
+    });
+    if (!pushR.ok) throw new Error('push failed');
+  }
+
+  // 4. Refresh snapshot de tablas estáticas
+  const snapR = await fetch(`${SYNC_SERVER}/sync/snapshot`, { signal: AbortSignal.timeout(10000) });
+  if (snapR.ok) {
+    const snap = await snapR.json();
+    importSnapshot(snap);
+  }
+
+  await saveDB();
+  precacheSgfs();
+}
+
+function setSyncStatus(state) {
+  const el = document.getElementById('sync-status');
+  if (!el) return;
+  if (state === 'syncing') { el.textContent = '↻ Syncing…'; el.style.color = 'var(--gold)'; }
+  else if (state === 'ok')  { el.textContent = '✓ Synced';   el.style.color = 'var(--ok-bright)'; setTimeout(()=>{ el.textContent=''; }, 3000); }
+  else                      { el.textContent = '';            }
+}
+
+// ══════════════════════════════════════════════════════════════
+//  COLLECTIONS TAB
+// ══════════════════════════════════════════════════════════════
+async function loadCollections() {
+  try {
+    allCollections  = localGetCollections('tsumego_hero');
+    lastRunStatsAll = localGetLastRunStatsAll('tsumego_hero');
+    renderCollectionsList();
+    populateCollectionDiffFilter();
+    populateFreeFilters();
+    clearSidebar();
+  } catch(e) {
+    document.getElementById('col-list').innerHTML =
+      `<div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--accent);text-align:center">Error cargando colecciones: ${e.message}</div>`;
+  }
+}
+
+function renderCollectionsList() {
+  const list = document.getElementById('col-list');
+  list.innerHTML = '';
+  for (const col of allCollections) {
+    const item = document.createElement('div');
+    item.className = 'col-item';
+    item.dataset.setId = col.set_id;
+
+    const diffStr = col.difficulty_raw || diffLabel(col.difficulty_num) || '—';
+    item.innerHTML = `
+      <div class="col-name">
+        <span class="col-arrow">▶</span>
+        <span>${col.name}</span>
+      </div>
+      <div class="col-stats">
+        <span>${col.num_problems} probs</span>
+        <span class="col-diff">${diffStr}</span>
+        <span class="col-pct" id="cpct-${col.set_id}">—</span>
+      </div>
+      <div class="col-chapters" id="chaps-${col.set_id}"></div>
+      <button class="run-col-btn" id="runcol-${col.set_id}">▶ Run full collection</button>`;
+
+    item.querySelector('.col-name').addEventListener('click', () => toggleCollection(col, item));
+    item.querySelector('.run-col-btn').addEventListener('click', e => {
+      e.stopPropagation();
+      startRun({ source:'tsumego_hero', type:'collection', set_id: col.set_id, colName: col.name });
+    });
+    list.appendChild(item);
+  }
+}
+
+// ── Filtros de colecciones ──
+function populateCollectionDiffFilter() {
+  const sel = document.getElementById('cf-diff');
+  const nums = [...new Set(allCollections.map(c => c.difficulty_num).filter(n => n != null))].sort((a,b) => a - b);
+  sel.innerHTML = '<option value="">All</option>';
+  for (const n of nums) {
+    const opt = document.createElement('option');
+    opt.value = n;
+    opt.textContent = diffLabel(n);
+    sel.appendChild(opt);
+  }
+}
+
+function applyCollectionFilters() {
+  const maxDiff      = document.getElementById('cf-diff').value;
+  const onlyIncomplete = document.getElementById('cf-incomplete').checked;
+  const hidePerfect  = document.getElementById('cf-perfect').checked;
+
+  document.querySelectorAll('#col-list .col-item').forEach(item => {
+    const setId = item.dataset.setId;
+    const col = allCollections.find(c => String(c.set_id) === setId);
+    if (!col) return;
+
+    let hide = false;
+
+    // Filtro dificultad máxima
+    if (maxDiff !== '' && col.difficulty_num != null && col.difficulty_num > Number(maxDiff)) {
+      hide = true;
+    }
+
+    // Filtro "con intentos y < 100%" (basado en stats globales)
+    if (!hide && onlyIncomplete) {
+      const hasAttempts = (col.total_attempts || 0) > 0;
+      const pct = col.total_attempts > 0
+        ? Math.round((col.total_correct || 0) / col.total_attempts * 100)
+        : 0;
+      if (!hasAttempts || pct === 100) hide = true;
+    }
+
+    // Filtro "ocultar colecciones con último run perfecto en colección Y todos los capítulos"
+    if (!hide && hidePerfect) {
+      const s = lastRunStatsAll[parseInt(setId)];
+      if (s) {
+        const colPerfect = s.collection && s.collection.pct === 100;
+        const chapValues = Object.values(s.by_chapter || {});
+        const allChapsPerfect = chapValues.length > 0 && chapValues.every(c => c.pct === 100);
+        if (colPerfect && allChapsPerfect) hide = true;
+      }
+      // Si no hay runs (s === undefined), no ocultar
+    }
+
+    item.classList.toggle('hidden', hide);
+  });
+}
+
+document.getElementById('cf-diff').addEventListener('change', applyCollectionFilters);
+document.getElementById('cf-incomplete').addEventListener('change', applyCollectionFilters);
+document.getElementById('cf-perfect').addEventListener('change', applyCollectionFilters);
+
+async function refreshCollectionStats() {
+  try {
+    lastRunStatsAll = localGetLastRunStatsAll('tsumego_hero');
+    document.querySelectorAll('.col-item.expanded').forEach(item => {
+      const setId = parseInt(item.dataset.setId);
+      const s = lastRunStatsAll[setId];
+      const colPctEl = document.getElementById(`cpct-${setId}`);
+      if (colPctEl && s && s.collection && s.collection.pct != null) {
+        const pct = s.collection.pct;
+        colPctEl.textContent = pct + '%';
+        colPctEl.style.color = pct >= 80 ? 'var(--ok-bright)' : pct >= 50 ? 'var(--gold)' : 'var(--accent)';
+      }
+    });
+    applyCollectionFilters();
+  } catch(e) {}
+}
+
+async function toggleCollection(col, item) {
+  const isOpen = item.classList.contains('expanded');
+  document.querySelectorAll('.col-item.expanded').forEach(el => el.classList.remove('expanded'));
+  if (isOpen) return;
+
+  item.classList.add('expanded');
+  const chapDiv = item.querySelector('.col-chapters');
+  if (chapDiv.children.length > 0) return;
+
+  chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--dim2)">Loading…</div>`;
+  try {
+    const chapters = localGetChapters('tsumego_hero', col.set_id);
+    const runStats = localGetLastRunStats('tsumego_hero', col.set_id);
+    chaptersCache[col.set_id] = chapters;
+
+    const colPctEl = document.getElementById(`cpct-${col.set_id}`);
+    if (colPctEl && runStats && runStats.collection.pct != null) {
+      const pct = runStats.collection.pct;
+      colPctEl.textContent = pct + '%';
+      colPctEl.style.color = pct >= 80 ? 'var(--ok-bright)' : pct >= 50 ? 'var(--gold)' : 'var(--accent)';
+    } else if (colPctEl) {
+      colPctEl.textContent = '';
+    }
+
+    chapDiv.innerHTML = '';
+    for (const chap of chapters) {
+      const ci = document.createElement('div');
+      ci.className = 'chap-item';
+      const diffStr = chap.diff_avg != null ? diffLabel(chap.diff_avg)
+        : (chap.diff_min != null ? `${diffLabel(chap.diff_min)}–${diffLabel(chap.diff_max)}` : '—');
+
+      const cs = runStats && runStats.by_chapter[chap.id];
+      const chapPctStr = cs && cs.pct != null ? cs.pct + '%' : '';
+      const chapPctColor = cs ? (cs.pct >= 80 ? 'var(--ok-bright)' : cs.pct >= 50 ? 'var(--gold)' : 'var(--accent)') : 'var(--dim2)';
+
+      ci.innerHTML = `
+        <span class="chap-name">Ch ${chap.chapter_num} <span style="color:var(--dim2)">(${diffStr})</span></span>
+        <span class="chap-stats">${chap.problem_count}p <span class="chap-pct" style="color:${chapPctColor}">${chapPctStr}</span></span>
+        <button class="chap-btn" data-chapid="${chap.id}" data-chapnum="${chap.chapter_num}" data-colname="${col.name}">▶ Run</button>`;
+      ci.querySelector('.chap-btn').addEventListener('click', e => {
+        e.stopPropagation();
+        startRun({ source:'tsumego_hero', type:'chapter', chapter_id: chap.id,
+                   colName: col.name, chapNum: chap.chapter_num });
+      });
+      chapDiv.appendChild(ci);
+    }
+  } catch(e) {
+    chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--accent)">Error loading chapters</div>`;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+//  RUNS
+// ══════════════════════════════════════════════════════════════
+async function startRun(opts) {
+  if (activeRunId) {
+    try { localUpdateRunStatus(activeRunId, 'closed'); await saveDB(); } catch(e) {}
+  }
+
+  try {
+    const result = localInsertRun(opts.source, opts.type, {
+      set_id: opts.set_id,
+      chapter_id: opts.chapter_id
+    });
+    if (!result) throw new Error('No se pudo crear el run');
+    activeRunId = result.run_id;
+    await saveDB();
+    tryAutoSync();
+
+    runItems = localGetRunItems(activeRunId);
+    runIdx = -1;
+    runMode = true;
+    sessionOk = 0; sessionNo = 0;
+
+    const label = opts.colName
+      ? (opts.chapNum ? `${opts.colName} · Ch ${opts.chapNum}` : opts.colName)
+      : 'Run';
+    document.getElementById('rp-title').textContent = label;
+    document.getElementById('run-progress').style.display = 'block';
+    document.getElementById('pill-total').textContent = '';
+
+    switchTab('runs');
+    await loadRuns();
+    updateSessionUI();
+    nextProblem();
+  } catch(e) {
+    alert('Failed to start run: ' + e.message);
+  }
+}
+
+async function loadRuns() {
+  const list = document.getElementById('runs-list');
+  list.innerHTML = `<div class="runs-empty">Loading…</div>`;
+  try {
+    const runs = localGetRuns('tsumego_hero');
+    if (!runs.length) { list.innerHTML = `<div class="runs-empty">No runs yet</div>`; return; }
+    list.innerHTML = '';
+    for (const run of runs) {
+      const item = document.createElement('div');
+      item.className = 'run-item' + (run.id === activeRunId ? ' active-run' : '');
+      const statusCls = run.status === 'open' ? 'run-status-open' : 'run-status-closed';
+      const done = run.done || 0;
+      const total = run.total || 0;
+      const pct = total > 0 ? Math.round(done/total*100) : 0;
+      const date = (run.started_at || '').slice(0,10);
+      item.innerHTML = `
+        <div class="run-title">${run.label || `Run #${run.id}`}</div>
+        <div class="run-meta">
+          <span class="${statusCls}">${run.status}</span>
+          <span>${done}/${total} (${pct}%)</span>
+          <span style="color:var(--dim2)">${date}</span>
+        </div>`;
+      if (run.status === 'open') {
+        item.addEventListener('click', () => resumeRun(run.id));
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'chap-btn';
+        closeBtn.textContent = '✕ Close';
+        closeBtn.style.marginTop = '4px';
+        closeBtn.addEventListener('click', async e => {
+          e.stopPropagation();
+          localUpdateRunStatus(run.id, 'closed');
+          await saveDB();
+          if (activeRunId === run.id) {
+            activeRunId = null;
+            runMode = false;
+            runItems = [];
+            document.getElementById('run-progress').style.display = 'none';
+          }
+          loadRuns();
+        });
+        item.appendChild(closeBtn);
+      }
+      list.appendChild(item);
+    }
+  } catch(e) {
+    list.innerHTML = `<div class="runs-empty" style="color:var(--accent)">Error loading runs</div>`;
+  }
+}
+
+async function resumeRun(runId) {
+  try {
+    activeRunId = runId;
+    runItems = localGetRunItems(runId);
+    sessionOk = runItems.filter(i => i.result === 'correct').length;
+    sessionNo = runItems.filter(i => i.result === 'wrong').length;
+    runIdx = runItems.findIndex(i => !i.result) - 1;
+    if (runIdx < -1) runIdx = -1;
+    runMode = true;
+    document.getElementById('run-progress').style.display = 'block';
+    updateRunProgress();
+    nextProblem();
+  } catch(e) {
+    alert('Failed to resume run: ' + e.message);
+  }
+}
+
+function updateRunProgress() {
+  const done = runItems.filter(i => i.result).length;
+  const total = runItems.length;
+  const pct = total > 0 ? Math.round(done/total*100) : 0;
+  document.getElementById('rp-bar').style.width = pct + '%';
+  const ok = runItems.filter(i => i.result === 'correct').length;
+  const no = runItems.filter(i => i.result === 'wrong').length;
+  document.getElementById('rp-counts').innerHTML =
+    `<span style="color:var(--ok-bright)">${ok}✓</span><span style="color:var(--accent)">${no}✗</span><span>${done}/${total}</span>`;
+  document.getElementById('pill-rem').textContent = (total - done) + ' left';
+}
+
+// ══════════════════════════════════════════════════════════════
+//  FREE PRACTICE FILTERS
+// ══════════════════════════════════════════════════════════════
+async function populateFreeFilters() {
+  const sel = document.getElementById('fp-col');
+  sel.innerHTML = '<option value="">All</option>';
+  for (const col of allCollections) {
+    const o = document.createElement('option');
+    o.value = col.set_id;
+    o.textContent = col.name;
+    sel.appendChild(o);
+  }
+
+  const minSel = document.getElementById('fp-diff');
+  const maxSel = document.getElementById('fp-diff-max');
+  minSel.innerHTML = '<option value="">Min: Any</option>';
+  maxSel.innerHTML = '<option value="">Max: Any</option>';
+
+  try {
+    const range = localGetDifficultyRange('tsumego_hero');
+    if (range && range.min != null && range.max != null) {
+      for (let n = range.min; n <= range.max; n += 100) {
+        const lbl = diffLabel(n);
+        [minSel, maxSel].forEach(s => {
+          const o = document.createElement('option');
+          o.value = n;
+          o.textContent = lbl;
+          s.appendChild(o);
+        });
+      }
+    }
+  } catch(e) {}
+
+  document.getElementById('fp-col').addEventListener('change', updateFreeChapters);
+  document.getElementById('fp-start').addEventListener('click', startFreePractice);
+}
+
+async function updateFreeChapters() {
+  const setId = document.getElementById('fp-col').value;
+  const sel = document.getElementById('fp-chap');
+  sel.innerHTML = '<option value="">All</option>';
+  if (!setId) return;
+  try {
+    const chapters = localGetChapters('tsumego_hero', parseInt(setId));
+    chaptersCache[setId] = chapters;
+    for (const c of chapters) {
+      const o = document.createElement('option');
+      o.value = c.id;
+      o.textContent = `Ch ${c.chapter_num} (${diffLabel(c.diff_min)}–${diffLabel(c.diff_max)})`;
+      sel.appendChild(o);
+    }
+  } catch(e) {}
+}
+
+async function startFreePractice() {
+  const setId   = document.getElementById('fp-col').value;
+  const chapId  = document.getElementById('fp-chap').value;
+  const diffMin = document.getElementById('fp-diff').value;
+  const diffMax = document.getElementById('fp-diff-max').value;
+  const color   = document.getElementById('fp-color').value;
+  const status  = document.getElementById('fp-status').value;
+  const order   = document.getElementById('fp-order').value;
+
+  try {
+    let problems = localGetProblems('tsumego_hero', {
+      set_id: setId ? parseInt(setId) : undefined,
+      chapter_id: chapId ? parseInt(chapId) : undefined
+    });
+
+    if (diffMin) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num >= parseInt(diffMin));
+    if (diffMax) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num <= parseInt(diffMax));
+    if (color)   problems = problems.filter(p => p.color_to_play === color);
+
+    if (status.startsWith('struggling')) {
+      const n = parseInt(status.split('-')[1]);
+      const strIds = new Set(localGetStruggling('tsumego_hero', {
+        set_id: setId ? parseInt(setId) : undefined,
+        chapter_id: chapId ? parseInt(chapId) : undefined
+      }, n));
+      problems = problems.filter(p => strIds.has(p.problem_id));
+    }
+
+    if (!problems.length) {
+      document.getElementById('board-wrap').style.display = 'none';
+      document.getElementById('comment-box').style.display = 'none';
+      document.getElementById('result-flash').className = '';
+      document.getElementById('welcome').style.display = 'flex';
+      document.getElementById('welcome').querySelector('p').textContent = 'No problems match the selected filters';
+      document.getElementById('welcome').style.pointerEvents = 'none';
+      document.getElementById('pill-total').textContent = '';
+      document.getElementById('pill-rem').textContent = '—';
+      document.getElementById('pill-ok').textContent = '0✓';
+      document.getElementById('pill-no').textContent = '0✗';
+      return;
+    }
+
+    if (order === 'random') {
+      for (let i = problems.length-1; i>0; i--) {
+        const j = Math.floor(Math.random()*(i+1));
+        [problems[i], problems[j]] = [problems[j], problems[i]];
+      }
+    }
+
+    activeRunId = null;
+    runMode = false;
+    runItems = [];
+    document.getElementById('run-progress').style.display = 'none';
+    allProblems = problems;
+    document.getElementById('pill-total').textContent = `/ ${problems.length}`;
+    runIdx = -1;
+    sessionOk = 0; sessionNo = 0;
+    updateSessionUI();
+    nextProblem();
+  } catch(e) {
+    alert('Failed to load problems: ' + e.message);
+  }
+}
+
+// ══════════════════════════════════════════════════════════════
+//  PROBLEM QUEUE / NAVIGATION
+// ══════════════════════════════════════════════════════════════
+function nextProblem() {
+  document.querySelector('#board-wrap').classList.remove('board-ok','board-bad');
+  runIdx++;
+
+  let probMeta;
+  if (runMode) {
+    if (runIdx >= runItems.length) { endRun(); return; }
+    probMeta = runItems[runIdx];
+  } else {
+    if (runIdx >= allProblems.length) { showSessionEnd(); return; }
+    probMeta = allProblems[runIdx];
+  }
+
+  loadAndRender(probMeta);
+}
+
+async function loadAndRender(probMeta) {
+  isPaused = false;
+  pausedAt = 0;
+  totalPaused = 0;
+  document.getElementById('pause-overlay').style.display = 'none';
+  document.getElementById('board-wrap').style.visibility = 'visible';
+  document.getElementById('btn-pause').textContent = '⏸ Pause';
+
+  try {
+    const prob = localGetProblem('tsumego_hero', probMeta.problem_id);
+    if (!prob || !prob.sgf_path) { nextProblem(); return; }
+
+    const sgfPath = prob.sgf_path.replace(/\\/g, '/');
+    const res = await fetch(sgfPath);
+    if (!res.ok) throw new Error('SGF not found');
+    const sgf = await res.text();
+
+    const tree = parseSgfTree(sgf);
+    if (!tree) {
+      console.log('parse failed, sgf=', sgf.substring(0, 100));
+      throw new Error('Parse failed');
+    }
+    const size = parseInt((sgf.match(/SZ\[(\d+)\]/) || [,'19'])[1]);
+
+    currentProblem = { ...prob, tree, size };
+    problemStartTime = Date.now();
+    renderProblem(currentProblem);
+  } catch(e) {
+    console.warn('Skip problem', probMeta.problem_id, e.message);
+    nextProblem();
+  }
+}
+
+function clearSidebar() {
+  document.getElementById('pi-id').textContent = '—';
+  document.getElementById('pi-col').textContent = '—';
+  document.getElementById('pi-chap').textContent = '—';
+  document.getElementById('pi-diff').textContent = '—';
+  document.getElementById('pi-color').textContent = '—';
+  document.getElementById('ps-seen').textContent = '—';
+  document.getElementById('ps-ok').textContent = '—';
+  document.getElementById('ps-no').textContent = '—';
+  document.getElementById('ps-pct').textContent = '—';
+  document.getElementById('ps-ms').textContent = '—';
+}
+
+async function endRun() {
+  if (activeRunId) {
+    try { localUpdateRunStatus(activeRunId, 'closed'); await saveDB(); tryAutoSync(); } catch(e) {}
+    activeRunId = null;
+  }
+  runMode = false;
+  document.getElementById('run-progress').style.display = 'none';
+  showSessionEnd();
+  loadRuns();
+}
+
+function showSessionEnd() {
+  clearSidebar();
+  clearBoard();
+  wgoBoard = null;
+  document.getElementById('board-wrap').style.display = 'none';
+  document.getElementById('comment-box').style.display = 'none';
+  document.getElementById('result-flash').className = '';
+  document.getElementById('welcome').style.display = 'flex';
+  document.getElementById('welcome').querySelector('p').textContent =
+    `Done — ${sessionOk}✓ ${sessionNo}✗`;
+  document.getElementById('welcome').style.pointerEvents = 'none';
+}
+
+// ══════════════════════════════════════════════════════════════
+//  SGF / BOARD
+// ══════════════════════════════════════════════════════════════
+function parseSgfTree(sgf) {
+  try { return WGo.Kifu.fromSgf(sgf).root; }
+  catch(e) { console.log('WGo parse error:', e.message); return null; }
+}
+
+function getSetupStones(node) {
+  const black=[], white=[];
+  if (node.setup && node.setup.length) {
+    for (const s of node.setup) {
+      if (s.c===1) black.push({x:s.x,y:s.y,c:1});
+      else if (s.c===-1) white.push({x:s.x,y:s.y,c:-1});
+    }
+    return {black,white};
+  }
+  if (node.properties) {
+    const toB = v=>({x:v.charCodeAt(0)-97,y:v.charCodeAt(1)-97,c:1});
+    const toW = v=>({x:v.charCodeAt(0)-97,y:v.charCodeAt(1)-97,c:-1});
+    if (node.properties.AB) { const ab=Array.isArray(node.properties.AB)?node.properties.AB:[node.properties.AB]; ab.forEach(v=>black.push(toB(v))); }
+    if (node.properties.AW) { const aw=Array.isArray(node.properties.AW)?node.properties.AW:[node.properties.AW]; aw.forEach(v=>white.push(toW(v))); }
+  }
+  return {black,white};
+}
+
+function getPlayerToMove(root) {
+  if (root.properties && root.properties.PL) return root.properties.PL==='W'?-1:1;
+  if (root.children && root.children.length) for (const c of root.children) if (c.move) return c.move.c;
+  return 1;
+}
+
+function getMarkup(node) { return node.markup ? node.markup.map(m=>({...m})) : []; }
+
+function initBoard(size) {
+  boardSize = size||19;
+  const main = document.getElementById('main');
+  const avail = Math.min(main.clientWidth-32, main.clientHeight-90);
+  const sz = Math.max(240, Math.min(avail, 620));
+  document.getElementById('board').innerHTML = '';
+  wgoBoard = new WGo.Board(document.getElementById('board'), { size:boardSize, width:sz, background:'#c4943a' });
+  wgoBoard.setSection(-0.5,-0.5,-0.5,-0.5);
+  wgoBoard.addCustomObject(WGo.Board.coordinates);
+  document.getElementById('board-wrap').style.display = 'block';
+  document.getElementById('welcome').style.display = 'none';
+  document.getElementById('comment-box').style.maxWidth = sz+'px';
+}
+
+function clearBoard() {
+  if (!wgoBoard) return;
+  for (let x=0;x<wgoBoard.size;x++) { wgoBoard.obj_arr[x]=[]; for (let y=0;y<wgoBoard.size;y++) wgoBoard.obj_arr[x][y]=[]; }
+  wgoBoard.redraw();
+}
+
+function renderSetup(root) {
+  clearBoard();
+  const {black,white} = getSetupStones(root);
+  for (const s of black) wgoBoard.addObject({x:s.x,y:s.y,c:1});
+  for (const s of white) wgoBoard.addObject({x:s.x,y:s.y,c:-1});
+  renderMarkup(getMarkup(root),black,white);
+}
+
+function renderMarkup(markupList,black,white) {
+  if (!markupList||!markupList.length) return;
+  const bSet=new Set(black.map(s=>`${s.x},${s.y}`));
+  const wSet=new Set(white.map(s=>`${s.x},${s.y}`));
+  for (const mk of markupList) {
+    const k=`${mk.x},${mk.y}`;
+    const stoneC=bSet.has(k)?1:wSet.has(k)?-1:0;
+    const obj={x:mk.x,y:mk.y};
+    if (mk.type==='LB') {
+      obj.type=WGo.Board.drawHandlers['LB']; obj.text=mk.text||'';
+      if (mk.text===':)') obj.c='#5cb868';
+      else if (mk.text===':(') obj.c='#d45030';
+      else obj.c=stoneC===1?'white':stoneC===-1?'black':'#333';
+    } else if (WGo.Board.drawHandlers[mk.type]) {
+      obj.type=WGo.Board.drawHandlers[mk.type];
+      obj.c=stoneC===1?'white':stoneC===-1?'black':'#333';
+    } else continue;
+    wgoBoard.addObject(obj);
+  }
+}
+
+function clearCrossMarks() {
+  for (let x=0;x<wgoBoard.size;x++) for (let y=0;y<wgoBoard.size;y++) {
+    if (!wgoBoard.obj_arr[x][y]) continue;
+    wgoBoard.obj_arr[x][y]=wgoBoard.obj_arr[x][y].filter(o=>!(o.text&&(o.text==='x'||o.text==='X')));
+  }
+  wgoBoard.redraw();
+}
+
+function renderLabels(node) {
+  if (!node.markup) return;
+  for (const mk of node.markup) {
+    if (mk.type!=='LB') continue;
+    if (wgoBoard.obj_arr[mk.x][mk.y]) wgoBoard.obj_arr[mk.x][mk.y]=wgoBoard.obj_arr[mk.x][mk.y].filter(o=>o.c===1||o.c===-1);
+    wgoBoard.addObject({x:mk.x,y:mk.y,type:'LB',text:mk.text});
+  }
+  const cb=document.getElementById('comment-box');
+  cb.style.display='block';
+  cb.textContent=node.comment||'';
+}
+
+function renderProblem(prob) {
+  currentProblem = prob;
+  waitingForNext = false;
+  const root = prob.tree;
+  const size = prob.size||19;
+  if (!wgoBoard||boardSize!==size) initBoard(size);
+  renderSetup(root);
+  renderLabels(root);
+
+  const playerC = getPlayerToMove(root);
+  document.getElementById('board-hint').textContent =
+    (playerC===1?'● Black':'○ White')+' to play — click to answer';
+
+  const cb = document.getElementById('comment-box');
+  if (root.comment) { const clean=root.comment.replace(/^DONOTSWAP\s*/i,'').trim(); cb.textContent=clean; cb.style.display=clean?'block':'none'; }
+  else { cb.textContent=''; cb.style.display='none'; }
+
+  document.getElementById('result-flash').className='';
+
+  document.getElementById('pi-id').textContent = prob.problem_id;
+  document.getElementById('pi-col').textContent = prob.collection_name || '—';
+  document.getElementById('pi-chap').textContent = prob.chapter_num != null ? `Ch ${prob.chapter_num}` : '—';
+  document.getElementById('pi-diff').textContent = diffLabel(prob.difficulty_num);
+  document.getElementById('pi-color').textContent = prob.color_to_play === 'B' ? '● Black' : prob.color_to_play === 'W' ? '○ White' : '—';
+
+  document.getElementById('ps-seen').textContent = prob.total_attempts || '—';
+  document.getElementById('ps-ok').textContent = prob.total_correct || '—';
+  document.getElementById('ps-no').textContent = prob.total_attempts != null ? (prob.total_attempts - prob.total_correct) || '0' : '—';
+  document.getElementById('ps-pct').textContent = prob.total_attempts > 0 ? Math.round(prob.pct_correct)+'%' : '—';
+  document.getElementById('ps-ms').textContent = prob.avg_time_ms > 0 ? (prob.avg_time_ms / 1000).toFixed(1) + 's' : '—';
+
+  if (wgoBoard._studyListener) wgoBoard.removeEventListener('click', wgoBoard._studyListener);
+  wgoBoard._studyListener = null;
+  setupInteractiveMode(root, playerC);
+
+  if (runMode) updateRunProgress();
+  updateSessionUI();
+
+  document.getElementById('btn-back').style.display = runMode ? 'none' : '';
+  document.getElementById('btn-next').style.display = runMode ? 'none' : '';
+  document.getElementById('btn-restart').style.display = runMode ? 'none' : '';
+}
+
+function setupInteractiveMode(root, playerC) {
+  let firstMoveDone = false;
+  let currentNode = root;
+  let attemptRecorded = false;
+  let answered = false;
+  let hadWrong = false;
+  const history = [];
+  let lastMoveMarker = null;
+
+  const { black: setupB, white: setupW } = getSetupStones(root);
+  const game = new WGo.Game(boardSize);
+  game.allow_rewrite = true;
+  for (const s of setupB) game.setStone(s.x, s.y, WGo.B);
+  for (const s of setupW) game.setStone(s.x, s.y, WGo.W);
+
+  function gameSnapshot() {
+    const pos = game.getPosition();
+    const snap = [];
+    for (let x=0;x<boardSize;x++) for (let y=0;y<boardSize;y++) {
+      const v = pos.get(x,y);
+      if (v) snap.push({x,y,v});
+    }
+    return snap;
+  }
+
+  function restoreSnapshot(snap) {
+    game.allow_rewrite = true;
+    for (let x=0;x<boardSize;x++) for (let y=0;y<boardSize;y++) game.setStone(x,y,0);
+    for (const {x,y,v} of snap) game.setStone(x,y,v);
+    redrawFromGame();
+  }
+
+  function redrawFromGame() {
+    clearBoard();
+    const pos = game.getPosition();
+    for (let x=0;x<boardSize;x++) for (let y=0;y<boardSize;y++) {
+      const v = pos.get(x,y);
+      if (v===WGo.B) wgoBoard.addObject({x,y,c:1});
+      else if (v===WGo.W) wgoBoard.addObject({x,y,c:-1});
+    }
+    if (lastMoveMarker) wgoBoard.addObject({x:lastMoveMarker.x,y:lastMoveMarker.y,type:'CR'});
+  }
+
+  function placeStone(x, y, c) {
+    game.play(x, y, c===1 ? WGo.B : WGo.W);
+    redrawFromGame();
+  }
+
+  function drawLastMoveDot(x,y) {
+    if (lastMoveMarker) wgoBoard.removeObject({x:lastMoveMarker.x,y:lastMoveMarker.y,type:'CR'});
+    wgoBoard.addObject({x,y,type:'CR'});
+    lastMoveMarker={x,y};
+  }
+
+function recordAttempt(result) {
+  if (attemptRecorded) return;
+  attemptRecorded = true;
+  if (!runMode) {
+    if (result === 'correct') sessionOk++;
+    else sessionNo++;
+  }
+  const time_ms = Date.now() - problemStartTime - totalPaused;
+  localInsertAttempt('tsumego_hero', currentProblem.problem_id, activeRunId || null, result, time_ms);
+  saveDB().then(() => tryAutoSync()).catch(() => {});
+  if (runMode && runItems[runIdx]) runItems[runIdx].result = result;
+}
+
+	function checkResult(node) {
+	  const comment = (node.comment||'').trim().toUpperCase();
+	  if (comment.startsWith('RIGHT')) {
+		showResult(true, node.comment);
+		if (!hadWrong) { recordAttempt('correct'); }
+		updateSessionUI();
+		return true;
+	  }
+	  if (comment.startsWith('WRONG')) {
+		showResult(false, node.comment);
+		if (!hadWrong) { recordAttempt('wrong'); }
+		hadWrong = true;
+		updateSessionUI();
+		return true;
+	  }
+	  return false;
+	}
+
+  function playOpponent(node) {
+    if (!node.children||!node.children.length) {
+      showResult(true,'');
+      if (!hadWrong) { recordAttempt('correct'); if (!runMode) sessionOk++; }
+      updateSessionUI();
+      return;
+    }
+    const oppNode=node.children[0];
+    setTimeout(()=>{
+      if (oppNode.move&&!oppNode.move.pass) {
+        const {x,y}=oppNode.move;
+        placeStone(x, y, oppNode.move.c);
+        drawLastMoveDot(x,y);
+        playSound('stone');
+      }
+      renderLabels(oppNode);
+      if (checkResult(oppNode)) return;
+      currentNode=oppNode;
+      answered=false;
+    },400);
+  }
+
+  function onBoardClick(x,y) {
+    if (answered||waitingForNext) return;
+    if (wgoBoard.obj_arr[x][y]&&wgoBoard.obj_arr[x][y].some(o=>o.c===1||o.c===-1)) return;
+    const children=currentNode.children||[];
+    const match=children.find(c=>c.move&&!c.move.pass&&c.move.x===x&&c.move.y===y);
+    if (!match) {
+      checkResult({comment:'WRONG'});
+      hadWrong=true;
+      return;
+    }
+    history.push({node:currentNode, snap:gameSnapshot()});
+    answered=true;
+    if (!firstMoveDone) { clearCrossMarks(); firstMoveDone=true; }
+    placeStone(x, y, playerC);
+    drawLastMoveDot(x,y);
+    renderLabels(match);
+    playSound('stone');
+    if (checkResult(match)) return;
+    playOpponent(match);
+  }
+
+  function resetGame() {
+    game.allow_rewrite = true;
+    for (let x=0;x<boardSize;x++) for (let y=0;y<boardSize;y++) game.setStone(x,y,0);
+    for (const s of setupB) game.setStone(s.x, s.y, WGo.B);
+    for (const s of setupW) game.setStone(s.x, s.y, WGo.W);
+    lastMoveMarker = null;
+  }
+
+window._studyRestart = () => {
+  history.length=0; currentNode=root; answered=false; hadWrong=false;
+  waitingForNext=false;
+  // NO resetear attemptRecorded — solo se graba un intento por problema
+  document.getElementById('comment-box').style.display='none';
+  document.getElementById('result-flash').className='';
+  document.querySelector('#board-wrap').classList.remove('board-ok','board-bad');
+  resetGame();
+  renderSetup(root);
+  problemStartTime = Date.now();
+  updateSessionUI();
+};
+  window._studyBack = () => {
+    if (!history.length) return;
+    const prev=history.pop();
+    currentNode=prev.node; answered=false; waitingForNext=false;
+    document.getElementById('comment-box').style.display='none';
+    document.getElementById('result-flash').className='';
+    restoreSnapshot(prev.snap);
+  };
+
+  window._boardClickHandler = onBoardClick;
+  if (!wgoBoard._globalListenerSet) {
+    wgoBoard.addEventListener('click', (x, y) => {
+      if (window._boardClickHandler) window._boardClickHandler(x, y);
+    });
+    wgoBoard._globalListenerSet = true;
+  }
+}
+
+// ── Result display ──
+function showResult(isRight, comment) {
+  waitingForNext = true;
+  playSound(isRight?'right':'wrong');
+
+  const flash=document.getElementById('result-flash');
+  flash.textContent=isRight?'✓':'✗';
+  flash.style.color=isRight?'var(--ok-bright)':'var(--accent)';
+  flash.className='show';
+  setTimeout(()=>{ flash.className='hide'; },800);
+
+  const boardEl=document.querySelector('#board-wrap');
+  if (boardEl) { boardEl.classList.remove('board-ok','board-bad'); boardEl.classList.add(isRight?'board-ok':'board-bad'); }
+
+  const cb=document.getElementById('comment-box');
+  const clean=(comment||'').replace(/^RIGHT\s*/i,'').replace(/^WRONG\s*/i,'').trim();
+  if (clean) { cb.textContent=clean; cb.style.display='block'; }
+
+	if (runMode) {
+    setTimeout(()=>{ if (waitingForNext) nextProblem(); }, 1000);
+  } else if (isRight) {
+    setTimeout(()=>{ if (waitingForNext) nextProblem(); }, 1000);
+  }
+}
+
+function togglePause() {
+  if (!currentProblem || waitingForNext) return;
+  isPaused = !isPaused;
+  const overlay = document.getElementById('pause-overlay');
+  const boardWrap = document.getElementById('board-wrap');
+  if (isPaused) {
+    pausedAt = Date.now();
+    overlay.style.display = 'flex';
+    boardWrap.style.visibility = 'hidden';
+    document.getElementById('btn-pause').textContent = '▶ Resume';
+  } else {
+    totalPaused += Date.now() - pausedAt;
+    overlay.style.display = 'none';
+    boardWrap.style.visibility = 'visible';
+    document.getElementById('btn-pause').textContent = '⏸ Pause';
+  }
+}
+
+document.getElementById('btn-pause').addEventListener('click', togglePause);
+document.getElementById('pause-overlay').addEventListener('click', () => {
+  if (isPaused) togglePause();
+});
+// ── Session UI ──
+function updateSessionUI() {
+  const ok = runMode ? runItems.filter(i => i.result === 'correct').length : sessionOk;
+  const no = runMode ? runItems.filter(i => i.result === 'wrong').length : sessionNo;
+  const seen = ok + no;
+  const rem = runMode ? runItems.filter(i => !i.result).length : 0;
+  document.getElementById('pill-ok').textContent = ok+'✓';
+  document.getElementById('pill-no').textContent = no+'✗';
+  if (runMode) {
+    document.getElementById('pill-rem').textContent = rem + ' left';
+  } else {
+    const freeRem = allProblems.length > 0 ? allProblems.length - (sessionOk + sessionNo) : 0;
+    document.getElementById('pill-rem').textContent = allProblems.length > 0 ? freeRem + ' left' : '—';
+  }
+  document.getElementById('st-ok').textContent = ok;
+  document.getElementById('st-no').textContent = no;
+  document.getElementById('st-seen').textContent = seen;
+  document.getElementById('st-pct').textContent = seen>0 ? Math.round(ok/seen*100)+'%' : '—';
+}
+
+// ── Controls ──
+document.getElementById('btn-next').addEventListener('click', () => {
+  if (runMode) return;
+  nextProblem();
+});
+document.getElementById('btn-restart').addEventListener('click', () => { if (window._studyRestart) window._studyRestart(); });
+document.getElementById('btn-back').addEventListener('click', () => { if (window._studyBack) window._studyBack(); });
+
+window.addEventListener('keydown', e => {
+  if ((e.code==='Enter'||e.code==='Space') && waitingForNext && !runMode) { e.preventDefault(); nextProblem(); }
+  if (e.altKey&&e.code==='KeyN'&&!runMode) { e.preventDefault(); nextProblem(); }
+  if (e.code==='KeyP') { e.preventDefault(); togglePause(); }
+});
+
+// ── Sync UI ──
+document.getElementById('sync-url').value = SYNC_SERVER;
+document.getElementById('sync-url').addEventListener('change', e => {
+  SYNC_SERVER = e.target.value.trim().replace(/\/$/, '');
+  localStorage.setItem(SYNC_SERVER_KEY, SYNC_SERVER);
+});
+document.getElementById('sync-btn').addEventListener('click', async () => {
+  if (syncInProgress) return;
+  syncInProgress = true;
+  setSyncStatus('syncing');
+  try {
+    await doSync();
+    setSyncStatus('ok');
+    loadCollections();
+    if (activeRunId) runItems = localGetRunItems(activeRunId);
+    if (document.querySelector('.tab[data-tab="runs"].active')) loadRuns();
+  } catch(e) {
+    setSyncStatus('idle');
+    alert('Sync error: ' + e.message);
+  } finally {
+    syncInProgress = false;
+  }
+});
+
+// ── Tabs ──
+function switchTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab===name));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id===`tab-${name}`));
+}
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  const name = t.dataset.tab;
+  switchTab(name);
+  if (name === 'runs') loadRuns();
+  if (name === 'collections') refreshCollectionStats();
+}));
+
+// ── Resize ──
+let rsTO;
+window.addEventListener('resize', ()=>{ clearTimeout(rsTO); rsTO=setTimeout(()=>{ if (wgoBoard&&currentProblem) { initBoard(currentProblem.size||19); renderProblem(currentProblem); } },200); });
+
+// ── Init ──
+(async () => {
+  await initDB();
+  loadCollections();
+})();
+// ── Service Worker ──
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(() => {});
+}
+
+function precacheSgfs() {
+  if (!('serviceWorker' in navigator)) return;
+  const urls = dbQuery('SELECT sgf_path FROM problems WHERE sgf_exists=1', [])
+    .map(r => '/' + r.sgf_path.replace(/\\/g, '/'));
+  navigator.serviceWorker.ready.then(reg => {
+    reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls });
+  });
+}
+</script>
+</body>
+</html>
