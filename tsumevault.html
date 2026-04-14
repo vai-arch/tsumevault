@@ -517,10 +517,22 @@ async function initDB() {
     return true;
   } catch(e) {
     console.warn('[DB] Servidor no disponible:', e.message);
-    // Crear DB vacía — la app funcionará sin datos hasta que haya sync
-    db = new SQL.Database();
-    createSchema();
-    return false;
+    // Fallback: intentar descargar DB binaria desde GitHub Pages
+    try {
+      const r2 = await fetch('/tsumevault/tsumeVault.db', { signal: AbortSignal.timeout(15000) });
+      if (!r2.ok) throw new Error(r2.status);
+      const buf = await r2.arrayBuffer();
+      db = new SQL.Database(new Uint8Array(buf));
+      try { dbExec("ALTER TABLE runs ADD COLUMN uuid TEXT"); } catch(e) {}
+      await saveDB();
+      console.log('[DB] Cargada desde DB estática de GitHub Pages');
+      return true;
+    } catch(e2) {
+      console.warn('[DB] DB estática no disponible:', e2.message);
+      db = new SQL.Database();
+      createSchema();
+      return false;
+    }
   }
 }
 
