@@ -1,15 +1,15 @@
 const CACHE_VERSION = 'tsumevault-v1';
 
 const STATIC_ASSETS = [
-  '/tsumevault.html',
-  '/wgo/wgo.min.js',
-  '/wgo/sgfparser.js',
-  '/wgo/kifu.js',
-  '/audio/stone.mp3',
-  '/audio/right.mp3',
-  '/audio/wrong.mp3',
-  '/icons/icon-192.png',
-  '/icons/icon-512.png',
+  '/tsumevault/tsumevault.html',
+  '/tsumevault/wgo/wgo.min.js',
+  '/tsumevault/wgo/sgfparser.js',
+  '/tsumevault/wgo/kifu.js',
+  '/tsumevault/audio/stone.mp3',
+  '/tsumevault/audio/right.mp3',
+  '/tsumevault/audio/wrong.mp3',
+  '/tsumevault/icons/icon-192.png',
+  '/tsumevault/icons/icon-512.png',
 ];
 
 // Instalación: cachear assets estáticos
