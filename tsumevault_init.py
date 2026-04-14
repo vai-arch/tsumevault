@@ -55,6 +55,7 @@ CREATE TABLE IF NOT EXISTS chapters (
     source          TEXT    NOT NULL,
     set_id          INTEGER NOT NULL,
     chapter_num     INTEGER NOT NULL,
+    name            TEXT,
     diff_min        INTEGER,
     diff_max        INTEGER,
     diff_avg        INTEGER,
@@ -242,39 +243,77 @@ def import_source(con, source_info):
 
         # ── Colección nueva ──
         on_disk = 0
-        if os.path.isdir(folder_path):
-            on_disk = sum(1 for f in os.listdir(folder_path) if f.lower().endswith('.sgf'))
 
-        def sort_key(p):
-            d = parse_difficulty_num(p.get('difficultyRaw'))
-            return (d if d is not None else 0, p['problemId'])
+        if 'chapters' in col:
+            # ── Formato con capítulos pre-definidos (ej: guo_juan) ──
+            chapters = []
+            for chap_num, chap_json in enumerate(col['chapters'], 1):
+                # Normalizar campos de problema (difficulty_raw/difficulty_num en vez de difficultyRaw)
+                norm_problems = []
+                for p in chap_json.get('problems', []):
+                    norm_problems.append({
+                        'problemId'    : p['problemId'],
+                        'difficultyRaw': p.get('difficulty_raw') or p.get('difficultyRaw'),
+                        'difficultyNum': p.get('difficulty_num') or parse_difficulty_num(p.get('difficultyRaw')),
+                        'lessonId'     : p.get('lessonId'),
+                    })
+                diffs = [p['difficultyNum'] for p in norm_problems if p['difficultyNum'] is not None]
+                avg_diff = snap_to_rank(sum(diffs) / len(diffs)) if diffs else None
+                chapters.append({
+                    'chapter_num': chap_num,
+                    'name':        chap_json.get('name', f'Ch {chap_num}'),
+                    'diff_min':    min(diffs) if diffs else None,
+                    'diff_max':    max(diffs) if diffs else None,
+                    'diff_avg':    avg_diff,
+                    'problems':    norm_problems,
+                    'folder':      str(chap_json.get('chapterId', set_id)),
+                })
 
-        problems_sorted = sorted(problems, key=sort_key)
+            # on_disk: contar SGFs en todas las carpetas de capítulos
+            for chap in chapters:
+                chap_folder = os.path.join(problems_dir, chap['folder'])
+                if os.path.isdir(chap_folder):
+                    on_disk += sum(1 for f in os.listdir(chap_folder) if f.lower().endswith('.sgf'))
 
-        # Agrupar en capítulos
-        raw_chunks = []
-        for i in range(0, len(problems_sorted), CHAPTER_SIZE):
-            raw_chunks.append(problems_sorted[i:i + CHAPTER_SIZE])
-        if len(raw_chunks) > 1 and len(raw_chunks[-1]) < CHAPTER_MIN:
-            raw_chunks[-2] = raw_chunks[-2] + raw_chunks[-1]
-            raw_chunks.pop()
+            all_diffs = [p['difficultyNum'] for chap in chapters for p in chap['problems'] if p['difficultyNum'] is not None]
+            col_diff_num = snap_to_rank(sum(all_diffs) / len(all_diffs)) if all_diffs else None
 
-        chapters = []
-        for chunk in raw_chunks:
-            diffs = [parse_difficulty_num(p.get('difficultyRaw')) for p in chunk]
-            diffs = [d for d in diffs if d is not None]
-            avg_diff = snap_to_rank(sum(diffs) / len(diffs)) if diffs else None
-            chapters.append({
-                'chapter_num': len(chapters) + 1,
-                'diff_min':    min(diffs) if diffs else None,
-                'diff_max':    max(diffs) if diffs else None,
-                'diff_avg':    avg_diff,
-                'problems':    chunk,
-            })
+        else:
+            # ── Formato tsumego_hero: calcular capítulos por bloques de 50 ──
+            if os.path.isdir(folder_path):
+                on_disk = sum(1 for f in os.listdir(folder_path) if f.lower().endswith('.sgf'))
 
-        all_diffs = [parse_difficulty_num(p.get('difficultyRaw')) for p in problems_sorted]
-        all_diffs = [d for d in all_diffs if d is not None]
-        col_diff_num = snap_to_rank(sum(all_diffs) / len(all_diffs)) if all_diffs else parse_difficulty_num(diff_raw)
+            def sort_key(p):
+                d = parse_difficulty_num(p.get('difficultyRaw'))
+                return (d if d is not None else 0, p['problemId'])
+
+            problems_sorted = sorted(problems, key=sort_key)
+
+            raw_chunks = []
+            for i in range(0, len(problems_sorted), CHAPTER_SIZE):
+                raw_chunks.append(problems_sorted[i:i + CHAPTER_SIZE])
+            if len(raw_chunks) > 1 and len(raw_chunks[-1]) < CHAPTER_MIN:
+                raw_chunks[-2] = raw_chunks[-2] + raw_chunks[-1]
+                raw_chunks.pop()
+
+            chapters = []
+            for chunk in raw_chunks:
+                diffs = [parse_difficulty_num(p.get('difficultyRaw')) for p in chunk]
+                diffs = [d for d in diffs if d is not None]
+                avg_diff = snap_to_rank(sum(diffs) / len(diffs)) if diffs else None
+                chapters.append({
+                    'chapter_num': len(chapters) + 1,
+                    'name':        f'Ch {len(chapters) + 1}',
+                    'diff_min':    min(diffs) if diffs else None,
+                    'diff_max':    max(diffs) if diffs else None,
+                    'diff_avg':    avg_diff,
+                    'problems':    chunk,
+                    'folder':      folder_name,
+                })
+
+            all_diffs = [parse_difficulty_num(p.get('difficultyRaw')) for p in problems_sorted]
+            all_diffs = [d for d in all_diffs if d is not None]
+            col_diff_num = snap_to_rank(sum(all_diffs) / len(all_diffs)) if all_diffs else parse_difficulty_num(diff_raw)
 
         con.execute("""
             INSERT INTO collections
@@ -287,22 +326,25 @@ def import_source(con, source_info):
 
         for chap in chapters:
             cur = con.execute("""
-                INSERT INTO chapters (source, set_id, chapter_num, diff_min, diff_max, diff_avg, problem_count)
-                VALUES (?, ?, ?, ?, ?, ?, ?)
-            """, (source, set_id, chap['chapter_num'],
+                INSERT INTO chapters (source, set_id, chapter_num, name, diff_min, diff_max, diff_avg, problem_count)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, (source, set_id, chap['chapter_num'], chap['name'],
                   chap['diff_min'], chap['diff_max'], chap['diff_avg'], len(chap['problems'])))
             chapter_id = cur.lastrowid
             chap_new += 1
 
+            chap_folder      = chap['folder']
+            chap_folder_path = os.path.join(problems_dir, chap_folder)
+
             for order, p in enumerate(chap['problems'], 1):
                 problem_id = p['problemId']
                 p_diff_raw = p.get('difficultyRaw')
-                p_diff_num = parse_difficulty_num(p_diff_raw)
+                p_diff_num = p.get('difficultyNum') or parse_difficulty_num(p_diff_raw)
 
                 sgf_filename = f"{problem_id}.sgf"
-                sgf_abs      = os.path.join(folder_path, sgf_filename)
+                sgf_abs      = os.path.join(chap_folder_path, sgf_filename)
                 sgf_rel      = os.path.join(source, 'problems_std',
-                                            folder_name, sgf_filename).replace('\\', '/')
+                                            chap_folder, sgf_filename).replace('\\', '/')
                 sgf_exists   = 1 if os.path.isfile(sgf_abs) else 0
                 color        = detect_color_to_play(sgf_abs) if sgf_exists else None
 
@@ -338,6 +380,24 @@ def main():
     con.execute("PRAGMA foreign_keys=ON")
     con.executescript(SCHEMA)
     con.executescript(SCHEMA_VIEW)
+
+    # Migración: añadir columna name a chapters si no existe
+    cols = [r[1] for r in con.execute("PRAGMA table_info(chapters)").fetchall()]
+    if 'name' not in cols:
+        con.execute("ALTER TABLE chapters ADD COLUMN name TEXT")
+        con.execute("UPDATE chapters SET name = 'Ch ' || chapter_num WHERE name IS NULL")
+        con.commit()
+        print("Migración: columna 'name' añadida a chapters")
+        # Borrar capítulos y problemas de sources con capítulos pre-definidos para reimportar con nombres
+        for s_info in sources:
+            s = s_info['source']
+            col_data = json.load(open(s_info['collections_file'], encoding='utf-8'))
+            if col_data and 'chapters' in col_data[0]:
+                con.execute("DELETE FROM problems WHERE source=?", (s,))
+                con.execute("DELETE FROM chapters WHERE source=?", (s,))
+                con.execute("DELETE FROM collections WHERE source=?", (s,))
+                con.commit()
+                print(f"  Reimportando {s} con nombres de capítulos...")
 
     for source_info in sources:
         import_source(con, source_info)
