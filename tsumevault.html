@@ -973,22 +973,31 @@ async function doSync(lightMode = false) {
 }
 
 function setSyncStatus(state) {
-  const el = document.getElementById('sync-status');
   const btn = document.getElementById('sync-btn');
-  if (!el) return;
+  if (!btn) return;
   if (state === 'syncing') {
-    el.textContent = '↻ Syncing…'; el.style.color = 'var(--gold)';
-    if (btn) btn.style.display = 'none';
+    btn.textContent = '↻ Syncing…';
+    btn.style.color = 'var(--gold)';
+    btn.style.borderColor = 'var(--gold-dim)';
+    btn.disabled = true;
   } else if (state === 'ok') {
-    el.textContent = '✓ Synced'; el.style.color = 'var(--ok-bright)';
-    if (btn) btn.style.display = 'none';
-    setTimeout(()=>{ el.textContent=''; if (btn) btn.style.display=''; }, 3000);
+    btn.textContent = '✓ Synced';
+    btn.style.color = 'var(--ok-bright)';
+    btn.style.borderColor = 'var(--ok-bright)';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = '↻ Sync';
+      btn.style.color = '';
+      btn.style.borderColor = '';
+      btn.disabled = false;
+    }, 3000);
   } else {
-    el.textContent = '';
-    if (btn) btn.style.display = '';
+    btn.textContent = '↻ Sync';
+    btn.style.color = '';
+    btn.style.borderColor = '';
+    btn.disabled = false;
   }
 }
-
 // ══════════════════════════════════════════════════════════════
 //  COLLECTIONS TAB
 // ══════════════════════════════════════════════════════════════
