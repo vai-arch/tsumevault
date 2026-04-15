@@ -219,9 +219,9 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
       style="font-family:var(--mono);font-size:9px;background:transparent;border:1px solid var(--border2);color:var(--dim);padding:3px 8px;border-radius:2px;width:190px;margin-right:6px;"
       placeholder="http://192.168.1.x:3002">
     <button id="sync-btn"
-      style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:3px 12px;background:transparent;border:1px solid var(--gold-dim);color:var(--gold);cursor:pointer;border-radius:2px;margin-right:10px;">
-      ↻ Sync
-    </button>
+	  style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:3px 12px;width:80px;background:transparent;border:1px solid var(--gold-dim);color:var(--gold);cursor:pointer;border-radius:2px;margin-right:10px;">
+	  ↻ Sync
+	</button>
     <div id="session-pill">
 	  <span>Session</span>
 	  <span class="s-ok" id="pill-ok">0✓</span>
@@ -368,6 +368,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
       <div class="sb-row">%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="vg" id="ps-pct">—</span></div>
       <div class="sb-row">Avg time <span class="v" id="ps-ms">—</span></div>
     </div>
+	<div style="padding:8px 14px;font-family:var(--mono);font-size:7px;color:var(--dim2);letter-spacing:.1em;margin-top:auto;">v3</div>
   </aside>
 </div>
 
@@ -976,7 +977,7 @@ function setSyncStatus(state) {
   const btn = document.getElementById('sync-btn');
   if (!btn) return;
   if (state === 'syncing') {
-    btn.textContent = '↻ Syncing…';
+    btn.textContent = 'Syncin';
     btn.style.color = 'var(--gold)';
     btn.style.borderColor = 'var(--gold-dim)';
     btn.disabled = true;
@@ -987,14 +988,14 @@ function setSyncStatus(state) {
     btn.disabled = true;
     setTimeout(() => {
       btn.textContent = '↻ Sync';
-      btn.style.color = '';
-      btn.style.borderColor = '';
+      btn.style.color = 'var(--gold)';
+      btn.style.borderColor = 'var(--gold)';
       btn.disabled = false;
     }, 3000);
   } else {
     btn.textContent = '↻ Sync';
-    btn.style.color = '';
-    btn.style.borderColor = '';
+    btn.style.color = 'var(--gold)';
+    btn.style.borderColor = 'var(--gold)';
     btn.disabled = false;
   }
 }
