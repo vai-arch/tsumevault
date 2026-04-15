@@ -384,7 +384,7 @@ const DB_KEY      = 'tsumeVault_db';
 const SYNC_SERVER_KEY = 'sync_server_url';
 
 // URL del servidor de sync (editable en UI, guardada en localStorage)
-let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'http://localhost:3002';
+let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'http://192.168.0.50:3002';
 
 // ── State ──
 let SQL = null;       // sql.js module
@@ -399,6 +399,7 @@ let waitingForNext = false;
 let sessionOk = 0, sessionNo = 0;
 let lastRunStatsAll = {};
 let attemptsSinceLastSave = 0;
+let lightMode = false;
 	
 let currentSource = 'tsumego_hero';
 const SGF_BASE = '/tsumevault/';
@@ -509,6 +510,7 @@ async function initDB() {
     // Asegurar columna uuid en runs (migración)
     try { dbExec("ALTER TABLE runs ADD COLUMN uuid TEXT"); } catch(e) {}
 	try { dbExec("ALTER TABLE chapters ADD COLUMN name TEXT"); } catch(e) {}
+	try { dbExec("ALTER TABLE attempts ADD COLUMN uuid TEXT"); } catch(e) {}
     return true;
   }
 
@@ -574,7 +576,7 @@ function createSchema() {
     CREATE TABLE IF NOT EXISTS attempts (
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
       problem_id TEXT NOT NULL, run_id INTEGER, result TEXT NOT NULL,
-      time_ms INTEGER, created_at TEXT NOT NULL
+      time_ms INTEGER, created_at TEXT NOT NULL, uuid TEXT
     );
     CREATE TABLE IF NOT EXISTS runs (
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
@@ -828,10 +830,11 @@ function localGetRunItems(run_id) {
 
 function localInsertAttempt(source, problem_id, run_id, result, time_ms) {
   const created_at = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+  const uuid = makeUUID();
   dbExec(`
-    INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at)
-    VALUES (?,?,?,?,?,?)
-  `, [source, problem_id, run_id ?? null, result, time_ms ?? null, created_at]);
+    INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at, uuid)
+    VALUES (?,?,?,?,?,?,?)
+    `, [source, problem_id, run_id ?? null, result, time_ms ?? null, created_at, uuid]);
   if (run_id) {
     dbExec(`UPDATE runs SET done=done+1 WHERE id=?`, [run_id]);
     dbExec(`
@@ -899,25 +902,24 @@ async function tryAutoSync(silent = false) {
     syncInProgress = false;
   }
 }
-
 async function doSync(lightMode = false) {
-  // 1. Obtener IDs máximos que el servidor ya conoce (los nuestros)
-  const maxAttemptId = dbQueryOne('SELECT MAX(id) AS m FROM attempts', [])?.m || 0;
-  const maxRunId     = dbQueryOne('SELECT MAX(id) AS m FROM runs', [])?.m || 0;
+  // 1. IDs máximos de lo que vino del servidor (uuid IS NULL = importado, no generado localmente)
+  const maxServerAttemptId = dbQueryOne('SELECT MAX(id) AS m FROM attempts WHERE uuid IS NULL', [])?.m || 0;
+  const maxServerRunId     = dbQueryOne('SELECT MAX(id) AS m FROM runs WHERE uuid IS NULL', [])?.m || 0;
 
   // 2. Pull: traer lo nuevo del servidor
-  const pullR = await fetch(`${SYNC_SERVER}/sync/pull?since_attempt_id=${maxAttemptId}&since_run_id=${maxRunId}`,
+  const pullR = await fetch(`${SYNC_SERVER}/sync/pull?since_attempt_id=${maxServerAttemptId}&since_run_id=${maxServerRunId}`,
     { signal: AbortSignal.timeout(8000) });
   if (!pullR.ok) throw new Error('pull failed');
   const pulled = await pullR.json();
 
   // Insertar attempts del servidor que no tengamos
   const stmtA = db.prepare(`
-    INSERT OR IGNORE INTO attempts (id, source, problem_id, run_id, result, time_ms, created_at)
-    VALUES (?,?,?,?,?,?,?)
+    INSERT OR IGNORE INTO attempts (id, source, problem_id, run_id, result, time_ms, created_at, uuid)
+    VALUES (?,?,?,?,?,?,?,?)
   `);
   for (const a of pulled.attempts) {
-    stmtA.run([a.id, a.source, a.problem_id, a.run_id, a.result, a.time_ms, a.created_at]);
+    stmtA.run([a.id, a.source, a.problem_id, a.run_id, a.result, a.time_ms, a.created_at, a.uuid ?? null]);
   }
   stmtA.free();
 
@@ -930,7 +932,7 @@ async function doSync(lightMode = false) {
       dbExec(`INSERT OR IGNORE INTO runs (id,source,set_id,chapter_id,vc_id,type,status,total,done,started_at,closed_at,uuid)
         VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
         [r.id, r.source, r.set_id, r.chapter_id, r.vc_id, r.type, r.status,
-         r.total, r.done, r.started_at, r.closed_at, r.uuid]);
+         r.total, r.done, r.started_at, r.closed_at, r.uuid ?? null]);
       for (const ri of (pulled.run_items || []).filter(i => i.run_id === r.id)) {
         dbExec(`INSERT OR IGNORE INTO run_items (run_id,source,problem_id,order_in_run,result) VALUES (?,?,?,?,?)`,
           [ri.run_id, ri.source, ri.problem_id, ri.order_in_run, ri.result]);
@@ -938,10 +940,10 @@ async function doSync(lightMode = false) {
     }
   }
 
-  // 3. Push: mandar nuestros attempts/runs nuevos (id > lo que el servidor tenía)
-  const newAttempts = dbQuery('SELECT * FROM attempts WHERE id > ?', [maxAttemptId])
+  // 3. Push: solo lo generado localmente (uuid IS NOT NULL)
+  const newAttempts = dbQuery('SELECT * FROM attempts WHERE uuid IS NOT NULL', [])
     .map(a => ({ ...a, client_id: a.id }));
-  const newRuns = dbQuery('SELECT * FROM runs WHERE id > ? AND uuid IS NOT NULL', [maxRunId])
+  const newRuns = dbQuery('SELECT * FROM runs WHERE uuid IS NOT NULL', [])
     .map(r => ({
       ...r,
       run_items: dbQuery('SELECT * FROM run_items WHERE run_id=?', [r.id])
@@ -1749,7 +1751,6 @@ function recordAttempt(result) {
 
   function onBoardClick(x,y) {
     clearGhost();  // ← añadir esta línea
-	console.log('paso 1');
     if (answered||waitingForNext) return;
 	if (wgoBoard.obj_arr[x][y]&&wgoBoard.obj_arr[x][y].some(o=>(o.c===1||o.c===-1)&&o.type!=='outline')) return;
 	
