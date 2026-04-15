@@ -341,10 +341,12 @@ def import_source(con, source_info):
                 p_diff_raw = p.get('difficultyRaw')
                 p_diff_num = p.get('difficultyNum') or parse_difficulty_num(p_diff_raw)
 
+                lesson_folder     = str(p.get('lessonId', chap_folder))
+                lesson_folder_path = os.path.join(problems_dir, lesson_folder)
                 sgf_filename = f"{problem_id}.sgf"
-                sgf_abs      = os.path.join(chap_folder_path, sgf_filename)
+                sgf_abs      = os.path.join(lesson_folder_path, sgf_filename)
                 sgf_rel      = os.path.join(source, 'problems_std',
-                                            chap_folder, sgf_filename).replace('\\', '/')
+                                            lesson_folder, sgf_filename).replace('\\', '/')
                 sgf_exists   = 1 if os.path.isfile(sgf_abs) else 0
                 color        = detect_color_to_play(sgf_abs) if sgf_exists else None
 
