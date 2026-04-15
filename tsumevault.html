@@ -136,14 +136,14 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
   }
   #left{
     display:none;
-    position:fixed;inset:0;z-index:100;
+    position:fixed;inset:0;z-index:200;
     width:300px;
     border-right:1px solid var(--border);
     box-shadow:4px 0 24px rgba(0,0,0,.7);
   }
   #left.mob-visible{display:flex;}
-  #mob-overlay{display:none;position:fixed;inset:0;z-index:99;background:rgba(0,0,0,.55);}
-  #mob-overlay.mob-visible{display:block;}
+  #mob-overlay{display:none;position:fixed;inset:0;z-index:199;background:rgba(0,0,0,.55);pointer-events:none;}
+  #mob-overlay.mob-visible{display:block;pointer-events:all;}
   #menu-btn{display:block;}
   #sidebar{display:flex;}
 }
@@ -368,7 +368,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
       <div class="sb-row">%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="vg" id="ps-pct">—</span></div>
       <div class="sb-row">Avg time <span class="v" id="ps-ms">—</span></div>
     </div>
-	<div style="padding:8px 14px;font-family:var(--mono);font-size:7px;color:var(--dim2);letter-spacing:.1em;margin-top:auto;">v3</div>
+	<div style="padding:8px 14px;font-family:var(--mono);font-size:7px;color:var(--dim2);letter-spacing:.1em;position:sticky;bottom:0;background:var(--panel);">v4</div>
   </aside>
 </div>
 
@@ -1984,25 +1984,26 @@ function switchToPanel() {
     document.getElementById('app').classList.remove('mob-board');
   }
 }
-
 function toggleMobilePanel() {
   if (isMobilePortrait()) {
-    // On portrait: toggle between panel and board views
     const inBoard = document.getElementById('app').classList.contains('mob-board');
     if (inBoard) { switchToPanel(); }
     else if (currentProblem) { switchToBoard(); }
   } else if (isTablet()) {
-    // On tablet: slide the left panel in/out as overlay
     const left = document.getElementById('left');
     const ov   = document.getElementById('mob-overlay');
     const open = left.classList.toggle('mob-visible');
     ov.classList.toggle('mob-visible', open);
+    document.getElementById('board-wrap').style.pointerEvents = open ? 'none' : '';
+    document.querySelectorAll('#board-wrap canvas').forEach(c => c.style.zIndex = open ? '1' : '');
   }
 }
 
 function closeMobilePanel() {
   document.getElementById('left').classList.remove('mob-visible');
   document.getElementById('mob-overlay').classList.remove('mob-visible');
+  document.getElementById('board-wrap').style.pointerEvents = '';
+  document.querySelectorAll('#board-wrap canvas').forEach(c => c.style.zIndex = '');
 }
 
 // ── Patch: switch to board view when a problem loads on mobile ──
