@@ -784,7 +784,7 @@ function localGetDifficultyRange(source) {
 }
 
 function localGetStruggling(source, { set_id, chapter_id } = {}, n = 3) {
-  let sql = 'SELECT problem_id FROM problems WHERE source=? AND sgf_exists=1';
+  let sql = 'SELECT problem_id FROM problems WHERE source=?';
   const params = [source];
   if (chapter_id) { sql += ' AND chapter_id=?'; params.push(chapter_id); }
   else if (set_id) { sql += ' AND set_id=?'; params.push(set_id); }
@@ -804,7 +804,7 @@ function localGetRuns(source) {
   return dbQuery(`
     SELECT r.*,
       CASE
-        WHEN r.chapter_id IS NOT NULL THEN c.name || ' · Ch ' || ch.chapter_num
+        WHEN r.chapter_id IS NOT NULL THEN c.name || ' · ' || ch.name
         WHEN r.set_id IS NOT NULL THEN c.name
         ELSE 'Run #' || r.id
       END AS label
@@ -852,9 +852,9 @@ function localInsertRun(source, type, { set_id, chapter_id } = {}) {
   // Obtener problemas
   let rows;
   if (type === 'chapter' && chapter_id) {
-    rows = dbQuery(`SELECT source, problem_id FROM problems WHERE chapter_id=? AND sgf_exists=1 ORDER BY order_in_chapter`, [chapter_id]);
+    rows = dbQuery(`SELECT source, problem_id FROM problems WHERE chapter_id=? ORDER BY order_in_chapter`, [chapter_id]);
   } else if (type === 'collection' && set_id) {
-    rows = dbQuery(`SELECT source, problem_id FROM problems WHERE source=? AND set_id=? AND sgf_exists=1 ORDER BY order_in_chapter`, [source, set_id]);
+    rows = dbQuery(`SELECT source, problem_id FROM problems WHERE source=? AND set_id=? ORDER BY order_in_chapter`, [source, set_id]);
   } else {
     return null;
   }
@@ -1153,7 +1153,7 @@ async function toggleCollection(col, item) {
       ci.querySelector('.chap-btn').addEventListener('click', e => {
         e.stopPropagation();
         startRun({ source:currentSource, type:'chapter', chapter_id: chap.id,
-                   colName: col.name, chapNum: chap.chapter_num });
+           colName: col.name, chapName: chap.name, chapNum: chap.chapter_num });
       });
       chapDiv.appendChild(ci);
     }
@@ -1186,8 +1186,8 @@ async function startRun(opts) {
     sessionOk = 0; sessionNo = 0;
 
     const label = opts.colName
-      ? (opts.chapNum ? `${opts.colName} · Ch ${opts.chapNum}` : opts.colName)
-      : 'Run';
+	  ? (opts.chapNum ? `${opts.colName} · Ch ${opts.chapNum}` : opts.colName)
+	  : 'Run';
     document.getElementById('rp-title').textContent = label;
     document.getElementById('run-progress').style.display = 'block';
     document.getElementById('pill-total').textContent = '';
@@ -2051,7 +2051,7 @@ if ('serviceWorker' in navigator) {
 
 function precacheSgfs() {
   if (!('serviceWorker' in navigator)) return;
-  const urls = dbQuery('SELECT sgf_path FROM problems WHERE sgf_exists=1', [])
+  const urls = dbQuery('SELECT sgf_path FROM problems WHERE sgf_path IS NOT NULL', [])
     .map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
   navigator.serviceWorker.ready.then(reg => {
     reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls });

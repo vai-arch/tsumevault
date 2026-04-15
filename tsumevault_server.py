@@ -309,15 +309,15 @@ def handle_get_struggling(qs):
     with db_connect() as con:
         if chapter_id:
             scope_rows = con.execute(
-                "SELECT problem_id FROM problems WHERE source=? AND chapter_id=? AND sgf_exists=1",
+                "SELECT problem_id FROM problems WHERE source=? AND chapter_id=?",
                 (source, int(chapter_id))).fetchall()
         elif set_id:
             scope_rows = con.execute(
-                "SELECT problem_id FROM problems WHERE source=? AND set_id=? AND sgf_exists=1",
+                "SELECT problem_id FROM problems WHERE source=? AND set_id=?",
                 (source, int(set_id))).fetchall()
         else:
             scope_rows = con.execute(
-                "SELECT problem_id FROM problems WHERE source=? AND sgf_exists=1",
+                "SELECT problem_id FROM problems WHERE source=?",
                 (source,)).fetchall()
         scope_ids = [r[0] for r in scope_rows]
         if not scope_ids:
@@ -408,11 +408,11 @@ def handle_post_run(body):
                 set_id = row[0]
         if run_type == 'chapter' and chapter_id:
             rows = con.execute(
-                "SELECT source, problem_id FROM problems WHERE chapter_id=? AND sgf_exists=1 ORDER BY order_in_chapter",
+                "SELECT source, problem_id FROM problems WHERE chapter_id=? ORDER BY order_in_chapter",
                 (int(chapter_id),)).fetchall()
         elif run_type == 'collection' and set_id:
             rows = con.execute(
-                "SELECT source, problem_id FROM problems WHERE source=? AND set_id=? AND sgf_exists=1 ORDER BY order_in_chapter",
+                "SELECT source, problem_id FROM problems WHERE source=? AND set_id=? ORDER BY order_in_chapter",
                 (source, int(set_id))).fetchall()
         elif run_type == 'virtual' and vc_id:
             rows = con.execute(
