@@ -54,13 +54,17 @@ def rows_to_list(rows):
 # ── Migration ────────────────────────────────────────────────────────────────
 
 def migrate_db():
-    """Aplica migraciones seguras (idempotentes)."""
-    with db_connect() as con:
-        cols = [r[1] for r in con.execute("PRAGMA table_info(runs)").fetchall()]
-        if 'uuid' not in cols:
-            con.execute("ALTER TABLE runs ADD COLUMN uuid TEXT")
-            con.commit()
-            print("[migrate] Columna uuid añadida a runs.")
+     with db_connect() as con:
+         cols = [r[1] for r in con.execute("PRAGMA table_info(runs)").fetchall()]
+         if 'uuid' not in cols:
+             con.execute("ALTER TABLE runs ADD COLUMN uuid TEXT")
+             con.commit()
+             print("[migrate] Columna uuid añadida a runs.")
+         cols_a = [r[1] for r in con.execute("PRAGMA table_info(attempts)").fetchall()]
+         if 'uuid' not in cols_a:
+             con.execute("ALTER TABLE attempts ADD COLUMN uuid TEXT")
+             con.commit()
+             print("[migrate] Columna uuid añadida a attempts.")
 
 # ── GET handlers ──────────────────────────────────────────────────────────────
 
@@ -494,7 +498,7 @@ def handle_sync_pull(qs):
 def handle_sync_push(body):
     """
     Recibe attempts y runs del móvil e inserta los que no existen.
-    - attempts: deduplicados por (source, problem_id, created_at)
+    - attempts: deduplicados por uuid (si existe) o por (source, problem_id, created_at)
     - runs: deduplicados por uuid
     Devuelve IDs asignados por el servidor para que el móvil actualice su DB.
     """
@@ -507,17 +511,23 @@ def handle_sync_push(body):
     with db_connect() as con:
         # ── Attempts ──
         for a in attempts_in:
-            existing = con.execute(
-                "SELECT id FROM attempts WHERE source=? AND problem_id=? AND created_at=?",
-                (a['source'], a['problem_id'], a['created_at'])
-            ).fetchone()
+            uuid = a.get('uuid')
+            if uuid:
+                existing = con.execute(
+                    "SELECT id FROM attempts WHERE uuid=?", (uuid,)
+                ).fetchone()
+            else:
+                existing = con.execute(
+                    "SELECT id FROM attempts WHERE source=? AND problem_id=? AND created_at=?",
+                    (a['source'], a['problem_id'], a['created_at'])
+                ).fetchone()
             if existing:
                 inserted_attempts.append({'client_id': a.get('client_id'), 'server_id': existing[0]})
                 continue
             cur = con.execute(
-                "INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at) VALUES (?,?,?,?,?,?)",
-                (a['source'], a['problem_id'], None,  # run_id se resuelve después
-                 a['result'], a.get('time_ms'), a['created_at'])
+                "INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at, uuid) VALUES (?,?,?,?,?,?,?)",
+                (a['source'], a['problem_id'], None,
+                 a['result'], a.get('time_ms'), a['created_at'], uuid)
             )
             inserted_attempts.append({'client_id': a.get('client_id'), 'server_id': cur.lastrowid})
 
@@ -551,8 +561,7 @@ def handle_sync_push(body):
         con.commit()
 
     return {'ok': True, 'attempts': inserted_attempts, 'runs': inserted_runs}
-
-
+    
 GET_ROUTES = {
     '/db/collections':        handle_get_collections,
     '/db/chapters':           handle_get_chapters,
@@ -645,8 +654,6 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
-    def log_message(self, fmt, *args):
-        pass
 
 
 if __name__ == '__main__':

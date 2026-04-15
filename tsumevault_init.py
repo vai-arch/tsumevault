@@ -86,7 +86,8 @@ CREATE TABLE IF NOT EXISTS attempts (
     run_id      INTEGER,
     result      TEXT    NOT NULL,
     time_ms     INTEGER,
-    created_at  TEXT    NOT NULL
+    created_at  TEXT    NOT NULL,
+    uuid        TEXT
 );
 
 CREATE TABLE IF NOT EXISTS runs (
