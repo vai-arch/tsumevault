@@ -90,7 +90,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--s
 #main{grid-area:main;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:visible;}
 #board-wrap{position:relative;box-shadow:0 0 0 1px var(--gold-dim),0 12px 48px rgba(0,0,0,.75);border-radius:1px;flex-shrink:0;}#board-wrap canvas{display:block;}
 #board-hint{height:28px;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:var(--dim);text-transform:uppercase;}
-#comment-box{width:100%;max-width:560px;min-height:32px;padding:7px 14px;background:rgba(22,20,16,.9);border-top:1px solid var(--border);font-family:var(--serif);font-size:12px;line-height:1.6;color:var(--text);text-align:center;display:none;}
+#comment-box{width:100%;max-width:560px;min-height:32px;padding:7px 14px;background:rgba(22,20,16,.9);border-top:1px solid var(--border);font-family:var(--serif);font-size:12px;line-height:1.6;color:var(--text);text-align:center;display:block;}
 #result-flash{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--mono);font-size:48px;pointer-events:none;opacity:0;transition:opacity .15s;}
 #result-flash.show{opacity:1;}
 #result-flash.hide{opacity:0;transition:opacity .6s;}
@@ -1429,7 +1429,6 @@ async function loadAndRender(probMeta) {
     if (!prob || !prob.sgf_path) { nextProblem(); return; }
 
     const sgfPath = SGF_BASE + prob.sgf_path.replace(/\\/g, '/');
-	console.log('prob.sgf_path:', prob.sgf_path, 'sgfPath:', sgfPath);
     const res = await fetch(sgfPath);
     if (!res.ok) throw new Error('SGF not found');
     const sgf = await res.text();
@@ -1528,7 +1527,6 @@ function initBoard(size) {
   const availH = window.innerHeight - 140;
   const avail = Math.min(availW, availH);
   const sz = Math.max(240, Math.min(avail, 620));
-  console.log('initBoard: availW:', availW, 'availH:', availH, 'sz:', sz);
   document.getElementById('board').innerHTML = '';
   wgoBoard = new WGo.Board(document.getElementById('board'), { size:boardSize, width:sz, background:'#c4943a' });
   wgoBoard.setSection(-0.5,-0.5,-0.5,-0.5);
@@ -1751,11 +1749,14 @@ function recordAttempt(result) {
 
   function onBoardClick(x,y) {
     clearGhost();  // ← añadir esta línea
+	console.log('paso 1');
     if (answered||waitingForNext) return;
-    if (wgoBoard.obj_arr[x][y]&&wgoBoard.obj_arr[x][y].some(o=>o.c===1||o.c===-1)) return;
+	if (wgoBoard.obj_arr[x][y]&&wgoBoard.obj_arr[x][y].some(o=>(o.c===1||o.c===-1)&&o.type!=='outline')) return;
+	
     const children=currentNode.children||[];
     const match=children.find(c=>c.move&&!c.move.pass&&c.move.x===x&&c.move.y===y);
-    if (!match) {
+	
+	if (!match) {
       checkResult({comment:'WRONG'});
       hadWrong=true;
       return;
@@ -1821,6 +1822,12 @@ function updateGhost(e) {
 function clearGhost() {
   if (ghostPos) { wgoBoard.removeObject({x: ghostPos.x, y: ghostPos.y, type: 'outline'}); ghostPos = null; }
 }
+if (wgoBoard._ghostListener) {
+  wgoBoard.element.removeEventListener('mousemove', wgoBoard._ghostListener);
+  wgoBoard.element.removeEventListener('mouseleave', wgoBoard._clearGhost);
+}
+wgoBoard._ghostListener = updateGhost;
+wgoBoard._clearGhost = clearGhost;
 boardEl.addEventListener('mousemove', updateGhost);
 boardEl.addEventListener('mouseleave', clearGhost);
 
@@ -1990,7 +1997,6 @@ function closeMobilePanel() {
 // ── Patch: switch to board view when a problem loads on mobile ──
 const _origLoadAndRender = loadAndRender;
 loadAndRender = async function(probMeta) {
-console.log('loadAndRender patch, probMeta:', probMeta);
   await _origLoadAndRender(probMeta);
   switchToBoard();
 };
