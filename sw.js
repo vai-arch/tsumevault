@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'tsumevault-v4';
+const CACHE_VERSION = 'tsumevault-v5';
 
 const STATIC_ASSETS = [
   '/tsumevault/tsumevault.html',
@@ -88,7 +88,7 @@ self.addEventListener('message', e => {
           try {
             const response = await fetch(url);
             if (response.ok) cache.put(url, response.clone());
-          } catch {}
+          } catch { }
         }
       }
       // Notificar al cliente cuando termine
