@@ -21,18 +21,18 @@ Comportamiento incremental:
     - attempts y runs nunca se tocan
 """
 
+import json
 import os
 import re
-import sys
-import json
 import sqlite3
+import sys
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
-DB_FILE      = os.path.join(SCRIPT_DIR, 'tsumeVault.db')
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+DB_FILE = os.path.join(SCRIPT_DIR, "tsumeVault.db")
 CHAPTER_SIZE = 50
-CHAPTER_MIN  = 25
+CHAPTER_MIN = 25
 
 # ── Schema ────────────────────────────────────────────────────────────────────
 
@@ -154,10 +154,12 @@ GROUP BY source, problem_id;
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
-RAW_RE = re.compile(r'\(([+-]?\d+(?:\.\d+)?)\)')
+RAW_RE = re.compile(r"\(([+-]?\d+(?:\.\d+)?)\)")
+
 
 def snap_to_rank(r):
     return round(r / 100) * 100
+
 
 def parse_difficulty_num(difficulty_raw):
     if not difficulty_raw:
@@ -167,16 +169,18 @@ def parse_difficulty_num(difficulty_raw):
         return None
     return snap_to_rank(float(m.group(1)))
 
+
 def detect_color_to_play(sgf_path):
     try:
-        with open(sgf_path, 'r', encoding='utf-8', errors='replace') as f:
+        with open(sgf_path, "r", encoding="utf-8", errors="replace") as f:
             text = f.read()
-        m = re.search(r';\s*([BW])\s*\[', text[text.find(';')+1:])
+        m = re.search(r";\s*([BW])\s*\[", text[text.find(";") + 1 :])
         if m:
             return m.group(1)
     except Exception:
         pass
     return None
+
 
 def find_sources(script_dir):
     """Escanea subdirectorios buscando all_collections.json."""
@@ -184,23 +188,27 @@ def find_sources(script_dir):
     for entry in os.scandir(script_dir):
         if not entry.is_dir():
             continue
-        col_file = os.path.join(entry.path, 'all_collections.json')
+        col_file = os.path.join(entry.path, "all_collections.json")
         if os.path.isfile(col_file):
-            sources.append({
-                'source': entry.name,
-                'collections_file': col_file,
-                'problems_dir': os.path.join(entry.path, 'problems_std'),
-            })
+            sources.append(
+                {
+                    "source": entry.name,
+                    "collections_file": col_file,
+                    "problems_dir": os.path.join(entry.path, "problems_std"),
+                }
+            )
     return sources
+
 
 # ── Import de un source ───────────────────────────────────────────────────────
 
-def import_source(con, source_info):
-    source       = source_info['source']
-    col_file     = source_info['collections_file']
-    problems_dir = source_info['problems_dir']
 
-    with open(col_file, 'r', encoding='utf-8') as f:
+def import_source(con, source_info):
+    source = source_info["source"]
+    col_file = source_info["collections_file"]
+    problems_dir = source_info["problems_dir"]
+
+    with open(col_file, "r", encoding="utf-8") as f:
         collections = json.load(f)
 
     print(f"\n[{source}] {len(collections)} colecciones en JSON")
@@ -208,35 +216,34 @@ def import_source(con, source_info):
     col_new = col_skip = prob_new = prob_updated = chap_new = 0
 
     for col in collections:
-        set_id   = col['setId']
-        name     = col['name']
-        diff_raw = col.get('difficulty')
-        num_probs = col.get('numProblems', 0)
-        problems  = col.get('problems', [])
+        set_id = col["setId"]
+        name = col["name"]
+        diff_raw = col.get("difficulty")
+        num_probs = col.get("numProblems", 0)
+        problems = col.get("problems", [])
 
-        folder_name  = str(set_id)
-        folder_path  = os.path.join(problems_dir, folder_name)
+        folder_name = str(set_id)
+        folder_path = os.path.join(problems_dir, folder_name)
 
         # ── Colección ya existente → actualizar sgf_exists y skip resto ──
         existing = con.execute(
-            "SELECT 1 FROM collections WHERE source=? AND set_id=?",
-            (source, set_id)
+            "SELECT 1 FROM collections WHERE source=? AND set_id=?", (source, set_id)
         ).fetchone()
 
         if existing:
             # Actualizar sgf_exists / color_to_play para problemas sin SGF
             missing = con.execute(
                 "SELECT problem_id, sgf_path FROM problems WHERE source=? AND set_id=? AND sgf_exists=0",
-                (source, set_id)
+                (source, set_id),
             ).fetchall()
             for row in missing:
                 problem_id, sgf_path = row[0], row[1]
-                sgf_abs = os.path.join(SCRIPT_DIR, sgf_path.replace('/', os.sep))
+                sgf_abs = os.path.join(SCRIPT_DIR, sgf_path.replace("/", os.sep))
                 if os.path.isfile(sgf_abs):
                     color = detect_color_to_play(sgf_abs)
                     con.execute(
                         "UPDATE problems SET sgf_exists=1, color_to_play=? WHERE source=? AND problem_id=?",
-                        (color, source, problem_id)
+                        (color, source, problem_id),
                     )
                     prob_updated += 1
             col_skip += 1
@@ -245,119 +252,187 @@ def import_source(con, source_info):
         # ── Colección nueva ──
         on_disk = 0
 
-        if 'chapters' in col:
+        if "chapters" in col:
             # ── Formato con capítulos pre-definidos (ej: guo_juan) ──
             chapters = []
-            for chap_num, chap_json in enumerate(col['chapters'], 1):
+            for chap_num, chap_json in enumerate(col["chapters"], 1):
                 # Normalizar campos de problema (difficulty_raw/difficulty_num en vez de difficultyRaw)
                 norm_problems = []
-                for p in chap_json.get('problems', []):
-                    norm_problems.append({
-                        'problemId'    : p['problemId'],
-                        'difficultyRaw': p.get('difficulty_raw') or p.get('difficultyRaw'),
-                        'difficultyNum': p.get('difficulty_num') or parse_difficulty_num(p.get('difficultyRaw')),
-                        'lessonId'     : p.get('lessonId'),
-                    })
-                diffs = [p['difficultyNum'] for p in norm_problems if p['difficultyNum'] is not None]
+                for p in chap_json.get("problems", []):
+                    norm_problems.append(
+                        {
+                            "problemId": p["problemId"],
+                            "difficultyRaw": p.get("difficulty_raw")
+                            or p.get("difficultyRaw"),
+                            "difficultyNum": p.get("difficulty_num")
+                            or parse_difficulty_num(p.get("difficultyRaw")),
+                            "lessonId": p.get("lessonId"),
+                        }
+                    )
+                diffs = [
+                    p["difficultyNum"]
+                    for p in norm_problems
+                    if p["difficultyNum"] is not None
+                ]
                 avg_diff = snap_to_rank(sum(diffs) / len(diffs)) if diffs else None
-                chapters.append({
-                    'chapter_num': chap_num,
-                    'name':        chap_json.get('name', f'Ch {chap_num}'),
-                    'diff_min':    min(diffs) if diffs else None,
-                    'diff_max':    max(diffs) if diffs else None,
-                    'diff_avg':    avg_diff,
-                    'problems':    norm_problems,
-                    'folder':      str(chap_json.get('chapterId', set_id)),
-                })
+                chapters.append(
+                    {
+                        "chapter_num": chap_num,
+                        "name": chap_json.get("name", f"Ch {chap_num}"),
+                        "diff_min": min(diffs) if diffs else None,
+                        "diff_max": max(diffs) if diffs else None,
+                        "diff_avg": avg_diff,
+                        "problems": norm_problems,
+                        "folder": str(
+                            chap_json.get("folder")
+                            or chap_json.get("chapterId", set_id)
+                        ),
+                    }
+                )
 
             # on_disk: contar SGFs en todas las carpetas de capítulos
             for chap in chapters:
-                chap_folder = os.path.join(problems_dir, chap['folder'])
+                chap_folder = os.path.join(problems_dir, chap["folder"])
                 if os.path.isdir(chap_folder):
-                    on_disk += sum(1 for f in os.listdir(chap_folder) if f.lower().endswith('.sgf'))
+                    on_disk += sum(
+                        1 for f in os.listdir(chap_folder) if f.lower().endswith(".sgf")
+                    )
 
-            all_diffs = [p['difficultyNum'] for chap in chapters for p in chap['problems'] if p['difficultyNum'] is not None]
-            col_diff_num = snap_to_rank(sum(all_diffs) / len(all_diffs)) if all_diffs else None
+            all_diffs = [
+                p["difficultyNum"]
+                for chap in chapters
+                for p in chap["problems"]
+                if p["difficultyNum"] is not None
+            ]
+            col_diff_num = (
+                snap_to_rank(sum(all_diffs) / len(all_diffs)) if all_diffs else None
+            )
 
         else:
             # ── Formato tsumego_hero: calcular capítulos por bloques de 50 ──
             if os.path.isdir(folder_path):
-                on_disk = sum(1 for f in os.listdir(folder_path) if f.lower().endswith('.sgf'))
+                on_disk = sum(
+                    1 for f in os.listdir(folder_path) if f.lower().endswith(".sgf")
+                )
 
             def sort_key(p):
-                d = parse_difficulty_num(p.get('difficultyRaw'))
-                return (d if d is not None else 0, p['problemId'])
+                d = parse_difficulty_num(p.get("difficultyRaw"))
+                return (d if d is not None else 0, p["problemId"])
 
             problems_sorted = sorted(problems, key=sort_key)
 
             raw_chunks = []
             for i in range(0, len(problems_sorted), CHAPTER_SIZE):
-                raw_chunks.append(problems_sorted[i:i + CHAPTER_SIZE])
+                raw_chunks.append(problems_sorted[i : i + CHAPTER_SIZE])
             if len(raw_chunks) > 1 and len(raw_chunks[-1]) < CHAPTER_MIN:
                 raw_chunks[-2] = raw_chunks[-2] + raw_chunks[-1]
                 raw_chunks.pop()
 
             chapters = []
             for chunk in raw_chunks:
-                diffs = [parse_difficulty_num(p.get('difficultyRaw')) for p in chunk]
+                diffs = [parse_difficulty_num(p.get("difficultyRaw")) for p in chunk]
                 diffs = [d for d in diffs if d is not None]
                 avg_diff = snap_to_rank(sum(diffs) / len(diffs)) if diffs else None
-                chapters.append({
-                    'chapter_num': len(chapters) + 1,
-                    'name':        f'Ch {len(chapters) + 1}',
-                    'diff_min':    min(diffs) if diffs else None,
-                    'diff_max':    max(diffs) if diffs else None,
-                    'diff_avg':    avg_diff,
-                    'problems':    chunk,
-                    'folder':      folder_name,
-                })
+                chapters.append(
+                    {
+                        "chapter_num": len(chapters) + 1,
+                        "name": f"Ch {len(chapters) + 1}",
+                        "diff_min": min(diffs) if diffs else None,
+                        "diff_max": max(diffs) if diffs else None,
+                        "diff_avg": avg_diff,
+                        "problems": chunk,
+                        "folder": folder_name,
+                    }
+                )
 
-            all_diffs = [parse_difficulty_num(p.get('difficultyRaw')) for p in problems_sorted]
+            all_diffs = [
+                parse_difficulty_num(p.get("difficultyRaw")) for p in problems_sorted
+            ]
             all_diffs = [d for d in all_diffs if d is not None]
-            col_diff_num = snap_to_rank(sum(all_diffs) / len(all_diffs)) if all_diffs else parse_difficulty_num(diff_raw)
+            col_diff_num = (
+                snap_to_rank(sum(all_diffs) / len(all_diffs))
+                if all_diffs
+                else parse_difficulty_num(diff_raw)
+            )
 
-        con.execute("""
+        con.execute(
+            """
             INSERT INTO collections
                 (source, set_id, name, folder, difficulty_raw, difficulty_num,
                  num_problems, on_disk, chapter_count)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, (source, set_id, name, folder_name,
-              diff_raw, col_diff_num, num_probs, on_disk, len(chapters)))
+        """,
+            (
+                source,
+                set_id,
+                name,
+                folder_name,
+                diff_raw,
+                col_diff_num,
+                num_probs,
+                on_disk,
+                len(chapters),
+            ),
+        )
         col_new += 1
 
         for chap in chapters:
-            cur = con.execute("""
+            cur = con.execute(
+                """
                 INSERT INTO chapters (source, set_id, chapter_num, name, diff_min, diff_max, diff_avg, problem_count)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-            """, (source, set_id, chap['chapter_num'], chap['name'],
-                  chap['diff_min'], chap['diff_max'], chap['diff_avg'], len(chap['problems'])))
+            """,
+                (
+                    source,
+                    set_id,
+                    chap["chapter_num"],
+                    chap["name"],
+                    chap["diff_min"],
+                    chap["diff_max"],
+                    chap["diff_avg"],
+                    len(chap["problems"]),
+                ),
+            )
             chapter_id = cur.lastrowid
             chap_new += 1
 
-            chap_folder      = chap['folder']
-            chap_folder_path = os.path.join(problems_dir, chap_folder)
+            chap_folder = chap["folder"]
 
-            for order, p in enumerate(chap['problems'], 1):
-                problem_id = p['problemId']
-                p_diff_raw = p.get('difficultyRaw')
-                p_diff_num = p.get('difficultyNum') or parse_difficulty_num(p_diff_raw)
+            for order, p in enumerate(chap["problems"], 1):
+                problem_id = p["problemId"]
+                p_diff_raw = p.get("difficultyRaw")
+                p_diff_num = p.get("difficultyNum") or parse_difficulty_num(p_diff_raw)
 
-                lesson_folder     = str(p.get('lessonId', chap_folder))
+                lesson_folder = chap["folder"]
                 lesson_folder_path = os.path.join(problems_dir, lesson_folder)
                 sgf_filename = f"{problem_id}.sgf"
-                sgf_abs      = os.path.join(lesson_folder_path, sgf_filename)
-                sgf_rel      = os.path.join(source, 'problems_std',
-                                            lesson_folder, sgf_filename).replace('\\', '/')
-                sgf_exists   = 1 if os.path.isfile(sgf_abs) else 0
-                color        = detect_color_to_play(sgf_abs) if sgf_exists else None
+                sgf_abs = os.path.join(lesson_folder_path, sgf_filename)
+                sgf_rel = os.path.join(
+                    source, "problems_std", lesson_folder, sgf_filename
+                ).replace("\\", "/")
+                sgf_exists = 1 if os.path.isfile(sgf_abs) else 0
+                color = detect_color_to_play(sgf_abs) if sgf_exists else None
 
-                con.execute("""
+                con.execute(
+                    """
                     INSERT INTO problems
                         (source, problem_id, set_id, chapter_id, order_in_chapter,
                          sgf_path, sgf_exists, difficulty_raw, difficulty_num, color_to_play)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                """, (source, problem_id, set_id, chapter_id, order,
-                      sgf_rel, sgf_exists, p_diff_raw, p_diff_num, color))
+                """,
+                    (
+                        source,
+                        problem_id,
+                        set_id,
+                        chapter_id,
+                        order,
+                        sgf_rel,
+                        sgf_exists,
+                        p_diff_raw,
+                        p_diff_num,
+                        color,
+                    ),
+                )
                 prob_new += 1
 
     con.commit()
@@ -367,7 +442,9 @@ def import_source(con, source_info):
     print(f"  Problemas nuevos     : {prob_new}")
     print(f"  Problemas actualizados (SGF): {prob_updated}")
 
+
 # ── Main ──────────────────────────────────────────────────────────────────────
+
 
 def main():
     sources = find_sources(SCRIPT_DIR)
@@ -386,16 +463,18 @@ def main():
 
     # Migración: añadir columna name a chapters si no existe
     cols = [r[1] for r in con.execute("PRAGMA table_info(chapters)").fetchall()]
-    if 'name' not in cols:
+    if "name" not in cols:
         con.execute("ALTER TABLE chapters ADD COLUMN name TEXT")
-        con.execute("UPDATE chapters SET name = 'Ch ' || chapter_num WHERE name IS NULL")
+        con.execute(
+            "UPDATE chapters SET name = 'Ch ' || chapter_num WHERE name IS NULL"
+        )
         con.commit()
         print("Migración: columna 'name' añadida a chapters")
         # Borrar capítulos y problemas de sources con capítulos pre-definidos para reimportar con nombres
         for s_info in sources:
-            s = s_info['source']
-            col_data = json.load(open(s_info['collections_file'], encoding='utf-8'))
-            if col_data and 'chapters' in col_data[0]:
+            s = s_info["source"]
+            col_data = json.load(open(s_info["collections_file"], encoding="utf-8"))
+            if col_data and "chapters" in col_data[0]:
                 con.execute("DELETE FROM problems WHERE source=?", (s,))
                 con.execute("DELETE FROM chapters WHERE source=?", (s,))
                 con.execute("DELETE FROM collections WHERE source=?", (s,))
@@ -408,5 +487,6 @@ def main():
     con.close()
     print("\nListo.")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

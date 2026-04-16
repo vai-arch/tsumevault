@@ -1,0 +1,69 @@
+(;
+
+GM[1]FF[4]VW[]AP[Many Faces of Go:11.0]
+
+SZ[13]
+
+HA[0]
+
+ST[2]
+
+DT[1998-12-15]
+
+KM[8.0]
+
+RU[GOE]
+
+AB[hb][gc]
+
+AW[gb][hc][ic]
+
+C[How should you give atari?  Atari means reducing a group of stones \
+
+to only one liberty.]
+
+
+
+(;B[ga]
+
+C[No.  Now the stone will escape.]
+
+;W[fb];B[fc];W[eb])
+
+(;B[fb]
+
+C[Good.  Now the stone will be captured.]
+
+
+
+TE[2];W[ga]
+
+C[If your opponent tries to save it...]
+
+
+
+(;B[ha]
+
+C[How should you give atari?  Atari means reducing a group of stones \
+
+to only one liberty.]
+
+
+
+TE[2];W[fa];B[ea]
+
+C[Good.  Now the stone will be captured.]
+
+)
+
+(;B[fa]
+
+TE[2];W[ha];B[ia]
+
+C[How should you give atari?  Atari means reducing a group of stones \
+
+to only one liberty.]
+
+))
+
+(;B[ib];W[fb]))

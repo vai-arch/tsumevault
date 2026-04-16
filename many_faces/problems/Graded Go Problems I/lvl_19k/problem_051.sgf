@@ -1,0 +1,49 @@
+(;
+
+GM[1]FF[4]VW[]AP[Many Faces of Go:11.0]
+
+SZ[13]
+
+HA[0]
+
+ST[2]
+
+DT[1998-12-19]
+
+KM[8.0]
+
+RU[GOE]
+
+AB[gl][hl][hm][fk][ek][el][em]
+
+AW[dm][dl][dk][dj][ei][fj][gi][gk][hk][ik][jk][jl][fl][gm]
+
+C[Is your group alive or dead?  Do you have to make another move? \
+
+Click on A if your group is already alive.  Click on B if you \
+
+need to add another move.]
+
+LB[cg:A][fg:B]
+
+
+
+(;B[cg]
+
+C[Right.  Your opponent can't connect the two  stones, since the \
+
+resulting group would have no liberties.]
+
+
+
+TE[2])
+
+(;B[fg]
+
+C[Wrong.  Your opponent can't connect the two stones since that \
+
+would make a group with no liberties.  When you later capture \
+
+the two stones you will have two eyes.]
+
+))
