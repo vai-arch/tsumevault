@@ -1,0 +1,38 @@
+(;
+GM[1]FF[4]VW[]AP[Many Faces of Go:10.0]
+SZ[13]
+HA[0]
+ST[2]
+DT[1999-05-12]
+KM[5.5]
+RU[Japanese]
+
+AB[lc][kc][jc][hd][id][ge][gf][hg]
+
+AW[gc][gd][ed][jd][kd][ld][ke][ie][he][jg]
+
+C[How do you respond to 1?
+]LB[gc:1]
+
+(;B[hb]
+C[This make the best shape.
+
+
+
+
+]
+TE[2];W[hc];B[ic];W[gb];B[ia]
+C[You are alive in the corner.
+])
+(;B[ib];W[hb];B[ic];W[lb];B[mb];W[kb]
+C[This will be seki or ko.
+];B[la];W[ka];B[ja]
+;W[ma]
+C[ko
+])
+(;B[hc];W[hb];B[ic];W[ib]
+C[You are dead.
+])
+(;B[ic];W[hb];B[ib];W[lb];B[mb];W[kb]
+C[Seki or ko.
+]))

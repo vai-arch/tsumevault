@@ -1,0 +1,65 @@
+(;
+
+GM[1]FF[4]VW[]AP[Many Faces of Go:11.0]
+
+SZ[13]
+
+HA[0]
+
+ST[0]
+
+DT[1998-12-19]
+
+KM[8.0]
+
+RU[GOE]
+
+AB[dj][di][ei][fi][fj][ek][dk][dl][em][cl][cm][bk]
+
+AW[bl][bm][ck][cj][bj][ci][ch][dh][eh][fh][gh][hi][hj][gk][gl]
+
+[fk][fm][el]
+
+C[Your opponent has just captured a stone wih 1.  How do you respond?]
+
+LB[el:1]
+
+TR[fl]
+
+
+
+(;B[fl]
+
+C[Recapturing the ko immediately is illegal.  You must make another \
+
+move first.]
+
+)
+
+(;B[ak]
+
+C[This is a ko threat.  Since it threatens to make a second eye \
+
+in the corner, your opponent will respond.]
+
+
+
+TE[2];W[aj];B[fl]
+
+C[Now you can recapture the ko.]
+
+)
+
+(;B[al]
+
+C[This ko threat is not as good as the correct answer, since after \
+
+your opponent captures, there are no more ko threats here.  The \
+
+correct answer leaves another ko threat for later.]
+
+;W[ak];B[fl])
+
+(;B[am];W[ak];B[fl])
+
+(;B[dm]))

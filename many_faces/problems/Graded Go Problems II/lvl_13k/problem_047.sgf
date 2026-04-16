@@ -1,0 +1,41 @@
+(;
+GM[1]FF[4]VW[]AP[Many Faces of Go:11.0]
+SZ[13]
+HA[0]
+ST[2]
+DT[1999-04-05]
+KM[5.5]
+RU[Japanese]
+AB[lb][kb][jb][ja][kc][ld][md]
+AW[me][le][ke][kd][jc][ib][ia][id]
+C[Kill.]
+
+PL[W]
+(;W[la];B[mb])
+(;W[mb]
+TE[2];B[lc];W[la]
+C[This is the "Bent 4 in the corner" shape and is dead under Japanese \
+rules.   Under other rule sets, it is a ko or seki.  The player \
+in the corner must sacrifice 4 stones, then throw in to make \
+the ko.]
+;B[tt]
+C[This will become a bent four in the corner, so at the end of \
+the game the group is dead.  To remove the stones during the \
+game, you will have to fight a ko.   If your opponent plays in \
+this position, you can force a 3 space eye to kill.  
+
+Since your opponent can do nothing here, normally this position \
+is left until the game ends, and the stones are ruled dead.
+
+Continue forward to see the sequence that forces ko.]
+;W[ma];B[tt]
+C[Now another pass.]
+;W[ka];B[mc];W[la]
+;B[ma];W[mb]
+C[Here is the ko.]
+)
+(;W[mc];B[lc]
+(;W[mb];B[ma])
+(;W[la];B[mb]))
+(;W[ma];B[mb])
+(;W[lc];B[mc];W[la];B[mb]))
