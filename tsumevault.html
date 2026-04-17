@@ -1014,7 +1014,7 @@
       </div>
       <div
         style="padding:8px 14px;font-family:var(--mono);font-size:7px;color:var(--dim2);letter-spacing:.1em;position:sticky;bottom:0;background:var(--panel);">
-        v6</div>
+        v7</div>
     </aside>
   </div>
 
@@ -1606,12 +1606,24 @@
         if (!pushR.ok) throw new Error('push failed');
       }
 
-      // 4. Refresh snapshot de tablas estáticas
+      // 4. Refresh snapshot solo si cambió la versión estática
       if (!lightMode) {
-        const snapR = await fetch(`${SYNC_SERVER}/sync/snapshot`, { signal: AbortSignal.timeout(100000) });
-        if (snapR.ok) {
-          const snap = await snapR.json();
-          importSnapshot(snap);
+        try {
+          const vR = await fetch(`${SYNC_SERVER}/sync/static_version`, { signal: AbortSignal.timeout(5000) });
+          if (vR.ok) {
+            const { version } = await vR.json();
+            const localVersion = parseInt(localStorage.getItem('static_version') || '0');
+            if (version !== localVersion) {
+              const snapR = await fetch(`${SYNC_SERVER}/sync/snapshot`, { signal: AbortSignal.timeout(120000) });
+              if (snapR.ok) {
+                const snap = await snapR.json();
+                importSnapshot(snap);
+                localStorage.setItem('static_version', String(version));
+              }
+            }
+          }
+        } catch (e) {
+          console.warn('[sync] static_version check failed', e);
         }
       }
 
