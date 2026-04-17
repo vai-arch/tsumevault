@@ -575,6 +575,12 @@ def handle_sync_snapshot(qs):
     return {"collections": collections, "chapters": chapters, "problems": problems}
 
 
+def handle_sync_static_version(qs):
+    with db_connect() as con:
+        row = con.execute("SELECT MAX(rowid) FROM problems").fetchone()
+    return {"version": row[0] or 0}
+
+
 def handle_sync_pull(qs):
     """Devuelve attempts y runs nuevos desde los IDs indicados."""
     since_attempt_id = int(qs.get("since_attempt_id", ["0"])[0])
@@ -719,6 +725,7 @@ GET_ROUTES = {
     "/db/difficulty_range": handle_get_difficulty_range,
     "/sync/snapshot": handle_sync_snapshot,
     "/sync/pull": handle_sync_pull,
+    "/sync/static_version": handle_sync_static_version,
 }
 
 
