@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9274,
+  "elo": 1210.7905924524,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.5,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bc]AB[cb]AB[db]AB[eb]AB[ea]AW[fa]AW[fb]AW[ec]AW[dc]AW[cc]AW[bd]AW[fd]AW[ad]C[Based on problem 9262. Can black Live unconditionally?FORCE]LB[bf:Yes]LB[df:No]AP[goproblems]\n(;B[bf];W[df]C[Prove it.]\n(;B[ac];W[bb]C[Wrong.])\n(;B[ab];W[ba];B[ca];W[bb];B[aa];W[bb]\n(;B[ac];W[ba]C[Wrong.])\n(;B[ba];W[ac]C[Wrong.]))\n(;B[aa];W[bb]C[Wrong.])\n(;B[ba];W[ab]\n(;B[bb];W[ac]C[Wrong.])\n(;B[ac];W[bb]C[Wrong.]))\n(;B[ca];W[bb]C[Wrong.])\n(;B[da];W[bb]C[Wrong.])\n(;B[bb];W[ba]\n(;B[ca];W[ab]\n(;B[ac];W[da]C[Wrong.])\n(;B[aa];W[ac]C[Wrong.]))\n(;B[ab];W[ca]C[Wrong.])\n(;B[ac];W[ca]C[Play at T If you want to tenuki.]LB[bg:T]\n(;B[aa];W[ab]C[Only ko.])\n(;B[bg];W[aa]C[Wrong. White can play at A18 anytime to start a ko. Wa18, Bd19, Wb19, Ba19, Wa18. He can do this after there are no more ko threats on the board, thus Black is dead.]))))\n(;B[df]C[Right. Black has only ko there.RIGHT]))",
+  "author": {
+    "id": 105129,
+    "name": "system",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-03-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 2947,
+    "failed": 4564,
+    "tries": 7511,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-10-14T08:52:01+00:00",
+  "source": "problem 9262",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

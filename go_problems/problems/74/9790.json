@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9790,
+  "elo": 1256.1339257335,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rh]AB[sh]AB[qi]AB[qj]AB[qk]AB[rl]AB[sl]AW[qh]AW[rg]AW[pi]AW[pj]AW[pk]AW[ql]AW[rm]AW[qg]AW[qm]C[Does black need to play for life? If not, play 'T' for Tenuki.]LB[ph:T]AP[goproblems]\n(;B[ph]\n(;W[sg]LB[pl:T]C[And now? Do you need to react on this or can you take your turn elsewhere?]\n(;B[sj];W[sm]LB[pl:T]\n(;B[rj]C[Alright. But you are leaving one ko threat more than necessary.RIGHT])\n(;B[rk]C[Perfect!RIGHT])\n(;B[ri]C[Perfect!RIGHT])\n(;B[pl];W[rk];B[sk];W[ri]C[Oops...])\n(;B[si];W[rk];B[sk];W[rj])\n(;B[sk];W[ri];B[si];W[rj]))\n(;B[pl];W[sj];B[rj];W[ri]C[Oops...])\n(;B[rj];W[sm]LB[pl:T]\n(;B[sj]C[Alright. But you are leaving one ko threat more than necessary.RIGHT])\n(;B[sk]C[Perfect!RIGHT])\n(;B[si]C[Perfect!RIGHT])\n(;B[pl];W[sj]\n(;B[sk];W[rk]C[Ouch!])\n(;B[si];W[ri]C[Ouch!])\n(;B[rk];W[ri]C[Ouch!])\n(;B[ri];W[rk]C[Ouch!]))\n(;B[ri];W[sk];B[rk];W[sj])\n(;B[rk];W[si];B[ri];W[sj]))\n(;B[si];W[sj])\n(;B[sk];W[rj])\n(;B[rk];W[sj])\n(;B[ri];W[sj]))\n(;W[sj];B[rj];W[sm];B[si]C[RIGHT]))\n(;B[sj]C[Not yet necessary.])\n(;B[rj]C[Not yet necessary.])\n(;B[si];W[rj]C[Now you are dead.])\n(;B[ri];W[sj]C[Now you are dead.])\n(;B[rk];W[sj]C[Now you are dead.])\n(;B[sk];W[rj]C[Now you are dead.]))",
+  "author": {
+    "id": 11820,
+    "name": "om3",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2009-06-25",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 2198,
+    "failed": 2779,
+    "tries": 4977,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-02-28T05:46:25+00:00",
+  "source": "Modified from a book",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 100,
+      "name": "Timing",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15435,
+  "elo": 1288.2490560385,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -4,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Black responded to 1 by 2.  It should cost him a game.",
+  "rating": {
+    "stars": 2.1,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[cf]AB[df]AB[de]AB[cd]AB[cc]AB[bc]AB[dc]AB[cb]AB[ca]AB[da]AB[eb]AB[ff]AB[gf]AB[gg]AB[eh]AB[fh]AW[ah]AW[bi]AW[bg]AW[cg]AW[dg]AW[eg]AW[fg]AW[dh]AW[ei]AW[ef]AW[ee]AW[fe]AW[ed]AW[dd]AW[ec]AW[ge]AB[ea]AB[af]AB[bf]AB[ag]AW[hd]AW[id]AB[he]AB[ie]AB[hf]AB[fi]AB[ig]LB[ei:1]LB[fi:2]C[Black responded 2 to 1. Punish him!Black captured 1 stones, komi 5.5.]AW[gc]AW[bh]AB[fb]AB[gb]AB[hb]AB[ha]AW[fc]AW[hc]AW[ib]AB[be]AP[goproblems]\n(;W[gh]\n(;B[di]C[Black captures! Will that lost stone haunt you later on?]\n(;W[hh]C[Black stones are dead!RIGHT])\n(;W[gi];B[hh]C[];W[ei];B[hi]C[Please play at J7 if you think you're safe.]\n(;W[fh]C[White: territory 8, 4 prisoners, 5.5 komi: 17.5 points. Black: territory 16, 2 prisoners. White lost by 0.5. You could do better!CHOICE])\n(;W[ic];B[fh]C[Black wins .])\n(;W[fi]C[White: territory 8, 4 prisoners, 5.5 komi: 17.5 points. Black: territory 16, 2 prisoners. White lost by 0.5. You could do better!])\n(;W[ci]C[White: territory 8, 4 prisoners, 5.5 komi: 17.5 points. Black: territory 16, 2 prisoners. White lost by 0.5. You could do better!])\n(;W[eh]C[White: territory 8, 4 prisoners, 5.5 komi: 17.5 points. Black: territory 16, 2 prisoners. White lost by 0.5. You could do better!])))\n(;B[hh]C[]\n(;W[gi];B[hi]C[White: territory 9,  3 prisoners,   5.5 komi. Black: territory 16, 1 prisoners. White won by 0.5.\r\nWhile this result looks similar like the variation where Black captures E1 and White responds at G2, White has played one move less and lost one stone less.RIGHT])\n(;W[hi];B[di])))\n(;W[di];B[gh]C[You've lost the game!White: 5 terrain, 0 prisoners, 5.5 komiBlack: 20 terrain, 1 prisonersBlack won by 11.5])\n(;W[hh];B[gh]\n(;W[hi];B[ih]\n(;W[di];B[hg])\n(;W[hg];B[di];W[ci];B[gi]))\n(;W[ih];B[hi])\n(;W[di];B[hi]))\n(;W[hi];B[hh];W[gh];B[di]))",
+  "author": {
+    "id": 50730,
+    "name": "Broi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-02-25",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 3160,
+    "failed": 3364,
+    "tries": 6524,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-12-04T13:31:12+00:00",
+  "source": "KGS game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 33,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

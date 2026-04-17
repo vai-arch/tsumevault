@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2632,
+  "elo": 1956.0422490113,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[nc][qf]AB[pd]LB[pf:A]C[This is the lead in sequence.. just play the marked moves]PL[B]\r\n;B[pf]CR[pf]\r\n;W[pg]LB[of:A]CR[pg]\r\n;B[of]CR[of]\r\n;W[qe]LB[qd:A]CR[qe]\r\n;B[qd]CR[qd]\r\n;W[ob]LB[ob:A]C[This is how the position begins with White playing at A.  Now how to proceed..]\r\n(;B[nd]CR[nd]\r\n;W[od]CR[od]\r\n;B[oe]CR[oe]\r\n;W[oc]CR[oc]\r\n;B[pe]CR[pe]\r\n;W[qi]CR[qi]\r\n;B[md]CR[md]\r\n;W[kc]LB[lf:A]CR[kc]C[After the exchange Black is left with an overly concentrated group of stones.  Black has a large weakness at 'A', and the ownership of the corner is small and in doubt for Black.])\r\n(;B[od]CR[od]\r\n(;W[qi]LB[jc:B][od:A]CR[qi]C[CHOICE The Black response at A is the correct move, and should  obvious to stronger players.  Now continue -- punish white's two lonely stones\r\n\r\nIf looking for a pincer, play at B]\r\n;B[jc]CR[jc]\r\n;W[lc]CR[lc]\r\n;B[pb]LB[pb:C][jc:B][qi:A]C[RIGHT After White A, Black will be able to squeeze the opposite White group with Black B and C.\r\n\r\nOther pincers are possible])\r\n(;W[kc]LB[od:A][pi:B]CR[kc]C[CHOICE The Black response at 'A' is the correct move, and should be obvious to stronger players. Play 'B' to see if White can be harassed]\r\n;B[pi]CR[pi]\r\n;W[og]CR[og]\r\n;B[ng]CR[ng]\r\n;W[oh]LB[pk:A]CR[oh]C[Play A to settle the right side]\r\n;B[pk]CR[pk]\r\n;W[aa]LB[pb:A]CR[aa]C[White plays tenuki - Please play A to see if the corner can be saved]\r\n;B[pb]CR[pb]\r\n;W[qb]CR[qb]\r\n(;B[pa]CR[pa]\r\n;W[qc]CR[qc]\r\n;B[pc]CR[pc]\r\n;W[rd]CR[rd]C[If Black chooses this exchange, White will be able to take the corner])\r\n(;B[oc]CR[oc]\r\n;W[nb]CR[nb]\r\n;B[pa]CR[pa]\r\n;W[qc]CR[qc]\r\n;B[rb]LB[rb:A]C[RIGHT Black retains the corner with A]))))",
+  "author": {
+    "id": 1811,
+    "name": "cheyenne",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-04-28",
+    "rank": {
+      "value": 16,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1104.23
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 113,
+    "failed": 2325,
+    "tries": 2438,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-25T10:07:18+00:00",
+  "source": "rec.go.games archive",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 19,
+      "name": "Hamete",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3787,
+  "elo": 1266.1762522218,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem was meant to be challenging for players of 20 to 15 kyu level. Are you up to the challenge?",
+  "rating": {
+    "stars": 3.7,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[Find the best way to kill.]AW[sa]AW[rb]AW[rc]AW[rd]AW[sd]AW[qe]AW[pe]AW[pd]AW[oc]AW[ob]AB[pb]AB[qb]AB[qc]AB[qd]AB[qf]AB[rf]AB[re]AB[se]AP[goproblems]\n(;B[sb];W[sc]\n(;B[ra];W[qa];B[pa]C[];W[oa];B[ra]C[Ko, and White has to find the first ko threat. This is the best result for Black.RIGHT])\n(;B[qa];W[pc]C[There's no way to capture White now.])\n(;B[pa];W[oa];B[ra];W[qa]C[Ko, but White takes first. You can do better than that.])\n(;B[oa];W[pc]\n(;B[qa];W[nb])\n(;B[nb];W[qa])\n(;B[pa];W[na])\n(;B[na];W[pa];B[qa];W[mb]C[Black will not have enough liberties to play ar S19.])\n(;B[ra];W[qa])))\n(;B[ra];W[qa]\n(;B[pa];W[pc]\n(;B[ra];W[oa]C[Atari! Whatever you do now, White can capture the triangled stones at A. You did not see that coming, did you?]TR[pa]TR[pb]TR[qb]TR[qc]TR[qd]LB[qa:A])\n(;B[sb];W[oa]))\n(;B[sb];W[pc]C[Oh boy.])\n(;B[oa];W[pc])\n(;B[sc];W[pc]))\n(;B[qa];W[pc]\n(;B[sb];W[sc]C[There's no way to capture White now.])\n(;B[ra];W[pa])\n(;B[pa];W[ra])\n(;B[sc]C[Black can never give atari now.])\n(;B[oa];W[ra]))\n(;B[pa];W[ra]C[One eye against no eye; black is dead.])\n(;B[oa];W[pc]\n(;B[na];W[mb]\n(;B[ma];W[pa];B[qa];W[ra]LB[pa:A]LB[la:B]TR[pb]TR[qa]TR[qb]TR[qc]TR[qd]C[If A then B and vice versa. White doesn't even need a ko this way.])\n(;B[pa];W[nb]\n(;B[sb];W[ma]C[Gotcha.])\n(;B[ra];W[ma]LB[qa:A]C[Black cannot prevent White from capturing at A.]))\n(;B[sb];W[ra]C[Black can't approach.])\n(;B[ra];W[pa]C[Snapback!]))\n(;B[nb];W[qa]C[There is no way to escape atari now.])\n(;B[pa];W[na]C[Blammo.])\n(;B[qa];W[ra])\n(;B[ra];W[qa])\n(;B[sb];W[qa]))\n(;B[sc];W[pa]C[White cannot be captured now; if you play R19 White simply connects at P19.])\n(;B[od];W[pc])\n(;B[pc];W[pa])\n(;B[pf];W[pc]))",
+  "author": {
+    "id": 3759,
+    "name": "BartTM",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-14",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1476.63
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 4085,
+    "failed": 7134,
+    "tries": 11219,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-23T13:52:34+00:00",
+  "source": "Graded Go Problems For Beginners (3)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

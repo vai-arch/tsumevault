@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10311,
+  "elo": 2072.67404015,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "Please help me to add variations.",
+  "rating": {
+    "stars": 1.6,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qd]AW[od]AB[ld]AW[pg]AB[oe]AW[ne]AB[of]AW[pd]AB[qf]AW[qc]AB[qe]AW[nf]LB[og:A]AB[nd]TR[nd]C[The correct joseki move is A, but here Black cuts with the triangled stone.]AP[goproblems]\r\n(;W[md];B[nc];W[mc];B[ob]\r\n(;W[pb];B[mb];W[lc];B[lb];W[kc];B[kb]\r\n(;W[jc]\r\n(;B[rd];W[og]\r\n(;B[rb];W[qg]C[This variation was played in a game between Sakata Eio and Cao Dayuan in 1987.RIGHT])\r\n(;B[rh];W[qi];B[rc]C[This variation was played in a game between Yokoyama Koichi, 5p and Oeda Yusuke, 7p in 1968.RIGHT]))\r\n(;B[ib];W[og];B[rb];W[rc];B[pe];W[pc];B[rh]C[This variation was played in a game between Hidaka Toshiyuki, 3p and Muramatsu Ryuichi, 1p in 1982. Play A to follow the next moves.RIGHT]AB[dd]AW[cp]AB[ep]AW[eo]AB[fo]AW[do]AB[gp]AW[pp]LB[ic:A];W[ic];B[hb]LB[na:A];W[na];B[nb]LB[rd:A];W[rd];B[re]LB[sb:A];W[sb];B[qj]LB[jb:A];W[jb];B[ja]LB[gc:A];W[gc];B[gb]LB[fc:A];W[fc];B[fb]LB[ec:A];W[ec];B[oa]LB[eb:A];W[eb];B[fa]LB[sd:A];W[sd]C[RIGHT]))\r\n(;W[jb]C[Too much cutting points.]TR[jc]TR[me]TR[ng]TR[og]))\r\n(;W[nb];B[oc]\r\n(;W[mb];B[pc]C[The corner is big enough to get compensation for giving influence to White. Moreover, White still has got lots of problems with his shape.])\r\n(;W[lb];B[na];W[mb];B[pc]C[The corner is big enough to get compensation for giving influence to White. Moreover, White still has got lots of problems with his shape.])))\r\n(;W[nc];B[md]C[Your White group is cut in two and you've got no compensation.])\r\n(;W[og];B[nc]\r\n(;W[pb];B[rh]C[Far worse than the correct solution.])\r\n(;W[rc];B[ob];W[pb];B[rh]C[Far worse than the correct solution])))",
+  "author": {
+    "id": 6672,
+    "name": "Athanatos",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-21",
+    "rank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1585.99
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 62,
+    "failed": 1180,
+    "tries": 1242,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-09-06T09:12:50+00:00",
+  "source": "Games",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 77,
+      "name": "3-4 (komoku) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

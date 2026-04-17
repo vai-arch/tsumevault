@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8585,
+  "elo": 1023.6651351053,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "White has just played A. How to respond?",
+  "rating": {
+    "stars": 3.9,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[br]AB[cq]AB[dr]AB[dp]AB[ep]AB[fq]AB[hr]AB[iq]AB[hp]AB[io]AB[hn]AB[jn]AB[jp]AB[kp]AB[lo]AB[ln]AB[km]AB[hl]AB[gl]AB[fl]AB[el]AB[cl]AB[dl]AB[dk]AB[dj]AB[cj]AB[ci]AB[gk]AW[bq]AW[ap]AW[cp]AW[bo]AW[cn]AW[do]AW[dm]AW[fm]AW[fn]AW[go]AW[ho]AW[jm]AW[im]AW[lm]AW[ll]AW[lk]AW[kk]AW[jk]AW[ik]AW[hk]AW[gj]AW[fj]AW[ej]AW[ek]AW[di]AW[dh]AW[ch]AW[bh]AW[ei]AW[hj]AB[bl]AB[bi]AB[ai]AW[bk]AW[ah]LB[im:A]AW[bm]AP[goproblems]\n(;B[hm];W[in]C[CHOICE])\n(;B[in];W[hm]C[CHOICE]\n(;B[gm];W[gn])\n(;B[gn];W[gm]))\n(;B[gn]\n(;W[fo]C[CHOICE]\n(;B[in]C[RIGHT])\n(;B[il]\n(;W[jl];B[in]C[RIGHT]))\n(;B[ak]MA[bj]MA[in]C[RIGHT]))\n(;W[in]C[CHOICE];B[fo]C[RIGHT]))\n(;B[il];W[jl];B[gn]\n(;W[fo];B[in]C[RIGHT])\n(;W[in];B[fo]C[RIGHT]))\n(;B[fo];W[gn]\n(;B[in];W[hm])\n(;B[hm];W[in])\n(;B[en];W[em]))\n(;B[dn];W[en])\n(;B[jl];W[il];B[gn]MA[fo]MA[in]C[RIGHT])\n(;B[en];W[eo]\n(;B[em];W[dn])\n(;B[gn];W[in])))",
+  "author": {
+    "id": 12417,
+    "name": "djanik",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-09-06",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 5165,
+    "failed": 5492,
+    "tries": 10657,
+    "speedSolved": 1,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-05-20T09:31:25+00:00",
+  "source": "A game played on IGS.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

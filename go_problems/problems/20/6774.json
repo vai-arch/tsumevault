@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6774,
+  "elo": 1585.0650134754,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "It's endgame, and a 1 point ko at t4/t5 has been rumbling on for a while. At this stage, black has captured one more white prisoner than white has of black (japanese rules, komi 6.5). For his next ko threat, white unleashes F5 (circled). Black to Play. Defend the threat, fill the ko, or play something else?",
+  "rating": {
+    "stars": 2.8,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ki][kh][jh][gh][ii][hi][gj][fj][ej][dj][ck][fn][eo][ho][jp][nq][op][qr][or]\r\n[pb][pc][pd][oe][pf][nf][kj][ng][mg][lg][ni][oi][oh][ph][qh][rh][qi][rg][sg][mk]\r\n[lk][ll][km][jm][jk][gk][gl][fm][en][do][go][so][eb][sq][rq][rp][qo][qp][pq][pm]\r\n[mq][lr][eq][er][fq][fr][fs][gr][hr][ir][iq][ip][kq][lp][lo][ln][np][no][mj][om]\r\n[nl][nk][ab][bc][ad][ae][be][bf][cc][cb][cd][fb][fc][ec][ea][df][ob][oa][na][ma]\r\n[mb][mc][lc][db]AW[dp][dq][dr][ds][es][ep][fp][gp][gq][fo][jq][co][dn][cm][dl][dm]\r\n[em][kk][mh][lh][sh][si][ri][pp][po][pn][sn][rn][qn][qm][rk][ok][ol][oo][on][nn]\r\n[nm][lm][ml][mm][mn][mo][mp][kn][kp][jo][jr][if][jg][kg][lf][ih][mf][ne][nd][md]\r\n[ld][nc][nb][oc][kc][lb][la][ka][ia][fa][ga][gb][gc][hc][ji][jj][qj][fl][fk][jb]\r\n[ro][ek][dk][pi][nj][oj][pj][dc][dd][de][ed][fd][ce][cf][cg][bg][ag][af][cj][bj]\r\n[di][ei][fi][gi][hg][hh]MA[fo]AP[MultiGo:3.8.6]SZ[19]\r\n\r\n(;B[hp];W[gm];B[gn];W[sp]C[The ko for the game continues - black will win as he has several more ko threats than white (c4 area for instance), and he will therefore win the game by 0.5 points; black connecting on the outside of his group at H4 was the important move.RIGHT])\r\n(;B[io];W[gm];B[gn];W[sp]C[black has lost his 1/2 point advantage by defending inside his own territory; even if he wins the ko, which he should, he will lose the game.])\r\n(;B[sp]\r\n(;W[hp]C[Can black pass now?If you want black to pass, please play P16 (marked with a square)]\r\nMA[od]\r\n(;B[od];W[gm];B[gn];W[hm]\r\n(;B[io];W[hj];B[ij];W[hk])\r\n(;B[hn];W[io];B[in];W[im];B[jn];W[jl]\r\n(;B[ko];W[hj]\r\n(;B[hk];W[ij]C[black loses the game])\r\n(;B[ij];W[hk]C[black loses the game])\r\n(;B[il];W[ij]C[black loses the game]))\r\n(;B[kl];W[hj]\r\n(;B[ij];W[hk]C[black loses the game])\r\n(;B[il];W[ij]C[black loses the game]))))\r\n(;B[io]C[black will lose by half a point now, due to not dealing with F5 correctly.])\r\n(;B[hm]C[black will lose by half a point now, due to not dealing with F5 correctly.]))\r\n(;W[gm];B[gn];W[hp]C[black has to defend and will lose by 0.5 point]))\r\n(;B[hm];W[sp]C[black has lost his 1/2 point advantage by defending inside his own territory; even if he wins the ko, which he should, he will lose the game.])\r\n(;B[gm];W[sp]C[black has lost his 1/2 point advantage by defending inside his own territory; even if he wins the ko, which he should, he will lose the game.])\r\n(;B[gn];W[sp]C[black has lost his 1/2 point advantage by defending inside his own territory; even if he wins the ko, which he should, he will lose the game.]))",
+  "author": {
+    "id": 7542,
+    "name": "gedh2",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 68,
+  "attempts": {
+    "solved": 513,
+    "failed": 1621,
+    "tries": 2134,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-28T12:52:33+00:00",
+  "source": "A game on DGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

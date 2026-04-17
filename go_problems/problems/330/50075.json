@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 50075,
+  "elo": 1150.4671259755,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Black is on the ropes. How can she use a ko to survive in the corner?",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[bc][cb][cc][cd][dc][eb][ec][fb][gd]AW[ac][bb][bd][be][ce][dd][ed][fc][gb][gc][hc](;B[ab];W[aa](;B[ba];W[ca];B[da];W[fa];B[ba]C[This is the best result you can get. Black takes first forcing white to find the first ko threat. RIGHT])(;B[da];W[fa];B[ba];W[ca]C[You've got the right idea, but if you play in a different order you can make it so black takes the ko first, thus needing 1 less ko threat.]))(;B[da];W[fa](;B[ba];W[ab])(;B[ab];W[aa](;B[ba];W[ca]C[This works, but isn't the best. In this variation white takes the ko first which forces black to find the first ko threat. You can do better, try again!RIGHT])(;B[ca];W[ad])))(;B[ba];W[ab](;B[da];W[fa])(;B[ca])))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 53,
+  "attempts": {
+    "solved": 7,
+    "failed": 1,
+    "tries": 8,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-08-26T17:00:32+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1260
+}

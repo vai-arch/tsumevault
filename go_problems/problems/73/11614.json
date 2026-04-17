@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11614,
+  "elo": 1031.5499098707,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Assume there are no moves anywhere else on the board worth more than 0.5 points.",
+  "rating": {
+    "stars": 3,
+    "votes": 33,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rq]AW[rp]AW[sp]AW[qq]AW[pq]AW[pr]AW[ps]AW[nr]AW[nq]AW[oq]AW[mq]AB[lq]AB[lr]AB[mr]AB[ns]AB[os]AB[mp]AB[np]AB[op]AB[pp]AB[qp]AB[ro]AB[so]AB[qn]AB[lp]C[Maximize your score. Suppose that everywhere else on the board is settled. Should White play a move here? Play at P7 (No) if you think White cannot gain anything by plaing first.]LB[om:No]AP[goproblems]\n(;W[om]C[];B[rr]C[And if Black plays here?]\n(;W[sr];B[rs]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[qr];B[ms]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[qs];B[or]C[];W[ss]C[White ends up with 5 points (3 points of territory and 2 prisoners). This is one point less than if White did play a move.])\n(;W[mm];B[or]C[Seki, no points.])\n(;W[or]C[Seki, no points.]))\n(;W[qs];B[ms]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[qr];B[or]C[];W[ss]C[White ends up with 5 points (3 points of territory and 2 prisoners). This is one point less than if White did play a move.])\n(;W[or]C[Seki, no points.])\n(;W[mm];B[or]C[Seki, no points.]))\n(;W[or];B[ms]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.Seki.]LB[mm:Tenuki]\n(;W[qs]C[Seki])\n(;W[qr]C[Seki.])\n(;W[mm];B[ss]C[10000 year ko.]))\n(;W[mm];B[ss]C[10000 year ko.]))\n(;W[rs];B[sr]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[qr];B[ms]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[sq];B[or];W[ss]C[White ends up with 5 points (3 points of territory and 2 prisoners). This is one point less than if White did play a move.])\n(;W[or]C[Seki, no points.])\n(;W[mm];B[or]C[Seki, no points.]))\n(;W[or];B[ms]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[qr]C[Seki])\n(;W[mm];B[ss]C[Ko, at best.]))\n(;W[mm];B[ss]C[Ko, at best.]))\n(;W[or];B[rs]\n(;W[ms];B[ns]\n(;W[sr];B[ss]C[10000 year ko.])\n(;W[os];B[sr]))\n(;W[sr];B[ms]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.Seki.]LB[mm:Tenuki]\n(;W[qs]C[Seki])\n(;W[qr]C[Seki.])\n(;W[mm];B[ss]C[10000 year ko.]))))\n(;W[rr]C[Nice and simple. 6 points of territory for White.RIGHT])\n(;W[sr]C[6 points for White.RIGHT])\n(;W[rs]C[6 points for White.RIGHT])\n(;W[sq];B[rs];W[rr];B[qs]\n(;W[ss];B[sr]C[Whoopsee. Ko.])\n(;W[or];B[ss]))\n(;W[qs];B[rr]LB[om:Tenuki]C[If you think you dont need another move play P7 (Tenuki).]\n(;W[sr];B[rs];W[qr];B[ms]C[5 points to White. You will have to play inside your own group once more.])\n(;W[om];B[sr]C[Dead...!])\n(;W[rs];B[sr]C[Dead...])\n(;W[ss];B[sr])\n(;W[or];B[sr]))\n(;W[qr];B[rr]C[If you think you dont need another move play P7 (Tenuki).]LB[om:Tenuki]\n(;W[rs];B[sr]C[If you think you dont need another move play P7 (Tenuki).]LB[om:Tenuki]\n(;W[sq]C[Just 5 points. You will have to capture the stones in the end.])\n(;W[or];B[ms]C[Seki...])\n(;W[ms];B[ls]C[If you think you dont need another move play P7 (Tenuki).]LB[om:Tenuki]\n(;W[sq]C[5 points, you will need to capture at T1 later on.])\n(;W[or];B[ms]C[Seki, no points.])\n(;W[om];B[ms]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[sq];B[or];W[ss]C[5 points.])\n(;W[mm];B[or]C[Seki.])\n(;W[or]C[Seki...])))\n(;W[om];B[ms]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[sq];B[or];W[ss]C[White ends up with 5 points (3 points of territory and 2 prisoners). This is one point less than if White did play a move.])\n(;W[or]C[Seki, no points.])\n(;W[mm];B[or]C[Seki, no points.])))\n(;W[om];B[sr]\n(;W[rs];B[ms]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[sq];B[or];W[ss]C[White ends up with 5 points (3 points of territory and 2 prisoners). This is one point less than if White did play a move.])\n(;W[or]C[Seki, no points.])\n(;W[mm];B[or]C[Seki, no points.]))\n(;W[or];B[rs]))\n(;W[sr];B[rs]C[If you think you dont need another move play P7 (Tenuki).]\n(;W[om];B[ms]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[qs];B[or]C[];W[ss]C[White ends up with 5 points (3 points of territory and 2 prisoners). This is one point less than if White did play a move.])\n(;W[mm];B[or]C[Seki, no points.])\n(;W[or]C[Seki, no points.]))\n(;W[or];B[ms]C[Seki...])\n(;W[qs];B[ms]C[5 points to White. You will have to play inside your own group once more.])))\n(;W[or];B[ms]C[If you think you dont need another move play P7 (Tenuki).]LB[om:Tenuki]\n(;W[rr]C[6 points.RIGHT])\n(;W[sr]C[6 points.RIGHT])\n(;W[rs]C[6 points.RIGHT])\n(;W[om];B[rr]\n(;W[sr];B[rs]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[qr])\n(;W[qs])\n(;W[mm];B[ss]C[10000 year ko.]))\n(;W[rs];B[sr]C[Play at N7 (Tenuki) to tenuki if you want to tenuki again.]LB[mm:Tenuki]\n(;W[qr]C[Seki.])\n(;W[mm];B[ss]C[Ko, at best.])))\n(;W[sq];B[rr];W[rs];B[sr];W[qr];B[qs])\n(;W[qr];B[rs]\n(;W[sr];B[rr]C[Seki])\n(;W[rr];B[sr]C[Dead! (Bent 4 in the corner)]))\n(;W[ss];B[rr]\n(;W[sr];B[rs]\n(;W[qr];B[sq];W[sr]C[Seki])\n(;W[qs];B[sq];W[sr]C[Seki]))\n(;W[rs];B[sr]\n(;W[qr];B[qs];W[rs]C[Seki])\n(;W[sq];B[qs]))\n(;W[qr];B[rs];W[sr];B[sq];W[sr]C[Seki]))\n(;W[qs];B[rr]\n(;W[sr];B[rs]C[Seki])\n(;W[rs];B[sr])))\n(;W[ss];B[rr]\n(;W[rs];B[sr];W[qr];B[qs];W[rs];B[ms];W[sq]C[5 points, you need to capture.])\n(;W[sr];B[rs];W[qr];B[sq];W[sr];B[ms];W[qs]C[5 points, you need to capture.])))",
+  "author": {
+    "id": 13781,
+    "name": "zafris",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-13",
+    "rank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1348.33
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 6981,
+    "failed": 5448,
+    "tries": 12429,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-08-06T18:02:03+00:00",
+  "source": "Game against a computer",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 32,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

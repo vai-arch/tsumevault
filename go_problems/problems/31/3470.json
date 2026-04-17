@@ -1,0 +1,136 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3470,
+  "elo": 1346.7532020332,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "How many ways can B connect?",
+  "rating": {
+    "stars": 2,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ed]AB[ec]AB[eb]AB[ea]AW[dd]AW[dc]AW[db]AW[cd]AW[ce]AB[ff]AB[fg]AB[eg]AB[dg]AB[cg]AW[bc]AW[cf]AW[gf]AW[gg]AW[gd]AW[gc]AW[fb]AW[fa]AW[hb]AB[gh]AB[hh]AB[ih]AW[hg]AW[ig]AW[jg]AW[kg]AB[jh]AW[kh]AB[fi]AB[bg]LB[lb:1]LB[lc:2]LB[ld:3]LB[le:4]LB[lf:5]LB[lg:6]LB[lh:7]LB[la:0]LB[li:8]AW[bf]AW[da]AW[he]AP[goproblems]\n(;B[lf]C[here are the right points.RIGHT]AB[de]AB[ee]AB[ef]AB[fe]AB[fd]LB[de:2\r\n]LB[fd:1]LB[ee:3]LB[fe:4]LB[ef:5])\n(;B[ee]C[NOTTHIS])\n(;B[de]C[NOTTHIS])\n(;B[df]C[NOTTHIS])\n(;B[ef]C[NOTTHIS])\n(;B[fe]C[NOTTHIS])\n(;B[ge]C[NOTTHIS])\n(;B[fd]C[NOTTHIS])\n(;B[fc]C[NOTTHIS])\n(;B[da]C[NOTTHIS])\n(;B[ca]C[NOTTHIS])\n(;B[gb]C[NOTTHIS])\n(;B[lg]))",
+  "author": {
+    "id": 4785,
+    "name": "kochi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-14",
+    "rank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1340.69
+  },
+  "avgSolveTimeSeconds": 56,
+  "attempts": {
+    "solved": 1007,
+    "failed": 2095,
+    "tries": 3102,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-02T09:19:39+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

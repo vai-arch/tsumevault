@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4513,
+  "elo": 1571.3546026147,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Taken from Go World.",
+  "rating": {
+    "stars": 2.6,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AW[qq]AW[qp]AW[ro]AW[qn]AW[qm]AW[pm]AB[pn]AB[po]AB[qo]AB[pp]AB[pq]AW[pr]AW[nq]AB[om]AB[on]AB[jp]C[Black to think first before playing.](;B[or];W[qr];B[oq]C[This is a mediocre result that is commonly played. Please look deeper.])(;B[rn];W[rp]LB[rm:A]C[Good. Note that white could not have played at A.];B[or];W[qr];B[oq]C[Correct. This sequence leaves behind aji for black to exploit later. The difference between this and the simple hane is significant in a game.RIGHT])(;B[mp];W[rr]C[You are too generous!])(;B[rp];W[rq];B[rn];W[sp];B[or];W[qr];B[oq]C[Close. But not quite.RIGHT])(;B[qr]C[Hmmm.... Looks fancy.];W[rr];B[or];W[qs];B[oq]C[Not too good. You could have just used the hane.])(;B[np];W[or]C[Nope.])(;B[oq];W[or]C[No!]))",
+  "author": {
+    "id": 18,
+    "name": "guff",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-17",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 679,
+    "failed": 2789,
+    "tries": 3468,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-05-24T20:33:55+00:00",
+  "source": "Murakami Akira",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

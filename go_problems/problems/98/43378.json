@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 43378,
+  "elo": 1261.631678714,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;CA[utf-8]AP[goproblems autoextractor]AB[mc][nd][ne][ob][oc][pb][pc][qb][rb]AW[od][rc][qe][qc][pd][mb][nb][nc][oa][rd]TR[rd]LB[oe:c][lc:b][lb:a][pa:d]DT[2010-02-13]PC[The KGS Go Server at http\\://www.gokgs.com/]PB[Laza]PW[Dino9]C[FORCE](;B[lc]TR[mb][nb][nc]SQ[qb][rb][ob][oc][pc][pb]LB[lb:B]C[Honte, black keeps threatenning the triangled white stones. Playing here is worth about 21 points over playing away in an empty corner. The stones marked with a triangle are dead. The stones marked with a square are alive. White would have played at the same place if you played away. Your move prevents white from making about 7 points in the corner. White would likely play at M18 next. ](;W[lb]C[CHOICE](;B[kb]C[RIGHT])(;B[kc];W[kb]C[Black L17 was too weak. Your mistake at L17 lost approximately 11 points]))(;W[sb]C[CHOICE];B[lb]C[Note\\: the White move at T18 lost about 12 pointsRIGHT]))(;B[oe];W[lc]TR[mb][nb][nc]SQ[qb][rb][ob][oc][pc][pb]C[Black missed the vital point at M17. This loses about 17 points. The stones marked with a triangle are alive. The stones marked with a square are dead. White makes about 12 corner points. ])(;B[lb];W[lc]TR[mb][nb][nc]SQ[qb][rb][ob][oc][pc][pb]C[Black M18 was too greedy. This loses about 26 points. The stones marked with a triangle are alive. The stones marked with a square are weaker. White makes about 10 corner points. ])(;B[pa];W[lc]TR[mb][nb][nc]SQ[qb][rb][ob][oc][pc][pb]C[Black Q19 was useless. This loses about 30 points. The stones marked with a triangle are alive. The stones marked with a square are weaker. ]))",
+  "author": {
+    "id": 44133,
+    "name": "seeker1987",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 1331
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1843.52
+  },
+  "avgSolveTimeSeconds": 64,
+  "attempts": {
+    "solved": 6,
+    "failed": 9,
+    "tries": 15,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-02-17T09:42:49+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 980
+}

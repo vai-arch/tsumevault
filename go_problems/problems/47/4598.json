@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4598,
+  "elo": 1705.8712972975,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "In problem 4300 I though that the triangled stone let White live unconditionaly. \r\nThree months after, I realized it was wrong...\r\n\r\nSome feedback on the comment :\r\nI agree that in general seki would be the best play in this position. But the point of these problems (4300, 4304 and 4598) is to not let black a chance to get a ko, because depending on the global situation it can be disastrous. \r\n\r\nIn the actual game the F16 black group was part of a 60 stones dragon with one eye and plenty of possible ko threat to make it lives. ",
+  "rating": {
+    "stars": 3.2,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ab]AB[bb]AB[cc]AB[bd]AB[be]AB[ce]AW[ba]AW[cb]AW[dc]AW[ec]AW[eb]AW[ea]AW[dd]AW[de]AW[cf]AW[bf]AW[bh]AW[ch]AW[dg]AW[eh]AW[ci]AB[df]AB[ef]AB[ee]AB[ed]AB[fd]AB[fc]AB[fb]AB[fa]AW[ca]C[Black to get a ko. (White has no ko threat)]TR[ca]AW[ag]AP[goproblems]\n(;B[aa];W[ac];B[bc];W[ae];B[ad];W[af]\n(;B[db]C[NOTTHIS])\n(;B[da];W[db]C[Seki]))\n(;B[cd];W[ac]\n(;B[db]C[NOTTHIS];W[da]C[Seki])\n(;B[bc];W[ae];B[ad];W[af]\n(;B[da];W[db]C[Seki])\n(;B[db]C[NOTTHIS]))\n(;B[da]C[NOTTHIS])\n(;B[ad]C[Seki])\n(;B[ae]C[Seki]))\n(;B[ad];W[bc];B[cd];W[af]\n(;B[ac];W[ae]\n(;B[da];W[db]C[Seki])\n(;B[db]C[NOTTHIS]))\n(;B[da]C[NOTTHIS])\n(;B[db]C[NOTTHIS]))\n(;B[ae];W[ac]C[Seki])\n(;B[bc];W[ae];B[ad];W[af]C[Seki])\n(;B[ac]\n(;W[cd]C[CHOICE]\n(;B[bc];W[ae]C[Dead])\n(;B[ae];W[bc]C[One approach move Ko. There is a better one.]TR[ha])\n(;B[da];W[bc]C[Direct Ko. White to take first (White has an internal threat at D18) RIGHT])\n(;B[db];W[bc]C[Direct Ko. White to take first (White has an internal threat at D19)RIGHT])\n(;B[aa];W[bc]C[One approach move Ko. There is a better one.]))\n(;W[ae];B[cd];W[af];B[db];W[da];B[aa]C[Dead]))\n(;B[da]C[NOTTHIS])\n(;B[db];W[ac]\n(;B[cd];W[da]C[Seki])\n(;B[bc];W[ae]\n(;B[ad];W[af]C[Seki])\n(;B[aa];W[da];B[ad];W[af]C[Seki]))\n(;B[ad];W[af]\n(;B[cd];W[da];B[bc];W[ae]C[Seki])\n(;B[bc];W[ae]C[Seki]))))",
+  "author": {
+    "id": 6276,
+    "name": "Lok",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-03-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 590,
+    "failed": 2388,
+    "tries": 2978,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-06-07T11:32:25+00:00",
+  "source": "Variation on problem 4300",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

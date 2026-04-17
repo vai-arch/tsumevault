@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6129,
+  "elo": 1194.1929062236,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "From a game of mine",
+  "rating": {
+    "stars": 4.4,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[po]AW[qo]AW[ro]AW[mp]AW[pp]AW[rp]AW[nq]AW[pq]AW[nr]AW[or]AB[on]AB[np]AB[op]AB[qp]AB[oq]AB[qq]AB[rq]AB[pr]AB[qr]TR[np]TR[op]TR[oq]C[Capture the marked stones]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]PL[W]\r\n(;W[nn];B[oo]\r\n(;W[om];B[pn]\r\n(;W[pm];B[qn]\r\n(;W[rn];B[qm];W[ql];B[rm]\r\n(;W[rl];B[sm]\r\n(;W[sl];B[sn]\r\n(;W[no]C[RIGHT])\r\n(;W[so];B[sp]C[Whoops]))\r\n(;W[sn];B[sp]C[Failure])\r\n(;W[no];B[sn];W[sl]C[RIGHT]))\r\n(;W[sm];B[rl]\r\n(;W[rk];B[qk]\r\n(;W[pl];B[rj]C[black escapes])\r\n(;W[sl];B[pl]C[black escapes]))\r\n(;W[qk];B[sp]C[black has more liberties])\r\n(;W[sl];B[rk]C[black escapes, white dies])))\r\n(;W[qm];B[rn]\r\n(;W[rm];B[so]C[Ouch!])\r\n(;W[sn];B[sp]C[Ouch]))\r\n(;W[rm];B[rn];W[sn];B[sp]))\r\n(;W[qn];B[pm]\r\n(;W[qm];B[pl]C[Black gets away])\r\n(;W[pl];B[ol];W[nm];B[ql];W[pk];B[qm]C[too many cutting points black runs away]))\r\n(;W[qm];B[pm]\r\n(;W[pl];B[nm]\r\n(;W[ol];B[mn]C[Black escapes])\r\n(;W[no];B[ol]C[Black escapes])\r\n(;W[qn];B[ol]C[black escapes]))\r\n(;W[nm];B[pl]C[black escapes])\r\n(;W[qn];B[pl]C[black escapes])\r\n(;W[ol];B[pl]\r\n(;W[pk];B[ok]\r\n(;W[ql];B[nm];W[nl];B[mn];W[mm];B[mo]C[black escapes])\r\n(;W[nm];B[qk];W[pj];B[ql]C[white will die on the right])\r\n(;W[nk];B[qk]\r\n(;W[pj];B[ql]C[white will die on the right])\r\n(;W[oj];B[ql]C[white will die on the right])))\r\n(;W[ok];B[pk]C[black escapes]))\r\n(;W[ql];B[pl]C[black escapes])))\r\n(;W[pn];B[om]C[Black gets away]))\r\n(;W[oo];B[no]\r\n(;W[nn];B[mo]\r\n(;W[lo];B[mn]C[Broken ladder black escapes])\r\n(;W[mn];B[lo]C[Black escapes]))\r\n(;W[mn];B[nn]C[Black escapes]))\r\n(;W[mo];B[nn]C[Black escapes no good])\r\n(;W[no];B[oo];W[om]C[B];B[nn]C[Black escapes no good])\r\n(;W[pn];B[nn]C[Black escapes]))",
+  "author": {
+    "id": 10062,
+    "name": "Chr15t1aN",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-05-17",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 4521,
+    "failed": 7555,
+    "tries": 12076,
+    "speedSolved": 7,
+    "speedPlay": 14
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-03-10T13:43:29+00:00",
+  "source": "A game of mine",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 116,
+      "name": "Loose Ladder Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

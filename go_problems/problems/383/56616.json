@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 56616,
+  "elo": 1278.8278704549,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Black to play, create the best shape. ",
+  "rating": {
+    "stars": 5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[go][hq][jo][jq]AW[ep][gq][hr][lq]LB[gr:A]LB[ir:B](;B[gr];W[fr]C[Black does better here with the cross-cut (answer A). Continue the sequence by taking sente moves.](;B[gp];W[fq](;B[ir];W[gs]LB[lo:7]LB[gr:1]LB[fr:2]LB[gp:3]LB[fq:4]LB[ir:5]LB[gs:6]C[Black does better here with the cross-cut (move 1). By giving up one\nstone Black can secure some shape on the left and then play 7.RIGHT])(;B[iq];W[lo]C[You can do better]))(;B[ir];W[gs];B[gp];W[fp]LB[lo:7]LB[gr:1]LB[fr:2]LB[ir:3]LB[gs:4]LB[gp:5]LB[fp:6]C[Black does better here with the cross-cut (answer A). By giving up one\nstone Black can secure some shape on the left and then play 7.\n\n(Note: This is slightly worse than the book variation, but I've included it as correct since the difference is minor. Compare the two correct sequences to see the difference)RIGHT]))(;B[ir];W[hp]LB[iq:A]C[The bulge/tiger's mouth is often good shape but here it has a problem. Play at A to see the book's sequence.];B[iq];W[gr]LB[gp:A];B[gp];W[fp]LB[ho:C]LB[ip:D]LB[ir:1]LB[hp:2]LB[iq:3]LB[gr:4]LB[gp:5]LB[fp:6]C[The problem with answer B, the bulge here, is that Black finishes with rigid\nshape. No longer does Black have the options to answer 2 at C or D. White\nalso has the option to connect at 5 with 4, for central strength.]))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 2,
+    "failed": 9,
+    "tries": 11,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2026-03-11T15:57:19+00:00",
+  "source": "https://cdn.online-go.com/shape_up.pdf",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 377,
+      "name": "Shape Up! All Problem Sets",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 381,
+      "name": "Shape Up! Problem Set 1",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 383,
+      "name": "Shape Up! (5 kyu course)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1260
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2629,
+  "elo": 1825.4373913941,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -2,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Possible hamete (trick plays) position that occurs frequently in handicap games.\r\n\r\nThis problem was found in an archive of rec.games.go ",
+  "rating": {
+    "stars": 2.2,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;WS[1]\r\nVW[]\r\nBS[1]\r\nAB[nc][jd][pd]\r\nAW[ld][qf]\r\nKM[0]\r\n(;B[lc]\r\n;W[oc]\r\n;B[od]\r\n;W[kc]\r\n;B[kd]\r\n;W[mc]\r\n;B[lb]\r\n;W[nd]\r\n;B[nb]\r\n;W[mb]\r\n;B[ma]\r\n;W[md]\r\n(;B[ob]\r\n;W[kb]\r\n;B[la]\r\n;W[pc]\r\n(;B[qc]\r\n;W[ka]\r\nC[Opps... The hamete play was at White at P17]\r\nTR[oc])(;B[pb]\r\n;W[qc]\r\n;B[qb]\r\n;W[qd]\r\n;B[jb]\r\n;W[na]\r\n;B[oa]\r\n;W[rb]\r\n;B[jc]\r\n;W[mf]\r\nC[This is bad for Black\r\n\r\nThe trouble started with p17\r\n]\r\nTR[oc]))(;B[kb]\r\n;W[ob]\r\n;B[na]\r\n;W[jc]\r\n;B[jb]\r\n;W[ic]\r\n;B[ib]\r\n;W[hc]\r\n;B[hb]\r\n;W[gc]\r\n;B[pc]\r\n;W[mf]\r\nC[This is bad for Black\r\n\r\nThe trouble started with p17\r\n]\r\nTR[oc]))(;B[qe]\r\n;W[pf]\r\n;B[ne]\r\nC[RIGHT This is good for Black.  Keep \r\nthe two White groups separated.\r\n\r\nBlacks  initial response at A is the \r\nusual response and is not the best \r\nplay\r\n]\r\nLB[lc:A])(;B[pf]\r\nCR[pf];W[pg]\r\nCR[pe];B[of]\r\nCR[of];W[qe]\r\nCR[qe];B[qd]\r\nCR[qd];W[qj]\r\nC[RIGHT After white extends black can make a large scale attacking move that depends on the rest of the board]\r\nCR[qj]))",
+  "author": {
+    "id": 1811,
+    "name": "cheyenne",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-04-28",
+    "rank": {
+      "value": 16,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1104.23
+  },
+  "avgSolveTimeSeconds": 22,
+  "attempts": {
+    "solved": 1160,
+    "failed": 3580,
+    "tries": 4740,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-25T06:10:41+00:00",
+  "source": "rec.games.go archive",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 19,
+      "name": "Hamete",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1313,
+  "elo": 1251.5422911348,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -5,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nFF[4]\r\nGM[1]\r\nSZ[19]\r\nAP[Jago:Version 4.18]\r\nAW[ra][qa][qb][rc][rd][qd][se][rf][qf][pg][qg][qh][sh][si][ri][rj]\r\nAB[sj][sk][rk][qk][qj][qi][ph][oi][og][nf][pf][pe][qe][re][pd][pc][pb][pa][qc][sb]\r\nLB[sb:a]\r\nC[How should white deal with black's move at 'a'?]\r\nGN[temp2]\r\n(\r\n;\r\nW[sf]\r\n;\r\nB[rb]\r\n(\r\n;\r\nW[rg]\r\n;\r\nB[sd]\r\nC[White salvages some stones and takes sente. RIGHT]\r\n)\r\n(\r\n;\r\nW[sd]\r\n;\r\nB[rg]\r\n)\r\n(\r\n;\r\nW[sc]\r\n;\r\nB[sd]\r\n;\r\nW[rg]\r\nC[White saves some stones but in gote.]\r\n)\r\n)\r\n(\r\n;\r\nW[rg]\r\n;\r\nB[sf]\r\n(\r\n;\r\nW[sd]\r\n;\r\nB[rb]\r\n)\r\n(\r\n;\r\nW[sg]\r\n;\r\nB[rb]\r\n)\r\n(\r\n;\r\nW[sc]\r\n;\r\nB[sd]\r\nC[ko for everything (black has 2 local threats) but could be white's best option. RIGHT]\r\n)\r\n)\r\n(\r\n;\r\nW[sc]\r\n;\r\nB[sg]\r\nC[dead]\r\n)\r\n(\r\n;\r\nW[rb]\r\n;\r\nB[sg]\r\nC[dead]\r\n)\r\n(\r\n;\r\nW[sg]\r\n;\r\nB[rb]\r\nC[dead]\r\n)\r\n(\r\n;\r\nW[sd]\r\n;\r\nB[sg]\r\nC[dead]\r\n)\r\n)",
+  "author": {
+    "id": 830,
+    "name": "Spica",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 69,
+  "attempts": {
+    "solved": 2502,
+    "failed": 5405,
+    "tries": 7907,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-02-05T16:38:03+00:00",
+  "source": "GTL game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

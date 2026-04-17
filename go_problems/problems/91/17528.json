@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17528,
+  "elo": 1351.8678439012,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is a position from one of my games. My opponent, who was white, didn't find the solution. In a review afterwards a observer showed us the the correct variation.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rs]AB[qr]AB[pr]AB[os]AB[nr]AB[nq]AB[np]AB[op]AW[oq]AW[or]AW[pq]AW[qq]AW[rq]AW[rr]AB[om]AB[pm]AB[ol]AB[pk]AB[qk]AB[rl]AB[rm]AW[pl]AW[ql]AW[qm]AW[qn]AW[rn]AW[qo]AW[qp]AB[ro]AB[sr]C[White to live.]AB[ok]AP[goproblems]\r\n(;W[so];B[sq]\r\n(;W[sp];B[qs];W[ss];B[sr])\r\n(;W[qs];B[ps];W[sp];B[ns];W[ss];B[sr])\r\n(;W[ps];B[qs];W[sp];B[ns];W[ss];B[sr]))\r\n(;W[sq]\r\n(;B[ns];W[ss]C[Correct, Ko.Black cannot connect at A to prevent KoRIGHT]LB[ps:A])\r\n(;B[qs];W[ss]C[Ko, but black would't play this way.RIGHT])\r\n(;B[ps];W[ss]C[Correct, Ko is best, black cannot play A to prevent ko.RIGHT]LB[qs:A]))\r\n(;W[rp];B[sq]\r\n(;W[sp];B[qs];W[ss];B[sr])\r\n(;W[qs];B[ps];W[sp];B[ns];W[ss];B[sr])\r\n(;W[ps];B[qs];W[sp];B[ns];W[ss];B[sr]))\r\n(;W[sm];B[rk];W[sq]C[Correct, but playing T7 just waste some threatsRIGHT])\r\n(;W[sp];B[ns]\r\n(;W[sq];B[qs];W[ss];B[ps])\r\n(;W[qs];B[ps]))\r\n(;W[qs];B[ps];W[sq];B[ns];W[ss];B[qs])\r\n(;W[ps];B[qs];W[sq];B[ns];W[ss];B[ps]))",
+  "author": {
+    "id": 68105,
+    "name": "jjki",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-10-22",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1558.02
+  },
+  "avgSolveTimeSeconds": 101,
+  "attempts": {
+    "solved": 561,
+    "failed": 1031,
+    "tries": 1592,
+    "speedSolved": 1,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-11-30T11:26:48+00:00",
+  "source": "Real game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 91,
+      "name": "No-Throw-In Corner Tesuji",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 123,
+      "name": "Oiotoshi",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

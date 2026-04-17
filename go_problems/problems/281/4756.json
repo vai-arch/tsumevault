@@ -1,0 +1,136 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4756,
+  "elo": 1275.9283318301,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Hopefully, if this turns out well, the first in a group of problems on the tripod group.\r\n\r\nThanks to Chrise for some variations.",
+  "rating": {
+    "stars": 4.1,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pr]AB[qq]AB[rq]AW[pq]AW[oq]AW[qp]AW[qo]AW[or]C[Black to live]AP[goproblems]\r\n(;B[qs]\r\n(;W[os]\r\n(;B[sr]TR[rp]TR[rs]C[These points are miai for life.  Good job!RIGHT])\r\n(;B[rp];W[sr]\r\n(;B[rr]C[At best this is ko, black can do better.])\r\n(;B[ro];W[rn]\r\n(;B[rr]C[At best this is ko, black can do better.])\r\n(;B[so];W[rr]\r\n(;B[qr];W[sq]C[Black is dead, this leads to a twisted four in the corner.])\r\n(;B[sq];W[qr])\r\n(;B[rs];W[sq]TR[ps]TR[ss]C[Miai for the kill]))\r\n(;B[sq];W[rr]\r\n(;B[qr];W[so])\r\n(;B[so];W[qr])\r\n(;B[rs];W[so])))\r\n(;B[rs];W[ro]TR[rr]TR[ps]C[Miai for the kill])))\r\n(;W[rp]\r\n(;B[sr];W[rs];B[rr]C[FORCE];W[os])\r\n(;B[rr]C[RIGHT])\r\n(;B[rs];W[sr])\r\n(;B[sq];W[rr])\r\n(;B[ps];W[rr])))\r\n(;B[rs];W[ps])\r\n(;B[rr];W[ps])\r\n(;B[sr];W[qr])\r\n(;B[rp];W[qr]C[If black can make a fight up the right side, maybe he can play this way, but it is not unconditional life.])\r\n(;B[qr];W[rp])\r\n(;B[ps];W[rs]\r\n(;B[rp];W[ro]\r\n(;B[sp];W[sr];B[rr];W[os]C[Black is dead with a bent four in the corner.])\r\n(;B[sr];W[sp]))\r\n(;B[rr];W[os]\r\n(;B[rp];W[ro];B[sp];W[sr]C[Black is dead with a bent four in the corner.])\r\n(;B[sq];W[ss]))))",
+  "author": {
+    "id": 6186,
+    "name": "shaydwyrm",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2016-02-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 1891,
+    "failed": 3733,
+    "tries": 5624,
+    "speedSolved": 6,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-07-05T03:28:28+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 136,
+      "name": "Tripod",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 283,
+      "name": "9x9 corner fight (core)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22340,
+  "elo": 2011.9686285564,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Play the best move. Tenuki at T (N7) for one point whenever it is safe to do so. At each move, only a few choices are available. Please flag and/or comment if there is a mistake. Three players have solved this high-dan rated problem. All three people were ranked mid-kyu.",
+  "rating": {
+    "stars": 5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ks][kr][kq][lq][lp][mp][np][nq][oq][or][os][pp][po][pn][pm][so][qn][rn]AW[js][jr][jq][jp][ko][lo][mo][no][oo][op][mr][ps][pr][pq][qq][rq][sq][sr][rp][ro]LB[mm:T][rs:A][mq:B][lr:C][ls:D][ms:E]C[Play the best move. Tenuki at T (N7) for one point whenever it is safe to do so. At each move, only a few choices are available.](;W[mm];B[ms]C[Black lives. You can do better!])(;W[rs];B[ms]C[Black lives. You can do better!])(;W[mq];B[ms]C[Black lives. You can do better!])(;W[lr];B[ms](;W[nr];B[rs]C[Now, Black's group is alive and White's is dead. See continuation for details.])(;W[rs];B[nr]C[Black lives. You can do better!]))(;W[ls];B[rs]LB[mm:T][ms:A][ns:B][nr:C][mq:D][kp:E]C[Please note that this was not the best move for Black.](;W[mm];B[ns]C[Now, Black's group is alive and White's is dead. See continuation for details.])(;W[ms];B[qo]C[You're going to lose this capturing race. See continuation for details.])(;W[ns];B[nr]LB[mm:T][kp:A][mq:B][lr:C][ms:D]C[FORCE](;W[mm];B[ms]C[Ko. You can do better!])(;W[kp];B[ms]C[Ko. You can do better!])(;W[mq];B[ms]C[Ko. You can do better!])(;W[lr];B[ms]C[Ko. You can do better!])(;W[ms];B[qo]LB[mm:T][kp:A][lr:B]C[FORCE](;W[mm];B[qp]LB[nm:T][kp:A][lr:B]C[FORCE](;W[nm];B[sn]C[You're going to lose this capturing race. See continuation for details.])(;W[kp];B[sn];W[lr];B[mq];W[ms]C[RIGHT])(;W[lr];B[sn];W[kp];B[mq];W[ms]C[RIGHT]))(;W[kp]C[You could have tenuki'd.])(;W[lr]C[You could have tenuki'd.])))(;W[nr];B[ns]C[Now, Black's group is alive and White's is dead. See continuation for details.])(;W[mq];B[ns]C[Now, Black's group is alive and White's is dead. See continuation for details.])(;W[kp];B[ns]C[Now, Black's group is alive and White's is dead. See continuation for details.]))(;W[ms];B[rs]C[You're going to lose this capturing race. See continuation in solution tree for details.]))",
+  "author": {
+    "id": 97667,
+    "name": "a1!",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-11",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1761.53
+  },
+  "avgSolveTimeSeconds": 118,
+  "attempts": {
+    "solved": 5,
+    "failed": 95,
+    "tries": 100,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-03-25T17:16:06+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 20,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

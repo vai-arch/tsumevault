@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3971,
+  "elo": 1586.3685417125,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "This is a joseki that arises after black plays the 4-5 point and white plays the 3-4 point. Published in Go Journal last year.",
+  "rating": {
+    "stars": 3.2,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[po]AW[pq]AB[np]AW[qo]AB[pp]AW[qp]C[What is black's next play?]AP[goproblems]\n(;B[qq]C[Please check - there is another option];W[qr]\n(;B[rq];W[rr]\n(;B[oq];W[pr]\n(;B[qn];W[rp]\n(;B[ro];W[sq]\n(;B[pm]C[Gives white a small corner and sente but black's thickness is formidable. Good jobRIGHT])\n(;B[rm]C[White capturing that stone is small potatoes. Play somewhere else.])\n(;B[or]C[Not yet: you have a cutting point to take care of.])\n(;B[pn]C[You have the right idea, but there's a better way to connect.]))\n(;B[or];W[rn]C[You could do better.]))\n(;B[rp];W[ro]C[Congratulations, you just threw away three stones.])\n(;B[or];W[qn]C[White escapes being enclosed, and black wastes the aji of his two stones.]))\n(;B[pr];W[oq]C[Q2 will be lost.])\n(;B[qn];W[rp]C[Black can now not get both marked moves in sente.]MA[oq]MA[ro])\n(;B[ro];W[qn]))\n(;B[pr];W[oq]C[Not good for Black])\n(;B[oq];W[rq]C[Black does not make full use of his aji.])\n(;B[qn];W[rq]C[Black is not using his possibilities well enough.]))\n(;B[oq]C[Please check - there is another option]\n(;W[pr]\n(;B[pn];W[or]\n(;B[nr];W[rm]C[RIGHT])\n(;B[mq]C[Good - black does not go for the maximum at the edge, but gains in thickness.RIGHT])\n(;B[qn];W[mq]C[Inconsequent]))\n(;B[qq]\n(;W[rq];B[or];W[qr]\n(;B[pm]C[RIGHT])\n(;B[qn]C[The cut at Q6 is very painful aji.]))\n(;W[qr]C[This variation is not played by the computer in the problem, not because it is wrong (it is not), but because the variations after this are not as clear-cut.];B[qn];W[rp]C[From here on, this is just one variation of various.];B[ro];W[rq];B[pm]C[RIGHT]))\n(;B[qn];W[pn]C[Results in an unnecessary and often not so profitable fight.]))\n(;W[qq];B[pn];W[qm];B[ol]C[Only the most common of various variations here.RIGHT]))\n(;B[qn];W[pn]C[Now black is in trouble.])\n(;B[pr]C[];W[oq]C[The cut at R3 does not work, so Q2 gets lost.])\n(;B[pn]C[];W[oq]C[Too soft on white.]))",
+  "author": {
+    "id": 6262,
+    "name": "caleb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-06-23",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 1732,
+    "failed": 6973,
+    "tries": 8705,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-02-21T12:31:05+00:00",
+  "source": "Published in Go Journal last year",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 79,
+      "name": "4-5 (takamoku) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

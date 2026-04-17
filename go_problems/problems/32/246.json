@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 246,
+  "elo": 1614.6438650242,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.5,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]\r\nSZ[19]RU[Japanese]KM[5.5]TM[1800,0,30,5]PW[White]PB[Black]GN[White (W) vs. Black (B)]DT[1999-07-28]SY[Cgoban 1.9.2]\r\nAW[dn][gp][hp][eq][fq][cr]AB[do][fo][go][ho][dp][fp][jp][pp]C[black's best move? (hint: around existing stones)\r\n]\r\n(;B[hr]\r\n(;W[iq]\r\n(;B[jq]\r\n;W[ir]\r\n(;B[jr]\r\n;W[js]\r\n(;B[ks]\r\n;W[is]LB[lr:A]C[please play at A. no, i'm not trying to trick you...\r\n]\r\n;B[lr]\r\n;W[io]C[white shouldn't do this, but if she does...?\r\n]\r\n(;B[ip]\r\n;W[hq]C[white needs this move: hence this sequence\r\n]\r\n(;B[in]\r\n;W[jo]\r\n(;B[kn]C[RIGHT\r\nwhite caught in a net\r\n])\r\n(;B[ko]C[oh so close, but tragically wrong. net is better.\r\n]))\r\n(;B[gr]\r\n;W[gq]C[now that's just a wasted ko-threat\r\n]))\r\n(;B[jo]\r\n;W[ip]\r\n;B[in]\r\n;W[gq]C[black has two cutting points. there exists a better option\r\n]))\r\n(;B[ip]\r\n;W[hq]\r\n;B[ks]\r\n;W[is]\r\n;B[lr]\r\n;W[io]\r\n;B[in]C[RIGHT\r\n]))\r\n(;B[ip]\r\n;W[jr]\r\n(;B[hq]\r\n;W[gq]\r\n(;B[kr]\r\n;W[gr])\r\n(;B[gr]\r\n;W[fr]))\r\n(;B[gq]\r\n;W[hq]\r\n;B[gr]\r\n;W[kr])))\r\n(;B[ir]\r\n;W[jq]C[black's in deep doo-doo\r\n])\r\n(;B[ip]\r\n;W[ir]CR[ir]C[this sequence is inferior for black. the reason is complicated, so explore the correct answer]))\r\n(;W[gr]C[this is how white should answer in reality\r\n]))\r\n(;B[dq]\r\n;W[dr]C[aji-keshi: no good\r\n])\r\n(;B[ip])\r\n(;B[ip]\r\n;W[hr]LB[io:A][jr:B]C[not good: white has the cut at A and an open skirt at B\r\n])\r\n(;B[bq]\r\n;W[br])\r\n(;B[dr]\r\n;W[dq]\r\n;B[cq]\r\n;W[bq]\r\n;B[cp]\r\n;W[br])\r\n(;B[cq]\r\n;W[br])\r\n(;B[iq]\r\n;W[hr]LB[io:A]C[white has a cut at A\r\n])\r\n(;B[cn]C[not urgent\r\n])\r\n(;B[gr]\r\n;W[hr]C[bad\r\n]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.91
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 391,
+    "failed": 2635,
+    "tries": 3026,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2000-10-25T20:24:04+00:00",
+  "source": "pamphlet",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 32,
+      "name": "Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 122,
+  "elo": 1508.8859498948,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.3,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[np]AB[oo]AB[oq]AB[pp]AB[qo]AB[ro]AB[rp]AB[rq]AB[rr]AB[rs]AW[lr]AW[mo]AW[mq]AW[no]AW[on]AW[pn]AW[po]AW[qp]AW[qq]AW[qr]AW[qs]SZ[19]PL[W]GM[1]FF[4]AP[Hibiscus:2.1]ST[3]\n(;W[ps]MN[1];B[nr]\n(;W[pq];B[op]\n(;W[or];B[nq]\n(;W[mp];B[ns]\n(;W[mr]C[RIGHT])\n(;W[ms]C[RIGHT]))\n(;W[mr];B[ns]\n(;W[ms]C[RIGHT])\n(;W[mp]C[RIGHT]))\n(;W[ms];B[ns]\n(;W[mr]C[RIGHT])\n(;W[mp]C[RIGHT]))\n(;W[ns];B[ms]C[Only ko]))\n(;W[ns];B[or]))\n(;W[ns];B[ms];W[os];B[mr])\n(;W[or];B[nq]\n(;W[pq]C[];B[op]\n(;W[mp];B[ns]\n(;W[mr]C[RIGHT])\n(;W[ms]C[RIGHT]))\n(;W[mr];B[ns]\n(;W[ms]C[RIGHT])\n(;W[mp]C[RIGHT]))\n(;W[ms];B[ns]\n(;W[mr]C[RIGHT])\n(;W[mp]C[RIGHT]))\n(;W[ns];B[ms]C[Only ko]))\n(;W[ms];B[pq];W[ns];B[pr];W[os];B[mr];W[ls];B[mp]\n(;W[lp];B[lq]\n(;W[kq];B[kr]C[Ko])\n(;W[op]C[Ko]))\n(;W[op];B[lp])\n(;W[lq];B[lp])))\n(;W[nq];B[os]))\n(;W[os];B[nr]\n(;W[ns];B[ms];W[mr];B[ps];W[pr];B[or];W[ls];B[pq])\n(;W[pq];B[op]\n(;W[or];B[ps])\n(;W[mp];B[pr])))\n(;W[nr];B[or]\n(;W[os];B[ps];W[pr];B[pq])\n(;W[pq];B[op];W[os];B[pr]))\n(;W[ns];B[nr];W[os];B[ms];W[mr];B[ps];W[pr];B[or];W[ls];B[pq])\n(;W[or];B[pr]\n(;W[ps];B[pq];W[os];B[nr])\n(;W[os];B[pq];W[ps];B[nr]))\n(;W[pq];B[op];W[or];B[ps];W[pr];B[nr]))",
+  "author": {
+    "id": 6,
+    "name": "Spirit",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-28",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1819.71
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 670,
+    "failed": 3610,
+    "tries": 4280,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "1999-10-20T06:55:19+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 51,
+      "name": "Xuan Xuan Qijing",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 340,
+      "name": "Gokyo Shumyo",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 27,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

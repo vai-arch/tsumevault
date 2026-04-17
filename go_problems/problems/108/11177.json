@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11177,
+  "elo": 2027.6030875692,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "I played the upper left keima to prevent the marked move and my 7d opponent played there anyway :-)\r\nTry to not depend much on unnecessary ladders.",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qd]AB[oc]AW[rd]AB[qg]AB[mb]AW[qi]AW[qk]TR[rd]C[White just played the marked move. What will you do?]AW[kb]AW[jc]AW[je]AP[goproblems]\n(;B[re]\n(;W[qc]C[CHOICE];B[pd]\n(;W[pb]C[CHOICE]\n(;B[rb];W[ob]\n(;B[rc];W[nb]\n(;B[nc];W[mc]C[This is a problem.])\n(;B[mc];W[nc];B[nd];W[md]C[Problem here.]))\n(;B[nc];W[rc]LB[nb:A]C[As white A is sente here, white will live now.])\n(;B[nb];W[rc]C[This is not the best position for black as your group is thin now. If black tries to kill with T18 or something like that now, white will cut at O17 and aim for the weakness at R15. You could definitely do better.];B[sb]))\n(;B[rc];W[rb];B[sd];W[ob]\n(;B[nb]C[Good! If white Q17, then black R19 and if white O17, black Q17!RIGHT])\n(;B[nc];W[sb]\n(;B[nb];W[oa]C[White lives.])\n(;B[pc];W[qb];B[nb];W[oa])\n(;B[ra];W[qa];B[oa];W[nb];B[na];W[mc]C[Cuttee])\n(;B[oa];W[nb];B[na];W[mc])))\n(;B[ob];W[rb]C[This leads only to ko.]))\n(;W[rb];B[pb]\n(;W[qb]\n(;B[sd];W[pc];B[ob];W[sc];B[se];W[qe];B[rc]C[White cannot hope for luck here, only thing she can get is something like realy many steps ko.RIGHT])\n(;B[sc]C[This move is also good.RIGHT]))\n(;W[rf];B[se];W[qb];B[qe]C[White is still dead.RIGHT])\n(;W[se];B[rf];W[qb];B[sc]C[RIGHT]))\n(;W[ob];B[nb]C[This position is similar to the solution.];W[pb];B[rc];W[rb];B[sd]C[RIGHT]))\n(;W[qe];B[pe];W[qc];B[pd];W[rb];B[pb];W[qb];B[sc];W[sd];B[sb];W[pc];B[ob];W[qf];B[rf];W[pf];B[pg];W[of];B[od]C[Black looks ok here.RIGHT]))\n(;B[qc];W[qe]\n(;B[pe];W[qf];B[pf];W[rg];B[rf];W[re];B[rh];W[sf];B[qh]C[You could do better.])\n(;B[pf];W[pe];B[oe];W[qf];B[pg];W[rg];B[rh];W[sf];B[qh];W[rc]C[You could do better.]))\n(;B[qe];W[qc]\n(;B[pc];W[qb]C[White lives, you could do better.])\n(;B[pb];W[qb];B[rb];W[ra];B[sb];W[pc];B[ob];W[pd]C[This difficult fight is not needed.]))\n(;B[rc];W[qe];B[re];W[pd];B[qc];W[rf];B[pe];W[qf];B[pf];W[rg]C[You could do better.]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 28,
+    "failed": 280,
+    "tries": 308,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-04-08T15:37:58+00:00",
+  "source": "My game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 108,
+      "name": "0 What Group?",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

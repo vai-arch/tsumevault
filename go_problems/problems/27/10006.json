@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10006,
+  "elo": 839.965830825,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 27,
+    "negativeFlagSum": -1,
+    "flagSum": 26
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 35,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cq]AB[do]AB[en]AB[dm]AB[cm]AB[el]AB[ek]AW[dl]AW[cl]AW[bm]AW[bn]AW[em]AW[fm]AW[fn]AW[fo]TR[em]TR[dl]AB[eo]AW[fq]AB[dr]AB[bp]C[Connect the two triangles!]AP[goproblems]\n(;W[co]\n(;B[dn]C[CHOICE];W[dp];B[ep];W[eq]\n(;B[cp];W[dq]\n(;B[bo]\n(;W[cn];B[fp];W[gp]C[RIGHT])\n(;W[fp];B[cn];W[co]C[RIGHT]))\n(;B[fp];W[gp]C[RIGHT]))\n(;B[fp];W[gp]C[RIGHT]))\n(;B[dp]C[CHOICE]\n(;W[dn];B[cn];W[dn]C[RIGHT])\n(;W[cn];B[dn])\n(;W[cp];B[dn];W[eq];B[dq])))\n(;W[dn];B[cn]\n(;W[co];B[dn]\n(;W[dp];B[ep];W[eq]\n(;B[fp];W[gp]C[RIGHT])\n(;B[cp];W[fp]C[RIGHT]))\n(;W[ep];B[dp]))\n(;W[cp];B[co];W[dp];B[ep]))\n(;W[cp];B[co];W[dp];B[ep])\n(;W[bo];B[co];W[dp]\n(;B[cp];W[ep])\n(;B[ep];W[eq];B[dq];W[fp]))\n(;W[dp];B[co];W[cp];B[bo];W[cn];B[dn];W[ep])\n(;W[ep];B[dp];W[co];B[dn];W[cp];B[bo];W[cn];B[dq])\n(;W[cn];B[dn]\n(;W[cp];B[co];W[dp];B[ep])\n(;W[co];B[dp]))\n(;W[dq];B[dp];W[eq];B[co]))",
+  "author": {
+    "id": 18121,
+    "name": "jobu0101",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-08-27",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 14767,
+    "failed": 5558,
+    "tries": 20325,
+    "speedSolved": 5,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-04-21T02:30:57+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

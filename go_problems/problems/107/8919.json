@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8919,
+  "elo": 979.99217240534,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 11,
+    "negativeFlagSum": -1,
+    "flagSum": 10
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.9,
+    "votes": 35,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rb]AW[ra]AB[pa]AB[pb]AB[qc]AB[pc]AB[rc]AB[rd]AB[sc]AB[re]AB[se]AW[oa]AW[ob]AW[oc]AW[pd]AW[od]AW[qd]AW[qe]AW[rf]AW[qf]AW[sf]AW[nd]AW[md]AW[ld]AW[lc]AW[lb]AW[la]AW[mb]AW[nb]C[What can you do? Can white make seki?FORCE]MA[lf]MA[lg]LB[mf:Yes]LB[mg:No]AP[goproblems]\n(;W[lf];B[lg]C[Show me then.]\n(;W[sb]C[Very good.  Easy Seki problem. :) The eye at T19 is necessary since black also has an eye at T16.\n(If either side fills the second of the two marked liberties the other side can capture, so neither side plays there)RIGHT]MA[qb]MA[qa])\n(;W[sa]C[White can be captured and black has 2 eyes this way.])\n(;W[qb];B[sb]C[White can be captured and black has 2 eyes this way.])\n(;W[qa];B[sb]C[White can be captured and black has 2 eyes this way.]))\n(;W[lg]C[No, white can definently make seki here.  Try again.  Seki means that neither white or black can capture the other because doing so allows them to be captured by trying.])\n(;W[sb]C[Rather than answering the question you jump right in and solve it.  That's okay. It is seki, neither side will fill in both marked liberties. Both groups live without territory.RIGHT]MA[qb]MA[qa])\n(;W[mf];B[mg]\n(;W[sb]C[Very good.  Easy Seki problem. :) The eye at T19 is necessary since black also has an eye at T16.\n(If either side fills the second of the two marked liberties the other side can capture, so neither side plays there)RIGHT]MA[qb]MA[qa])\n(;W[sa]C[White can be captured, Black has 2 eyes this way.])\n(;W[qb];B[sb]C[White can be captured and black has 2 eyes this way.])\n(;W[qa];B[sb]C[White can be captured and black has 2 eyes this way.])))",
+  "author": {
+    "id": 12040,
+    "name": "jocund",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-12-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 9951,
+    "failed": 5858,
+    "tries": 15809,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-07-24T03:19:34+00:00",
+  "source": "me myself and yeah me",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

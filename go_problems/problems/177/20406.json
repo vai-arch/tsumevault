@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20406,
+  "elo": 1216.558351275,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.9,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rc]AB[rd]AB[qc]AB[pc]AB[oc]AB[nc]AW[sd]AW[re]AW[qd]AW[pd]AW[od]AW[of]AW[pf]AW[ph]AW[qi]AW[ri]AB[sg]AB[rg]AB[qg]C[black to connect his stones.]AP[goproblems]\n(;B[qe];W[qf]\n(;B[se];W[sf]\n(;B[rf];W[pe]\n(;B[sc]C[RIGHT])\n(;B[se]C[ko only.]))\n(;B[sc];W[rf]))\n(;B[rf];W[se]\n(;B[sf];W[pe];B[sc];W[qe])\n(;B[sc];W[pe];B[sf];W[qe]))\n(;B[sc];W[se];B[sf];W[pe])\n(;B[sf];W[se]\n(;B[sc];W[pe])\n(;B[rf];W[pe];B[sc];W[qe])))\n(;B[se];W[sf]\n(;B[qe];W[qf]\n(;B[rf];W[pe]\n(;B[sc]C[RIGHT])\n(;B[se]C[ko only.]))\n(;B[sc];W[rf]))\n(;B[rf];W[qe];B[se]C[ko only.])\n(;B[sc];W[rf]\n(;B[qe];W[qf])\n(;B[qf];W[qe]))\n(;B[qf];W[qe];B[rf];W[se]))\n(;B[rf];W[se]\n(;B[qe];W[qf]\n(;B[sf];W[pe])\n(;B[sc];W[pe];B[sf];W[qe]))\n(;B[sc];W[qe])\n(;B[sf];W[qe])\n(;B[qf];W[qe]))\n(;B[sf];W[se]\n(;B[qe];W[qf]\n(;B[sc];W[pe])\n(;B[rf];W[pe];B[sc];W[qe]))\n(;B[sc];W[qe])\n(;B[rf];W[qe])\n(;B[qf];W[qe]))\n(;B[sc];W[se];B[qe];W[qf];B[rf];W[pe];B[sf];W[qe])\n(;B[qf];W[qe]\n(;B[se];W[sf]\n(;B[rf];W[se])\n(;B[sc];W[se]))\n(;B[sc];W[se])\n(;B[sf];W[se])))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 82,
+  "attempts": {
+    "solved": 590,
+    "failed": 1003,
+    "tries": 1593,
+    "speedSolved": 3,
+    "speedPlay": 10
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-09-26T17:25:00+00:00",
+  "source": "Tesuji and Antisuji",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 177,
+      "name": "Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14768,
+  "elo": 1476.3755811315,
+  "problemLevel": 27,
+  "rank": {
+    "value": 3,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Originally I thought I had devised a brilliant problem for White to kill, until Field Mouse pointed out this brilliant tesuji. Thanks for this amazing problem! :)",
+  "rating": {
+    "stars": 4.6,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[jc]AB[jd]AB[ic]AB[lc]AB[jb]AW[kc]AW[ia]AW[id]AW[ie]AW[le]AW[md]AW[oc]AW[pc]AW[qc]AW[kb]AB[lb]AW[nd]AW[gc]AW[fb]AW[ec]AW[hc]AB[kd]AW[je]AW[ke]AW[ld]C[Black to live]AP[goproblems]\n(;B[ha];W[hb]\n(;B[nb];W[ka]\n(;B[la]C[RIGHT])\n(;B[ja];W[ib]))\n(;B[ka];W[nb])\n(;B[mb];W[ka];B[la];W[nb]))\n(;B[ka];W[nb];B[hb];W[ha])\n(;B[hb];W[ha]\n(;B[ka];W[nb])\n(;B[ga];W[nb]\n(;B[ka];W[gb])\n(;B[gb];W[fa])\n(;B[ja];W[gb];B[ib];W[ha])))\n(;B[ja];W[nb]\n(;B[hb];W[ha];B[ga];W[gb];B[ib];W[ha])\n(;B[ha];W[hb]))\n(;B[nb];W[ka]\n(;B[ja];W[ib])\n(;B[la];W[ja]))\n(;B[la];W[nb];B[hb];W[ha])\n(;B[ib];W[hb];B[ka];W[nb])\n(;B[ma];W[ka]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 683,
+    "failed": 1520,
+    "tries": 2203,
+    "speedSolved": 3,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-04-26T14:05:22+00:00",
+  "source": "Field Mouse's brilliant tesuji on my previous (now deactivated) problem",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

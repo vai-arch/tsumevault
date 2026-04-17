@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21300,
+  "elo": 1290.2639502721,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "xxg/50",
+  "rating": {
+    "stars": 4.5,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]SZ[9]\n  AB[gc][hc][bd][cd][dd][hd][ee][fe][ge][he][bf][df][bg][cg][dg]\n  AW[eb][fb][gb][hb][bc][cc][dc][ic][ad][id][ae][ie][af][ef][ff][gf][hf][ag][eg][bh][ch][dh]\n\n  (;W[ed];B[fd]\n      (;W[ec];B[de]\n          (;W[ce];B[be])\n          (;W[be];B[ce]))\n      (;W[de];B[ec]\n          (;W[ce];B[be])\n          (;W[be];B[ce])\n          (;W[cf];B[ce]))\n      (;W[ce];B[be]\n          (;W[ec];B[de])\n          (;W[de];B[ec])\n          (;W[cf];B[ec]))\n      (;W[be];B[ce]))\n  (;W[ec];B[ed]\n      (;W[fc];B[ce])\n      (;W[ce];B[be]\n          (;W[fc];B[fd])\n          (;W[fd];B[fc]))\n      (;W[be];B[ce])\n      (;W[fd];B[ce]))\n  (;W[fc];B[ce]\n      (;W[ed];B[fd])\n      (;W[fd];B[ed]))\n  (;W[de];B[ce]\n      (;W[ed];B[fd])\n      (;W[fd];B[ed]))\n  (;W[ce];B[be]\n      (;W[ed];B[fd]\n          (;W[ec];B[de])\n          (;W[de];B[ec])\n          (;W[cf];B[ec]))\n      (;W[ec];B[ed]\n          (;W[fc];B[fd])\n          (;W[fd];B[fc]))\n      (;W[fc];B[fd])\n      (;W[de];B[fd]\n          (;W[ed];B[ec])\n          (;W[ec];B[cf]\n              (;W[ed];B[de])\n              (;W[de];B[ed])))\n      (;W[cf];B[de]\n          (;W[ed];B[fd])\n          (;W[ec];B[fd])\n          (;W[fc];B[fd])\n          (;W[fd];B[fc]\n              (;W[ed];B[ec])\n              (;W[ec];B[ed])))\n      (;W[fd];B[fc]\n          (;W[ed];B[ec]\n              (;W[de];B[cf]\n                  (;W[de];B[gd]\n                      (;W[ed]C[RIGHT])\n                      (;W[fd];B[ce]))\n                  (;W[ce];B[gd];W[ed];B[de]))\n              (;W[cf];B[de]))\n          (;W[ec];B[ed])\n          (;W[de];B[ed])\n          (;W[cf];B[de]\n              (;W[ed];B[ec])\n              (;W[ec];B[ed]))))\n  (;W[be];B[ce]\n      (;W[ed];B[fd])\n      (;W[fd];B[ed]))\n  (;W[cf];B[ce]\n      (;W[ed];B[fd])\n      (;W[fd];B[ed]))\n  (;W[fd];B[be]\n      (;W[ed]C[RIGHT])\n      (;W[ec];B[ed]\n          (;W[fc];B[ce])\n          (;W[ce];B[fc]))\n      (;W[fc]C[RIGHT])\n      (;W[gd];B[ed]\n          (;W[fc];B[ce])\n          (;W[ce];B[fc]))\n      (;W[de];B[ed]\n          (;W[fc];B[ce])\n          (;W[ce];B[fc]))\n      (;W[ce];B[fc]\n          (;W[ed];B[ec]\n              (;W[de];B[cf]\n                  (;W[de];B[gd]\n                      (;W[ed]C[RIGHT])\n                      (;W[fd];B[ce]))\n                  (;W[ce];B[gd];W[ed];B[de]))\n              (;W[cf];B[de]))\n          (;W[ec];B[ed])\n          (;W[de];B[ed])\n          (;W[cf];B[de]\n              (;W[ed];B[ec])\n              (;W[ec];B[ed])))\n      (;W[cf];B[ed]\n          (;W[fc];B[ce])\n          (;W[ce];B[fc]))))",
+  "author": {
+    "id": 74533,
+    "name": "aik",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2018-09-22",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1947.8
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 529,
+    "failed": 986,
+    "tries": 1515,
+    "speedSolved": 3,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-08-12T07:58:37+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 34,
+      "name": "Double Snapback",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

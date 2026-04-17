@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10293,
+  "elo": 1134.1819228707,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Thought I'd go for a simple problem this time :)\r\n\r\nComments welcome",
+  "rating": {
+    "stars": 4.1,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AW[ss]AW[rr]AW[qr]AW[pr]AW[or]AW[oq]AW[op]AB[oo]AB[on]AB[pp]AB[pq]AB[qq]AB[rq]AB[sq]AB[sr]AW[po]AW[qo]AW[pn]AW[rn]AW[sn]AW[rp]AB[pm]AB[qm]AB[qn]AB[rm]AB[sm](;B[rs];W[sp](;B[qp];W[ss])(;B[ro];W[so]TR[qp]C[Black cannot play here due to shortage of liberties])(;B[so];W[ro]C[One eye versus no eye.  White wins.])(;B[ss];W[qs]))(;B[sp](;W[ro]C[CHOICE](;B[so];W[qp])(;B[qp];W[so])(;B[rs]C[RIGHT];W[qs](;B[so];W[ss];B[qp]C[RIGHT])(;B[qp];W[ss];B[so]C[RIGHT])))(;W[rs](;B[qp];W[so])(;B[ro];W[so];B[ro]C[RIGHT])(;B[so]C[RIGHT])))(;B[qp];W[sp])(;B[so];W[ro](;B[sp];W[qp])(;B[qp];W[sp])(;B[rs];W[sp]C[One eye versus false eye.  White wins.]))(;B[ro];W[so](;B[rs];W[sp]TR[qp]C[Black cannot play R4 due to a shortage of liberties.])(;B[sp];W[qp])(;B[qp];W[sp])))",
+  "author": {
+    "id": 12051,
+    "name": "koala",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2009-04-16",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 3393,
+    "failed": 4816,
+    "tries": 8209,
+    "speedSolved": 4,
+    "speedPlay": 35
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-09-02T06:52:05+00:00",
+  "source": "BGJ",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

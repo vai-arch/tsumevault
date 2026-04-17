@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4061,
+  "elo": 1618.0981434161,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Based on a comment by GreyWulf on problem 4059",
+  "rating": {
+    "stars": 2.3,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[rb]AW[rd]AW[qf]AW[qi]AB[qc]AB[nd]AB[pd]C[W made an overplay  at S18. W to make the best of a bad job. Also for the purposes of this problem try to avoid ko.]AB[rc]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;W[qd];B[sc]\n(;W[pc];B[oc];W[pb];B[qb]\n(;W[pe];B[od];W[sd];B[ob]C[This way W keeps sente and a ko threat, So forcing at 'A' before playing 'B' is the correct order.RIGHT]LB[pe:A]LB[sd:B])\n(;W[sd];B[ob];W[pe];B[pa]C[W has lost his aji in this situation, so try again (you're oh so close though).]))\n(;W[pe];B[pc]C[Not as good as the marked answer, B has sealed off his territory,  and W has a hole in his]TR[sd]))\n(;W[sc];B[re]\n(;W[qe];B[qd]\n(;W[sd];B[sb];W[sa];B[se]C[That's not going to work!])\n(;W[se]C[ko]))\n(;W[se];B[rf]\n(;W[qe];B[qd]\n(;W[sd];B[sb];W[sa];B[sf]C[This doesn't work])\n(;W[rg];B[sd]C[ko]))\n(;W[rg];B[qd];W[sf];B[sd]C[ko])))\n(;W[re];B[sc]C[W has got no benefit out of the marked stone, and B has a solid corner])\n(;W[qb];B[sc];W[pc];B[pb];W[oc];B[ob];W[qd];B[od];W[sd];B[nc]\n(;W[pc];B[oc];W[sb];B[pc]C[W gets a better result in the answer marked as correct. Even though B has a dumpling shape here, W doesn't really have any threats])\n(;W[sb];B[pc]C[W gets a better result in the answer marked as correct])))",
+  "author": {
+    "id": 1139,
+    "name": "Chrisg",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 235,
+    "failed": 1681,
+    "tries": 1916,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-11T08:56:40+00:00",
+  "source": "From Problem 4059",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

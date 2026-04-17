@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10587,
+  "elo": 1183.976792655,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "It's a simple corner problem.  Feel free to comment.",
+  "rating": {
+    "stars": 4,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[br]AB[cr]AB[cq]AB[eq]AB[er]AB[fr]AW[bq]AW[aq]AW[cp]AW[co]AW[ep]AW[fp]AW[fq]AW[gr]AW[hq]C[White to kill]AP[goproblems]\r\n(;W[ar];B[ds]\r\n(;W[bs]C[RIGHT])\r\n(;W[dq]C[RIGHT])\r\n(;W[fs]C[RIGHT]))\r\n(;W[dq];B[ar]\r\n(;W[dr];B[ds]C[FORCE]\r\n(;W[bp];B[dp]\r\n(;W[fs];B[dq])\r\n(;W[dq];B[fs]))\r\n(;W[dp];B[bp])\r\n(;W[fs];B[dp]))\r\n(;W[bp];B[dr])\r\n(;W[bo];B[dr])\r\n(;W[ap];B[dr])\r\n(;W[ao];B[dr]))\r\n(;W[fs];B[ar];W[bp];B[ds]\r\n(;W[dq];B[bs])\r\n(;W[bs];B[dq]))\r\n(;W[ds];B[ar]))",
+  "author": {
+    "id": 15043,
+    "name": "elciego",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-10-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 2627,
+    "failed": 3907,
+    "tries": 6534,
+    "speedSolved": 3,
+    "speedPlay": 11
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-11-02T14:33:02+00:00",
+  "source": "A burrito",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

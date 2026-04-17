@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3559,
+  "elo": 1288.9473433675,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.4,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[bb]AB[cc]AB[dd]AB[de]AB[be]AW[bc]AW[bd]AW[cb]AW[db]AW[ec]AW[gc]TR[bc]TR[bd]C[can black catch these two stones?](;B[ab](;W[cd](;B[dc];W[ce](;B[cf];W[bf](;B[ad];W[ae](;B[ac];W[be](;B[bg]C[RIGHT])(;B[cg];W[ba]))(;B[bg];W[ac]))(;B[ae];W[af])(;B[bg];W[ae])(;B[ac];W[ae];B[ad];W[be];B[bg]C[RIGHT]))(;B[bf];W[cf])(;B[ef];W[cf])(;B[df];W[cf])(;B[ba];W[cf]))(;B[ce];W[dc]C[you can connect, but better exits])(;B[ad];W[ce];B[cf];W[dc]C[not best])(;B[ac];W[dc]))(;W[ba](;B[ad]C[RIGHT])(;B[cd]C[RIGHT])))(;B[ba];W[ab])(;B[cd];W[ab])(;B[ad];W[ab])(;B[ac];W[ba];B[ab];W[ad])(;B[dc];W[ba]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 3899,
+    "failed": 7367,
+    "tries": 11266,
+    "speedSolved": 3,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-18T05:31:00+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 59,
+      "name": "2-2 Crosscut",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

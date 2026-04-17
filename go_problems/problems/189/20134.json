@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20134,
+  "elo": 503.57146251689,
+  "problemLevel": 0,
+  "rank": {
+    "value": 30,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 1.7,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]TR[gq]TR[gp]TR[fp]LB[dq:a]LB[cr:b]LB[dr:c]LB[ds:d]AB[cs]AB[bs]AB[br]AB[ar]AB[aq]AB[bq]AB[cq]AW[es]AW[er]AW[eq]AW[fr]AW[fq]AW[gr]AW[gs]TR[hq]TR[hr]AW[hs]TR[ir]TR[is]C[FORCE]AP[goproblems]\r\n(;B[dq]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]LB[dr:a]C[FORCE];W[dr]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]LB[cr:a]LB[ds:b]C[FORCE]\r\n(;B[cr]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]MA[as]MA[ds]MA[fs])\r\n(;B[ds]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]MA[as]MA[cr]MA[fs]))\r\n(;B[cr]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]LB[dq:a]LB[dr:b]LB[ds:c]C[FORCE]\r\n(;W[dq]TR[ir]TR[is]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]LB[dr:a]LB[ds:b]C[FORCE]\r\n(;B[dr]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]MA[fs]MA[ds]MA[as])\r\n(;B[ds]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[fp]TR[gp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]MA[as]MA[dr]MA[fs]))\r\n(;W[dr]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]LB[dq:a]LB[ds:b]C[FORCE]\r\n(;B[dq]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]MA[as]MA[ds]MA[fs])\r\n(;B[ds]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[bp]TR[cp]TR[ap]MA[as]MA[dq]MA[fs]))\r\n(;W[ds]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]LB[dq:a]LB[dr:b]C[FORCE]\r\n(;B[dq]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]MA[as]MA[dr]MA[fs])\r\n(;B[dr]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]MA[as]MA[dq]MA[fs])))\r\n(;B[dr]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]C[RIGHT])\r\n(;B[ds]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]LB[dr:a]C[FORCE];W[dr]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]LB[cr:a]LB[dq:b]C[FORCE]\r\n(;B[cr]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[cp]TR[dp]TR[bp]TR[ap]MA[as]MA[dq]MA[fs])\r\n(;B[dq]TR[is]TR[ir]TR[hr]TR[hq]TR[gq]TR[gp]TR[fp]TR[ep]TR[dp]TR[cp]TR[bp]TR[ap]MA[as]MA[cr]MA[fs])))",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 12,
+  "attempts": {
+    "solved": 2024,
+    "failed": 206,
+    "tries": 2230,
+    "speedSolved": 6,
+    "speedPlay": 7
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-07-05T00:28:32+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 189,
+      "name": "Irregular board",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 49872,
+  "elo": 1402.5649023995,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "White to capture the cutting stones",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[rr][qr][pq][oq][nr][mq][qp][ro][rp][rn][po][oo][on][ql]AW[rm][qm][pm][qn][qo][pp][op][qq][rq][nq][np][lp][no](;W[mm];B[nm];W[nl]C[Correct. 1 is the knights move tesuji.RIGHT])(;W[nm];B[nn];W[mn];B[mo];W[mp];B[mm](;W[ln];B[om]C[Black is out])(;W[lo];B[om]C[Black is out]))(;W[nl];B[mm];W[nm];B[nn];W[mn];B[mo]C[Correct shape by on the wrong side. This first knight's move does nothing to help the 5 weak white stones on the left side.]))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 4,
+    "failed": 11,
+    "tries": 15,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-08-22T18:40:53+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1260
+}

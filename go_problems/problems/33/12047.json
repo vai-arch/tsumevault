@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12047,
+  "elo": 1302.4095224296,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "More squares :) (or in this case rectangle)",
+  "rating": {
+    "stars": 3.4,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[br]AB[bq]AB[cq]AB[dr]AB[es]AB[ds]AB[er]AB[fr]AB[fs]AB[bp]AB[ap]AW[cr]AW[dq]AW[eq]AW[fq]AW[gq]AW[gr]AW[gs]AW[cp]AW[bo]AW[ao]AW[do]LB[gm:Ko]LB[im:Seki]LB[io:Kill]C[What can white get in the corner if white plays first? Life means the corner will be alive unconditionally, kill means the corner will be dead unconditionally. Please look at the overall corner, not individual stones like gaining points by capturing the 6 stones.FORCE]LB[dm:Life]AP[goproblems]\r\n(;W[dm]C[No, something can be gotten in the corner. (and its not just the 6 stones by the way)])\r\n(;W[gm];B[hm]C[Ok, please demonstrate.]\r\n(;W[cs];B[bs]\r\n(;W[ar];B[dr])\r\n(;W[dr];B[ar])\r\n(;W[es];B[ar])\r\n(;W[er];B[ar])\r\n(;W[ds];B[ar]))\r\n(;W[bs];B[cs]\r\n(;W[cr];B[dr]\r\n(;W[ds];B[cs]C[Right, ko for life.RIGHT])\r\n(;W[cs];B[ds])\r\n(;W[ar];B[cs]))\r\n(;W[ar];B[as]C[Right, ko for life. You could've captured some stones first though ;)RIGHT]))\r\n(;W[ar];B[bs];W[cs];B[dr]))\r\n(;W[im]C[Not quite, there is no way to get a seki here.])\r\n(;W[io];B[in]C[Oh really? Please demonstrate.]\r\n(;W[cs];B[bs]\r\n(;W[ar];B[dr])\r\n(;W[dr];B[ar])\r\n(;W[es];B[ar])\r\n(;W[er];B[ar])\r\n(;W[ds];B[ar]))\r\n(;W[bs];B[cs]\r\n(;W[ar];B[as]C[Ko.])\r\n(;W[cr];B[dr]\r\n(;W[cs];B[ds])\r\n(;W[ar];B[cs])\r\n(;W[ds];B[cs]C[Ko.])))\r\n(;W[ar];B[bs];W[cs];B[dr])))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 73,
+  "attempts": {
+    "solved": 922,
+    "failed": 1511,
+    "tries": 2433,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-12-11T17:45:36+00:00",
+  "source": "My head",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 33,
+      "name": "Under the Stones",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

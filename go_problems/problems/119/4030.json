@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4030,
+  "elo": 1739.4821956298,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "a redoing of an older problem I did, now with better a, non-dorky solution!",
+  "rating": {
+    "stars": 4,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]\r\nPW[White]PB[Black]AW[ba][ga][bb][cb][eb][fb][bc][fc][bd][dd][ae][ce][ee][fe][cf][cg][dg][fg]AB[ca][da][ea][ab][db][cc][dc][ec][gc][ad][cd][be][de][ge][bf][df][ef][ff][ag]C[white to wipe out any trace of black.  ^_^]PL[W]\r\n(;W[fd]CR[fd]\r\n;B[ed]CR[ed]\r\n(;W[gf]CR[gf]\r\n;B[gg]CR[gg]\r\n;W[fa]CR[fa]\r\n;B[dd]CR[dd]\r\n;W[gf]CR[gf]C[RIGHT black got jacked!  No ko threats left f00!])\r\n(;W[gd]CR[gd]\r\n;B[gf]CR[gf]C[black: G2\r\nwhite: you sunk my battleship!]))\r\n(;W[fa]CR[fa]\r\n;B[ed]CR[ed]\r\n;W[fd]CR[fd]\r\n;B[dd]CR[dd]\r\n(;W[gf]CR[gf]\r\n;B[gg]CR[gg]C[no ko threats, booya!])\r\n(;W[eg]CR[eg]\r\n;B[gf]CR[gf]C[top right no longer seki, white dies a horribly painful death!]))\r\n(;W[eg]CR[eg]\r\n;B[ed]CR[ed]\r\n(;W[fd]CR[fd]\r\n;B[gd]CR[gd]\r\n;W[gf]CR[gf]\r\n;B[gg]CR[gg]C[no ko threats, nya!])\r\n(;W[gf]CR[gf]\r\n;B[fd]CR[fd]C[white go bye-bye =P]))\r\n(;W[gf]CR[gf]\r\n;B[gg]CR[gg]\r\n(;W[fa]CR[fa]\r\n;B[ed]CR[ed]\r\n;W[fd]CR[fd]\r\n;B[dd]CR[dd]\r\n;W[gf]CR[gf]C[RIGHT At times like these I am reminded of the immortal words of Socrates who said: ...I drank what?\r\n])\r\n(;W[fd]CR[fd]\r\n;B[eg]CR[eg]C[haha, you fail!])))",
+  "author": {
+    "id": 105129,
+    "name": "system",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-03-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 88,
+  "attempts": {
+    "solved": 207,
+    "failed": 1961,
+    "tries": 2168,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-04T00:24:49+00:00",
+  "source": "Me",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 100,
+      "name": "Timing",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

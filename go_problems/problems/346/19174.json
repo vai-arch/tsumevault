@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19174,
+  "elo": 1595.5946519447,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "After you've mastered the basic way of thinking of life-and-death, the next step is to master, one by one, new techniques. The present problem is a good example. If you don't know the technique involved here, you may not guess it no matter how long you think. \r\n",
+  "rating": {
+    "stars": 4.2,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pp]AB[qq]AB[rq]AB[qo]AB[np]AB[mp]AB[mq]AB[lo]AW[nq]AW[oq]AW[pq]AW[qr]AW[rr]C[Black to play and kill White ]AP[goproblems]\r\n(;B[ms]\r\n(;W[ps];B[os]LB[ms:1]LB[ps:2]LB[os:3]LB[pr:a]C[The solution is to jump down to the edge with Black 1. If White 2, Black jumps in at 3, robbing White of eye shape at 'a'. The beauty of playing on the first line is that 1 and 3 are securely connected. \r\nRIGHT])\r\n(;W[sr];B[os];W[ps];B[rs]LB[ms:1]LB[sr:2]LB[os:3]LB[ps:4]LB[rs:5]C[If White descends at 2, Black again jumps in at 3, stopping him from getting enough room for eye space. If White 4, Black 5. \r\nRIGHT]))\r\n(;B[mr];W[ps]LB[mr:1]LB[ps:2]LB[pr:a]LB[os:b]LB[ns:c]C[The 'ordinary' idea would be to descend at 1, but now White 2 succeeds in creating two eyes. There is no way Black can stop the point of 'a' from becoming an eye â€” if Black 'b', White captures it with 'c'. You can now see how effective jumping down to the edge was. \r\n];B[os];W[ns]C[CHOICE])\r\n(;B[sr];W[mr];B[lr];W[ls];B[ks];W[ns]LB[sr:1]LB[mr:2]LB[lr:3]LB[ls:4]LB[ks:5]LB[ns:6]LB[kr:a]LB[or:b]LB[nr:c]C[The hane of Black 1 looks strong, but when White resists with 2 and 4, Black won't be able to kill him unconditionally. If Black gives way in the ko fight and connects at 'a', White plays 'b' and can still fight a ko for life. Black 5 at 'c' would start the ko immediately: White 6. \r\nCHOICE]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 32,
+  "attempts": {
+    "solved": 221,
+    "failed": 369,
+    "tries": 590,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-03-07T18:32:14+00:00",
+  "source": "varius",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 183,
+      "name": "The Top Ten Life-and-Death Problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 346,
+      "name": "side",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

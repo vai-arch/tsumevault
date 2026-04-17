@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12379,
+  "elo": 2191.0111690267,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -3,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "I have heard it said that a problem with goproblems.com is that it lets people guess and check too easily and doesn't help with real reading.\r\n\r\nWell, in this problem you will not only play your moves, but just like if you were reading, you must find your opponent's best moves too. First play on top in the real problem. Your moves will be mirrored on the bottom, where you will then play your opponent's best move.\r\n\r\nTry navigating the solution to look at other paths if you're not sure why a certain one is wrong. This is my first attempt at such a problem, so it is a bit messy. Let me know if there's an issue or something which could be done better.",
+  "rating": {
+    "stars": 3,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rd]AB[qd]AB[pd]AB[pc]AW[rp]AW[qp]AW[pp]AW[pq]AB[or]AB[oq]AB[op]AB[oo]AB[po]AB[qo]AB[ro]AB[rm]AB[mr]AW[ob]AW[oc]AW[mb]AW[oe]AW[od]AW[pe]AW[qe]AW[re]AW[rg]C[In this problem you will have to play both sides. Start as black on top.]AP[goproblems]\n(;B[qb];W[qr]C[Now the response on the bottom.]\n(;B[rq];W[rc]C[Now respond on top. You can do the rest from here.]\n(;B[sd];W[sp]C[Be careful not to play on the same side twice. Remember, you are doing both sides.]\n(;B[rr];W[rb]\n(;B[ra];W[rs]\n(;B[sq];W[sc]\n(;B[sb];W[sr];B[ss];W[sa]\n(;B[qc];W[qq];B[qs];W[qa];B[pa];W[ps]\n(;B[pr];W[pb];B[ra]C[Correct! Ko, you take first.RIGHT])\n(;B[so];W[se];B[ra]C[Correct! Ko, you take first.RIGHT]))\n(;B[qa];W[qs];B[sr];W[sb])\n(;B[pb];W[pr]\n(;B[ps];W[pa];B[sb]C[Correct! Ko, you take first.RIGHT])\n(;B[qs];W[qa];B[pa];W[ps]\n(;B[os];W[oa];B[ra]C[Correct! Ko, you take first.RIGHT])\n(;B[so];W[se];B[ra]C[Correct! Ko, you take first.RIGHT])))\n(;B[pa];W[ps]\n(;B[pr];W[pb];B[sb]C[Correct! Ko, you take first.RIGHT])\n(;B[so]C[NOTTHIS])\n(;B[os]C[NOTTHIS])))\n(;B[qc];W[qq];B[sr];W[sb]))\n(;B[sr];W[sb];B[pb];W[pr];B[ps];W[pa];B[sc]C[Seki is not the answer.])\n(;B[pr];W[pb];B[sb]))\n(;B[pb];W[pr];B[rs];W[ra]\n(;B[pa];W[ps];B[sr];W[sb])\n(;B[sb];W[sr];B[ps];W[pa];B[qa];W[qs];B[sq];W[sc]))\n(;B[sb];W[sr];B[rs];W[ra]\n(;B[pb];W[pr];B[ps];W[pa];B[qa];W[qs];B[sq];W[sc])\n(;B[qa];W[qs];B[pr];W[pb])))\n(;B[rs];W[ra];B[rb];W[rr];B[qs];W[qa];B[pa];W[ps];B[pr];W[pb];B[sa];W[ss]))\n(;B[sc];W[sq]\n(;B[sr];W[sb];B[sd];W[sp];B[rr];W[rb];B[rs];W[ra])\n(;B[rr];W[rb];B[ra];W[rs];B[sr];W[sb];B[sd];W[sp];B[pr];W[pb]))\n(;B[sb];W[sr];B[rs];W[ra]\n(;B[rb];W[rr];B[qs];W[qa];B[pa];W[ps];B[pr];W[pb])\n(;B[qa];W[qs];B[rr];W[rb]\n(;B[sc];W[sq];B[pr];W[pb])\n(;B[pb];W[pr];B[sp];W[sd]))))\n(;B[rr];W[rb]C[Now respond on top. You can do the rest from here.];B[rc];W[rq])\n(;B[sr];W[sb];B[rc];W[rq])\n(;B[sq];W[sc];B[rc];W[rq]))\n(;B[pb];W[pr]C[Now the response on the bottom.];B[rr];W[rb]C[Now respond on top. You can do the rest from here.]\n(;B[ra];W[rs]C[Be careful not to play on the same side twice. Remember, you are doing both sides.]\n(;B[sp];W[sd];B[rc];W[rq];B[sq];W[sc];B[sb]C[Ko. White takes first. Not the best solution.])\n(;B[rq];W[rc]C[This was the wrong move for your opponent. Play on the triangled points to see one variation from here.]TR[sd];B[sd];W[qb]TR[pa];B[pa];W[qa]TR[sb];B[sb];W[sa]TR[sc];B[sc]C[White has to find the first threat.]))\n(;B[sb]C[NOTTHIS])\n(;B[qb];W[qr];B[rq];W[rc];B[sd];W[sp];B[rs];W[ra]\n(;B[pa];W[ps];B[sr];W[sb])\n(;B[sb];W[sr];B[ps];W[pa];B[qa];W[qs];B[sq];W[sc]))\n(;B[rc]C[NOTTHIS]))\n(;B[rb];W[rr]C[Now the response on the bottom.]\n(;B[sp];W[sd];B[sc];W[sq];B[qr];W[qb])\n(;B[qr];W[qb]C[This was an incorrect move for your opponent. Play on the triangled points to see a possible variation.]TR[pb];B[pb];W[pa]TR[qc];B[qc];W[sd]TR[qa];B[qa];W[sb]TR[sc];B[sc];W[rc]C[ko])))",
+  "author": {
+    "id": 15623,
+    "name": "MeleeNewb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1962.53
+  },
+  "avgSolveTimeSeconds": 95,
+  "attempts": {
+    "solved": 7,
+    "failed": 104,
+    "tries": 111,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-02-06T20:52:28+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

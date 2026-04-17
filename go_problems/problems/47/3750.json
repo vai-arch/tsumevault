@@ -1,0 +1,142 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3750,
+  "elo": 1305.2013670846,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -12,
+    "flagSum": -12
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This is a slight variation on a game between me and ect on KGS. If nothing else, it goes to show that this type of situation isn't as contrived or infrequent as one might imagine.",
+  "rating": {
+    "stars": 2.9,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[6.50]\r\nPW[dr]PB[ect]AW[ra][mb][qb][kc][mc][oc][qc][dd][ld][nd][pd][me][pe][cf][mf][pf][jg][kg][lg][og][qg][nh][oh][di][pi][fj][gj][hj][jj][pj][hk][jk][pk][il][jl][jm][kn][on][qn][lo][mo][ro][rp][jq][kq][lq][mq]AB[na][oa][qa][nb][pb][rb][fc][hc][jc][lc][nc][pc][jd][od][fe][oe][nf][mg][ng][kh][lh][mh][ph][mi][ni][oi][kj][oj][dk][fk][gk][ik][kk][hl][cm][gm][im][jn][io][ko][cp][kp][lp][mp][pp][eq][hq][nq][qq][rq][mr][nr]C[Black has just captured the ko at Q19. Find White's largest ko threat.]PL[W]MA[pa]\r\n(;W[np]CR[np]\r\n;B[pa]CR[pa]C[If Black fills, what is White's follow-up?]\r\n;W[jo]CR[jo]\r\n;B[jp]CR[jp]C[Black clearly doesn't see O4 as a reasonable ko threat. Convince him you were right.]\r\n;W[ip]CR[ip]\r\n;B[jo]CR[jo]\r\n;W[ho]CR[ho]\r\n;B[in]CR[in]\r\n;W[hm]CR[hm]\r\n;B[hn]CR[hn]\r\n;W[gn]CR[gn]\r\n;B[hm]CR[hm]\r\n;W[fm]CR[fm]\r\n;B[gl]CR[gl]\r\n;W[ek]CR[ek]\r\n;B[fl]CR[fl]\r\n;W[el]CR[el]C[RIGHT])\r\n(;W[jo]CR[jo]\r\n;B[pa]CR[pa]C[Black fills, clearly indicating that he thinks your invasion doesn't have legs to stand on. Convince him.]\r\n(;W[np]CR[np]\r\n;B[jp]CR[jp]\r\n;W[ip]CR[ip]\r\n;B[jo]CR[jo]\r\n;W[ho]CR[ho]\r\n;B[in]CR[in]\r\n;W[hm]CR[hm]\r\n;B[hn]CR[hn]\r\n;W[gn]CR[gn]\r\n;B[hm]CR[hm]\r\n;W[fm]CR[fm]\r\n;B[gl]CR[gl]\r\n;W[ek]CR[ek]\r\n;B[fl]CR[fl]\r\n;W[el]CR[el]C[RIGHT])\r\n(;W[jp]CR[jp]\r\n;B[np]CR[np]C[Even despite the remaining atari in White's favor at K6, you should be able to do better.])\r\n(;W[in]CR[in]\r\n;B[jp]CR[jp]C[White has only made a small dent in Black's moyo, and your stones at the bottom are still cut from the top. You can do better.]))\r\n(;W[of]CR[of]\r\n;B[ne]CR[ne]C[Black would answer this, but it's not the biggest ko threat. If White recaptures the ko at Q19, Black starts a second ko at N16.])\r\n(;W[ne]CR[ne]\r\n;B[of]CR[of]C[Black would answer this, but it's not the biggest ko threat. If White recaptures the ko at Q19, Black captures to make an eye at Q13.])\r\n(;W[pa]CR[pa]C[NOTTHIS]))",
+  "author": {
+    "id": 4860,
+    "name": "wheezy",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-10-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 73,
+  "attempts": {
+    "solved": 1464,
+    "failed": 3141,
+    "tries": 4605,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-16T23:03:09+00:00",
+  "source": "ect vs dr (kgs)",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 20,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

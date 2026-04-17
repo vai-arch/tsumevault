@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 18566,
+  "elo": 859.28739408795,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.6,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bb]AB[bc]AB[cc]AB[dc]AB[db]AB[ad]AW[ac]AW[bd]AW[be]AW[cd]AW[dd]AW[ed]AW[ec]AW[eb]AP[goproblems]\n(;B[ca];W[ae]\n(;B[ab]C[RIGHT])\n(;B[aa]C[RIGHT]))\n(;B[da];W[ca]\n(;B[ab];W[ba]C[CHOICE])\n(;B[ba];W[ab];B[aa];W[ac]C[CHOICE]))\n(;B[ab];W[ca]\n(;B[da];W[ba]C[CHOICE])\n(;B[ba];W[da]C[CHOICE]))\n(;B[aa];W[ca]\n(;B[da];W[ae])\n(;B[ab];W[da])\n(;B[cb];W[da])\n(;B[ba];W[da])))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 2976,
+    "failed": 1864,
+    "tries": 4840,
+    "speedSolved": 59,
+    "speedPlay": 79
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-12-08T15:12:46+00:00",
+  "source": "encyclopedia of life and death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 179,
+      "name": "Encyclopedia of Life and Death - Easy",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

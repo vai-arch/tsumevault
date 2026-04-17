@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23499,
+  "elo": 1657.6419985145,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[besogo:0.0.2-alpha]SZ[19]ST[0]\r\nAB[ab][ad][ai][bb][bd][bg][bh][bi][cc][cf][ci][dc][dh][eb][eh][fb][fg][gb][ge][gf][gg][hc][hd]AW[af][ag][ah][be][bf][cd][cg][ch][dd][dg][ec][eg][fc][fe][ff][gc][gd]\r\nC[W to move (Endgame Problem)]\r\n(;W[df]\r\n;B[ed]\r\n(;W[ee]LB[fd:1]\r\nC[Right, B can capture 4 stones in gote! RIGHT])\r\n(;W[fd]\r\n;B[ee]LB[de:2][ef:1]\r\nC[W dies])\r\n(;W[ce]\r\n;B[ee]\r\nC[W dies]))\r\n(;W[ee]\r\n;B[ce]\r\n(;W[df]\r\n;B[ae]\r\n(;W[de]\r\nC[B captured 5 stones in sente!])\r\n(;W[bf]\r\n;B[be]\r\n;W[de]\r\nC[B captured 5 stones in sente!])\r\n(;W[be]\r\n;B[bf]\r\n;W[de]\r\nC[B captured 5 stones in sente!]))\r\n(;W[de]\r\n;B[ae]\r\n(;W[df]\r\nC[B captured 5 stones in sente!])\r\n(;W[bf]\r\n;B[df])\r\n(;W[be]\r\n;B[df])))\r\n(;W[de]\r\n;B[ed]\r\n(;W[ee]\r\n;B[df]LB[ef:1][fd:2])\r\n(;W[df]\r\n;B[ee]LB[ef:1][fd:2])\r\n(;W[fd]\r\n;B[ef]TR[df][ee]))\r\n(;W[ed]\r\n;B[ef])\r\n(;W[ef]\r\n;B[ed]LB[ce:2][fd:1])\r\n(;W[ce]\r\n;B[df]\r\n;W[ef]\r\n;B[ed]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 112,
+  "attempts": {
+    "solved": 39,
+    "failed": 193,
+    "tries": 232,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-09-03T20:30:33+00:00",
+  "source": "Problem 23498",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

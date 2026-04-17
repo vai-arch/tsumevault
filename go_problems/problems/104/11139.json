@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11139,
+  "elo": 1323.7529269002,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Surprisingly, playing the best endgame here will end in one point victory :-D",
+  "rating": {
+    "stars": 4.7,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[gd]AW[ge]AB[gf]AW[hf]AW[hg]AW[gh]AW[gg]AB[fe]AB[ff]AB[fd]AB[fc]AB[gc]AB[hc]AB[he]AW[fg]AW[eg]AW[ef]AW[df]AW[de]AW[ce]AW[be]AW[bd]AB[bc]AB[cc]AB[cd]AB[dd]AB[ed]AB[ee]AB[bb]C[White to win. No komi, no prisoners at the beginning!]AP[goproblems]\n(;W[if]\n(;B[ie];W[ac];B[ab];W[ad]C[White wins by one point! :)RIGHT])\n(;B[ad];W[ae];B[ac];W[id];B[hd];W[ie];B[ic]C[Black cannot play like this.RIGHT]))\n(;W[ie];B[id]\n(;W[if];B[ad];W[ae];B[ac]C[Jigo])\n(;W[hd];B[he];W[if];B[ad];W[ae];B[ac]C[Jigo]))\n(;W[ac];B[ab]\n(;W[ad];B[if];W[ig];B[ie])\n(;W[ie];B[id];W[if];B[ad];W[ae];B[ac])\n(;W[id];B[ie]\n(;W[if];B[hd])\n(;W[ad];B[if];W[ig];B[hd]C[Jigo]))\n(;W[if];B[ad]\n(;W[ie];B[id];W[ae];B[ac])\n(;W[id];B[hd];W[ie];B[ae]\n(;W[af];B[ac]MA[bf]C[FORCE];W[bf];B[ic]C[Jigo (black has three prisoners)])\n(;W[ic];B[ag]))))\n(;W[ad];B[if];W[ig];B[ie];W[ac];B[ab])\n(;W[id];B[ie]\n(;W[if];B[hd];W[ac];B[ab];W[ad]C[White wins even with this strange start.RIGHT])\n(;W[ac];B[ab]\n(;W[if];B[hd];W[ad]C[White wins even with this strange start.RIGHT])\n(;W[ad];B[if];W[ig];B[hd]C[Jigo]))))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 72,
+  "attempts": {
+    "solved": 1012,
+    "failed": 1960,
+    "tries": 2972,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-03-29T13:13:54+00:00",
+  "source": ":)",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 104,
+      "name": "1st Line Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2772,
+  "elo": 845.94663293547,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": true,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Short Go joke :\r\n- White : \"Your group is damezumari.\"\r\n- Black : \"Huh? What does that mean in my language?\"\r\n- White : \"That you are dead. :-)\"\r\n\r\nThe definition of this word and a lot of other japanese expressions related to Go (WeiChi) can be found on http://senseis.xmp.net/?EssentialGoTerms",
+  "rating": {
+    "stars": 4.1,
+    "votes": 33,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[Blanc]PB[Noir]AW[bn][co][do][eo][fo][go][ep][hp][ip][fq][iq][fr][ir]AB[bo][ho][bp][cp][dp][fp][gp][dq][eq][gq][hq][er][hr][hs]LB[iq:1][hr:2][ir:3][hs:4]C[The last move of black is not good. You are white, show him what is wrong.]PL[W]\r\n(;W[gs]CR[gs]\r\n(;B[es]CR[es]C[CHOICE]\r\n;W[is]CR[is]\r\n;B[fs]CR[fs]\r\n;W[gr]CR[gr]C[RIGHT])\r\n(;B[gr]CR[gr]C[CHOICE This move makes black atari.]\r\n;W[is]CR[is]C[RIGHT So black is dead.])\r\n(;B[is]CR[is]C[CHOICE Black cannot escape in the hope to win liberties.]\r\n;W[js]CR[js]C[RIGHT Black is dead.])\r\n(;B[fs]CR[fs]C[CHOICE Black cannot play here directly. He need to play E1 first]\r\n;W[es]CR[es]\r\n;B[ds]CR[ds]\r\n;W[is]CR[is]\r\n;B[fs]CR[fs]\r\n;W[gr]CR[gr]C[RIGHT]))\r\n(;W[fs]CR[fs]\r\n;B[es]CR[es]\r\n(;W[is]CR[is]C[Seki gote for white. It is not the best that white can do.])\r\n(;W[gr]CR[gr]\r\n;B[gs]CR[gs])\r\n(;W[gs]CR[gs]\r\n;B[gr]CR[gr]))\r\n(;W[es]CR[es]\r\n;B[gr]CR[gr]\r\n(;W[fs]CR[fs]\r\n;B[ds]CR[ds]\r\n;W[is]CR[is]\r\n;B[gs]CR[gs])\r\n(;W[gs]CR[gs]\r\n;B[fs]CR[fs])\r\n(;W[is]CR[is]\r\n;B[fs]CR[fs]))\r\n(;W[gr]CR[gr]\r\n;B[fs]CR[fs]\r\n;W[is]CR[is]\r\n;B[gs]CR[gs])\r\n(;W[is]CR[is]\r\n;B[fs]CR[fs]C[White group is dead. Black is alive.]))",
+  "author": {
+    "id": 3145,
+    "name": "karmaGfa",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 24684,
+    "failed": 13543,
+    "tries": 38227,
+    "speedSolved": 19,
+    "speedPlay": 55
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-07-28T13:00:13+00:00",
+  "source": "My game in a club in Taipei",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 131,
+      "name": "Kosumi Edge Liberty",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

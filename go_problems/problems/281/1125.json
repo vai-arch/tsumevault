@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1125,
+  "elo": 1152.999368585,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.9,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[13]AW[da]AW[db]AW[bc]AW[cc]AB[eb]AB[dc]AB[fc]AB[cd]AB[dd]AB[cf]C[Black plays, White dies (Black's first move is vital.)]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]TM[]PW[White]PB[Black]\n(;B[ba];W[bb]\n(;B[ea]LB[ba:1]C[Black 1 is the vital point. White cannot make two eyes due to the shortage of liberties.RIGHT])\n(;B[bd];W[ca]\n(;B[ac];W[aa];B[ad];W[ab])\n(;B[ea];W[aa];B[ac];W[ab])\n(;B[aa];W[ab])\n(;B[ab];W[ac]\n(;B[ad];W[aa])\n(;B[ea];W[aa])))\n(;B[ca];W[aa]C[]\n(;B[ab];W[cb]\n(;B[ac];W[bd]\n(;B[be];W[ad])\n(;B[ad];W[be]))\n(;B[bd];W[ac])\n(;B[aa];W[ac];B[ba];W[aa];B[ab];W[ca]))\n(;B[ea];W[cb];B[ac];W[bd];B[ad];W[be])\n(;B[bd];W[ac];B[ab];W[cb])))\n(;B[bb];W[ba]\n(;B[ab];W[cb]\n(;B[ac];W[ad]\n(;B[bd];W[aa])\n(;B[ea];W[bd]))\n(;B[bd];W[ac]))\n(;B[cb];W[ab]\n(;B[ea];W[ca];B[bd];W[ac])\n(;B[bd];W[ac];B[ea];W[ca]))\n(;B[ca];W[cb])\n(;B[aa];W[ab];B[cb];W[ca])\n(;B[ac];W[cb]\n(;B[ab];W[ad];B[bd];W[aa])\n(;B[aa];W[ab])))\n(;B[cb];W[bb])\n(;B[bd];W[ba]\n(;B[ab];W[ac])\n(;B[ac];W[ab])\n(;B[cb];W[bb])))",
+  "author": {
+    "id": 801,
+    "name": "BigMetalGuy",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-09-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 4714,
+    "failed": 8458,
+    "tries": 13172,
+    "speedSolved": 12,
+    "speedPlay": 19
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-10-31T11:58:39+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 69,
+      "name": "L-Group",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 136,
+      "name": "Tripod",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 34,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

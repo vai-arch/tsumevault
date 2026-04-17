@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8616,
+  "elo": 1025.2713931396,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -11,
+    "flagSum": -10
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "Practice Joseki variations.",
+  "rating": {
+    "stars": 1.8,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dd]AB[jd]AB[pd]AB[pj]AB[jj]AB[dj]AB[dp]AB[jp]AB[pp]AW[qc]AB[qd]AW[pc]AB[oc]AW[ob]AB[nb]AP[goproblems]\n(;W[rd];B[re]\n(;W[qe];B[od];W[rf];B[rc];W[se];B[rb]C[RIGHT])\n(;W[rb];B[od];W[se];B[rf])\n(;W[od];B[nc];W[rc];B[qf];W[pa]))\n(;W[nc];B[od]\n(;W[mb];B[pb];W[na];B[qb]C[FORCE]\n(;W[me]TR[pc]TR[qc]C[Yes, the Q17 group is dead. This move has chances for life.RIGHT])\n(;W[kc]C[RIGHT])\n(;W[nd]C[RIGHT]))\n(;W[qb];B[oa])\n(;W[rd];B[re]\n(;W[mb];B[pb];W[na];B[qb]TR[rd]TR[re]C[White is unhappy because the marked exchange needlessly ruins her forcing moves. (aji-keshi)])\n(;W[rc];B[pb])\n(;W[pa];B[mc]C[white gets sealed in on both sides])\n(;W[rb];B[pb])\n(;W[qe];B[rc]TR[nc]TR[od]C[Because of the marked exchange, black can answer aggressively.])))\n(;W[oa];B[nd];W[rc]C[];B[rd]C[Per bass, getting sealed in is not good for white. In some game positions living small in the corner may be the best white can get.])\n(;W[pb];B[rc];W[rb]C[];B[od]C[Per bass, getting sealed in on both sides is not good for white. In some game positions, living small may be the best that white can get.])\n(;W[pa];B[rc];W[rb];B[qb])\n(;W[od];B[nc]C[];W[rd]C[];B[re]C[Per bass, getting sealed in on both sides is not good for white. There are some positions where living small may be the best white can do.];W[rc];B[qf];W[pa])\n(;W[qb]C[White lives small in the corner.];B[gj]C[White lives small in the corner.]))",
+  "author": {
+    "id": 9226,
+    "name": "LCZLAPINSKI",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-01-02",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1036.36
+  },
+  "avgSolveTimeSeconds": 32,
+  "attempts": {
+    "solved": 3758,
+    "failed": 6003,
+    "tries": 9761,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-05-29T12:22:51+00:00",
+  "source": "7283",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 80,
+      "name": "3-3 (san-san) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 23,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

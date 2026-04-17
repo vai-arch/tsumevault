@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14562,
+  "elo": 1849.0142532129,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 1.9,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qc]AB[pc]AB[oc]AB[ob]AB[se]AB[sd]AB[sh]AB[rh]AB[qg]AB[pg]AB[oe]AW[sf]AW[rf]AW[re]AW[qf]AW[qe]AW[qd]AW[rc]AW[ra]C[How many different moves can white use to live unconditionally?FORCE]LB[lb:1]LB[mb:2]LB[lc:3]LB[mc:4]LB[ld:5]LB[md:6]LB[le:7]LB[me:8]LB[lf:9]LB[mf:10]AB[rg]AW[sg]AB[og]AP[goproblems]\n(;W[le];B[qh]LB[oa:1]LB[pa:2]LB[qa:3]LB[sa:4]LB[pb:5]LB[qb:6]LB[rb:7]LB[sb:8]LB[sc:9]LB[od:10]LB[pd:11]LB[rd:12]LB[pe:13]LB[of:14]LB[pf:15]C[Correct. Counting in order, please play the SECOND move that works for white to live.]\n(;W[pb];B[rb]C[Live];W[qb];B[sb];W[qa];B[oa];W[rd];B[pa];W[sc];B[sa];W[qb]C[Very nice.RIGHT])\n(;W[qa]C[This does work, but is the first working move, not the second.])\n(;W[qb]C[This does work, but is the third working move, not the second.])\n(;W[rb]C[This does work, but is the fourth working move, not the second])\n(;W[sb]C[This does work, but is the fifth working move, not the second])\n(;W[sc]C[This does work, but is the sixth working move, not the second])\n(;W[rd]C[This does work, but is the seventh working move, not the second]))\n(;W[lb]C[Incorrect (navigate solution to see why)])\n(;W[mb]C[Incorrect (navigate solution to see why)])\n(;W[lc]C[Incorrect (navigate solution to see why)])\n(;W[mc]C[Incorrect (navigate solution to see why)])\n(;W[ld]C[Incorrect (navigate solution to see why)])\n(;W[md]C[Incorrect (navigate solution to see why)])\n(;W[me]C[Incorrect (navigate solution to see why)])\n(;W[lf]C[Incorrect (navigate solution to see why)])\n(;W[mf]C[Incorrect (navigate solution to see why)])\n(;W[qh]C[This is here to show the moves which work.NOTTHIS]LB[qa:1]LB[pb:2]LB[qb:3]LB[rb:4]LB[sb:5]LB[sc:6]LB[rd:7]))",
+  "author": {
+    "id": 15623,
+    "name": "MeleeNewb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1962.53
+  },
+  "avgSolveTimeSeconds": 65,
+  "attempts": {
+    "solved": 30,
+    "failed": 152,
+    "tries": 182,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-02-16T11:56:44+00:00",
+  "source": "Problem 3268",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 33,
+      "name": "Under the Stones",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

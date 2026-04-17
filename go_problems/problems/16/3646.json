@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3646,
+  "elo": 1341.3834474635,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "A 7x7 Endgame you can solve in no time ;) ",
+  "rating": {
+    "stars": 3.9,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[ab][bc][ec][bd][cd][dd][ed][fd][be][de][cf][df][bg]AB[ba][cb][eb][fb][cc][dc][fc][gc][ee][fe][ef][eg][fg]C[No komi, no prisoners - White to play and draw!  ]PL[W]\r\n(;W[gf]CR[gf]\r\n(;B[gd]CR[gd]\r\n;W[ge]CR[ge]\r\n(;B[bb]CR[bb]\r\n;W[dg]CR[dg]C[Although making a seki in the lower right is gote, it's the only way for white to draw the game. RIGHT])\r\n(;B[ff]CR[ff]\r\n;W[dg]CR[dg]\r\n;B[gg]CR[gg]\r\n;W[ge]CR[ge]\r\n;B[gf]CR[gf]\r\n;W[ge]CR[ge]C[Black can't play this way :)])\r\n(;B[dg]CR[dg]\r\n;W[bb]TR[dg]CR[bb]C[In this variation, White even wins (by one point), but only because the marked stone was a mistake.]))\r\n(;B[ge]CR[ge]\r\n;W[gd]CR[gd]C[The black stones in the lower left are dead.]))\r\n(;W[gd]CR[gd]\r\n;B[gf]CR[gf]\r\n;W[bb]CR[bb]\r\n;B[dg]CR[dg]C[Taking sente on the right  is wrong, Black wins by one point!])\r\n(;W[bb]CR[bb]\r\n;B[gd]CR[gd]\r\n;W[dg]CR[dg]C[This is worst: Black wins by two points!])\r\n(;W[dg]CR[dg]\r\n;B[gd]CR[gd]\r\n;W[bb]CR[bb]C[This is worst: Black wins by two points!])\r\n(;W[ge]CR[ge]\r\n;B[gf]CR[gf]\r\n(;W[gd]CR[gd]\r\n;B[bb]CR[bb]\r\n;W[dg]CR[dg]C[This is worst - Black wins by two points!])\r\n(;W[bb]CR[bb]\r\n;B[gd]CR[gd]\r\n;W[dg]CR[dg]C[This is worst - Black wins by two points!])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 1320,
+    "failed": 3190,
+    "tries": 4510,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-29T14:37:35+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

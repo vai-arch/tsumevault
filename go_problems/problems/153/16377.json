@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16377,
+  "elo": 984.69394807787,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "I was thinking about when to play reverse sente, and this is what I came up with",
+  "rating": {
+    "stars": 4.3,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[bb]AB[bc]AB[bd]AB[ad]AB[bf]AB[be]AB[af]AW[ca]AW[cb]AW[db]AW[eb]AW[fb]AW[ea]AW[gb]AW[ga]AB[dc]AB[ec]AB[de]AW[cd]AW[ed]AW[dd]AW[fd]AW[fc]AW[fe]AW[cf]AW[df]AW[ef]AW[ff]AB[ag]AW[cg]AW[bg]AB[ai]AW[bh]AB[ci]AW[di]AW[dh]AW[ch]AB[ah]AB[gi]AB[gh]AB[gg]AB[gf]AB[hf]AB[if]AW[fg]AW[fi]AW[fh]AB[ge]AB[gd]AB[hc]AB[ic]AB[gc]AW[hb]AW[ib]C[A quick problem to make a point about reverse sente.]AP[goproblems]\n(;B[cc];W[ba]\n(;B[ab];W[ce];B[bi]C[Correct! The 3 gote moves have value 2, 3 and 4, so the value of playing first is 3. (4-(3-2)). Letting white get 2 points in sente in the middle of the sequence is still better than letting white start the sequence of gote moves. Reverse sente should only be played if the value of playing first in the sequence of gote moves drops below the value of the largest reverse sente move.RIGHT])\n(;B[ce];W[ab]C[Got to live first :(]))\n(;B[ba];W[cc];B[ce];W[bi]C[Black loses by half a point. :(]))",
+  "author": {
+    "id": 52370,
+    "name": "able",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-05-01",
+    "rank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1206.35
+  },
+  "avgSolveTimeSeconds": 67,
+  "attempts": {
+    "solved": 1624,
+    "failed": 2336,
+    "tries": 3960,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-08-10T10:39:54+00:00",
+  "source": "my head",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 153,
+      "name": "Reverse sente basics",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

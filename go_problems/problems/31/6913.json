@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6913,
+  "elo": 817.87928591794,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -5,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Which yose is better, A or B? The rest of the board, which is not shown, might have other yose moves.  There are no kos or potential kos anywhere. Assume both groups are alive. This isn't a life and death problem.",
+  "rating": {
+    "stars": 2.4,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[ma]AW[mb]AW[rb]AW[mc]AW[md]AW[qd]AW[me]AB[na]AB[oa]AB[pa]AB[qa]AB[ra]AB[sa]AB[sb]AB[nc]AB[oc]AB[pc]AB[qc]AB[rc]AB[sc]AB[sd]AB[ne]AB[oe]AB[pe]AB[qe]AB[re]AB[se]LB[nb:A]LB[nd:B]C[White to play. Remember there are other endgame moves on the board, keeping sente has value to both players.]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]PL[W]\n(;W[nb]C[White gets 1 point in sente (if Black defends at P18), 2 points in gote (if white tenukies first but defends if White continues at P18), 3 points in double gote (if White responds to Q18) or 5 points in quadruple gote (if White does not respond at all). So for White to tenuki is less costly than in the other path, hence B is better.])\n(;W[nd]C[Correct. Compared to Black defending at O16 at the end of the game White gets 1 point in sente (if Black defends at P16), 2 points in gote (if white tenukies first but defends if White continues at P16) or 5 points in triple gote (if White does not respond at all). Taking sente costs White more than in the other path.RIGHT]))",
+  "author": {
+    "id": 10745,
+    "name": "Trucid",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 10366,
+    "failed": 3765,
+    "tries": 14131,
+    "speedSolved": 1,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-07-16T02:05:20+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 39,
+      "name": "CGT",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

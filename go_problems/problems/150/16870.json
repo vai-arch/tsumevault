@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16870,
+  "elo": 917.0243595956,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Modified from a game of mine.  Please let me know if there is anything I'm missing.",
+  "rating": {
+    "stars": 4.6,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nAB[ca][cb][bb][bc][cd][ce][cf][bd]\r\nAW[cc][db][dc][da][de][dd][df][eg][cg][bg][bf]TR[bd]\r\nC[White pushed into black's group, and black defended with the marked stone. \r\nHe's still not safe though... show me why not (without a ko).]\r\nPL[W]\r\n(;W[ad];B[ac](;W[aa]C[];B[be];W[ae];B[af];W[ae]C[RIGHT])(;W[ae];B[aa]C[Black is alive])(;W[be];B[aa]C[Black is alive.]))(;W[be];B[ad](;W[ab];B[aa]C[Ko.])(;W[aa];B[ab]C[Black is alive.]))(;W[ae];B[ad](;W[ab];B[aa]C[ko.])(;W[aa];B[ab]C[Black is alive.]))(;W[ac];B[ad](;W[ab];B[aa]C[Black is alive.])(;W[aa];B[ab]C[Black is alive.]))(;W[af];B[ad](;W[aa];B[ab]C[Black is alive.])(;W[ab];B[aa]C[Looks like a ko, but will it work?];W[ba];B[ac]C[No, this is not even a ko, because of the damezumari (shortage of liberties).]))(;W[ab];B[aa](;W[ba];B[ac]C[Because of this damezumari, shortage of liberties, black is alive])(;W[ac];B[ad]C[Black is alive.])(;W[ad];B[ac]C[Black is alive.]))(;W[aa];B[be](;W[ab];B[ae];W[ac]C[Bent four in the corner. RIGHT])(;W[ae];B[ad];W[ab]C[RIGHT])(;W[ac];B[ab]C[Black is alive.])(;W[ad];B[ae]C[Black is alive.])))",
+  "author": {
+    "id": 59252,
+    "name": "DK2",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-04-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 137,
+  "attempts": {
+    "solved": 3895,
+    "failed": 4268,
+    "tries": 8163,
+    "speedSolved": 13,
+    "speedPlay": 18
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-12-21T15:22:16+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

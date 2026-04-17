@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2689,
+  "elo": 1135.9362337382,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "The \"b\" should be pretty easy, too...\r\nPlease find the best result for White!\r\n(japanese rules)",
+  "rating": {
+    "stars": 2.6,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[4]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[bb][cb]AB[aa][ab][ac][cc][ad][bd]C[White to move - what*s the best he can do?]PL[W]\r\n(;W[dc]CR[dc]\r\n(;B[db]CR[db]\r\n;W[da]CR[da]\r\n;B[ba]CR[ba]\r\n(;W[bc]CR[bc]\r\n;B[cd]CR[cd]C[Seki, White wins by one point (the prisoner) RIGHT])\r\n(;W[ca]CR[ca]C[Seki, White wins by one point (the prisoner) RIGHT])\r\n(;W[db]CR[db]C[Seki, White wins by one point (the prisoner) RIGHT])\r\n(;W[dd]CR[dd]\r\n;B[cd]CR[cd]\r\n(;W[db]CR[db]C[Seki, White wins by one point (the prisoner) RIGHT])\r\n(;W[bc]CR[bc]\r\n;B[db]CR[db]\r\n;W[dc]CR[dc]C[Black wins by one point!]))\r\n(;W[cd]CR[cd]\r\n;B[dd]CR[dd]\r\n(;W[bc]CR[bc]\r\n;B[db]CR[db]C[Black wins!])\r\n(;W[db]CR[db]\r\n;B[cd]CR[cd]C[Seki & Jigo!])))\r\n(;B[ba]CR[ba]\r\n;W[bc]CR[bc]\r\n;B[cd]CR[cd]\r\n;W[ca]CR[ca]C[White wins big!])\r\n(;B[ca]CR[ca]\r\n;W[ba]CR[ba]C[White wins!]))\r\n(;W[db]CR[db]\r\n;B[ba]CR[ba]\r\n(;W[bc]CR[bc]\r\n;B[ca]CR[ca]\r\n;W[dc]CR[dc]\r\n;B[cd]CR[cd]C[Seki!])\r\n(;W[dc]CR[dc]\r\n;B[ca]CR[ca]C[Seki & jigo!]))\r\n(;W[bc]CR[bc]\r\n;B[db]CR[db]\r\n(;W[ca]CR[ca]\r\n;B[dc]CR[dc]\r\n;W[cd]CR[cd]\r\n;B[dd]CR[dd]C[Seki, Black wins by one point (the prisoner)])\r\n(;W[cd]CR[cd]\r\n;B[dd]CR[dd]\r\n;W[ca]CR[ca]C[Seki, Black wins by one point (the prisoner)])\r\n(;W[dc]CR[dc]\r\n;B[dd]CR[dd]\r\n;W[ca]CR[ca]C[Seki, Black wins by one point (the prisoner)])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 6067,
+    "failed": 7024,
+    "tries": 13091,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-07-02T02:08:01+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

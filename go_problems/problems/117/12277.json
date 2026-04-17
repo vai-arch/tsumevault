@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12277,
+  "elo": 1621.5696963954,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[sq]AW[rq]AW[qq]AW[oq]AW[or]AB[nr]AB[nq]AB[op]AB[pp]AB[qp]AB[rp]AB[sp]AB[mr]AB[sr]AW[pq]C[B to move]AP[goproblems]\n(;B[ps];W[os]\n(;B[qr];W[rr];B[rs];W[ss];B[ns];W[qs]C[right, ko!RIGHT])\n(;B[rs];W[qr];B[qs];W[rr];B[ns];W[ss]C[right, ko!RIGHT])\n(;B[rr];W[qr];B[qs];W[rs])\n(;B[qs];W[rs];B[rr];W[qr])\n(;B[ns];W[qr]))\n(;B[os];W[ps]C[]\n(;B[qs];W[ns]\n(;B[qr];W[rr];B[rs]C[White alive by double-ko. (To capture B would need to win both o1-p1 ko and t1-t2 ko)])\n(;B[rr];W[qr])\n(;B[rs];W[qr])\n(;B[ms];W[rs]))\n(;B[qr]\n(;W[rr];B[rs];W[ns];B[qs])\n(;W[rs]LB[rr:1]LB[ns:2]))\n(;B[rs];W[qr]))\n(;B[qs];W[ps]\n(;B[os];W[ns]\n(;B[qr];W[rr];B[rs]C[White alive by double-ko. (To capture B would need to win both o1-p1 ko and t1-t2 ko)])\n(;B[rr];W[qr])\n(;B[rs];W[qr])\n(;B[ms];W[rs]))\n(;B[qr];W[rr]\n(;B[rs];W[ns]C[White alive by double-ko. (To capture B would need to win both o1-p1 ko and t1-t2 ko)])\n(;B[ns];W[rs]))\n(;B[rr];W[qr])\n(;B[rs];W[qr])\n(;B[ns];W[rs]))\n(;B[rs];W[ps]MA[qr]MA[rr])\n(;B[rr];W[qr])\n(;B[qr];W[rr])\n(;B[pr];W[qr])\n(;B[ns];W[qr]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 85,
+  "attempts": {
+    "solved": 196,
+    "failed": 446,
+    "tries": 642,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-01-17T07:28:16+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 117,
+      "name": "Double Ko",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22203,
+  "elo": 1174.9790459706,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Inspired by problem 9908. How many stones can Black cut? Assume White's bottom group (J11, K11, L11) can live.\r\nPlease flag or comment if there is a mistake.",
+  "rating": {
+    "stars": 5,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n; AB[hb][hc][hd][he][hf][hg][hh][hi][lb][lc][ld][le][lf][lg][lh][li][ib][kb] AW[ic][jc][kc][if][jf][kf][ii][ji][ki]\r\nC[How many stones can Black cut? Assume White's bottom group (J11, K11, L11) can live.FORCE]\r\nLB[ho:0]LB[jo:3]LB[lo:6]\r\n(; B[jo]; W[jp] C[Correct! Play on the triangled moves to see why.] TR[jd]; B[jd]; W[id] TR[ie]; B[ie]; W[kd] TR[ke]; B[ke]; W[je] TR[jg]; B[jg]; W[ig] TR[ih]; B[ih]; W[kg] TR[kh]; B[kh]; W[jh] TR[jb]; B[jb]; W[jg] TR[jd]; B[jd] C[RIGHT I could not let you play it out because there are thousands of different ways for Black to cut. And while I could use a computer program to generate the SGF code, that would make the solution tree too large.])\r\n(; B[ho] C[Nope, you can cut some stones.])\r\n(; B[lo]; W[lp] C[Prove it.] (; B[id]; W[jg])(; B[ie]; W[jg])(; B[jd]; W[jg])(; B[je]; W[jg])(; B[kd]; W[jg])(; B[ke]; W[jg])\r\n(; B[ig]; W[jg]; B[jh]; W[kh]; B[kg]; W[ih] C[Nope.])\r\n(; B[ih]; W[jh]; B[jg]; W[kg]; B[kh]; W[ig] C[Nope.])\r\n(; B[jg]; W[ig]; B[ih]; W[kg]; B[kh]; W[jh] C[Nope.])\r\n(; B[jh]; W[ih]; B[ig]; W[kh]; B[kg]; W[jg] C[Nope.])\r\n(; B[kg]; W[jg]; B[jh]; W[ih]; B[ig]; W[kh] C[Nope.])\r\n(; B[kh]; W[jh]; B[jg]; W[ig]; B[ih]; W[kg] C[Nope.])\r\n)\r\n)",
+  "author": {
+    "id": 97667,
+    "name": "a1!",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-11",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1761.53
+  },
+  "avgSolveTimeSeconds": 82,
+  "attempts": {
+    "solved": 160,
+    "failed": 169,
+    "tries": 329,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2019-12-27T20:46:48+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

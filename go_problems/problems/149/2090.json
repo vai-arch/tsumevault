@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2090,
+  "elo": 1832.9409122571,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This is the first go problem I've ever devised, hope you enjoy it :-)",
+  "rating": {
+    "stars": 3,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[9]KM[0.00]\r\nPW[White]PB[Black]AW[gb][hb][ec][fc][hc][fd][hd][ce][de][fe][he][bf][gf][bg][cg][dg][gg][ah][eh][gh][ai][gi]AB[bb][db][eb][fb][cc][bd][cd][ed][be][ee][ie][af][hf][if][ag][hg][bh][ch][dh][hh][ih][hi]C[No komi, no prisoners, black to play and win]PL[B]\r\n(;B[bi]CR[bi]\r\n;W[dd]CR[dd]\r\n(;B[di]CR[di]\r\n;W[ei]CR[ei]\r\n(;B[ga]CR[ga]\r\n;W[ha]CR[ha]\r\n;B[fa]CR[fa]\r\n;W[id]CR[id]C[jigo.])\r\n(;B[id]CR[id]\r\n;W[fa]CR[fa]\r\n(;B[ic]CR[ic]\r\n;W[ib]CR[ib]\r\n;B[ea]CR[ea]\r\n;W[ga]CR[ga]C[jigo.])\r\n(;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[ic]CR[ic]\r\n;W[ib]CR[ib]C[jigo.])))\r\n(;B[ei]CR[ei]\r\n(;W[fh]CR[fh]C[CHOICE]\r\n(;B[di]CR[di]\r\n;W[fa]CR[fa]\r\n(;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[id]CR[id]\r\n;W[ic]CR[ic]C[RIGHT])\r\n(;B[id]CR[id]\r\n;W[ic]CR[ic]\r\n;B[ea]CR[ea]\r\n;W[ga]CR[ga]C[RIGHT]))\r\n(;B[ga]CR[ga]\r\n;W[ha]CR[ha]\r\n(;B[fa]CR[fa]\r\n;W[ah]CR[ah]\r\n(;B[ae]CR[ae]\r\n;W[di]CR[di]\r\n(;B[ci]CR[ci]\r\n;W[fi]CR[fi]\r\n;B[ai]CR[ai]\r\n;W[id]CR[id]\r\n;B[ah]CR[ah]\r\n;W[di]CR[di]TW[ia][ib][gc][ic][ed][gd][ee][ge][cf][df][ef][ff][eg][fg]TB[aa][ba][ca][da][ea][ab][cb][ac][bc][ad][ig][ii]C[white wins.])\r\n(;B[id]CR[id]\r\n;W[ic]CR[ic]\r\n;B[ci]CR[ci]\r\n;W[fi]CR[fi]\r\n;B[ai]CR[ai]\r\n;W[di]CR[di]\r\n(;B[eg]CR[eg]\r\n(;W[ef]CR[ef])\r\n(;W[ah]CR[ah]))\r\n(;B[ah]CR[ah]\r\n;W[ei]CR[ei]TW[ia][ib][gc][ed][gd][ee][ge][cf][df][ef][ff][eg][fg]TB[aa][ba][ca][da][ea][ab][cb][ac][bc][ad][ig][ii])))\r\n(;B[ai]CR[ai]\r\n;W[di]CR[di]\r\n;B[ci]CR[ci]\r\n;W[id]CR[id]\r\n;B[ae]CR[ae]\r\n;W[fi]CR[fi]\r\n;B[ah]CR[ah]\r\n;W[di]CR[di]C[white wins. (any ko threat costs 1 point)]))\r\n(;B[di]CR[di]C[this may work, but G9 is such a bad move that it cannot be included in any  correct answer.])))\r\n(;W[di]CR[di]C[CHOICE]\r\n(;B[eg]CR[eg]\r\n;W[fi]CR[fi]\r\n;B[df]CR[df]C[RIGHT white collapses.])\r\n(;B[ci]CR[ci]\r\n;W[ah]CR[ah]\r\n;B[ai]CR[ai]\r\n;W[fh]SQ[ei]CR[fh]C[white wins. (white will win the ko at marked stone, E1)])))\r\n(;B[eg]CR[eg]\r\n;W[dc]CR[dc]\r\n(;B[ei]CR[ei]\r\n;W[fh]CR[fh]\r\n(;B[di]CR[di]\r\n;W[fa]CR[fa]\r\n(;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[id]CR[id]\r\n;W[ic]CR[ic]C[jigo.])\r\n(;B[id]CR[id]\r\n;W[ic]CR[ic]\r\n;B[ea]CR[ea]\r\n;W[ga]CR[ga]C[jigo.]))\r\n(;B[ga]CR[ga]\r\n;W[ha]CR[ha]\r\n(;B[fa]CR[fa]\r\n;W[ah]CR[ah])\r\n(;B[di]CR[di]\r\n;W[fa]CR[fa]\r\n(;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[id]CR[id]\r\n;W[ic]CR[ic]C[jigo.])\r\n(;B[id]CR[id]\r\n;W[ic]CR[ic]\r\n;B[ea]CR[ea]\r\n;W[ga]CR[ga]C[jigo.]))))\r\n(;B[fh]CR[fh]\r\n;W[ei]CR[ei]\r\n;B[di]CR[di]\r\n;W[fi]CR[fi]C[white wins])))\r\n(;B[ae]CR[ae]\r\n;W[dd]CR[dd]\r\n(;B[di]CR[di]\r\n;W[ei]CR[ei]\r\n(;B[ga]CR[ga]\r\n;W[ha]CR[ha]\r\n;B[fa]CR[fa]\r\n;W[id]CR[id]C[jigo.])\r\n(;B[id]CR[id]\r\n;W[fa]CR[fa]\r\n(;B[ic]CR[ic]\r\n;W[ib]CR[ib]\r\n;B[ea]CR[ea]\r\n;W[ga]CR[ga]C[jigo.])\r\n(;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[ic]CR[ic]\r\n;W[ib]CR[ib]C[jigo.])))\r\n(;B[ei]CR[ei]\r\n(;W[fh]CR[fh]C[CHOICE]\r\n(;B[di]CR[di]\r\n;W[fa]CR[fa]\r\n(;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[id]CR[id]\r\n;W[ic]CR[ic]C[RIGHT])\r\n(;B[id]CR[id]\r\n;W[ic]CR[ic]\r\n;B[ea]CR[ea]\r\n;W[ga]CR[ga]C[RIGHT]))\r\n(;B[ga]CR[ga]\r\n;W[ha]CR[ha]\r\n(;B[fa]CR[fa]\r\n;W[di]CR[di])\r\n(;B[di]CR[di]C[this may work, but G9 is VERY BAD and cannot be included in any corroct answer.])))\r\n(;W[di]CR[di]C[CHOICE]\r\n(;B[eg]CR[eg]\r\n;W[fi]CR[fi]\r\n;B[df]CR[df]C[RIGHT white collapses.])\r\n(;B[ci]CR[ci]\r\n;W[fi]CR[fi]\r\n(;B[bi]CR[bi]\r\n;W[di]CR[di]C[white wins.])\r\n(;B[eg]CR[eg]\r\n;W[di]CR[di]\r\n;B[bi]CR[bi]\r\n;W[dc]CR[dc]C[white wins.]))))\r\n(;B[eg]CR[eg]\r\n;W[dc]CR[dc]\r\n(;B[ei]CR[ei]\r\n;W[fh]CR[fh]\r\n;B[di]CR[di]\r\n;W[fa]CR[fa]\r\n(;B[id]CR[id]\r\n;W[ic]CR[ic]\r\n;B[ea]CR[ea]\r\n;W[ga]CR[ga]C[jigo.])\r\n(;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[id]CR[id]\r\n;W[ic]CR[ic]C[jigo.]))\r\n(;B[fh]CR[fh]\r\n;W[ei]CR[ei]\r\n;B[di]CR[di]\r\n;W[fi]CR[fi]C[white wins.])))\r\n(;B[dd]CR[dd]\r\n;W[ae]CR[ae]C[oops.])\r\n(;B[ef]CR[ef]\r\n;W[ae]CR[ae]C[too big.])\r\n(;B[eg]CR[eg]\r\n;W[ae]CR[ae]C[black cannot do anything.]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 60,
+  "attempts": {
+    "solved": 220,
+    "failed": 2571,
+    "tries": 2791,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-04-03T04:48:55+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

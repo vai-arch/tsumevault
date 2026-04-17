@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23095,
+  "elo": 794.14962383273,
+  "problemLevel": 3,
+  "rank": {
+    "value": 27,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "I did winning AI even on the 6x6 board.",
+  "rating": {
+    "stars": 1.3,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[6]AB[dc]AW[cc]AB[cd]AW[bd]AB[dd]AW[cb]AB[db]AW[da]AB[ea]AW[ca]AB[eb]AW[be]AB[ce]AW[cf]LB[dc:1]LB[cc:2]LB[cd:3]LB[bd:4]LB[dd:5]LB[cb:6]LB[db:7]LB[da:8]LB[ea:9]LB[ca:10]LB[eb:11]LB[be:12]LB[ce:13]LB[cf:14]C[What should Black do ? Black: gogalar gomidensha6 vs White: AI. I did winning AI even on the 6x6 board.]AP[goproblems]\r\n(;B[df]C[FORCE];W[bf]C[RIGHT])\r\n(;B[de]C[FORCE];W[df];B[ef]C[FORCE];W[bf]\r\n(;B[fe])\r\n(;B[ee])\r\n(;B[ed])))",
+  "author": {
+    "id": 101421,
+    "name": "gogalar gomidensha6",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-12",
+    "rank": {
+      "value": 15,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 15,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1140.72
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 235,
+    "failed": 63,
+    "tries": 298,
+    "speedSolved": 3,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-04-17T05:00:17+00:00",
+  "source": "Original",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 155,
+      "name": "cool",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 210,
+      "name": "6x6 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

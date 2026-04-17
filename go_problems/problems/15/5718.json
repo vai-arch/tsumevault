@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5718,
+  "elo": 816.61641000272,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": -2,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "How should White move. Assume black has 2 captures, white has 1 capture",
+  "rating": {
+    "stars": 3.6,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nGM[1]FF[4]\r\nSZ[9]\r\nGN[Where should white move?]\r\nAB[gc][ic][ad][dd][fd][gd][hd][ae][be][ge][ie][bf][cf][df][cg]\r\n[eg][gg][hg][ig][dh][fh]\r\nAW[gb][hb][ib][ac][cc][ec][fc][hc][bd][ed][ce][de][ee][fe][ef]\r\n[gf][hf][fg]\r\nPL[W]CR[fh]\r\n\r\n(;W[ff];B[if]\r\n(;W[id];B[he]\r\nC[Try Again]\r\n)\r\n(;W[he];B[id]\r\nC[Try Again]\r\n))\r\n(;W[he];B[if];W[id]\r\nC[RIGHT]\r\n)\r\n(;W[id];B[if];W[he]\r\nC[RIGHT]\r\n)\r\n(;W[if];B[ff];W[id];B[he]\r\nC[Try Again]\r\n)\r\n(;W[gh];B[gi];W[hh];B[ff]\r\nC[Try Again]\r\n))",
+  "author": {
+    "id": 105129,
+    "name": "system",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-03-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 27941,
+    "failed": 10555,
+    "tries": 38496,
+    "speedSolved": 0,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-12-20T17:37:13+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

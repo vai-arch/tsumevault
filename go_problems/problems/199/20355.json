@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20355,
+  "elo": 1208.4840378445,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cq]AB[cp]AB[co]AB[bo]AB[dn]AB[dm]AB[cl]AB[bl]AW[ar]AB[br]AW[cr]AW[bq]AW[dr]AW[dq]AW[dp]AW[do]AW[bn]AW[cn]AW[bm]AP[goproblems]\n(;B[ao];W[ap]\n(;B[am]LB[bp:A]LB[an:B]C[White cannot play at A or B.RIGHT])\n(;B[cm]C[RIGHT]))\n(;B[an]\n(;W[bp]\n(;B[ao];W[am])\n(;B[am];W[ao])\n(;B[ap];W[bs]))\n(;W[am];B[ap];W[ao]))\n(;B[ap];W[bs];B[an];W[bp]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 76,
+  "attempts": {
+    "solved": 602,
+    "failed": 1014,
+    "tries": 1616,
+    "speedSolved": 5,
+    "speedPlay": 12
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-09-23T19:35:12+00:00",
+  "source": "Yi Ch'ang-ho's Selected Tesuji Go Problems",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 199,
+      "name": "Yi Ch'ang-ho's Selected Tesuji Go Problems Volume 1",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

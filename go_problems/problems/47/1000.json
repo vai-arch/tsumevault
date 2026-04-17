@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1000,
+  "elo": 1724.4318328424,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -4,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is a continuation of the previous diagram",
+  "rating": {
+    "stars": 3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nGM[1]FF[4]VW[]AP[Many Faces of Go:10.0]\r\nSZ[13]\r\nHA[0]\r\nST[1]\r\nDT[2001-08-13]\r\nKM[0.0]\r\nRU[GOE]\r\n\r\nAB[lb][lc][ld][kc][jb][ka][ck][dg][ei][fb][fc][fd][ee][db][cd][ej][fk][fl][fh][eg][fg][lj][kk][jj][ij][md][lf][gm][fm][gc]\r\n\r\nAW[ib][jc][kd][jd][le][jf][hc][fi][gb][gd][fe][ff][ia][fj][gl][gk][gh][gg][jk][kg][lh][kl][ll][ik][me][ke][hm][hl]\r\n\r\nC[After the previous problem, Black has played at 1 rather than\r\nprotecting his corner.  How can white punish him?\r\n]\r\nPL[W]LB[gc:A]\r\n\r\n(;W[mb]\r\n(;B[ma]\r\n(;W[la];B[ge];W[ma];B[mc];W[ja];B[ma];W[kb]\r\nC[White has given up too much when black plays A\r\n]LB[ge:A]\r\n)\r\n(;W[ja];B[kb];W[la]\r\nC[RIGHT\r\n]))\r\n(;B[ja];W[la]))\r\n(;W[ja];B[mb]\r\nC[Black is unconditionally alive.\r\n])\r\n(;W[ge];B[ja]\r\nC[Black has had another chance to repair his defect.\r\n]))",
+  "author": {
+    "id": 421,
+    "name": "wol",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 1563,
+    "failed": 5726,
+    "tries": 7289,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-08-13T19:06:08+00:00",
+  "source": "Follow Up",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

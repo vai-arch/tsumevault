@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20696,
+  "elo": 1338.9542897935,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is a kind of sacrifice, but a very short-lived one... They are not always easy to anticipate, as shown by the nice problem 1, from a recent Chinese beginners' collection (yes, their beginners are not made of the same stuff as ours...)",
+  "rating": {
+    "stars": 4.5,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[de]AW[ee]AW[cf]AW[ef]AW[cg]AW[eg]AW[bh]AW[fh]AW[ai]AW[bi]AW[fi]AB[cd]AB[dd]AB[ed]AB[be]AB[fe]AB[bf]AB[ff]AB[ag]AB[fg]AB[hg]AB[ah]AB[gh]AB[gi]GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]RU[Japanese]KM[0.00]PB[Noir]\n(;B[bg]C[This pretty slow key...]\n(;W[dh]C[This pretty slow key...];B[di]C[create this double threat]\n(;W[ch]C[create this double threat];B[eh];W[ei];B[eh]C[SnapbackRIGHT])\n(;W[eh]C[create this double threat];B[ch];W[ci];B[ch]C[or another oneRIGHT]))\n(;W[di];B[dh];W[ch];B[eh]C[RIGHT])\n(;W[ch]\n(;B[eh]\n(;W[dh]\n(;B[ei];W[di])\n(;B[di];W[ei];B[eh]C[SnapbackRIGHT]))\n(;W[di];B[dh]C[RIGHT]))\n(;B[dh];W[eh])))\n(;B[dh];W[eh]\n(;B[dg];W[di];B[ch];W[bg]C[nothing ellse works])\n(;B[bg];W[ch])\n(;B[ch];W[bg];B[dg];W[di])\n(;B[ce];W[di])\n(;B[di];W[dg];B[bg];W[ch])\n(;B[ci];W[dg];B[bg];W[ch]))\n(;B[eh];W[dh];B[di];W[ci]C[here, it is too late])\n(;B[di];W[eh]C[there, it isplayed  too early])\n(;B[ei];W[eh]\n(;B[dh];W[ch];B[dg];W[di])\n(;B[di];W[ch];B[dh];W[dg])\n(;B[ci];W[dh]\n(;B[bg];W[ch])\n(;B[ch];W[bg])))\n(;B[ci];W[ch]\n(;B[dh];W[eh];B[dg];W[di])\n(;B[eh];W[di];B[ei];W[dh])\n(;B[ei];W[eh]))\n(;B[ch];W[dh]\n(;B[di];W[ci])\n(;B[bg];W[ci]))\n(;B[dg];W[dh]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 65,
+  "attempts": {
+    "solved": 284,
+    "failed": 624,
+    "tries": 908,
+    "speedSolved": 2,
+    "speedPlay": 11
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-12-18T22:08:04+00:00",
+  "source": "Commented bestiary",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 61,
+      "name": "Snapback",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

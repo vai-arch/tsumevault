@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14419,
+  "elo": 1150.8152704748,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Some forcing moves have been disabled, to keep the variation tree nice and clean.",
+  "rating": {
+    "stars": 4.1,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ca]AB[cb]AB[dc]AB[ec]AB[cd]AB[ed]AB[ee]AB[ef]AB[eg]AB[fh]AB[gh]AB[hh]AB[ig]AB[if]AB[ie]AB[id]AB[ic]AB[ib]AB[ha]AB[kb]AW[fa]AW[eb]AW[db]AW[fc]AW[gc]AW[hc]AW[hb]AW[fe]AW[ge]AW[he]AW[hf]AW[ff]AW[gg]AP[goproblems]\n(;B[da]\n(;W[ga]C[CHOICE]\n(;B[fb]\n(;W[gb]C[CHOICE]\n(;B[ea]C[Well done!RIGHT])\n(;B[fg]C[NOTTHIS])\n(;B[hg]C[NOTTHIS])\n(;B[fd];W[ea])\n(;B[gd];W[ea])\n(;B[hd];W[ea]))\n(;W[ea];B[gb]C[RIGHT]))\n(;B[gb];W[ia])\n(;B[ea];W[fb])\n(;B[ia];W[fb])\n(;B[fg]C[NOTTHIS])\n(;B[hg]C[NOTTHIS])\n(;B[fd];W[ia])\n(;B[gd];W[ia])\n(;B[hd];W[ia]))\n(;W[gb];B[ea]C[RIGHT])\n(;W[fb];B[ga]C[RIGHT])\n(;W[ea];B[ga]C[RIGHT]))\n(;B[fg]C[NOTTHIS])\n(;B[hg]C[NOTTHIS])\n(;B[hd];W[da]C[])\n(;B[fd];W[da])\n(;B[gd];W[da])\n(;B[ga];W[da]TR[ea]TR[gf]C[White got 2 eyes. Black cannot falsify them.])\n(;B[gb];W[da]TR[ea]TR[gf]C[White got 2 eyes. Black cannot falsify them.])\n(;B[fb];W[gb]TR[fb]TR[gf]C[White got 2 eyes.])\n(;B[ea];W[da])\n(;B[ia];W[ga]\n(;B[fb];W[ea])\n(;B[gb];W[fb])\n(;B[da];W[ea])\n(;B[ea];W[da])\n(;B[fg]C[NOTTHIS])\n(;B[hg]C[NOTTHIS])\n(;B[fd])\n(;B[gd])\n(;B[hd])))",
+  "author": {
+    "id": 12035,
+    "name": "whendrik",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2014-02-01",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 717.007
+  },
+  "avgSolveTimeSeconds": 70,
+  "attempts": {
+    "solved": 2465,
+    "failed": 3687,
+    "tries": 6152,
+    "speedSolved": 4,
+    "speedPlay": 24
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-01-06T10:57:59+00:00",
+  "source": "Cho Chikun’s Encyclopedia of life and death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 148,
+      "name": "False Fake Eyes",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

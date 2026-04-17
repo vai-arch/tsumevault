@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11947,
+  "elo": 1542.0238086249,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem is a variation of the problem nÂ°11946",
+  "rating": {
+    "stars": 3.8,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dp]AW[cn]AB[dm]AW[bp]AB[cq]AW[bq]AB[br]AW[cp]AB[dq]AW[dn]AB[cm]AW[em]AB[el]AB[hq]AW[dl]C[the situation is a bit different from problem 11946 now, you are white.  play A pleaseFORCE]AB[cj]AB[fl]LB[cl:A]AP[goproblems];W[cl];B[bm]\n(;W[bl];B[en]\n(;W[fm];B[bn]\n(;W[co]C[Good! the white group in C8 have enouth liberties to  take the squared stones.RIGHT]MA[dm]MA[cm]MA[bm]MA[bn]LB[bo:1]LB[an:2]LB[am:3]LB[dk:1]LB[ck:2]LB[bk:3]LB[al:4])\n(;W[bo]C[Wrong. See problem 11946 to see why.CHOICE])\n(;W[do];B[eo];W[co];B[gm]C[Wrong !CHOICE])\n(;W[am];B[co]C[And now ?]))\n(;W[bn];B[fm]C[NoCHOICE]))\n(;W[bn];B[bl]\n(;W[bk];B[ck]C[wrongCHOICE])\n(;W[ck];B[bk]C[O_oCHOICE])\n(;W[dk];B[bk]C[Black is happyCHOICE])))",
+  "author": {
+    "id": 23684,
+    "name": "Mocramis",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-09-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 66,
+  "attempts": {
+    "solved": 752,
+    "failed": 985,
+    "tries": 1737,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-11-08T11:06:09+00:00",
+  "source": "problem 11946",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

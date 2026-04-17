@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10525,
+  "elo": 1262.0390151564,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "What happens when someone gets a little greedy in the endgame?",
+  "rating": {
+    "stars": 4.6,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rb]AW[rc]AW[qc]AW[pc]AW[oc]AW[nd]AW[oe]AW[nf]AB[nc]AB[mc]AB[md]AB[kc]AB[ob]AB[pb]AB[qb]AW[nb]AW[oa]AB[ra]AB[qa]C[Black played the marked stone, white to punish.]TR[qa]AP[goproblems]\n(;W[mb]\n(;B[lb]C[CHOICE];W[na]\n(;B[la]\n(;W[sb];B[ma];W[sa];B[pa];W[nb]C[Good!RIGHT])\n(;W[sa];B[sb];W[sc];B[ma];W[sa];B[pa];W[nb];B[sb]C[Favorable ko, but you could have done better.])))\n(;B[na];W[lb];B[kb];W[sb];B[la];W[sa];B[pa];W[oa]C[RIGHT]))\n(;W[na];B[mb];W[sb];B[ma];W[sa];B[pa])\n(;W[ma]\n(;B[lb];W[sb];B[mb];W[sa];B[na])\n(;B[mb];W[la]\n(;B[ka];W[sb];B[lb];W[sa];B[na])\n(;B[na]C[Ko, you could have done much better.]))))",
+  "author": {
+    "id": 17060,
+    "name": "Bleedo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-07-22",
+    "rank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1497.5
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 1800,
+    "failed": 2574,
+    "tries": 4374,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-10-22T23:07:31+00:00",
+  "source": "Basic Techniques of Go",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 33,
+      "name": "Under the Stones",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

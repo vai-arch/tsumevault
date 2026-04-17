@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13734,
+  "elo": 1572.2192114594,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Modified from a problem in a book. This is perhaps more interesting than the correct solution of Black to kill, which will be explored in problem 13735 :)",
+  "rating": {
+    "stars": 3.8,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[sq]AW[rq]AW[qq]AW[pq]AW[pp]AW[po]AW[qn]AW[rm]AW[qm]AW[rl]AW[ro]AB[qo]AB[qp]AB[rp]AB[rn]AB[sk]AB[rk]AB[qk]AB[ql]AB[pm]AB[pn]AB[nn]AB[np]AB[oq]AB[pr]AB[qr]AB[rr]C[Does Black A kill White?FORCE]LB[nk:Yes]LB[ol:No]LB[so:A]AP[goproblems]\r\n(;W[nk]C[Navigate solution for details.])\r\n(;W[ol];B[so]C[Ok, then live!]\r\n(;W[sp];B[ro]\r\n(;W[sn];B[ro]\r\n(;W[qo]\r\n(;B[sl];W[rp]C[:)RIGHT])\r\n(;B[rp];W[sl]C[RIGHT]))\r\n(;W[sl];B[qo]\r\n(;W[so];B[rn])\r\n(;W[rn];B[so])\r\n(;W[rp];B[rn]))\r\n(;W[rp];B[qo]\r\n(;W[sl];B[rn])\r\n(;W[so];B[sl])\r\n(;W[rn];B[sl])))\r\n(;W[sl];B[sm]))\r\n(;W[sm];B[sl])\r\n(;W[sn];B[sm])))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 186,
+    "failed": 411,
+    "tries": 597,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-05-29T07:44:41+00:00",
+  "source": "Chinese book",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8819,
+  "elo": 1182.6707091567,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.1,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rr]AB[rq]AB[rp]AB[qo]AB[rn]AB[oo]AB[no]AB[mp]AB[lp]AB[lq]AB[lr]AB[mr]AW[mq]AW[nq]AW[nr]AW[op]AW[pp]AW[qp]AW[qq]AW[qr]AW[pr]C[Black to play]AP[goproblems]\n(;B[qs]\n(;W[oq]C[CHOICE]\n(;B[os]C[Well done.  R1 was the only way.RIGHT])\n(;B[ns];W[os])\n(;B[ps];W[os])\n(;B[or];W[os]))\n(;W[ps]C[CHOICE]\n(;B[ns];W[os];B[oq]C[That's itRIGHT])\n(;B[os];W[ns]\n(;B[or];W[oq])\n(;B[oq];W[or])\n(;B[pq];W[oq]))\n(;B[or];W[oq]TR[os]TR[ns])\n(;B[oq];W[ns];B[or]C[One eye!RIGHT])\n(;B[pq];W[oq]\n(;B[ns];W[os])\n(;B[os];W[ns])))\n(;W[os];B[oq]C[RIGHT])\n(;W[ns];B[oq]\n(;W[or];B[ps]C[RIGHT])\n(;W[ps];B[or]C[RIGHT])))\n(;B[ps];W[os]TR[qs]TR[oq])\n(;B[os];W[ns]\n(;B[or];W[oq])\n(;B[oq];W[or])\n(;B[pq];W[oq])\n(;B[ps];W[or])\n(;B[qs];W[ps]TR[or]TR[oq]\n(;B[or];W[oq])\n(;B[oq];W[or])\n(;B[pq];W[oq])))\n(;B[ns];W[os]TR[oq]TR[qs])\n(;B[or];W[oq])\n(;B[oq];W[qs]C[CHOICE]\n(;B[or];W[os])\n(;B[ns];W[os])\n(;B[pq];W[or]TR[ns]TR[os])\n(;B[ps];W[os])\n(;B[os];W[ns]\n(;B[or];W[np]C[Sente seki, but you could have killed])\n(;B[ms];W[or])\n(;B[np];W[or]))\n(;B[np];W[or]TR[ns]TR[os]))\n(;B[pq];W[oq])\n(;B[np];W[os]TR[oq]TR[qs]))",
+  "author": {
+    "id": 14046,
+    "name": "ldan",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-07-24",
+    "rank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1162.66
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 2612,
+    "failed": 4815,
+    "tries": 7427,
+    "speedSolved": 6,
+    "speedPlay": 17
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-06-28T17:28:44+00:00",
+  "source": "Go for Beginners by Kaoru Iwamoto p.88",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

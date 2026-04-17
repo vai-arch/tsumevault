@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1989,
+  "elo": 1048.2049509959,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": 0,
+    "flagSum": 10
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 3.2,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[5]KM[0.00]\r\nPW[White]PB[Black]AW[da][bb][cb][db][eb][bc][cc][ec][cd]AB[ba][ca][ab][ac][dc][dd][ed][be][ce][de]C[no komi, no prisoners]\r\n(;B[bd]CR[bd]\r\n;W[aa]CR[aa]\r\n(;B[ba]CR[ba]\r\n;W[ad]CR[ad]\r\n;B[ae]CR[ae]C[RIGHT\r\njigo])\r\n(;B[ad]CR[ad]\r\n;W[ba]CR[ba]C[white wins]))\r\n(;B[ad]CR[ad]\r\n;W[aa]CR[aa]\r\n(;B[ba]CR[ba]\r\n;W[bd]CR[bd]C[white wins])\r\n(;B[bd]CR[bd]\r\n;W[ba]CR[ba]C[white wins]))\r\n(;B[aa]CR[aa]\r\n;W[ad]CR[ad])\r\n(;B[ae]CR[ae]\r\n;W[aa]CR[aa]\r\n(;B[ba]CR[ba]\r\n;W[bd]CR[bd])\r\n(;B[ad]CR[ad]\r\n;W[ba]CR[ba]))\r\n(;B[ee]CR[ee]\r\n;W[bd]CR[bd]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.91
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 19078,
+    "failed": 12635,
+    "tries": 31713,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-03-07T12:19:36+00:00",
+  "source": "go weekly",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 8,
+      "name": "5x5 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 38,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

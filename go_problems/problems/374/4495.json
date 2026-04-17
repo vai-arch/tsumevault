@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4495,
+  "elo": 1150.4066698808,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.6,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cd]AB[dd]AB[ed]AB[ec]AB[eb]AW[bd]AW[bc]AB[be]AB[bf]AW[ce]AW[de]AW[cg]AW[dg]AW[bh]AW[ci]C[black to kill marked stones]MA[bd]MA[bc]AP[goproblems]\n(;B[bb];W[cb]\n(;B[cc];W[ab]\n(;B[ba];W[ca]\n(;B[ad];W[aa];B[bb];W[ba]\n(;B[ae];W[bg]\n(;B[ac]C[RIGHT])\n(;B[db];W[cf]C[black can't play a17]))\n(;B[db];W[bg]\n(;B[da];W[cf];B[ae]C[black can't play a 17])\n(;B[ae];W[cf]C[black can't play a 17])))\n(;B[ac];W[ad]\n(;B[ae];W[aa]C[white has 2 eyes])\n(;B[db];W[aa])\n(;B[da];W[aa]))\n(;B[db];W[aa];B[ad];W[cf];B[ae];W[bg]C[black can't play a17])\n(;B[ae]C[RIGHT]))\n(;B[ad];W[ba]C[white has 2 eyes!])\n(;B[ac];W[ba]C[white has 2 eyes]))\n(;B[ab];W[cc]TR[cb]TR[cc]TR[bc]TR[bd]MA[be]MA[bf]C[white will win the semaii])\n(;B[ba];W[cc]C[white will win the semaii]))\n(;B[cc];W[bb];B[cb];W[cf];B[ba];W[bg];B[ab];W[ae]C[white wins the semaii])\n(;B[cb];W[cf]\n(;B[cc];W[ae];B[af];W[bg];B[ad];W[ag])\n(;B[bb];W[ae];B[af];W[bg];B[ad];W[ag])\n(;B[ad];W[bg]C[white will win the semaii])))",
+  "author": {
+    "id": 6692,
+    "name": "assacra",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-07",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 3797,
+    "failed": 6416,
+    "tries": 10213,
+    "speedSolved": 16,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-05-21T23:42:39+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 374,
+      "name": "Tombstone Squeeze",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

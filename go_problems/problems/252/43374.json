@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 43374,
+  "elo": 1259.6620679373,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;CA[utf-8]AP[goproblems autoextractor]AB[do][dp][fp][gn][gp][hq][hr][ir][jr]AW[cp][cq][gq][iq][hp][gr][dq][eq][jq]TR[jr]LB[kq:b][ho:a][kr:c]DT[2010-02-13]PC[The KGS Go Server at http\\://www.gokgs.com/]PB[miao]PW[turk]C[FORCE](;W[kq]LB[lq:B]C[Urgent point. White gains the outside influence while forcing Black to crawl on the second line. Playing here is worth about 8 points over playing away in an empty corner. Black would have played at the same place if you played away. Black would likely play at M3 next. ](;B[lq]C[CHOICE];W[kr]C[RIGHT])(;B[kr]C[CHOICE](;W[lq]C[ RIGHT])(;W[ho];B[lq]C[White missed the urgent point at M3. Your mistake at H5 lost approximately 7 points]))(;B[ip]C[CHOICE];W[ho]C[RIGHT]))(;W[ho];B[kq]C[White missed the L3 urgent point. This loses about 8 points. ])(;W[kr];B[kq]C[White is in trouble, L2 was an overplay.This loses about 12 points. ]))",
+  "author": {
+    "id": 44133,
+    "name": "seeker1987",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 1331
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1843.52
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 7,
+    "failed": 6,
+    "tries": 13,
+    "speedSolved": 2,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-02-17T06:57:26+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1036
+}

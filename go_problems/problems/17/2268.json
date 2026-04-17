@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2268,
+  "elo": 1266.4037422996,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -8,
+    "flagSum": -6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Please find the best result for Black!\r\n(japanese rules)",
+  "rating": {
+    "stars": 2.3,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[4]AW[ba]AW[da]AW[bb]AW[cd]AW[dd]AB[ab]AB[ac]AB[bd]C[Black to play. What is the best he can do?]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[WeiÃx]PB[Schwarz]\n(;B[bc]\n(;W[cb]C[CHOICE];B[cc];W[dc];B[db];W[dc]C[Seki. Black wins by two points, 3 prisoners against 1.RIGHT])\n(;W[db];B[cc];W[dc];B[cb]C[White is lostRIGHT])\n(;W[dc];B[cb]C[White is deadRIGHT])\n(;W[cc];B[cb]C[White is deadRIGHT]))\n(;B[cc]\n(;W[bc]C[CHOICE]\n(;B[dc];W[cd];B[dd];W[cb]C[White wins.])\n(;B[cb];W[ad]C[]\n(;B[dc];W[bd])\n(;B[ca];W[aa])\n(;B[db];W[ca];B[bd];W[dc])))\n(;W[cb]C[This gives Black a chance to reach the solution];B[bc];W[dc];B[db];W[dc]C[Black wins by two points, but White C3 was clearly a mistake.])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 1534,
+    "failed": 3216,
+    "tries": 4750,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-05-21T03:49:17+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

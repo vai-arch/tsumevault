@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9020,
+  "elo": 1178.0627702435,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -4,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Assume this occurs when the only points left on the board are 1 point gote for both players",
+  "rating": {
+    "stars": 3.4,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ac]AB[bc]AB[cc]AB[ad]AW[ae]AW[bf]AW[bd]AW[cd]AW[dd]AW[dc]AW[ec]AB[db]AB[eb]AB[fc]AB[gc]AB[hb]AB[ha]AB[ia]AB[fd]AB[fe]AB[ed]AW[ee]AW[df]AW[ff]AW[gf]AW[ge]AW[he]AW[hd]AW[hc]AW[ic]AW[ib]AW[ja]AW[kb]C[White to break in with good result]AW[fb]AB[gb]AP[goproblems]\n(;W[fa]\n(;B[ea]\n(;W[cb]C[Navigate solution to see black's wiser answerRIGHT])\n(;W[gd];B[ga]))\n(;B[cb]C[one of black's better answers, though not quite the best];W[gd];B[ea];W[ga];B[ba]C[24 points sente])\n(;B[ca];W[gd];B[ea];W[ga]C[slightly better than c18]))\n(;W[cb];B[fa]\n(;W[bb]C[not the best way to kill and not the most points...])\n(;W[ca];B[da]\n(;W[ab]C[not the best way to break in, and in gote])\n(;W[bb]C[not the best way to break in, and in gote])))\n(;W[ca];B[cb]C[missed  your chance...])\n(;W[da];B[ca])\n(;W[ea];B[fa])\n(;W[gd];B[fa]C[that's not breaking in...])\n(;W[ba];B[cb]))",
+  "author": {
+    "id": 15018,
+    "name": "ketran0",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-04-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 17,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 23,
+  "attempts": {
+    "solved": 4301,
+    "failed": 5432,
+    "tries": 9733,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-08-11T11:10:11+00:00",
+  "source": "KGS game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 144,
+      "name": "Lack of Liberties (Damezumari)",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

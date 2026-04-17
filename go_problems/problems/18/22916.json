@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22916,
+  "elo": 1157.2882099229,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[besogo:0.0.2-alpha]SZ[9]ST[0]AB[ab][ac][bc][bd][cd][dc][ec][ed][fa][fb][ga]AW[aa][ba][bb][cb][cc][db][eb][fc][fd][gb][gd][hc][hd]C[What can B do at the top?](;B[ha](;W[hb](;B[ea];W[ib](;B[da];W[ia];B[ca]C[good! RIGHT])(;B[ca];W[ia];B[da]C[good! RIGHT]))(;B[da];W[ib](;B[ea];W[ia];B[ca]C[good! RIGHT])(;B[ca];W[ea]))(;B[ib];W[ea]))(;W[ea](;B[da]C[RIGHT])(;B[hb];W[ib];B[gc]SQ[gb]C[(this would be a ko)])))(;B[hb](;W[ha](;B[ia];W[ea](;B[gc]SQ[gb]C[ko!])(;B[da];W[ha])(;B[ca];W[ha])(;B[ha];W[ib]))(;B[gc];W[ea](;B[ia];W[gb]SQ[gc]C[ko!])(;B[ib];W[gb])(;B[da];W[gb])(;B[ca];W[gb])))(;W[ea](;B[ha];W[ib];B[gc]SQ[gb]C[this is ko, as well])(;B[gc];W[ha];B[ia];W[gb]SQ[gc]C[B wouldn't pick this since W would take the ko first here])))(;B[ea];W[ha])(;B[da];W[ha])(;B[ca];W[ha]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 178,
+    "failed": 351,
+    "tries": 529,
+    "speedSolved": 5,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-12-01T21:58:02+00:00",
+  "source": "https://online-go.com/game/28783391",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

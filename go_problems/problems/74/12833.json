@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12833,
+  "elo": 1168.4246132937,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": 0,
+    "flagSum": 10
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Both players thought this was dead for 60 moves.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 34,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[jo]AW[oo]AW[lp]AW[mp]AW[pp]AW[gq]AW[hq]AW[iq]AW[jq]AW[kq]AW[pq]AW[gr]AW[lr]AW[or]AW[ls]AB[fp]AB[gp]AB[fq]AB[lq]AB[mq]AB[nq]AB[fr]AB[ir]AB[jr]AB[kr]AB[nr]AB[ms]C[Fwiffo left his bottom group unattended for too long and now he's in trouble. Can you save his bacon?]GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]RU[AGA]KM[7.50]PW[chesswise]PB[fwiffo]\r\n(;B[hs];W[gs]\r\n(;B[hr];W[ks]\r\n(;B[mr];W[js];B[is]C[Alive!RIGHT])\r\n(;B[js];W[is]C[Ooops!]))\r\n(;B[mr];W[hr]\r\n(;B[is];W[ks]C[Dead.])\r\n(;B[ks];W[is]C[Dead.]))\r\n(;B[ks];W[hr]\r\n(;B[is];W[js]C[Oops.])\r\n(;B[mr];W[is]C[Dead.])))\r\n(;B[ks];W[is]\r\n(;B[hs];W[hr]C[Dead.])\r\n(;B[hr];W[hs]C[Dead.])\r\n(;B[mr];W[hs]C[Dead.]))\r\n(;B[is]\r\n(;W[ks]C[CHOICE]\r\n(;B[gs]C[Escaped!RIGHT])\r\n(;B[hs];W[gs]C[Dead.])\r\n(;B[js];W[gs]C[Dead.])\r\n(;B[mr];W[gs]C[Dead.]))\r\n(;W[hs]C[CHOICE]\r\n(;B[ks]C[Alive!RIGHT])\r\n(;B[hr];W[gs]\r\n(;B[ks];W[js]C[Oops.])\r\n(;B[mr];W[ks]C[Dead.]))\r\n(;B[mr];W[ks]C[Dead.])))\r\n(;B[gs];W[hs]\r\n(;B[hr];W[fs]\r\n(;B[is];W[ks]C[Only ko.])\r\n(;B[ks];W[is]C[Dead.]))\r\n(;B[is];W[hr]C[Dead.])\r\n(;B[ks];W[is]C[Dead.]))\r\n(;B[hr];W[hs]\r\n(;B[is];W[gs]\r\n(;B[ks];W[js]C[Oops.])\r\n(;B[mr];W[ks]C[Dead.]))\r\n(;B[ks];W[is]C[Dead.])\r\n(;B[mr];W[is]C[Dead.])))",
+  "author": {
+    "id": 5566,
+    "name": "fwiffo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 739.424
+  },
+  "avgSolveTimeSeconds": 96,
+  "attempts": {
+    "solved": 2222,
+    "failed": 3240,
+    "tries": 5462,
+    "speedSolved": 7,
+    "speedPlay": 37
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-06-26T07:34:13+00:00",
+  "source": "chesswise (5k) v. fwiffo (5k)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2641,
+  "elo": 1972.0858608227,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]SZ[7]AP[SGFC:1.14]\r\n\r\nGN[temp]\r\n\r\nAB[fa][fb][gb][gc][ge][ec][dc][dd][cd][ee][ef][df][cf][bc][da]\r\n[bf]AW[bb][cb][cc][bd][ce][fc][fe][ed][fd][ff][gf][fg][eg][ca]\r\n[cg]C[White to play and draw (No komi, no prisoners, Japanese Rules).]\r\n\r\n(;W[eb]\r\n(;B[db]\r\n(;W[be]\r\n(;B[ae]\r\n(;W[ac]\r\n(;B[de]\r\n(;W[gd];B[af]\r\n(;W[ad];B[dg]C[jigo 8 pts each. RIGHT])\r\n(;W[dg];B[ad]\r\n(;W[bc];B[aa])\r\n(;W[aa];B[bc];W[bd];B[be]\r\n(;W[bc];B[bg]C[white loses by 2])\r\n(;W[bg];B[bc]C[white has no ko-threats]))\r\n(;W[bg];B[aa])))\r\n(;W[dg];B[gd])\r\n(;W[ad];B[gd]))\r\n(;B[gd];W[de];B[ea];W[bg];B[ag];W[af]C[black has no ko-threats so connecting at G4 is not possible]\r\n))\r\n(;W[ad];B[gd]C[white's lower group dies])\r\n(;W[de];B[ad])\r\n(;W[dg];B[gd]C[white's lower group dies])\r\n(;W[gd];B[ad];W[ac];B[af]\r\n(;W[aa];B[dg]C[white loses by 2])\r\n(;W[dg];B[aa])\r\n(;W[bc];B[aa];W[de];B[ea]C[white dies at the top]))\r\n(;W[bg];B[gd];W[af];B[ag]C[white has no viable ko-threats]))\r\n(;B[de];W[af]\r\n(;B[gd];W[bg];B[ea];W[dg]C[black can't play so passively])\r\n(;B[dg];W[gd];B[bg];W[ac];B[ag];W[ae]C[black can't play so passively]\r\n))\r\n(;B[af];W[de];B[ea];W[bg]C[black has no answer to B1 or D1]\r\n)\r\n(;B[gd];W[de];B[ea];W[bg]C[black has no answer to B1 (due to lack of viable ko-threats) so can't connect at G4]\r\n))\r\n(;W[gd];B[be]\r\n(;W[ac];B[ae]\r\n(;W[ad];B[dg]C[white loses by 4])\r\n(;W[dg];B[ad];W[aa];B[bc]C[white has no ko-threats]))\r\n(;W[ad];B[ae];W[ac];B[dg]C[white loses by 4]))\r\n(;W[dg];B[gd]C[white's lower group dies]))\r\n(;B[gd];W[db];B[de];W[ea]C[black can't connect at G4])\r\n(;B[be];W[db]C[black takes a big loss]))\r\n(;W[gd];B[be]\r\n(;W[ac];B[ae]\r\n(;W[db];B[eb]\r\n(;W[ad];B[dg]C[white loses by 1 since black wins the ko at E7]\r\n)\r\n(;W[dg];B[ad];W[aa];B[bc]C[white has no ko-threats]))\r\n(;W[ad];B[dg];W[db];B[eb]C[white loses by 1 since black wins the ko at E7]\r\n)\r\n(;W[dg];B[ad]\r\n(;W[aa];B[bc];W[db];B[ab]\r\n(;W[eb];B[ba])\r\n(;W[ea];B[eb];W[ac];B[bd]))\r\n(;W[db];B[eb]\r\n(;W[aa];B[bc]C[white has no ko-threat])\r\n(;W[bc];B[aa]))))\r\n(;W[ad];B[ae]\r\n(;W[ac];B[dg];W[db];B[eb]C[white loses by 1 since black wins the ko at E7]\r\n)\r\n(;W[db];B[eb];W[ac];B[dg]C[white loses by 1 since black wins the ko at E7]\r\n))\r\n(;W[db];B[eb]\r\n(;W[ac];B[ae]\r\n(;W[ad];B[dg]C[white loses by 1 since black wins the ko at E7]\r\n)\r\n(;W[dg];B[ad]\r\n(;W[aa];B[bc]C[white has no ko-threat])\r\n(;W[bc];B[aa])))\r\n(;W[ad];B[ae];W[ac];B[dg]C[white loses by 1 since black wins the ko at E7]\r\n))\r\n(;W[dg];B[ad]))\r\n(;W[dg];B[gd]C[white's lower group dies])\r\n(;W[be];B[gd]C[white's lower group dies])\r\n(;W[ac];B[gd]C[white's lower group dies])\r\n(;W[db];B[eb]\r\n(;W[be];B[gd]C[white's lower group dies])\r\n(;W[dg];B[gd]C[white's lower group dies])\r\n(;W[gd];B[be]\r\n(;W[ac];B[ae]\r\n(;W[ad];B[dg]C[white loses by 1 since black wins the ko at E7]\r\n)\r\n(;W[dg];B[ad]\r\n(;W[bc];B[aa])\r\n(;W[aa];B[bc]C[white has no ko-threat])))\r\n(;W[ad];B[ae];W[ac];B[dg]C[white loses by 1 since black wins the ko at E7]\r\n)\r\n(;W[dg];B[ad]))))",
+  "author": {
+    "id": 830,
+    "name": "Spica",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 53,
+  "attempts": {
+    "solved": 103,
+    "failed": 2066,
+    "tries": 2169,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-26T04:08:49+00:00",
+  "source": "Spica",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

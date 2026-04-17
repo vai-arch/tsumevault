@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5866,
+  "elo": 1347.5466344081,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -2,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[oe]AB[sb]AB[sc]AB[sd]AB[se]AB[sf]AB[rf]AB[qe]AB[qf]AB[pe]AB[ne]AB[me]AB[md]AB[mc]AB[mb]AB[ma]AB[na]AB[ob]AB[oc]AB[pc]AB[qc]AB[qb]AB[pb]AB[qa]AW[nb]AW[nc]AW[nd]AW[od]AW[pd]AW[qd]AW[rc]AW[rd]AW[rb]AW[ra]AW[oa]C[It's black's turn.   (A) Black can kill.    (B) White is alive.    (C) Ko    (D) Seki    (E) All of the above]AB[ib]AB[id]AB[if]AB[ih]AB[ij]LB[jb:A]LB[jd:B]LB[jf:C]LB[jh:D]LB[jj:E]AP[goproblems]\n(;B[jb];W[kb]C[Ok, prove it.]\n(;B[re];W[pa]\n(;B[pb];W[ob]TR[pc]TR[qb])\n(;B[pc];W[pb])\n(;B[ob];W[pb]))\n(;B[sa];W[pa]\n(;B[pb];W[ob]TR[qb]TR[pc])\n(;B[ob];W[pb])\n(;B[pc];W[pb]))\n(;B[pa];W[oa]\n(;B[ob]\n(;W[pb];B[pa];W[qa]\n(;B[pc];W[oa]MA[pa]C[ko])\n(;B[oc];W[oa]MA[pa]C[ko])\n(;B[oa];W[oc];B[qc]C[:)RIGHT]))\n(;W[pa];B[pb];W[qa];B[pc]C[White plays Q19 hoping to get seki but Black can create a bulky 5 dead eye space.RIGHT]))\n(;B[pb];W[ob];B[pc];W[qb];B[pa]C[seki])\n(;B[pa];W[ob]\n(;B[pb];W[pc])\n(;B[pc];W[pb]))))\n(;B[jd];W[pa]C[Well, white will be alive if you play a move like K16.  But there is a better move.])\n(;B[jf]C[];W[kf]C[Ok, how many ko threats does black need to kill?]LB[kh:0]LB[lh:1]LB[mh:2]LB[nh:3]LB[oh:4]LB[ph:5]\n(;B[lh]C[Not that many.])\n(;B[mh]C[Not that many.])\n(;B[nh]C[Not that many.])\n(;B[oh]C[Not that many.])\n(;B[ph]C[Not that many.])\n(;B[kh]C[Right, black doesn't need any ko threats -- because it isn't a ko!])\n(;B[re]C[NOTTHIS])\n(;B[pa]C[NOTTHIS])\n(;B[sa]C[NOTTHIS]))\n(;B[jh]C[No, it's not a seki.])\n(;B[jj]C[Very close!  But not quite.])\n(;B[re]C[NOTTHIS])\n(;B[pa]C[NOTTHIS])\n(;B[sa]C[NOTTHIS]))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 76,
+  "attempts": {
+    "solved": 1320,
+    "failed": 3271,
+    "tries": 4591,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-01-21T15:56:06+00:00",
+  "source": "inspired by problem 353",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

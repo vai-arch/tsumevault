@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14293,
+  "elo": 2222.2927568069,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "white should lose 8 points or less(or win). see also my previous problems. probably there are some missing variations. please comment.",
+  "rating": {
+    "stars": 4,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[7]AB[dd]AB[de]AB[ec]AB[eb]AB[cf]AW[ce]AW[cd]AW[dc]AW[cc]AP[goproblems]\n(;W[bf];B[df]\n(;W[db];B[bg];W[af];B[da];W[ca];B[ea])\n(;W[ed]\n(;B[fd]C[CHOICE];W[ee];B[ef]\n(;W[fe];B[ff]\n(;W[db];B[bg]\n(;W[ea];B[fa];W[da];B[be]LB[bd:A];W[bd];B[af];W[fc];B[ge];W[fb];B[ed]\n(;W[bb]\n(;B[gc];W[ga];B[ad];W[ac];B[ae]C[RIGHT])\n(;B[gb];W[ga];B[ad]\n(;W[gc];B[ab];W[ac];B[bc];W[aa];B[ba];W[ac]C[RIGHT])\n(;W[ac];B[fa];W[ae];B[gc];W[bf];B[cg];W[ag]C[RIGHT])))\n(;W[ga]\n(;B[gc];W[bb];B[ad];W[ac];B[ae]C[RIGHT])\n(;B[ab];W[bb];B[ad];W[ac];B[bc];W[aa];B[ba];W[ac]C[RIGHT])\n(;B[bb]\n(;W[ab];B[gc];W[ba];B[ac];W[ad];B[aa];W[bc];B[ca];W[cb]C[RIGHT])\n(;W[gc];B[ab];W[ac];B[ba])))\n(;W[gc];B[bb]\n(;W[ab];B[ac]\n(;W[bc];B[ga]\n(;W[ba];B[aa]\n(;W[gb];B[ca];W[ad];B[fa];W[ab];B[ae];W[ba];B[gd];W[cb];B[ga];W[fb];B[gb];W[gc];B[fc])\n(;W[ad];B[ca];W[gb];B[fa];W[ab];B[ae];W[ba];B[gd];W[cb];B[ga];W[fb];B[gb];W[gc];B[fc]))\n(;W[ad];B[ba]))\n(;W[ad];B[ba];W[bc];B[ga]))\n(;W[ga];B[ab];W[ac];B[ba])))\n(;W[fc];B[ge];W[ea];B[fa];W[da];B[be]LB[bd:A];W[bd];B[af];W[fb];B[ed]\n(;W[bb]\n(;B[gc];W[ga];B[ad];W[ac];B[ae]C[RIGHT])\n(;B[gb];W[ga];B[ad]\n(;W[gc];B[ab];W[ac];B[bc];W[aa];B[ba];W[ac]C[RIGHT])\n(;W[ac];B[fa];W[ae];B[gc];W[bf];B[cg];W[ag]C[RIGHT])))\n(;W[ga]\n(;B[gc];W[bb];B[ad];W[ac];B[ae]C[RIGHT])\n(;B[ab];W[bb];B[ad];W[ac];B[bc];W[aa];B[ba];W[ac]C[RIGHT])\n(;B[bb]\n(;W[ab];B[gc];W[ba];B[ac];W[ad];B[aa];W[bc];B[ca];W[cb]C[RIGHT])\n(;W[gc];B[ab];W[ac];B[ba])))\n(;W[gc];B[bb]\n(;W[ab];B[ac]\n(;W[bc];B[ga]\n(;W[ba];B[aa]\n(;W[gb];B[ca];W[ad];B[fa];W[ab];B[ae];W[ba];B[gd];W[cb];B[ga];W[fb];B[gb];W[gc];B[fc])\n(;W[ad];B[ca];W[gb];B[fa];W[ab];B[ae];W[ba];B[gd];W[cb]))\n(;W[ad];B[ba]))\n(;W[ad];B[ba];W[bc];B[ga]))\n(;W[ga];B[ab];W[ac];B[ba]))))\n(;W[fc];B[ge];W[db];B[bg];W[ea];B[fa];W[da];B[be]LB[bd:A];W[bd];B[af]))\n(;W[fc];B[fe];W[db];B[bg];W[ea];B[fa];W[da];B[be]LB[bd:A];W[bd];B[af];W[fb];B[ed]\n(;W[bb];B[gc];W[ga];B[ad];W[ac];B[ae]C[RIGHT])\n(;W[ga];B[gc];W[bb];B[ad];W[ac];B[ae]C[RIGHT])\n(;W[gc];B[bb]\n(;W[ab];B[ac];W[bc];B[ga];W[ba];B[aa];W[gb];B[ca];W[ad];B[fa];W[ab];B[ae];W[ba];B[gd];W[cb];B[ga];W[fb];B[gb];W[gc];B[fc])\n(;W[ga];B[ab];W[ac];B[ba]))))\n(;B[db]C[black wins 8 points. see '7X7 go board problem #1'RIGHT])\n(;B[bg]C[black wins 7 points. see '7X7 go board problem #2'RIGHT])\n(;B[da];W[ee];B[ef];W[ff];B[fg];W[fe];B[bg];W[fc];B[fb];W[gd];B[be];W[bd];B[af];W[db];B[ca];W[bb]\n(;B[ba];W[gb];B[ac];W[ea];B[fa];W[gc]C[RIGHT])\n(;B[gb];W[gc];B[ba];W[fa];B[ea];W[ac]\n(;B[ae];W[gf]C[RIGHT])\n(;B[gf];W[aa];B[ab];W[cb]C[RIGHT])))\n(;B[ca];W[ee];B[ef];W[ff];B[fg];W[fe];B[bg];W[fc];B[fb];W[gd];B[be];W[bd];B[af];W[db];B[da];W[bb]\n(;B[ba];W[gb];B[ac];W[ea];B[fa];W[gc]C[RIGHT])\n(;B[gb];W[gc];B[ba];W[fa];B[ea];W[ac]\n(;B[ae];W[gf]C[RIGHT])\n(;B[gf];W[aa];B[ab];W[cb]C[RIGHT])))\n(;B[ba];W[fd];B[ee];W[db];B[da];W[fb]C[RIGHT])))\n(;W[db];B[ef];W[bf];B[bg];W[af];B[da];W[ca];B[ea])\n(;W[ed];B[ef]\n(;W[fd];B[db];W[bf];B[bg];W[ff];B[be];W[af];B[ae];W[cb];B[fc];W[eg];B[df];W[fe];B[bd])\n(;W[ee];B[df]\n(;W[ff];B[fc]\n(;W[fe];B[bf])\n(;W[bf];B[fe];W[db];B[bg];W[cg];B[dg];W[af];B[da];W[ca];B[ea];W[bd];B[fd];W[bb]C[black wins 9 points.]))\n(;W[fc];B[fb];W[ff];B[gc]\n(;W[fe];B[bf])\n(;W[bf];B[fe];W[db];B[bg];W[cg];B[dg];W[af];B[da];W[ca];B[ea];W[bb];B[fd];W[bd]C[black wins 9 points.])))\n(;W[bf];B[bg]\n(;W[ee];B[df]\n(;W[ff];B[fc];W[fe];B[be];W[af];B[ae];W[eg];B[ag]\n(;W[dg];B[fg];W[gg];B[ge])\n(;W[bf];B[af];W[dg];B[fg];W[gg];B[ge]))\n(;W[fc];B[fb];W[ff];B[gc];W[fe];B[be];W[gd];B[fd];W[af];B[ge];W[bd];B[fg];W[db];B[da];W[ca];B[ea]))\n(;W[df];B[dg];W[ee];B[df]\n(;W[ff];B[fc];W[fe];B[be])\n(;W[fc];B[fb];W[ff];B[gc];W[fe];B[be];W[gd];B[fd];W[af];B[ge];W[bd];B[fg];W[db];B[da];W[ca];B[ea]))\n(;W[fd];B[db];W[ff];B[be];W[af];B[ae];W[cb];B[fc];W[eg];B[df];W[fe];B[bd])\n(;W[fe];B[db];W[ff];B[be];W[af];B[ae];W[cb];B[fc];W[eg];B[df]\n(;W[dg];B[fg];W[gg];B[fd];W[ee];B[ag];W[ge];B[bb])\n(;W[fd];B[bd])))\n(;W[db];B[fd];W[bf];B[bg];W[af];B[da];W[ca];B[ea])\n(;W[fe]\n(;B[ff];W[fc];B[fb]\n(;W[gb];B[db]\n(;W[cb];B[ee];W[fd];B[ge];W[da];B[gc];W[bf];B[bg])\n(;W[gf];B[cb];W[bf];B[bg]))\n(;W[db];B[ee];W[fd];B[gc];W[ea];B[be]))\n(;B[db];W[bf];B[bg];W[ff];B[be];W[cb];B[fc];W[af];B[ae];W[eg];B[df]\n(;W[fd];B[bd])\n(;W[dg];B[fg];W[gg];B[fd];W[ee];B[ag];W[ge];B[bb]))))\n(;W[df];B[ef];W[ed];B[dg];W[ee];B[df]\n(;W[ff];B[fc];W[fe];B[be])\n(;W[fc];B[fb];W[ff];B[gc];W[fe];B[be];W[gd];B[fd];W[bf];B[bg];W[fc];B[db];W[cb];B[fd];W[af];B[ge])))",
+  "author": {
+    "id": 46757,
+    "name": "smartaleck",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-11-13",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1472.01
+  },
+  "avgSolveTimeSeconds": 67,
+  "attempts": {
+    "solved": 15,
+    "failed": 162,
+    "tries": 177,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-12-23T02:40:09+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

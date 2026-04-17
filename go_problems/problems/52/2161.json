@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2161,
+  "elo": 1354.3082420384,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem introduces some basic nakade. How well do you know these shapes?\r\n\r\nDon't think about the board as a whole, but look at individual groups. How many could be killed with white playing a first move inside, and how many are alive in gote? Then click on the number that are dead if white plays first.",
+  "rating": {
+    "stars": 2.8,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[ea][ha][oa][eb][hb][ob][ac][bc][cc][dc][ec][hc][ic][jc][kc][lc][mc][nc][oc][af][bf][cf][qf][rf][sf][cg][dg][hg][ig][jg][kg][lg][qg][dh][gh][hh][lh][ph][di][gi][mi][pi][dj][gj][mj][pj][ck][dk][gk][mk][pk][al][bl][cl][hl][ll][ml][pl][ql][rl][sl][hm][im][jm][km][ao][bo][co][do][eo][oo][po][qo][ro][so][ep][gp][hp][ip][jp][kp][lp][mp][op][eq][gq][mq][oq][er][gr][mr][or][es][gs][ms][os]AB[da][ia][na][ab][bb][cb][db][ib][jb][kb][lb][mb][nb][ag][bg][rg][sg][bh][ch][ih][jh][kh][qh][rh][ci][hi][ii][ki][li][qi][bj][cj][hj][lj][qj][ak][bk][hk][ik][kk][lk][qk][rk][sk][il][jl][kl][ap][bp][cp][dp][pp][qp][rp][sp][aq][dq][hq][iq][jq][kq][lq][pq][sq][dr][hr][lr][pr][as][cs][ds][hs][ls][ps][qs]LB[ge:1][he:2][ie:3][je:4][ke:5][le:6][me:7][ne:8]C[click on the number that corresponds to how many of these groups you can kill with a first move as white]PL[W]\r\n(;W[ke]CR[ke]C[RIGHT\r\n]\r\n;B[kf]CR[kf]C[now you can play and try]\r\n(;W[ba]CR[ba]C[RIGHT\r\nblack dies])\r\n(;W[ka]CR[ka]\r\n;B[la]CR[la])\r\n(;W[ai]CR[ai]C[RIGHT\r\nblack dies])\r\n(;W[jj]CR[jj]C[RIGHT\r\nblack dies])\r\n(;W[si]CR[si]C[RIGHT\r\nblack dies])\r\n(;W[ri]CR[ri]\r\n;B[si]CR[si])\r\n(;W[br]CR[br]C[RIGHT\r\nblack dies\r\nrabbity six])\r\n(;W[js]CR[js]\r\n;B[jr]CR[jr]\r\n(;W[ks]CR[ks]\r\n;B[is]CR[is])\r\n(;W[is]CR[is]\r\n;B[ks]CR[ks]))\r\n(;W[jr]CR[jr]\r\n;B[js]CR[js]\r\n;W[kr]CR[kr]\r\n;B[ir]CR[ir])\r\n(;W[rr]CR[rr]\r\n;B[sr]CR[sr]\r\n(;W[qr]CR[qr]\r\n;B[rs]CR[rs])\r\n(;W[rs]CR[rs]\r\n;B[qr]CR[qr]\r\n;W[rq]CR[rq]C[seki]))\r\n(;W[la]CR[la]\r\n;B[ka]CR[ka]))\r\n(;W[ge]CR[ge]C[wrong number. after you get the right number, you can play with each pattern])\r\n(;W[he]CR[he]C[wrong number. after you get the right number, you can play with each pattern])\r\n(;W[ie]CR[ie]C[wrong number. after you get the right number, you can play with each pattern])\r\n(;W[je]CR[je]C[wrong number. after you get the right number, you can play with each pattern])\r\n(;W[le]CR[le]C[wrong number. after you get the right number, you can play with each pattern])\r\n(;W[me]CR[me]C[wrong number. after you get the right number, you can play with each pattern])\r\n(;W[ne]CR[ne]C[wrong number. after you get the right number, you can play with each pattern]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 64,
+  "attempts": {
+    "solved": 1478,
+    "failed": 2794,
+    "tries": 4272,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-04-23T11:34:02+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

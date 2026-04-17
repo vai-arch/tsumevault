@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11009,
+  "elo": 1295.6776318371,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Show the next 2 white moves that will prevent black from getting a ko.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rq]AB[sp]AB[qp]AB[qo]AB[po]AB[pn]AB[qm]AB[rm]AB[sm]AW[rl]AW[ql]AW[pl]AW[nm]AW[no]AW[op]AW[pp]AW[qq]AW[qr]AW[rp]AW[ro]AW[rn]AW[qn]AP[goproblems]\n(;W[sr];B[sn]\n(;W[rr]C[];B[so]\n(;W[sq]C[RIGHT])\n(;W[rn];B[ro];W[sq]C[RIGHT]))\n(;W[sq]C[RIGHT]))\n(;W[rr];B[sr]\n(;W[sq]C[NOTTHIS])\n(;W[rs];B[so];W[ss];B[sn]C[ko])))",
+  "author": {
+    "id": 23058,
+    "name": "Konithomimo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-02-22",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 1336,
+    "failed": 2151,
+    "tries": 3487,
+    "speedSolved": 2,
+    "speedPlay": 8
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-03-03T10:38:24+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

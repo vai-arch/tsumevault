@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3160,
+  "elo": 923.58260438041,
+  "problemLevel": 7,
+  "rank": {
+    "value": 22,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "White to live. This could also be called a tesuji problem, but do not be fooled !!",
+  "rating": {
+    "stars": 4.5,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qb][qc][qd][qe][pf][pg][oe][od][oc][nc][md][mf][mg][nh][kc][lc][lb][ke]AW[nf][of][mc][mb][nb][ob][pb][pa][pc][pd][pe]C[White to live]SZ[19]\r\n\r\n(;W[me]\r\n(;B[nd]C[CHOICE]\r\n(;W[ld];B[le];W[ne]C[RIGHT])\r\n(;W[ne];B[ld]C[oops]))\r\n(;B[le]C[CHOICE]\r\n(;W[ne];B[ld];W[nd]C[RIGHT])\r\n(;W[nd];B[ne]C[oops])\r\n(;W[ld];B[ne]C[oops]))\r\n(;B[ld]C[CHOICE]\r\n(;W[nd];B[ne];W[nd]C[RIGHT])\r\n(;W[ne];B[nd]C[D'oh])))\r\n(;W[ne];B[nd]\r\n(;W[me];B[ld])\r\n(;W[ld];B[me]))\r\n(;W[ld];B[me])\r\n(;W[qa];B[ne]\r\n(;W[ma];B[rb])\r\n(;W[rb];B[rc]\r\n(;W[ma];B[sb])\r\n(;W[sb];B[ma]\r\n(;W[na];B[ra];W[sa];B[sc])\r\n(;W[ra];B[na]))))\r\n(;W[nd];B[ne]))",
+  "author": {
+    "id": 5185,
+    "name": "polo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-09-05",
+    "rank": {
+      "value": 13,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 13,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1186.74
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 15267,
+    "failed": 12049,
+    "tries": 27316,
+    "speedSolved": 12,
+    "speedPlay": 33
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-10-25T10:40:16+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

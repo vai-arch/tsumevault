@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6687,
+  "elo": 1271.8552509195,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[oa]AB[ob]AB[pb]AB[qb]AB[qc]AB[rd]AW[nb]AW[oc]AW[pd]AW[qd]C[Where should black play?]AB[sc]AW[sb]AW[se]AW[na]AW[nc]AW[pc]AW[re]AW[qe]AP[goproblems]\n(;B[sd];W[rc])\n(;B[rc];W[ra]\n(;B[qa];W[sd]C[Seki])\n(;B[rb];W[sd]\n(;B[qa];W[pa])\n(;B[pa];W[qa])\n(;B[sa]C[Two step ko.])))\n(;B[rb];W[sd]\n(;B[rc];W[ra]\n(;B[qa];W[pa])\n(;B[pa];W[qa])\n(;B[sa]C[two-step ko]))\n(;B[sa];W[rc]\n(;B[sb];W[qa])\n(;B[qa];W[sb]C[ko]))\n(;B[qa];W[rc]))\n(;B[sa];W[sd]\n(;B[rc];W[ra]\n(;B[qa]C[Seki])\n(;B[rb];W[qa]C[ko]))\n(;B[rb];W[rc]\n(;B[sb];W[qa])\n(;B[qa];W[sb]C[ko]))\n(;B[ra];W[rc])\n(;B[qa];W[rc]))\n(;B[ra]\n(;W[sd]\n(;B[rc]C[RIGHT])\n(;B[rb];W[rc])\n(;B[sa];W[rc])\n(;B[qa];W[rc]))\n(;W[rc];B[rb];W[sd];B[rc]C[RIGHT])\n(;W[rb];B[rc]C[RIGHT])\n(;W[qa];B[rc]C[RIGHT]))\n(;B[qa];W[sd]\n(;B[rc];W[ra]C[Seki])\n(;B[rb];W[rc])\n(;B[sa];W[rc])\n(;B[ra];W[rc])))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 34,
+  "attempts": {
+    "solved": 2290,
+    "failed": 4465,
+    "tries": 6755,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-12T05:57:51+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

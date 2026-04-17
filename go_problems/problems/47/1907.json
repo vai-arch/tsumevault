@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1907,
+  "elo": 1730.177598564,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.2,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[cd]AB[db]AB[dc]AB[de]AB[ef]AB[eg]AB[fd]AB[gd]AB[gh]AB[hh]AB[ea]AW[dd]AW[eb]AW[ec]AW[ed]AW[ee]AW[fe]AW[ff]AW[gf]AW[hc]AW[hf]AW[hg]LB[ea:A]C[Black has played the hane at A. What is White's strongest response? White can win by more than two points.]\n(;W[ce]\n(;B[df]C[CHOICE]\n(;W[cc];B[bd]\n(;W[bc];B[be]\n(;W[cf];B[cg]\n(;W[ad];B[bf]C[ White takes the upper corner comfortably and keeps sente.RIGHT];W[fg];B[fh]C[RIGHT])\n(;W[bf];B[bg];W[ad];B[af]C[ White takes the upper corner comfortably and keeps sente.RIGHT];W[fg];B[fh]C[RIGHT]))\n(;W[cb];B[ac]C[Oh no! White looses sente and half the corner.]))\n(;W[cb]LB[bc:A]C[Wrong direction - A would have been bigger.])\n(;W[be];B[bc];W[cb];B[bb];W[da];B[cf]LB[cc:3]LB[bd:4]LB[be:5]LB[ce:1]LB[df:2]C[No, white is being too greedy when playing W5 after W1, B2, W3, and B4. This is enough for white to win on the 9x9 board, but you should have seen a better move.]))\n(;W[bd];B[cc];W[bc];B[be];W[cf];B[bf];W[cg];B[bb];W[bg];B[ad];W[af];B[ac]\n(;W[eh];B[fg];W[fh];B[gg];W[dh]C[ Though Black lives in the upper left corner, white takes the entire lower edge.RIGHT])\n(;W[dh];B[eh]C[No! White will barely have a chance to kill the lower group.])))\n(;B[bd]C[CHOICE]\n(;W[df];B[be]C[ Black is cut in two and barely lives with either group.RIGHT];W[bf]C[RIGHT])\n(;W[be];B[df];W[cc];B[bc];W[cb];B[bb];W[da];B[cf]LB[be:A]C[No, white is being too greedy when palying A. Black can minimize her loss. This is enough for white to win on the 9x9 board, but you should have seen a better move.])\n(;W[cc];B[df]LB[de:A]C[Ok, I know this ends in a variation which I called 'solved' elsewhere. But here: why didn't you seize the opportunity to cut black to pieces by capturing A?]\n(;W[bc];B[be]\n(;W[cf];B[cg]\n(;W[ad];B[bf]C[White takes the upper corner comfortably and keeps sente.RIGHT];W[fg];B[fh]C[RIGHT])\n(;W[bf];B[bg];W[ad];B[af]C[White takes the upper corner comfortably and keeps sente.RIGHT];W[fg];B[fh]C[RIGHT]))\n(;W[cb];B[ac]C[Oh no! White looses sente and half the corner.]))\n(;W[cb]LB[bc:A]C[Wrong direction - A would have been bigger.])\n(;W[be];B[bc];W[cb];B[bb];W[da];B[cf]LB[cc:3]LB[bd:4]LB[be:5]LB[ce:1]LB[df:2]C[No, white is being too greedy when playing W5 after W1, B2, W3, and B4. This is enough for white to win on the 9x9 board, but you should have seen a better move.])))\n(;B[fb]C[no choice];W[fc];B[gb];W[gc];B[hb];W[fa];B[ga];W[ib]LB[ea:A]C[As you can see, black's hane at A does not even threaten to make an eye in the corner.]))\n(;W[cc];B[bc]\n(;W[ce]C[ White either kills the upper left corner or cuts black in two.RIGHT])\n(;W[cb];B[bb];W[da];B[ce]C[To cut was the right idea, but black can minimize the loss. On a 9x9 board this might be just about enough for white, but on a bigger board black could exploit her thickness. You should have seen a better move.]))\n(;W[fa];B[ce]C[No. Black wins comfortably]\n(;W[da];B[cb];W[ca];B[ba];W[ea];B[bb];W[fg];B[fh];W[ih];B[hi]C[No. Black wins comfortably])\n(;W[cc];B[cb];W[bc];B[bb];W[bd];B[be];W[ab];B[ad];W[da];B[ih];W[fg];B[fh]C[No. Black wins comfortably])))",
+  "author": {
+    "id": 3244,
+    "name": "DaMaMa",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2005-09-28",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 1104,
+    "failed": 3355,
+    "tries": 4459,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-02-07T07:54:00+00:00",
+  "source": "me",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

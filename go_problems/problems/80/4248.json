@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4248,
+  "elo": 1300.7360999984,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "A black play at 'B' will convert this moyo into a large territory. ------------------- White invasion urgent!\r\n\r\nNOTE: Several white moves that may lead to life are blocked. I'd appreciate anyone showing why any of these are equal, or inferior, to the solution.",
+  "rating": {
+    "stars": 1.6,
+    "votes": 33,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pj][jp][mp][pp]LB[qq:A][qp:B][ro:C][ql:D]\r\nC[White can invade at any of the labelled points, but only 'A' is considered here. ---- Please play at 'A' to start. FORCE]\r\n\r\n\r\n;W[qq];B[qp]\r\n\r\n\r\n(;W[rp];B[ro];W[rr];B[sp];W[sq]C[You got a ko, but unconditional life in sente is possible.])\r\n\r\n\r\n(;W[rq]C[NOTTHIS])\r\n\r\n\r\n\r\n(;W[pq];B[nq]\r\n(;W[nr]C[NOTTHIS])\r\n(;W[op]C[NOTTHIS])\r\n(;W[oq]C[NOTTHIS])\r\n(;W[or]C[NOTTHIS])\r\n\r\n(;W[rp];B[ro]\r\n(;W[nr]C[NOTTHIS])\r\n(;W[op]C[NOTTHIS])\r\n(;W[oq]C[NOTTHIS])\r\n(;W[or]C[NOTTHIS])\r\n(;W[rr];B[sp];W[sq]C[The ko is not required, as white can live in sente unconditionally.])\r\n\r\n(;W[rq];B[qn]\r\nC[RIGHT White has made ~5 points, ruined black's corner, caused overconcentration of his forces, and kept sente. The \r\ninvasion is worth ~25 points.]))\r\n\r\n(;W[rq];B[rp]\r\n(;W[oq];B[op];W[nr];B[mr];W[or]C[You live in gote. The reduction in black's territory \r\nis similar to the solution, but loss of sente makes this inferior.])\r\n\r\n(;W[nr];B[mr];W[oq];B[op];W[or]C[You live in gote. The reduction in black's territory \r\nis similar to the solution, but loss of sente makes this inferior.])))\r\n\r\n(;W[pr];B[pq];W[rr];B[or];W[rp];B[ro]LB[qs:A][sq:B]C[You can leave a ko behind, or live playing 'A' or 'B'. The reduction \r\nin black's territory is ~6 points smaller than the solution.]))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 32,
+  "attempts": {
+    "solved": 9755,
+    "failed": 14471,
+    "tries": 24226,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-04-12T18:43:03+00:00",
+  "source": "Takagawa",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 80,
+      "name": "3-3 (san-san) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 39,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

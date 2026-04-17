@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6605,
+  "elo": 1322.3318386282,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -1,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "",
+  "rating": {
+    "stars": 4.1,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cb]AB[cc]AB[dd]AB[de]AB[ef]AB[dl]AB[el]AB[fl]AB[gk]AB[qd]AW[bb]AW[bc]AW[cd]AW[dc]AW[cg]AW[ci]AW[eh]AB[dm]AW[em]AW[en]AW[gl]AW[gm]AW[gn]AW[dn]AB[cn]AB[co]AW[do]AB[cp]AB[dp]AB[eo]AB[fo]AB[fp]AB[fq]AB[gr]AB[hq]AW[ep]AW[eq]AW[cq]AW[dq]AW[er]AW[fr]AW[pq]MA[bb]C[How should black deal with the top left corner?]AP[goproblems]\n(;B[ec];W[db];B[eb];W[ca]C[Black cannot prevent the connection along the side.]MA[cg]MA[cd]MA[be]MA[bf])\n(;B[db];W[ec]\n(;B[eb];W[fc]C[Now Black has two weak groups in trouble.])\n(;B[bd];W[ce];B[be];W[cf];B[ba];W[eb]C[Well, you got the corner, but was it worth it?  See comments for more analysis.]))\n(;B[ce];W[bd]\n(;B[be];W[ec]C[This is dangerous for Black.])\n(;B[ec];W[db];B[eb];W[ca]MA[be]C[Close, but now Black can only prevent the connection on the left in gote.]))\n(;B[bd];W[ce]\n(;B[cf];W[be];B[bf];W[ad];B[ec]\n(;W[db]C[CHOICE];B[eb];W[ca]C[Well done!  Black seals off the corner in sente.RIGHT])\n(;W[dg]C[CHOICE]\n(;B[db];W[df]C[Letting White cut here was a big mistake.])\n(;B[df];W[db];B[eb];W[ca]C[Well done!  Black seals off the corner in sente.  In the actual game, White neglected to play D13 before D18.RIGHT]MA[dg])))\n(;B[be];W[cf];B[db];W[ec];B[ba];W[eb]C[Well, you got the corner, but was it worth it?  See comments for more analysis.])\n(;B[db];W[ec];B[be];W[cf];B[ba];W[eb]C[Well, you got the corner, but was it worth it?  See comments for more analysis.])))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 1708,
+    "failed": 5509,
+    "tries": 7217,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-02T14:22:45+00:00",
+  "source": "QuBit vs. Guichocha",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 41,
+      "name": "How to enclose the corner?",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

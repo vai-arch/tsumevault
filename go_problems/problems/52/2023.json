@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2023,
+  "elo": 1815.75016994,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nGM[1]FF[4]VW[]AP[Many Faces of Go:11.0]\r\nSZ[19]\r\nHA[0]\r\nST[1]\r\nDT[2003-03-20]\r\nKM[0.0]\r\nRU[Japanese]\r\nAB[pc][qd][id][pj][oc]\r\nAW[od][nd][pf]\r\nC[How should black best attack white's group? Assume ladders are good for Black.]\r\n\r\n(;B[pe]\r\n(;W[of]\r\nC[CHOICE]\r\n\r\n(;B[oe];W[ne];B[nf];W[qf];B[qe]\r\nC[RIGHT\r\nBlack's 2 stones outside become real threats to both white's\r\ngroups.]\r\nTR[id][pj]\r\n)\r\n(;B[qf];W[mg]\r\nC[Although black gains in territory with A, white's group is settled\r\nfor the moment.  Black can do better to impose more pressure\r\non white.]\r\nLB[qg:A]\r\n))\r\n(;W[nf]\r\nC[CHOICE]\r\n;B[of];W[og];B[oe];W[ng];B[ne];W[me];B[mf]\r\nC[RIGHT\r\nWhite's stones are split up with bad aji everywhere.]\r\n))\r\n(;B[nf];W[pd]\r\nC[Black 1 hits white's vital point, but...]\r\nLB[nf:1]\r\n;B[qe];W[of];B[nc];W[ld];B[md];W[me];B[mc]\r\n;W[mf])\r\n(;B[oe];W[pd];B[pe];W[qe]\r\n(;B[qc];W[nf];B[qf];W[ne];B[re];W[kd])\r\n(;B[qf];W[ne];B[of];W[nf];B[og];W[qc];B[rd];W[nc];B[qb]\r\n;W[kd]))\r\n(;B[pd];W[pe]))",
+  "author": {
+    "id": 3580,
+    "name": "picketfence",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-03-18",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 26,
+  "attempts": {
+    "solved": 227,
+    "failed": 2107,
+    "tries": 2334,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-03-20T18:58:15+00:00",
+  "source": "Some Chinese text",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2084,
+  "elo": 1457.3483363293,
+  "problemLevel": 27,
+  "rank": {
+    "value": 3,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "In this not too difficult problem, the difference between a good move and the best one is two points. It's also the difference between victory and defeat!",
+  "rating": {
+    "stars": 4.3,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]\r\nAW[da][eb][dc][dd][ed][be][ce][ee][ef]AB[ca][cb][cc][bd][cd][de][af][df][dg]C[No komi, no prisoners - Black to play and win!]\r\n(;B[bg]CR[bg]\r\n;W[eg]CR[eg]\r\n;B[db]CR[db]\r\n;W[ea]CR[ea]C[Black wins by one point! RIGHT])\r\n(;B[cf]CR[cf]\r\n;W[eg]CR[eg]\r\n(;B[bf]CR[bf]\r\n;W[db]CR[db]C[White wins by one point])\r\n(;B[ae]CR[ae]\r\n;W[db]CR[db]C[White wins by one point!]))\r\n(;B[bf]CR[bf]\r\n;W[eg]CR[eg]\r\n(;B[cf]CR[cf]\r\n;W[db]CR[db]C[White wins by one point!])\r\n(;B[ae]CR[ae]\r\n;W[db]CR[db]C[White wins by one point!]))\r\n(;B[ae]CR[ae]\r\n;W[eg]CR[eg]\r\n(;B[cf]CR[cf]\r\n;W[db]CR[db]C[White wins by one point!])\r\n(;B[bf]CR[bf]\r\n;W[db]CR[db]C[White wins by one point!]))\r\n(;B[eg]CR[eg]\r\n;W[cf]CR[cf]C[White will capture the black stones!])\r\n(;B[db]CR[db]\r\n;W[cf]CR[cf]C[The four black stones are lost!]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 1277,
+    "failed": 3848,
+    "tries": 5125,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-03-31T11:47:16+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

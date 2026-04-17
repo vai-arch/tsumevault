@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4857,
+  "elo": 1923.9188380861,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "See related problems  3762,  3844 and  5781.",
+  "rating": {
+    "stars": 4,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[11]KM[0.00]\r\nAW[dc][jc][dd][de][ee][fe][ge][he][ie][je][ke][ef][kf][ag][bg][dg][eg][ah][fh][ai][bi][ji][aj][cj][ij][kj][bk][ik][jk]AB[cb][cc][cd][ce][af][bf][cf][gf][hf][if][jf][cg][gg][kg][ch][dh][eh][hh][ih][jh][kh][di][fi][gi][hi][dj][hj][dk][gk]LB[da:K][ea:S][fa:L][db:P][eb:I]C[No komi, no prisoners yet - Black to win.]\r\n(;B[fa]\r\n;W[eb]\r\n(;B[ea]\r\n;W[gb]\r\n(;B[fb]\r\n;W[db]\r\n;B[da]\r\n;W[fc]\r\n(;B[ga]\r\n;W[ha]\r\n;B[ca]\r\n;W[hb]\r\n;B[fg]C[Only jigo. The 1 space jump allows a 1 point win.])\r\n(;B[fg]\r\n;W[ga]\r\n;B[ca]C[You lost by 2. Jigo is possible from the large monkey jump, whilst the 1 space jump allows a 1 point win.]))\r\n(;B[da]\r\n;W[ga]\r\n(;B[fb]\r\n;W[fc]\r\n;B[db]\r\n;W[ec]\r\n;B[fg]C[Only jigo. The 1 space jump allows a 1 point win.])\r\n(;B[fg]\r\n;W[fb]\r\n;B[db]C[You lost by 2. Jigo is possible from the large monkey jump, whilst the 1 space jump allows a 1 point win.])\r\n(;B[db]\r\n;W[fb]\r\n;B[fg]C[You lost by 2. Jigo is possible from the large monkey jump, whilst the 1 space jump allows a 1 point win.]))\r\n(;B[ga]\r\n;W[da]\r\n(;B[db]\r\n;W[ha]\r\n;B[ca]\r\n;W[fb]\r\n(;B[da]\r\n;W[hb]\r\n;B[fg]C[Only jigo. The 1 space jump allows a 1 point win.])\r\n(;B[fg]\r\n;W[da]\r\n;B[ea]\r\n;W[fa]\r\n;B[da]C[You lost by 4. Jigo is possible from the large monkey jump, whilst the 1 space jump allows a 1 point win.]))\r\n(;B[ha]\r\n;W[db]C[B is cut off and cannot form a live group.]))\r\n(;B[db]\r\n;W[fb]\r\n(;B[ga]\r\n;W[ha]\r\n;B[da]\r\n;W[hb]\r\n;B[fg]C[Only jigo. The 1 space jump allows a 1 point win.])\r\n(;B[fg]\r\n;W[ga]\r\n;B[da]C[You lost by 2. Jigo is possible from the large monkey jump, whilst the 1 space jump allows a 1 point win.]))\r\n(;B[fg]\r\n;W[da]\r\n;B[db]\r\n;W[ga]\r\n;B[ca]\r\n;W[fb]\r\n;B[da]C[You lost by 2. Jigo is possible from the large monkey jump, whilst the 1 space jump allows a 1 point win.]))\r\n(;B[db]\r\n;W[ea]C[B is cut off and cannot form a live group.]))\r\n(;B[ea]\r\n;W[fb]\r\n;B[fa]\r\n;W[ga]\r\n;B[da]\r\n;W[gb]\r\n(;B[eb]\r\n;W[ec]\r\n(;B[db]\r\n;W[fg]C[You lost by 4. It is possible to do 2 points better from the small monkey jump, whilst the 1 space jump allows a 1 point win.])\r\n(;B[fg]\r\n;W[db]\r\n;B[ca]C[You lost by 2. The 1 space jump allows a 1 point win.]))\r\n(;B[fg]\r\n(;W[eb]\r\n;B[db]C[You lost by 2. The 1 space jump allows a 1 point win.])\r\n(;W[db]\r\n;B[eb]\r\n;W[ec]\r\n;B[ca]C[You lost by 2. The 1 space jump allows a 1 point win.])))\r\n(;B[da]\r\n;W[fb]\r\n;B[fa]\r\n;W[ga]\r\n(;B[ea]\r\n;W[gb]\r\n;B[eb]\r\n;W[ec]\r\n;B[fg]\r\n;W[db]\r\n;B[ca]C[You lost by 2. Jigo is possible from kosumi, whilst the 1 space jump allows a 1 point win.])\r\n(;B[eb]\r\n;W[gb]\r\n(;B[ec]\r\n;W[fc]\r\n(;B[fg]\r\n;W[db]\r\n;B[ea]\r\n;W[ed]\r\n;B[ca]C[Jigo, only 2nd best. The 1 space jump allows a 1 point win.])\r\n(;B[ed]\r\n;W[fd]\r\n;B[db]\r\n;W[fg]\r\n;B[ea]C[You lost by 1. Jigo is possible from kosumi, whilst the 1 space jump allows a 1 point win.])\r\n(;B[db]\r\n;W[fg]\r\n;B[ed]\r\n;W[fd]\r\n;B[ea]C[You lost by 1. Jigo is possible from kosumi, whilst the 1 space jump allows a 1 point win.]))\r\n(;B[db]\r\n;W[ec]\r\n;B[fg]\r\n;W[ea]\r\n(;B[ci]\r\n;W[ck]\r\n;B[fa]C[You lost by 1. Jigo is possible from kosumi, whilst the 1 space jump allows a 1 point win.])\r\n(;B[ck]\r\n;W[ci]\r\n;B[fa]C[You lost by 1. Jigo is possible from kosumi, whilst the 1 space jump allows a 1 point win.])\r\n(;B[ii]\r\n;W[ki]\r\n;B[fa]C[You lost by 1. Jigo is possible from kosumi, whilst the 1 space jump allows a 1 point win.])\r\n(;B[ki]\r\n;W[ii]\r\n;B[fa]C[You lost by 1. Jigo is possible from kosumi, whilst the 1 space jump allows a 1 point win.]))))\r\n(;B[db]\r\n;W[eb]\r\n;B[ea]\r\n;W[fb]\r\n(;B[fa]\r\n;W[ga]\r\n;B[da]\r\n;W[gb]\r\n;B[fg]C[You lost by 2. The 1 space jump allows a 1 point win.])\r\n(;B[fg]\r\n;W[fa]\r\n;B[da]C[You lost by 4. It is possible to do 2 points better from the push at D10, whilst the 1 space jump allows a 1 point win.]))\r\n(;B[eb]\r\n;W[db]\r\n;B[da]\r\n;W[fb]\r\n(;B[fa]\r\n;W[gb]\r\n(;B[ec]\r\n;W[ga]\r\n(;B[ea]\r\n;W[fc]\r\n(;B[ed]\r\n;W[fd]\r\n;B[ca]\r\n;W[fg]C[You lost by 2. Your 1st 2 moves were correct, but your 3rd should have been at G10.])\r\n(;B[fg]\r\n;W[ed]\r\n;B[ca]C[Only jigo. Your 1st 2 moves were correct, but your 3rd should have been at G10.]))\r\n(;B[fc]\r\n;W[ea]\r\n(;B[ci]\r\n;W[ck]\r\n;B[fa]\r\n;W[gc]\r\n;B[ea]\r\n;W[fg]\r\n;B[fd]\r\n;W[gd]C[Only jigo. Your 1st 2 moves were correct, but your 3rd should have been at G10.])\r\n(;B[ck]\r\n;W[ci]\r\n;B[fa]\r\n;W[gc]\r\n;B[ea]\r\n;W[fg]\r\n;B[fd]\r\n;W[gd]C[Only jigo. Your 1st 2 moves were correct, but your 3rd should have been at G10.])))\r\n(;B[ga]\r\n;W[ha]\r\n(;B[ec]\r\n(;W[ea]\r\n;B[fa]\r\n;W[fc]\r\n(;B[ed]\r\n;W[fd]\r\n;B[ea]\r\n;W[ga]\r\n;B[ca]\r\n;W[fg]C[You lost by 2. Your 1st 2 moves were correct, but your 3rd should have been at G10.])\r\n(;B[fg]\r\n;W[ed]\r\n;B[ea]\r\n;W[ga]\r\n;B[ca]C[Only jigo. Your 1st 2 moves were correct, but your 3rd should have been at G10.]))\r\n(;W[fg]\r\n;B[fc]\r\n;W[gc]\r\n;B[fd]\r\n;W[ea]\r\n;B[fa]\r\n;W[ga]\r\n;B[ea]\r\n;W[gd]C[Only jigo. Your 1st 2 moves were correct, but your 3rd should have been at G10.]))\r\n(;B[ea]\r\n;W[ec]\r\n;B[ca]\r\n;W[hb]\r\n;B[fg]C[Only jigo. Your 1st 2 moves were correct, but your 3rd should have been at G10.])\r\n(;B[fg]\r\n;W[ec]\r\n;B[ca]\r\n;W[ea]C[You lost by 7. Your 1st 2 moves were correct, but your 3rd should have been at G10.]))\r\n(;B[fg]\r\n;W[ec]\r\n;B[ea]\r\n;W[ga]\r\n;B[ca]C[You lost by 2. Your 1st 2 moves were correct, but your 3rd should have been at G10.]))\r\n(;B[ec]\r\n;W[fa]\r\n;B[ea]\r\n;W[fc]\r\n(;B[ed]\r\n;W[fd]\r\n;B[ca]\r\n;W[fg]C[You lost by 4. Your 1st 2 moves were correct, but your 3rd should have been at G10.])\r\n(;B[fg]\r\n;W[ed]\r\n;B[ca]C[You lost by 2. Your 1st 2 moves were correct, but your 3rd should have been at G10.]))\r\n(;B[gb]\r\n;W[ec]\r\n;B[fa]\r\n;W[ea]\r\n(;B[ci]\r\n;W[ck]\r\n;B[eb]\r\n;W[ca]\r\n(;B[fc]\r\n;W[ea]\r\n(;B[ii]\r\n;W[da]\r\n;B[ki]\r\n;W[bb]\r\n(;B[bc]\r\n;W[fg]\r\n;B[ab]\r\n;W[ba]C[You lost by 5. Your 1st 6 moves were correct, but your 7th should have been to capture at B11.])\r\n(;B[fg]\r\n;W[bc]\r\n;B[bd]\r\n;W[ac]\r\n;B[ad]C[You lost by 7. Your 1st 6 moves were correct, but your 7th should have been to capture at B11.]))\r\n(;B[ki]\r\n;W[da]\r\n;B[ii]\r\n;W[bb]\r\n(;B[bc]\r\n;W[fg]\r\n;B[ab]\r\n;W[ba]C[You lost by 5. Your 1st 6 moves were correct, but your 7th should have been to capture at B11.])\r\n(;B[fg]\r\n;W[bc]\r\n;B[bd]\r\n;W[ac]\r\n;B[ad]C[You lost by 7. Your 1st 6 moves were correct, but your 7th should have been to capture at B11.])))\r\n(;B[ba]\r\n;W[ea]\r\n(;B[ii]\r\n;W[ca]\r\n;B[ki]\r\n;W[da]\r\n(;B[bb]\r\n;W[fg]C[RIGHT You won by 1, the best result. The 1 space jump (1sj) allows a 1 point win, the large monkey jump (lmj) only allows jigo; the other 1st move options are inferior to lmj. After 1sj (with the ko threats larger than in 3844, and the gote move not too big) if black offers the E/F11 ko with F11, white can get a better result than the solution by replying at G10. This leaves black with only 1 good strategy: to play 1sj, force the E10/11 ko by playing G10, and then to let white save the capture at F5.])\r\n(;B[ab]\r\n;W[fg]C[RIGHT You won by 1. However, it is usually more solid to close the top left corner shape with B10. See this finish for general summary.])\r\n(;B[bc]\r\n;W[fg]C[RIGHT You won by 1. However, it is usually more solid to close the top left corner shape with B10. See this finish for general summary.])\r\n(;B[fg]\r\n;W[bb]\r\n;B[bc]\r\n;W[aa]\r\n;B[ac]C[You lost by 1. Your 1st 9 moves were correct, but your 10th should have been to connect at B10 rather than capture at F5.]))\r\n(;B[ki]\r\n;W[ca]\r\n;B[ii]\r\n;W[da]\r\n(;B[bb]\r\n;W[fg]C[RIGHT You won by 1, the best result. The 1 space jump (1sj) allows a 1 point\r\nwin, the large monkey jump (lmj) only allows jigo; the other 1st move options are inferior to lmj. After 1sj (with the ko threats larger than in 3844, and the gote move not too big) if black offers the E/F11 ko with F11, white can get a better result than the solution by replying at G10. This leaves black with only 1 good strategy: to play 1sj, force the E10/11 ko by playing G10, and then to let white save the capture at F5.])\r\n(;B[ab]\r\n;W[fg]C[RIGHT You won by 1. However, it is usually more solid to close the top left corner shape with B10. See this finish for general summary.])\r\n(;B[bc]\r\n;W[fg]C[RIGHT You won by 1. However, it is usually more solid to close the top left corner shape with B10. See this finish for general summary.])\r\n(;B[fg]\r\n;W[bb]\r\n;B[bc]\r\n;W[aa]\r\n;B[ac]C[You lost by 1. Your 1st 9 moves were correct, but your 10th should have been to connect at B10 rather than capture at F5.]))))\r\n(;B[ck]\r\n;W[ci]\r\n;B[eb]\r\n;W[ca]\r\n(;B[fc]\r\n;W[ea]\r\n(;B[ii]\r\n;W[da]\r\n;B[ki]\r\n;W[bb]\r\n(;B[bc]\r\n;W[fg]\r\n;B[ab]\r\n;W[ba]C[You lost by 5. Your 1st 6 moves were correct, but your 7th should have been to capture at B11.])\r\n(;B[fg]\r\n;W[bc]\r\n;B[bd]\r\n;W[ac]\r\n;B[ad]C[You lost by 7. Your 1st 6 moves were correct, but your 7th should have been to capture at B11.]))\r\n(;B[ki]\r\n;W[da]\r\n;B[ii]\r\n;W[bb]\r\n(;B[bc]\r\n;W[fg]\r\n;B[ab]\r\n;W[ba]C[You lost by 5. Your 1st 6 moves were correct, but your 7th should have been to capture at B11.])\r\n(;B[fg]\r\n;W[bc]\r\n;B[bd]\r\n;W[ac]\r\n;B[ad]C[You lost by 7. Your 1st 6 moves were correct, but your 7th should have been to capture at B11.])))\r\n(;B[ba]\r\n;W[ea]\r\n(;B[ii]\r\n;W[ca]\r\n;B[ki]\r\n;W[da]\r\n(;B[bb]\r\n;W[fg]C[RIGHT You won by 1, the best result. The 1 space jump (1sj) allows a 1 point win, the large monkey jump (lmj) only allows jigo; the other 1st move options are inferior to lmj. After 1sj (with the ko threats larger than in 3844, and the gote move not too big) if black offers the E/F11 ko with F11, white can get a better result than the solution by replying at G10. This leaves black with only 1 good strategy: to play 1sj, force the E10/11 ko by playing G10, and then to let white save the capture at F5.])\r\n(;B[ab]\r\n;W[fg]C[RIGHT You won by 1. However, it is usually more solid to close the top left corner shape with B10. See this finish for general summary.])\r\n(;B[bc]\r\n;W[fg]C[RIGHT You won by 1. However, it is usually more solid to close the top left corner shape with B10. See this finish for general summary.])\r\n(;B[fg]\r\n;W[bb]\r\n;B[bc]\r\n;W[aa]\r\n;B[ac]C[You lost by 1. Your 1st 9 moves were correct, but your 10th should have been to connect at B10 rather than capture at F5.]))\r\n(;B[ki]\r\n;W[ca]\r\n;B[ii]\r\n;W[da]\r\n(;B[bb]\r\n;W[fg]C[RIGHT You won by 1, the best result. The 1 space jump (1sj) allows a 1 point win, the large monkey jump (lmj) only allows jigo; the other 1st move options are inferior to lmj. After 1sj (with the ko threats larger than in 3844, and the gote move not too big) if black offers the E/F11 ko with F11, white can get a better result than the solution by replying at G10. This leaves black with only 1 good strategy: to play 1sj, force the E10/11 ko by playing G10, and then to let white save the capture at F5.])\r\n(;B[ab]\r\n;W[fg]C[RIGHT You won by 1. However, it is usually more solid to close the top left corner shape with B10. See this finish for general summary.])\r\n(;B[bc]\r\n;W[fg]C[RIGHT You won by 1. However, it is usually more solid to close the top left corner shape with B10. See this finish for general summary.])\r\n(;B[fg]\r\n;W[bb]\r\n;B[bc]\r\n;W[aa]\r\n;B[ac]C[You lost by 1. Your 1st 9 moves were correct, but your 10th should have been to connect at B10 rather than capture at F5.]))))\r\n(;B[ii]\r\n;W[ca]C[You played the wrong first ko threat; white can let it go here and win by 4.])\r\n(;B[ki]\r\n;W[ca]C[You played the wrong first ko threat; white can let it go here and win by 4.]))\r\n(;B[fg]\r\n;W[ec]\r\n;B[ea]\r\n;W[fa]\r\n;B[ca]C[You lost by 4. Your 1st 2 moves were correct, but your 3rd should have been at G10.]))\r\n(;B[fg]\r\n;W[db]\r\n;B[da]\r\n;W[ea]\r\n;B[ca]\r\n;W[fb]C[You lost by 7. The 1 space jump allows a 1 point win.]))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 152,
+    "failed": 1834,
+    "tries": 1986,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-07-23T22:20:27+00:00",
+  "source": "Problem 3844",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 122,
+      "name": "Monkey Jump",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

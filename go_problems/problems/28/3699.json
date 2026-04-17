@@ -1,0 +1,142 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3699,
+  "elo": 911.41495836678,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Simple problem.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AP[MultiGo:2.8.0]AB[ca][cb][cc][bd][ad]AW[cd][dc][db][da][be][ce][ae]\r\nTR[ae]C[white played the mark stone. If you think the group is safe tenuki at A.]LB[fe:A]\r\n(;B[bb]\t;W[ab](;B[aa]\r\n;W[ba]C[This is a ko. The correct solution has black living unconditionally.]\r\n)\r\n(;B[ac]\r\n;W[bc]C[Oops.]\r\n)\r\n(;B[bc]\r\n;W[aa]C[Seki...\r\nno wait \\:)]LB[fe:A]\r\n;B[fe]\t;W[ba]\t;B[ac]\r\n;W[aa]C[Dead]\r\n)\r\n)\r\n(;B[ab]C[Sneaky \\:)]\r\n(;W[ba]C[CHOICE]\r\n(;B[bb]\t;W[bc]\r\n;B[ac]C[Alive.\r\nA18 was the key move. It does allow white 2 consecutive ko threats but if white got to go A18 the group would be dead.\r\nRIGHT]\r\n)\r\n(;B[aa]; W[bc]\r\n(;B[bb]; W[ac]\r\n)\r\n(;B[ac]; W[bb]\r\n)\r\n)\r\n(;B[bc]C[Black lives\r\nRIGHT]\r\n)\r\n)\r\n(;W[bb]C[CHOICE]\r\n(;B[ba]\t;W[bc]\r\n;B[ac]C[Alive.\r\nA18 was the key move. It does allow white 2 consecutive ko threats but if white got to go A18 the group would be dead.\r\nRIGHT]\r\n)\r\n(;B[bc]C[Alive!\r\nRIGHT]\r\n)\r\n)\r\n(;W[bc]C[CHOICE]\r\n;B[ac](;W[bb]C[CHOICE]\r\n\r\n;B[ba]C[Alive.\r\nA18 was the key move. It does allow white 2 consecutive ko threats but if white got to go A18 the group would be dead.\r\nRIGHT]\r\n)\r\n(;W[ba]C[CHOICE]\r\n\r\n;B[bb]C[Alive.\r\nA18 was the key move. It does allow white 2 consecutive ko threats but if white got to go A18 the group would be dead.\r\nRIGHT]\r\n)\r\n)\r\n)\r\n(;B[fe](;W[bc]C[CHOICE]\r\n;B[bb]\r\n;W[ac]C[Dead]\r\n)\r\n(;W[bb]C[CHOICE]\r\n(;B[bc]\r\n;W[ba]C[Dead]\r\n)\r\n(;B[ab]\r\n;W[bc]C[Dead]\r\n)\r\n)\r\n(;W[ab]C[CHOICE]\r\n;B[bb]\r\n;W[ac]C[Dead]\r\n)\r\n)\r\n)",
+  "author": {
+    "id": 5552,
+    "name": "Meatex",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 26,
+  "attempts": {
+    "solved": 8683,
+    "failed": 7324,
+    "tries": 16007,
+    "speedSolved": 3,
+    "speedPlay": 8
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-06T18:07:09+00:00",
+  "source": "One of my games",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17411,
+  "elo": 1265.4894051605,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Variation on my first (too complex) problem. Hint: There is only one valid first move. Comments and corrections are welcome.",
+  "rating": {
+    "stars": 2.4,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cb]AB[eb]AB[ed]AB[dd]AB[ce]AB[df]AB[cg]AB[eg]AB[fg]AB[gg]AB[gf]AB[hf]AB[ge]AB[gd]AB[gc]AB[hc]AB[hb]AB[ia]AB[jb]AB[kb]AB[jf]AB[kg]AB[kh]AB[me]AW[gb]AW[fb]AW[fc]AW[fd]AW[fe]AW[ee]AW[de]AW[ef]AW[ff]AW[dg]AW[dh]AW[eh]AW[fh]AW[hg]AW[gh]AW[hh]AW[jh]AW[ig]AW[if]AW[ie]AW[hd]AW[ic]AW[ib]AW[jd]AW[lb]AW[mc]TR[ee]TR[fd]TR[ff]TR[fb]C[Please capture the marked stones.]AP[goproblems]\n(;B[cf]\n(;W[ja]C[CHOICE]\n(;B[ka];W[ha];B[ga];W[he];B[ha];W[fa];B[ja];W[la]\n(;B[ea];W[kc];B[ec]C[Well done.RIGHT])\n(;B[ec];W[kc];B[ea]C[Well done.RIGHT])\n(;B[kc];W[kd]\n(;B[ec];W[lc];B[ea]C[Well done.RIGHT])\n(;B[ea];W[lc];B[ec]C[Well done.RIGHT])))\n(;B[ha];W[ga];B[ka];W[he];B[ja];W[la]\n(;B[ec];W[kc];B[fa]C[Well done.RIGHT])\n(;B[fa];W[ea];B[ec];W[kc];B[fa]C[Well done.RIGHT])\n(;B[kc];W[kd]\n(;B[ec];W[lc];B[fa]C[Well done.RIGHT])\n(;B[fa];W[ea];B[ec];W[lc];B[fa]C[Well done.RIGHT])))\n(;B[ga];W[ha]TR[he]C[Black dies, white lives.])\n(;B[fa];W[ha]TR[he]C[Black dies, white lives.])\n(;B[ec];W[ha]TR[he]C[Black dies, white lives.]))\n(;W[ga]C[CHOICE]\n(;B[ha]\n(;W[ja];B[ka];W[he];B[ja];W[la]\n(;B[kc]C[];W[kd]\n(;B[ec];W[lc];B[fa]C[Well done.RIGHT])\n(;B[fa];W[ea];B[ec];W[lc];B[fa]C[Well done.RIGHT]))\n(;B[ec];W[kc];B[fa]C[Well done.RIGHT])\n(;B[fa];W[ea];B[ec];W[kc];B[fa]C[Well done.RIGHT]))\n(;W[he]\n(;B[ja];W[kc]\n(;B[ec];W[jc];B[fa]C[Well done.RIGHT])\n(;B[fa];W[ea];B[ec];W[jc];B[fa]C[Well done.RIGHT]))\n(;B[fa];W[ja])))\n(;B[ec]\n(;W[he]TR[ha]TR[ja]C[Black dies, white lives.])\n(;W[ha]))\n(;B[fa];W[he]\n(;B[ha];W[ja])\n(;B[ec];W[ha])))\n(;W[ha]C[CHOICE]\n(;B[ga];W[fa];B[ha];W[he];B[ja];W[kc]\n(;B[ec];W[jc];B[ea]C[Well done.RIGHT])\n(;B[ea];W[jc];B[ec]C[Well done.RIGHT]))\n(;B[fa];W[he])\n(;B[ec];W[he])))\n(;B[ec];W[cf]TR[df]C[White can live.])\n(;B[fa];W[cf]TR[df]C[White can live.])\n(;B[ga];W[cf]TR[df]C[White can live.])\n(;B[kc];W[cf]TR[df]C[White can live.]))",
+  "author": {
+    "id": 64162,
+    "name": "chuspita",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2021-01-16",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 85,
+  "attempts": {
+    "solved": 660,
+    "failed": 1203,
+    "tries": 1863,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-08-19T14:19:50+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

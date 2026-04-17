@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10461,
+  "elo": 893.95917186106,
+  "problemLevel": 6,
+  "rank": {
+    "value": 24,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": -2,
+    "flagSum": 8
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Just so that there are no misunderstandings, this is not a life-and-death problem, this is an endgame problem. \r\n\r\nJust like in a real game, you should take these into consideration:\r\n\r\n1. There are plenty of other useful moves to play elsewhere on the board. Nothing bigger than living with this group, of course.\r\n2. You do not have overwhelmingly many ko threats elsewhere. (you don't have pink antennae either.)\r\n",
+  "rating": {
+    "stars": 3.1,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bp]AB[bq]AB[br]AB[cr]AB[cs]AW[bo]AW[co]AW[cp]AW[cq]AW[dr]AW[eq]AW[cl]AW[cj]C[Black to live in the best way possible.]AP[goproblems]\r\n(;B[as]C[Correct. White will now play elsewhere because she has no sente endgame here. Later it is black's privilege to play A5 in sente.RIGHT])\r\n(;B[ap];W[ao]C[This move is now sente for white.]\r\n(;B[ar]C[Black has 3 points in the corner, but white has points at A6 and B6]MA[an]MA[bn])\r\n(;B[as]C[Black has 3 points in the corner, but white has points at A6 and B6.]MA[an]MA[bn])\r\n(;B[em]C[This variation is to show what happens if black plays elsewhere.];W[ar];B[as];W[bs]LB[aq:A]TR[ao]C[Black cannot crush at A, so the whole group becomes a ko.]))\r\n(;B[ao];W[ap]C[Oops, black dies.])\r\n(;B[ds];W[es]\r\n(;B[as]C[D1 was a wasted ko threat, and if there happened to be a helpful white stone somewhere around the bottom edge, white could have killed black.])\r\n(;B[ap];W[ar]C[oops, ko.])))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 6108,
+    "failed": 5510,
+    "tries": 11618,
+    "speedSolved": 5,
+    "speedPlay": 8
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-10-05T06:41:08+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

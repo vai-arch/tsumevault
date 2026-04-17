@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 959,
+  "elo": 1628.1630347427,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.5,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ia]AW[ib]AW[ic]AW[kb]AW[lb]AW[mb]AW[gc]AW[fc]AB[cc]AB[dc]AB[ec]AB[fd]AB[gd]AB[bc]AB[hd]AB[id]AB[jd]AB[kc]AB[lc]AB[mc]AB[nc]AB[nb]AB[na]AB[bc]SZ[19]C[Black to play and sweep white off the board. A hint: order of moves is important here. White should be driven to the edge.]\n(;B[hc];W[hb];B[ga];W[fb];B[jb];W[jc]\n(;B[ma];W[ja];B[la];W[ka];B[fa];W[eb];B[ea];W[db];B[da];W[cb];B[ca];W[bb];B[ba];W[ab];B[gb]C[ That's it!RIGHT])\n(;B[la];W[ja];B[ma];W[ka];B[fa];W[eb];B[ea];W[db];B[da];W[cb];B[ca];W[bb];B[ba];W[ab];B[gb]C[ That's it!RIGHT]))\n(;B[ma];W[ga];B[hb];W[hc];B[jb];W[eb];B[gb];W[fb];B[db];W[ea]C[This is wrong approach])\n(;B[jb];W[ga]\n(;B[ka];W[eb];B[db];W[ea]C[White is alive])\n(;B[hc];W[hb];B[fb];W[gb];B[eb];W[jc];B[ma];W[ka];B[la];W[ja]C[Again white resists])\n(;B[hb];W[hc];B[ka];W[eb];B[gb];W[fb]C[White profits from the wrong order of moves]))\n(;B[ga]PL[B];W[hc]\n(;B[jb];W[gb]PL[B]\n(;B[ha];W[eb]\n(;B[fa];W[db]\n(;B[cb];W[da];B[ca];W[fb]C[Seki])\n(;B[da]PL[B];W[cb]C[Lives]))\n(;B[ka]PL[B];W[fa];B[db];W[ea];B[da];W[hb]C[Lives]))\n(;B[fa]PL[B];W[eb]\n(;B[ea];W[db];B[da];W[cb];B[ca];W[bb];B[ba];W[ab]C[Lives])\n(;B[ha]PL[B];W[db];B[cb];W[da]C[White lives];B[ca];W[fb]C[Seki])\n(;B[db]PL[B];W[ea]C[White lives])))\n(;B[fb]PL[B];W[gb];B[ha];W[eb];B[ea];W[fa]C[Ko])\n(;B[gb]PL[B];W[fb];B[fa];W[eb]C[White lives])\n(;B[fa]PL[B];W[gb]\n(;B[jb];W[ha]\n(;B[ka];W[eb]C[White!])\n(;B[eb]PL[B];W[jc]C[White lives]))\n(;B[ha]PL[B];W[eb];B[db];W[ea]C[White lives]))\n(;B[ea]C[ If You think this is not correct, contact me.RIGHT])\n(;B[eb]C[RIGHT])))",
+  "author": {
+    "id": 493,
+    "name": "marcin",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-07-05",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1514.91
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 304,
+    "failed": 2274,
+    "tries": 2578,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-08-02T03:14:33+00:00",
+  "source": "From Gengen Gokyo",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 51,
+      "name": "Xuan Xuan Qijing",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

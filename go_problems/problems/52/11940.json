@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11940,
+  "elo": 969.71636376778,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 11,
+    "negativeFlagSum": 0,
+    "flagSum": 11
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This is a basic problem, but I did not see this on the site, and the pattern search gave no results...",
+  "rating": {
+    "stars": 4.2,
+    "votes": 35,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rn]AB[rm]AB[qn]AB[pn]AB[on]AW[qm]AW[ql]AW[pm]AW[om]AB[nm]AB[pl]AB[nl]AB[nk]AW[oj]AW[qi]AW[ri]AW[nn]AW[no]AW[oo]AW[po]C[Black to capture white and connect his stones.]AW[oi]AP[goproblems]\n(;B[qk]\n(;W[ol]\n(;B[ok];W[pk]\n(;B[rl]\n(;W[pl];B[pj]C[RIGHT]))\n(;B[pj];W[rk]\n(;B[pl];W[rl])\n(;B[rl];W[qj])\n(;B[qj];W[rj]\n(;B[pl];W[rl])\n(;B[rl];W[pi]))))\n(;B[pk];W[ok])\n(;B[rl];W[ok])))\n(;B[ol];W[qk])\n(;B[pk];W[qk])\n(;B[ok];W[qk])\n(;B[rl];W[qk])\n(;B[rk];W[qk])\n(;B[pj];W[qj]\n(;B[qk];W[rk];B[pk];W[rl])\n(;B[pk];W[qk])\n(;B[ok];W[qk])\n(;B[rk];W[qk]))\n(;B[qj];W[qk]\n(;B[rj];W[rk]\n(;B[pk];W[pj])\n(;B[pj];W[pk]))\n(;B[pj];W[pk]\n(;B[rk];W[rj])\n(;B[rj];W[rk])))\n(;B[rj];W[qj]\n(;B[rk];W[qk])\n(;B[qk];W[pk]\n(;B[rk];W[ol])\n(;B[ol];W[rk];B[rl];W[qk])))\n(;B[sl];W[qk])\n(;B[sk];W[qk])\n(;B[sj];W[qk]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 41,
+  "attempts": {
+    "solved": 5126,
+    "failed": 5366,
+    "tries": 10492,
+    "speedSolved": 24,
+    "speedPlay": 35
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-11-07T15:42:06+00:00",
+  "source": "Book",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

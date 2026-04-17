@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 18341,
+  "elo": 1366.0804413391,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bb]AW[aa]AW[bc]AW[bd]AW[ad]AW[cc]AW[dc]AW[ec]AW[eb]AW[da]AB[ea]AB[fa]AB[fb]AB[fc]AB[fd]AB[ed]AB[dd]AB[cd]AB[ae]AB[be]AB[cf]AP[goproblems]\n(;B[cb];W[ab]\n(;B[db]C[RIGHT])\n(;B[ca];W[ba]\n(;B[ac];W[ab]\n(;B[db];W[ba]C[Play at E14 if you need a ko threat smaller that what the corner is worth.]LB[ef:T]\n(;B[ac]C[RIGHT])\n(;B[da]C[RIGHT])\n(;B[ef];W[da]))\n(;B[aa];W[ba]C[Ko])\n(;B[ba]C[RIGHT]))\n(;B[db];W[da]))\n(;B[ba];W[db];B[ac];W[ab]C[CHOICE]))\n(;B[ca];W[cb];B[db]C[Adv. koCHOICE])\n(;B[ab];W[cb];B[ba];W[ca]C[CHOICE])\n(;B[ba];W[ab];B[cb];W[db];B[ac];W[ab]C[CHOICE]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 75,
+  "attempts": {
+    "solved": 544,
+    "failed": 1010,
+    "tries": 1554,
+    "speedSolved": 4,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-11-30T13:04:43+00:00",
+  "source": "encyclopedia of life and death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 179,
+      "name": "Encyclopedia of Life and Death - Easy",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13854,
+  "elo": 1172.4469443647,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Quirky problem I thought of. Should be easy enough, but the strange board size might throw you off (or at least get you thinking a bit differently). Have fun!",
+  "rating": {
+    "stars": 3.5,
+    "votes": 34,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[5]AW[ac]AW[bc]AW[cd]AW[dc]AW[ec]AW[de]AB[cc]AB[cb]AB[bb]AB[ab]AB[db]AB[eb]AB[ba]AB[da]C[White has a 6.5 komi, Japanese rules. Black to win!]AP[goproblems]\n(;B[ed]\n(;W[bd]C[Great so far. And if white replies here, what will you do?]\n(;B[dd]\n(;W[ae]C[White tries to live...];B[ce]C[...but fails and dies! Congratulations!RIGHT])\n(;W[ce]C[White tries to live...];B[ae]C[...but fails and dies! Congratulations!RIGHT]))\n(;B[ae];W[dd]C[White lives and wins...])\n(;B[be];W[dd]C[White lives and wins...])\n(;B[ce];W[dd]C[White lives and wins...]))\n(;W[be]C[Good so far. If white replies here, what will you do?]\n(;B[ad]C[Yes! A and B are miai. White is dead!RIGHT]LB[bd:A]LB[dd:B])\n(;B[dd];W[ad]C[Black has 7 points, White has 2 plus 6.5 komi])\n(;B[bd];W[ad];B[dd]C[Black has 7 points, White has 3 plus 6.5 komi]))\n(;W[dd]C[And if White connects?];B[bd]C[Yes! A3 and B3 are captured and White dies!RIGHT]))\n(;B[bd];W[be]\n(;B[ad];W[ed]C[Black has 7 points, White has 2 plus 6.5 komi])\n(;B[ed];W[ad];B[dd]C[Black has 7 points, White has 3 plus 6.5 komi]))\n(;B[be];W[bd];B[ed];W[dd]C[White lives and wins...]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 60,
+  "attempts": {
+    "solved": 1991,
+    "failed": 3308,
+    "tries": 5299,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-07-26T14:21:15+00:00",
+  "source": "Me",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 8,
+      "name": "5x5 Endgames",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

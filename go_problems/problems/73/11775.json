@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11775,
+  "elo": 1135.2697332135,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Black to play and capture something.",
+  "rating": {
+    "stars": 3.8,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[an]AB[bn]AB[cn]AB[do]AB[eo]AB[cp]AB[cq]AB[cr]AW[ao]AW[bo]AW[co]AW[aq]AW[dp]AW[dr]AW[dq]AW[ds]AW[cs]AW[fp]AP[goproblems]\n(;B[bp];W[ap]\n(;B[ar]C[RIGHT])\n(;B[br];W[ar];B[bs]C[Gote seki.]))\n(;B[br];W[ar];B[bp];W[ap]C[White gets a sente seki.];B[bs]C[Gote seki.])\n(;B[ap];W[bp]\n(;B[br];W[bs];B[bq];W[ar])\n(;B[bq];W[br]))\n(;B[ar];W[bp]\n(;B[br];W[bs])\n(;B[bq];W[br])\n(;B[bs];W[br];B[bq];W[br]))\n(;B[bq];W[br]))",
+  "author": {
+    "id": 24178,
+    "name": "enigm4",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-02-02",
+    "rank": {
+      "value": 17,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 17,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1089.76
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 1489,
+    "failed": 2348,
+    "tries": 3837,
+    "speedSolved": 12,
+    "speedPlay": 69
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-10-09T16:33:56+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

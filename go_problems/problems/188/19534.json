@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19534,
+  "elo": 1309.8272072375,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bq]AB[cq]AB[dp]AB[do]AB[dn]AB[cm]AB[bm]AB[bo]AW[bl]AW[cl]AW[bj]AW[dm]AW[em]AW[en]AW[eo]AW[ep]AW[eq]AW[dq]AW[cr]AW[br]AW[aq]TR[aq]AP[goproblems]\n(;B[ao]\n(;W[am];B[co]LB[bn:A]LB[cn:B]LB[bp:C]LB[cp:D]C[RIGHT]\n(;W[bn]C[CHOICE];B[cn];W[bp];B[cp]C[RIGHT])\n(;W[bp];B[cp];W[bn];B[cn]C[RIGHT]))\n(;W[cn]\n(;B[co]C[RIGHT])\n(;B[bn];W[bp];B[am]TR[bq]TR[cq]MA[bn]C[By playing B6 Black gives away the two marked stones to live, not the best option.RIGHT])))\n(;B[am];W[cn];B[co];W[bp]\n(;B[ao];W[cp];B[bn]C[Black loses two stones, there is a better solution.RIGHT])\n(;B[cp];W[ao]C[ko]))\n(;B[ap];W[cp];B[bp];W[am]\n(;B[co];W[bn];B[cn];W[an])\n(;B[an];W[cn];B[co];W[bn])\n(;B[bn];W[co];B[cn];W[an]))\n(;B[bp];W[am];B[an];W[cn];B[bn];W[co]\n(;B[cp];W[ap])\n(;B[ap];W[cp]))\n(;B[co];W[bp]\n(;B[cp];W[ap]\n(;B[ao];W[ar];B[bn];W[am])\n(;B[am];W[ao];B[an];W[ar])\n(;B[bn];W[am]))\n(;B[ao];W[cp]\n(;B[am];W[bn])\n(;B[bn];W[am]))\n(;B[bn];W[ao]\n(;B[an];W[ap];B[cp];W[ar])\n(;B[cp];W[ap];B[an];W[ar])\n(;B[am];W[ar]\n(;B[cp];W[ap])\n(;B[an];W[ap])))))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 34,
+  "attempts": {
+    "solved": 526,
+    "failed": 893,
+    "tries": 1419,
+    "speedSolved": 4,
+    "speedPlay": 8
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-04-19T12:08:00+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 51,
+      "name": "Xuan Xuan Qijing",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 188,
+      "name": "Yi Ch'ang-ho's Selected Life and Death Go Problems Book 3",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

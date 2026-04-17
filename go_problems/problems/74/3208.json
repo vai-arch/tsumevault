@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3208,
+  "elo": 977.25466022711,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to live",
+  "rating": {
+    "stars": 4.2,
+    "votes": 31,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rq][qq][pq][op][np][mn][mm][ml][nk][ok][pk][ql][rl][rm][qo]AB[nm][nl][ol][pl][pm][on][oo][qm][rn][qp]SZ[19]C[Black to live]\r\n\r\n(;B[po]\r\n(;W[ro]C[CHOICE]\r\n(;B[qn]C[RIGHT])\r\n(;B[rp];W[qn]))\r\n(;W[qn]C[CHOICE]\r\n(;B[ro];W[rp]\r\n(;B[pp]C[RIGHT])\r\n(;B[pn]TR[pp][qo]C[RIGHT Black is alive, but there is a better way. White can use either of the marked points as ko-threats.]))\r\n(;B[rp];W[ro])\r\n(;B[pp];W[ro])\r\n(;B[pn];W[ro])))\r\n(;B[ro];W[po])\r\n(;B[qn];W[po])\r\n(;B[pp];W[po])\r\n(;B[pn];W[po];B[ro];W[rp])\r\n(;B[rp];W[po]\r\n(;B[pp];W[ro])\r\n(;B[ro];W[pp])))",
+  "author": {
+    "id": 5185,
+    "name": "polo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-09-05",
+    "rank": {
+      "value": 13,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 13,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1186.74
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 20012,
+    "failed": 13648,
+    "tries": 33660,
+    "speedSolved": 5,
+    "speedPlay": 21
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-10-29T17:49:10+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

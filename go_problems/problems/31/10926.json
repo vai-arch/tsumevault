@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10926,
+  "elo": 1845.2669927377,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This problem is based on one comment posted on my previous problem by blyx. I took a careful look at what he said and revealed the truth! :-)\r\nThe position itself is not very complex, but again a trick is included so be careful!",
+  "rating": {
+    "stars": 3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[lb]AW[kb]AW[ka]AW[jb]AW[kc]AW[kd]AW[ma]AW[jd]AW[id]AW[hc]AW[gb]AW[ec]AW[dc]AW[cc]AB[hd]AB[gd]AB[fd]AB[ed]AB[dd]AB[cd]AW[bc]AW[bd]AW[be]AW[ae]AB[ce]AB[cf]AB[bf]AB[af]AB[ie]AB[je]AB[ke]AB[le]AB[ld]AB[lc]AB[mc]AB[mb]AB[nb]AB[na]AB[he]C[How many ko threats does black have here? Consider he will use the threats to fight for the M19 ko and that white will not sacrifice any single point to win that ko!FORCE]LB[de:1]LB[ee:2]LB[fe:3]LB[ge:4]LB[df:5]LB[ef:6]LB[ff:7]LB[gf:8]AB[fc]AW[fb]AP[goproblems]\n(;W[fe];B[ic]C[Lets see; threat nr1]\n(;W[ib];B[gc];W[hb]C[Oh no, you just lost one point - you played twice into your territory white black put there only one stone.])\n(;W[hb];B[ib]C[Threat nr2]\n(;W[ia];B[ha]C[Threat nr3]\n(;W[ga]C[No more ko threats there - correct! Blyx was right :-)RIGHT])\n(;W[jc]C[Black has no more threats there - good!RIGHT])\n(;W[la];B[ja]C[White cannot afford this.]))\n(;W[la];B[ia])))\n(;W[de];B[ic]C[Threat nr1]\n(;W[ib];B[gc];W[hb]C[White just lost one point of territory!])\n(;W[hb];B[ib]C[Threat nr2 :-(]))\n(;W[ee];B[ic]C[Threat nr1]\n(;W[ib];B[gc]C[Unfortunately, black will play this not as a threat, but as a one point sente! (black put one stone into white territory and forced him to play there twice!)])\n(;W[hb];B[ib]C[Threat nr2];W[ia];B[ha]C[Threat nr3. White still cannot connect the ko at M19 because of K19.]))\n(;W[ge]C[Please see the navigation to check the correct answer.])\n(;W[df])\n(;W[ef])\n(;W[ff])\n(;W[gf]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 77,
+  "attempts": {
+    "solved": 46,
+    "failed": 228,
+    "tries": 274,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-02-18T03:29:02+00:00",
+  "source": "My previous one",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

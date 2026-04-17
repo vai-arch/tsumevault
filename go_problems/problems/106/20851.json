@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20851,
+  "elo": 1738.1255895331,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -2,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This is from one of my games. I was lying in my bed watching a game when it suddenly struck me that I missed a legendary tesuji in my game on tygem.\r\n\r\n\r\nThanks to Thumb and Davidgoto for pointing out my mistake.\r\n\r\nThis is my first problem. Please comment if you see any mistakes.",
+  "rating": {
+    "stars": 5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pd]AW[dp]AB[qp]AW[np]AB[oq]AW[dd]AB[fc]AW[cf]AB[jd]AW[qf]AB[qi]AW[qc]AW[qd]AW[qe]AB[pc]AB[pe]AB[pf]AW[qh]AW[pg]AW[qg]AB[ph]AB[og]AB[pi]AW[ng]AB[of]AB[op]AW[gq]AB[no]AW[ni]AW[kd]AB[ke]AW[jc]AB[kc]AW[ld]AB[lc]AW[le]AB[je]AW[mc]AB[mb]AW[nb]AB[lb]AB[nc]AW[md]AW[kf]AB[lf]AW[nd]AB[oc]AW[lg]AB[mf]AW[nf]C[This is from one of my games on tygem that I won by 3.5 points. I missed the final blow after attacking the marked stones. Can you find it?]TR[ng]TR[nf]TR[ni]TR[lg]TR[kf]TR[le]TR[ld]TR[kd]TR[md]TR[nd]TR[mc]TR[nb]TR[jc]AP[goproblems]\r\n(;B[kg]\r\n(;W[jf]\r\n(;B[mg]\r\n(;W[jg]LB[id:A]LB[mh:B]C[White is threatening to capture you. What should you do?]\r\n(;B[ih];W[id]C[Nice... You found the tesuji. But white will still fight.];B[ie];W[mh];B[lh];W[me];B[lg];W[li];B[kh];W[jh];B[ki];W[ii]C[]\r\n(;B[ji]C[White is in big trouble now. Navigate solution to find the correct answer for white.RIGHT])\r\n(;B[ne]C[RIGHT]))\r\n(;B[lh];W[id]C[White happily captures the stones and escapes.CHOICE]TR[jd]TR[je]TR[ke])\r\n(;B[ic];W[mh];B[lh];W[me];B[lg];W[li]C[The marked stones are dead.CHOICE]TR[lh]TR[lg]TR[kg]TR[lf]TR[mf]TR[mg])\r\n(;B[if];W[ig];B[hh];W[mh];B[lh];W[me];B[lg];W[li];B[kh];W[jh]C[The marked stones are dead, but you're on the right track with A though.]LB[hh:A]TR[kh]TR[lh]TR[lg]TR[kg]TR[mg]TR[mf]TR[lf]))\r\n(;W[mh];B[lh];W[me];B[lg];W[jg]\r\n(;B[ne];W[oe];B[od]C[White is dead.RIGHT]TR[oe]TR[me]TR[le]TR[ld]TR[kd]TR[md]TR[mc]TR[nd])\r\n(;B[ih];W[id]C[Nice tesuji. But capturing at O15 would have been simpler.];B[ie];W[he];B[if];W[ig];B[hf];W[li];B[kh]C[RIGHT])))\r\n(;B[if];W[jg];B[mg];W[mh];B[lh];W[me];B[lg];W[li];B[kh];W[jh]TR[kh]TR[lh]TR[lg]TR[kg]TR[lf]TR[mf]TR[mg]C[Black is in trouble.]))\r\n(;W[mg];B[jf];W[li]C[This is the correct way for white to play.RIGHT]))\r\n(;B[jf];W[kg]C[Very hard to attack white now.]))",
+  "author": {
+    "id": 83913,
+    "name": "gomaster135",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 85,
+  "attempts": {
+    "solved": 63,
+    "failed": 124,
+    "tries": 187,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-03-22T00:44:55+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 106,
+      "name": "Counter Two Ladders Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

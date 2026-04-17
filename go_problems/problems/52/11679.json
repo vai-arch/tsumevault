@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11679,
+  "elo": 1301.9937829472,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This shows the difference C4 made :)",
+  "rating": {
+    "stars": 4.3,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dr]AB[er]AB[eq]AB[ep]AB[fp]AB[gq]AB[gr]AB[hr]AW[ir]AW[jq]AW[hq]AW[hp]AW[gp]AW[fo]AW[eo]AW[do]AW[dp]AW[dq]AW[cr]AW[ds]AW[bq]AW[bp]AB[br]AW[co]AB[bs]AW[hs]LB[bs:1]LB[hs:2]C[Punish white!]AP[goproblems]\n(;B[cs]\n(;W[cq];B[ar]C[Correct, black is easily aliveRIGHT])\n(;W[ar];B[cq]C[RIGHT]))\n(;B[es];W[cq];B[gs];W[fr];B[cs];W[ar])\n(;B[cq];W[cp]C[This will revert to problem It's Alive! (2), resulting a ko])\n(;B[gs];W[cq]\n(;B[cs];W[ar];B[es];W[fr])\n(;B[es];W[fr];B[cs];W[ar])\n(;B[fr];W[es];B[cs];W[ar];B[fs];W[ds])\n(;B[ar];W[cs]))\n(;B[fs];W[cs])\n(;B[fr];W[cq]\n(;B[cs];W[ar]\n(;B[gs];W[es];B[fs];W[ds])\n(;B[es];W[gs]))\n(;B[gs];W[es];B[cs];W[ar];B[fs];W[ds]))\n(;B[ar];W[cs]\n(;B[es];W[cq]\n(;B[fr];W[gs])\n(;B[gs];W[fr]))\n(;B[gs])))",
+  "author": {
+    "id": 21355,
+    "name": "fye",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-01-13",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 68,
+  "attempts": {
+    "solved": 1625,
+    "failed": 2500,
+    "tries": 4125,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-09-01T01:42:34+00:00",
+  "source": "It's alive!",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

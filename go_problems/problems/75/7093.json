@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7093,
+  "elo": 1281.6343493088,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -4,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[dd]AW[cf]AW[dq]AW[cp]AW[co]AW[jp]AW[qn]AW[pj]AW[pi]AW[ph]AW[pg]AW[qf]AW[rf]AW[of]AW[dn]AW[dm]AW[cl]AB[fc]AB[jd]AB[nf]AB[og]AB[oh]AB[oi]AB[pf]AB[pe]AB[pd]AB[qe]AB[rp]AB[pp]AB[nq]AB[do]AB[cn]AB[cm]AB[dl]LB[dn:1]LB[cm:2]LB[dm:3]LB[dl:4]LB[cl:5]C[The cut at move 5 is unreasonable; punish it.]FF[1]GM[1]AP[Jago:Version 4.6]GN[gw-no.90.ladder2]\r\n(;B[ck];W[bl];B[el];W[bn]C[You forced white to capture, but you have no follow-up.])\r\n(;B[bl];W[ck]\r\n(;B[bk]AW[cj]AW[ci]AW[ch]AW[bp]AW[eo]AB[bo]AB[bn]AB[bj]AB[bi]LB[cj:1]LB[bj:2]LB[ci:3]LB[bi:4]LB[ch:5]LB[bo:6]LB[bp:7]LB[bn:8]LB[eo:9])\r\n(;B[dk]C[Good. You are now threatening two ladders, and no matter which is defended against by your opponent, you will secure your stones.RIGHT]L[cj]L[en]))\r\n(;B[en];W[em];B[fm];W[el]))",
+  "author": {
+    "id": 10537,
+    "name": "tristesse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-12-12",
+    "rank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1573.86
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 2208,
+    "failed": 3923,
+    "tries": 6131,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-08-14T03:28:37+00:00",
+  "source": "Go World autumn 2000, no. 90",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10410,
+  "elo": 1210.7742236757,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "If White is unconditionally alive, play at 'A'.\r\nIf White is unconditionally dead, play at 'D'.\r\nIf White lives or dies by sente, play the move that kills White.",
+  "rating": {
+    "stars": 4,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[fq]AB[fr]AB[fp]AB[gp]AB[hp]AW[gr]AW[gq]AW[iq]AW[hq]AW[jq]AW[jr]AW[kr]AB[kq]AB[lr]AB[mq]AB[kp]AB[jp]AB[ip]LB[nq:A]LB[nr:D]C[Status?]AP[goproblems]\r\n(;B[nr];W[is]C[What if White plays here?]\r\n(;B[ks]\r\n(;W[hr]C[CHOICE];B[gs]C[NiceRIGHT])\r\n(;W[gs]C[CHOICE];B[hr]C[NiceRIGHT]))\r\n(;B[hr];W[ks]C[];B[gs];W[hs]C[Oh no!  White lives!])\r\n(;B[gs];W[ks]\r\n(;B[hs];W[hr]C[Oh no!  White lives!])\r\n(;B[hr];W[hs]C[Oh no!  White lives!]))\r\n(;B[hs];W[ks];B[gs];W[hr]C[Oh no!  White lives!]))\r\n(;B[nq]C[White is not alive])\r\n(;B[is]C[Unnecessary])\r\n(;B[ks]C[Unnecessary])\r\n(;B[js]C[Unnecessary])\r\n(;B[ir]C[Unnecessary])\r\n(;B[hs]C[Unnecessary])\r\n(;B[hr]C[Unnecessary])\r\n(;B[gs]C[Unnecessary]))",
+  "author": {
+    "id": 15043,
+    "name": "elciego",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-10-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 2577,
+    "failed": 2733,
+    "tries": 5310,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-09-19T17:16:21+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9877,
+  "elo": 1578.7510856147,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -2,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Find the best endgame reduction for W. Thanks to BartTM for variation corrections.",
+  "rating": {
+    "stars": 2.1,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[kq]AB[kp]AB[hq]AB[jo]AB[ip]AB[ko]AB[hp]AB[hr]AB[lr]AW[mr]AW[mq]AW[ln]AW[lo]AW[in]AW[jn]AW[ho]AW[gp]AW[go]AW[gq]AW[gr]AB[lq]AP[goproblems]\n(;W[ir];B[hs];W[jr];B[jq];W[io];B[iq])\n(;W[js];B[jr]\n(;W[hs];B[ks];W[is];B[ir];W[gs]C[Gote for White, best for both in endgameRIGHT])\n(;W[ks];B[is];W[ls]C[Gote, good for both in endgameRIGHT])\n(;W[ls];B[ks];W[kr];B[is])\n(;W[is];B[hs];W[ls];B[ks];W[kr];B[ir]))\n(;W[jr];B[jq];W[ls];B[ks]\n(;W[ms];B[kr];W[hs];B[is]\n(;W[ir];B[gs])\n(;W[js];B[ir];W[gs])\n(;W[gs];B[ir]))\n(;W[kr];B[ms]))\n(;W[lp])\n(;W[kn])\n(;W[io])\n(;W[ms])\n(;W[ls])\n(;W[hs];B[is]\n(;W[ir];B[gs])\n(;W[gs];B[ir];W[ls];B[ks];W[ms]))\n(;W[jq])\n(;W[is];B[hs]\n(;W[ls];B[ks];W[ms];B[kr]\n(;W[jq];B[ir])\n(;W[jr];B[jq]))\n(;W[ks];B[ls];W[jr];B[jq];W[ir];B[kr]))\n(;W[ks];B[ls];W[is];B[hs];W[jr];B[jq];W[ir];B[kr])\n(;W[gs]))",
+  "author": {
+    "id": 16131,
+    "name": "awa",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-04-17",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 699.955
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 487,
+    "failed": 931,
+    "tries": 1418,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-03-21T16:19:05+00:00",
+  "source": "Somewhere in my mind.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

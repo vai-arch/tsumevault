@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21975,
+  "elo": 1243.268386441,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "White has ONE ko threat and you have NONE. Please bear this in mind when solving the problem",
+  "rating": {
+    "stars": 4.3,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ar]AB[br]AW[aq]AW[bq]AW[ao]AW[bo]AW[bp]AB[am]AB[bm]AB[cn]AB[co]AB[cp]AB[cq]AW[cr]AW[ds]AB[dq]AB[er]TR[cr]AP[goproblems]\n(;B[dr];W[bs]\n(;B[cs];W[ek]C[Play at K to answer White's ko threatFORCE]LB[dk:K];B[dk];W[cr];B[es];W[as];B[br]\n(;W[ar];B[cs]C[Both you and White have no more ko threats but it's White's turn to find one, so White dies. Congratulations!!CHOICERIGHT])\n(;W[cs];B[ar]C[RIGHT]))\n(;B[es];W[as]\n(;B[br];W[ar];B[cs];W[ek]C[Play at K to answer White's ko threatFORCE]LB[dk:K];B[dk];W[ds]C[Both you and White have no more ko threats but it's your turn to find one, so White lives.])\n(;B[cs];W[br]C[White lives unconditionally])))\n(;B[es];W[bs];B[dr];W[as]\n(;B[br];W[ar];B[cs];W[ek]C[Play at K to answer White's ko threatFORCE]LB[dk:K];B[dk];W[ds]C[Both you and White have no more ko threats but it's your turn to find one, so White lives.])\n(;B[cs];W[br]C[White lives unconditionally]))\n(;B[bs];W[cs];B[es];W[as])\n(;B[cs];W[bs];B[es];W[as];B[br];W[cs];B[dr];W[ar])\n(;B[bn];W[bs];B[an];W[as]))",
+  "author": {
+    "id": 93349,
+    "name": "javierinner",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2019-05-27",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 97,
+  "attempts": {
+    "solved": 331,
+    "failed": 541,
+    "tries": 872,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2018-06-11T12:09:55+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

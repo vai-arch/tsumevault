@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4550,
+  "elo": 1018.2020741837,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": -1,
+    "flagSum": 7
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Though easy for most experienced players, it is important to know how to start kos in the proper way.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bs]AB[br]AB[bq]AB[cp]AB[dp]AB[ep]AB[eq]AW[dq]AW[cq]AW[cr]AW[cs]AW[ds]AW[er]AB[fr]AB[gr]AW[fq]AW[gp]AW[hq]AW[hr]MA[fr]MA[gr]C[Save these stones by starting ko that is favorable for you. A, B, or C?]AW[mp]LB[es:A]LB[fs:B]LB[gs:C]AP[goproblems]\n(;B[es];W[fs];B[gs];W[hs];B[es]C[Good. Force white to find the first ko threat.RIGHT])\n(;B[gs];W[hs];B[es];W[fs]C[Bad. You have to find the first ko threat.])\n(;B[fs];W[gq];B[hs];W[is]C[White shouldn't really play this... but let's see how it goes.];B[ir];W[gs]C[White can keep extending across the bottom to make up for a lack of threats.]MA[js]MA[ks]MA[ls]MA[ms]MA[ns]))",
+  "author": {
+    "id": 5469,
+    "name": "transcend",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-04-26",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 26,
+  "attempts": {
+    "solved": 15490,
+    "failed": 12425,
+    "tries": 27915,
+    "speedSolved": 1,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-05-29T09:36:11+00:00",
+  "source": "experience",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

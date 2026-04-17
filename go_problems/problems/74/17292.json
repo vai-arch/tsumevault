@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17292,
+  "elo": 1549.3421189393,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[sh]AB[qc]AB[pc]AB[pd]AW[qd]AW[qe]AW[pe]AW[qf]AB[rf]AB[qg]AB[rh]AW[rj]AW[ri]AW[qi]AW[ph]AW[pg]AB[pf]AB[of]AB[oe]MA[sh]C[Why shouldn't B ignore it?]AP[goproblems]\n(;W[rg];B[sg]\n(;W[qh];B[rg]\n(;W[re];B[si]\n(;W[se]C[nice, b is captured!RIGHT])\n(;W[sd];B[rc]LB[sf:1]LB[se:2])\n(;W[rc];B[se]LB[rd:1]LB[rb:2]))\n(;W[rd];B[rc])\n(;W[se];B[re])\n(;W[si];B[rd]))\n(;W[re];B[se])\n(;W[se];B[re])\n(;W[rd];B[rc]))\n(;W[qh];B[rg]LB[sf:1]LB[se:2])\n(;W[re];B[se]LB[sg:2]LB[qh:3]LB[rd:4]LB[rg:1,5])\n(;W[se];B[re])\n(;W[rd];B[rc]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 60,
+  "attempts": {
+    "solved": 317,
+    "failed": 748,
+    "tries": 1065,
+    "speedSolved": 2,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-06-07T12:17:42+00:00",
+  "source": "psy1[6d] vs actgg[6d]",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

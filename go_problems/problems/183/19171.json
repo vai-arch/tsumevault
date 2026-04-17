@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19171,
+  "elo": 1647.1716578123,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "The question is whether to slide into White's eye space with a small-knight or large-knight move. The follow-up to both looks difficult, but you'll find things are simpler after the small-knight move. This problem was probably chosen because it often appears in actual games and because it's a 'clean' (that is, uncluttered) \r\nshape \r\n",
+  "rating": {
+    "stars": 4.5,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rq]AW[qq]AW[pq]AW[oq]AW[nq]AB[rp]AB[pp]AB[qp]AB[op]AB[np]AB[mp]AB[mq]AB[mr]AB[rn]C[Black to play and kill White]AP[goproblems]\n(;B[os];W[ps];B[ns]\n(;W[or]LB[rs:a]LB[qr:b]LB[qs:c]LB[os:1]LB[ps:2]LB[ns:3]LB[or:4]C[The restrained move of 1 is the more powerful of the two obvious candidates. If White 2, Black calmly pulls back at 3. White 4 is the only move \u0014 what happens now? The position after 4 would also make an excellent life-and-death problem. If Black 'a', White gets a ko with 'b'; if instead Black 'c', White attaches at 'a' and lives.]\n(;B[rs];W[qr]C[];B[qs]C[After Black 1 to White 4, you might see the vital point at Black 5 first However, in this case, White makes eye shape with 6; even if Black attacks at 7, the best he can get is a koCHOICE]LB[os:1]LB[ps:2]LB[ns:3]LB[or:4]LB[rs:5]LB[qr:6]LB[qs:7])\n(;B[qs];W[rs]C[CHOICE])\n(;B[qr]\n(;W[rr];B[sq];W[sr];B[rs]LB[qr:1]LB[rr:2]LB[sq:3]LB[sr:4]LB[rs:5]LB[qs:a]C[Black makes a direct attack on White's eye shape with 1. If White 2, Black 3 and 5 make a sanmoku-nakade (a three-point single eye). This works because White can't play in at 'a'. RIGHT])\n(;W[rs];B[sr];W[sq];B[rr]LB[rs:1]LB[sr:2]LB[sq:3]LB[rr:4]C[White jumps to 1. Black counters with the placement at 2. After hite 3, Black connects at 4. This isn't a seki; it's a three-space big eye.RIGHT]))\n(;B[sq];W[sr];B[qr];W[rs]LB[sq:1]LB[sr:2]LB[qr:3]LB[rs:4]C[Starting with the hane of 1 here (instead of the placement at 3) is a mistake. Now when Black plays 3, White lives with 4. CHOICE]))\n(;W[rs]\n(;B[sr];W[sq];B[pr]LB[qr:a]LB[os:1]LB[ps:2]LB[ns:3]LB[rs:4]LB[sr:5]LB[sq:6]LB[pr:7]C[After Black 1 and 3, White 4 is a desperate measure. Of course, Black 5 is the vital point: after White 6, playing atari at 7 kills White unconditionally.  If Black gets flustered and plays 5 at 7, he lets White play 'a' and live.RIGHT])\n(;B[pr];W[qr]C[CHOICE])))\n(;B[ps]\n(;W[nr];B[ns];W[os];B[or];W[pr]LB[ps:1]LB[nr:2]LB[ns:3]LB[os:4]LB[or:5]LB[pr:6]LB[qs:a]LB[ms:b]LB[rr:c]C[The large-knight move of 1 is wrong. White counters with 2 to 6. If Black connects at 4, White lives with White 'a', Black 'b', White 'c'. That means that Black has to fight a ko by extending to 'a' after White 6.]\n(;B[os];W[qs]C[CHOICE];B[ms];W[rr]C[CHOICE]\n(;B[sr];W[sq]C[CHOICE])\n(;B[ss];W[sq]C[CHOICE]))\n(;B[ms];W[rr];B[os];W[qs];B[sq];W[sr]C[CHOICE])\n(;B[qs];W[os]C[koCHOICE]))\n(;W[qs];B[os]LB[ps:1]LB[qs:2]LB[os:3]C[Wanting to enter just a little bit deeper is human nature and the slide to Black 1 is probably the first thing that comes to mind. In response, the attachment at 2 is too straightforward. After Black pulls back with 3, there isn't enough space for White to make life. White 2 is equally as bad a move as Black 1.CHOICE])))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 128,
+    "failed": 282,
+    "tries": 410,
+    "speedSolved": 4,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-03-07T16:52:01+00:00",
+  "source": "varius",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 183,
+      "name": "The Top Ten Life-and-Death Problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

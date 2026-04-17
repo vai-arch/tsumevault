@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 763,
+  "elo": 1196.2501024407,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "",
+  "rating": {
+    "stars": 2.6,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]\r\nFF[4]\r\nAP[Hibiscus:2.1]\r\nSZ[19]\r\nST[3]\r\nC[Black to play the best extension.]\r\nPL[B]\r\nLB[yy:1][jq:A][kq:B][lq:C][mq:D][jp:E][kp:F][lp:G][mp:H]AB[pq][qo]\r\nAW[dp][hn][ho][hp][hq]\r\n(;B[mq]\r\nC[RIGHT\r\nThis is a solid move that denies white \r\nany severe attack on any of the black \r\nstones.]\r\nMN[1]\r\n)(;B[lq]\r\nLB[lq:1][nq:A]C[This is too close to the white \r\nthickness. If white invades at A, \r\nblack 1 will have trouble connecting to \r\nthe black corner.]\r\n)(;B[kq]\r\nC[This is too close to the white \r\nthickness. If white invades at A, \r\nblack 1 will come under a severe \r\nattack.]\r\nLB[kq:1][mq:A])(;B[jq]\r\nC[This is too close to the white \r\nthickness. If white invades around A, \r\nblack 1 will come under a severe \r\nattack.]\r\nLB[jq:1][mq:A])(;B[mp]\r\nLB[mp:1][mr:A]C[White has a nice move at A.]\r\n)(;B[lp]\r\nC[White has a nice move at A or he \r\nmight cause some trouble by attaching \r\nat B. Black played too loose.]\r\nLB[lp:1][lr:A][oq:B])(;B[kp]\r\nC[This is too close to the white \r\nthickness. If white invades at A, black \r\n1 will come under a severe attack.]\r\nLB[kp:1][mp:A])(;B[jp]\r\nC[This is too close to the white \r\nthickness. If white invades around A, \r\nblack 1 will come under a severe \r\nattack.]\r\nLB[jp:1][mp:A][mq:A]))",
+  "author": {
+    "id": 6,
+    "name": "Spirit",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-28",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1819.71
+  },
+  "avgSolveTimeSeconds": 15,
+  "attempts": {
+    "solved": 6136,
+    "failed": 10305,
+    "tries": 16441,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-06-22T02:48:23+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 97,
+      "name": "Hiraki (Extension)",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

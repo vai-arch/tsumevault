@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 50524,
+  "elo": 1267.8786495932,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Black to play. You will need to force a ko if you want to unite your stones. ",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[ak][am][bj][bl][ck][cm][cn][cq][di][dj][dn][dp][dq][en][ep][fo][fp]AW[bm][bq][cl][co][cp][cr][dk][dl][do][dr][ej][eo][er][fl][fn][gn][gq](;B[bp];W[bo](;B[ao];W[ap](;B[bn];W[an]C[Great, black has forced a direct ko. If she wins she will capture atleast 6 stones and connect all her stones. RIGHT])(;B[an];W[bn]MA[cm]MA[cn]MA[dn]MA[en]C[Oops, so close! Now white is alive and the marked stones are dead.]))(;B[ap];W[aq];B[br];W[ao];B[bs];W[cs]C[No good. White lives and black is still cut.]))(;B[bo];W[bp]TR[cq]TR[dq]TR[dp]TR[ep]TR[fp]TR[fo]C[White's stones are safe and the marked group isn't in a great position.])(;B[ap];W[bp]TR[cq]TR[dq]TR[dp]TR[ep]TR[fp]TR[fo]C[White's stones are safe and the marked group isn't in a great position.])(;B[br];W[bp](;B[bo];W[ao];B[bn];W[ar]TR[cq]TR[dq]TR[dp]TR[ep]TR[fp]TR[fo]C[White is now safe and the marked stones are in danger.])(;B[ar];W[bn];B[an];W[bo]MA[cm]MA[cn]MA[dn]MA[en]C[You're one liberty short. The marked stones are dead :(])))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 72,
+  "attempts": {
+    "solved": 10,
+    "failed": 4,
+    "tries": 14,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-09-05T13:41:33+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1260
+}

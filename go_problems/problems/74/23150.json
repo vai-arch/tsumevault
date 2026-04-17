@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23150,
+  "elo": 1255.5308948684,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.2,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[besogo:0.0.2-alpha]SZ[19]ST[0]\nAB[gr][gs][hq][hr][is][kq][kr]AW[fq][fr][fs][gq][hp][ip][jp][kp][lq][lr][ls]\nC[B to move]\n(;B[iq]\n(;W[jq]\n;B[jr]\n;W[ks]\n;B[js]\nC[Right! RIGHT])\n(;W[jr]\n;B[jq]\n;W[ks]\n;B[js]\nC[RIGHT])\n(;W[ks]\n(;B[jq]\nC[RIGHT])\n(;B[jr]\nC[RIGHT])\n(;B[js]\nC[RIGHT])))\n(;B[ks]\n;W[iq]\n(;B[ir]\n;W[jr]\n(;B[jq]\n;W[js])\n(;B[js]\n;W[jq]))\n(;B[jr]\n;W[ir])\n(;B[jq]\n;W[ir]))\n(;B[jq]\n;W[iq]TR[ir][ks]\nC[B needs both to live!])\n(;B[jr]\n;W[iq]TR[ir][ks]\nC[B needs both to live!])\n(;B[js]\n;W[iq]TR[ir][jq][ks]\nC[B needs all 3 to live!]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 174,
+    "failed": 188,
+    "tries": 362,
+    "speedSolved": 7,
+    "speedPlay": 37
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-04-26T14:46:33+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

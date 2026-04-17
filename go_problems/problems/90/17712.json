@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17712,
+  "elo": 1263.1270771322,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -4,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Feel free to suggest variations, i restrained the problem to what i think are common moves. In trying to solve the pb as stated in the introduction, keep in mind the whole board aspect, some \"correct\" solutions are marked false since they give too much to the opponent.\r\nPlease try it more than once has multiple response are proposed for white.",
+  "rating": {
+    "stars": 3.3,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AB[gk]AB[eg]AB[cc]AB[hk]AB[ee]AB[lo]AB[fm]AB[ro]AB[oo]AB[qq]AB[nm]AB[dk]AB[ek]AB[be]AB[fk]AB[el]AB[rs]AB[ei]AB[fo]AB[ic]AB[cd]AB[jp]AB[kp]AB[ef]AB[cb]AB[nr]AB[gf]AB[if]AB[rr]AB[jj]AB[pl]AB[ql]AB[pn]AB[nl]AB[md]AB[np]AB[dj]AB[db]AB[kl]AB[pd]AB[qp]AB[hn]AB[on]AB[cp]AB[qh]AB[dp]AB[dn]AB[en]AB[fn]AB[ad]C[At the end of the marked exchange, white put a foot in the forming moyo with 4. Yet knight move at 3 had a double purpose, find the tesuji to rescue your group or capture white.]MA[gk]MA[hk]MA[dk]MA[ek]MA[dj]MA[el]MA[fk]AW[dc]AW[jm]AW[cg]AW[fc]AW[ko]AW[ik]AW[dg]AW[qo]AW[ji]AW[em]AW[po]AW[gm]AW[qm]AW[ck]AW[ce]AW[de]AW[gl]AW[fl]AW[il]AW[cl]AW[qc]AW[dl]AW[fi]AW[co]AW[hi]AW[hc]AW[di]AW[fh]AW[dd]AW[qr]AW[pr]AW[bf]AW[id]AW[hd]AW[qn]AW[rp]AW[rn]AW[ij]AW[ch]AW[eh]AW[pp]AW[eb]AW[cj]AW[kn]AW[ln]AW[mn]AW[nn]AW[pq]AW[cn]AW[dm]LB[jj:1]LB[ij:2]LB[kl:3]LB[ji:4]TR[ko]TR[kn]TR[ln]TR[mn]TR[nn]ST[2]GM[1]FF[4]AP[GOWrite:2.3.48]CA[UTF-8]FG[259:]PM[2]\n(;B[im]\n(;W[hm]C[CHOICE]\n(;B[in]\n(;W[hl]C[CHOICE]\n(;B[jl]C[RIGHT]\n(;C[White stones are captured, yeah.CHOICERIGHT]TR[jm]TR[kn]TR[ko]TR[ln]TR[mn]TR[nn])\n(;W[ll]C[Possible continuation...];B[kj]\n(;W[lk];B[lj];W[mk];B[mj];W[nk];B[nj];W[ok];B[oj];W[pk];B[qk];W[pj];B[oi];W[pi];B[ph])\n(;W[lj];B[lk];W[mk];B[kk];W[ml];B[mj];W[nj];B[mi];W[nk];B[ni];W[li];B[ki];W[lh];B[kh];W[lg];B[oi];W[kg];B[jh];W[jg];B[ii];W[hj];B[ig])))\n(;B[km];W[jl];B[jn];W[ll]MA[ko]MA[kn]MA[km]MA[ln]MA[mn]MA[nn]MA[jj]MA[ll]MA[kl]C[Hum i'm not sure at all about this semeai between marked groups, anyway too dangerous compared to the solution.])\n(;B[jn];W[km];B[jl];W[ll]MA[jm]MA[ko]MA[kn]MA[km]MA[ln]MA[mn]MA[nn]MA[jj]MA[ll]MA[jl]MA[kl]C[Hum i'm not sure at all about this semeai between marked groups, anyway too dangerous compared to the solution.]))\n(;W[jl]C[CHOICE]\n(;B[hl]TR[gl]TR[fl]TR[hm]TR[gm]C[Good you have rescued your dead group.RIGHT])\n(;B[jn];W[km];B[hl];W[lk]LB[jn:a]LB[km:b]C[While you managed to connect your group, the forcing exchange (a,b) weakened your two stones severely and give great prospects for white to invade your moyo, therefore, this solution is not that good.]TR[jj]TR[gl]TR[fl]TR[hm]TR[gm]TR[kl])\n(;B[km];W[jn];B[hl];W[ll]LB[km:a]LB[jn:b]C[While you managed to connect your group, the forcing exchange (a,b) weakened your two stones severely and give great prospects for white to invade your moyo, therefore, this solution is not that good.]TR[jj]TR[kl])))\n(;B[jn];W[in]\n(;B[jo];W[km])\n(;B[km];W[jo]))\n(;B[hl];W[in]C[Oops, white is connected now.])\n(;B[jl];W[in]C[Oops, white is connected now.]))\n(;W[in]C[CHOICE]\n(;B[hm]\n(;W[hl]C[CHOICE];B[jl];W[ho];B[gn]TR[jm]TR[in]TR[ko]TR[kn]TR[ln]TR[mn]TR[nn]TR[ho]C[RIGHT]\n(;C[There is still work to be done but you should be able to capture all white stones now. This is probably one of the best attemp for white (see variations).CHOICERIGHT]TR[ho]TR[in]TR[jm]TR[ko]TR[ln]TR[kn]TR[mn]TR[nn])\n(;W[io]C[Possible continuation...];B[hq];W[gp];B[fp];W[gq];B[fq];W[lp];B[mo];W[mp];B[no];W[ip];B[jo]\n(;W[kq];B[jq];W[iq];B[jr];W[hr];B[fr])\n(;W[jq];B[kq];W[jr];B[gr];W[hr];B[ir];W[fr];B[hs];W[fs];B[iq]\n(;W[js];B[hp])\n(;W[hp];B[js])))\n(;W[jn]C[Possible continuation...];B[jq];W[iq];B[jr];W[ir];B[gr];W[hr];B[fr];W[lq];B[lr];W[kr];B[mq]))\n(;W[jl]C[CHOICE];B[hl];W[io]\n(;B[hp]C[RIGHT]\n(;C[You have a solid connection and you have prevented white intrusion in your bottom territory, good job.CHOICERIGHT]TR[fl]TR[gl]TR[gm])\n(;W[ip]C[Possible continuation...];B[iq];W[lp];B[mo];W[mp];B[no]\n(;W[hq];B[jq];W[ho];B[gp];W[go];B[gn];W[gq];B[fp];W[fq];B[eq])\n(;W[jq];B[kq];W[hq];B[ir];W[jr];B[hr];W[ho];B[gp];W[go];B[gn];W[gq];B[fp];W[gr];B[kr])))\n(;B[ho];W[ip]TR[gl]TR[fl]TR[gm]C[You were almost there, but you let white reduce your bottom moyo badly. Try to block her better.];B[iq];W[lp];B[mo];W[mp];B[no];W[hq];B[jq];W[hp])\n(;B[ip];W[ho]\n(;B[gp]TR[gl]TR[fl]TR[gm]C[You have a solid connection and you have prevented white intrusion in your bottom territory, good job.RIGHT])\n(;B[hp];W[go];B[gn];W[gp]C[You were almost there, but you let white reduce your bottom moyo badly. Try to block her better.])\n(;B[go];W[hp]TR[gl]TR[fl]TR[gm]C[You were almost there, but you let white reduce your bottom moyo badly. Try to block her better.]))\n(;B[gn];W[ip]C[Not good, white happily invades your bottom territory.];B[iq];W[lp];B[mo];W[mp];B[no];W[hq];B[jq];W[gp])\n(;B[hq]C[You are connected and prevented invasion in your territory, although if H3 leads to easy defense against white's invasion, yet H4 gives less points to white and also works.RIGHT])))\n(;B[hl];W[hm]TR[gk]TR[hk]TR[hl]TR[el]TR[ei]TR[dk]TR[ek]TR[dj]TR[fk]C[Oops...]))\n(;W[jl]C[CHOICE];B[hl];W[in]\n(;B[gn];W[io]\n(;B[hp]TR[gl]TR[fl]TR[gm]C[The snapback connects your stones and you have prevented white intrusion in your bottom territory, good job.RIGHT])\n(;B[ho];W[ip]TR[gl]TR[fl]TR[gm]C[You were almost there, but you let white reduce your bottom moyo badly.])\n(;B[ip]TR[gl]TR[fl]TR[gm]C[The snapback connects your stones and you have prevented white intrusion in your bottom territory, good job.RIGHT])\n(;B[jo];W[ip]LB[lp:a]C[This is a false good idea, due to weakness in a the marked stones are dead (see variation).]TR[jo]TR[jp]TR[kp];B[jn];W[hm];B[im];W[hm];B[km];W[lp];B[mo];W[mp];B[no];W[kq]))\n(;B[hm];W[io]\n(;B[hp]C[RIGHT]\n(;C[You have a solid connection and you have prevented white intrusion in your bottom territory, good job.CHOICERIGHT]TR[fl]TR[gl]TR[gm])\n(;W[ip]C[Possible continuation...];B[iq];W[lp];B[mo];W[mp];B[no]\n(;W[hq];B[jq];W[ho];B[gp];W[go];B[gn];W[gq];B[fp];W[fq];B[eq])\n(;W[jq];B[kq];W[hq];B[ir];W[jr];B[hr];W[ho];B[gp];W[go];B[gn];W[gq];B[fp];W[gr];B[kr])))\n(;B[ho];W[ip]TR[gl]TR[fl]TR[gm]C[You were almost there, but you let white reduce your bottom moyo badly. Try to block her better.];B[iq];W[lp];B[mo];W[mp];B[no];W[hq];B[jq];W[hp])\n(;B[ip];W[ho]\n(;B[gp]TR[gl]TR[fl]TR[gm]C[You have a solid connection and you have prevented white intrusion in your bottom territory, good job.RIGHT])\n(;B[hp];W[go];B[gn];W[gp]C[You were almost there, but you let white reduce your bottom moyo badly. Try to block her better.])\n(;B[go];W[hp]TR[gl]TR[fl]TR[gm]C[You were almost there, but you let white reduce your bottom moyo badly. Try to block her better.]))\n(;B[gn];W[ip]C[Not good, white happily invades your bottom territory.];B[iq];W[lp];B[mo];W[mp];B[no];W[hq];B[jq];W[gp])\n(;B[hq]C[You are connected and prevented invasion in your territory, although if H3 leads to easy defense against white's invasion, yet H4 gives less points to white and also works.RIGHT]))\n(;B[ho];W[hm]C[Oops...])\n(;B[io];W[hm]C[Oops...])))\n(;B[hl];W[hm]TR[gk]TR[hk]TR[hl]TR[el]TR[ei]TR[dk]TR[ek]TR[dj]TR[fk]C[White is all connected and you group is dead.])\n(;B[hm];W[hl]\n(;B[im];W[jl]TR[gk]TR[hk]TR[el]TR[ei]TR[dk]TR[ek]TR[dj]TR[fk]C[White is all connected and you group is dead.])\n(;B[jl];W[im]C[White is all connected and you group is dead.]))\n(;B[jl];W[im]TR[gk]TR[hk]TR[el]TR[ei]TR[dk]TR[ek]TR[dj]TR[fk]C[White is all connected (nice bambou joint) and you group is dead.])\n(;B[jn];W[in]LB[jo:b1]LB[km:w2]LB[hm:b3]LB[hl:w4]LB[im:b5]LB[jl:w6]C[This counter atari is effective, white will eventually connect all her stones and your group is dead.]TR[gk]TR[hk]TR[el]TR[ei]TR[dk]TR[ek]TR[dj]TR[fk])\n(;B[in];W[im]C[White is all connected (nice bambou joint) and you group is dead.])\n(;B[km];W[in]TR[gk]TR[hk]TR[el]TR[ei]TR[dk]TR[ek]TR[dj]TR[fk]C[This double tiger mouth is efficient, white is sure to connect everything now and your group is dead.]))",
+  "author": {
+    "id": 50402,
+    "name": "zwim",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2021-07-14",
+    "rank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1307.55
+  },
+  "avgSolveTimeSeconds": 82,
+  "attempts": {
+    "solved": 419,
+    "failed": 681,
+    "tries": 1100,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-05-09T18:52:32+00:00",
+  "source": "User game between ai1040 and me.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 90,
+      "name": "Dual Threat Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

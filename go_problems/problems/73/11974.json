@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11974,
+  "elo": 2077.0531219512,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ra]AB[rc]AB[rd]AB[qf]AB[qg]AB[qh]AW[ri]AW[qi]AW[pi]AW[ph]AW[pg]AW[pf]AW[rk]AW[pe]AW[pd]AW[pc]AW[pa]AW[qa]AW[nb]AW[nc]AW[sb]AB[rb]AW[sf]AB[rh]LB[rb:1]LB[sf:2]LB[rh:3]C[Black defended incorrectly in problem 11971. What can white get? (S)eki, (K)o, or an (U)nconditional kill?FORCE]LB[nf:S]LB[nh:K]LB[nj:U]AP[goproblems]\n(;W[nh];B[ng]C[Prove it.]\n(;W[sh];B[sg]\n(;W[re];B[rf]\n(;W[rg];B[ni]LB[nj:K]C[Respond to the (K)o threat?]\n(;W[nj];B[sg];W[se];B[qe];W[rg]C[Excellent.RIGHT])\n(;W[qe];B[nj]C[White still had an internal threat.]))\n(;W[se];B[qe]C[You just wasted a threat.]))\n(;W[rg];B[rf];W[se];B[sg]C[Not the best ko.]))\n(;W[qe];B[re]\n(;W[rf];B[sg];W[si];B[se])\n(;W[sh];B[sg];W[rg];B[rf]\n(;W[sg];B[se];W[si];B[sc])\n(;W[se];B[sd])\n(;W[si];B[se];W[sg];B[sc]))\n(;W[sc];B[rf];W[sh];B[sg];W[rg];B[se]))\n(;W[re];B[qe]\n(;W[sh];B[rf];W[se];B[sg]C[Not the best ko.])\n(;W[qd];B[rf];W[sh];B[se];W[sg];B[sc])))\n(;W[nf]C[No, white can do better than seki.])\n(;W[nj]C[No, white cannot kill unconditionally.]))",
+  "author": {
+    "id": 15623,
+    "name": "MeleeNewb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1962.53
+  },
+  "avgSolveTimeSeconds": 68,
+  "attempts": {
+    "solved": 12,
+    "failed": 133,
+    "tries": 145,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-11-14T07:27:51+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

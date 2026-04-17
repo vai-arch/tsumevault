@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15194,
+  "elo": 1264.3319325528,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -2,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Couldn't believe I couldn't find this position in the pattern search. Seems like such a basic position. Anyway, please comment if there are any mistakes/omissions. Note: this is a best move problem, I'm normally not picky but this time I was.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ir]AB[hq]AB[ip]AB[lq]AB[jq]AW[jp]AW[kq]AW[jr]LB[jr:1]C[How to respond to White 1?]AW[kn]AB[oq]AB[np]AW[ln]AP[goproblems]\n(;B[kp]\n(;W[iq]C[White thinks it is a ko. Play K if you want a ko threat.]LB[nq:K]\n(;B[jo]\n(;W[jq]\n(;B[js]C[RIGHT])\n(;B[kr]C[RIGHT])))\n(;B[nq]C[Wasted a ko threat])\n(;B[kr];W[jo];B[jq]C[Missed an opportunity to get the K4 stone]))\n(;W[kr];B[jo];W[lr];B[mq]C[Can't be a good result for w])\n(;W[jo]C[This minimizes losses]))\n(;B[iq]C[This is exactly what White wants. White can now choose A or B and if Black cuts White gets to atari and subsequently capture the M3 stone.]LB[kr:A]LB[kp:B])\n(;B[kr];W[kp]C[Acceptable result, but you could have captured the L3 stone.])\n(;B[jo];W[kp])\n(;B[lr]C[Might as well play L2])\n(;B[lp];W[kp]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 1082,
+    "failed": 1693,
+    "tries": 2775,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-08-29T19:48:01+00:00",
+  "source": "Many games",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14895,
+  "elo": 2018.2962016687,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "moves can't be made on the tengen. so this is same as one-dimentional 1x8 go with the ends joined. when black's move, the center stone is black. And when it's white's turn, - the center stone is white.  ////chinese rules// no komi (thanks to kaf for improving the instruction part)",
+  "rating": {
+    "stars": 3.4,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[3]AB[aa]AW[ca]C[can you win?]MA[bb]AB[bb]AP[goproblems]\n(;B[ac];W[cc]C[draw]MA[bb])\n(;B[cc];W[ac]C[draw]MA[bb])\n(;B[ab];W[bc]C[]MA[bb]\n(;B[ba]AW[bb];W[ac];B[aa];W[cb]C[w wins by 4])\n(;B[cc];W[cb]C[w wins by 2])\n(;B[cb]AW[bb];W[cc]AB[bb]\n(;B[cb]C[NOTTHIS])\n(;B[ac]AW[bb];W[ba]MA[bb])\n(;B[ba]AW[bb];W[ac]MA[bb])))\n(;B[ba]AW[bb];W[ab]C[FORCE]AB[bb]MA[bb]\n(;B[cb]AW[bb];W[cc]AW[bb]MA[bb])\n(;B[ba]AW[bb];W[aa]AB[bb]\n(;B[cb]AW[bb];W[cc])\n(;B[cc];W[ac]C[w wins by 4]AW[bb])\n(;B[ba]C[NOTTHIS]))\n(;B[cc];W[ba];B[bc]C[w wins by 2]))\n(;B[cb]AW[bb];W[cc]AB[bb]MA[bb]\n(;B[bc]AW[bb];W[ac]C[white wins by 4])\n(;B[ac]C[draw])\n(;B[ab];W[bc]C[w wins by 2]\n(;B[cb]C[NOTTHIS])\n(;B[ac]AW[bb];W[ba]MA[bb])\n(;B[ba]AW[bb];W[ac]MA[bb]))\n(;B[cb]C[this is a suicide move, - not allowedNOTTHIS]))\n(;B[bc]AW[bb]\n(;W[cc]C[CHOICE]MA[bb]AB[bb]\n(;B[cb]C[FORCE];W[ac]C[]MA[bb];B[ba]AW[bb];W[cc]C[white's whole board victory (black cannot take at b1 because of ko rule)]MA[bb])\n(;B[ab]AW[bb];W[ac]MA[bb])\n(;B[ac]AW[bb];W[ab]AB[bb]MA[bb]\n(;B[ac]C[draw])\n(;B[bc]AW[bb];W[ac]AB[bb]MA[bb];B[bc]AW[bb];W[ac]C[white wins by 4]))\n(;B[ba]AW[bb];W[ab]MA[bb]AB[bb]\n(;B[cb]AW[bb];W[ac]AB[bb]MA[bb]\n(;B[ba]AW[bb];W[cc]C[white's whole board victory.])\n(;B[aa];W[ac]C[]MA[bb];B[ba]AW[bb];W[cc]C[white's whole board victory (black cannot take at b1 because of ko rule)]MA[bb])\n(;B[cc]C[NOTTHIS]))\n(;B[aa]AW[bb];W[ac]AB[bb]MA[bb];B[bc]AW[bb];W[ac]C[white wins by 4])\n(;B[ba]AW[bb];W[ac]MA[bb];B[cb]C[black's whole board victoryRIGHT]MA[bb]AB[bb])))\n(;W[cb];B[ab]C[b wins by 2RIGHT])))",
+  "author": {
+    "id": 46757,
+    "name": "smartaleck",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-11-13",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1472.01
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 13,
+    "failed": 202,
+    "tries": 215,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-06-12T02:08:41+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

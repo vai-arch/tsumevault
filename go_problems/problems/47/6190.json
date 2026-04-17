@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6190,
+  "elo": 977.95452140987,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -4,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 32,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[dd]AW[jc]AW[qd]AB[bo]AB[cn]AB[cp]AB[do]AB[dp]AB[dq]AW[cm]AW[dn]AW[en]AW[eo]AB[gm]AB[go]AB[gn]AB[gp]AB[gq]AW[hp]AW[ip]AW[io]AW[hn]AW[jn]AW[jm]AW[jl]AB[kl]AB[km]AB[kn]AB[jo]AB[jp]AW[jq]AW[jr]AB[kq]AB[lp]AB[lr]AW[mn]AW[on]AW[no]AW[np]AW[nr]AB[pr]AB[oo]AB[po]AB[qo]AW[ko]LB[ko:1]C[White plays 1. How should black answer?FORCE]AP[goproblems]\n(;B[kp];W[lo]C[Black is cut into two weak groups. The lower one may even be dead.])\n(;B[ln];W[lo]C[black is cut.])\n(;B[lo]\n(;W[kp];B[ln]C[Black stays connected.RIGHT])\n(;W[ln];B[kp])))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 26,
+  "attempts": {
+    "solved": 12952,
+    "failed": 9504,
+    "tries": 22456,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-03-21T12:42:31+00:00",
+  "source": "a game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

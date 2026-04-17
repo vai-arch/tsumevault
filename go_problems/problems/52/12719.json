@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12719,
+  "elo": 1916.657863476,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.5,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[bp]AW[ap]AW[cp]AW[dp]AB[bq]AB[br]AB[cq]AB[eq]AB[er]AB[es]AW[ep]AW[fp]AW[fq]AW[fr]AW[fs]C[there's one ko that's obvious here but there's a sligtly better one...]AP[goproblems]\n(;W[ar]\n(;B[aq]\n(;W[dq];B[dr];W[bs]\n(;B[cr]\n(;W[cs];B[as]C[nice! optimal for both! :D (direct ko)RIGHT])\n(;W[ds];B[as]C[nice! optimal for both! :D (direct ko)RIGHT]))\n(;B[as];W[cs];B[cr];W[ar]C[(w'd take first)RIGHT]))\n(;W[cs];B[bs]))\n(;B[cs];W[dr]C[RIGHT])\n(;B[dr];W[cs];B[aq];W[bs];B[dq];W[cr];B[as]C[RIGHT]))\n(;W[dq];B[dr]\n(;W[bs];B[cs];W[ar];B[as]C[that's the obvious ko but you could get a direct one!])\n(;W[ar];B[bs])\n(;W[cs];B[bs])\n(;W[aq];B[ar]))\n(;W[bs];B[cs]\n(;W[dq];B[dr];W[ar];B[as]C[that's the obvious ko but you could get a direct one!])\n(;W[ar];B[aq])\n(;W[aq];B[ar])\n(;W[dr];B[dq]))\n(;W[aq];B[ar]MA[cs]MA[bs])\n(;W[cs];B[bs])\n(;W[dr];B[dq]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 65,
+  "attempts": {
+    "solved": 60,
+    "failed": 237,
+    "tries": 297,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-05-28T06:27:33+00:00",
+  "source": "Problem 12437",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

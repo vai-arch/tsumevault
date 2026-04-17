@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19139,
+  "elo": 1623.7647993391,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Here we're going to deal with one of the variations of the previous problem independently.  If it's White's turn to play, then Black is dead. Starting a ko is the most vulgar play possible.",
+  "rating": {
+    "stars": 4,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[qr]AB[qq]AB[pq]AB[or]AW[nr]AW[nq]AW[oq]AW[lr]AW[pp]AW[qp]AW[qn]C[White to play, Black dies](;W[sp](;B[ps](;W[sr];B[rr];W[rs]LB[sp:1]LB[ps:2]LB[sr:3]LB[rr:4]LB[rs:5]C[White s one-space jump to 1 is clever If you don't learn this move, you cannot capture the group unconditionally. When Black plays 2, White jumps to 3 and in response to Black 4, White plays a hane at 5. This is not a ko; Black is dead.   I hope you can appreciate the role White 1 is playing in this position.RIGHT])(;W[rs];B[rp];W[ro];B[rq];W[ns]C[RIGHT])(;W[ns](;B[os];W[rs];B[rr];W[sr]C[RIGHT])(;B[sr];W[rs]C[RIGHT])))(;B[rq];W[rs](;B[ps];W[ns]LB[sp:1]LB[rq:2]LB[rs:3]LB[ps:4]LB[ns:5]LB[os:a]LB[qs:b]LB[pr:c]C[If, in response to White 1, Black descends to 2, White 3 is the vital point When Black tries to make an eye with 4, White 5 is a calm response.   Since 'a and 'b' are now miai, 'c' will not become an eye for BlackRIGHT])(;B[ns];W[ps];B[os];W[qs];B[pr];W[sq]LB[ns:1]LB[ps:2]LB[os:3]LB[qs:4]LB[pr:5]LB[sq:6]C[Playing a hane at 1 is a stubborn play, but with the strong moves of White 2 and 4, White will be able to complete his capture. Black has no choice but to connect at 5, so pushing in at 6 is good enough.   Should White block with 2 at 'a', Black can make an eye at 2 and persevere with a ko.RIGHT])))(;W[rp](;B[ps]C[CHOICE](;W[sr];B[rr];W[rs];B[sq];W[rq];B[ss]LB[rp:1]LB[ps:2]LB[sr:3]LB[rr:4]LB[rs:5]LB[sq:6]LB[rq:7]LB[ss:8]LB[sp:a]C[In response to White's descent at 1, Black's best move is to make an eye at 2. When White slides in to 3, Black resists at 4. White can play 5, but Black blocks at 6 and gets a ko.   You should be able to see the difference between this and having White 1 at 'a'.CHOICE])(;W[rr];B[rq];W[sq];B[sr];W[ss];B[rs]LB[rp:1]LB[ps:2]LB[rr:3]LB[rq:4]LB[sq:5]LB[sr:6]LB[ss:7]LB[rs:8]C[After White 1 and Black 2, White can also play the attachment at 3. After Black 4 and White 5, Black throws in at 6 and once again gets a ko.   In either case, a ko is a failure for White.CHOICE]))(;B[rq];W[rs]LB[rp:1]LB[rq:2]LB[rs:3]C[White's descent at 1 is probably the ordinary approach. If Black responds to this by blocking at 2, then White's placement at 3 kills him.  Black 2 is unimaginative. Now both sides have made a mistake.CHOICE]))(;W[os];B[ps]LB[os:1]LB[ps:2]LB[rq:a]LB[rr:b]LB[rp:c]C[The most common mistake for White is playing the atari at 1. Black will of course block at 2 and easily get a ko.   In addition to what we've covered thus far, White could play 1 at 'a', but when Black blocks at 'b' and White connects at 'c', Black can live by playing 2, so this is obviously a failure for White.CHOICE]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 142,
+    "failed": 250,
+    "tries": 392,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-02-28T23:11:14+00:00",
+  "source": "A Basic Dictionary of Life and Death Volume One",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

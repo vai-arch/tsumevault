@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14273,
+  "elo": 1040.7564401462,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cb]AB[db]AB[eb]AB[ea]AB[cc]AB[cd]AB[bd]AW[bc]AW[ad]AW[be]AW[ce]AW[de]AW[dd]AW[dc]AW[ec]AW[fb]AW[fa]AW[gc]C[Black to live.]AP[goproblems]\n(;B[ab]\n(;W[bb]C[CHOICE]\n(;B[ba];W[ac];B[ae]C[RIGHT])\n(;B[ae];W[af];B[ba]C[RIGHT])\n(;B[ca];W[ba];B[ac];W[da]))\n(;W[ac]C[CHOICE]\n(;B[bb];W[ae]C[RIGHT])\n(;B[ba]\n(;W[ae];B[bb]C[RIGHT])\n(;W[bb];B[ae]C[RIGHT]))\n(;B[ca];W[bb];B[ba];W[ae])\n(;B[ae];W[af]\n(;B[ba]C[RIGHT])\n(;B[bb]C[RIGHT])\n(;B[ca];W[bb])))\n(;W[ba]C[CHOICE]\n(;B[bb]C[RIGHT])\n(;B[ac]C[RIGHT])\n(;B[ca];W[bb];B[ac];W[da])\n(;B[ae];W[af]\n(;B[ca];W[bb])\n(;B[bb]C[RIGHT])\n(;B[ac]C[RIGHT]))))\n(;B[bb];W[ab]\n(;B[aa];W[ba]\n(;B[ca];W[da])\n(;B[ac]C[This gives only a ko.]))\n(;B[ac]C[Only ko. Even if White has no threats Black needs a second move to live, giving White a free move.])\n(;B[ca];W[ac]))\n(;B[ac];W[ab];B[bb];W[ac])\n(;B[ba];W[ab];B[bb];W[ac])\n(;B[ca];W[ab];B[bb];W[ac])\n(;B[aa];W[bb]\n(;B[ac];W[ab])\n(;B[ab];W[ca])))",
+  "author": {
+    "id": 29338,
+    "name": "Snow Dragon",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-06-26",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 3044,
+    "failed": 4252,
+    "tries": 7296,
+    "speedSolved": 18,
+    "speedPlay": 32
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-12-20T17:19:58+00:00",
+  "source": "The encyclopedia of life and death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

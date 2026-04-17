@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3808,
+  "elo": 797.55813761993,
+  "problemLevel": 3,
+  "rank": {
+    "value": 27,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[ab]AB[bc]AB[cb]AB[ba]AW[ae]AW[be]AW[bd]AW[cd]AW[cc]AW[dc]AW[db]AW[eb]AW[ea]C[Simple problem: black to live in the best way possible.](;B[ad];W[ac]C[This will result in double ko and black will die.])(;B[da];W[ca]C[This will result in double ko and black will die])(;B[ac];W[ca](;B[da]C[White must find the first ko threat.RIGHT])(;B[ad];W[bb]))(;B[ca];W[ac](;B[ad]C[White must find the first ko threat.RIGHT])(;B[da];W[bb]))(;B[bb]C[You just filled in your eye, both gote and dead.])(;B[aa]C[You just filled in your eye, both gote and dead.]))",
+  "author": {
+    "id": 5912,
+    "name": "ellbur",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-05-28",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 16,
+  "attempts": {
+    "solved": 40102,
+    "failed": 11264,
+    "tries": 51366,
+    "speedSolved": 34,
+    "speedPlay": 96
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-26T12:59:51+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

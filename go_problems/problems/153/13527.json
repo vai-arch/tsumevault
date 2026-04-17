@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13527,
+  "elo": 1278.3875374468,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 13,
+    "negativeFlagSum": 0,
+    "flagSum": 13
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Here white has the choice of three gote plays. A is 4 points gote, B is 2 points gote, and C is 3 points reverse sente.  How should white play?",
+  "rating": {
+    "stars": 4.3,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[7]AW[fa]AW[db]AW[fb]AW[dc]AW[ec]AW[fc]AW[fd]AW[ce]AW[de]AW[ee]AW[ge]AW[ef]AB[ca]AB[ea]AB[ab]AB[cb]AB[eb]AB[cc]AB[ad]AB[cd]AB[ed]AB[be]AB[bf]AB[cf]AB[df]C[no komi, no prisoners, white to play and win.]LB[da:A]LB[dd:B]LB[dg:C]GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]PL[W]\r\n(;W[dg];B[da]C[And now, one point reverse sente or two point gote?]LB[dd:A]LB[cg:B]\r\n(;W[dd];B[cg];W[eg]C[White wins by one point!RIGHT])\r\n(;W[cg];B[bg];W[eg];B[dd]C[Only jigo. White has sente, but there is no more endgame to play.]))\r\n(;W[da];B[eg];W[fg];B[dg]C[FORCE]\r\n(;W[ff];B[dd]C[Only jigo.])\r\n(;W[dd];B[ff]C[Black wins.]))\r\n(;W[dd];B[eg];W[fg];B[dg]C[FORCE]\r\n(;W[ff];B[da]C[Black wins.])\r\n(;W[da];B[ff]C[Black wins.]))\r\n(;W[eg];B[da]\r\n(;W[dd];B[dg]C[Black wins.])\r\n(;W[dg];B[dd];W[cg];B[bg]C[Only jigo.])))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 67,
+  "attempts": {
+    "solved": 1933,
+    "failed": 3182,
+    "tries": 5115,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-03-26T07:30:47+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 153,
+      "name": "Reverse sente basics",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

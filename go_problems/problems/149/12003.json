@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12003,
+  "elo": 1500.7554400281,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "You are black. Once you were playing a good game and then, suddenly, you saw a nice piece of white territory. \"Ha!\" you said for yourself, \"I will turn this territory into neutral points!\" You made a perfect plan and started. But your opponent was smart and the territory turned to be a trap. Your stones got surrounded and cut from their friends on the left.\r\nOnce more, the game depends on your calm mind and ability to solve this uneasy position!",
+  "rating": {
+    "stars": 3.2,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rb]AB[pb]AW[ob]AW[oc]AB[qc]AW[pd]AW[pc]AW[pe]AB[mb]AB[lc]AW[rd]AW[pf]AW[sf]C[Consider the two black stones on the left alive :)]AP[goproblems]\n(;B[oa];W[na]\n(;B[qa]\n(;W[rc];B[nb]C[Good, ko for connection!RIGHT])\n(;W[nb];B[rc];W[pa]C[Ko for life!RIGHT]))\n(;B[pa];W[nb]\n(;B[rc];W[ra]C[White is happy with this])\n(;B[ra];W[rc]MA[qb]MA[sb]C[Black cannot make two eyes now])))\n(;B[qa];W[oa]MA[pa]MA[rc]C[The marked points are miai and black corner is dead])\n(;B[rc];W[oa]\n(;B[qa];W[pa]C[You got killed :(])\n(;B[pa];W[ra]C[Dead unconditionally]))\n(;B[sc];W[oa]C[The corner is dead])\n(;B[pa];W[oa]\n(;B[rc];W[ra]C[Dead unconditionally])\n(;B[ra];W[rc]MA[qb]MA[sb]C[Black is dead here])))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 82,
+  "attempts": {
+    "solved": 404,
+    "failed": 809,
+    "tries": 1213,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-11-28T01:07:28+00:00",
+  "source": "Bed",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 30,
+      "name": "Stories",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

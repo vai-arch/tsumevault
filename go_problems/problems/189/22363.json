@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22363,
+  "elo": 984.72883489621,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -2,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "A 3-Dimensional problem. Please flag and/or comment if there is a mistake. Also see the next problem, 22364.",
+  "rating": {
+    "stars": 2.1,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[5]AB[aa]TR[ca][cb][ac][bc][cc][dc][ec]LB[ba:A][bb:B][eb:C]C[3-Dimensional go (2x2x2)! A5, B5, A4, and B4 make up the top 2x2 layer; D5, E5, D4, and E4 (respectively) make up the bottom. Some moves are restricted due to symmetry. White to play to get the best result under Japanese rules.FORCE](;W[ba];B[bb]TR[ca][cb][ac][bc][cc][dc][ec]SQ[ea]C[Since this is 3-D go, your stone is in atari and can only be saved by playing at E5. FORCE];W[ea];B[eb]TR[ca][cb][ac][bc][cc][dc][ec]SQ[da]C[Black ataris again. FORCE];W[da];B[db]TR[ca][cb][ac][bc][cc][dc][ec]LB[ba:X][da:X][ea:X]C[White runs, but black kills anyway (White's group has no more liberties).])(;W[eb];B[bb]TR[ca][cb][ac][bc][cc][dc][ec]SQ[ea][db]C[If black could play D4 or E5, that would make an eye at A4 or B5. White wants to prevent this. There is only one move that prevents both.];W[da]TR[ca][cb][ac][bc][cc][dc][ec]C[Correct! Seki and jigo, the best result. RIGHT])(;W[bb];B[ea]TR[ca][cb][ac][bc][cc][dc][ec]C[Correct so far. Now what?](;W[ab];B[db]TR[ca][cb][ac][bc][cc][dc][ec]C[Now black has an eye at D5, and white has no way to make an eye, so black wins.])(;W[ba];B[db]TR[ca][cb][ac][bc][cc][dc][ec]C[Now black has an eye at D5, and white has no way to make an eye, so black wins.])(;W[da];B[db]TR[ca][cb][ac][bc][cc][dc][ec]LB[da:X]C[The stone at D5 is captured. Now black has an eye at D5, and white has no way to make an eye, so black wins.])(;W[eb];B[db]TR[ca][cb][ac][bc][cc][dc][ec]C[Now black has an eye at D5, and white has no way to make an eye, so black wins.])(;W[db]TR[ca][cb][ac][bc][cc][dc][ec]C[Seki and jigo, the best result.])))",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 237,
+    "failed": 154,
+    "tries": 391,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-04-30T16:17:54+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 189,
+      "name": "Irregular board",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

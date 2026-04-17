@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11991,
+  "elo": 1071.470556061,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 13,
+    "negativeFlagSum": 0,
+    "flagSum": 13
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Very simple problem, but I think it is important to know this.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 42,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[iq]AB[jq]AB[kq]AB[hq]AB[lq]AW[lr]AW[hr]AW[gr]AW[mq]AW[fq]AW[nq]MA[js]C[The white connection is a mistake. Please demonstrate why.]AW[js]AW[mr]AW[gq]AP[goproblems]\n(;B[jr];W[ks]\n(;B[ir];W[is])\n(;B[is];W[ir]))\n(;B[kr];W[ks]\n(;B[ir];W[is])\n(;B[is];W[ir]))\n(;B[ir];W[is]\n(;B[ks];W[kr])\n(;B[kr];W[ks]))\n(;B[ks];W[kr]\n(;B[is];W[ir];B[jr]C[RIGHT])\n(;B[jr];W[is])\n(;B[ir];W[is]))\n(;B[is];W[ir]\n(;B[jr];W[ks])\n(;B[ks];W[kr];B[jr]C[RIGHT])\n(;B[kr];W[ks])))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 4077,
+    "failed": 5078,
+    "tries": 9155,
+    "speedSolved": 22,
+    "speedPlay": 71
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-11-20T17:05:01+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

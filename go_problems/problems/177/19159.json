@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19159,
+  "elo": 1486.7096663521,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.6,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[kp]AB[kq]AB[kr]AB[nq]AW[jr]AW[jq]AW[hr]AW[hq]AW[hp]AB[gr]AB[gq]AB[gp]AB[fp]AB[ep]AB[dp]AB[do]AB[en]AB[fn]AW[ho]AW[hn]AW[gm]AW[fm]AW[em]AW[dn]AW[cn]AW[co]AW[cq]AW[br]AW[fq]AW[fr]C[How can Black get life for his cut-off group ?]AP[goproblems]\n(;B[es]\n(;W[gs];B[fs];W[er];B[hs];W[dr];B[js]C[Black 1 is the tesuji.  If 2, Black connects up with his other   stones. White 2 at 4 is no good, as Black plays 6\u0014if next White 3, then Black 2. RIGHT]LB[es:1]LB[gs:2]LB[fs:3]LB[er:4]LB[hs:5]LB[dr:6]LB[js:7])\n(;W[er];B[dr];W[fs];B[gs];W[ds];B[eq]C[RIGHT]))\n(;B[fs];W[es];B[gs];W[dr]LB[fs:1]LB[es:2]LB[gs:3]LB[dr:4]LB[er:a]C[(wrong). Black 1 fails, as throwing in at a after 4 does not work. CHOICE])\n(;B[hs];W[is]C[]\n(;B[er];W[gs]\n(;B[eq];W[fs];B[es];W[hs]C[CHOICE])\n(;B[es];W[fs];B[eq];W[hs]C[CHOICE]))\n(;B[fs];W[es]\n(;B[er];W[gs];B[eq];W[fs];B[ds];W[hs]C[CHOICE])\n(;B[gs];W[dr];B[eq];W[er]C[CHOICE]))\n(;B[es];W[gs]\n(;B[fs];W[er]\n(;B[dr];W[ds]C[CHOICE])\n(;B[hs];W[ds];B[gs];W[dq]C[CHOICE]))\n(;B[er];W[fs];B[eq];W[hs]C[CHOICE])\n(;B[eq];W[fs];B[er];W[hs]C[CHOICE]))))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 71,
+  "attempts": {
+    "solved": 258,
+    "failed": 470,
+    "tries": 728,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-03-06T19:59:46+00:00",
+  "source": "varius",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 177,
+      "name": "Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

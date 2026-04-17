@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2959,
+  "elo": 1658.3532843793,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.4,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[cf][dj][eo][cp][dp][pp]AB[dd][qd][cn][cq][dq][fq]LB[oc:C][fd:B][ce:A][cf:1][qn:E][ep:D]C[white plays at 1. how should black respond?]\r\n(;B[ce]CR[ce]\r\n;W[df]CR[df]C[this helps white get good shape])\r\n(;B[fd]CR[fd]\r\n;W[gp]CR[gp]C[white returns to finish this joseki])\r\n(;B[oc]CR[oc]\r\n;W[gp]CR[gp]C[white returns to finish this joseki])\r\n(;B[ep]CR[ep]\r\n(;W[fp]CR[fp]C[correct first move. now, the follow-up?]\r\n;B[eq]CR[eq]\r\n;W[do]CR[do]\r\n(;B[fo]CR[fo]C[RIGHT\r\nwhite cannot save both this stone and the four stones to the left])\r\n(;B[bp]CR[bp]\r\n;W[gp]CR[gp]C[connecting along the bottom is small compared to fixing the outside])\r\n(;B[gp]CR[gp]\r\n;W[fo]CR[fo]C[wrong direction]))\r\n(;W[fo]CR[fo]C[this is actually better for white. let black capture two stones. still, overall this favors black.]))\r\n(;B[qn]CR[qn]\r\n;W[gp]CR[gp]C[white returns to finish this joseki]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 702,
+    "failed": 3377,
+    "tries": 4079,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-09-12T03:13:50+00:00",
+  "source": "IGS: shinji vs adum",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

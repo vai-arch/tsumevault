@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11999,
+  "elo": 813.68536654765,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 22,
+    "negativeFlagSum": 0,
+    "flagSum": 22
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This is a very simple tesuji problem, and I was surprised to see the pattern search yield no results. So, I have decided to add this problem to the database.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 46,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rq]AB[qq]AB[pq]AW[rr]AW[pr]AW[qr]AW[oq]AW[nq]AW[pp]AW[po]AW[ro]AB[op]AB[oo]AB[on]AB[qm]C[Black to connect his stones/capture some white stones.]AP[goproblems]\n(;B[qo];W[qp]\n(;B[rp];W[qn];B[pn];W[qo]\n(;B[rn]C[RIGHT])\n(;B[so]C[RIGHT]))\n(;B[pn];W[rp])\n(;B[qn];W[rp]))\n(;B[qp];W[qo])\n(;B[pn];W[rp])\n(;B[qn];W[rp])\n(;B[rn];W[rp])\n(;B[rp];W[sq]\n(;B[qo];W[sp])\n(;B[sp];W[so];B[sr];W[qp])\n(;B[qp];W[qo])\n(;B[so];W[qp])))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 10109,
+    "failed": 5574,
+    "tries": 15683,
+    "speedSolved": 37,
+    "speedPlay": 45
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-11-23T13:31:55+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 143,
+      "name": "Squeeze Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

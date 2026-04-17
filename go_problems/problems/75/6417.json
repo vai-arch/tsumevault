@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6417,
+  "elo": 1139.8046719021,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -3,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 4.1,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[3]\r\nCA[UTF-8]AP[CGoban:2]ST[2]RU[Chinese]SZ[19]KM[0]\r\nPW[White]\r\nPB[Black]\r\nC[Find a move that is big enough to win the game for white. Don't play unnecessary moves.\r\n\r\n]\r\nPL[W]\r\nAW[gb][hb][ib][jb][kb][mb][nb][fc][gc][lc][mc][rc][ad][ld][rd][ae][be][ee][ie][je][ke][oe][re][af][cf][df][ef][if][lf][pf][qf][bg][dg][jg][lg][og][qg][dh][fh][jh][lh][nh][qh][rh][di][ji][li][mi][oi][dj][ej][fj][ij][nj][pj][rj][sj][dk][fk][ik][jk][nk][qk][rk][fl][gl][ml][fm][lm][mm][qm][fn][hn][kn][ln][nn][rn][fo][go][ho][mo][oo][ro][ap][fp][np][aq][bq][cq][fq][kq][lq][oq][pq][qq][rq][sq][dr][er][gr][hr][ir][lr][nr][ms]\r\nAB[bb][eb][ob][rb][ac][ec][hc][ic][jc][kc][nc][oc][qc][sc][bd][cd][dd][ed][fd][gd][hd][kd][md][nd][pd][qd][le][me][qe][se][hf][mf][rf][ag][cg][gg][ig][mg][ng][rg][ah][bh][ch][ih][mh][ci][fi][gi][hi][cj][kj][lj][mj][ck][ek][gk][hk][lk][pk][sk][dl][el][hl][il][jl][ll][pl][ql][rl][sl][em][gm][hm][jm][km][pm][bn][cn][en][gn][in][jn][pn][ao][eo][io][ko][lo][qo][bp][cp][dp][hp][jp][op][pp][qp][rp][sp][dq][eq][hq][iq][jq][jr][kr][ks][ls]\r\n(;W[qn];B[po];W[rm]C[RIGHT\r\n11-point seki. Good job!\r\n])\r\n\r\n(;W[sn];B[qn]C[B is alive.\r\n])\r\n\r\n(;W[rm];B[qn]C[B is alive.\r\n])\r\n\r\n(;W[po];B[qn]C[B is alive\r\n])\r\n\r\n)",
+  "author": {
+    "id": 10563,
+    "name": "kvzrock",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-08-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 80,
+  "attempts": {
+    "solved": 3804,
+    "failed": 5486,
+    "tries": 9290,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-04-27T00:50:00+00:00",
+  "source": "KGS Karaimo 6d v macco 2k",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 24,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

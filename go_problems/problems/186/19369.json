@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19369,
+  "elo": 1185.6032388456,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[br]AB[bq]AB[cp]AB[dp]AB[ep]AB[gp]AB[fp]AB[hp]AB[hq]AB[hr]AW[cs]AW[cr]AW[cq]AW[gr]AW[gq]AW[fq]AW[eq]AW[dq]AP[goproblems]\n(;B[gs]\n(;W[fs]C[CHOICE];B[er]C[Solution 1. The hane kills  -  The single white hane at 1 does the job.  That the position resulting from White'sblock at 2 is a dead shape is simply part ofthe body of common knowledge of life and death.RIGHT]LB[gs:1]LB[fs:2]LB[er:3])\n(;W[er]\n(;B[fs]C[RIGHT])\n(;B[es];W[fs];B[fr];W[ds];B[hs];W[fs])))\n(;B[fs]\n(;W[gs]C[CHOICE];B[er]LB[fs:1]LB[gs:2]LB[er:3]LB[es:A]LB[fr:B]LB[dr:B]C[Solution 2.  .   A separate technique  -  In the beginning Black can also make the placement at 1 and, when White blocks at 2, play 3 to kill the white group. If White attaches with 2 at A, Black plays at 2 and answers White B at C.  Rather than using such a complicated method, however, killing with the hane keeps things much simplerRIGHT])\n(;W[es]\n(;B[gs];W[fr];B[dr];W[hs];B[gs]C[RIGHT])\n(;B[er];W[dr];B[ds]C[ko])))\n(;B[er];W[es]\n(;B[fs];W[dr]C[Failure. Ko  -  Black 1 is undoubtedly at the vital point,but it ignores the fundamentals. White attaches at 2 and answers Black 3 at 4 to get a ko. If Black plays 3 at 4, White plays A. You can confirm for yourself that even if Black extends inside to B, it becomes a seki, not a big eye.]LB[er:1]LB[es:2]LB[fs:3]LB[dr:4]LB[gs:A]LB[fr:B])\n(;B[dr];W[gs];B[fr]C[seki]))\n(;B[es];W[er]\n(;B[gs];W[fs];B[fr];W[ds];B[hs];W[fs])\n(;B[fs];W[gs];B[ds]C[seki])))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 1068,
+    "failed": 1425,
+    "tries": 2493,
+    "speedSolved": 24,
+    "speedPlay": 46
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-04-11T14:10:56+00:00",
+  "source": "Yi Ch'ang-ho's Selected Life and Death Go Problems",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 186,
+      "name": "Yi Ch'ang-ho's Selected Life and Death Go Problems Book 1",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

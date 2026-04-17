@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1823,
+  "elo": 839.48475560476,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "my first problem, a game against a pitifully easy computer go program. (on an aside: i lost by over 25 pts.) leave comments if i screwed up on anything.",
+  "rating": {
+    "stars": 3.6,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nFF[4]\r\nGM[1]\r\nSZ[13]\r\nAP[Jago:Version 4.24]\r\nAB[la][ka][mb][kb][ja][ia][ib][ic][jc][id][kd][ke][je][kf][lf][kg][jg][jh][if][ji][jj]\r\nAW[kh][lh][lg][mf][le][ld][lc][kc][lb][mc][ki][kj]\r\nTR[le][ld][lc][lb][mc][kc]\r\nLB[mf:1]\r\nC[finish m11 off (assuming that bottom groups are alive)]\r\nGN[me]\r\n(\r\n;\r\nB[me]\r\n;\r\nW[ma]\r\n;\r\nB[mg]C[RIGHT]\r\nMA[le][ld][lc][mc][lb][kc][ma]\r\nLB[mf:1][me:2][ma:3][mg:4][mh:5]\r\nC[white m11 dies, and white eventually has to plug up n6]\r\n)\r\n(\r\n;\r\nB[md]\r\n;\r\nW[me]\r\nC[white m11 lives]\r\nLB[mf:1][md:2][me:3][mg:4][mh:5]\r\n)\r\n(\r\n;\r\nB[ma]\r\n;\r\nW[me]\r\nC[white m11 lives]\r\nLB[mf:1][ma:2][me:3][mg:4][mh:5]\r\n)\r\n(\r\n;\r\nB[mg]\r\n;\r\nW[mh]\r\n(\r\n;\r\nB[me]\r\n;\r\nW[ma]\r\n;\r\nB[mg]C[RIGHT]\r\nC[this is a three-stage ko for white m11 life, though there's little chance...]\r\nSQ[mf][mg]\r\n)\r\n(\r\n;\r\nB[ma]\r\n;\r\nW[me]\r\nC[white m11 lives]\r\nCR[md][mg]\r\n)\r\n(\r\n;\r\nB[md]\r\n;\r\nW[me]\r\nCR[md][mg]\r\nC[white m11 lives]\r\n)\r\n)\r\n)",
+  "author": {
+    "id": 1787,
+    "name": "mr_plow",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-04-29",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 23,
+  "attempts": {
+    "solved": 30695,
+    "failed": 11497,
+    "tries": 42192,
+    "speedSolved": 4,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-12-30T19:21:41+00:00",
+  "source": "game (me) vs. 'turbogo', easiest lvl.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

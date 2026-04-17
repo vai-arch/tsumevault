@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8035,
+  "elo": 1104.9331693868,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -3,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "How to respond to K17?",
+  "rating": {
+    "stars": 3.5,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[jd]AB[kc]AB[kb]AB[ka]AB[lc]AB[mb]AB[nb]AB[nc]AB[hd]AB[hc]AB[hb]AB[gb]AB[fb]AW[eb]AW[fa]AW[fc]AW[gc]AW[gd]AW[ge]AW[fe]AW[he]AW[ie]AW[je]AW[ke]AW[kd]AW[jc]AW[ld]AW[md]AW[mc]AW[lb]AW[la]AW[nd]AW[od]AW[oc]AW[ob]AW[dc]AW[ea]AP[goproblems]\r\n(;B[id];W[ib]\r\n(;B[ia];W[ja]\r\n(;B[ma];W[ha];B[jb];W[ga]C[Oops, snapback])\r\n(;B[jb];W[ja]C[Oops]))\r\n(;B[jb];W[ja]C[Can't do that])\r\n(;B[ja];W[ia]\r\n(;B[ic];W[jb])\r\n(;B[ma];W[ha];B[jb];W[ga]C[Oops, snapback]))\r\n(;B[ic];W[jb];B[ma];W[ha])\r\n(;B[ha];W[ia]\r\n(;B[ma];W[ic])\r\n(;B[jb];W[ja]C[Oops]))\r\n(;B[ga];W[ia];B[ma];W[ha]C[Dead])\r\n(;B[ma];W[ha];B[jb];W[ga]C[Oops, snapback]))\r\n(;B[ic];W[jb];B[ma];W[id]C[Not much room for a second eye])\r\n(;B[jb];W[id]C[Ok to tenuki now?]LB[me:yes]LB[ne:no]\r\n(;B[me];W[ib]\r\n(;B[ma];W[ic]C[Oops, maybe not])\r\n(;B[ia];W[ja])\r\n(;B[ic];W[ja]))\r\n(;B[ne]C[Correct, black needs another move around J18 and is safe; white got a nice little sente reduction.RIGHT])\r\n(;B[ic]C[NOTTHIS])\r\n(;B[ib]C[NOTTHIS])\r\n(;B[ia]C[NOTTHIS]))\r\n(;B[ia];W[jb]\r\n(;B[ma];W[id]C[Dead])\r\n(;B[ja];W[id]C[Dead])))",
+  "author": {
+    "id": 177,
+    "name": "aditsu",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2018-09-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 4562,
+    "failed": 5462,
+    "tries": 10024,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-01-31T12:53:16+00:00",
+  "source": "kgs game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

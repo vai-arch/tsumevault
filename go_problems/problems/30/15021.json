@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15021,
+  "elo": 1454.0627967107,
+  "problemLevel": 26,
+  "rank": {
+    "value": 4,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "I was playing a 5d KGS with 2 stones handicap. The beginning was a bit shaky, rapidly progressing into a fight, but we made exchanges and settled the running groups. In the middle game, we made another exchange that allowed me to capture White's corner at the cost of the center. Going into the endgame, I had a very slight lead. And then this happened. In the end, White won by 8.5 points. Looks like I need to brush up on my reading...",
+  "rating": {
+    "stars": 4,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[cp]AW[cq]AW[cr]AW[dr]AB[co]AB[cn]AB[bp]AB[bn]AB[dp]AB[dq]AB[er]AB[fr]AW[eq]AW[fq]AB[gq]AB[fp]AB[eo]AB[dn]AW[en]AW[fn]AW[fo]AW[gp]AW[hr]AW[iq]AW[jq]AW[kq]AW[hn]TR[gp]C[DarkScythe should not have ignored the marked move. Can you punish DarkScythe just like Jokersaku did?]AW[bq]AB[ao]AW[io]AP[goproblems]\n(;W[ds];B[bs]C[DarkScythe offers resistance.]\n(;W[fs]\n(;B[gr]C[CHOICE];W[gs]C[Black can't play E1 due to a lack of liberties, and White connects.RIGHT])\n(;B[gs];W[gr]\n(;B[es];W[fs]C[RIGHT])\n(;B[ep];W[es]C[RIGHT]))\n(;B[es];W[gr]C[RIGHT]))\n(;W[gr];B[ep]))\n(;W[ar];B[bs])\n(;W[bs]C[];B[ar]\n(;W[ds];B[aq]\n(;W[fs];B[gr];W[gs]C[Black can't play E1 due to a lack of liberties, and White connects.RIGHT])\n(;W[gr];B[ep]))\n(;W[aq];B[ds])\n(;W[fs];B[ds])\n(;W[gr];B[ep]))\n(;W[fs];B[ds]\n(;W[cs];B[gs];W[gr];B[ep];W[es];B[ds])\n(;W[gs];B[es])\n(;W[gr];B[ep])\n(;W[es];B[gs]))\n(;W[gr];B[ep]C[This exchange doesn't help White])\n(;W[es];B[fs])\n(;W[gs];B[es])\n(;W[aq];B[ds])\n(;W[hq];B[gr]C[White can save the corner stones.])\n(;W[ep];B[fp]C[Snapback.]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 99,
+  "attempts": {
+    "solved": 680,
+    "failed": 1405,
+    "tries": 2085,
+    "speedSolved": 1,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-07-27T14:05:42+00:00",
+  "source": "Modified from my KGS game (Jokersaku [5d] vs. DarkScythe [3d])",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 30,
+      "name": "Stories",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

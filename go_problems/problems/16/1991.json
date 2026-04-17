@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1991,
+  "elo": 1237.4187934471,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This is some pure and simple big-board-endgame :) Can White win this game?",
+  "rating": {
+    "stars": 3.9,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]\r\nAW[eb][fb][dc][dd][fd][df]AB[cb][db][cc][cd][ce][cf][ff]C[No komi, no prisoners - White to play and win!]PL[W]\r\n(;W[ef]CR[ef]\r\n;B[de]CR[de]\r\n;W[ee]CR[ee]\r\n;B[dg]CR[dg]\r\n;W[eg]CR[eg]\r\n;B[cg]CR[cg]\r\n;W[da]CR[da]\r\n;B[ca]CR[ca]\r\n;W[ea]CR[ea]C[White wins by one point! RIGHT])\r\n(;W[de]CR[de]\r\n;B[dg]CR[dg]\r\n;W[eg]CR[eg]\r\n;B[cg]CR[cg]\r\n;W[ef]CR[ef]\r\n;B[ea]CR[ea]\r\n;W[fa]CR[fa]\r\n;B[da]CR[da]C[This is only a jigo....])\r\n(;W[da]CR[da]\r\n;B[de]CR[de]\r\n(;W[ee]CR[ee]\r\n;B[ef]CR[ef])\r\n(;W[ef]CR[ef]\r\n;B[ee]CR[ee]))\r\n(;W[cg]CR[cg]\r\n;B[de]CR[de])\r\n(;W[dg]CR[dg]\r\n;B[de]CR[de]\r\n(;W[ee]CR[ee]\r\n;B[ef]CR[ef])\r\n(;W[ef]CR[ef]\r\n;B[ee]CR[ee]))\r\n(;W[ee]CR[ee]\r\n;B[ef]CR[ef]\r\n(;W[dg]CR[dg]\r\n;B[de]CR[de])\r\n(;W[de]CR[de]\r\n;B[dg]CR[dg]))\r\n(;W[eg]CR[eg]\r\n;B[de]CR[de]\r\n;W[ee]CR[ee]\r\n;B[ef]CR[ef]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 3355,
+    "failed": 6434,
+    "tries": 9789,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-03-08T08:29:55+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

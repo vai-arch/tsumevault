@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10782,
+  "elo": 1349.7487758468,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to win some stones, either on the left or the right. From a game played on KGS.",
+  "rating": {
+    "stars": 3,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nAW[ia][bb][db][ib][kb][lb][cc][dc][fc][gc][ic][jc][dd][gd]\r\nAB [ja][jb][mb][nb][ob][bc][kc][lc][bd][cd][ed][fd][hd][id][jd][ce][de][ee][ge][ke]\r\nC[Black to play.]\r\n\r\n     (;B[hc]\r\n          (;W[hb] C[CHOICE] ;B[gb] ;W[ka]\r\n               (;B[fb] ;W[ec] C[White wins.])\r\n               (;B[ec] ;W[fb] ;B[eb] ;W[fa]\r\n                    (;B[ea] C[RIGHT Correct.])\r\n                    (;B[da] C[RIGHT Correct.])\r\n               )\r\n          )\r\n          (;W[gb] C[CHOICE] ;B[hb] ;W[ga] ;B[ha] C[RIGHT Correct.])\r\n          (;W[ec] C[CHOICE]\r\n               (;B[gb] ;W[fb]\r\n                    (;B[hb] C[RIGHT Correct.])\r\n                    (;B[ha] ;W[ka] ;B[hb] C[RIGHT Correct.])\r\n               )\r\n               (;B[hb] ;W[gb] C[Black can tenuki here, but for this problem please continue.]\r\n                    (;B[ha] C[RIGHT Correct.])\r\n                    (;B[ga] ;W[fa] C[Black can tenuki here, but will lose 1 point to a recapture at H19 if white is allowed to take after blackâ€™s tenuki.] ;B[ha] C[RIGHT Correct.])\r\n               )\r\n          )\r\n     )\r\n\r\n     (;B[hb] ;W[hc] ;B[ec] ;W[eb] C[White wins.])\r\n     (;B[la] ;W[ka]\r\n          (;B[hc] ;W[hb]\r\n               (;B[gb] ;W[ec] C[White wins.])\r\n               (;B[ec] ;W[eb] C[White wins.])\r\n          )\r\n          (;B[ec] ;Web] ;B[hc] ;W[hb] C[White wins.])\r\n     )\r\n     (;B[ab] ;W[hc]\r\n          (;B[ec] ;W[eb] C[White wins.])\r\n          (;B[ba] ;W[cb] ;B[ec] ;W[eb] C[White wins.])\r\n     )\r\n     (;B[ec] ;W[fb]\r\n          (;B[eb] ;W[ea] ;B[hc] ;W[hb] C[White wins.])\r\n          (;B[hc] ;W[hb] ;B[eb] ;W[ea] C[White wins.])\r\n     )\r\n     (;B[ba] ;W[hc]\r\n          (;B[ca] ;W[ab] ;B[ec] ;W[eb] C[White wins.])\r\n          (;B[ec] ;W[eb] ;B[ab] ;W[cb] C[White wins.])\r\n          (;B[ab] ;W[cb] ;B[ec] ;W[eb] C[White wins.])\r\n          (;B[da] ;W[cb] ;B[ec] ;W[eb] C[White wins.])\r\n     )\r\n     (;B[gb] ;W[hc]\r\n          (;B[fb] ;W[ec] C[White wins.])\r\n          (;B[ec] ;W[eb] ;B[fb] ;W[ab] ;B[ha] ;W[ka] C[White wins.])\r\n          (;B[ab] ;W[ba] ;B[ec] ;W[eb] ;B[fb] ;W[ea]\r\n               (;B[ca] ;W[ga] C[White wins.])\r\n               (;B[ha] ;W[ka] ;B[ja] ;W[fa] C[White wins.])\r\n          )\r\n     )\r\n     (;B[fb] ;W[hc]\r\n          (;B[eb] ;W[ec] C[White wins.])\r\n          (;B[ec] ;W[eb] C[White wins.])\r\n     )\r\n     (;B[eb] ;W[ec] ;B[hc] ;W[hb] ;B[gb] ;W[ka] ;B[ba] ;W[ab] ;B[da] ;W[cb]\r\n          (;B[fb] ;W[ga] C[White wins.])\r\n          (;B[ca] ;W[fb] C[White wins.])\r\n     )\r\n)",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 65,
+  "attempts": {
+    "solved": 383,
+    "failed": 541,
+    "tries": 924,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-01-10T09:49:38+00:00",
+  "source": "From a game played on KGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

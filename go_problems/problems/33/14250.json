@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14250,
+  "elo": 1602.5426264094,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -4,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "If Black can win any ko what can he get in this situation? Thanks to Bass, kaf, BartTM and tails for pointing out an errors with the problem. It's now in the sandbox area because it sucks.",
+  "rating": {
+    "stars": 1.7,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[aa]AW[ab]AB[bb]AW[ca]AW[cb]AW[db]AW[da]AW[ea]AW[eb]AW[ec]AW[dc]AB[cc]AB[cd]AB[dd]AB[ed]AB[fd]AB[fc]AB[fb]AW[bc]AW[bd]AW[ac]AW[be]AW[ce]AW[de]AW[fe]AW[ee]AB[fa]AW[gb]AW[gc]AW[gd]AW[ge]LB[af:Ko]LB[cf:Sente]LB[ef:Gote]LB[cg:seki]LB[eg:seki]C[Black is ko-master. Black plays and gets a...FORCE]AW[ha]AW[hb]LB[gf:Gote]LB[gg:life]AP[goproblems]\n(;B[cf];W[cg]LB[ba:A];B[ba]\n(;W[db]C[This is the old solution. Thanks to BartTM for pointing out the error in my ways.]\n(;B[cb];W[da]C[White made a mistake and Black got a sente seki. Later A can be used as a ko threat.]LB[eb:A])\n(;B[ca]C[Black just killed himself in gote! What were you thinking?])\n(;B[da];W[cb])\n(;B[ea];W[cb])\n(;B[eb];W[cb])\n(;B[ec]C[On a rather suicidal mood, are we? White doesn't need to answer this and Black still dies.])\n(;B[dc];W[cb]))\n(;W[cb]LB[db:A]C[CHOICE];B[db];W[da]LB[ea:A];B[ea];W[ca]LB[ec:A];B[ec]C[Nope. A gote life it is.]))\n(;B[af];W[ag]C[If White is going to lose the ko he will force Black to live and even gets to keep sente.]LB[ba:A];B[ba];W[cb]LB[db:A];B[db];W[da]LB[ea:A];B[ea];W[ca]LB[ec:A];B[ec])\n(;B[ef];W[eg]C[Black must choose gote seki only if White is the ko-master.]LB[ba:A];B[ba];W[db]LB[cb:A];B[cb];W[eb]LB[ea:A]LB[df:T]C[If White is ko-master he can force a ko with A. Tenuki with T to see how.]\n(;B[ea];W[da]LB[dc:A];B[dc]C[This is the gote seki.])\n(;B[df];W[ea]LB[cf:T];B[cf];W[ga]LB[bf:T];B[bf];W[ca]LB[af:T];B[af];W[ec]LB[da:A];B[da]C[It's a rather bad ko for White though...]))\n(;B[gf];W[gg];B[ba];W[cb]\n(;B[db];W[da]\n(;B[ea];W[ca]\n(;B[ec]C[RIGHT])\n(;B[bb];W[ba];B[ec]C[RIGHT])\n(;B[ba];W[bb];B[ec]C[RIGHT])\n(;B[eb]C[Cool misclick.])\n(;B[dc]C[You might want to practice your aim...])\n(;B[ga];W[ec]C[Oh! You still found a way to die in sente!]))\n(;B[eb]C[Suicide in gote.])\n(;B[dc]C[Killing yourself and letting the opponent tenuki sure is fun!])\n(;B[ec];W[ea]))\n(;B[ca];W[db])\n(;B[da];W[db])\n(;B[dc];W[db])\n(;B[ec];W[db])\n(;B[eb]C[Black just killed himself in gote, too bad...])\n(;B[ea];W[db])))",
+  "author": {
+    "id": 43464,
+    "name": "frostburn",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2019-08-31",
+    "rank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1344.74
+  },
+  "avgSolveTimeSeconds": 74,
+  "attempts": {
+    "solved": 268,
+    "failed": 563,
+    "tries": 831,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-12-13T04:24:20+00:00",
+  "source": "A bad idea.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 33,
+      "name": "Under the Stones",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

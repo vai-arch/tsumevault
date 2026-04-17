@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22346,
+  "elo": 1560.5736002112,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "(Also see problem 22347. Edit: About a week after I posted 22347, Starline pointed out to me that it was a duplicate of santa c's problem 7921. Thank you to Starline for pointing this out, and sorry to santa c for the duplicate.) Please flag or comment if there is a mistake.",
+  "rating": {
+    "stars": 4,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(\n;\nAB [ob][pb][qb][rc][rd][re]\nAW [na][nb][rb][nc][oc][pc][qc][qd][qe][qf][rf][sg]\nTR [rb]\n\nC [White just played the triangled stone. How to defend?][FORCE] LB [ra:A][sb:B]\n\n(; B [ra]; W [sb] (; B [qa]; W [oa])(; B [sc]; W [oa]; B [sa]; W [pa] (; B [qa]; W [se])(; B [rb]; W [se])(; B [se]; W [rb] C [Black succumbs to damezumari (lack of liberties).] TR [qa][sb])))\n\n(; B [sb]; W [ra] C [Since you chose the right answer, I will assume you read it out (Hopefully you didn't guess : p). Only correct moves are included.]; B [qa]; W [se]; B [sa]; W [sd]; B [oa]; W [rb]; B [ra]; W [sf]; B [sc] C [Well done!][RIGHT])\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 79,
+  "attempts": {
+    "solved": 101,
+    "failed": 253,
+    "tries": 354,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-04-06T17:01:53+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 245,
+      "name": "2nd line cornered",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

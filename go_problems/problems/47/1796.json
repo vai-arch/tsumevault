@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1796,
+  "elo": 1252.7018720826,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "After problem 139, if black makes the mistake of move 8, how does white accomplish the said goal of saving his middle stones? Should be EZ, folks.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[fo]AW[go]AW[ho]AW[bp]AW[cp]AW[dp]AW[ep]AW[ip]AW[jp]AW[kp]AW[lp]AW[mp]AW[np]AW[rp]AW[lq]AW[oq]AW[pq]AW[qq]AW[kr]AW[pr]AW[rr]AW[js]AB[im]AB[om]AB[jn]AB[ln]AB[nn]AB[io]AB[oo]AB[qo]AB[ro]AB[fp]AB[gp]AB[hp]AB[op]AB[bq]AB[cq]AB[dq]AB[eq]AB[iq]AB[jq]AB[kq]AB[mq]AB[nq]AB[lr]AB[nr]AB[or]AB[ls]AB[ms]LB[kq:2]LB[lq:5]LB[mq:4]LB[kr:1]LB[mr:3]LB[js:7]LB[ls:8]LB[ms:6]C[After the sequence, black makes the mistake of move 8. How to punish?]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[5.50]TM[]PW[White]PB[Black]PL[W]\n(;W[hq];B[hr]C[Of course. Black's only choice.]\n(;W[ir];B[gq];W[os]\n(;B[ks];W[ps];B[jr];W[ns];B[is];W[mr]C[Good, But black smartly took sente with L1RIGHT])\n(;B[hq]C[this should actually be at L1];W[ps];B[jr];W[ns]C[RIGHT]))\n(;W[gq];B[fq]\n(;W[ir];B[gr]\n(;W[os];B[hq];W[ps];B[jr];W[ns];B[ks];W[mr];B[is]C[, and in sente, but the extra stone at g3 was unneccessary - no loss though.RIGHT])\n(;W[hq];B[gq];W[os];B[hq];W[ps];B[jr];W[ns]C[RIGHT])\n(;W[jr];B[hq];W[os];B[hs];W[ps];B[is];W[ns];B[ks];W[mr]C[Works, but not the best way to do things.RIGHT]))\n(;W[gr];B[ir]\n(;W[hs];B[fr]\n(;W[os];B[gs]\n(;W[ps];B[jr];W[ns]C[RIGHT])\n(;W[ks];B[is];W[ps];B[jr]))\n(;W[gs];B[ks]\n(;W[os];B[jr];W[ps];B[is])\n(;W[is];B[jr];W[kr]C[RIGHT])))\n(;W[os];B[jr];W[ps];B[ks];W[ns];B[is];W[mr]C[RIGHT])\n(;W[is];B[gs];W[os];B[ns]\n(;W[ps];B[hs])\n(;W[ks];B[ps];W[qs];B[hs]))))\n(;W[os];B[ns]\n(;W[ps];B[is]\n(;W[ir];B[gq];W[hs];B[gs]\n(;W[ks]C[RIGHT])\n(;W[jr];B[hq]C[White ran out of liberties; ko at most]))\n(;W[gq];B[fq]\n(;W[ir];B[gr];W[hs];B[hq];W[ks]C[RIGHT])\n(;W[gr];B[ir]))\n(;W[fq];B[gq]))\n(;W[ir];B[gq]\n(;W[ps]C[RIGHT])\n(;W[ks];B[ps];W[qs];B[hs];W[os]C[Hard ko for black, but white could have succeeded without ko.]))\n(;W[gq]C[NOTTHIS]))\n(;W[gr];B[gq];W[os];B[ns]\n(;W[ps];B[jr])\n(;W[ks];B[ps];W[qs];B[is];W[os]C[Ko is not necessary.])))\n(;W[ir]\n(;B[hr]\n(;W[os];B[ks];W[ps];B[jr];W[ns];B[is];W[mr]LB[hr:A]C[, Right, black couldnt connect...RIGHT])\n(;W[jr];B[hq];W[os];B[ns])\n(;W[hs];B[ks]))\n(;B[ks]C[another big mistake by black];W[hq]C[snapback.RIGHT])\n(;B[hq]C[this wont work]))\n(;W[hr];B[hq]C[this wont work])\n(;W[os];B[ns]\n(;W[hq];B[hr]\n(;W[ir];B[gq]\n(;W[ps]C[RIGHT])\n(;W[ks];B[ps];W[qs];B[hs];W[os]C[Black will have a hard time winning this ko, but white could have done without ko.]))\n(;W[ks];B[ps]\n(;W[qs];B[is];W[os]C[Ko is unnecessary.])\n(;W[ir];B[gq]\n(;W[qs];B[hs];W[os]C[Black will have a hard time winning this ko, but white could have succeeded without ko.])\n(;W[hs];B[hq])))\n(;W[ps];B[is]\n(;W[ir];B[gq];W[hs];B[gs]\n(;W[ks]C[RIGHT])\n(;W[jr];B[hq]C[White ran out of liberties; ko at most]))\n(;W[gq];B[fq]\n(;W[ir];B[gr];W[hs];B[hq];W[ks]C[RIGHT])\n(;W[gr];B[ir]))\n(;W[fq];B[gq])))\n(;W[ps];B[jr]\n(;W[hq];B[ks]\n(;W[fq]C[RIGHT])\n(;W[hr];B[gr]\n(;W[gq];B[fq]\n(;W[is];B[fr])\n(;W[fr];B[is]C[That's two eyes for black.]))\n(;W[is];B[gq]))\n(;W[gq];B[fq];W[ir];B[is]C[Two eyes for black]))\n(;W[ir];B[hq]))\n(;W[ks];B[ps]\n(;W[hq];B[hr]\n(;W[ir];B[gq];W[qs];B[hs];W[os]C[Black will have a hard time winning this ko, but white could have succeeded without ko.])\n(;W[qs];B[is]C[Ko is unnecessary.];W[os]C[Ko is unnecessary.])\n(;W[fq];B[gq]\n(;W[qs];B[is])\n(;W[ir];B[hs];W[qs];B[is])))\n(;W[qs];B[is])))\n(;W[ps];B[os])\n(;W[ks];B[os]))",
+  "author": {
+    "id": 607,
+    "name": "stevertigo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2003-06-24",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 82,
+  "attempts": {
+    "solved": 2720,
+    "failed": 4477,
+    "tries": 7197,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-12-08T19:14:43+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 27,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

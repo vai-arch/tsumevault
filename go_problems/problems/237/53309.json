@@ -1,0 +1,126 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 53309,
+  "elo": 1138.0931737906,
+  "problemLevel": 15,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": null,
+  "sgf": "(;TR[fb]LB[fd:a]LB[hc:b]AB[cd][ce][cg][ch][fc][gb][gd][ge][gf][hf][if][jd][je]AW[de][df][dg][ec][fb][gc][gg][hb][hd][hg][ic][id][jc][kc][md]C[FORCE]AP[goproblems autoextractor]PW[soia]PB[Gamasand]PC[The KGS Go Server at http://www.gokgs.com/]DT[2010-02-21]PL[B]GPKEY[local choice]DIFF[12k]\n(;B[hc]LB[fd:A]LB[eb:B]C[Playing here is worth about 6 points over playing away in an empty corner. White would have played at A if you played away. White would likely play at B next. ]\n(;W[fd]C[CHOICE];B[gc]C[Note: the White move at F16 lost about 7 pointsRIGHT])\n(;W[cf]C[CHOICE]\n(;B[eb]C[RIGHT])\n(;B[bf];W[gc]C[Your mistake at B14 lost approximately 7 points])\n(;B[gc];W[bf]C[Your mistake at G17 lost approximately 6 points])))\n(;B[fd];W[dd]C[This loses about 8 points. ]))",
+  "author": {
+    "id": 82849,
+    "name": "Lours",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/961_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/961_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/961_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 961
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1056.64
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 3,
+    "failed": 2,
+    "tries": 5,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-12-06T07:33:01+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1204
+}

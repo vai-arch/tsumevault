@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10386,
+  "elo": 1773.0349033297,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.7,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rr]AW[rq]AW[qq]AW[pr]AB[pq]AB[pp]AB[qp]AB[rp]AB[po]AB[pn]AB[pm]AB[qm]AB[rm]AW[rl]AW[rk]AW[pl]AW[pk]AW[om]AW[on]AW[oo]AW[oq]AW[nq]AB[sr]AP[goproblems]\n(;B[qr]\n(;W[qs]C[Right, U had to force white to choose between A or B first.CHOICE]LB[qs:A]LB[rs:B];B[sq]\n(;W[rs]C[If white doesn't want to play the ko?CHOICE];B[ro]\n(;W[sp]C[CHOICE];B[qn];W[sn];B[sm]C[RIGHT])\n(;W[qn];B[sp];W[sn];B[sm];W[rn]C[This is best for both, if white doesn't wont to play the ko.RIGHT]))\n(;W[sm];B[rs]C[Ko is right. (best for both if white doesn't choose seki)RIGHT]))\n(;W[rs]LB[qs:A]LB[rs:B]C[Right, U had to force white to choose between A or B first.CHOICE];B[ro];W[sp];B[qn];W[sn];B[sm];W[so];B[sq]C[Good - white can get also ko.RIGHT]))\n(;B[sq];W[sm];B[qr];W[rs])\n(;B[ro];W[sp]\n(;B[qn];W[sn]\n(;B[sm];W[so];B[sq];W[ss];B[sq];W[sr];B[rn];W[sq]C[Amd now??])\n(;B[qr];W[sq];B[sm];W[so];B[rn];W[qs]C[]))\n(;B[qr];W[sq];B[qn];W[sn];B[sm];W[so];B[rn];W[qs]C[]))\n(;B[rn];W[sm];B[qo];W[so];B[sp];W[sn];B[qr];W[rs])\n(;B[so];W[rn])\n(;B[sn];W[ro])\n(;B[sm];W[sp];B[ro];W[qn]\n(;B[so];W[rn])\n(;B[rn];W[so]))\n(;B[rs];W[qr];B[ro];W[sp];B[qn];W[sn];B[sm];W[so])\n(;B[qs];W[qr])\n(;B[sp];W[sm];B[qr];W[rs];B[rn];W[qo])\n(;B[ps];W[qr];B[ro];W[sp];B[qn];W[sn];B[sm];W[so];B[sq];W[ss];B[sq];W[sr];B[rn];W[sq]))",
+  "author": {
+    "id": 6567,
+    "name": "marwin",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-05-29",
+    "rank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 820.591
+  },
+  "avgSolveTimeSeconds": 63,
+  "attempts": {
+    "solved": 162,
+    "failed": 1005,
+    "tries": 1167,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-09-12T10:22:06+00:00",
+  "source": "Chinese book",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 100,
+      "name": "Timing",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

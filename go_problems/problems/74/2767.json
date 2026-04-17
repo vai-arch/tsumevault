@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2767,
+  "elo": 1314.7789372268,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -2,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Well a KGS game i saw, made me wonder, what held that shape in place... (The mistake's imaginary - It didn't appear in the game..)\r\n\r\n(Grrr...)",
+  "rating": {
+    "stars": 2.6,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[WeiÃƒ?]PB[Schwarz]AW[kj][mj][oj][lk][mk][nk][ok][el][fl][gl][hl][kl][pl][ql][dm][gm][km][lm][qm][cn][dn][en][hn][kn][mn][nn][rn][do][fo][ho][ko][qo][ep][gp][kp][lp][pp][qp][dq][eq][fq][lq][qq][dr][mr][nr][qr][rr][cs][ds][rs]AB[ej][gj][ij][ek][fk][gk][hk][cl][dl][il][ll][ml][nl][ol][cm][hm][im][mm][pm][bn][fn][gn][in][ln][on][pn][qn][co][io][lo][no][po][cp][dp][hp][ip][mp][op][cq][hq][nq][oq][pq][br][cr][fr][gr][pr][bs][ps][qs]LB[bn:6][cn:5][br:4][bs:2][cs:1][ds:3]C[After this sequence white plays some other 'endgame moves'... Something is wrong - where should white have played (in the lower left).]PL[W]\r\n(;W[go]CR[go]\r\n;B[jd]LB[kd:1][ld:2][md:3][nd:4][od:5][pd:6][qd:7][rd:8]CR[jd]C[Correct. But what if white did not play there, and decided to play elsewhere instead (leaving the position that black has in the lower right). How many ways are there to punish now? That is, how many ways does white have to kill the black group in the lower right?]\r\n(;W[md]CR[md]\r\n;B[nd]CR[nd]C[Nice! Now punish black for having played elsewhere in the lower right (muwhahahaha)]\r\n(;W[om]CR[om]C[RIGHT\r\nNice - you managed to kill the entire black group])\r\n(;W[nm]CR[nm]C[RIGHT\r\nNice - you managed to kill the entire black group])\r\n(;W[mo]CR[mo]C[RIGHT\r\nNice - you managed to kill the entire black group]))\r\n(;W[kd]CR[kd]C[No, there are more.])\r\n(;W[ld]CR[ld]C[No, there are more.])\r\n(;W[nd]CR[nd]C[You must see some that I don't.])\r\n(;W[od]CR[od]C[You must see some that I don't.])\r\n(;W[pd]CR[pd]C[You must see some that I don't.])\r\n(;W[qd]CR[qd]C[You must see some that I don't.])\r\n(;W[rd]CR[rd]C[You must see some that I don't.]))\r\n(;W[fm]CR[fm]\r\n;B[em]CR[em])\r\n(;W[eo]CR[eo]\r\n;B[go]CR[go])\r\n(;W[em]CR[em]\r\n;B[go]CR[go])\r\n(;W[fp]CR[fp]\r\n;B[go]CR[go]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 124,
+  "attempts": {
+    "solved": 930,
+    "failed": 2153,
+    "tries": 3083,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-07-26T08:21:40+00:00",
+  "source": "A modified part from a KGS game..",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 24,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

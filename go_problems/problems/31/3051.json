@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3051,
+  "elo": 1459.0806273883,
+  "problemLevel": 27,
+  "rank": {
+    "value": 3,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -4,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ra]AB[qb]AB[pb]AB[rc]AB[sc]AW[oa]AW[ob]AW[oc]AW[pc]AW[qc]AW[rd]AW[sd]AB[nb]AB[nc]AB[nd]AB[nf]AB[ne]AW[qd]AW[pe]AB[pf]AB[qf]AB[re]AB[rg]C[How many starting first moves can white play in order to live?]LB[nh:0]LB[ph:2]LB[qh:3]LB[rh:4]LB[oh:1]AP[goproblems]\n(;W[oh];B[ph]C[Correct. Please proceed to make the white group live.]\n(;W[sb];B[rb];W[pa]C[Excellent job!RIGHT])\n(;W[pa];B[sb];W[qa];B[od];W[rb];B[qb];W[pb];B[rb];W[sa];B[rb]C[Rabbity six.])\n(;W[od];B[pa])\n(;W[na]C[NOTTHIS]))\n(;W[pa]C[NOTTHIS])\n(;W[qa]C[NOTTHIS])\n(;W[sb]C[NOTTHIS])\n(;W[rb]C[NOTTHIS])\n(;W[sa]C[NOTTHIS])\n(;W[na]C[NOTTHIS])\n(;W[od]C[NOTTHIS])\n(;W[pd]C[NOTTHIS])\n(;W[oe]C[NOTTHIS])\n(;W[qe]C[NOTTHIS])\n(;W[se]C[NOTTHIS]))",
+  "author": {
+    "id": 288,
+    "name": "unkx80",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-01-08",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1846.73
+  },
+  "avgSolveTimeSeconds": 66,
+  "attempts": {
+    "solved": 559,
+    "failed": 2186,
+    "tries": 2745,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-10-04T11:26:59+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 18278,
+  "elo": 1154.06872888,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ac]AB[bb]AB[cd]AB[cc]AB[dd]AB[ed]AB[ec]AB[eb]AB[ea]AB[da]AW[cb]AW[bc]AW[ad]AW[bd]AW[be]AW[de]AW[ce]AW[ee]AW[fe]AW[fd]AW[fc]AW[fb]AW[fa]AP[goproblems]\n(;B[ba]\n(;W[ab]C[CHOICE]\n(;B[db]C[RIGHT])\n(;B[ca];W[db]))\n(;W[db];B[ab]C[RIGHT]))\n(;B[ca]\n(;W[ab]\n(;B[db];W[ba]C[Adv. ko])\n(;B[ba];W[db]C[]))\n(;W[ba]\n(;B[aa];W[db]LB[ab:A]C[ko])\n(;B[db];W[ab]C[ko])))\n(;B[ab];W[ba]C[])\n(;B[db];W[ba];B[ca];W[ab]C[Adv. ko]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 1176,
+    "failed": 1692,
+    "tries": 2868,
+    "speedSolved": 6,
+    "speedPlay": 29
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-11-23T16:15:42+00:00",
+  "source": "Encyclopedia of Life and Death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 179,
+      "name": "Encyclopedia of Life and Death - Easy",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 188,
+      "name": "Yi Ch'ang-ho's Selected Life and Death Go Problems Book 3",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11168,
+  "elo": 1029.5154237643,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": -3,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Black is already alive, but how many ko threats can White milk out of this position?",
+  "rating": {
+    "stars": 3.4,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sc]AB[sb]AB[rb]AB[qc]AB[pc]AB[oc]AB[ob]AB[oa]AW[na]AW[nb]AW[nc]AW[od]AW[nd]AW[pd]AW[qd]AW[rd]AW[rc]AW[sd]AB[qb]AW[pb]AW[qa]AW[ra]C[How many ko threats can White make?FORCE]LB[lb:1]LB[la:0]LB[lc:2]LB[ld:3]AP[goproblems]\r\n(;W[la]C[Nope, there's at least one.])\r\n(;W[lb];B[ld]C[Show me]\r\n(;W[sa];B[pa]C[You could've had more...])\r\n(;W[pa];B[sa]C[You've got another ko threat...]))\r\n(;W[lc];B[lb]C[Show me]\r\n(;W[pa];B[sa]\r\n(;W[qa];B[pa]C[Right on!RIGHT])\r\n(;W[pa];B[qa]C[Right on!RIGHT]))\r\n(;W[sa];B[pa]C[You indeed had 2 ko threats, but you played the wrong move.]))\r\n(;W[ld]C[Not quite that many...]))",
+  "author": {
+    "id": 15043,
+    "name": "elciego",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-10-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 4609,
+    "failed": 3765,
+    "tries": 8374,
+    "speedSolved": 1,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-04-03T11:27:51+00:00",
+  "source": "modified from gobase.org",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

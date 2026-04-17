@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11740,
+  "elo": 1444.0737350624,
+  "problemLevel": 26,
+  "rank": {
+    "value": 4,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "P.S. after black plays once the chosen number of moves in a row, the game continues normally.",
+  "rating": {
+    "stars": 3,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[nc]AB[od]AB[oe]AB[of]AB[lc]AB[kd]AB[ke]AB[kf]AB[lg]AB[mg]AB[ng]AW[pg]AW[pf]AW[pe]AW[pd]AW[ob]AW[oc]AW[kb]AW[kc]AW[jc]AW[jd]AW[je]AW[jf]AW[jg]AW[kh]AW[lh]AW[mh]AW[nh]AW[oh]AW[pc]AW[me]AB[mc]AW[lb]AW[mb]AW[nb]AW[og]AW[kg]LB[ka:1]LB[la:2]LB[ma:3]LB[na:4]LB[oa:5]C[At least how many moves in a row must black play if he wants to make his group unconditionaly alive with points? FORCE]AP[goproblems]\n(;B[la];W[ma]C[Play them!]\n(;B[md];W[na];B[mf]C[Nice, black lives with points! :)RIGHT])\n(;B[le];W[na];B[ne]C[Nice, black lives with points! :)RIGHT])\n(;B[ne];W[na];B[le]C[Nice, black lives with points! :)RIGHT])\n(;B[mf];W[na];B[md]C[Nice, black lives with points! :)RIGHT])\n(;B[nd];W[na];B[lf];W[ld];B[le];W[nf];B[md]C[Only seki])\n(;B[lf];W[na];B[nd];W[ld];B[le];W[nf];B[md]C[Only seki])\n(;B[ld];W[na]\n(;B[nf];W[nd];B[ne];W[lf];B[md]C[Only seki])\n(;B[nd];W[lf];B[nf]C[Only seki]))\n(;B[nf];W[na];B[ld];W[nd];B[ne];W[lf];B[md]C[Only seki]))\n(;B[ka]C[Unfortunately, only one move does not help you much here])\n(;B[ma]C[Nice try, but not the exact answer])\n(;B[na]C[Four is too much])\n(;B[oa]C[Five? Too much..]))",
+  "author": {
+    "id": 23412,
+    "name": "saiko*",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2008-12-16",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 384,
+    "failed": 591,
+    "tries": 975,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-09-25T12:20:53+00:00",
+  "source": "A gift",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

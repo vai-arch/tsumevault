@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21287,
+  "elo": 1943.1202053655,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "scp/2",
+  "rating": {
+    "stars": 5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]SZ[7]C[Black can capture white and there is only one way to do this. Moreover, black can capture this group even if white adds a stone at one of the marked points.\r\n\r\nI have added only two moves in each wrong variation and it might be not obvious in some cases why that or this move is wrong. Adding 3-4 moves in each wrong line wouldn't be a problem, but then the SGF file would be way too big and the site would hang for a couple minutes before rendering the problem.]\r\n  AB[fa][fb][fc][fd][ae][be][ce][de][ee][fe]\r\n  AW[eb][ad][bd][cd][dd]\r\n  TR[aa][ab][ac][bc][ed]\r\n\r\n  (;B[cc];W[dc]\r\n      (;B[cb];W[db])\r\n      (;B[ca];W[db])\r\n      (;B[da];W[cb])\r\n      (;B[ea];W[cb])\r\n      (;B[ec];W[db])\r\n      (;B[ed];W[db])\r\n      (;B[ba];W[db])\r\n      (;B[ab];W[db])\r\n      (;B[db];W[cb])\r\n      (;B[bb];W[db]))\r\n  (;B[cb];W[db]\r\n      (;B[cc];W[dc]\r\n          (;B[ca];W[ab])\r\n          (;B[da];W[ea])\r\n          (;B[ea];W[da])\r\n          (;B[ec];W[ba])\r\n          (;B[ed];W[ba])\r\n          (;B[ba];W[ab])\r\n          (;B[ab];W[ba])\r\n          (;B[bb];W[ba]))\r\n      (;B[ca];W[bb]\r\n          (;B[cc];W[dc])\r\n          (;B[da];W[ea])\r\n          (;B[ea];W[ba])\r\n          (;B[ec];W[dc])\r\n          (;B[ba];W[dc])\r\n          (;B[ab];W[ba])\r\n          (;B[dc];W[ec])\r\n          (;B[bc];W[ac]))\r\n      (;B[da];W[bb]\r\n          (;B[cc];W[ba])\r\n          (;B[ca];W[ea])\r\n          (;B[ea];W[ba])\r\n          (;B[ec];W[ba])\r\n          (;B[ed];W[dc])\r\n          (;B[ba];W[cc])\r\n          (;B[aa];W[dc])\r\n          (;B[ab];W[ba])\r\n          (;B[ac];W[dc])\r\n          (;B[dc];W[ec])\r\n          (;B[bc];W[ac]))\r\n      (;B[ea];W[bb]\r\n          (;B[cc];W[bc])\r\n          (;B[ca];W[ba])\r\n          (;B[da];W[ba])\r\n          (;B[ec];W[dc])\r\n          (;B[ed];W[dc])\r\n          (;B[ba];W[da])\r\n          (;B[ab];W[ca])\r\n          (;B[ac];W[dc])\r\n          (;B[dc];W[ca])\r\n          (;B[bc];W[ca]))\r\n      (;B[ec];W[dc]\r\n          (;B[cc];W[ba])\r\n          (;B[ca];W[bb])\r\n          (;B[da];W[ba])\r\n          (;B[ea];W[bb])\r\n          (;B[ed];W[bb])\r\n          (;B[ba];W[bb])\r\n          (;B[ab];W[bb])\r\n          (;B[ac];W[ab])\r\n          (;B[bb];W[ab])\r\n          (;B[bc];W[ba]))\r\n      (;B[ed];W[dc]\r\n          (;B[cc];W[ba])\r\n          (;B[ca];W[ab])\r\n          (;B[da];W[bb])\r\n          (;B[ea];W[bb])\r\n          (;B[ec];W[bb])\r\n          (;B[ba];W[bb])\r\n          (;B[ab];W[ba])\r\n          (;B[ac];W[ab])\r\n          (;B[bb];W[ab])\r\n          (;B[bc];W[ab]))\r\n      (;B[ba];W[bb]\r\n          (;B[cc];W[dc])\r\n          (;B[ca];W[dc])\r\n          (;B[da];W[cc])\r\n          (;B[ea];W[da])\r\n          (;B[ec];W[dc])\r\n          (;B[ed];W[dc])\r\n          (;B[ab];W[bc])\r\n          (;B[ac];W[ab])\r\n          (;B[dc];W[ec])\r\n          (;B[bc];W[ab]))\r\n      (;B[aa];W[dc]\r\n          (;B[da];W[bb])\r\n          (;B[ea];W[ba]))\r\n      (;B[ab];W[bb]\r\n          (;B[cc];W[dc])\r\n          (;B[ca];W[ba])\r\n          (;B[da];W[ba])\r\n          (;B[ea];W[ca])\r\n          (;B[ec];W[dc])\r\n          (;B[ed];W[ba])\r\n          (;B[ba];W[bc])\r\n          (;B[ac];W[bc])\r\n          (;B[dc];W[ca])\r\n          (;B[bc];W[ba]))\r\n      (;B[ac];W[dc]\r\n          (;B[ca];W[ab])\r\n          (;B[da];W[bb])\r\n          (;B[ea];W[bb])\r\n          (;B[ec];W[ab])\r\n          (;B[ed];W[ab])\r\n          (;B[ba];W[ab])\r\n          (;B[ab];W[ba])\r\n          (;B[bb];W[ca])\r\n          (;B[bc];W[ba]))\r\n      (;B[bb];W[dc]\r\n          (;B[cc];W[ba]\r\n              (;B[ca];W[ab])\r\n              (;B[da];W[ea])\r\n              (;B[ea];W[da])\r\n              (;B[ab];W[ca]))\r\n          (;B[ca];W[ab]\r\n              (;B[da];W[ea])\r\n              (;B[ea];W[da])\r\n              (;B[ac];W[bc])\r\n              (;B[bc];W[ac]))\r\n          (;B[da];W[ea]\r\n              (;B[ca];W[ab]\r\n                  (;B[ac];W[bc])\r\n                  (;B[bc];W[ba]))\r\n              (;B[ec];W[ca]\r\n                  (;B[ba];W[ab])\r\n                  (;B[ab];W[ba]))\r\n              (;B[ed];W[ca]\r\n                  (;B[ba];W[ab])\r\n                  (;B[ab];W[ba]))\r\n              (;B[ba];W[ab])\r\n              (;B[ab];W[ca]\r\n                  (;B[ec];W[ba])\r\n                  (;B[ed];W[ba])\r\n                  (;B[ba]C[RIGHT]))\r\n              (;B[ac];W[ba]\r\n                  (;B[ca];W[bc])\r\n                  (;B[ec];W[ca])\r\n                  (;B[ed];W[ca])\r\n                  (;B[ab];W[ca])\r\n                  (;B[bc];W[ca]))\r\n              (;B[bc];W[ba]\r\n                  (;B[ca];W[ab])\r\n                  (;B[ab];W[ca])\r\n                  (;B[ac];W[ca])))\r\n          (;B[ea];W[da]\r\n              (;B[cc];W[ba]\r\n                  (;B[ca];W[ab])\r\n                  (;B[ab];W[ca]))\r\n              (;B[ca];W[ab]\r\n                  (;B[ac];W[bc])\r\n                  (;B[bc];W[ba]))\r\n              (;B[ec];W[ab])\r\n              (;B[ed];W[ba]\r\n                  (;B[ca];W[ab])\r\n                  (;B[aa];W[ab])\r\n                  (;B[ab];W[ca])\r\n                  (;B[ac];W[ca]))\r\n              (;B[ba];W[ab]\r\n                  (;B[ac];W[bc])\r\n                  (;B[bc];W[ac]))\r\n              (;B[ab];W[ca]\r\n                  (;B[cc];W[ba])\r\n                  (;B[ec];W[ba])\r\n                  (;B[ed];W[ba])\r\n                  (;B[ba]C[RIGHT])\r\n                  (;B[ac];W[ba])\r\n                  (;B[bc];W[ba]))\r\n              (;B[ac];W[ca]\r\n                  (;B[ec];W[ba])\r\n                  (;B[ed];W[ba])\r\n                  (;B[ba];W[bc])\r\n                  (;B[ab];W[ba])\r\n                  (;B[bc];W[ba]))\r\n              (;B[bc];W[ba]\r\n                  (;B[ca];W[ab])\r\n                  (;B[ab];W[ca])\r\n                  (;B[ac];W[ca])))\r\n          (;B[ec];W[ab]\r\n              (;B[da];W[ea])\r\n              (;B[ea];W[da])\r\n              (;B[ac];W[bc])\r\n              (;B[bc];W[ba]))\r\n          (;B[ed];W[ab]\r\n              (;B[da];W[ea])\r\n              (;B[ea];W[da])\r\n              (;B[ac];W[bc])\r\n              (;B[bc];W[ba]))\r\n          (;B[ba];W[ab]\r\n              (;B[da];W[ea])\r\n              (;B[ea];W[da])\r\n              (;B[ac];W[bc])\r\n              (;B[bc];W[da]))\r\n          (;B[ab];W[ca]\r\n              (;B[cc];W[ba]\r\n                  (;B[da];W[ea])\r\n                  (;B[ea];W[da])\r\n                  (;B[aa];W[da]))\r\n              (;B[da];W[ea]\r\n                  (;B[ec];W[ba])\r\n                  (;B[ed];W[ba])\r\n                  (;B[ba]C[RIGHT]))\r\n              (;B[ea];W[da]\r\n                  (;B[cc];W[ba])\r\n                  (;B[ec];W[ba])\r\n                  (;B[ed];W[ba])\r\n                  (;B[ba]C[RIGHT])\r\n                  (;B[ac];W[ba])\r\n                  (;B[bc];W[ba]))\r\n              (;B[ec];W[ba]\r\n                  (;B[da];W[ea])\r\n                  (;B[ea];W[da])\r\n                  (;B[aa];W[da]))\r\n              (;B[ed];W[ba]\r\n                  (;B[da];W[ea])\r\n                  (;B[ea];W[da])\r\n                  (;B[aa];W[da]))\r\n              (;B[ba]C[RIGHT])\r\n              (;B[ac];W[ba]\r\n                  (;B[da];W[ea])\r\n                  (;B[ea];W[da])\r\n                  (;B[aa];W[da]))\r\n              (;B[bc];W[ba]\r\n                  (;B[da];W[ea])\r\n                  (;B[ea];W[da])\r\n                  (;B[aa];W[da])))\r\n          (;B[ac];W[ca]\r\n              (;B[da];W[ea])\r\n              (;B[ea];W[da])\r\n              (;B[ec];W[ba])\r\n              (;B[ed];W[ba])\r\n              (;B[ba];W[da])\r\n              (;B[ab];W[ba])\r\n              (;B[bc];W[ba]))\r\n          (;B[bc];W[ab]\r\n              (;B[ca];W[ac])\r\n              (;B[da];W[ea])\r\n              (;B[ea];W[da])\r\n              (;B[ec];W[ba])\r\n              (;B[ed];W[ba])\r\n              (;B[ba];W[da])\r\n              (;B[aa];W[ba])\r\n              (;B[ac];W[ca])))\r\n      (;B[dc];W[bb]\r\n          (;B[cc];W[ec])\r\n          (;B[ca];W[ec])\r\n          (;B[da];W[ec])\r\n          (;B[ea];W[ca])\r\n          (;B[ec];W[cc])\r\n          (;B[ed];W[ca])\r\n          (;B[ba];W[ec])\r\n          (;B[ab];W[ca])\r\n          (;B[ac];W[bc])\r\n          (;B[bc];W[ca]))\r\n      (;B[bc];W[dc]\r\n          (;B[ca];W[ab])\r\n          (;B[da];W[ba])\r\n          (;B[ea];W[ba])\r\n          (;B[ec];W[ba])\r\n          (;B[ed];W[ab])\r\n          (;B[ba];W[ab])\r\n          (;B[ab];W[ba])\r\n          (;B[ac];W[ba])\r\n          (;B[bb];W[ab])))\r\n  (;B[ca];W[dc]\r\n      (;B[cc];W[db])\r\n      (;B[cb];W[bb])\r\n      (;B[da];W[bb])\r\n      (;B[ea];W[cb])\r\n      (;B[ec];W[db])\r\n      (;B[ed];W[db])\r\n      (;B[ba];W[db])\r\n      (;B[aa];W[db])\r\n      (;B[ab];W[bb])\r\n      (;B[ac];W[db])\r\n      (;B[db];W[cb])\r\n      (;B[bb];W[db])\r\n      (;B[bc];W[db]))\r\n  (;B[da];W[bb]\r\n      (;B[cc];W[bc])\r\n      (;B[cb];W[ba])\r\n      (;B[ca];W[dc])\r\n      (;B[ea];W[cb])\r\n      (;B[ec];W[ca])\r\n      (;B[ed];W[dc])\r\n      (;B[ba];W[cb])\r\n      (;B[ab];W[cb])\r\n      (;B[ac];W[dc])\r\n      (;B[db];W[ec])\r\n      (;B[dc];W[cb])\r\n      (;B[bc];W[dc]))\r\n  (;B[ea];W[cb]\r\n      (;B[cc];W[dc])\r\n      (;B[ca];W[dc])\r\n      (;B[da];W[bb])\r\n      (;B[ec];W[db])\r\n      (;B[ba];W[dc])\r\n      (;B[aa];W[cc])\r\n      (;B[ab];W[dc])\r\n      (;B[db];W[ca])\r\n      (;B[bb];W[ba])\r\n      (;B[dc];W[cc])\r\n      (;B[bc];W[cc]))\r\n  (;B[ec];W[cb]\r\n      (;B[cc];W[bc])\r\n      (;B[ca];W[da])\r\n      (;B[da];W[ab])\r\n      (;B[ea];W[db])\r\n      (;B[ba];W[da])\r\n      (;B[ab];W[bb])\r\n      (;B[db];W[ab])\r\n      (;B[bb];W[ba])\r\n      (;B[dc];W[cc]))\r\n  (;B[ed];W[ba]\r\n      (;B[cc];W[dc])\r\n      (;B[cb];W[bb])\r\n      (;B[ca];W[dc])\r\n      (;B[da];W[dc])\r\n      (;B[ea];W[dc])\r\n      (;B[ec];W[cb])\r\n      (;B[ab];W[dc])\r\n      (;B[ac];W[dc])\r\n      (;B[db];W[cb])\r\n      (;B[bb];W[cb])\r\n      (;B[dc];W[cb])\r\n      (;B[bc];W[dc]))\r\n  (;B[ba];W[db]\r\n      (;B[cc];W[dc])\r\n      (;B[cb];W[bb])\r\n      (;B[ca];W[dc])\r\n      (;B[da];W[ea])\r\n      (;B[ea];W[cb])\r\n      (;B[ec];W[dc])\r\n      (;B[ed];W[bc])\r\n      (;B[ab];W[cb])\r\n      (;B[ac];W[dc])\r\n      (;B[bb];W[ab])\r\n      (;B[dc];W[cc])\r\n      (;B[bc];W[ab]))\r\n  (;B[aa];W[dc]\r\n      (;B[cb];W[bb])\r\n      (;B[ca];W[db])\r\n      (;B[da];W[bb])\r\n      (;B[ea];W[ba])\r\n      (;B[ec];W[db])\r\n      (;B[db];W[cb]))\r\n  (;B[ab];W[cb]\r\n      (;B[cc];W[dc])\r\n      (;B[ca];W[dc])\r\n      (;B[da];W[bb])\r\n      (;B[ea];W[dc])\r\n      (;B[ec];W[bb])\r\n      (;B[ed];W[ac])\r\n      (;B[db];W[dc])\r\n      (;B[bb];W[dc])\r\n      (;B[dc];W[cc])\r\n      (;B[bc];W[dc]))\r\n  (;B[ac];W[dc]\r\n      (;B[cb];W[db])\r\n      (;B[ca];W[db])\r\n      (;B[da];W[ab])\r\n      (;B[ea];W[bb])\r\n      (;B[ec];W[db])\r\n      (;B[ed];W[db])\r\n      (;B[ba];W[db])\r\n      (;B[ab];W[db])\r\n      (;B[db];W[cb])\r\n      (;B[bb];W[db])\r\n      (;B[bc];W[db]))\r\n  (;B[db];W[cb]\r\n      (;B[cc];W[dc])\r\n      (;B[ca];W[dc])\r\n      (;B[da];W[dc])\r\n      (;B[ea];W[ca])\r\n      (;B[ec];W[ab])\r\n      (;B[ed];W[cc])\r\n      (;B[ba];W[ca])\r\n      (;B[ab];W[dc])\r\n      (;B[bb];W[dc])\r\n      (;B[dc];W[cc])\r\n      (;B[bc];W[dc]))\r\n  (;B[bb];W[cb]\r\n      (;B[cc];W[dc])\r\n      (;B[ca];W[da])\r\n      (;B[da];W[dc])\r\n      (;B[ea];W[ba])\r\n      (;B[ec];W[ba])\r\n      (;B[ed];W[ba])\r\n      (;B[ba];W[dc])\r\n      (;B[ab];W[dc])\r\n      (;B[db];W[dc])\r\n      (;B[dc];W[cc])\r\n      (;B[bc];W[cc]))\r\n  (;B[dc];W[cb]\r\n      (;B[cc];W[bc])\r\n      (;B[ca];W[cc])\r\n      (;B[da];W[cc])\r\n      (;B[ea];W[cc])\r\n      (;B[ec];W[cc])\r\n      (;B[ed];W[cc])\r\n      (;B[ba];W[cc])\r\n      (;B[ab];W[cc])\r\n      (;B[db];W[cc])\r\n      (;B[bb];W[cc])\r\n      (;B[bc];W[cc]))\r\n  (;B[bc];W[dc]\r\n      (;B[cb];W[db])\r\n      (;B[ca];W[db])\r\n      (;B[da];W[cb])\r\n      (;B[ea];W[ba])\r\n      (;B[ec];W[db])\r\n      (;B[ed];W[db])\r\n      (;B[ba];W[cb])\r\n      (;B[ab];W[cb])\r\n      (;B[ac];W[db])\r\n      (;B[db];W[cb])\r\n      (;B[bb];W[da])))",
+  "author": {
+    "id": 74533,
+    "name": "aik",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2018-09-22",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1947.8
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 8,
+    "failed": 92,
+    "tries": 100,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-08-08T04:22:28+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

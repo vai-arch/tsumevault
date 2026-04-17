@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8906,
+  "elo": 1309.9580619831,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Thanks to BartTM for the comment.\r\nRelated problem 9258",
+  "rating": {
+    "stars": 4.5,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[ca]AW[da]AW[ea]AW[bb]AW[db]AW[cc]AW[ad]AW[bd]AW[de]AW[ee]AW[df]AW[ag]AW[bg]AW[cg]AW[dg]AW[fg]AW[gg]AW[eh]AW[fh]AW[hh]AW[ih]AB[fa]AB[eb]AB[fb]AB[dc]AB[fc]AB[cd]AB[dd]AB[ed]AB[fd]AB[ae]AB[be]AB[ce]AB[fe]AB[cf]AB[ef]AB[ff]AB[gf]AB[hf]AB[eg]AB[hg]AB[ig]AB[dh]AW[ch]LB[dh:1]LB[ch:2]C[White responded to black 1 with 2, which was a mistake.  Punish him and win.]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[Blanc]PB[Noir]TW[aa]TW[ba]TW[ab]TW[cb]TW[ac]TW[bc]TB[ga]TB[ha]TB[ia]TB[gb]TB[hb]TB[ib]TB[ec]TB[gc]TB[hc]TB[ic]TB[gd]TB[hd]TB[id]TB[ge]TB[he]TB[ie]TB[if]\r\n(;B[ab];W[bc]\r\n(;B[ba];W[aa]\r\n(;B[gi];W[ba];B[gh];W[di]\r\n(;B[hi];W[fi];B[ii]C[That's it! The marked formation was the source of white's weakness.RIGHT]TR[bb]TR[cc]TR[db]TR[bd])\r\n(;B[ii];W[fi];B[hi]C[That's it! The marked formation was the source of white's weakness.RIGHT]TR[bb]TR[cc]TR[db]TR[bd])\r\n(;B[fi];W[ei]))\r\n(;B[gh];W[ba];B[gi];W[di]\r\n(;B[hi];W[fi];B[ii]C[That's it! The marked formation was the source of white's weakness.RIGHT]TR[bb]TR[cc]TR[db]TR[bd])\r\n(;B[ii];W[fi];B[hi]C[That's it! The marked formation was the source of white's weakness.RIGHT]TR[bb]TR[cc]TR[db]TR[bd])\r\n(;B[fi];W[ei]))\r\n(;B[di];W[ba]C[The D1 group doesn't really threaten white.]))\r\n(;B[aa];W[ba]C[The lower white groups are safe now the ko threat has gone...]))\r\n(;B[gi];W[gh]\r\n(;B[ab];W[bc];B[ba];W[aa]C[You don't have a ko threat])\r\n(;B[ei];W[di])\r\n(;B[fi];W[di])\r\n(;B[hi];W[di])\r\n(;B[ci];W[di])\r\n(;B[di];W[ci]))\r\n(;B[gh];W[gi];B[ab];W[bc];B[ba];W[aa]C[You don't have a ko threat])\r\n(;B[di];W[ab]\r\n(;B[gi];W[gh])\r\n(;B[ci];W[bi])\r\n(;B[ei];W[fi])\r\n(;B[fi];W[gi])\r\n(;B[bi];W[ci]))\r\n(;B[ac];W[bc]C[Now what?])\r\n(;B[ci];W[di];B[ab];W[bc];B[ba];W[aa]C[You don't have a ko threat])\r\n(;B[ei];W[di];B[ab];W[bc];B[ba];W[aa]C[You don't have a ko threat])\r\n(;B[bc];W[ac])\r\n(;B[aa];W[ab])\r\n(;B[ba];W[aa]))",
+  "author": {
+    "id": 14046,
+    "name": "ldan",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-07-24",
+    "rank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1162.66
+  },
+  "avgSolveTimeSeconds": 78,
+  "attempts": {
+    "solved": 1661,
+    "failed": 3074,
+    "tries": 4735,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-07-20T05:09:44+00:00",
+  "source": "Memory of a  yahoo game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

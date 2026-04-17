@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9669,
+  "elo": 1077.4457354222,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -6,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "NOTICE: This problem is valid only assuming Chinese rules.",
+  "rating": {
+    "stars": 2.8,
+    "votes": 37,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[ca]AB[da]AB[ea]AB[eb]AB[ec]AB[fd]AB[ee]AB[ef]AB[ff]AB[fg]AB[fh]AB[fi]AW[ei]AW[eh]AW[eg]AW[df]AW[de]AW[cd]AW[dc]AW[db]AW[cb]AW[ba]AW[bc]AW[cg]C[Chinese rules, komi is 7.5. Black to win the game.]AW[bb]AW[bh]AB[gc]AP[goproblems]\r\n(;B[dd];W[ed]\r\n(;B[dg];W[dh];B[dd]C[White has no threats so after Black fills in the result is B+1.5.RIGHT])\r\n(;B[dh];W[dg];B[dd]C[White has no threats so after Black fills in the result is B+1.5.RIGHT])\r\n(;B[ch];W[dd]C[This was not a ko threat. The result is W+2.5.])\r\n(;B[di];W[dd]C[This was not a ko threat. The result is W+2.5.]))\r\n(;B[ed];W[dd]C[The result is W+0.5 (Chinese rules, remember).])\r\n(;B[dg];W[dh]\r\n(;B[dd];W[ed]C[Black has no ko threats now so White will fill in and the result will be W+2.5.])\r\n(;B[ed];W[dd]C[The result is W+0.5 (Chinese rules, remember).]))\r\n(;B[dh];W[dg]\r\n(;B[dd];W[ed]C[Black has no ko threats now so White will fill in and the result will be W+2.5.])\r\n(;B[ed];W[dd]C[The result is W+0.5 (Chinese rules, remember).])))",
+  "author": {
+    "id": 16859,
+    "name": "MatheusB",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2010-02-23",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 41,
+  "attempts": {
+    "solved": 4784,
+    "failed": 5073,
+    "tries": 9857,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-01-16T15:31:26+00:00",
+  "source": "My mind.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 72,
+      "name": "Rule Set Dependent",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 29,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

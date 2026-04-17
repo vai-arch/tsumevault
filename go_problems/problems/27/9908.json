@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9908,
+  "elo": 1108.495386905,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Inspired by problem 3150.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 41,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[kk]AB[kj]AB[hk]AB[hj]AB[hi]AB[nl]AB[nk]AB[nj]AB[ni]AB[nh]AW[mh]AW[lh]AW[kh]AW[jh]AW[ih]AW[hh]AW[gh]AW[fh]AW[fi]AW[fj]AW[fk]AW[fl]AW[gl]AW[hl]AW[il]AW[jl]AW[kl]AW[ll]AW[ml]TR[hi]TR[hj]TR[hk]C[Black to save the marked stones.]AP[goproblems]\r\n(;B[ki];W[li]\r\n(;B[lj];W[mj];B[mk];W[lk];B[mi];W[jj]C[FORCE]\r\n(;B[ji];W[ii];B[jk];W[ij];B[ik]C[Well done!RIGHT])\r\n(;B[ii];W[ji]TR[ik]TR[jk])\r\n(;B[ij];W[ji]TR[ik]TR[jk]))\r\n(;B[lk];W[mk]TR[lj]TR[mj])\r\n(;B[mi];W[lj]TR[lk]TR[mk])\r\n(;B[mj];W[lj]TR[lk]TR[mk])\r\n(;B[mk];W[lk];B[lj];W[jj]C[FORCE]\r\n(;B[ji];W[ii];B[jk];W[ik];B[ij]C[Very good!RIGHT])\r\n(;B[ii];W[ji]TR[ik]TR[jk])\r\n(;B[ij];W[ji]TR[ik]TR[jk])))\r\n(;B[ik]C[See Black J10 variation.])\r\n(;B[ij];W[lj]\r\n(;B[ki];W[li]TR[lk]TR[mk])\r\n(;B[li];W[lk]TR[ki]TR[mi])\r\n(;B[mi];W[li]TR[lk]TR[mk])\r\n(;B[mj];W[lk]TR[li]TR[mi])\r\n(;B[lk];W[mk];B[li];W[mj]TR[ki]TR[mi])\r\n(;B[mk];W[lk]TR[li]TR[mi]))\r\n(;B[ii]C[See Black J10 variation.])\r\n(;B[jk]C[See Black J10 variation.])\r\n(;B[jj]C[See Black J10 variation.])\r\n(;B[ji]C[See Black J10 variation.])\r\n(;B[lk]C[See Black M10 variation.])\r\n(;B[lj];W[jj]\r\n(;B[ii];W[ji]TR[ik]TR[jk])\r\n(;B[ji];W[jk]TR[ii]TR[ki])\r\n(;B[ki];W[jk]TR[ii]TR[ji])\r\n(;B[ij];W[ji]TR[ik]TR[jk])\r\n(;B[ik];W[jk]TR[ji]TR[ki])\r\n(;B[jk];W[ik];B[ji];W[ij]TR[ii]TR[ki]))\r\n(;B[li]C[See Black M10 variation.])\r\n(;B[mk]C[See Black M10 variation.])\r\n(;B[mj]C[See Black M10 variation.])\r\n(;B[mi]C[See Black M10 variation.]))",
+  "author": {
+    "id": 14657,
+    "name": "Edgardo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-10",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 16,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 742.369
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 4724,
+    "failed": 4490,
+    "tries": 9214,
+    "speedSolved": 9,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-03-30T09:11:31+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

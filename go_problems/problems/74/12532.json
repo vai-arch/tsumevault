@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12532,
+  "elo": 801.19621447242,
+  "problemLevel": 3,
+  "rank": {
+    "value": 27,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -4,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "A simpler fuseki problem this time. I tried a variation, but I don't have much experience in that sort of thing.",
+  "rating": {
+    "stars": 1.6,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[mq]AB[gq]AB[po]AB[qn]AW[dq]AW[co]AW[qo]AW[qp]AW[pq]C[A or B?]LB[jq:A]LB[jp:B]AP[goproblems]\r\n(;B[al]C[This path is here just so the board view is the same as in the book.])\r\n(;B[jp]C[Good shape and better influence than A; can't be suppressed.RIGHT])\r\n(;B[jq]C[Too flat. White could suppress black if necessary.];W[ip];B[iq];W[gp];B[hp];W[ho];B[hq];W[go]C[One possible variation (not sure about this though). It isn't necessary to give white the option.]))",
+  "author": {
+    "id": 29217,
+    "name": "dischord",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-10-08",
+    "rank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1627.09
+  },
+  "avgSolveTimeSeconds": 14,
+  "attempts": {
+    "solved": 9757,
+    "failed": 4537,
+    "tries": 14294,
+    "speedSolved": 2,
+    "speedPlay": 7
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-04-03T21:52:10+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

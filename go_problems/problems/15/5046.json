@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5046,
+  "elo": 1246.4695050133,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This problem show the difference between the best middle game sequence and the best end game sequence for the same local position.",
+  "rating": {
+    "stars": 3.8,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[9]KM[0.50]\r\nPW[Blanc]PB[Noir]AW[hb][ib][fc][hc][cd][dd][ed][gd][hd][fe][ge][bf][cf]AB[ic][id][de][ee][ie][df][ff][gf][hf][if][bg][cg][eg]C[Komi 0.5, no prisoniers, Japanese rules, it is black's turn.]\r\n(;B[be]CR[be]\r\n;W[ce]CR[ce]\r\n;B[af]CR[af]\r\n;W[ad]CR[ad]\r\n(;B[ae]CR[ae]\r\n;W[bd]CR[bd]\r\n;B[ag]CR[ag]C[RIGHT Black is winning by 0.5 points])\r\n(;B[bd]CR[bd]\r\n;W[bc]CR[bc]))\r\n(;B[ce]CR[ce]\r\n;W[be]CR[be]\r\n;B[af]CR[af]\r\n;W[ad]CR[ad]\r\n;B[ag]CR[ag]\r\n;W[ae]CR[ae]C[Black is losing by 0.5 points])\r\n(;B[ae]CR[ae]\r\n;W[be]CR[be]\r\n;B[af]CR[af]\r\n;W[ad]CR[ad]\r\n;B[ag]CR[ag]\r\n;W[ce]CR[ce]C[Black is losing by 0.5 points])\r\n(;B[af]CR[af]\r\n;W[be]CR[be]\r\n(;B[ae]CR[ae]\r\n;W[ad]CR[ad]\r\n;B[ag]CR[ag]\r\n;W[ce]CR[ce]C[Black is losing by 0.5 points])\r\n(;B[ce]CR[ce]\r\n;W[ad]CR[ad]\r\n;B[ag]CR[ag]\r\n;W[ae]CR[ae]C[Black is losing by 0.5 points])))",
+  "author": {
+    "id": 3145,
+    "name": "karmaGfa",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 4036,
+    "failed": 6694,
+    "tries": 10730,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-09-19T05:58:51+00:00",
+  "source": "My mind",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

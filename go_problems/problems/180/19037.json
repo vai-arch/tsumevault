@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19037,
+  "elo": 1185.4957297282,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.8,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cb]AB[db]AB[ea]AB[dc]AB[bc]AB[bd]AW[eb]AW[fb]AW[cc]AW[cd]AW[dd]AW[ed]AW[be]AW[cf]AP[goproblems]\r\n(;B[ab];W[ba];B[ad];W[bb];B[ca]C[RIGHT])\r\n(;B[ad];W[ab];B[bb];W[da]\r\n(;B[aa];W[ca];B[ba];W[da]C[CHOICE])\r\n(;B[ca];W[aa]C[CHOICE]))\r\n(;B[bb];W[ad];B[ac];W[da]\r\n(;B[ca];W[aa]C[CHOICE])\r\n(;B[aa];W[ca]C[CHOICE]))\r\n(;B[ba];W[ab]\r\n(;B[ac];W[da]C[CHOICE])\r\n(;B[bb];W[da]C[CHOICE])\r\n(;B[da];W[bb]C[CHOICE]))\r\n(;B[da];W[ab];B[bb];W[ba]\r\n(;B[ac];W[aa];B[ca];W[aa]C[CHOICE])\r\n(;B[ad];W[aa]C[CHOICE])))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 1114,
+    "failed": 1432,
+    "tries": 2546,
+    "speedSolved": 4,
+    "speedPlay": 14
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-12-28T15:01:08+00:00",
+  "source": "Encyclopedia of Life and Death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 180,
+      "name": "Encyclopedia of Life and Death - Medium",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

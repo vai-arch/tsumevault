@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2600,
+  "elo": 910.10484789784,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 11,
+    "negativeFlagSum": -1,
+    "flagSum": 10
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This problem was originally posted on Sensei's library by HolIgor.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ca]AW[fa]AW[fb]AW[ec]AW[gc]AW[cd]AW[dd]AW[ed]AW[ae]AW[be]AW[de]AB[ea]AB[bb]AB[db]AB[eb]AB[ac]AB[cc]AB[dc]AB[ad]AB[bd]TR[ca]C[Black did not answer the marked stone. What can white do now?]PL[W]\n(;W[ba]\n(;B[ab]\n(;W[cb]C[sekiRIGHT])\n(;W[aa];B[cb]C[Actually, black's last move is not even necessary; it is only shown for clarity.])\n(;W[da];B[cb]C[Actually, black's last move is not even necessary. It is only shown for clarity.]))\n(;B[cb];W[ab]C[Ko for the whole group; this usually is worse for black.]))\n(;W[aa];B[ba])\n(;W[ab];B[aa]\n(;W[ba];B[ab])\n(;W[cb];B[ba]C[Actually, black's last move is not even necessary, it's only shown for clarity.]))\n(;W[cb];B[ba])\n(;W[da];B[ba]))",
+  "author": {
+    "id": 97,
+    "name": "Andre Engels",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-04-08",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1419.89
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 19725,
+    "failed": 12005,
+    "tries": 31730,
+    "speedSolved": 2,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-19T03:53:12+00:00",
+  "source": "Sensei's library",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 278,
+      "name": "saxmaam hard",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 20,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

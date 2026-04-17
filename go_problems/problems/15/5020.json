@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5020,
+  "elo": 1302.1561490571,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Can White win?  Chinese rules, komi 0.5",
+  "rating": {
+    "stars": 4.1,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[db]AW[eb]AW[ac]AW[bc]AW[cc]AW[ec]AW[hc]AW[ad]AW[fd]AW[gd]AW[hd]AW[ge]AW[ef]AW[ff]AW[gf]AW[if]AW[hg]AB[dc]AB[fc]AB[gc]AB[bd]AB[cd]AB[dd]AB[ed]AB[ae]AB[ee]AB[fe]AB[df]AB[bg]AB[eg]AB[fg]AB[gg]AB[ig]AB[hh]AB[ih]LB[ge:1]LB[ig:2]C[White to play]\n(;W[hf];B[bf]C[Black wins 41 to 40.5])\n(;W[be];B[af]\n(;W[cf]C[Nice going!RIGHT])\n(;W[bf];B[ag])\n(;W[de];B[ce])\n(;W[dg];B[cf])\n(;W[ag];B[bf])\n(;W[ce];B[de]\n(;W[cf];B[dg])\n(;W[cg];B[dg])\n(;W[dg];B[cf];W[cg];B[bf];W[bh]\n(;B[dh];W[ch];B[eh];W[ah];B[ci];W[bi];B[di]C[]\n(;W[be]C[])\n(;W[ce]C[]))\n(;B[eh]C[CHOICE]\n(;W[ch];B[ah])\n(;W[dh];B[di];W[ch];B[ah])))))\n(;W[cf];B[be];W[dg];B[de];W[cg];B[bh];W[bf];B[af]\n(;W[ch];B[ci]\n(;W[bi];B[ai];W[ag];B[ah];W[di]C[You like it complicated, don't you.RIGHT])\n(;W[ag];B[ah];W[bi];B[ai];W[di]C[You like it complicated, don't you.RIGHT]))\n(;W[ag];B[ah];W[ch];B[ci];W[bi];B[ai];W[di]C[You like it complicated, don't you.RIGHT])))",
+  "author": {
+    "id": 4786,
+    "name": "impu1se",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2005-01-24",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 2150,
+    "failed": 4108,
+    "tries": 6258,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-09-14T15:14:20+00:00",
+  "source": "KGS:  impu1se vs. Susanita",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 24,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

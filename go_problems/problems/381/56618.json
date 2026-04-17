@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 56618,
+  "elo": 1291.3986209108,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Black to play. Which move makes better shape?",
+  "rating": {
+    "stars": 5,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[go][gq][hq][io][ln][nn]AW[fo][fp][fq][iq][jo][mp][nq]LB[in:A]LB[jn:B](;B[jn]LB[ip:2]LB[ho:3]LB[hp:2]C[Correct is answer B, blocking White’s direct path out into the centre. Black\nhas nothing to fear if white plays at either 2, black can answer with 3.RIGHT])(;B[in];W[km]LB[in:1]LB[km:2]LB[kn:A]C[Simply extending back is slack shape. At some later point White may be\nable to cut Black in good shape, with the knight’s move 2. A doesn't work, but you can click it to see the book's sequence. ];B[kn];W[jn];B[jm];W[jl]LB[im:A];B[im];W[ko]LB[lo:A];B[lo];W[kq]C[White has cut black with good shape.]))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 7,
+  "attempts": {
+    "solved": 3,
+    "failed": 5,
+    "tries": 8,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2026-03-11T16:55:44+00:00",
+  "source": "https://cdn.online-go.com/shape_up.pdf",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 377,
+      "name": "Shape Up! All Problem Sets",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 381,
+      "name": "Shape Up! Problem Set 1",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 383,
+      "name": "Shape Up! (5 kyu course)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1400
+}

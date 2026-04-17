@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21919,
+  "elo": 1193.532231079,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "black to kill. this was missed by a 3 dan in the game.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nAW [da][ea][ga][eb][ib][jb][kb][ec][fc][gc][hc][fd]\r\nAB [ca][ka][la][db][lb][cc][dc][ic][jc][kc][lc][ed][gd][hd][id][ee][fe][cf]\r\nSZ[19]\r\nC[black to kill.]\r\n   (;B[hb]\r\n      (;W[ha] C[CHOICE]\r\n         (;B[ia] ;W[gb] ;B[ja] C[RIGHT correct.])\r\n         (;B[gb] ;W[fb] C[oops.])\r\n         (;B[ja] ;W[ia] C[white lives.])\r\n      )\r\n      (;W[gb] C[CHOICE]\r\n         (;B[ia] ;W[ha] ;B[ja] C[RIGHT correct.])\r\n         (;B[ja] ;W[ha] ;B[ia] C[RIGHT correct.])\r\n      )\r\n      (;W[fb] C[CHOICE]\r\n         (;B[ia] C[RIGHT correct.])\r\n         (;B[ha] C[RIGHT correct.])\r\n         (;B[ja] ;W[ha] ;B[ia] C[RIGHT correct.])\r\n      )\r\n      (;W[ia] C[CHOICE]\r\n         (;B[gb] ;W[ha] ;B[fb] ;W[fa] ;B[gb] C[RIGHT correct.])\r\n         (;B[ja] ;W[ha] ;B[gb] ;W[fb] C[oops.])\r\n      )\r\n   )\r\n\r\n   (;B[ia] ;W[hb] C[blackâ€™s J19 was the move played in the game.]\r\n      (;B[ja] ;W[fb] C[white lives.])\r\n      (;B[fb] ;W[ja] C[white lives.])\r\n   )\r\n   (;B[gb] ;W[hb] C[white lives.])\r\n   (;B[ja] ;W[ia]\r\n      (;B[hb] ;W[ha] C[white lives.])\r\n      (;B[gb] ;W[hb] C[white lives.])\r\n      (;B[fb] ;W[hb] C[white lives.])\r\n      (;B[ha] ;W[hb] C[white lives.])\r\n      (;B[fa] ;W[hb] C[white lives.])\r\n   )\r\n   (;B[fb]\r\n      (;W[ia] C[CHOICE]\r\n         (;B[gb] ;W[hb] C[white lives.])\r\n         (;B[hb] ;W[gb] C[white lives.])\r\n         (;B[ja] ;W[hb] C[white lives.])\r\n      )\r\n      (;W[hb] C[CHOICE] ;B[ja] ;W[ia] C[white lives.])\r\n   )\r\n   (;B[ha]\r\n      (;W[hb] C[CHOICE] ;B[ja] ;W[ia] C[white lives. white could tenuki, also.])\r\n      (;W[ia] C[CHOICE]\r\n         (;B[gb] ;W[hb] C[white lives.])\r\n         (;B[ja] ;W[hb] C[white lives.])\r\n      )\r\n   )\r\n   (;B[fa] ;W[ia]\r\n      (;B[gb] ;W[fb] C[white lives.])\r\n      (;B[ja]\r\n         (;W[gb] C[CHOICE white lives.])\r\n         (;W[hb] C[CHOICE white lives.])\r\n         (;W[fb] C[CHOICE white lives.])\r\n      )\r\n   )\r\n)",
+  "author": {
+    "id": 50524,
+    "name": "KarenB",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-08-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 549,
+    "failed": 906,
+    "tries": 1455,
+    "speedSolved": 4,
+    "speedPlay": 12
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2018-03-12T03:19:44+00:00",
+  "source": "from a game played on KGS.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 162,
+      "name": "Classic Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

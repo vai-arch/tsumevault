@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4187,
+  "elo": 1197.1620509745,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This problem is all about endgame efficiency.",
+  "rating": {
+    "stars": 3,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;AB[ah][bh][ch][ci][dj][dk][ei][el]\r\nAW[bi][bj][cj][ck][dl][dm][dn][cp]\r\nC[Black to play best move and keep sente.]\r\n(\r\n;B[aj]\r\n;W[ak]\r\n;B[ai]\r\n;W[bl]\r\nC[RIGHT]\r\nC[Optimun reduction and you kept sente. Well done.]\r\n)\r\n(\r\n;B[ai]\r\n;W[aj]\r\nC[You kept sente although there is a better move than the hane.]\r\n)\r\n(\r\n;B[cl]\r\n;W[bl]\r\n(\r\n;B[ai]\r\n;W[aj]\r\nC[Look elsewhere for the first move.]\r\n)\r\n(\r\n;B[aj]\r\n;W[ak]\r\n;B[ai]\r\n;W[cm]\r\nC[This is the optimun reduction although you have lost a potential ko threat.]\r\n)\r\n)\r\n(\r\n;B[ak]\r\n;W[ai]\r\nC[White has got the maximum territory and gained a prisoner.]\r\n)\r\n)",
+  "author": {
+    "id": 5840,
+    "name": "Dragon King",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-05-25",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 3445,
+    "failed": 6183,
+    "tries": 9628,
+    "speedSolved": 2,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-30T02:54:41+00:00",
+  "source": "A game I played.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 104,
+      "name": "1st Line Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 34,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

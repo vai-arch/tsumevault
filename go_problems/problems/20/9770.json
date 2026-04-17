@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9770,
+  "elo": 1208.3883873673,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": -1,
+    "flagSum": 9
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "The worth of a move can at times be calculated by adding  together what each player wins by making that move. Use this method to solve this problem.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[fa]AB[fb]AB[gb]AB[eb]AB[bb]AB[dc]AB[dd]AB[de]AB[cf]AB[ef]AB[ff]AB[fe]AB[fd]AW[ed]AW[ec]AW[fc]AW[hc]AW[hb]AW[ha]AW[ga]AW[gd]AW[ge]AW[gf]AW[id]AW[lc]LB[gc:A]LB[bh:6]LB[dh:7]LB[fh:8]LB[hh:9]LB[jh:10]LB[lh:11]C[There are no other plays and no ko threats. Place a stone on the intersection that indicates how much 'A' is worth.]AP[goproblems]\r\n(;B[fh]C[Correct! Black 'A' would win 6 points for the triangle stones and their intersections + the point 'b' for 7 points.White 'A' would force Black to play at 'c' winning a point for White. Thus, 7 + 1 = 8.RIGHT]LB[gc:A]LB[bh:6]LB[dh:7]LB[fh:8]LB[hh:9]LB[jh:10]LB[lh:11]TR[fc]TR[ec]TR[ed]LB[ee:b]LB[db:c])\r\n(;W[bh]LB[bh:6]LB[dh:7]LB[fh:8]LB[hh:9]LB[jh:10]LB[lh:11]LB[gc:A]C[Sorry, 'A' is worth more.CHOICE])\r\n(;W[dh]LB[gc:A]LB[bh:6]LB[dh:7]LB[fh:8]LB[hh:9]LB[jh:10]LB[lh:11]C[Sorry, 'A' is worth a little more.CHOICE])\r\n(;B[hh]LB[gc:A]C[Sorry, 'A' is worth a little less.CHOICE]LB[bh:6]LB[dh:7]LB[fh:8]LB[hh:9]LB[jh:10]LB[lh:11])\r\n(;W[jh]LB[gc:A]LB[bh:6]LB[dh:7]LB[fh:8]LB[hh:9]LB[jh:10]LB[lh:11]C[Sorry, 'A' is worth less.CHOICE])\r\n(;W[lh]LB[gc:A]LB[bh:6]LB[dh:7]LB[fh:8]LB[hh:9]LB[jh:10]LB[lh:11]C[Sorry, 'A' is worth much less.])\r\n(;B[gc]C[NOTTHIS])\r\n(;B[db]C[NOTTHIS])\r\n(;B[ah]C[NOTTHIS])\r\n(;B[bg]C[NOTTHIS])\r\n(;B[ch]C[NOTTHIS])\r\n(;B[bi]C[NOTTHIS])\r\n(;B[dg]C[NOTTHIS])\r\n(;B[di]C[NOTTHIS])\r\n(;B[eh]C[NOTTHIS])\r\n(;B[fg]C[NOTTHIS])\r\n(;B[fi]C[NOTTHIS])\r\n(;B[gh]C[NOTTHIS])\r\n(;B[hg]C[NOTTHIS])\r\n(;B[hi]C[NOTTHIS])\r\n(;B[ih]C[NOTTHIS])\r\n(;B[jg]C[NOTTHIS])\r\n(;B[ji]C[NOTTHIS])\r\n(;B[kh]C[NOTTHIS])\r\n(;B[li]C[NOTTHIS])\r\n(;B[lg]C[NOTTHIS])\r\n(;B[mh]C[NOTTHIS])\r\n(;B[ag]C[NOTTHIS])\r\n(;B[cg]C[NOTTHIS])\r\n(;B[ai]C[NOTTHIS])\r\n(;B[ci]C[NOTTHIS])\r\n(;B[eg]C[NOTTHIS])\r\n(;B[ei]C[NOTTHIS])\r\n(;B[gg]C[NOTTHIS])\r\n(;B[gi]C[NOTTHIS])\r\n(;B[ig]C[NOTTHIS])\r\n(;B[ii]C[NOTTHIS])\r\n(;B[kg]C[NOTTHIS])\r\n(;B[ki]C[NOTTHIS])\r\n(;B[mg]C[NOTTHIS])\r\n(;B[mi]C[NOTTHIS])\r\n(;B[ee]C[NOTTHIS]))",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 3458,
+    "failed": 3063,
+    "tries": 6521,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-02-20T21:11:21+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

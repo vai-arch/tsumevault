@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 51614,
+  "elo": 1191.6307647122,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[13]AB[bk][ck][cl][dj][di][ek][fk]AW[dk][dl][cj][bj][bh][dh][ei][ej]AN[2](;B[dm];W[ci](;B[el]C[Black stones at D4 and D5 cannot be saved. Moreover, it's impossible to form two eyes in the corner, because if Black plays B1, White answers A2 and viceversa. So the best Black can do is to give ataris at D1 and E2, forcing White to protect his own stones. Proceeding this way, both Black groups are now connected since White cannot cut at C1 or E1.RIGHT])(;B[dj];W[di];B[el]C[Black stones at D4 and D5 cannot be saved. Moreover, it's impossible to form two eyes in the corner, because if Black plays B1, White answers A2 and viceversa. So the best Black can do is to give ataris at D1 and E2, forcing White to protect his own stones. Proceeding this way, both Black groups are now connected since White cannot cut at C1 or E1.RIGHT]))(;B[el];W[dm])(;B[em];W[dm])(;B[cm];W[ci]))",
+  "author": {
+    "id": 44133,
+    "name": "seeker1987",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 1331
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1843.52
+  },
+  "avgSolveTimeSeconds": 18,
+  "attempts": {
+    "solved": 17,
+    "failed": 7,
+    "tries": 24,
+    "speedSolved": 4,
+    "speedPlay": 13
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-10-16T05:16:36+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1120
+}

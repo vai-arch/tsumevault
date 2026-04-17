@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3909,
+  "elo": 997.07470155563,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Beginners should be careful - threats aren't always obvious.",
+  "rating": {
+    "stars": 3.2,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[ad]AB[bd]AB[ce]AB[de]AB[fe]AB[ff]AB[ie]AB[hd]AB[id]AB[ic]AB[hf]AB[gg]AB[eg]AB[dg]AB[cg]AB[cf]AW[ac]AW[bc]AW[cc]AW[cd]AW[dd]AW[ed]AW[ee]AW[ef]AW[df]AW[fd]AW[gd]AW[ge]AW[gf]AW[he]AW[hc]AW[gb]AW[fc]AW[hb]TR[gf]C[White just played the marked stone - how should black respond? No komi, white has one prisoner.]AB[be]AP[goproblems]\n(;B[hg];W[fg];B[fh];W[ib]\n(;B[if];W[ff]C[It's too bad about the two stones, but you saved the right side and won by one point.RIGHT])\n(;B[ff];W[if]C[Oops.]))\n(;B[hh];W[fg];B[fh];W[ib]\n(;B[if];W[ff]C[It's too bad about the two stones, but you saved the right side and won by one point.RIGHT])\n(;B[ff];W[if]C[Oops.]))\n(;B[fg];W[hg]C[All the stones on the right are lost!]TR[hf]TR[ie]TR[id]TR[ic]TR[hd])\n(;B[if];W[fg];B[fh];W[hg]\n(;B[ff];W[hh]C[All the stones on the right are lost!]TR[hf]TR[if]TR[ie]TR[id]TR[hd]TR[ic])\n(;B[gh];W[hh]C[All the stones on the right are lost!]TR[hf]TR[if]TR[ie]TR[id]TR[ic]TR[hd])\n(;B[ig];W[gh]C[All the stones on the right are lost!]TR[ig]TR[if]TR[hf]TR[hd]TR[ie]TR[id]TR[ic])\n(;B[hh];W[gh]C[All the stones on the right are lost!]TR[hf]TR[if]TR[ie]TR[id]TR[ic]TR[hd]))\n(;B[ig];W[fg];B[fh]C[];W[ff]C[You've saved the stones on the right, but you could do better than jigo. The marked stone wasted a point - you still need to protect the cut at A and will eventually need to connect at B.]TR[ig]LB[gh:A]LB[if:B]))",
+  "author": {
+    "id": 5566,
+    "name": "fwiffo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 739.424
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 13127,
+    "failed": 11447,
+    "tries": 24574,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-02-10T08:55:43+00:00",
+  "source": "Adapted from KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

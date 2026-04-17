@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6909,
+  "elo": 970.27173232015,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 25,
+    "negativeFlagSum": 0,
+    "flagSum": 25
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This came to me in a dream.I might play too much Go.\r\n(This is also my first time submiting a problem, do tell if it`s all skrewy.)",
+  "rating": {
+    "stars": 4.6,
+    "votes": 55,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[gr]AB[fr]AB[er]AB[gs]AB[kr]AB[ks]AB[lr]AB[mr]AB[ms]AB[nr]AB[or]AB[os]AW[dr]AW[ds]AW[es]AW[dq]AW[eq]AW[iq]AW[jr]AW[ip]AW[gp]AW[kp]AW[mq]AW[nq]AW[oq]AW[pq]AW[pr]AW[ps]AW[jo]AW[lp]AW[fp]AP[goproblems]\n(;B[ir]C[]\n(;W[hr]C[];B[is]C[]\n(;W[hq]C[];B[hs]C[];W[jq];B[js]C[RIGHT])\n(;W[hs];B[hq]C[RIGHT])\n(;W[jq];B[js]C[RIGHT];W[hq]C[];B[hs]C[RIGHT])\n(;W[js];B[jq]C[RIGHT];W[hq];B[hs]C[RIGHT]))\n(;W[jq]C[CHOICE]\n(;B[js]C[];W[hr]\n(;B[is]C[];W[hq]C[];B[hs]C[RIGHT])\n(;B[hs];W[is]C[ko])\n(;B[hq];W[is]))\n(;B[is];W[js]))\n(;W[is];B[hr]\n(;W[js]C[];B[jq]C[RIGHT])\n(;W[jq];B[js]C[RIGHT]))\n(;W[js];B[jq];W[hr]\n(;B[hs];W[hq]C[RIGHT];B[is]C[RIGHT])\n(;B[is];W[hq];B[hs]C[RIGHT])))\n(;B[is];W[js])\n(;B[js];W[is])\n(;B[hr];W[ir])\n(;B[jq];W[ir]))",
+  "author": {
+    "id": 105129,
+    "name": "system",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-03-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 8553,
+    "failed": 8425,
+    "tries": 16978,
+    "speedSolved": 8,
+    "speedPlay": 10
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-07-15T03:57:58+00:00",
+  "source": "The head of a dizzy go player",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

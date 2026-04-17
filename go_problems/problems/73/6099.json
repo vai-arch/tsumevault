@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6099,
+  "elo": 1251.1183929416,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pa]AB[pc]AB[pb]AB[pd]AB[qd]AB[rd]AB[sc]AW[rc]AW[qc]AW[qb]AW[rb]AW[ra]AW[qa]AW[oa]AW[ob]AW[od]AW[oc]AW[oe]AW[se]AW[pf]AW[of]AW[qf]AW[sf]AW[rf]AW[sd]AW[re]C[It's black's turn.  Can he live in the corner?FORCE]LB[mc:Yes]LB[me:No]LB[mg:Ko]AP[goproblems]\n(;B[mc];W[md]C[Please show how black can live.FORCE]\n(;B[sa];W[sb])\n(;B[qe];W[pe])\n(;B[pe];W[qe])\n(;B[sb]\n(;W[qe]C[Do you still think black will live?CHOICEFORCE]LB[nc:Yes]LB[nd:No]\n(;B[nd]C[It's true. :|])\n(;B[nc];W[nd]C[Ok, please continue.FORCE];B[sa];W[rb]C[FORCE]\n(;B[rc];W[qb]C[:(])\n(;B[ra];W[qb]C[:(])\n(;B[qb];W[rc]C[:(])\n(;B[pe];W[rc])\n(;B[qc];W[rc])\n(;B[qa];W[rc])))\n(;W[sa]C[CHOICE];B[sc];W[sb]C[Do you still think black will live?FORCE]LB[nc:Yes]LB[nd:No]\n(;B[nc];W[nd]C[Ok, please continue.FORCE]\n(;B[sc];W[rc]C[Oh no! :(])\n(;B[pe];W[qe])\n(;B[qe];W[pe]))\n(;B[nd]C[It's true. :|]))))\n(;B[me]C[];W[mf]C[Correct.  Now, what if black is allowed to place two stones this turn?  Can black live?FORCE]LB[mb:Yes]LB[mc:No]LB[md:Ko]\n(;B[mc]C[Right! :)RIGHT])\n(;B[mb];W[mc]C[Ok, place your first stone.FORCE]\n(;B[pe]C[That won't help.])\n(;B[qe]C[That won't help.])\n(;B[sb];W[sg]C[... and your second stone?FORCE]\n(;B[pe];W[qe])\n(;B[qe];W[pe])\n(;B[sa];W[rb]C[Crunch.]))\n(;B[sa];W[sg]C[... and your second stone?FORCE]\n(;B[pe];W[qe])\n(;B[qe];W[pe])\n(;B[sb];W[rb]C[Squish.])))\n(;B[md]C[Nope. :(]))\n(;B[mg];W[ng]C[How many ko threats does black need?]LB[mb:2]LB[me:1/x]LB[md:-4]LB[mc:180]\n(;B[me]C[What?!])\n(;B[md]C[What?!])\n(;B[mc]C[That's about half of the go board.  But even that many ko threats won't save black.])\n(;B[mb]C[Reasonable guess.  But it's not a ko. :(])))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 55,
+  "attempts": {
+    "solved": 2607,
+    "failed": 5162,
+    "tries": 7769,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-03-03T14:16:34+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16431,
+  "elo": 1034.1872423516,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is a test of a 'status' type problem. I hope I have covered reasonable variations and that the structure works - please comment.",
+  "rating": {
+    "stars": 2.5,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ae]AB[be]AB[ce]AB[de]AB[df]AB[eg]AB[eh]AB[ei]AB[dj]AB[dk]AB[ck]AB[bk]AB[ak]AB[bh]AW[af]AW[bf]AW[cf]AW[cg]AW[dg]AW[dh]AW[di]AW[ci]AW[cj]AW[bj]AW[aj]C[Status of white group? \r\nPlay J14 if it is unconditionally alive, e.g. can live even if Black is to play first, \r\nJ13 if you like to prove White can live playing first, \r\nJ12 to prove Black can kill (same status as above, but Black plays) or \r\nJ11 if it is dead no matter what.FORCE]LB[if:Alive]LB[ig:Can live]LB[ih:Can be killed]LB[ii:Is dead]AP[goproblems]\n(;W[if]C[];B[ah]C[So if the group is already alive, can you know how to keep it alive if Black plays here?]\n(;W[bg];B[bi]C[This is a dead eyespace])\n(;W[ch];B[bg];W[ag];B[bi]C[This is a dead eyespace])\n(;W[bi];B[bg]C[This is a dead eyespace])\n(;W[ag];B[bi]\n(;W[ai];B[ch]C[This is a dead eyespace])\n(;W[ch];B[bg])\n(;W[bg];B[ch]C[This is a dead eyespace]))\n(;W[ai];B[bg]\n(;W[ch];B[bi]C[This is a dead eyespace])\n(;W[ag];B[ch]C[This is a dead eyespace])\n(;W[bi];B[ch]C[This is a dead eyespace])))\n(;W[ig];B[jg]C[Please show how white can live]\n(;W[ah];B[bg]\n(;W[bi]C[2 eyesRIGHT])\n(;W[ch];B[bi]C[seki])\n(;W[ai];B[bi]C[Dead shape])\n(;W[ag];B[bi]C[Dead shape]))\n(;W[bg];B[ah]C[Dead eyespace])\n(;W[ag];B[ah]C[Dead eyespace])\n(;W[ch];B[ah]C[Dead eyespace])\n(;W[bi]C[];B[ah]C[Dead eyespace])\n(;W[ai];B[ah]C[Dead eyespace]))\n(;W[ih]AW[ae]AB[af]AB[bf]AB[cf]AB[cg]AB[dg]AB[dh]AB[di]AB[ci]AB[cj]AB[bj]AB[aj]AW[ak]AW[bk]AW[ck]AW[dk]AW[dj]AW[ei]AW[eh]AW[eg]AW[be]AW[ce]AW[de]AW[df]AW[bh];B[jh]C[You say the group can be killed. So we swap sides. Now please show how the group can be killed.]\n(;W[ah]C[Black is dead as it stands.You can fill Black's space with a bulky 6 shape. When Black captures you play at B12; Black still has just one eye.RIGHT]MA[bi]MA[bg]MA[ch]MA[ag]TR[bh])\n(;W[bg];B[ah]\n(;W[bi];B[ch]C[seki])\n(;W[ch];B[bi]C[2 eyes]))\n(;W[bi];B[ah]\n(;W[bg];B[ch]C[seki])\n(;W[ch];B[bg]C[2 eyes]))\n(;W[ai];B[ag]\n(;W[ah];B[bi]C[seki])\n(;W[ch];B[ah]C[2 eyes])\n(;W[bi];B[ah]C[seki])\n(;W[bg];B[ah]C[2 eyes]))\n(;W[ag];B[ai]\n(;W[ah];B[bg]C[seki])\n(;W[ch];B[ah]C[2 eyes])\n(;W[bi];B[ah]C[2 eyes])\n(;W[bg];B[ah]C[seki])))\n(;W[ii]AW[ae]AB[af]AB[bf]AB[cf]AB[cg]AB[dg]AB[dh]AB[di]AB[ci]AB[cj]AB[bj]AB[aj]AW[ak]AW[bk]AW[ck]AW[dk]AW[dj]AW[ei]AW[eh]AW[eg]AW[be]AW[ce]AW[de]AW[df]AW[bh];B[ah]C[You say the group is dead. So we swap sides. If  Black plays here, can you still keep the group dead?]\n(;W[ag];B[bg]C[2 eyes])\n(;W[ai];B[bi]C[2 eyes])\n(;W[bg];B[bi]C[2 eyes])\n(;W[bi];B[bg]C[2 eyes])))",
+  "author": {
+    "id": 14,
+    "name": "morten",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-06-28",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1407.22
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 2557,
+    "failed": 3564,
+    "tries": 6121,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-09-02T16:34:04+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

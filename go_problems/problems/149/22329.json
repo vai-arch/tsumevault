@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22329,
+  "elo": 1645.5655243066,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Japanese rules. Komi is 0 points for White. No prisoners yet. Black to play and win. Please flag or comment if there is a mistake. Thanks to Starline, kevinwm, sf_jeff, Fokatukc, and dixi for corrections. (You'd think it wouldn't take five people to tell me for me to get the komi value correct.)",
+  "rating": {
+    "stars": 4.5,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n\r\n; SZ[9]\r\nAB[bc][ca][cb][cc][dc][ec][fc][gc][gd][ge][gf][gh]\r\nAW[ab][ad][ba][bb][bd][cd][dd][ed][fd][fe][ff][fg][fh]\r\n\r\n\r\n(; B[ac]; W[gg] C[Oops.])\r\n\r\n(; B[fi]; W[gg] C[Oops.])\r\n\r\n(; B[gi]; W[gg]; B[hg]; W[fi] (; B[hh]; W[ac] C[White wins.])(; B[hi]; W[ac] C[White wins.])(; B[ih]; W[ac] C[White wins.])(; B[ac]; W[hh] C[Oops.]))\r\n\r\n(; B[hh]; W[gg]; B[hg]; W[ac] (; B[gi]; W[fi] C[White wins.])(; B[fi]; W[ei]; B[gi]; W[eh] C[Jigo; you could have won.]))\r\n\r\n(; B[gg]; W[gi] (; B[ac]; W[hh]; B[hg]; W[ih] (; B[ig]; W[hi] C[Jigo; you could have won.])(; B[hi]; W[ii] (; B[ig] C[RIGHT][You win! White J2 was a costly mistake, but J1 would have led to a victory for black, too.])(; B[fi]; W[ei]; B[ig] C[RIGHT][You win!White J2 was a costly mistake, but J1 would have led to a victory for black, too.])))(; B[hi]; W[fi] (; B[hh]; W[ac] C[White wins.])(; B[ac]; W[hh]; B[hg] C[RIGHT][You win!])))\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 82,
+  "attempts": {
+    "solved": 44,
+    "failed": 141,
+    "tries": 185,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-03-13T01:47:28+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

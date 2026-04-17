@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3545,
+  "elo": 877.94079445966,
+  "problemLevel": 6,
+  "rank": {
+    "value": 24,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -8,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 2,
+    "votes": 43,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ed]AW[fd]AB[ic]AB[jc]AB[kc]AB[lc]AW[id]AW[jd]AW[kd]AW[ld]AB[dd]AB[dc]AW[de]AW[ef]AB[ce]AB[be]C[B to connect.]AW[bc]AW[cb]AW[ba]AW[ab]AW[cc]AW[bd]AW[ad]AB[db]AB[da]AB[ca]AB[cd]AB[bf]AB[cg]AB[ci]AB[hc]AB[gc]AW[fc]AW[dg]AW[dh]AB[ch]AW[he]AP[goproblems]\n(;B[fb]C[that's all there is to it.RIGHT])\n(;B[eb];W[fb]\n(;B[fa];W[gb])\n(;B[gb];W[fa]))\n(;B[ec];W[fb])\n(;B[ea];W[fb]\n(;B[fa];W[gb])\n(;B[ga];W[fa]))\n(;B[gb];W[fb];B[fa]C[You connected, but you lost points.])\n(;B[fa];W[fb]\n(;B[gb]C[You connected, but you lost points.])\n(;B[ga];W[gb];B[hb];W[eb];B[ea]C[you connected, but you lost a lot of points.]))\n(;B[ga];W[eb]\n(;B[fa];W[ea])\n(;B[ea];W[gb]\n(;B[fb];W[fa]C[ko.])\n(;B[hb];W[fb];B[fa]C[You connected, but you lost points.])\n(;B[fa];W[hb];B[fb]C[You connected, but in a bad way.  Why didn't you just play F18 right off?])\n(;B[ha];W[hb];B[ib];W[fb];B[fa]C[You connected, but not in the best way.]))\n(;B[fb];W[ec];B[ea]C[You connected, but you lost points.])))",
+  "author": {
+    "id": 4785,
+    "name": "kochi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-14",
+    "rank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1340.69
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 10748,
+    "failed": 8534,
+    "tries": 19282,
+    "speedSolved": 6,
+    "speedPlay": 15
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-15T10:14:53+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 26,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14487,
+  "elo": 1262.8507560669,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ad]AB[bd]AW[ac]AW[bb]AW[cb]AW[db]AW[eb]AW[ea]AB[cc]AB[dc]AB[ec]AB[fc]AB[fb]AB[fa]AP[goproblems]\n(;B[ab]\n(;W[bc]C[CHOICE];B[ba]\n(;W[aa]C[Indeed, a ko. Well done!CHOICERIGHT])\n(;W[ca];B[da]C[RIGHT]))\n(;W[aa];B[bc];W[ca];B[ab]C[This is a direct ko, where black takes first. Much better for black.RIGHT]))\n(;B[bc];W[ab])\n(;B[aa];W[bc])\n(;B[ba];W[ca]\n(;B[aa];W[ab])\n(;B[ab];W[aa])\n(;B[bc];W[ab]))\n(;B[ca];W[ba])\n(;B[da];W[bc]))",
+  "author": {
+    "id": 12035,
+    "name": "whendrik",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2014-02-01",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 717.007
+  },
+  "avgSolveTimeSeconds": 55,
+  "attempts": {
+    "solved": 1461,
+    "failed": 2397,
+    "tries": 3858,
+    "speedSolved": 4,
+    "speedPlay": 13
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-01-24T16:00:33+00:00",
+  "source": "Cho Chikun’s encyclopedia of life and death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

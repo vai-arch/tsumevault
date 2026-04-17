@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3973,
+  "elo": 1077.4487478329,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -3,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "From the Chapter \"Capture the Cutting Stones\" p26, Problem 1",
+  "rating": {
+    "stars": 4.1,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[iq]AB[pq]AB[po]AB[mq]AB[lp]AB[lo]AB[kn]AB[jn]AW[ln]AW[lm]AW[ko]AW[kp]AW[kq]AW[mo]C[White to capture the cutting stones]AP[goproblems]\n(;W[nq];B[nr]\n(;W[mr];B[np]\n(;W[mp];B[oq]\n(;W[lq]C[Well done!RIGHT])\n(;W[lr]C[Well done!RIGHT]))\n(;W[lq];B[mp])\n(;W[oq];B[no];W[lq];B[mp])\n(;W[lr];B[no]))\n(;W[mp];B[lq]\n(;W[mr];B[lr]\n(;W[kr];B[ms])\n(;W[or];B[ms]))\n(;W[lr];B[mr]))\n(;W[lq];B[mp]\n(;W[np];B[mr])\n(;W[mr];B[np]))\n(;W[lr];B[mr])\n(;W[np]))\n(;W[mp];B[lq];W[nq];B[nr]\n(;W[lr];B[mr])\n(;W[oq];B[or])\n(;W[or];B[oq];W[np];B[mr]))\n(;W[lq];B[mp])\n(;W[np];B[nq])\n(;W[lr];B[nq])\n(;W[mr];B[nq])\n(;W[nr];B[nq]))",
+  "author": {
+    "id": 5943,
+    "name": "norm",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2010-07-23",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 5215,
+    "failed": 8405,
+    "tries": 13620,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-02-21T16:35:23+00:00",
+  "source": "Tesuji, James Davies",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

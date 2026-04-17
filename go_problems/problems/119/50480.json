@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 50480,
+  "elo": 1451.9439920236,
+  "problemLevel": 26,
+  "rank": {
+    "value": 4,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to play and get the best result in the corner.",
+  "rating": {
+    "stars": 3,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[qb][qa][qc][pd][pe][qe][qf][qg][rg][sg]AW[pc][pb][qd][rd][rc][re][rf][od][nc][oe][sf][oa][ob](;B[rb];W[sb](;B[sa];W[ra]C[Correct, this direct ko is the best possible result for black. The real trick here is resisting the throw-in at T17 which would make it a two-stage ko.RIGHT])(;B[sc];W[sd];B[sa];W[ra]C[Two step ko. Incorrect, but close. This was the result that the 8kyu played in the game. It will get some value elsewhere on the board, but you can do better. Try again.]))(;B[sc];W[rb];B[ra];W[pa])(;B[sd];W[rb])(;B[se];W[rb])(;B[sb];W[rb];B[ra];W[pa]))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 12,
+  "attempts": {
+    "solved": 4,
+    "failed": 13,
+    "tries": 17,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-09-03T17:34:42+00:00",
+  "source": "Modified slightly from a SDK game ",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1344
+}

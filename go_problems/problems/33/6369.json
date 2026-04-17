@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6369,
+  "elo": 1396.7038719651,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "White to live",
+  "rating": {
+    "stars": 4.1,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nAW[qs][ps][os][ns][nr][mq][nq][oq][pq][qq][rp][ro][so]\r\nAB[ss][rs][ms][js][jr][mr][or][pr][rr][sr][jq][kq][lq][rq][sq][mp][np][op][pp][qp][qo][rn][sn]\r\n(;W[lr];B[qr])\r\n(;W[qr];B[lr];W[sp];B[rq]\r\n(;W[ss];B[rr])\r\n(;W[sr];B[rr];W[rs];B[sq];W[rp] C[RIGHT])\r\n(;W[rr];B[sr]\r\n(;W[ss];B[rs] C[two step ko, but you can do better])\r\n(;W[sq];B[rq];W[ss];B[rs] C[ko isn't good enough])\r\n)\r\n)\r\n)",
+  "author": {
+    "id": 10476,
+    "name": "redpython",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-07-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 1531,
+    "failed": 3861,
+    "tries": 5392,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-04-17T09:39:01+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 33,
+      "name": "Under the Stones",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

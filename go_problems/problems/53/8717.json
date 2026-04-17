@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8717,
+  "elo": 1250.736205806,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -5,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Play 'a' if the ladder is good for black.  Play 'T' otherwise.",
+  "rating": {
+    "stars": 3.3,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[de]AB[be]AB[bf]AB[cg]AW[ed]AW[cc]AW[po]AW[qp]AW[pq]AW[oq]AB[pp]LB[op:a]LB[jj:T]AP[goproblems]\n(;B[op];W[np];B[oo];W[on];B[no];W[mo];B[nn];W[nm];B[mn];W[ln];B[mm];W[ml];B[lm];W[km];B[ll];W[lk];B[kl];W[jl];B[kk];W[kj];B[jk];W[ik];B[jj];W[ji];B[ij];W[hj];B[ii];W[ih];B[hi];W[gi];B[hh];W[hg];B[gh];W[fh];B[gg];W[gf];B[fg];W[eg];B[ff];W[fe];B[ef];W[df];B[ee];W[ce];B[dd];W[dc];B[cd];W[bd])\n(;B[jj]C[RIGHT]))",
+  "author": {
+    "id": 3580,
+    "name": "picketfence",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-03-18",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 2919,
+    "failed": 4611,
+    "tries": 7530,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-06-15T06:17:13+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

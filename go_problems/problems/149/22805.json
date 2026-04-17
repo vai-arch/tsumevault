@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22805,
+  "elo": 1577.7918616245,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Thanks to cae and blyx for corrections!",
+  "rating": {
+    "stars": 4.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\nAB [ap][bp][cp][dp][ep][fq][fr][fs]\r\nAW [ao][bo][co][do][eo][fo][fp][gp][gq][gr][gs][eq]\r\n\r\nC [Can black keep everything here? Assume white has a large but not infinite supply of ko threats. (No => play at N (G5); Yes => prove it)]\r\nLB [go:N]\r\n\r\n(; B [go]; AB [ao][bo][co][do][eo][fo][fp][gp][gq][gr][gs][eq] AW [ap][bp][cp][dp][ep][fq][fr][fs] W [er] C [Why not?] (; B [dq]; W [dr]; B [cq]; W [bq]; B [cr]; W [br]; B [cs]; W [bs])(; B [dr]; W [dq]; B [cr]; W [br] (; B [cs]; W [cq] (; B [bs]; W [ar])(; B [es]; W [eq]))(; B [es]; W [ds]; B [cs]; W [cq]; B [es]; W [eq] (; B [bs]; W [ar])(; B [ar]; W [bs])(; B [aq]; W [bq])(; B [bq]; W [aq]))))\r\n(; B [er]; W [dr]; B [dq]; W [cr]; B [br]; W [cs] (; B [es]; W [bq]; B [ar]; W [bs]; B [cq] C [RIGHT])(; B [cq] C [RIGHT])(; B [bq] C [RIGHT])(; B [ar]; W [es] (; B [ds] C [Ko.])(; B [eq]; W [bq] C [Ko.]))(; B [bs]; W [es] (; B [ds] C [Ko.])(; B [eq]; W [bq] (; B [ds] C [Ko.])(; B [aq]; W [ar] C [Double snapback (not even a ko anymore, as cae pointed out).])(; B [ar]; W [cq] C [Ko.]))))\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 66,
+  "attempts": {
+    "solved": 15,
+    "failed": 88,
+    "tries": 103,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-08-15T02:13:22+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

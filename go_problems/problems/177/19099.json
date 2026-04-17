@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19099,
+  "elo": 1328.375223312,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Black to play and capture the cutting stone.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cr]AB[cp]AB[dp]AB[fo]AB[cq]AB[dr]AW[er]AW[eq]AW[dq]AW[fq]AW[fp]AB[ep]AB[go]AW[hq]AW[eo]AW[cn]AW[ck]AW[dk]AW[el]AW[fk]AB[ek]C[Black to play and capture the cutting stone.]TR[eo]AP[goproblems]\n(;B[en];W[do]\n(;B[cm]\n(;W[bm];B[bn];W[dm];B[dn]C[Black 1 puts the cutting stone in atari, and if White draws out at 2, Black 3 and 5 are the cross-cut tesuji.RIGHT]LB[en:1]LB[do:2]LB[cm:3]LB[bm:4]LB[bn:5]LB[dm:6]LB[dn:7])\n(;W[dn];B[dm];W[em];B[fn];W[bm];B[bn]C[RIGHT]))\n(;B[dn];W[co]))\n(;B[dn];W[do];B[co];W[en];B[dm];W[cm]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 88,
+  "attempts": {
+    "solved": 660,
+    "failed": 1091,
+    "tries": 1751,
+    "speedSolved": 4,
+    "speedPlay": 13
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-02-20T19:43:34+00:00",
+  "source": "Elementary Go Series, Volume 3",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 177,
+      "name": "Tesuji",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

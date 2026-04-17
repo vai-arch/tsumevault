@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9949,
+  "elo": 1404.3844101076,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "A lesson on ko threat management =D",
+  "rating": {
+    "stars": 3.7,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[How many ko threats can you squeeze out of this living group? Side note: The ko is worth less than this group.]AB[ka][jb][jc][kc][lc][ld][md][nd][od][pd][qd][qc][rb][qa]AW[kb][lb][ma][mc][nc][oc][pc][pb][qb][nb]LB[jf:0][lf:1][nf:2][pf:3][rf:4]AP[goproblems]\n(;B[rf]AW[pf][nf][lf];W[jf]C[Prove it!]\n(;B[oa];W[pa]\n(;B[na];W[ob]\n(;B[ja];W[la];B[na];W[oa]C[You got 'emRIGHT])\n(;B[na];W[oa];B[ja];W[la]C[You got 'emRIGHT]))\n(;B[ja];W[la];B[na];W[ob];B[na];W[oa]C[You got 'emRIGHT])\n(;B[ob];W[la]C[Only 2 Threats]))\n(;B[ja];W[oa]C[Only 1 threat])\n(;B[pa];W[oa]C[Only 1 Threat])\n(;B[ob]C[Not Threat])\n(;B[na]C[Not Threat]))\n(;B[pf]PL[W]AB[oa]CR[oa]C[You are White now! Black just played the 1st ko threat. What would you do?];W[pa];B[ja]C[And that's 2...];W[la];B[na]C[3...];W[ob];B[na]C[4 at last!])\n(;B[nf]PL[W]AB[oa]CR[oa]C[You are White now! Black just played the 1st ko threat. What would you do?];W[pa];B[ja]C[And that's 2...];W[la];B[na]C[And 3!])\n(;B[lf]PL[W]AB[oa]CR[oa]C[You are White now! Black just played the 1st ko threat. What would you do?];W[pa];B[ja]C[And that's 2!])\n(;B[jf]AB[oa]CR[oa]C[You chose 0 ko threats, but if Black plays the marked move White must answer or die - so that is clearly a ko threat.]))",
+  "author": {
+    "id": 17060,
+    "name": "Bleedo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-07-22",
+    "rank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1497.5
+  },
+  "avgSolveTimeSeconds": 63,
+  "attempts": {
+    "solved": 869,
+    "failed": 1739,
+    "tries": 2608,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-04-09T21:01:56+00:00",
+  "source": "Flight vs. moocowmoo",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

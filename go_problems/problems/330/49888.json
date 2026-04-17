@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 49888,
+  "elo": 1217.0856372818,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "White to play and capture the cutting stones",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[lo][lp][lq][nl][no][nq][nr][or][pl][po][pp][pr][qq][rl][rm][rn][ro][rp][rq]AW[mp][mq][mr][np][op][oq][pq][qj][qk][ql][qm][qn][qo][qp][rk]TR[pp]TR[po];W[nn](;B[oo];W[mo]LB[nn:1]LB[oo:2]LB[mo:3]C[1 is the clamping tesujiRIGHT])(;B[mo];W[oo];B[pn];W[pm]LB[nn:1]LB[mo:2]LB[oo:3]C[1 is the clamping tesujiRIGHT])(;B[on](;W[om];B[nm];W[oo];B[mn];W[pn]LB[nn:1]C[1 is the clamping tesuji. This interesting variation results in it being sacrificed. RIGHT])(;W[oo];B[pn](;W[om];B[pm];W[ol];B[pk];W[pj];B[ok])(;W[ol];B[nm](;W[mn];B[om])(;W[om];B[mn])))))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 8,
+    "failed": 4,
+    "tries": 12,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-08-22T23:52:55+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1120
+}

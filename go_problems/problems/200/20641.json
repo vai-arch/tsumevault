@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20641,
+  "elo": 1610.3342756107,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dp]AB[cp]AB[ep]AB[dq]AB[cn]AW[eo]AW[fo]AW[fp]AW[eq]AW[fm]AB[ho]AB[hp]AB[hq]AW[hn]AW[in]AW[jo]AW[jq]AW[jr]AP[goproblems]\n(;B[gr]\n(;W[er]C[];B[fq]C[RIGHT])\n(;W[fr];B[er];W[fq];B[fs]C[RIGHT]))\n(;B[fr]\n(;W[fq];B[er]C[])\n(;W[er];B[fq]C[])\n(;W[gr]C[CHOICE]\n(;B[gq]\n(;W[fq]C[CHOICE];B[er];W[hr];B[ir];W[iq])\n(;W[er];B[fq]))\n(;B[hr]\n(;W[gq]C[CHOICE]\n(;B[gs];W[er]\n(;B[es];W[fq];B[fs];W[ds];B[hs];W[dr])\n(;B[fs];W[es];B[hs];W[fq])\n(;B[fq];W[fs]))\n(;B[fq];W[er])\n(;B[er];W[gs]))\n(;W[er]))\n(;B[fq]\n(;W[er])\n(;W[gq]))\n(;B[gs]\n(;W[hr]\n(;B[gq];W[fq];B[ir];W[er];B[hs];W[es])\n(;B[fq]\n(;W[er];B[gq]C[])\n(;W[gq]C[CHOICE];B[er];W[hs])))\n(;W[fq];B[hr]\n(;W[gq];B[er]C[])\n(;W[er]C[CHOICE];B[gq];W[is]))\n(;W[er]))))\n(;B[fq];W[gq]\n(;B[er];W[gr])\n(;B[fr];W[gr]))\n(;B[er]\n(;W[gr]C[CHOICE]\n(;B[hr];W[gq])\n(;B[gq];W[fq];B[fr];W[hr];B[ir];W[iq]))\n(;W[hr];B[gq];W[fq];B[gr];W[fr];B[fs];W[dr];B[es];W[ds];B[gs]))\n(;B[gq];W[fq]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 34,
+  "attempts": {
+    "solved": 202,
+    "failed": 588,
+    "tries": 790,
+    "speedSolved": 3,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-10-27T21:14:34+00:00",
+  "source": "Yi Ch'ang-ho's Selected Tesuji Go Problems",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 200,
+      "name": "Yi Ch'ang-ho's Selected Tesuji Go Problems Volume 2",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

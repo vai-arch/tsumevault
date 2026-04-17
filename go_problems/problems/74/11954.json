@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11954,
+  "elo": 1359.9026852405,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This is a problem from a book which I expanded on. Black 2 is actually a tesuji, and the best one to punish white in this situation.",
+  "rating": {
+    "stars": 3.8,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rr]AB[rq]AB[qq]AB[pp]AB[op]AB[np]AB[jq]AB[jo]AW[rs]AW[qr]AW[ps]AW[pq]AW[oq]AW[or]AW[lq]AB[mr]LB[lq:1]LB[mr:2]C[White played 1, which was a mistake, and black punished white with 2. Help white respond to 2 as best as possible.]AB[qo]AB[mn]AB[kn]AB[ir]AP[goproblems]\n(;W[nr]\n(;B[mq]\n(;W[ns]C[Good, this is simple and best, because the stone at 1 was lost anyway.RIGHT])\n(;W[ms];B[ns])))\n(;W[mq];B[nr];W[nq];B[lr])\n(;W[lr];B[mq]\n(;W[ns];B[nr];W[ms];B[kr]C[Very bad for white.])\n(;W[nr];B[ns]C[White is dead.]))\n(;W[nq];B[mq];W[mp];B[lp]\n(;W[lr];B[mo])\n(;W[nr];B[ns])\n(;W[ns];B[nr];W[lr];B[mo];W[ms];B[mp]))\n(;W[ns];B[nr];W[nq];B[mq])\n(;W[ms];B[mq]\n(;W[nr];B[ns])\n(;W[lr];B[ns])\n(;W[ns];B[nr];W[lr];B[kr]))\n(;W[ls];B[nr]\n(;W[nq];B[mq];W[mp];B[lp])\n(;W[ns];B[nq]\n(;W[lr];B[ms])\n(;W[ms];B[lr]))\n(;W[mq];B[nq])))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 1244,
+    "failed": 2153,
+    "tries": 3397,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-11-09T17:27:15+00:00",
+  "source": "Book",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

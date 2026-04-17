@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13848,
+  "elo": 1187.3987188703,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "See http://goproblems.com/prob.php3?id=3743.\r\n\r\nThis is perhaps an interesting variation of one of the wrong moves.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rc]AW[rb]AW[qc]AW[qd]AW[pb]AB[qb]AB[pc]AB[pd]AB[re]AB[qe]AW[ob]AW[nc]AW[mc]AW[mb]AW[ma]AB[na]AB[nb]AB[la]AB[lb]AB[lc]AB[ld]AB[md]AB[nd]AB[od]AW[pa]AW[oc]LB[oc:1]LB[qb:2]C[The move 1 was a mistake, but instead of going for the ko with T18, Black plays 2. Is the end result still ko or can white live unconditionally?FORCE]LB[mf:Ko]LB[of:Life]AP[goproblems]\n(;W[mf]C[Nope. White has a way to live unconditionally now.])\n(;W[of];B[pf]C[Please show how to live now.]\n(;W[sb]\n(;B[rd]\n(;W[qa];B[ra]\n(;W[qc]C[RIGHT])\n(;W[sa];B[qc]))\n(;W[ra]C[RIGHT])\n(;W[qc]C[NOTTHIS]))\n(;B[ra]C[White lives if Black plays here too];W[qa]))\n(;W[qa];B[sb];W[rd];B[sd]C[Ko.])\n(;W[ra];B[sb]\n(;W[rd];B[sd])\n(;W[qa];B[rd]))\n(;W[rd];B[sd])\n(;W[sc];B[rd]\n(;W[qa];B[qc])\n(;W[ra];B[sb]))\n(;W[sa];B[qa];W[ra];B[qb])))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 77,
+  "attempts": {
+    "solved": 1757,
+    "failed": 2321,
+    "tries": 4078,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-07-20T11:37:16+00:00",
+  "source": "Problem 3743 by Chrise",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

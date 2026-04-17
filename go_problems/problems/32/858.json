@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 858,
+  "elo": 1473.5611304355,
+  "problemLevel": 27,
+  "rank": {
+    "value": 3,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]\r\nSZ[19]RU[Japanese]KM[5.50]TM[1800]\r\nGN[White (W) vs. Black (B)]PB[Black]PW[White]DT[1999-07-27]SY[Cgoban 1.9.2]\r\nAW[eo][fo][cp][dp][gp][cq][br][cs]AB[ep][fp][dq][fq][cr][dr][er]C[what can white do?\r\n]PL[W]\r\n(;W[gr]\r\n;B[gq]\r\n(;W[hq]\r\n;B[hp]\r\n(;W[go]\r\n;B[hr]\r\n(;W[iq]\r\n;B[fr]\r\n(;W[ir]\r\n;B[gs]C[RIGHT\r\nwhite gets good shape and sente\r\n])\r\n(;W[io]\r\n;B[ir]))\r\n(;W[ir]\r\n;B[iq]))\r\n(;W[fr]CR[fr]\r\n;B[go]CR[go]\r\n(;W[es]CR[es]\r\n;B[hr]CR[hr]\r\n(;W[ds]CR[ds]\r\n;B[iq]CR[iq]C[although white captures four stones, black gets very strong on the outside. sealing black in completely is much better])\r\n(;W[iq]CR[iq]\r\n;B[gs]CR[gs]))\r\n(;W[iq]CR[iq]\r\n;B[ip]CR[ip])))\r\n(;W[hp]\r\n;B[hq]))\r\n(;W[gq]\r\n;B[gr]\r\n(;W[hr]\r\n;B[hs]\r\n(;W[is]\r\n;B[gs]C[not best shape for white\r\n])\r\n(;W[ir]C[black can cut\r\n]))\r\n(;W[ho]\r\n;B[iq])\r\n(;W[hq]\r\n;B[hr]))\r\n(;W[hq]\r\n;B[gr])\r\n(;W[go]\r\n;B[hq])\r\n(;W[hr]\r\n;B[gr]C[black gets shape\r\n])\r\n(;W[ds]\r\n;B[gr])\r\n(;W[fr]\r\n;B[gr])\r\n(;W[es]\r\n;B[gr])\r\n(;W[do]CR[do]C[this weakness is not worth worrying about]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.91
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 2102,
+    "failed": 4952,
+    "tries": 7054,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-07-09T16:27:27+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 32,
+      "name": "Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

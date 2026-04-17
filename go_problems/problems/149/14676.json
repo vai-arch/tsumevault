@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14676,
+  "elo": 1104.9055507884,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qq]AW[pp]AW[qo]AB[rp]AB[pq]AW[oq]AW[or]AW[ro]AW[so]AB[sp]AB[rr]AW[pr]AW[qs]AW[sr]AB[rs]C[Can black live? Hit 'N' if not.]LB[nn:N]AP[goproblems]\r\n(;B[qp]\r\n(;W[sq]C[Black is dead.])\r\n(;W[qr]))\r\n(;B[rq]C[Black is dead.])\r\n(;B[qr]\r\n(;W[qp]C[Black is dead.CHOICE])\r\n(;W[sq]C[Black is dead.CHOICE]))\r\n(;B[ss]\r\n(;W[qr]C[CHOICE];B[sq];W[qp]C[Black is dead.])\r\n(;W[sq]C[Black is dead.CHOICE]))\r\n(;B[sq];W[qp];B[ss];W[qr]C[Black is dead.])\r\n(;B[nn]C[RIGHT]))",
+  "author": {
+    "id": 48047,
+    "name": "ctchan",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-31",
+    "rank": {
+      "value": 22,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 22,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 925.977
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 2956,
+    "failed": 4058,
+    "tries": 7014,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-03-29T22:06:37+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23040,
+  "elo": 1393.975910111,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[besogo:0.0.2-alpha]SZ[19]ST[0]\r\nAB[or][pq][qq][rs][sr]AW[nq][nr][ns][op][pp][qp][rp][sp]\r\nC[W to move]\r\n(;W[rq]\r\n;B[rr]\r\n(;W[ps]\r\n;B[os]\r\n(;W[pr]\r\nC[Right! RIGHT])\r\n(;W[oq]\r\nC[Right! RIGHT])\r\n(;W[qr]\r\n;B[qs]))\r\n(;W[oq]\r\n;B[ps])\r\n(;W[os]\r\n;B[ps])\r\n(;W[pr]\r\n;B[ps]))\r\n(;W[qr]\r\n(;B[ps]\r\n(;W[rr]\r\n;B[rq]\r\n;W[sq]\r\n;B[pr]LB[ss:1]\r\nC[ko!])\r\n(;W[rq]\r\n;B[rr]))\r\n(;B[rq]\r\n;W[pr]LB[oq:1][os:2]\r\nC[(B cannot do this)])\r\n(;B[rr]\r\n;W[ps]\r\n(;B[os]\r\n;W[oq]\r\nC[(B cannot do this)])\r\n(;B[pr]\r\n(;W[os]TR[qs][rq]\r\nC[(B cannot do this)])\r\n(;W[rq]LB[os:2][qs:1]\r\nC[(B cannot do this)]))\r\n(;B[qs]\r\n;W[os]TR[pr][rq]\r\nC[(B cannot do this)]))\r\n(;B[pr]\r\n;W[rq]\r\n;B[rr]\r\n;W[ps]LB[os:2][qs:1]\r\nC[(B cannot do this)])\r\n(;B[qs]\r\n;W[ps]\r\n(;B[pr]\r\n;W[rq]TR[os][rr]\r\nC[(B cannot do this)])\r\n(;B[os]\r\n;W[rr]\r\n;B[rq]\r\n;W[ss]\r\n;B[rs]\r\n;W[sq]\r\nC[(B cannot do this)])))\r\n(;W[ps]\r\n;B[rq]TR[os][qr])\r\n(;W[os]\r\n;B[ps])\r\n(;W[oq]\r\n;B[ps]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 107,
+    "failed": 200,
+    "tries": 307,
+    "speedSolved": 3,
+    "speedPlay": 10
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-03-11T17:15:38+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

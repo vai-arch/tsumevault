@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9666,
+  "elo": 1376.2025173115,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "In the game I played black and tried O3, which is wrong, of course. I am sure that you know the proper moves for black. :-)",
+  "rating": {
+    "stars": 4,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[oq]AB[op]AB[pp]AB[lq]AB[lp]AB[ko]AB[jn]AB[lm]AB[mm]AB[mn]AB[mo]AB[ip]AW[io]AW[jo]AW[jp]AW[jq]AW[iq]AW[lo]AW[ln]AW[pq]AW[qq]AW[mp]AW[np]AW[no]AW[nn]AW[pn]C[Save the triangled stones!]TR[oq]TR[op]TR[pp]AW[qo]AW[qp]AP[goproblems]\r\n(;B[nq];W[mq];B[mr];W[lr];B[kr];W[nr]\r\n(;B[or];W[ms])\r\n(;B[ls];W[or]))\r\n(;B[mq];W[nq];B[nr];W[mr]\r\n(;B[lr];W[or];B[ms];W[pr])\r\n(;B[or];W[lr];B[kr];W[kq]\r\n(;B[ls];W[kp])\r\n(;B[kn];W[jr])\r\n(;B[ms];W[kp])\r\n(;B[jr];W[kp])))\r\n(;B[mr];W[nr]\r\n(;B[or];W[mq]\r\n(;B[lr]LB[nq:A]LB[ns:B]C[Correct! Now A and B are miaiRIGHT])\r\n(;B[nq];W[lr];B[ns];W[kr];B[pr];W[qr];B[ps]C[Ok. Now Black is cut off, but he is alive.RIGHT]))\r\n(;B[nq];W[mq]\r\n(;B[lr];W[or])\r\n(;B[or];W[lr];B[ns];W[kr];B[pr];W[qr];B[ps]C[Ok. Now Black is cut off, but he is alive.RIGHT])))\r\n(;B[nr];W[mr]\r\n(;B[lr];W[nq]\r\n(;B[or]LB[mq:A]LB[ms:B]C[Now A and B are miai.RIGHT])\r\n(;B[mq];W[or];B[ms];W[pr]))\r\n(;B[mq];W[nq]\r\n(;B[lr];W[or]\r\n(;B[ms];W[pr])\r\n(;B[pr];W[ns]))\r\n(;B[or];W[lr];B[kr];W[kq];B[kn];W[jr])))\r\n(;B[or];W[mr];B[mq];W[nq];B[nr];W[lr];B[kr];W[kq]\r\n(;B[kn];W[jr])\r\n(;B[jr];W[kp])\r\n(;B[ls];W[kp])\r\n(;B[ms];W[kp]))\r\n(;B[lr];W[nr];B[nq];W[mq];B[mr];W[or]))",
+  "author": {
+    "id": 11820,
+    "name": "om3",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2009-06-25",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 1237,
+    "failed": 2526,
+    "tries": 3763,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-01-15T15:46:09+00:00",
+  "source": "Own game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

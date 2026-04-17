@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11099,
+  "elo": 1596.6544835121,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.1,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qr]AB[qq]AB[pq]AB[oq]AB[nq]AB[mq]AB[lr]AB[ls]AB[lq]AW[ks]AW[kr]AW[kq]AW[kp]AW[mo]AW[op]AW[pp]AW[qp]AW[ro]AW[rq]AW[rr]AW[os]AW[nr]AW[lp]C[White to kill.]AP[goproblems]\n(;W[qs]\n(;B[ps]\n(;W[or]C[Correct, black is dead as it stand.RIGHT])\n(;W[pr];B[or]\n(;W[ps];B[ns]\n(;W[ms];B[mr]\n(;W[rs];B[ns]C[Black lives.])\n(;W[ns];B[rs]))\n(;W[rs];B[mr]))\n(;W[ns];B[ps]C[Ko. White can do better.])\n(;W[rs];B[ns]\n(;W[ps];B[mr])\n(;W[ms];B[mr];W[ps];B[ns]C[Black lives.]))\n(;W[ms];B[mr]C[Black is alive.]))\n(;W[rs];B[ns]\n(;W[ms];B[or];W[pr];B[mr];W[ps])\n(;W[pr];B[or]\n(;W[ps])\n(;W[ms];B[mr];W[ps]))\n(;W[or];B[pr]\n(;W[mr];B[ms])\n(;W[ms];B[mr])))\n(;W[ns];B[rs]C[Seki.])\n(;W[ms];B[or]\n(;W[pr];B[mr]C[Black is alive.])\n(;W[rs];B[mr];W[pr]C[Black is alive.])))\n(;B[or]C[Another variation : black dies.];W[ps];B[ns];W[ms];B[mr];W[ns]))\n(;W[or];B[qs]\n(;W[ms];B[mr]C[10 000 years ko. White can do better])\n(;W[mr];B[ns];W[ms];B[pr]LB[np:A]C[Please play at AFORCE];W[np];B[ps]LB[rs:A]C[FORCE];W[rs];B[ns]C[Black lives.])\n(;W[ns]C[Seki]))\n(;W[ms];B[or];W[qs];B[ps]\n(;W[pr];B[mr]C[Black is alive.])\n(;W[rs];B[mr];W[pr]C[Black is alive.]))\n(;W[ns];B[qs]C[At best white will get a gote seki.])\n(;W[ps];B[qs]\n(;W[or];B[ns];W[ms];B[mr]LB[np:A]C[Please play at A.FORCE];W[np];B[pr]LB[rs:A]C[FORCE];W[rs];B[ns]C[Black lives.])\n(;W[ms];B[or]C[Black will live by capturing the white stones inside.])\n(;W[ns]C[Seki. Black can play elsewhere.])))",
+  "author": {
+    "id": 6276,
+    "name": "Lok",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-03-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 73,
+  "attempts": {
+    "solved": 289,
+    "failed": 610,
+    "tries": 899,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-03-24T06:38:57+00:00",
+  "source": "Problem 11015",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

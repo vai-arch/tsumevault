@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8127,
+  "elo": 1627.3930637289,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to Kill Without Ko",
+  "rating": {
+    "stars": 3.7,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[bo][ap][bp][dp][bq][cq][eq][dr][es]AB[an][bn][cn][ao][co][do][eo][cp][aq][fq][cr][er][fr][fs]C[Black To Kill Without Ko]\r\n(;B[ds]CR[ds]\r\n;W[br]CR[br]\r\n;B[dq]CR[dq]C[Ko])\r\n(;B[br]CR[br]\r\n;W[ar]CR[ar]\r\n;B[ds]CR[ds]\r\n;W[bs]CR[bs]\r\n;B[dq]CR[dq]C[Ko])\r\n(;B[cs]CR[cs]\r\n;W[bs]CR[bs]\r\n;B[br]CR[br]\r\n;W[ar]CR[ar]C[Ko])\r\n(;B[bs]CR[bs]\r\n(;W[br]CR[br]C[CHOICE]\r\n;B[cs]CR[cs]C[RIGHT])\r\n(;W[ds]CR[ds]C[CHOICE]\r\n(;B[cs]CR[cs]\r\n;W[dq]CR[dq]\r\n;B[ar]CR[ar]C[RIGHT])\r\n(;B[ep]CR[ep]\r\n(;W[dq]CR[dq]\r\n(;B[br]CR[br]\r\n;W[ar]CR[ar]C[Seki])\r\n(;B[ar]CR[ar]C[RIGHT])\r\n(;B[cs]CR[cs]\r\n;W[ar]CR[ar]C[Seki])\r\n(;B[as]CR[as]\r\n;W[br]CR[br]C[White Lives]))\r\n(;W[br]CR[br]\r\n;B[dq]CR[dq]C[RIGHT Correct, but not optimal ]))\r\n(;B[ar]CR[ar]C[RIGHT Thanks go to Fieldmouse for this Variation])))\r\n(;B[ar]CR[ar]\r\n;W[br]CR[br]\r\n;B[ds]CR[ds]\r\n;W[cs]CR[cs]))",
+  "author": {
+    "id": 8286,
+    "name": "Kimochi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-10-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 60,
+  "attempts": {
+    "solved": 474,
+    "failed": 1707,
+    "tries": 2181,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-02-18T23:31:46+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

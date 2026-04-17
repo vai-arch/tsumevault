@@ -1,0 +1,148 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3530,
+  "elo": 1263.3214638478,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "White finds himself in a tight spot in this 5-stone handicap teaching game for a beginner. Is there any way to save his stones?",
+  "rating": {
+    "stars": 1.9,
+    "votes": 42,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[fa]AW[eb]AW[fb]AW[gb]AW[ib]AW[fc]AW[dd]AW[fd]AW[gd]AW[ge]AW[he]AW[df]AW[gf]AW[dg]AW[hg]AW[eh]AW[fh]AW[gh]AW[di]AB[da]AB[ea]AB[ga]AB[ha]AB[db]AB[hb]AB[cc]AB[dc]AB[ec]AB[gc]AB[hc]AB[ed]AB[hd]AB[id]AB[ee]AB[fe]AB[ef]AB[ff]AB[cg]AB[eg]AB[fg]AB[gg]AB[hh]LB[be:A]C[Is there any way for White to escape this? If not, play at A to resign.]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]HA[5]KM[0.00]PW[Dan Rosen]PB[Joon Nak Choi]\r\n(;W[be]C[Indeed, White has lost. RIGHT])\r\n(;W[ie];B[if]C[FORCE]\r\n(;W[hf];B[ig]C[CHOICE])\r\n(;W[ia];B[hf]C[CHOICE])\r\n(;W[ic];B[hf]C[CHOICE])\r\n(;W[ig];B[hf]C[CHOICE]))\r\n(;W[ih];B[hf]C[FORCE]\r\n(;W[if];B[ie]C[FORCE]\r\n(;W[ia];B[hf]C[CHOICE])\r\n(;W[ic];B[hf]C[CHOICE])\r\n(;W[hf];B[ig]C[CHOICE]))\r\n(;W[ie];B[if]C[CHOICE])\r\n(;W[hi];B[ie]C[CHOICE]))\r\n(;W[ig]\r\n(;B[ie]C[FORCE]\r\n(;W[hf];B[ih]C[White can't push. CHOICE])\r\n(;W[if];B[hf]C[CHOICE]))\r\n(;B[hf]C[FORCE]\r\n(;W[if];B[ie]C[FORCE]\r\n(;W[hf];B[ih]C[CHOICE])\r\n(;W[ia];B[hf]C[CHOICE])\r\n(;W[ic];B[hf]C[CHOICE]))\r\n(;W[ie];B[if]C[CHOICE])\r\n(;W[ih];B[ie]C[CHOICE])\r\n(;W[hi];B[ie]C[CHOICE])))\r\n(;W[if];B[ie]C[FORCE]\r\n(;W[hf];B[ig]C[CHOICE])\r\n(;W[ia];B[hf]C[CHOICE])\r\n(;W[ic];B[hf]C[CHOICE]))\r\n(;W[hf];B[ig]C[FORCE]\r\n(;W[hi];B[ih]C[White can't push. CHOICE])\r\n(;W[if];B[ie]C[CHOICE])\r\n(;W[ie];B[if]C[CHOICE])\r\n(;W[ih];B[ii]C[White can't push. CHOICE])))",
+  "author": {
+    "id": 4860,
+    "name": "wheezy",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-10-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 2810,
+    "failed": 5547,
+    "tries": 8357,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-14T14:06:31+00:00",
+  "source": "beginner teaching game, dr vs. jc",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 59,
+      "name": "2-2 Crosscut",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 84,
+      "name": "Handicap Game",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 99,
+      "name": "Escape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

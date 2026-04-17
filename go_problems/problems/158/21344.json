@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21344,
+  "elo": 1511.1405818985,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cq]AB[cp]AB[co]AB[cl]AW[dp]AW[eq]AW[fp]AW[er]AW[fo]AW[go]AW[gn]AW[hn]AB[fq]AB[gr]AB[gp]AB[hp]AB[ho]AB[ip]AB[jp]AW[jq]AW[kp]AW[io]AW[jo]AB[in]C[Black to get the best result.]AP[goproblems]\n(;B[kq]\n(;W[ko]C[CHOICE]\n(;B[lq];W[jr]\n(;B[ir]C[];W[im]C[Good job.RIGHT])\n(;B[iq];W[hr]\n(;B[ir];W[is];B[kr];W[gq];B[js];W[fr]TR[im]C[White would likely defend at J7 instead, but there is no reason to allow this reduction.])\n(;B[gq];W[ir])\n(;B[hq];W[ir])\n(;B[gs];W[gq])\n(;B[fr];W[gq]))\n(;B[hr];W[fr]\n(;B[gq];W[iq])\n(;B[ir];W[im]C[Good job. There is subtle difference here compared to the main path, involving the capture of F3 and K2, but this is essentially correct.RIGHT]TR[hr])\n(;B[iq];W[ir];B[gq];W[hs];B[gs];W[fs];B[is];W[js];B[kr];W[hs])\n(;B[kr];W[gq]C[No need to lose these points.]))\n(;B[kr];W[hr]\n(;B[hq];W[iq])\n(;B[ir];W[iq];B[gq];W[gs]\n(;B[fs];W[hs];B[js];W[is])\n(;B[js];W[is];B[fs];W[hs]))))\n(;B[jr];W[lq]\n(;B[kr];W[im]C[Black is very small.])\n(;B[iq];W[im]C[Black is very small.]))\n(;B[kr];W[im]LB[mp:A]C[Close, but you can do still better. White A threatens to enclose, keeps Black low in any case and builds influence.]))\n(;W[lp]C[White mistakes];B[lq]\n(;W[jr];B[ko];W[jn];B[mp];W[lo];B[kn];W[im];B[ln]C[RIGHT])\n(;W[mp];B[jr]TR[im]TR[ko]C[RIGHT])))\n(;B[ko];W[jn]C[FORCE]\n(;B[kq];W[lp]TR[lq];B[lq];W[mp]TR[jr];B[jr];W[im]C[Don't use brute force, you've helped White get a strong position.])\n(;B[kn];W[im]TR[kq];B[kq];W[lp]TR[lq];B[lq];W[mp]TR[jr];B[jr];W[km]C[Don't use brute force, you've helped White get a strong position.]))\n(;B[jr];W[ko];B[kq];W[lq]\n(;B[kr];W[im]C[Black is very small.])\n(;B[iq];W[im]C[Black is very small.]))\n(;B[jn];W[ko]TR[kq];B[kq];W[kr];B[lq];W[iq]C[Lots of complication for Black.]))",
+  "author": {
+    "id": 52754,
+    "name": "nimbim",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-30",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1429.6
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 126,
+    "failed": 380,
+    "tries": 506,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-11-04T00:24:08+00:00",
+  "source": "Japanese go proverbs book",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 32,
+      "name": "Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 158,
+      "name": "Good and bad style",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

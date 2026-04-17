@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8514,
+  "elo": 898.15541361424,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -3,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Can B capture either triangled or squared stones? Play N if not.",
+  "rating": {
+    "stars": 3.6,
+    "votes": 35,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[fl]AW[gl]AW[hl]AW[ek]AW[dk]AW[cj]AW[cl]AB[dl]AB[el]AB[em]AB[en]AB[fm]AB[gm]AB[hm]AB[gn]AB[fk]AB[hj]AB[hi]AB[ii]AW[im]AW[in]AW[hn]AB[ho]AB[io]AB[jo]AB[ko]AW[ij]AW[jj]MA[hl]MA[gl]MA[fl]TR[im]TR[in]TR[hn]LB[ml:N]C[]AP[goproblems]\n(;B[il]\n(;W[jl]\n(;B[ik]\n(;W[hk];B[gk]C[Nice damezumariCHOICERIGHT])\n(;W[jk];B[hk]C[CHOICERIGHT]))\n(;B[hk];W[ik]))\n(;W[ik];B[jl]MA[im]MA[in]MA[hn]C[Marked stones are now beyond help.RIGHT]))\n(;B[ml])\n(;B[jl];W[il];B[ik];W[hk];B[jk];W[fj]C[Black catches nothing at all.])\n(;B[ik];W[il]\n(;B[hk];W[kl]\n(;B[jl];W[jm];B[jk];W[lm])\n(;B[jk];W[lm])\n(;B[kk];W[jk])\n(;B[km];W[jk])\n(;B[jm];W[jl]))\n(;B[jk];W[hk]\n(;B[fj];W[kl]\n(;B[jl];W[jm]\n(;B[kk];W[lk]\n(;B[kj];W[lm])\n(;B[ll];W[kj]))\n(;B[km];W[kk]))\n(;B[kk];W[lk]))\n(;B[gj];W[kl])\n(;B[gk];W[kl])))\n(;B[jk];W[ik])\n(;B[hk];W[ik])\n(;B[jm];W[jl])\n(;B[gk];W[ik]))",
+  "author": {
+    "id": 5722,
+    "name": "tjl",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 18016,
+    "failed": 9651,
+    "tries": 27667,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-05-06T09:02:32+00:00",
+  "source": "Game on kgs",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

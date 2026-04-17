@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17762,
+  "elo": 934.02331714163,
+  "problemLevel": 8,
+  "rank": {
+    "value": 22,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -1,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "White just ignored the marked stone (ko threat) to fill in the ko. Punish his mistake.",
+  "rating": {
+    "stars": 3,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[ha]AB[gb]AW[ea]AB[ge]AB[gc]AW[da]AW[cd]AW[bd]AW[dh]AW[ch]AW[cg]AW[df]AW[de]AW[be]AB[dg]AB[ce]AB[cf]AB[bf]AB[bg]AB[bh]AB[ci]TR[ci]LB[fa:ko]AB[hg]AB[hh]AB[gh]AW[gg]AW[fg]AW[fe]AB[gd]AW[fd]AB[ca]AB[cb]AB[bb]AB[bc]AB[ac]AB[aa]AW[cc]AW[dc]AW[db]AW[fb]AW[ga]AB[hb]AW[fc]AW[fa]AB[gf]AW[ff]AB[eb]AP[goproblems]\n(;B[di];W[eh]\n(;B[ei];W[fi];B[fh];W[bi])\n(;B[fh];W[ei];B[fi];W[eg])\n(;B[fi];W[ei];B[fh];W[eg])\n(;B[eg];W[fi];B[fh];W[ef];B[gi];W[ei]))\n(;B[eg];W[eh]\n(;B[fh];W[ei];B[fi];W[ef])\n(;B[di];W[fi];B[fh];W[ef];B[gi];W[ei])\n(;B[fi];W[ei];B[fh];W[ef]))\n(;B[eh];W[eg]\n(;B[di];W[dg];B[fh]C[RIGHT])\n(;B[fh];W[di];B[ei];W[dg])\n(;B[ei];W[dg];B[di];W[fh];B[fi]C[RIGHT]))\n(;B[ei];W[eh]\n(;B[fh];W[eg];B[di]C[RIGHT])\n(;B[fi];W[di];B[fh];W[eg])\n(;B[di];W[fi]\n(;B[bi];W[fh])\n(;B[fh];W[bi])))\n(;B[fi];W[eh];B[ei];W[di];B[fh];W[eg])\n(;B[fh];W[di];B[eh];W[eg];B[ei];W[dg]))",
+  "author": {
+    "id": 52200,
+    "name": "Ryuukun",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 2154,
+    "failed": 1905,
+    "tries": 4059,
+    "speedSolved": 2,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-05-30T17:33:19+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

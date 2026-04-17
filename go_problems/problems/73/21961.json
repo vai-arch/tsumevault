@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21961,
+  "elo": 1131.9405312894,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "After this common joseki- you might think white can go to the 2-2 point. This is actually an overplay.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[The triangle stone is an overplay by white. Black to cut off and kill it.]AB[pd]AB[qc]AB[nd]AW[qf]AW[rd]AW[qi]AW[rb]TR[rb]AP[goproblems];B[rc];W[sc]\r\n(;B[re];W[qe];B[qd];W[sd]\r\n(;B[sb];W[sa];B[se];W[sb];B[qb]C[Correct! Note that white could have fought a ko here for the connectionRIGHT])\r\n(;B[se];W[sb];B[qb];W[rf];B[ra];W[sf]))\r\n(;B[qb];W[sb];B[re];W[qe];B[qd];W[sd]\r\n(;B[ra];W[rf])\r\n(;B[se];W[rf];B[ra];W[sf])))",
+  "author": {
+    "id": 27197,
+    "name": "paddlefoot",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-06-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 475,
+    "failed": 508,
+    "tries": 983,
+    "speedSolved": 2,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2018-05-03T17:51:05+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

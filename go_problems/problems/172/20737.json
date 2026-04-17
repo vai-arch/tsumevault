@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20737,
+  "elo": 1265.174745569,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "The answer may be a blind spot.",
+  "rating": {
+    "stars": 4.8,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rr]AB[rq]AB[qp]AB[ro]AB[po]AB[oo]AB[no]AB[mo]AB[lo]AB[lp]AB[lq]AB[lr]AB[ms]AB[ns]AB[nr]AW[os]AW[or]AW[mr]AW[mq]AW[mp]AW[np]AW[op]AW[pp]AW[qq]AW[qr]AW[qs]C[Black to play]AP[goproblems]\n(;B[ls]LB[pr:a]LB[oq:b]C[Connecting at the root of Black's shape with 1 is the answer. If next White 'a', Black can hane at 'b'. RIGHT])\n(;B[ps]\n(;W[pr]\n(;B[nq];W[oq])\n(;B[ls];W[nq])\n(;B[oq];W[pq]))\n(;W[nq]\n(;B[ls];W[pq])\n(;B[pq];W[ls])))\n(;B[oq];W[pq]\n(;B[pr]\n(;W[nq])\n(;W[ps];B[ls];W[nq]))\n(;B[ls];W[nq]))\n(;B[pq]\n(;W[pr]C[CHOICE]\n(;B[oq];W[nq])\n(;B[nq];W[oq]))\n(;W[oq];B[ls];W[pr]))\n(;B[nq];W[oq];B[ls];W[pr])\n(;B[pr];W[nq];B[ls];W[pq]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 694,
+    "failed": 1202,
+    "tries": 1896,
+    "speedSolved": 2,
+    "speedPlay": 17
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-01-09T13:08:20+00:00",
+  "source": "Go Game Guru",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 183,
+      "name": "The Top Ten Life-and-Death Problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

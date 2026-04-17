@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11948,
+  "elo": 1267.2300480539,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "I used to find situations like this often in my games. However, I did not find a problem like this on the site, and neither did the pattern search.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[gr]AB[gs]AB[ks]AB[fq]AB[er]AW[gq]AW[hq]AW[iq]AW[jq]AW[kq]AW[mq]AW[fp]AB[ep]AW[gp]AW[ns]AW[nr]C[Please show black why the invasion at A is a mistake. It should have been at B, at the most.]LB[ks:A]LB[js:B]AP[goproblems]\n(;W[is];B[ir]\n(;W[jr];B[hr];W[js]C[Not the best, as you ended in gote and lost quite some territory.])\n(;W[hr];B[hs];W[jr]C[RIGHT])\n(;W[js];B[jr]\n(;W[hr];B[hs])\n(;W[kr];B[hs]))\n(;W[kr];B[js]\n(;W[hr];B[hs])\n(;W[hs];B[hr])\n(;W[jr];B[hs])))\n(;W[js];B[jr]\n(;W[ir];B[is]\n(;W[hs];B[hr])\n(;W[hr];B[hs])\n(;W[kr];B[js]\n(;W[hs];B[hr])\n(;W[ls];B[hs])))\n(;W[kr];B[is])\n(;W[is];B[ir]\n(;W[hr];B[hs])\n(;W[kr];B[hs]))\n(;W[ls];B[is]))\n(;W[ir];B[is])\n(;W[jr];B[is];W[js]C[You could have done better, as you ended in gote and still had some territory reduction.])\n(;W[hs];B[hr]\n(;W[ir];B[is])\n(;W[is];B[ir])\n(;W[js];B[jr]\n(;W[ir];B[is])\n(;W[is];B[ir]))\n(;W[jr];B[js]\n(;W[is];B[ir])\n(;W[ir];B[is])))\n(;W[hr];B[hs]\n(;W[is]C[This is probably the best.RIGHT])\n(;W[js];B[jr]\n(;W[ir];B[is])\n(;W[is];B[ir]))\n(;W[jr];B[js];W[is];B[ir]C[Ko, instead of killing black  in your territory unconditionally.]))\n(;W[kr];B[is]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 1638,
+    "failed": 2983,
+    "tries": 4621,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-11-08T16:19:50+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 85,
+      "name": "1st Line Connection",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5653,
+  "elo": 1261.8469045595,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -3,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 2.5,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ah]AB[bh]AB[ci]AB[cj]AB[ck]AB[cl]AB[bm]AB[am]AW[ag]AW[bg]AW[cf]AW[ch]AW[dh]AW[di]AW[dl]AW[dj]AW[dk]AW[dm]AW[cm]AW[bn]AW[an]AW[co]C[How many ways to wipe this Black group off the board?FORCE]AB[aj]LB[fh:0]LB[fi:1]LB[fj:2]LB[fk:3]LB[fl:4]LB[fm:5]AP[goproblems]\n(;W[fi];B[fl]C[Correct - Which move would it be? :)]\n(;W[bi]\n(;B[bk]\n(;W[ai]C[Well done! :)RIGHT]TR[bj]TR[al])\n(;W[al]C[Well done! :)RIGHT]TR[bl]TR[ai]))\n(;B[bj]\n(;W[ai]C[RIGHT])\n(;W[ak]TR[ai]TR[bl]C[RIGHT])\n(;W[bl]C[RIGHT]))\n(;B[ak]\n(;W[ai]TR[bj]TR[bl]C[RIGHT])\n(;W[bl]TR[al]TR[ai]C[RIGHT])\n(;W[bj]TR[ai]TR[bl]C[RIGHT]))\n(;B[bl]\n(;W[ai]TR[bj]TR[ak]C[RIGHT])\n(;W[bj]C[RIGHT])\n(;W[ak]TR[bj]TR[ai]C[RIGHT]))\n(;B[ai]\n(;W[ak];B[bj];W[bl]C[RIGHT])\n(;W[bl]C[RIGHT]))\n(;B[al]\n(;W[ai]TR[bk]TR[bj]C[RIGHT])\n(;W[bj]C[RIGHT])\n(;W[bk]TR[bj]TR[ai]C[RIGHT])))\n(;W[ai];B[bi]C[:(])\n(;W[bj];B[bi]C[:(])\n(;W[bk];B[bl]C[:(])\n(;W[ak];B[bi]C[:(]TR[bl]TR[bk])\n(;W[bl];B[bk]\n(;W[bi];B[al];W[ai];B[bj]C[:(])\n(;W[al];B[bi]C[:(]))\n(;W[al];B[bl]C[:(]))\n(;W[fh]C[The correct anwser is 1. Please use 'Navigate Solution' under 'Show Solution' after the correct anwser to see for yourself.])\n(;W[fj]C[The correct anwser is 1. Please use 'Navigate Solution' under 'Show Solution' after the correct anwser to see for yourself.])\n(;W[fk]C[The correct anwser is 1. Please use 'Navigate Solution' under 'Show Solution' after the correct anwser to see for yourself.])\n(;W[fl]C[The correct anwser is 1. Please use 'Navigate Solution' under 'Show Solution' after the correct anwser to see for yourself.])\n(;W[fm]C[The correct anwser is 1. Please use 'Navigate Solution' under 'Show Solution' after the correct anwser to see for yourself.]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 74,
+  "attempts": {
+    "solved": 971,
+    "failed": 1778,
+    "tries": 2749,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-12-08T16:42:03+00:00",
+  "source": "Problem 5652",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

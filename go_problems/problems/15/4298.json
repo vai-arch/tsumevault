@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4298,
+  "elo": 1622.3949800814,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 3.7,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[9]KM[0.00]\r\nAW[dc][ec][ed][fd][gd][hd][id][fe][ff][hf][fg][fh][hh][fi]AB[cb][cc][cd][dd][be][de][cf][ef][bg][eg][bh][dh][eh][ci]LB[da:K][ea:S][fa:L][db:P][eb:I]C[No komi, no prisoners yet - Black to win. FORCE]\r\n(;B[fa]\r\n(;W[fb]\r\n(;B[ea]\r\n;W[ga]\r\n(;B[db]\r\n(;W[gb]CR[gb]LB[fa:A]TR[dc][ec][fc][gc]C[RIGHT You won by 1, the best \r\nresult. With the 2 marked stones in place, and the 2 marked points open; a large monkey jump to 'A' is correct.]\r\n(;B[ei]CR[ei]C[RIGHT]\r\n;W[eb]CR[eb]C[RIGHT]\r\n;B[da]CR[da]C[RIGHT])\r\n(;B[eb]CR[eb]C[RIGHT]\r\n;W[ei]CR[ei]C[RIGHT]))\r\n(;W[eb]\r\n;B[da]\r\n;W[gb]\r\n;B[ei]LB[fa:A]TR[dc][ec][fc][gc]C[RIGHT You won by 1, the best result. With the 2 marked stones in place, and the 2 marked points open, a large monkey jump to 'A' is correct. In a real game, White will generally play G8 rather than E8, thereby leaving a ko threat for the later endgame without loss.]))\r\n(;B[da]\r\n;W[gb]\r\n(;B[db]\r\n;W[ei]LB[da:B][db:A]C[Only jigo. Your 1st 2 moves were correct, but your 3rd should have been at 'A' rather than 'B'.])\r\n(;B[ei]\r\n;W[db]LB[da:B][db:A]C[Only jigo. Your 1st 2 moves were correct, but your 3rd should have been at 'A' rather than 'B'.]))\r\n(;B[gb]\r\n;W[da]\r\n;B[ha]\r\n;W[db]LB[db:A][gb:B]C[You cannot live in the corner. Your 1st 2 moves were correct, but your 3rd should have been at 'A' rather than 'B'.]))\r\n(;B[da]\r\n(;W[ga]\r\n(;B[ea]\r\n;W[gb]\r\n(;B[db]\r\n;W[ei]LB[da:B][ea:A]C[Only jigo. Your 1st move was correct, but your 2nd should have been at 'A', rather than 'B'.])\r\n(;B[ei]\r\n;W[db]LB[da:B][ea:A]C[Only jigo. Your 1st move was correct, but your 2nd should have been at 'A', rather than 'B'.]))\r\n(;B[db]\r\n;W[ea]\r\n;B[eb]\r\n;W[fa]\r\n;B[ei]LB[da:B][ea:A]C[You lost by 1. Your 1st move was correct, but your 2nd should have been at 'A', rather than 'B'.]))\r\n(;W[ea]CR[ea]C[W will not play this.]\r\n;B[eb]CR[eb]\r\n;W[db]CR[db]\r\n;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[ca]CR[ca]\r\n;W[gb]CR[gb]\r\n;B[ei]CR[ei]C[B +1])))\r\n(;W[da]CR[da]\r\n;B[db]CR[db]\r\n;W[eb]CR[eb]\r\n;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[fb]CR[fb]\r\n;W[gb]CR[gb]\r\n;B[ca]CR[ca]\r\n;W[fc]CR[fc]\r\n;B[da]CR[da]\r\n;W[ei]CR[ei]C[RIGHT B +1])\r\n(;W[eb]CR[eb]\r\n;B[ea]CR[ea]\r\n;W[da]CR[da]\r\n;B[db]CR[db]\r\n;W[ga]CR[ga]\r\n;B[fb]CR[fb]\r\n;W[gb]CR[gb]\r\n;B[ca]CR[ca]\r\n;W[fc]CR[fc]\r\n;B[da]CR[da]\r\n;W[ei]CR[ei]C[RIGHT B +1])\r\n(;W[ga]CR[ga]\r\n(;B[fb]CR[fb]\r\n;W[eb]CR[eb]\r\n;B[ea]CR[ea]\r\n(;W[gb]CR[gb]\r\n;B[db]CR[db]\r\n;W[fc]CR[fc]\r\n;B[da]CR[da]\r\n;W[ei]CR[ei]C[RIGHT B +1])\r\n(;W[db]CR[db]\r\n;B[da]CR[da]\r\n;W[gb]CR[gb]\r\n;B[fc]CR[fc]\r\n;W[gc]CR[gc]\r\n;B[ca]CR[ca]\r\n;W[ei]CR[ei]C[RIGHT B +1]))\r\n(;B[ea]CR[ea]\r\n;W[fb]CR[fb]\r\n(;B[da]CR[da]\r\n;W[gb]CR[gb]\r\n(;B[db]CR[db]\r\n;W[ei]CR[ei]C[Jigo])\r\n(;B[ei]CR[ei]\r\n;W[db]CR[db]C[Jigo]))\r\n(;B[gb]CR[gb]\r\n;W[da]CR[da]\r\n;B[ha]CR[ha]\r\n;W[db]CR[db]C[B is cut off and cannot form a live group.]))))\r\n(;B[da]\r\n;W[fb]\r\n(;B[fa]\r\n;W[ga]\r\n;B[ea]\r\n;W[gb]\r\n(;B[db]\r\n;W[ei]LB[fa:A]C[Only jigo. A monkey jump to 'A' allows a 1 point win.])\r\n(;B[ei]\r\n;W[db]LB[fa:A]C[Only jigo. A monkey jump to 'A' allows a 1 point win.]))\r\n(;B[ea]\r\n;W[fa]\r\n;B[db]\r\n;W[ei]LB[fa:A]C[You lost by 2. A monkey jump to 'A' allows a 1 point win.]))\r\n(;B[ea]\r\n;W[fa]\r\n(;B[db]\r\n;W[eb]\r\n;B[da]\r\n;W[fb]\r\n;B[ei]LB[fa:A]C[You lost by 1, the best result from the small monkey jump. A large monkey \r\njump to 'A' is better by 2.])\r\n(;B[da]\r\n;W[fb]\r\n(;B[ei]\r\n;W[db]LB[fa:A]C[You lost by 2, inferior by 1 to the best result from the small monkey jump. A large monkey jump to 'A' allows a 1 point win.])\r\n(;B[db]\r\n;W[ei]LB[fa:A]C[You lost by 2, inferior by 1 to the best result from the small monkey jump. A large monkey jump to 'A' allows a 1 point win.]))\r\n(;B[eb]\r\n;W[db]\r\n;B[da]\r\n;W[fb]\r\n;B[ca]\r\n;W[ei]LB[fa:A]C[You lost by 3. A large monkey jump to 'A' allows a 1 point win.])\r\n(;B[fb]\r\n;W[da]\r\n(;B[db]\r\n;W[eb]\r\n;B[ca]\r\n;W[ea]\r\n;B[ei]LB[fa:A]C[You lost by 5. A large monkey jump to 'A' allows a 1 point win.])\r\n(;B[eb]\r\n;W[db]\r\n;B[gb]\r\n;W[hb]C[You cannot live in the corner.])))\r\n(;B[db]\r\n;W[eb]\r\n;B[ea]\r\n;W[fa]\r\n;B[da]\r\n;W[fb]\r\n;B[ei]LB[fa:A]C[You lost by 1. A monkey jump to 'A' allows a 1 point win.])\r\n(;B[eb]\r\n;W[db]\r\n;B[da]\r\n;W[fb]\r\n;B[ea]\r\n;W[fa]\r\n;B[ca]\r\n;W[ei]LB[fa:A]C[You lost by 3. A monkey jump to 'A' allows a 1 point win.]))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 2622,
+    "failed": 4538,
+    "tries": 7160,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-04-16T20:13:22+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 122,
+      "name": "Monkey Jump",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

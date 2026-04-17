@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1970,
+  "elo": 1283.3722066605,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": -1,
+    "flagSum": 11
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "This is \"One Color Go,\" where both sides use the same color stones to play their actual colors.  During play, both players have to remember which of the white stones are actually black and which of them are really white.  In this problem, the sequence played so far is from a standard joseki.  See if you can recognize the pattern and distinguish which stone is what color.",
+  "rating": {
+    "stars": 2,
+    "votes": 47,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[cp]AW[dp]AW[ep]AW[cq]AW[dq]AW[fq]AW[fr]AW[hq]C[One color go: White to move.  Hint: The next move is the last step to a standard joseki.]GM[1]FF[4]VW[]AP[Many Faces of Go:11.0]HA[0]ST[1]DT[2003-02-25]KM[0.0]RU[Japanese]PL[W]\n(;W[go]C[The joseki sequence leading to this position is shown.RIGHT]AB[fr]AB[fq]AB[dq]AB[cq]LB[dp:1]LB[fq:2]LB[hq:3]LB[cq:4]LB[cp:5]LB[dq:6]LB[ep:7]LB[fr:8])\n(;W[fp]C[This is joseki, but white g5 is more usual.The joseki sequence leading to this position is shown.RIGHT]AB[fr]AB[fq]AB[dq]AB[cq]LB[dp:1]LB[fq:2]LB[hq:3]LB[cq:4]LB[cp:5]LB[dq:6]LB[ep:7]LB[fr:8]))",
+  "author": {
+    "id": 3580,
+    "name": "picketfence",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-03-18",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 3418,
+    "failed": 6825,
+    "tries": 10243,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-02-25T19:29:58+00:00",
+  "source": "My couch",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 30,
+      "name": "Stories",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 24,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

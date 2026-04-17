@@ -1,0 +1,126 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 56109,
+  "elo": 1306.186706227,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Black to play, which move is better shape?",
+  "rating": null,
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[gc][hd][id][jc][kc][lc]AW[fc][gd][he][ie][jd][kd][ld][mc][md]LB[gb:A]LB[hb:B](;B[hb];W[gb];B[hc];W[fb]MA[ge]C[Black should play the hanging connection (answer B). Then Black has a\nchance to play the cut on the outside at X, before worrying about the safety\nof the group.RIGHT])(;B[gb];W[ic](;B[ib];W[hc];B[hb]MA[ge]MA[je]C[Black’s plan of giving up two stones (right) is bad, since the cutting points ‘x’ disappear.])(;B[hc];W[ib];B[jb];W[fb];B[ia];W[ga];B[hb];W[lb];B[ka];W[nb];B[kb];W[ge]C[Descending (answer A) is bad shape. If White attacks immediately Black\nonly just survives and White gains influence.])))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 1,
+    "failed": 9,
+    "tries": 10,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2026-02-27T17:55:20+00:00",
+  "source": "https://cdn.online-go.com/shape_up.pdf",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 377,
+      "name": "Shape Up! All Problem Sets",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 380,
+      "name": "Shape Up! (10 kyu course)",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 381,
+      "name": "Shape Up! Problem Set 1",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 383,
+      "name": "Shape Up! (5 kyu course)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1260
+}

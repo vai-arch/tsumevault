@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8173,
+  "elo": 1435.5460302349,
+  "problemLevel": 26,
+  "rank": {
+    "value": 4,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cr]AB[cq]AB[cp]AB[bo]AB[bn]AB[aq]AW[dr]AW[dq]AW[dp]AW[co]AW[cn]AW[cm]AW[bm]AW[am]AW[fr]C[White to kill.]AP[goproblems]\n(;W[bp]\n(;B[ap]C[CHOICE]\n(;W[ao];B[bq];W[an]C[Yup^^RIGHT])\n(;W[bs];B[cs];W[ao]C[This kills too. But playing B1 wasn't necessary.RIGHT])\n(;W[br];B[bs])\n(;W[cs];B[bs];W[br];B[bq];W[as];B[ar]))\n(;B[ao]C[CHOICE]\n(;W[br];B[bq];W[cs];B[bs];W[as]TR[ar]C[Black can't approach.RIGHT])\n(;W[an];B[ap]\n(;W[ar];B[bq];W[bs];B[cs])\n(;W[cs];B[bs]\n(;W[ds];B[br])\n(;W[br];B[ds]))\n(;W[br];B[bs]))\n(;W[bs];B[cs]\n(;W[an];B[ap];W[ar];B[bq])\n(;W[ar];B[bq]))\n(;W[ar];B[bq])\n(;W[cs];B[bs];W[br];B[bq];W[as]TR[ar]C[Black can't approach.RIGHT])))\n(;W[an];B[bp]\n(;W[cs];B[bs])\n(;W[br];B[bs]TR[ar]TR[ao])\n(;W[bs];B[cs]TR[br]TR[ao]))\n(;W[ao];B[bp]\n(;W[br];B[bs]TR[ar]TR[an])\n(;W[cs];B[bs])\n(;W[bs];B[cs]TR[br]TR[an]))\n(;W[br];B[bs]\n(;W[bp];B[bq]\n(;W[ao];B[ap];W[an];B[ar])\n(;W[ar];B[ap]))\n(;W[ar];B[bp]))\n(;W[bs];B[cs];W[bp];B[ao];W[an];B[ap];W[ar];B[bq])\n(;W[cs];B[bs]\n(;W[bp];B[bq])\n(;W[br];B[ds])\n(;W[ds];B[ar])\n(;W[ar];B[bp])))",
+  "author": {
+    "id": 6276,
+    "name": "Lok",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-03-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 1014,
+    "failed": 2405,
+    "tries": 3419,
+    "speedSolved": 1,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-02-26T05:24:06+00:00",
+  "source": "Problem 8163",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 70,
+      "name": "J-Group",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10385,
+  "elo": 1354.1496642083,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -5,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Feel free to comment and/or point out errors.",
+  "rating": {
+    "stars": 3.1,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dd]AB[pd]AB[dp]AW[oq]AB[qp]AW[po]AB[qo]AW[pn]AB[pq]AW[pp]AB[qq]AW[qn]AB[or]AW[nq]AW[qf]AB[nr]AB[mq]AW[mp]AB[np]AW[op]AB[lp]AW[mo]AB[lq]AW[cn]AB[cp]AW[ck]AB[cg]AW[nc]AB[oe]AW[qc]AB[pc]AW[pb]AB[ob]AW[qb]AW[re]AB[oc]AB[dc]AW[kc]AB[hc]AW[ke]AB[ld]AW[kd]AB[lc]AW[lb]AB[mb]AW[kb]AB[le]AW[lf]AW[mc]AB[nb]AB[me]AW[mf]AB[nd]AW[of]AB[pf]AW[pg]AB[nf]AW[og]AB[ng]AW[nh]AB[kf]AW[jf]AB[kg]AW[mg]AB[ne]AW[mh]AB[je]AW[jh]AB[jg]AW[if]AB[jd]LB[kf:1]LB[jf:2]LB[kg:3]LB[jh:8]LB[jg:9]LB[if:10]LB[mg:4]LB[ne:5]LB[mh:6]LB[je:7]LB[jd:11]C[Black cut at 1 and cut again at 7. White 10 is a nice dual propose move, threatening to capture either black 7 or 1. Black drew 7 out with 11 - white to capture the cutting stones.]AP[goproblems]\n(;W[ig];B[kh]\n(;W[ki];B[ji]\n(;W[ih];B[li];W[kj];B[lh]\n(;W[mj];B[lj];W[lk];B[kk];W[jj];B[mk];W[ll];B[mi];W[nj]C[And black resigns.RIGHT])\n(;W[lj];B[mi];W[nj]C[Black is trapped.RIGHT])\n(;W[mk]C[This also works. Remeber that when there are more than one way to capture the best sequence is the one that gives you the most thickness.RIGHT]))\n(;W[lh];B[ih];W[lg];B[jh]C[The spiral ladder is nice tesuji - but it doesn't work here :o(]))\n(;W[ji];B[li]\n(;W[lh];B[ki]C[How will you contain black now?])\n(;W[ki];B[lh];W[lj];B[mi]\n(;W[nj];B[mj];W[mk];B[lk];W[kj];B[nk];W[ml];B[ni];W[oj];B[oh]MA[lf]MA[mf]MA[mg]MA[mh]MA[nh]C[:o(])\n(;W[ni];B[mj];W[mk]C[];B[nj]C[The ladder will not work because of m13.])\n(;W[mj];B[ni];W[oi];B[nj]C[The ladder will not work because of m13.]))))\n(;W[ic];B[he]\n(;W[ig];B[kh];W[ki];B[ji];W[ih];B[li];W[kj];B[lh]\n(;W[mj];B[lj];W[lk];B[kk];W[jj];B[mk];W[ll];B[mi];W[nj]C[Right, but to exchange 1 for 2 was unnecessary and helped black.RIGHT]LB[ic:1]LB[he:2])\n(;W[lj];B[mi];W[nj]C[Right, but to exchange 1 for 2 was unnecessary and helped black.RIGHT]LB[ic:1]LB[he:2])\n(;W[mk]C[Right. Remeber that when there are more than one way to capture the best sequence is the one that gives you the most thickness. To exchange 1 for 2 was unnecessary and helped black.RIGHT]LB[ic:1]LB[he:2]))\n(;W[ie];B[id]\n(;W[ig];B[kh];W[ki];B[ih]C[:o(]MA[hg]MA[ji])\n(;W[jc];B[hd];W[ig];B[kh];W[ki];B[ih]MA[ji]MA[hg]C[:o(]))))",
+  "author": {
+    "id": 17664,
+    "name": "FrozenV7",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 546,
+  "attempts": {
+    "solved": 735,
+    "failed": 1145,
+    "tries": 1880,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-09-12T08:01:54+00:00",
+  "source": "Game of mine.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 84,
+      "name": "Handicap Game",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 90,
+      "name": "Dual Threat Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

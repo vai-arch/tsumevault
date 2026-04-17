@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19106,
+  "elo": 1137.131036457,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 2.6,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rq]AB[rp]AB[ro]AB[qp]AB[pq]AB[po]AB[oo]AB[no]AB[on]AB[np]AB[mn]AB[nm]AB[ml]AW[nl]AW[ol]AW[om]AW[pn]AW[qn]AW[qo]AW[qm]AW[qq]AW[qr]AW[oq]AW[op]AW[pp]AW[lq]C[Black to play and capture the corner.]AP[goproblems]\n(;B[rr]C[RIGHT];W[pr];B[rs]C[Not the best solutionRIGHT])\n(;B[or]\n(;W[pr];B[nq];W[pq];B[nr];W[rr];B[sr];W[sq];B[sp];W[qs]\n(;B[ss]C[RIGHT])\n(;B[os];W[ss];B[ps]C[RIGHT])\n(;B[rn]C[RIGHT]))\n(;W[nq]\n(;B[pr];W[nr]\n(;B[rr]C[RIGHT])\n(;B[qs]C[RIGHT]))\n(;B[nr]\n(;W[mq];B[pr]C[RIGHT])\n(;W[pr]C[CHOICE];B[mq];W[pq]\n(;B[mr];W[rr];B[sr];W[rs];B[ps]C[RIGHT])\n(;B[rr];W[mr];B[mp];W[ns])\n(;B[lr];W[rr];B[sr];W[os]))))))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 947,
+    "failed": 768,
+    "tries": 1715,
+    "speedSolved": 13,
+    "speedPlay": 24
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-02-22T12:32:16+00:00",
+  "source": "Elementary Go Series, Volume 3",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 177,
+      "name": "Tesuji",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16092,
+  "elo": 1486.6513651104,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -3,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "is it possible to keep all of white dead? if so, prove it",
+  "rating": {
+    "stars": 1.7,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ia]AB[ja]AB[jb]AB[jc]AB[jd]AB[kb]AB[la]AB[ma]AB[ld]AB[nd]AB[ne]AB[nc]AB[od]AB[pd]AB[qd]AB[rd]AB[qb]AB[rb]AB[hc]AB[fa]AB[eb]AB[da]AB[cb]AB[dc]AW[ga]AW[gb]AW[fb]AW[fc]AW[ec]AW[gd]AW[hd]AW[id]AW[ic]AW[hb]AW[oa]AW[nb]AW[mb]AW[lb]AW[mc]AW[pb]AW[oc]AW[pc]AW[qc]AW[je]AW[ke]AW[le]AW[kf]AW[kg]AW[ki]AW[kh]AB[dd]AW[fd]AB[ed]AB[ee]AB[fe]AB[ge]AB[he]AB[ie]LB[ci:yes]LB[cj:no]C[FORCE]AP[goproblems]\n(;B[cj]C[RIGHT])\n(;B[ci];W[aa];B[md];W[rc]\n(;B[lc]\n(;W[sb])\n(;W[sc]))\n(;B[sc];W[kd];B[lc];W[kc]\n(;B[ka];W[na];B[pa];W[qa];B[ra];W[ib];B[pa];W[ha];B[ob])\n(;B[pa];W[qa];B[ra];W[sb];B[pa];W[sd];B[se];W[qa])\n(;B[ha];W[na];B[pa];W[qa];B[ra];W[ka];B[la];W[ma];B[pa];W[ka];B[ob];W[ib])\n(;B[ib];W[na];B[pa];W[qa];B[ra];W[ka];B[la];W[ma];B[pa];W[ka];B[ob];W[ha])\n(;B[qa];W[pa]\n(;B[ka];W[ib]C[CHOICE];B[ea])\n(;B[ib]C[CHOICE])))))",
+  "author": {
+    "id": 51426,
+    "name": "morodo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-06-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 98,
+  "attempts": {
+    "solved": 233,
+    "failed": 424,
+    "tries": 657,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-05-26T15:46:56+00:00",
+  "source": "game on kgs",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

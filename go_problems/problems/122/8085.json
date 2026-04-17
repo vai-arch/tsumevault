@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8085,
+  "elo": 2024.7702589028,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -2,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Thanks to Bill Spight & BartTM for the main variations, and kenti for a shape that shows them.",
+  "rating": {
+    "stars": 3.6,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[11]AW[ka]AW[kb]AW[dc]AW[ec]AW[kc]AW[ed]AW[fd]AW[gd]AW[hd]AW[id]AW[jd]AW[kd]AW[ie]AW[ef]AW[hf]AW[jf]AW[kf]AW[eg]AW[fg]AW[gg]AW[ig]AW[eh]AW[ih]AW[ei]AW[hi]AW[ej]AW[hj]AW[ek]AW[hk]AB[cb]AB[cc]AB[bd]AB[dd]AB[be]AB[de]AB[fe]AB[ge]AB[he]AB[bf]AB[df]AB[ff]AB[dg]AB[jg]AB[kg]AB[bh]AB[dh]AB[jh]AB[bi]AB[di]AB[ji]AB[ki]AB[bj]AB[dj]AB[ij]AB[kj]AB[dk]AB[ik]AB[jk]LB[da:K]LB[ea:S]LB[fa:L]LB[db:P]LB[eb:I]LB[ee:C]C[No komi, no prisoners yet - Black to win. FORCE]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[fa]\n(;W[fb]\n(;B[da];W[ga]\n(;B[ee];W[ea];B[db];W[eb]LB[gf:Z]C[ You won by 1. This is 3 points better than playing the gote move first and letting White block. Because White's formation is so strong, the usual monkey jump sequence (bF11, wF10, bE11....) is not sente, so Black must give a little by jumping back to D11 forcing White to defend at G11, and then tenuki. In a real game, the situation will usually be left until later when Black tenukis, as the remaining moves are small. --------------------------- Play at 'Z' for further comment. FORCERIGHT];B[gf]LB[ee:g]C[ Varying the size of the gote move (g) gave the following results: The opening bF11, wF10, bD11... is best play for g = 0 to 2, and it is sole best play (not counting White replying G11 to the monkey jump which becomes the same sequence after bD11, wF10) for g = 3 to 9. The large monkey jump is the sole best 1st move for g = 0 to 12, and is equivalent to making a gote play of 13 points (when no other moves exist).RIGHT])\n(;B[ea]\n(;W[ee];B[db];W[eb]C[W +6])\n(;W[db]C[wwnpt];B[ee]C[B +2]))\n(;B[db]\n(;W[ee];B[ea];W[eb]C[W +6])\n(;W[ea]C[wwnpt]\n(;B[ee];W[eb]C[B +1];B[gf]LB[ee:g]C[Varying the size of the gote move (g) gave the following results: The opening bF11, wF10, bD11... is best play for g = 0 to 2, and it is sole best play (not counting White replying G11 to the monkey jump which becomes the same sequence after bD11, wF10) for g = 3 to 9. The large monkey jump is the sole best 1st move for g = 0 to 12, and is equivalent to making a gote play of 13 points (when no other moves exist).RIGHT])\n(;B[eb]\n(;W[ee];B[fa];W[gb];B[ea]C[W +5])\n(;W[fa]C[wwnpt];B[ee]C[B +2])))))\n(;B[ea]\n(;W[ga]\n(;B[ee];W[da];B[db];W[eb];B[ca];W[ea]C[W +1])\n(;B[db]\n(;W[ee];B[eb];W[gb]C[W +4])\n(;W[eb]C[wwnpt]\n(;B[ee];W[da];B[ca];W[ea]C[W +1])\n(;B[da];W[ee]C[W +6 - This sequence would be a solution if the value of the gote move were 1 or 2.])))\n(;B[da];W[ee]\n(;B[db];W[eb]LB[ee:g]C[W +6 - Because the White position is so strong, your 3rd move was not sente, allowing White to make the gote play (g).])\n(;B[eb];W[db];B[ca];W[gb]LB[ee:g]C[W +6 - Because the White position is so strong, your 3rd move was not sente, allowing White to make the gote play (g).])))\n(;W[db]C[wwnpt];B[da];W[ga];B[ee]C[B +2 - This sequence would be a solution if the value of the gote move were 0 or 1.])))\n(;W[ga]\n(;B[da];W[fb]\n(;B[ee];W[ea];B[db];W[eb]LB[ee:g]C[ B +1 - This sequence is a solution for values of the gote move (g) from 1 to 10.RIGHT];B[gf]LB[ee:g]C[Varying the size of the gote move (g) gave the following results: The opening bF11, wF10, bD11... is best play for g = 0 to 2, and it is sole best play (not counting White replying G11 to the monkey jump which becomes the same sequence after bD11, wF10) for g = 3 to 9. The large monkey jump is the sole best 1st move for g = 0 to 12, and is equivalent to making a gote play of 13 points (when no other moves exist).RIGHT])\n(;B[ea]\n(;W[ee];B[db];W[eb]C[W +6])\n(;W[db]C[wwnpt];B[ee]C[B +2])))\n(;B[ea];W[fb];B[da];W[ee];B[db];W[eb]C[W +6]))\n(;W[ee]C[wwnpt]\n(;B[ha];W[db];B[da];W[eb];B[ea];W[gb];B[ga];W[ib];B[hb];W[hc];B[fb];W[gc];B[ia];W[ja]C[B +2 - This sequence is a solution for values of the gote move (g) from 10 to 13. Above this, and 'g' becomes the sole best 1st play.])\n(;B[gb];W[db];B[da];W[eb];B[ea];W[hb]\n(;B[ha];W[ib];B[ia];W[ja];B[ga];W[gc];B[fb]C[B +1])\n(;B[ib];W[ha];B[hc];W[gc];B[ga];W[ic];B[fb]C[W +3])))\n(;W[da]C[wwnpt];B[db];W[eb];B[ea];W[ga]\n(;B[ca];W[fb];B[ee];W[da];B[ea]C[B +2])\n(;B[fb];W[gb];B[ca];W[fc];B[da];W[ee]C[W +4]))\n(;W[eb]C[wwnpt];B[ea];W[da];B[db];W[ga]\n(;B[ca];W[fb];B[ee];W[da];B[ea]C[B +2])\n(;B[fb];W[gb];B[ca];W[fc];B[da];W[ee]C[W +4])))\n(;B[ea]\n(;W[fa]\n(;B[da]\n(;W[eb]\n(;B[ee];W[db];B[ca]C[Jigo - You did encroach in sente, but the solution is 1 point better.])\n(;B[db];W[ee]C[W +8]))\n(;W[fb]C[wwnpt]\n(;B[ee];W[db]C[B +1])\n(;B[db];W[ee]C[W +7])))\n(;B[db];W[eb]\n(;B[ee];W[da];B[ca];W[ea]C[W +1])\n(;B[da];W[ee]C[W +8])))\n(;W[ee]\n(;B[ga];W[db];B[da];W[fb];B[fa]\n(;W[hb];B[ha];W[ib];B[gb];W[gc];B[ia];W[ja];B[ca];W[eb]C[Jigo])\n(;W[gb]C[wwnpt];B[hb];W[ib];B[hc];W[ia];B[ha];W[ic];B[gc]C[B +2]))\n(;B[fb];W[db];B[da];W[gb];B[ga];W[hb];B[ha];W[ia];B[fa];W[fc]C[W +2]))\n(;W[db]C[wwnpt];B[da];W[fb];B[fa];W[ga];B[ee]C[B +2])\n(;W[eb]C[wwnpt];B[fa];W[da];B[db];W[ga]\n(;B[ca];W[fb];B[ee];W[da];B[ea]C[B +2])\n(;B[fb];W[gb];B[ca];W[fc];B[da];W[ee]C[W +4])))\n(;B[da]\n(;W[eb];B[ea];W[fa]\n(;B[ee];W[db];B[ca]C[Jigo - You did encroach in sente, but the solution is 1 point better.])\n(;B[db];W[ee]C[W +8]))\n(;W[ee]C[wwnpt];B[gb];W[eb];B[ea];W[fb];B[fa];W[hb];B[ha];W[gc];B[ga];W[ib];B[ia];W[ja]C[B +1]))\n(;B[db]\n(;W[eb]\n(;B[ee];W[da];B[ca];W[ea]C[W +1])\n(;B[ea];W[fa]\n(;B[ee];W[da];B[ca];W[ea]C[W +1])\n(;B[da];W[ee]C[W +8])))\n(;W[ee]C[wwnpt];B[ga];W[ea];B[eb];W[fb];B[fa];W[gb];B[ha];W[hb];B[ia];W[ib];B[da];W[ja];B[ea]C[B +1]))\n(;B[eb];W[db];B[da];W[fb]\n(;B[ee];W[ea];B[ca]C[W +2])\n(;B[ea];W[fa];B[ca];W[ee]C[W +8]))\n(;B[ee];W[db];B[da];W[ea];B[ca]LB[ee:g]C[W +2 This sequence would be a solution if the value of the gote move (g) were 13; and the only solution for g = 14 and over.]))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 247,
+    "failed": 1708,
+    "tries": 1955,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-02-06T22:41:11+00:00",
+  "source": "An earlier problem",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 122,
+      "name": "Monkey Jump",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

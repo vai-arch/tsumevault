@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12984,
+  "elo": 1054.3756249454,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Black to respond to white 1.  The rest of the board is cut off for simplicity's sake.",
+  "rating": {
+    "stars": 3.3,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cs]AB[ds]AB[dr]AB[dq]AW[bs]AW[cr]AW[cq]AW[dp]AW[do]AB[ep]LB[bs:1]C[]AW[bp]AB[fq]AP[goproblems];B[br];W[bq]LB[fn:T]C[Play at 'T' if and when you wish to tenuki, worth 2 points.  (Thanks to Dark Sycthe for suggesting a point value!)]\n(;B[as]LB[fn:T]C[Play at 'T' if and when you wish to tenuki];W[aq]LB[fn:T]C[Play at 'T' if and when you wish to tenuki]\n(;B[fn]C[RIGHT])\n(;B[ar];W[bs]C[CHOICE])\n(;B[bs]C[This move is not necessary.CHOICE]))\n(;B[ar];W[aq];B[as];W[bs]C[CHOICE]))",
+  "author": {
+    "id": 31689,
+    "name": "Cei",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-11-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 45,
+  "attempts": {
+    "solved": 3217,
+    "failed": 3289,
+    "tries": 6506,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-08-18T08:43:08+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

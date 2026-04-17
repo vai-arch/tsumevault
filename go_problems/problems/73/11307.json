@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11307,
+  "elo": 1170.5748474013,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "My first attempt. Very easy to solve I suppose but hard for me to settle. Thanks for comments and corrections (and to darin and BartTm who already fixed one variation).",
+  "rating": {
+    "stars": 3.3,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]AW[fa]AW[fb]AW[bc]AW[fc]AW[bd]AW[cd]AW[dd]AW[ed]AW[fd]AB[ea]AB[bb]AB[eb]AB[cc]AB[dc]AB[ec]LB[sa:239]RU[Japanese](;B[ab](;W[ba](;B[ca]C[RIGHT])(;B[cb]C[RIGHT])(;B[da];W[cb]))(;W[ca]C[CHOICE](;B[cb]C[ d19 and b19 miaiRIGHT])(;B[ba];W[cb]C[Big mistake.])(;B[db];W[cb]C[Big mistake.])(;B[da];W[cb]C[Big mistake.]))(;W[cb]C[CHOICE](;B[ca];W[ba]C[CHOICE](;B[aa]C[RIGHT])(;B[db]C[RIGHT]))(;B[aa];W[da]C[dead])(;B[ba];W[da]C[dead])(;B[da];W[ca]C[?????]))(;W[da](;B[ca];W[cb];B[db]C[RIGHT])(;B[cb]C[RIGHT])(;B[ba];W[cb]C[Big mistake.])(;B[aa];W[cb]C[Big mistake.])))(;B[ac];W[ab](;B[ca];W[ad];B[db];W[ba])(;B[aa];W[ca]))(;B[aa];W[ca]C[dead shape])(;B[ba];W[ab]C[dead shape])(;B[ca];W[ab](;B[db];W[ba]C[ko, Black can do better.])(;B[ba];W[db]C[dead.])(;B[aa];W[ba]C[ko, Black can do better.]))(;B[cb];W[ab](;B[aa];W[ba])(;B[ba];W[da]C[dead]))(;B[da];W[ab](;B[aa];W[ba]C[dead])(;B[ba];W[cb]C[dead])(;B[cb];W[ba]C[dead.]))(;B[db];W[ca](;B[ab];W[ba]C[dead])(;B[ba];W[ab]C[dead])))",
+  "author": {
+    "id": 18556,
+    "name": "pseudog",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-16",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 959.642
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 2013,
+    "failed": 3305,
+    "tries": 5318,
+    "speedSolved": 8,
+    "speedPlay": 27
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-05-27T09:27:10+00:00",
+  "source": "cho chi kun elementary pb 239",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

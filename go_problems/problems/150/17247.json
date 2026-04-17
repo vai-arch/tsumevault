@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17247,
+  "elo": 2032.9699667789,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Kuwahara Shusaku vs Gennan Inseki, I switched the colors. Shusaku was actually Black (here White).",
+  "rating": {
+    "stars": 1,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dc]AW[ce]AW[fd]AB[de]AW[dd]AB[ed]AW[cd]AB[ec]AW[ee]AB[df]AW[cc]AB[gc]AB[cb]AW[bb]AW[bg]AB[dh]AB[ci]AW[fe]AW[fc]AB[fb]AW[gb]AB[hc]AB[id]AB[ie]AW[he]AW[gh]AW[jc]AW[kd]AW[le]AB[me]AB[md]AB[mc]C[White just cut here, Black to get the best result]LB[fc:1]LB[fb:2]LB[gb:3]AP[goproblems]\n(;B[eb];W[hb]C[E18 was the only move]\n(;B[ge];W[gf]\n(;B[ib];W[ic]\n(;B[ga];W[hd];B[ha];W[if]C[Very good. With G15 Black has G16 for later and can capture 4 stones by playing 1-2 as compensation for White's thickness.RIGHT]TR[gd]LB[hf:1]LB[ff:2])\n(;B[ha];W[hd];B[ga];W[if]C[Very good. With G15 Black has G16 for later and can capture 4 stones by playing 1-2 as compensation for White's thickness.RIGHT]TR[gd]LB[hf:1]LB[ff:2]))\n(;B[gd];W[ff]C[bad timing]TR[cb]TR[dc]TR[ec]TR[ed]TR[eb]TR[fb]))\n(;B[ib];W[ic]\n(;B[ga];W[hd];B[ha];W[if]C[You defended your group, but White has gained too much influence for little compensation.])\n(;B[ha];W[hd];B[ga];W[if]C[You defended your group, but White has gained too much influence for little compensation.]))\n(;B[da]C[White wants to enclose you, you have to find a better result]))\n(;B[hb];W[eb]C[Black is very sad])\n(;B[db];W[fa]\n(;B[eb];W[hb]C[ouch, that hurt]\n(;B[ib];W[ic]\n(;B[ge];W[jb]C[nope, now White will ignore the G15 tesuji to capture the marked stones]TR[db]TR[cb]TR[dc]TR[ec]TR[eb]TR[fb]TR[ed])\n(;B[ha];W[hd];B[ga];W[if]C[You defended your group, but White has gained too much influence for little compensation.])\n(;B[ga];W[hd];B[ha];W[if]C[You defended your group, but White has gained too much influence for little compensation.]))\n(;B[ge];W[ic]C[nope, now White will ignore the G15 tesuji to capture the marked stones]TR[cb]TR[db]TR[dc]TR[ec]TR[ed]TR[eb]TR[fb]))\n(;B[ea];W[eb]C[:( don't do that]))\n(;B[fa]TR[db]C[You correctly identified the liberty problem of F18, but there is no need to leave behind a weakness on D18.])\n(;B[ea]C[You correctly identified the liberty problem of F18, but there is no need to leave behind a weakness on D18.]TR[db]))",
+  "author": {
+    "id": 52754,
+    "name": "nimbim",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-30",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1429.6
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 20,
+    "failed": 262,
+    "tries": 282,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-04-18T15:30:28+00:00",
+  "source": "shusaku kifu",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 54,
+      "name": "Pro Game",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,103 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23934,
+  "elo": 1498.8941449746,
+  "problemLevel": 28,
+  "rank": null,
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": null,
+  "sgf": "(\r\n;\r\n\r\n\r\nAB [cd][ce][dc][df][ef][fc][fd][ff][gf][hf][id][if][ja][jb][jc][jd]\r\nAW [ec][ed][ee][fe][gd][ge][hd][ia][ib][ic]\r\n\r\nLB [hi:1][ii:2][ji:3][ki:4][li:5]\r\nC [Black moves first. What is the best result that black can guarantee? (1) Kill (2) Ko (3) Seki (4) Reduce (5) Nothing][FORCE]\r\n\r\n(\r\n; B [ii]; W [ii]\r\n\r\nLB [jj:B][kj:W]\r\nC [Is the ko advantageous for black or white?][FORCE]\r\n\r\n(; B [jj]; W [jj]\r\n\r\nLB [ik:1][jk:2][kk:3]\r\nC [Last question. How many external ko threats would white need to live?][FORCE]\r\n\r\n(\r\n; B [ik]; W [ik] C [Then assume white has no external ko threats and kill through ko.]\r\n\r\n\r\n(\r\n; B [gb]; W [fb]\r\n\r\n(\r\n; B [fa]; W [eb]\r\n\r\n(; B [db]; W [hb]; B [ea]; W [ga]; B [ha] C [RIGHT])\r\n(; B [hc]; W [gc] (; B [ha]; W [cb] (; B [db]; W [cc]; B [dd]; W [da] C [At best, a disadvantageous ko.])(; B [bc]; W [cc]; B [dd]; W [bb] C [At best, a disadvantageous ko.])(; B [cc]; W [bb]))(; B [hb]; W [cb] (; B [db]; W [cc]; B [dd]; W [da] C [At best, a disadvantageous ko.])(; B [bc]; W [cc]; B [dd]; W [bb] C [At best, a disadvantageous ko.])(; B [cc]; W [bb])))\r\n\r\n)\r\n\r\n(; B [eb]; W [fa] (; B [ea]; W [gc]; B [fc]; W [fd]; B [ga]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [ga]; W [gc]; B [fc]; W [fd]; B [ea]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [gc]; W [db] (; B [ga]; W [ea] (; B [hc]; W [cc])(; B [cb]; W [hc]))(; B [cb]; W [ea]))(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb])))\r\n(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb]))\r\n(; B [ha]; W [gc] (; B [hc]; W [db])(; B [db]; W [hb]))\r\n(; B [hb]; W [gc] (; B [hc]; W [db])(; B [db]; W [hc]))\r\n(; B [gc]; W [eb])\r\n\r\n\r\n)\r\n\r\n(; B [eb]; W [fb] (; B [gb]; W [fa] (; B [ea]; W [gc]; B [fc]; W [fd]; B [ga]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [ga]; W [gc]; B [fc]; W [fd]; B [ea]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [gc]; W [db] (; B [ga]; W [ea] (; B [hc]; W [cc])(; B [cb]; W [hc]))(; B [cb]; W [ea]))(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb])))(; B [fa]; W [gb]))\r\n(; B [fb]; W [eb])\r\n\r\n\r\n)\r\n\r\n(; B [jk]; W [jk] C [Then assume white has one external ko threat and kill through ko.]\r\n\r\n\r\n(\r\n; B [gb]; W [fb]\r\n\r\n(\r\n; B [fa]; W [eb]\r\n\r\n(; B [db]; W [hb]; B [ea]; W [ga] C [With an external ko threat, white wins the ko.])\r\n(; B [hc]; W [gc] (; B [ha]; W [cb] (; B [db]; W [cc]; B [dd]; W [da] C [At best, a disadvantageous ko.])(; B [bc]; W [cc]; B [dd]; W [bb] C [At best, a disadvantageous ko.])(; B [cc]; W [bb]))(; B [hb]; W [cb] (; B [db]; W [cc]; B [dd]; W [da] C [At best, a disadvantageous ko.])(; B [bc]; W [cc]; B [dd]; W [bb] C [At best, a disadvantageous ko.])(; B [cc]; W [bb])))\r\n\r\n)\r\n\r\n(; B [eb]; W [fa] (; B [ea]; W [gc]; B [fc]; W [fd]; B [ga]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [ga]; W [gc]; B [fc]; W [fd]; B [ea]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [gc]; W [db] (; B [ga]; W [ea] (; B [hc]; W [cc])(; B [cb]; W [hc]))(; B [cb]; W [ea]))(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb])))\r\n(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb]))\r\n(; B [ha]; W [gc] (; B [hc]; W [db])(; B [db]; W [hb]))\r\n(; B [hb]; W [gc] (; B [hc]; W [db])(; B [db]; W [hc]))\r\n(; B [gc]; W [eb])\r\n\r\n\r\n)\r\n\r\n(; B [eb]; W [fb] (; B [gb]; W [fa] (; B [ea]; W [gc]; B [fc]; W [fd]; B [ga]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [ga]; W [gc]; B [fc]; W [fd]; B [ea]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [gc]; W [db] (; B [ga]; W [ea] (; B [hc]; W [cc])(; B [cb]; W [hc]))(; B [cb]; W [ea]))(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb])))(; B [fa]; W [gb]))\r\n(; B [fb]; W [eb]))\r\n(; B [kk]; W [kk] C [Then assume white has two external ko threats and kill through ko.]\r\n\r\n\r\n(\r\n; B [gb]; W [fb]\r\n\r\n(\r\n; B [fa]; W [eb]\r\n\r\n(; B [db]; W [hb]; B [ea]; W [ga] C [With an external ko threat, white wins the ko.])\r\n(; B [hc]; W [gc] (; B [ha]; W [cb] (; B [db]; W [cc]; B [dd]; W [da] C [At best, a disadvantageous ko.])(; B [bc]; W [cc]; B [dd]; W [bb] C [At best, a disadvantageous ko.])(; B [cc]; W [bb]))(; B [hb]; W [cb] (; B [db]; W [cc]; B [dd]; W [da] C [At best, a disadvantageous ko.])(; B [bc]; W [cc]; B [dd]; W [bb] C [At best, a disadvantageous ko.])(; B [cc]; W [bb])))\r\n\r\n)\r\n\r\n(; B [eb]; W [fa] (; B [ea]; W [gc]; B [fc]; W [fd]; B [ga]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [ga]; W [gc]; B [fc]; W [fd]; B [ea]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [gc]; W [db] (; B [ga]; W [ea] (; B [hc]; W [cc])(; B [cb]; W [hc]))(; B [cb]; W [ea]))(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb])))\r\n(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb]))\r\n(; B [ha]; W [gc] (; B [hc]; W [db])(; B [db]; W [hb]))\r\n(; B [hb]; W [gc] (; B [hc]; W [db])(; B [db]; W [hc]))\r\n(; B [gc]; W [eb])\r\n\r\n\r\n)\r\n\r\n(; B [eb]; W [fb] (; B [gb]; W [fa] (; B [ea]; W [gc]; B [fc]; W [fd]; B [ga]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [ga]; W [gc]; B [fc]; W [fd]; B [ea]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [gc]; W [db] (; B [ga]; W [ea] (; B [hc]; W [cc])(; B [cb]; W [hc]))(; B [cb]; W [ea]))(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb])))(; B [fa]; W [gb]))\r\n(; B [fb]; W [eb]))\r\n\r\n)\r\n\r\n\r\n(; B [kj]; W [kj] C [Black can do better than a disadvantageous ko.])\r\n\r\n\r\n)\r\n\r\n(; B [hi]; W [hi] C [Prove it.]\r\n(\r\n; B [gb]; W [fb]\r\n\r\n(\r\n; B [fa]; W [eb]\r\n\r\n(; B [db]; W [hb]; B [ea]; W [ga] C [Ko.])\r\n(; B [hc]; W [gc] (; B [ha]; W [cb] (; B [db]; W [cc]; B [dd]; W [da] C [At best, a disadvantageous ko.])(; B [bc]; W [cc]; B [dd]; W [bb] C [At best, a disadvantageous ko.])(; B [cc]; W [bb]))(; B [hb]; W [cb] (; B [db]; W [cc]; B [dd]; W [da] C [At best, a disadvantageous ko.])(; B [bc]; W [cc]; B [dd]; W [bb] C [At best, a disadvantageous ko.])(; B [cc]; W [bb])))\r\n\r\n)\r\n\r\n(; B [eb]; W [fa] (; B [ea]; W [gc]; B [fc]; W [fd]; B [ga]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [ga]; W [gc]; B [fc]; W [fd]; B [ea]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [gc]; W [db] (; B [ga]; W [ea] (; B [hc]; W [cc])(; B [cb]; W [hc]))(; B [cb]; W [ea]))(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb])))\r\n(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb]))\r\n(; B [ha]; W [gc] (; B [hc]; W [db])(; B [db]; W [hb]))\r\n(; B [hb]; W [gc] (; B [hc]; W [db])(; B [db]; W [hc]))\r\n(; B [gc]; W [eb])\r\n\r\n\r\n)\r\n\r\n(; B [eb]; W [fb] (; B [gb]; W [fa] (; B [ea]; W [gc]; B [fc]; W [fd]; B [ga]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [ga]; W [gc]; B [fc]; W [fd]; B [ea]; W [fc] (; B [db]; W [hb])(; B [hb]; W [db]))(; B [gc]; W [db] (; B [ga]; W [ea] (; B [hc]; W [cc])(; B [cb]; W [hc]))(; B [cb]; W [ea]))(; B [hc]; W [gc] (; B [ha]; W [db])(; B [hb]; W [db])(; B [db]; W [hb])))(; B [fa]; W [gb]))\r\n(; B [fb]; W [eb]))\r\n(; B [ji]; W [hi] C [Black can do better than a seki.])\r\n(; B [ki]; W [hi] C [Black can do better than a reduction.])\r\n(; B [li]; W [hi] C [Black can do better than nothing.])\r\n\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 0,
+  "attempts": {
+    "solved": 0,
+    "failed": 7,
+    "tries": 7,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2023-09-08T01:54:54+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

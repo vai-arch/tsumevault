@@ -1,0 +1,114 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23903,
+  "elo": 1647.3284897589,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "When the board is symmetrical, please play on the **left** side or center",
+  "rating": null,
+  "sgf": "(;CA[gb2312]AB[fc][gd][he][hf][if][ig][ih][fi][di][ah][ag][bf][be][cd][af][dc][cc]\r\n[ec]AW[gf][ge][cf][ce][dd][ed][fd][bi][bh][bg][hi][hh][hg]C[When the board is symmetrical, please play on the **left** side or center]\r\nAP[MultiGo:4.4.4]SZ[9]AB[gc]MULTIGOGM[0]\r\n\r\n(;B[ef];W[eh]\r\n(;B[dh];W[dg]\r\n(;B[fh];W[fg];B[eg];W[ee])\r\n(;B[fg];W[fh]\r\n(;B[eg];W[gh];B[gg];W[ch])\r\n(;B[gg];W[gh];B[eg];W[ch])\r\n(;B[gh];W[gg];B[eg];W[gi];B[ei];W[gh];B[fe];W[ch]))\r\n(;B[eg];W[fg];B[fh];W[ee]))\r\n(;B[fh];W[fg]\r\n(;B[eg];W[dg];B[dh];W[ee])\r\n(;B[dh];W[dg];B[eg];W[ee])\r\n(;B[dg];W[dh];B[eg];W[ch];B[cg];W[gh]))\r\n(;B[eg]))\r\n(;B[dg];W[eh];B[dh];W[ef];B[fg];W[eg];B[fh]C[RIGHT])\r\n(;B[fg];W[eh];B[fh];W[ef];B[dg];W[eg];B[dh]C[RIGHT])\r\n(;B[eg];W[ef]\r\n(;B[dg];W[cg];B[fg];W[gg])\r\n(;B[fg];W[gg];B[dg];W[cg])\r\n(;B[eh];W[dg])))",
+  "author": {
+    "id": 109345,
+    "name": "moego",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-22",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1799.38
+  },
+  "avgSolveTimeSeconds": 0,
+  "attempts": {
+    "solved": 0,
+    "failed": 27,
+    "tries": 27,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2023-08-18T08:04:56+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

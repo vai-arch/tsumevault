@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 413,
+  "elo": 1781.5218009511,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "a joseki goes horribly wrong for white. but black must know how to take advantage of it. assume all ladders work for black.",
+  "rating": {
+    "stars": 3.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]\r\nSZ[19]RU[Japanese]KM[0]TM[1800,0,30,5]PW[]PB[]AW[op]AB[qp]AW[qo]AB[ro]AW[po]AB[qn][rq]AW[rn][qm]AB[pn]AW[on]AB[pm]AW[pl]AB[om]AW[rl]AB[nn]AW[oo]AB[sp]AE[rp]C[how should black handle this situation?]\r\n(;B[ol]CR[ol]\r\n;W[pk]CR[pk]\r\n(;B[ok]CR[ok]\r\n;W[pj]CR[pj]\r\n(;B[mp]CR[mp]C[RIGHT\r\nwhite's in big trouble])\r\n(;B[oj]CR[oj]\r\n;W[lp]CR[lp]C[white gets out]))\r\n(;B[mp]CR[mp]LB[ok:A]C[better to push at A first: now too many weaknesses])\r\n(;B[mm]CR[mm]\r\n;W[lp]CR[lp]C[slow]))\r\n(;B[mm]CR[mm]\r\n;W[ol]CR[ol]\r\n;B[nm]CR[nm]LB[mm:A]C[now what's A doing?])\r\n(;B[nm]CR[nm]\r\n;W[lp]CR[lp]C[slow])\r\n(;B[mp]CR[mp]\r\n;W[no]CR[no]\r\n;B[mo]CR[mo]\r\n;W[nm]CR[nm])\r\n(;B[qk]CR[qk]C[better to leave this peep])\r\n(;B[sn]CR[sn]\r\n;W[rm]CR[rm]C[aji-keshi])\r\n(;B[pq]CR[pq]\r\n;W[lp]CR[lp]C[wrong direction])\r\n(;B[no]CR[no]C[too strong])\r\n(;B[nl]CR[nl]\r\n;W[ol]CR[ol]\r\n;B[nm]CR[nm]\r\n;W[lp]CR[lp]C[easy for white]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 258,
+    "failed": 2668,
+    "tries": 2926,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-02-25T20:54:37+00:00",
+  "source": "game of kiet's",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

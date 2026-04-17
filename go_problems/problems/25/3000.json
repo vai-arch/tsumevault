@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3000,
+  "elo": 1647.222443945,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "How far Black should extend from 'X' depends largely on the position in the lower right corner.",
+  "rating": {
+    "stars": 2.8,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[cp]AB[eq]LB[eq:X][nq:8k][op:7k][pq:5k][qp:6k]\r\nC[You can play one of 4 different right corner positions. Please choose a difficulty from 5k to 8k. FORCE](;B[am])\r\n\r\n\r\n(;B[nq]LB[eq:X];W[qp]AW[nq]LB[eq:X][hq:A][iq:B][jq:C][kq:D]\r\nC[Which is the best extension 'A', 'B', 'C', or 'D'? FORCE]\r\n\r\n(;B[hq]LB[eq:X][ep:G][dq:F][kq:E]\r\nC[This is too close to 'X'. White can now extend to 'E', or play at 'F' prompting you to overconcentrate by standing at 'G'.])\r\n\r\n(;B[iq]LB[eq:X][lq:E]C[RIGHT By limiting yourself to a 3 space extension, you leave a possible further extension to 'E'.])\r\n\r\n(;B[jq];W[hq]LB[eq:X][jq:C]\r\nC['C' is too far. In response to white's invasion, you have no good extension from your stone at 'C'.])\r\n\r\n(;B[kq]LB[eq:X]C[Your position is now very thin, and vulnerable to various attacks.]))\r\n\r\n\r\n(;B[op]LB[eq:X];W[rq]AW[qn][rp][mq][nq][pq][qq]AB[pn][qo][ro][op][pp][qp]LB[eq:X][hq:A][iq:B][jq:C][kq:D]\r\nC[Which is the best extension 'A', 'B', 'C', or 'D'? FORCE]\r\n\r\n(;B[hq]LB[eq:X][gq:I][iq:B]\r\nC[RIGHT You should limit your extension to 2 spaces. Had you played 1 space further at 'B', it would be ineffective \r\nagainst the strong white position to the right, and would invite invasion at 'I'.])\r\n\r\n(;B[iq]LB[eq:X];W[gq]LB[eq:X][iq:B]\r\nC[Extending to 'B' is ineffective against the strong white position to the right, and has invited a damaging invasion.])\r\n\r\n(;B[jq]LB[eq:X]C[Don't play near thickness.])\r\n\r\n(;B[kq]LB[eq:X]C[Don't play near thickness.]))\r\n\r\n\r\n(;B[pq]LB[eq:X];W[po]AW[pq]LB[eq:X][hq:A][iq:B][jq:C][kq:D]\r\nC[Which is the best extension 'A', 'B', 'C', or 'D'? FORCE]\r\n\r\n(;B[hq]LB[eq:X]C[This is much too small.])\r\n\r\n(;B[iq]LB[eq:X];W[kq]LB[eq:X]\r\nC[The 3 space extension is not enough, as white can reply with the good block/extension at L3.])\r\n\r\n(;B[jq]LB[eq:X][dn:G][do:F][mq:E]\r\nC[RIGHT This leaves you the possibility of making a useful further extension to 'E'; or pressing at 'F' then 'G', raising your extension at 'K3' to high efficiency.])\r\n\r\n(;B[kq]LB[eq:X];W[hp]LB[eq:X]C[This extension is too far as it gives white the chance to counter-attack at 'H4'.]))\r\n\r\n\r\n(;B[qp]LB[eq:X];W[oq]LB[eq:X][hq:A][iq:B][jq:C][kq:D]\r\nC[Which is the best extension 'A', 'B', 'C', or 'D'? FORCE]\r\n\r\n(;B[hq]LB[eq:X]C[This is much too defensive.])\r\n\r\n(;B[iq]LB[eq:X][oq:Y]C[This is too defensive, as it does not threaten the stone at 'Y'])\r\n\r\n(;B[jq]LB[eq:X];W[lq]LB[eq:X][oq:Y]\r\nC[You have allowed white to stabilise her stone at 'Y', and your thin position on the left now needs defending.])\r\n\r\n(;B[kq]LB[eq:X][oq:Y]\r\nC[RIGHT This is a good move because it attacks the white stone at 'Y', as well as extending from your stone at 'X'. Had you gone any further, it could no longer be regarded as an extension.])))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 4105,
+    "failed": 8143,
+    "tries": 12248,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-09-26T08:15:42+00:00",
+  "source": "Takagawa",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 25,
+      "name": "Choose your Difficulty",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2852,
+  "elo": 2004.8817809645,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Well, had this one, in a game...\r\n\r\nFor beginners - According to the japanese rules set(The default rules set on this site), \"territory\" owned by a group in seki, isn't counted.\r\n\r\n(Notes: Includes a couple of questions. The anwsers to any -\r\n of which, are availible when using the \"Navigate Solution\"\r\n option, under \"Show Solution\".)\r\n\r\nThanks to jvdoubov, atak and unkx80 for their comments.",
+  "rating": {
+    "stars": 2.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[dm]AW[bn]AW[cn]AW[dn]AW[ao]AW[bo]AW[do]AW[qo]AW[ap]AW[ep]AW[fp]AW[pp]AW[qp]AW[rp]AW[fq]AW[gq]AW[hq]AW[oq]AW[sq]AW[fr]AW[ir]AW[or]AW[rr]AW[gs]AW[hs]AW[ns]AW[os]AB[pm]AB[pn]AB[qn]AB[rn]AB[co]AB[po]AB[ro]AB[so]AB[bp]AB[cp]AB[dp]AB[np]AB[op]AB[sp]AB[aq]AB[eq]AB[lq]AB[mq]AB[nq]AB[br]AB[er]AB[kr]AB[nr]AB[qr]AB[es]AB[fs]AB[ls]AB[ms]LB[io:S]LB[ko:T]LB[qo:o]LB[pp:o]LB[qp:o]LB[rp:o]LB[oq:o]LB[sq:o]LB[cr:K]LB[or:o]LB[qr:X]LB[rr:o]LB[ns:o]LB[os:o]TR[ip]TR[kp]TR[cs]TR[qs]C[Short, an to the point, I hope. Does this 1) kill('K') the white marked group. 2) Is either captured or creates a seki('S' depending on the amount of 'ko' threats. 3) is a wasted move, and white should tenuki('T'). ?FORCE]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]PL[W]\r\n(;W[cr]C[Heh - going, for the impossible..];B[dq]C[Ok - Kill it, then.FORCE]\r\n(;W[cq];B[cs]C[Black lives...])\r\n(;W[cs];B[bs]C[Black lives...])\r\n(;W[bs];B[ar]C[Black lives...])\r\n(;W[ds]C[Black could, even tenuki..(But if white wins the ko, the black group, is dead..)];B[bs]C[Black lives])\r\n(;W[bq];B[cq]C[Black lives])\r\n(;W[dr];B[cq]C[Black lives])\r\n(;W[as]C[Black could even pass, and play around, a bit... (Pass/ Tenuki)];B[bs]C[Black lives..])\r\n(;W[ar];B[as]C[Hmm..]))\r\n(;W[ko];B[pq]C[Black kills.])\r\n(;W[io];B[ko]LB[jn:1]LB[jo:2]LB[jp:3]LB[qr:X]TR[qs]C[How many ko threats (more than the black), should White have to kill the intruder?(R2 is the intruder)FORCE]\r\n(;W[jn]C[Interested, why? Play bK5!FORCE]\r\n(;B[jp]LB[cr:S]C[Correct! But black doesn't have the luxury... Play at 'S' and have some fun...FORCE];W[cr]C[]\r\n(;B[dr]C[FORCE]\r\n(;W[cs];B[bs]C[It doesn't work, this, way... Black kills.CHOICE])\r\n(;W[ds];B[cs]C[It doesn't work, this, way... Black kills.])\r\n(;W[dq];B[cq]C[It doesn't work, this, way... Black kills.])\r\n(;W[cq];B[cs]C[It doesn't work, this, way... Black kills.])\r\n(;W[bq];B[cs]C[It doesn't work, this, way... Black kills.])\r\n(;W[ar];B[as]C[It doesn't work, this, way... Black kills.])\r\n(;W[as];B[cq]C[It doesn't work, this, way... Black kills.])\r\n(;W[bs];B[cq]\r\n(;W[cs];B[ar]C[Seki. RIGHT])\r\n(;W[as];B[cs]C[So close, and yet... How? o.O])))\r\n(;B[dq]C[FORCE]\r\n(;W[cs];B[bs]C[It doesn't work, this, way... Black kills.CHOICE])\r\n(;W[bs]C[];B[ar]C[FORCE]\r\n(;W[cq]C[];B[bq]\r\n(;W[ds]C[Seki. RIGHT])\r\n(;W[cs]C[Seki. RIGHT]))\r\n(;W[dr]C[bC3 is the correct one - Or else it's seki sente for white!]\r\n(;B[cq];W[cs]C[Seki.RIGHT])\r\n(;B[cs];W[ds];B[bq]C[Seki. RIGHT]))\r\n(;W[ds];B[cq]C[Seki.RIGHT])\r\n(;W[bq];B[cq];W[ds]C[Seki - But, you shouldn't just give away, points! (You gave away 1 point - The prisoner.) RIGHT])\r\n(;W[cs];B[cq];W[as];B[bq]C[Seki. (Thanks, for the correction, atak) RIGHT])\r\n(;W[as];B[cs]C[Black lives!]))\r\n(;W[ds];B[bs]C[It doesn't work, this, way... Black kills.])\r\n(;W[dr];B[bs]C[It doesn't work, this, way... Black kills.])\r\n(;W[cq];B[cs]C[It doesn't work, this, way... Black kills.])\r\n(;W[as];B[bs]C[It doesn't work, this, way... Black kills.])\r\n(;W[ar];B[as]C[It doesn't work, this, way... Black kills.])\r\n(;W[bq];B[cq]C[Okie - Why give up points, for nothing?! (Guh, if i wouldn't have asked, to have fun.. IT'S  - IT'S NOT THE BEST WAY!!!)];W[bs]C[Seki. (You, still gave away, a point..) RIGHT])))\r\n(;B[jo]C[FORCE];W[cr]C[FORCE];B[dr]C[FORCE];W[bs]C[FORCE];B[cq]C[FORCE];W[cs]C[FORCE];B[as]C[FORCE];W[ar]LB[ip:K]LB[jp:O]C[Plat 'K' for blacks lo threat.FORCE]MA[as]\r\n(;B[ip]LB[ip:K]LB[jp:O]C[White anwaser at 'O'.FORCE];W[jp]C[FORCE];B[as]LB[kp:T]C[White passes, or tenukis, play at 'T'.FORCE]MA[ar]\r\n(;W[kp]C[FORCE];B[ds]C[Black got rid, of the intruder.])\r\n(;W[ar]C[NOTTHIS]))\r\n(;B[as]C[NOTTHIS])))\r\n(;W[jo]C[Nope, the correct anwser is 1.])\r\n(;W[jp]C[Nope, the correct anwser is 1.])))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 188,
+  "attempts": {
+    "solved": 85,
+    "failed": 1159,
+    "tries": 1244,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-08-21T16:25:11+00:00",
+  "source": "Some old game of mine..",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

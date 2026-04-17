@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1820,
+  "elo": 1327.9425236495,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "A ko fight after all! True, it's only a short one, but positions like this occur all the time during real games, so it should be an useful exercise.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]TM[]\r\nAW[db][dc][ec][fc][dd][fd][gd][de][fe][bf][cf][ef]AB[ca][da][cb][eb][fb][gb][cc][gc][cd][be][ce][af]C[No komi, no prisoners - black to play and win!]\r\n(;B[bg]CR[bg]\r\n;W[cg]CR[cg]\r\n(;B[ae]CR[ae]\r\n;W[ag]CR[ag]\r\n(;B[df]CR[df]\r\n;W[dg]CR[dg]\r\n;B[bg]CR[bg]\r\n;W[ea]CR[ea]\r\n(;B[fa]CR[fa]\r\n;W[ag]CR[ag]\r\n;B[eg]CR[eg]\r\n;W[fg]CR[fg]\r\n;B[bg]CR[bg]C[Black connects the ko and wins by one point RIGHT])\r\n(;B[ag]CR[ag]\r\n;W[fa]CR[fa]\r\n;B[ga]CR[ga]\r\n;W[ea]CR[ea]\r\n;B[fa]CR[fa]\r\n;W[ea]CR[ea]C[E7 was a ko theat!]))\r\n(;B[dg]CR[dg]\r\n;W[df]CR[df]\r\n;B[bg]CR[bg]\r\n;W[ea]CR[ea]\r\n(;B[fa]CR[fa]\r\n;W[ag]CR[ag]C[Black has no more ko threats, so white will connect - jigo!\r\n])\r\n(;B[ag]CR[ag]\r\n;W[fa]CR[fa]\r\n;B[ga]CR[ga]\r\n;W[ea]CR[ea]\r\n;B[fa]CR[fa]\r\n;W[ea]CR[ea]C[e7 was a ko threat!]))\r\n(;B[eg]CR[eg]\r\n;W[df]CR[df]\r\n;B[bg]CR[bg]\r\n;W[ea]CR[ea]\r\n(;B[fa]CR[fa]\r\n;W[ag]CR[ag]C[Black is a ko threat  short, so white will connect and secure a jigo])\r\n(;B[ag]CR[ag]\r\n;W[fa]CR[fa]\r\n;B[ga]CR[ga]\r\n;W[ea]CR[ea]\r\n;B[fa]CR[fa]\r\n;W[ea]CR[ea]C[E7 was a ko threat....])))\r\n(;B[dg]CR[dg]\r\n;W[df]CR[df]\r\n;B[ae]CR[ae]\r\n;W[ag]CR[ag]C[white will connect next - jigo!]))\r\n(;B[ae]CR[ae]\r\n;W[bg]CR[bg]C[Connecting is secure but leads to a jigo])\r\n(;B[ag]CR[ag]\r\n;W[bg]CR[bg]\r\n;B[ae]CR[ae]C[This is only a jigo.]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 2170,
+    "failed": 4546,
+    "tries": 6716,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-12-27T04:30:09+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

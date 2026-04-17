@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16713,
+  "elo": 1215.1220372198,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This is a \"look at the big mistake I made\" problem. Thanks to Gengiskhan, my opponent in that game.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[hl]AB[gl]AB[hk]AB[gk]AB[pp]AB[qo]AB[op]AB[np]AW[po]AW[no]AW[oo]AW[om]AB[nl]AB[nm]AB[nn]AB[pm]AB[mo]AB[ln]AB[lo]AB[lp]AB[ko]AB[io]AB[jm]AB[im]AB[hm]AB[il]AB[fl]AW[ik]AW[ij]AW[hj]AW[gj]AB[km]AW[mn]AW[mm]AW[ml]AW[mk]AW[lm]AB[ll]AW[kl]AW[kk]AW[jl]AB[jk]AW[fk]AW[ek]AW[el]AW[fm]AW[gm]AW[gn]AW[mq]AW[lq]AW[mp]AW[kq]AW[hn]AW[ho]AW[ip]AW[jp]AW[kp]MA[fl]MA[gl]MA[gk]MA[hk]MA[hl]MA[il]MA[hm]MA[im]MA[jm]MA[km]LB[fp:T]C[Save the marked stones. If you think they are already save, or they cannot be saved, play tenuki at F4.]AP[goproblems]\n(;B[kn]C[Saved! The three white stones are dead.RIGHT]TR[no]TR[oo]TR[po])\n(;B[pn];W[kn]\n(;B[jn];W[jo];B[on];W[in])\n(;B[jo];W[in]))\n(;B[on];W[kn]\n(;B[jn];W[jo]C[This is the variation that was played in the game.];B[pn];W[in])\n(;B[jo];W[in]))\n(;B[ol]C[];W[kn]C[P8 is almost the same as playing tenuki.]\n(;B[jo];W[in])\n(;B[jn];W[jo]))\n(;B[jo];W[in]\n(;B[on];W[jn])\n(;B[pn];W[jn]))\n(;B[jn];W[jo])\n(;B[in];W[jo])\n(;B[fp];W[kn]C[Now white will capture the marked stones. You could have saved them.]MA[gl]MA[fl]MA[gk]MA[hk]MA[hl]MA[hm]MA[im]MA[il]MA[jm]MA[km]MA[ln]MA[lo]MA[ko]MA[lp]MA[mo]\n(;B[jn];W[jo])\n(;B[jo];W[in])))",
+  "author": {
+    "id": 52760,
+    "name": "wurfmaul",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-21",
+    "rank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1018.78
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 1373,
+    "failed": 2290,
+    "tries": 3663,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-12-06T07:40:57+00:00",
+  "source": "KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

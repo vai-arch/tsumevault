@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 50526,
+  "elo": 1381.6512683577,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "White to play. You will need to force a ko to save your stones.",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[bk][bl][bn][bp][ci][cj][cp][cq][dr][eo][ep][eq]AW[ap][bo][bq][br][ck][cm][cr][dk][dm][fp][gm][go](;W[bm];B[co](;W[an];B[ao]C[Direct ko for life.RIGHT])(;W[ao];B[an](;W[cn];B[aq])(;W[aq];B[cn]))(;W[cn];B[ao]MA[ap]MA[bq]MA[br]MA[cr]C[oops, the marked stones are dead]))(;W[an];B[bm];W[co];B[cn];W[do];B[dn];W[dp];B[dq]C[White is disconnected and dead])(;W[cn];B[co];W[ao];B[bm]C[White is cut and dead])(;W[co];B[cn](;W[dn];B[do];W[ao];B[bm])(;W[do];B[dn];W[an];B[bm])))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 8,
+    "failed": 12,
+    "tries": 20,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-09-05T14:15:53+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1260
+}

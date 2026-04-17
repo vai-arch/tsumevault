@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6238,
+  "elo": 1905.5685171811,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem came to mind while tinkering with the previous problem.  Thanks to Hans for pointing out the error in my original solution, and thanks to Spica for guiding me towards the current solution.",
+  "rating": {
+    "stars": 3.6,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ls]AB[lr]AB[lq]AB[lp]AB[lo]AB[ln]AB[lm]AB[ll]AB[lk]AB[lj]AB[mj]AB[ni]AB[nk]AB[ok]AB[oj]AB[pj]AB[pi]AB[qh]AB[qg]AB[pf]AB[pe]AB[qe]AB[re]AB[oe]AB[pd]AB[ne]AB[nd]AB[le]AB[ld]AB[lc]AB[mb]AB[ma]AB[lb]AW[mc]AW[nc]AW[nb]AW[na]AW[oc]AW[od]AW[pc]AW[pb]AB[qc]AB[qb]AW[qd]AW[rd]AW[rc]AW[rb]AB[rs]AB[qr]AB[qq]AB[qp]AB[qo]AB[qn]AB[qm]AB[ql]AB[rn]AB[so]AB[sl]AB[rk]AB[pp]AB[op]AB[oq]AB[nr]AB[pm]AW[or]AW[pr]AW[pq]AW[os]AW[ps]AW[qs]AW[mr]AW[ms]AW[nq]AW[np]AW[no]AW[oo]AW[po]AW[nm]AW[nl]AW[ol]AW[ml]AW[mk]AW[pl]AW[pk]AW[qk]AW[qj]AW[qi]AW[rj]AW[rh]TR[nr]C[Black has just played the marked stone.  White to live.]AP[goproblems]\r\n(;W[mq]C[];B[sg]\r\n(;W[sh];B[sj]C[While N3 makes an eye in a nice under-the-stones play, it is gote, and black can take T13 to prevent white from getting a second eye.])\r\n(;W[si];B[sh]C[While N3 makes an eye in a nice under-the-stones play, it is gote, and black can take T13 to prevent white from getting a second eye.])\r\n(;W[sj];B[sh]C[While N3 makes an eye in a nice under-the-stones play, it is gote, and black can take T13 to prevent white from getting a second eye.])\r\n(;W[ns]C[Black does not even need to answer this move.]))\r\n(;W[si];B[sg]\r\n(;W[sh];B[mq];W[rg];B[rf];W[sf];B[se])\r\n(;W[rg];B[sf])\r\n(;W[mq];B[sh])\r\n(;W[sk];B[rl]\r\n(;W[mq];B[sh])\r\n(;W[rg];B[sf])))\r\n(;W[ns];B[mq];W[nr];B[rr])\r\n(;W[sj];B[rg]\r\n(;W[sg];B[sf];W[mq];B[sh])\r\n(;W[sh];B[mq]))\r\n(;W[rg];B[sg];W[sf];B[rf]\r\n(;W[se];B[sd])\r\n(;W[sh];B[se]\r\n(;W[mq];B[sj])\r\n(;W[sj];B[mq]))\r\n(;W[si];B[mq]\r\n(;W[sh];B[se])\r\n(;W[se];B[sd])))\r\n(;W[sg];B[sf]\r\n(;W[rg];B[si]\r\n(;W[sj];B[mq])\r\n(;W[mq];B[sj]))\r\n(;W[si];B[rg];W[mq];B[sh]C[Correct.  This is ko.  I had thought it was a double ko, but the weakness at S9 prevents it from being so.RIGHT])\r\n(;W[sj];B[mq]\r\n(;W[rg];B[si])\r\n(;W[si];B[rg]))\r\n(;W[mq];B[si];W[sj];B[rg]\r\n(;W[sh];B[ri])\r\n(;W[ri];B[sh];W[sg];B[sh])))\r\n(;W[sf];B[sg]\r\n(;W[rg];B[rf];W[sh];B[se]\r\n(;W[mq];B[sj])\r\n(;W[sj];B[mq]))\r\n(;W[sh];B[rg])\r\n(;W[si];B[mq];W[rg];B[rf];W[sh];B[se]))\r\n(;W[sh];B[sj]))",
+  "author": {
+    "id": 7455,
+    "name": "Haze",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-17",
+    "rank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1355.81
+  },
+  "avgSolveTimeSeconds": 56,
+  "attempts": {
+    "solved": 135,
+    "failed": 1159,
+    "tries": 1294,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-03-31T01:39:55+00:00",
+  "source": "Game on KGS between fusojigen and NannyOgg",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 108,
+      "name": "0 What Group?",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

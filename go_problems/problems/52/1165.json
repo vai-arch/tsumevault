@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1165,
+  "elo": 612.721,
+  "problemLevel": 0,
+  "rank": {
+    "value": 30,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 17,
+    "negativeFlagSum": -2,
+    "flagSum": 15
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Another basic capture setup.  Gives an example of a strong shape at the end.",
+  "rating": {
+    "stars": 3.9,
+    "votes": 41,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AB[hj]AB[hk]AB[il]AB[jl]AW[ik]AW[lh]AW[hl]AW[hm]TR[ik]C[Black to capture the marked stone]AW[ef]AW[no]AW[eo]FF[4]GM[1]AP[Jago:Version 4.15]\r\n(;B[jj];W[jk]\r\n(;B[kk];W[ij]\r\n(;B[ii]C[The marked stones show a strong shape black should strive for.  In a real game white would attempt to move at K-10 (known as the eye-stealing tesuji) vice J-9.  Of course this means black should beat him to the punch by playing there first.  On further study, it is not necessary to capture the white stone if both black groups are connected, as this is a small 2 point move (thanks Bass)RIGHT]TR[hj]TR[hk]TR[il]TR[jl]TR[jj])\r\n(;B[ji];W[ii]\r\n(;B[hi];W[ih])\r\n(;B[ih];W[hi]C[The ladder does not work.]))\r\n(;B[hi];W[ii];B[ih];W[ji]\r\n(;B[jh];W[ki])\r\n(;B[kj];W[kh])\r\n(;B[ki];W[jh]\r\n(;B[jg];W[kh])\r\n(;B[kh];W[jg]))))\r\n(;B[ij];W[kk])\r\n(;B[ii];W[kk])\r\n(;B[kj];W[kk]\r\n(;B[lk];W[kl])\r\n(;B[kl];W[lk]))\r\n(;B[lk];W[kk]\r\n(;B[kl];W[kj])\r\n(;B[kj];W[kl]))\r\n(;B[kl];W[kk]\r\n(;B[lk];W[kj])\r\n(;B[kj];W[lk])))\r\n(;B[jk];W[ij]\r\n(;B[ii];W[jj]\r\n(;B[kj];W[ji]\r\n(;B[jh];W[ki]\r\n(;B[li];W[kh]TR[lh]C[M-12 was a ladder-breaker.])\r\n(;B[kh];W[li]))\r\n(;B[ki];W[jh])\r\n(;B[kh];W[ki];B[li];W[jh];B[kg];W[lj]\r\n(;B[mi];W[kk])\r\n(;B[kk];W[mi])))\r\n(;B[ki];W[kj];B[lj];W[kk]\r\n(;B[lk];W[kl];B[km];W[ll];B[ml];W[lm];B[ln];W[mm];B[nm];W[mn])\r\n(;B[kl];W[lk]))\r\n(;B[ji];W[kj]))\r\n(;B[jj];W[ii])\r\n(;B[ji];W[ii];B[ih];W[hi]\r\n(;B[hh];W[gi])\r\n(;B[gi];W[hh];B[hg];W[jh]\r\n(;B[gh];W[ig];B[jj];W[ih])\r\n(;B[ig];W[jj]\r\n(;B[ki];W[kj])\r\n(;B[kj];W[ki])\r\n(;B[gh];W[ki]))))\r\n(;B[hi];W[ji]\r\n(;B[jj];W[ii])\r\n(;B[ii];W[jj])\r\n(;B[ki];W[jh])\r\n(;B[jh];W[ki])))\r\n(;B[ij];W[jk]\r\n(;B[kk];W[jj]\r\n(;B[ji];W[kj]\r\n(;B[lj];W[ki]\r\n(;B[kh];W[li]TR[lh]C[M-12 was the ladder breaker (])\r\n(;B[li];W[kh]))\r\n(;B[ki];W[lj])\r\n(;B[li];W[lj]))\r\n(;B[ki];W[ji];B[jh];W[ii];B[ih];W[hi];B[gi];W[hh];B[hg];W[gh];B[fh];W[gg];B[gf];W[fg])\r\n(;B[kj];W[ji]))\r\n(;B[jj];W[kk])\r\n(;B[kj];W[kk]\r\n(;B[kl];W[lk])\r\n(;B[lk];W[kl]\r\n(;B[km];W[jm])\r\n(;B[ll];W[jm]))))\r\n(;B[ji];W[jk];B[kk];W[kl]\r\n(;B[jj];W[jm];B[ij];W[im]C[RIGHT])\r\n(;B[km];W[kj]\r\n(;B[ll];W[jj])\r\n(;B[lk];W[jj]))\r\n(;B[ij]C[RIGHT])\r\n(;B[kj];W[jm]))\r\n(;B[kj];W[ij];B[ii];W[hi]\r\n(;B[jj];W[gj];B[jk];W[gk]C[RIGHT])\r\n(;B[gi];W[ji]\r\n(;B[hh];W[jj])\r\n(;B[ih];W[jj])\r\n(;B[jj];W[ih]))\r\n(;B[jk]C[RIGHT])\r\n(;B[ji];W[gj];B[gk];W[fk];B[gl]C[a ladder]))\r\n(;B[ki];W[jj]LB[kj:A]C[Please play at AFORCE];B[kj];W[ji]\r\n(;B[jh];W[ii]\r\n(;B[jk];W[ih];B[ij]C[RIGHT])\r\n(;B[kk];W[ih])\r\n(;B[ih];W[hi];B[jk];W[ij];B[gi];W[hh];B[hg];W[gh];B[fh];W[gg];B[gf];W[fg];B[eg];W[ff])\r\n(;B[ij];W[jk];B[kk];W[hh]))\r\n(;B[jk];W[ij];B[jh];W[ii]\r\n(;B[hh]C[RIGHT])\r\n(;B[ih];W[hi];B[gi];W[hh];B[hg];W[gh];B[fh];W[gg];B[gf];W[fg];B[eg];W[ff])\r\n(;B[hi];W[ih];B[ig];W[hh];B[gh];W[hg];B[hf];W[gg];B[fg];W[gf];B[ge];W[ff])\r\n(;B[gh];W[ih];B[ig];W[jg];B[kh];W[hg];B[if];W[hh])\r\n(;B[hg];W[hi];B[gi];W[gj];B[gk];W[gh];B[fi];W[hh]))\r\n(;B[ij];W[jk];B[kk];W[jh]))\r\n(;B[kk];W[ij];B[ii];W[jj]\r\n(;B[ki];W[ji];B[jh];W[ih];B[hi];W[kh]\r\n(;B[jg];W[kj]\r\n(;B[li];W[lj])\r\n(;B[lj];W[li]))\r\n(;B[kj];W[jg]))\r\n(;B[ji];W[kj]))\r\n(;B[ii];W[jk];B[kk];W[jj]\r\n(;B[ki];W[kj];B[lj];W[lk];B[kl];W[li];B[mj];W[ji]\r\n(;B[kh];W[jh])\r\n(;B[jh];W[kh]))\r\n(;B[kj];W[ji])))",
+  "author": {
+    "id": 459,
+    "name": "nuke-marine",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2008-12-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 12,
+  "attempts": {
+    "solved": 66674,
+    "failed": 12727,
+    "tries": 79401,
+    "speedSolved": 14,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-11-09T21:07:57+00:00",
+  "source": "Basic Capture Shape",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

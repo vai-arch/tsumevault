@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5851,
+  "elo": 1022.7659892329,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": -1,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "In the actual game gnugo foresaw this position and prevented it.  Good job, gnugo.",
+  "rating": {
+    "stars": 3.1,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bs]AB[cs]AB[cr]AB[cq]AB[dp]AB[ep]AB[er]AB[eq]AB[es]AB[fo]AB[go]AB[gq]AB[gp]AB[hq]AB[ip]AB[io]AB[jo]AB[ir]AB[jr]AB[kr]AB[lr]AW[br]AW[bq]AW[bp]AW[cp]AW[co]AW[do]AW[eo]AW[en]AW[fn]AW[gn]AW[in]AW[jn]AW[ko]AW[lo]AW[jp]AW[iq]AW[jq]AW[lq]AW[kq]AW[mp]AW[mq]AW[mr]AW[dr]AW[fp]AW[fq]AW[fs]AW[fr]AB[bo]AB[ao]AB[bn]AB[cn]AB[dn]AB[dm]AB[cl]AB[bl]AB[el]AW[fl]AW[gl]AW[hl]AW[jl]AB[ek]C[White to get a few points.]AW[ml]AP[goproblems]\n(;W[dq]C[NOTTHIS])\n(;W[ds]C[NOTTHIS])\n(;W[as];B[ar]C[?])\n(;W[gr];B[hr])\n(;W[gs];B[hr];W[hs];B[cm];W[is];B[bm];W[js];B[dk];W[ks];B[ls]C[Ah, so close.  Your plan almost worked, nice try.])\n(;W[hr];B[ho]\n(;W[gr];B[hs])\n(;W[hn];B[gr]))\n(;W[hs];B[hr])\n(;W[ar];B[ho];W[as];B[gr]\n(;W[dq];B[ds]\n(;W[dq];B[gs])\n(;W[dr];B[gs]))\n(;W[ds];B[dq]\n(;W[dr];B[gs])\n(;W[ds];B[gs])))\n(;W[hp];B[ho])\n(;W[ho]\n(;B[gr]C[CHOICE];W[hp]C[Big endgame capture.RIGHT])\n(;B[hp]C[CHOICE]\n(;W[hn];B[gr]C[:O])\n(;W[gr];B[hr])\n(;W[hr];B[hn]\n(;W[hm];B[gr]C[:O])\n(;W[gr]C[Black made a big mistake!RIGHT]MA[cs]MA[bs]MA[cr]MA[cq]MA[es]MA[er]MA[eq]MA[ep]MA[dp]MA[go]MA[fo]MA[hn]MA[jo]MA[io]MA[ip]MA[hp]MA[hq]MA[gp]MA[jr]MA[ir]MA[kr]MA[lr]MA[gq]))))\n(;W[ls]C[This is small.])\n(;W[em]C[This is small.])\n(;W[hn];B[ho]))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 12789,
+    "failed": 10394,
+    "tries": 23183,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-01-18T21:04:54+00:00",
+  "source": "MrMoto vs. gnugo",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 108,
+      "name": "0 What Group?",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

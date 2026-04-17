@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 44656,
+  "elo": 1537.0509428194,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;TR[bi]LB[bg:a]LB[bj:b]LB[ce:c]LB[dj:d]LB[ej:e]LB[fi:f]AB[bh][bi][cc][cd][cg][dc][df][dg][dh][ei][fd][gc][ge][gg]AW[bf][ch][ci][dd][di][eb][ec][ed][ee][ef][eg][eh][ic]C[FORCE]AP[goproblems autoextractor]PW[rock3d]PB[huyang]PC[The KGS Go Server at http://www.gokgs.com/]DT[2010-02-17]PL[W]GPKEY[local choice]DIFF[4k]\n(;W[ej]TR[dd]TR[ee]TR[ec]TR[eb]TR[eh]TR[ed]TR[eg]TR[ef]LB[ce:A]LB[fi:B]C[Playing here is worth about 10 points over playing away in an empty corner. The stones marked with a triangle are stronger. Black would have played at A if you played away. Black would likely play at B next. ];B[fi]\n(;W[bg]C[RIGHT])\n(;W[ce];B[dj]C[Your mistake at C15 lost approximately 12 points]))\n(;W[bg];B[dj]TR[cc]TR[cd]TR[dc]SQ[ci]SQ[ch]SQ[di]C[This loses about 16 points. The stones marked with a triangle are dead but this is not sufficient. The stones marked with a square are dead. White makes about 15 corner points. ])\n(;W[bj];B[bg]C[This loses about 6 points. ])\n(;W[ce];B[dj]TR[cc]TR[cd]TR[dc]SQ[ci]SQ[ch]SQ[di]C[This loses about 7 points. The stones marked with a triangle are dead but this is not sufficient. The stones marked with a square are dead. White makes about 14 corner points. ])\n(;W[dj];B[ej]C[This loses about 11 points. ])\n(;W[fi];B[ej]TR[cc]TR[cd]TR[dc]SQ[ci]SQ[ch]SQ[di]C[This loses about 6 points. The stones marked with a triangle are dead but this is not sufficient. The stones marked with a square are dead. White makes about 16 corner points. ]))",
+  "author": {
+    "id": 109623,
+    "name": "Andjey44",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/157_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/157_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/157_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 157
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1726.83
+  },
+  "avgSolveTimeSeconds": 131,
+  "attempts": {
+    "solved": 2,
+    "failed": 6,
+    "tries": 8,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-03-28T15:57:56+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1428
+}

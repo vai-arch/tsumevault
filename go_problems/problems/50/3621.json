@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3621,
+  "elo": 1762.8808543754,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "how should black make use of white shape?",
+  "rating": {
+    "stars": 3.3,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AB[sp]AB[rp]AB[qo]AB[rn]AB[oo]AB[po]AB[nq]AB[nr]AB[os]AB[ps]AW[qp]AW[pp]AB[op]AW[oq]AW[pr]AW[rq]AW[sq]AW[qs]AW[rs]C[black first](;B[or];W[pq])(;B[rr](;W[qq]C[CHOICE];B[or];W[sr];B[pq];W[qr]C[RIGHT])(;W[qr]C[incorrect reponse from white, now kill...CHOICE];B[sr];W[ss];B[pq]C[RIGHT]))(;B[qr];W[qq];B[or];W[pq]))",
+  "author": {
+    "id": 1473,
+    "name": "pcgenes",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2004-02-07",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 67,
+  "attempts": {
+    "solved": 397,
+    "failed": 2122,
+    "tries": 2519,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-25T08:42:59+00:00",
+  "source": "shou guan zhi nan",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6431,
+  "elo": 983.17231786123,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -5,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "B is behind by a few points...help him....",
+  "rating": {
+    "stars": 3.6,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[an]AB[bn]AB[cn]AW[aq]AB[ap]AW[bp]AW[bo]AB[cp]AW[co]AB[do]AW[dp]AW[dq]AB[eo]AB[ep]AB[eq]AW[er]AW[dr]AB[gq]AW[fr]AW[gr]AB[hq]AB[hr]C[Black to play a nice endgame move.]AP[goproblems]\n(;B[bq]\n(;W[ao]C[CHOICE]\n(;B[ap]C[Well done! W is messed up!RIGHT])\n(;B[cq]C[Well done! W is messed up!RIGHT])\n(;B[ar];W[cq];B[ap];W[cp]))\n(;W[cq]C[CHOICE]\n(;B[br];W[ao])\n(;B[ar]C[];W[br]C[Well done! W is messed up! W must play this to live. (Thanks for Hans for showing me this and the continuations)]\n(;B[aq];W[bs]C[Nice!RIGHT])\n(;B[bs]C[Great!!! Ko for life!!!RIGHT])\n(;B[as]C[];W[bs]C[Oops.]))))\n(;B[ao];W[bq]C[There is something better.]))",
+  "author": {
+    "id": 10590,
+    "name": "Schizoid",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 26,
+  "attempts": {
+    "solved": 13758,
+    "failed": 8570,
+    "tries": 22328,
+    "speedSolved": 3,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-04-30T01:21:56+00:00",
+  "source": "My ladder problem",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 61,
+      "name": "Snapback",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 22,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

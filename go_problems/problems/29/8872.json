@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8872,
+  "elo": 1303.2766485855,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": -4,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This occurred to me one morning: what's the most solid way for W to do the capture.\r\n\r\nRemember that what you're capturing are the cutting stones and  you really don't want to allow any ko threats against the whole huge group",
+  "rating": {
+    "stars": 3.2,
+    "votes": 42,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[hi]AB[ii]AB[jh]AB[jg]AB[jf]AB[ie]AB[he]AB[gf]AB[gg]AB[gh]AW[if]AW[hh]AW[gi]AW[gj]AW[hj]AW[ij]AW[ji]AW[kj]AW[kh]AW[ke]AW[je]AW[kf]AW[kg]C[]AW[jj]AB[ki]AB[li]AB[lj]AB[lk]AB[lh]AB[kk]AB[fi]AB[jd]AW[ld]AW[fk]AP[goproblems]\r\n(;W[ih];B[hg]C[B makes a ko threat, T for tenuki]LB[dd:T]\r\n(;W[dd];B[ig]C[Big loss])\r\n(;W[ig]C[Oh dear, now B won the ko]))\r\n(;W[hf];B[hg]\r\n(;W[ih];B[ig]C[Oops :)])\r\n(;W[ig];B[ih]C[Oops :)]))\r\n(;W[hg];B[hf]C[B makes a ko threat, T for tenuki]LB[dd:T]\r\n(;W[dd];B[ig]C[Big loss])\r\n(;W[ih];B[ig]C[B makes *another* ko threat. T for tenuki]LB[dd:T]\r\n(;W[dd];B[if]C[Big loss.])\r\n(;W[if]C[Now B definitely won the ko, getting not one but *two* threats here.]))\r\n(;W[ig];B[ih]C[Oops :)]))\r\n(;W[ig];B[hg]C[B makes a ko threat, T for tenuki]LB[dd:T]\r\n(;W[dd];B[ih];W[hh]C[Very good, there was no real ko threat hereRIGHT])\r\n(;W[ih]C[B just tricked you :) You only need to answer once B *also* plays on the marked point]MA[hf])))",
+  "author": {
+    "id": 5722,
+    "name": "tjl",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 2696,
+    "failed": 3759,
+    "tries": 6455,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-07-13T04:00:06+00:00",
+  "source": "Just occurred to me",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

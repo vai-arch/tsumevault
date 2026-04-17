@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2865,
+  "elo": 1241.9400050066,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[rg][oh][ph][qh][ni][nj][mk][ok][pk][qk][rk][sk][ml][ql][mm][nm][qm][nn][on][qn][rn][sn]AB[oj][pj][qj][rj][sj][nk][nl][ol][om][pm][sm][pn][oo][qo][ro][so]LB[li:T][oi:A]C[FORCE\r\ndoes white need a move to win the race? play at A if you think yes, or tenuki at T]PL[W]\r\n(;W[li]CR[li]\r\n;B[po]CR[po]C[FORCE]\r\n(;W[oi]CR[oi]\r\n;B[pl]CR[pl]C[FORCE]\r\n(;W[pi]CR[pi]\r\n;B[rl]CR[rl]C[FORCE]\r\n(;W[qi]CR[qi]\r\n;B[rm]CR[rm]\r\n(;W[sl]CR[sl]\r\n;B[rm]CR[rm]\r\n(;W[ri]CR[ri]C[RIGHT\r\n])\r\n(;W[si]CR[si]C[RIGHT]))\r\n(;W[ri]CR[ri]\r\n;B[sl]CR[sl])\r\n(;W[si]CR[si]\r\n;B[sl]CR[sl]))\r\n(;W[rm]CR[rm]\r\n;B[sl]CR[sl])\r\n(;W[sl]CR[sl]\r\n;B[rm]CR[rm]))\r\n(;W[rl]CR[rl]\r\n;B[rm]CR[rm])\r\n(;W[sl]CR[sl]\r\n;B[rm]CR[rm])\r\n(;W[rm]CR[rm]\r\n;B[sl]CR[sl]))\r\n(;W[pl]CR[pl]\r\n;B[rl]CR[rl])\r\n(;W[rl]CR[rl]\r\n;B[pl]CR[pl])\r\n(;W[rm]CR[rm]\r\n;B[sl]CR[sl])\r\n(;W[sl]CR[sl]\r\n;B[rm]CR[rm]))\r\n(;W[oi]CR[oi]C[this move is not necessary. follow the other path to see why.]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 71,
+  "attempts": {
+    "solved": 3459,
+    "failed": 4632,
+    "tries": 8091,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-08-25T21:33:38+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

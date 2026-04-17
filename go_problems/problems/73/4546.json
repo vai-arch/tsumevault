@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4546,
+  "elo": 1184.762860111,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Only recently have I been able to see the first move to problems like this.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ps]AB[pr]AB[oq]AB[qp]AB[po]AB[qo]AB[ro]AB[sr]AW[rq]AW[rp]AW[qq]AB[pq]AW[pp]AW[op]AW[np]AW[nq]AW[nr]AW[or]MA[qq]MA[rq]MA[rp]C[Capture the stones.]AP[goproblems]\n(;B[rs];W[rr]\n(;B[sp];W[qr]C[One more move is all I ask :)]\n(;B[qs]C[Although T3 is slightly better... (think ko)RIGHT])\n(;B[sq]C[The best move.RIGHT])\n(;B[ss];W[os]C[atari.];B[qs];W[sq]C[You were so close...]))\n(;B[sq];W[sp]\n(;B[qr];W[ss];B[sr];W[os]C[Caught.])\n(;B[so];W[ss];B[sr];W[os];B[qs]C[Seki.]))\n(;B[qr];W[os]C[Caught.])\n(;B[qs];W[sq]\n(;B[so];W[os];B[sp];W[ss]C[Ko... bad...])\n(;B[qr];W[ss]C[Ko... bad...])\n(;B[ss];W[os]C[Well.... you didn't make a ko.... but you died....])))\n(;B[rr];W[qr]\n(;B[qs];W[rs];B[ss];W[os]C[Caught.])\n(;B[sp];W[qs]C[Caught.]TR[pq]TR[pr]TR[ps]TR[oq])\n(;B[sq];W[qs]C[Caught.]TR[oq]TR[pq]TR[pr]TR[ps])\n(;B[rs];W[qs]TR[pq]TR[ps]TR[pr]TR[oq]C[Caught.]))\n(;B[qr];W[rr]\n(;B[sq];W[os]C[Caught.])\n(;B[rs];W[os]C[Caught.]TR[ps]TR[pr]TR[qr]TR[pq]TR[oq]))\n(;B[sq];W[qr]TR[ps]TR[pr]TR[pq]TR[oq]C[These die first.])\n(;B[qs];W[rs];B[rr];W[qr];B[ss];W[os]C[Caught.])\n(;B[ss];W[qs]\n(;B[qr];W[rr];B[rs];W[os]C[Caught.])\n(;B[rr];W[qr]C[Caught.]))\n(;B[sp];W[qr]\n(;B[qs];W[rs])\n(;B[rr];W[qs])\n(;B[rs];W[qs])\n(;B[sq];W[qs])))",
+  "author": {
+    "id": 5469,
+    "name": "transcend",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-04-26",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 3665,
+    "failed": 7251,
+    "tries": 10916,
+    "speedSolved": 4,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-05-29T07:26:30+00:00",
+  "source": "Get Strong at Tesuji",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

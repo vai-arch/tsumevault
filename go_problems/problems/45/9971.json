@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9971,
+  "elo": 1714.9683627662,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -2,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Play Atari-go.\r\n\r\nI don't know why everyone likes playing go. Atari-go is clearly superior in its tactical subtleties :D",
+  "rating": {
+    "stars": 2,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sc]AB[se]AB[sg]AB[si]AW[pb]AW[oc]AW[od]AW[oe]AW[of]AW[og]AW[oh]AB[pc]AW[qc]AB[pd]AW[sa]AB[rb]AB[ri]AB[qi]AB[pi]C[W to win]AP[goproblems]\n(;W[pe];B[qd];W[rd];B[qe]\n(;W[re];B[qf];W[sd];B[sf];W[rc];B[sb];W[qb];B[ra]C[what game are you playing? go?])\n(;W[qf];B[re]))\n(;W[qd];B[pe]\n(;W[pf];B[qe]\n(;W[re];B[qf];W[rf];B[qg];W[sf];B[sd];W[rg];B[sh];W[qh]C[RIGHT])\n(;W[qf];B[re]))\n(;W[qe];B[pf]\n(;W[qf];B[pg]\n(;W[qg];B[ph]C[uh, no.])\n(;W[ph];B[qg]\n(;W[qh];B[rg])\n(;W[rg];B[qh])))\n(;W[pg];B[qf]\n(;W[rf];B[qg];W[rg];B[qh];W[sf];B[sh];W[re];B[sd])\n(;W[qg];B[rf]))))\n(;W[qe];B[ra]C[You lose :(]))",
+  "author": {
+    "id": 15018,
+    "name": "ketran0",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-04-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 17,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 73,
+  "attempts": {
+    "solved": 248,
+    "failed": 997,
+    "tries": 1245,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-04-14T09:24:57+00:00",
+  "source": "inspired by 8373",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

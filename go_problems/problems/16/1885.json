@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1885,
+  "elo": 1311.0120615998,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This is the first problem of another set of 7x7 endgames, focusing on life & death this time. Can Black win this game?",
+  "rating": {
+    "stars": 4.1,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]TM[]\r\nAW[eb][fb][gb][dc][ec][bd][cd][dd][ae][be][de][cf][df]AB[bb][cb][db][ac][bc][fc][gc][ad][ed][fd][ee][ef][ff]C[No komi, no prisoners - black to play and win!]\r\n(;B[aa]CR[aa]\r\n(;W[eg]CR[eg]\r\n;B[fg]CR[fg]\r\n;W[dg]CR[dg]\r\n(;B[ea]CR[ea]\r\n;W[fa]CR[fa]\r\n;B[da]CR[da]C[ Black wins by one point! RIGHT CHOICE])\r\n(;B[da]CR[da]\r\n;W[ea]CR[ea]C[Jigo... Bd7 is wrong]))\r\n(;W[da]CR[da]\r\n;B[ca]CR[ca]\r\n;W[ea]CR[ea]\r\n(;B[dg]CR[dg]\r\n;W[cg]CR[cg]\r\n;B[eg]CR[eg]C[Black wins by one point! RIGHT CHOICE])\r\n(;B[eg]CR[eg]\r\n;W[dg]CR[dg]C[Jigo... BE1 is wrong])))\r\n(;B[da]CR[da]\r\n(;W[ea]CR[ea]\r\n(;B[ba]CR[ba]\r\n;W[eg]CR[eg]\r\n;B[fg]CR[fg]\r\n;W[dg]CR[dg]C[This is only a jigo....])\r\n(;B[dg]CR[dg]\r\n;W[cg]CR[cg]\r\n;B[eg]CR[eg]\r\n;W[ba]CR[ba]\r\n;B[aa]CR[aa]\r\n;W[ab]CR[ab]C[Now c7 is not possible (WE7 took away a liberty), so black collapses]))\r\n(;W[ba]CR[ba]\r\n;B[aa]CR[aa]\r\n;W[ab]CR[ab]\r\n;B[ca]CR[ca]C[So after D7 black is alive, but there is the problem of WE7 after BD8...!]))\r\n(;B[ea]CR[ea]\r\n;W[da]CR[da]C[Black is dead])\r\n(;B[dg]CR[dg]\r\n;W[da]CR[da]C[Black is dead]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 2041,
+    "failed": 4497,
+    "tries": 6538,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-01-26T09:27:37+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21918,
+  "elo": 1928.2402643409,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -6,
+    "flagSum": -6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This comes from an OGS game I played. White made a sente play to grab a single point, but black didn't realize it was sente.",
+  "rating": {
+    "stars": 2.5,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]\r\nGM[1]\r\nPC[OGS: https://online-go.com/game/11972185]\r\nBR[15k]\r\nWR[13k]\r\nCP[online-go.com]\r\nRE[?]\r\nSZ[19]\r\nKM[6.5]\r\nRU[japanese]\r\n\r\nAB[aj][bk][ck][cj][dk][ek][fk][fj][bh][dh][dg][eh][fg][ag][bf][cf][ce][de][dd][ed][fd][ec][fb][fa][gc][hc][ic][id][ie][jd][hf][ig][jf][ih][ii][ij][ik][hk]\r\nAW[ak][al][bl][cl][dl][el][ej][ei][fi][fh][gh][gg][gf][ge][fe][ef][eg][gj][gk][hj][hl][gm][fm][af][ae][be][bd][cd][cc][dc][eb][da][cb][fl][hh][hi]\r\nMA[fl]C[Black chose to tenuki after white played the marked stone.\r\nThis happened in late endgame, so the only other plays on the board were worth +/- a few points. Grab the candy.\r\n\r\nUpdated 3/14/2018 - all comments addressed]\r\n\r\n(;W[ai]\r\n ;B[bj]C[It's a good thought, but doesn't go anywhere.]\r\n)\r\n(;W[ci]\r\n (\r\n  ;B[di]C[Black made a greedy mistake.]\r\n  ;W[dj]\r\n  ;B[le]C[Black plays tenuki again! Grab a couple more points.]\r\n  (;W[bj]\r\n   ;B[bi]\r\n   ;W[ai]\r\n   ;B[ah]\r\n   ;W[aj]\r\n   ;B[ch]\r\n   ;W[cj]C[RIGHT This is okay, but you can score a couple more points.]\r\n  )\r\n  (;W[bi]\r\n   ;B[ai]\r\n   (;W[ch]\r\n    ;B[bg]\r\n    ;W[bj]\r\n    ;B[ah]C[RIGHT]\r\n   )\r\n   (;W[bj]\r\n    ;B[ah]\r\n    ;W[ch]C[RIGHT]\r\n   )\r\n  )\r\n  (;W[ai]\r\n   ;B[bi]\r\n   ;W[bj]\r\n   ;B[ch]\r\n   ;W[cj]\r\n   ;B[ah]\r\n   ;W[aj]C[RIGHT This is okay, but you can score a couple more points.]\r\n  )\r\n )\r\n (;B[bi]\r\n  ;W[dj]\r\n  ;B[bj]\r\n  ;W[di]\r\n  ;B[ch]C[RIGHT As user Elessar noted, this is black's correct line of play.]\r\n )\r\n)\r\n\r\n)",
+  "author": {
+    "id": 91804,
+    "name": "MortimerMcMire",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-12-05",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 90,
+  "attempts": {
+    "solved": 65,
+    "failed": 111,
+    "tries": 176,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2018-03-09T16:53:23+00:00",
+  "source": "https://online-go.com/game/11972185",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

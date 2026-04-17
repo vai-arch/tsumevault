@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5037,
+  "elo": 1056.2215028124,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem is interesting for its apparent simple solution, which is not so simple after all. Hope you all enjoy it!",
+  "rating": {
+    "stars": 4.5,
+    "votes": 46,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AB[ca]AB[da]AB[db]AB[dc]AB[dd]AB[ce]AB[cf]AB[bg]AW[cb]AW[cc]AW[ba]AW[ab]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[Blanco]PB[Negro]\n(;B[bc];W[bd]\n(;B[cd];W[bb]\n(;B[ad];W[be];B[ae];W[ac];B[af]C[Congratulations, you got it!RIGHT])\n(;B[ac];W[ad]C[You almost had it!])\n(;B[be];W[ad];B[ae];W[ac]C[You almost had it!])\n(;B[ae];W[ad];B[be];W[ac]C[You almost had it!])\n(;B[bf];W[ad])\n(;B[af];W[ad]))\n(;B[bb];W[ac])\n(;B[ac];W[ad];B[cd];W[bb])\n(;B[ad];W[cd]\n(;B[ae];W[ac])\n(;B[ac];W[ae])\n(;B[bb];W[ac])\n(;B[be];W[bb]\n(;B[ae];W[ac])\n(;B[ac];W[ae])))\n(;B[be];W[ad]\n(;B[ae];W[cd])\n(;B[cd];W[bb];B[ae];W[ac]C[You almost had it!])\n(;B[ac];W[bb])\n(;B[bb];W[ac]))\n(;B[ae];W[ad]))\n(;B[bb];W[bc])\n(;B[ac];W[bd]\n(;B[ad];W[ae]\n(;B[be];W[bc])\n(;B[bc];W[bb])\n(;B[cd];W[be])\n(;B[bb];W[bc])\n(;B[af];W[be]))\n(;B[bc];W[ad];B[cd];W[bb])\n(;B[bb];W[bc])\n(;B[cd];W[bc])\n(;B[be];W[ad])\n(;B[ae];W[ad]))\n(;B[bd];W[bc];B[ad];W[ac])\n(;B[ad];W[bd]\n(;B[ac];W[ae]\n(;B[be];W[bc])\n(;B[bc];W[bb])\n(;B[cd];W[be])\n(;B[bb];W[bc])\n(;B[af];W[be]))\n(;B[ae];W[ac]\n(;B[bc];W[cd])\n(;B[cd];W[bc])\n(;B[be];W[cd])\n(;B[bb];W[bc]))\n(;B[bc];W[cd]\n(;B[ae];W[ac])\n(;B[ac];W[ae])\n(;B[be];W[bb]\n(;B[ae];W[ac])\n(;B[ac];W[ae]))\n(;B[bb];W[ac])))\n(;B[cd];W[bc])\n(;B[ae];W[bc])\n(;B[be];W[bc]))",
+  "author": {
+    "id": 7262,
+    "name": "GokuWachi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-10-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 8008,
+    "failed": 9015,
+    "tries": 17023,
+    "speedSolved": 17,
+    "speedPlay": 21
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-09-18T02:40:58+00:00",
+  "source": "KANSAI GO ASSOCIATION",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

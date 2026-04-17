@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5701,
+  "elo": 1734.6372752314,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Japanese rules; no komi; no prisoners\r\nThis is my version of ferdi's  1st 7x7 life & death endgame problem.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.00]\r\nAW[eb][fb][gb][dc][ec][bd][cd][dd][ae][be][cf][df]AB[bb][cb][db][ac][bc][fc][gc][ad][ed][fd][ef][ff]C[Black to win the game.]\r\n(;B[da]\r\n(;W[ea]C[CHOICE]\r\n(;B[ba]\r\n;W[ee]\r\n;B[fe]\r\n;W[de]\r\n;B[dg]\r\n;W[cg]\r\n;B[eg]C[RIGHT Correct. Now you can try ferdi's original problem and learn from the difference.])\r\n(;B[aa]\r\n;W[ee]\r\n;B[fe]\r\n;W[de]\r\n;B[dg]\r\n;W[cg]\r\n;B[eg]C[RIGHT Correct. Now you can try ferdi's original problem and learn from the difference.])\r\n(;B[de]\r\n;W[ba]\r\n;B[aa]\r\n;W[ab]LB[ca:A]C[Black has no ko threat, and he can not play at A.])\r\n(;B[dg]\r\n;W[ba]\r\n;B[aa]\r\n;W[ab]LB[ca:A]C[Black has no ko threat, and he can not play at A.]))\r\n(;W[ba]C[CHOICE]\r\n;B[aa]\r\n;W[ab]\r\n;B[ca]\r\n;W[ea]\r\n;B[aa]\r\n;W[ee]\r\n;B[fe]\r\n;W[de]\r\n;B[dg]\r\n;W[cg]\r\n;B[eg]C[RIGHT Correct. Now you can try ferdi's original problem and learn from the difference.]))\r\n(;B[aa]\r\n;W[da]\r\n;B[ca]\r\n;W[ea]C[The best black can get from here is jigo.])\r\n(;B[ea]\r\n;W[da]C[Black is dead.])\r\n(;B[de]\r\n;W[da]C[Black is dead.])\r\n(;B[dg]\r\n;W[da]C[Black is dead.]))",
+  "author": {
+    "id": 2264,
+    "name": "highflyer",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-04-20",
+    "rank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1169.87
+  },
+  "avgSolveTimeSeconds": 41,
+  "attempts": {
+    "solved": 612,
+    "failed": 2561,
+    "tries": 3173,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-12-16T04:58:48+00:00",
+  "source": "my version of ferdi's problem",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

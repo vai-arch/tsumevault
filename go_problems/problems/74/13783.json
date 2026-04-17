@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13783,
+  "elo": 1813.0772654203,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Different viewpoint of my previous problem, 13781.\r\n\r\nPlease read the instructions. Note that symmetrical moves on the opposite side count. For example, l3 and j3 count as 2 moves, if they work.\r\n\r\nNo ko, please :)",
+  "rating": {
+    "stars": 1.8,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[io]AW[jo]AW[ko]AW[lp]AW[mq]AW[mr]AW[ms]AW[mp]AW[lo]AW[hp]AW[gq]AW[gs]AW[gr]AW[gp]AW[ho]AB[ip]AB[jp]AB[kp]AB[lq]AB[lr]AB[ls]AB[hq]AB[hr]AB[hs]C[Same position, different question. How many ways are there for white to kill black UNCONDITIONALLY? How many different first moves are there, to be specific. Note: the same move on a different side counts. For example, if l3 were to work, j3 would count as a different first move.]LB[gm:0]LB[hm:1]LB[im:2]LB[jm:3]LB[km:4]LB[lm:5]LB[mm:6]LB[in:7]LB[jn:8]LB[kn:9]AP[goproblems]\n(;W[gm]C[K2 works. Navigate solution for details.])\n(;W[hm]C[Navigate solution for details.])\n(;W[im]C[Navigate solution for details.])\n(;W[jm]C[Navigate solution for details.])\n(;W[km]C[Navigate solution for details.])\n(;W[lm];B[km]C[Correct! Now you can play around with solutions and variationsRIGHT]\n(;W[jr];B[jq]\n(;W[ks];B[kq]\n(;W[is]C[RIGHT])\n(;W[ir];B[is];W[iq]C[RIGHT])\n(;W[iq];B[ir];W[is];B[js]C[Not best.])\n(;W[kr];B[iq]\n(;W[is]C[RIGHT])\n(;W[ir];B[is];W[js]C[RIGHT])))\n(;W[is]C[NOTTHIS])\n(;W[kr];B[kq]\n(;W[ks];B[iq]\n(;W[is]C[RIGHT])\n(;W[ir];B[is];W[js]C[RIGHT]))\n(;W[is]C[RIGHT])\n(;W[ir];B[iq]\n(;W[ks];B[is];W[js]C[RIGHT])\n(;W[is];B[ks];W[js]C[RIGHT]))\n(;W[iq];B[ir])\n(;W[js];B[ir]))\n(;W[ir]C[NOTTHIS])\n(;W[js]\n(;B[kr];W[ks]C[RIGHT])\n(;B[kq]\n(;W[iq];B[ir];W[is];B[iq];W[ks]C[RIGHT])\n(;W[ir];B[iq]\n(;W[kr]C[RIGHT])\n(;W[is]C[RIGHT])\n(;W[ks]C[RIGHT]))\n(;W[is];B[iq]\n(;W[ks]C[RIGHT])\n(;W[ir]C[RIGHT])\n(;W[kr]C[RIGHT])))))\n(;W[kq]\n(;B[jr];W[kr];B[jq];W[ks];B[js];W[ir]C[RIGHT])\n(;B[kr]\n(;W[jq]\n(;B[iq];W[jr]C[RIGHT])\n(;B[jr];W[iq];B[ir];W[js]C[RIGHT]))\n(;W[jr];B[jq];W[is];B[iq];W[ks];B[js]C[Not best.])\n(;W[iq];B[jq]\n(;W[ir];B[js];W[is];B[jr])\n(;W[jr];B[ir];W[js]C[seki])\n(;W[js];B[jr]))))\n(;W[kr]\n(;B[kq]\n(;W[ir];B[iq]\n(;W[jr];B[js]\n(;W[ks]C[RIGHT])\n(;W[is]C[RIGHT]))\n(;W[js];B[jr];W[jq]C[Ko. Could be better.]))\n(;W[jr];B[ir]\n(;W[js];B[jq])\n(;W[jq];B[js])\n(;W[iq];B[jq])\n(;W[ks];B[js];W[is]C[Ko. Not best.]))\n(;W[iq];B[ir]\n(;W[jr];B[jq])\n(;W[ks];B[jq])))\n(;B[jr];W[kq];B[jq];W[ks];B[js];W[ir]C[RIGHT]))\n(;W[jq];B[jr])\n(;W[js];B[jr]\n(;W[kr];B[kq];W[ir];B[iq];W[jq]C[Ko. Could be better.])\n(;W[ir];B[iq];W[kr];B[kq];W[jq]C[Ko. Could be better.]))\n(;W[ks];B[jr])\n(;W[ir]C[NOTTHISRIGHT])\n(;W[iq]C[NOTTHISRIGHT])\n(;W[is];B[jr]))\n(;W[mm]C[Navigate solution for details.])\n(;W[in]C[Navigate solution for details.])\n(;W[jn]C[Navigate solution for details.])\n(;W[kn]C[Navigate solution for details.]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 87,
+  "attempts": {
+    "solved": 57,
+    "failed": 179,
+    "tries": 236,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-06-14T16:24:09+00:00",
+  "source": "An inspiration, continued",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

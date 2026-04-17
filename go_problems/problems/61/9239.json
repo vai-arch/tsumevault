@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9239,
+  "elo": 822.89044067298,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 13,
+    "negativeFlagSum": 0,
+    "flagSum": 13
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.9,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[mb]AB[nb]AB[nc]AB[od]AB[oe]AB[pd]AB[kd]AB[ke]AW[lb]AW[kc]AW[lc]AW[mc]AW[me]AW[ne]AB[mf]AB[nf]AB[jf]AW[jd]AW[ic]AW[ib]AW[ia]AB[nh]AB[ni]AB[qc]AB[pb]AB[rb]AW[rc]AW[rd]AW[qd]AW[pe]AW[pf]AW[qf]AW[qg]AW[rg]AW[rh]AB[ri]AB[qh]AB[ph]AB[oh]AW[re]AW[sc]AB[sb]AW[sg]AB[of]AW[id]AB[si]C[Black to make his best moveCHOICE]AW[jc]AB[ig]AB[ih]AB[ii]AB[jg]AW[ie]AP[goproblems]\n(;B[md]\n(;W[ld]\n(;B[nd];W[le];B[lf]C[Could have captured marked stones]TR[me]TR[ne])\n(;B[lf];W[nd];B[le];W[md]C[You could have captured the marked stones]TR[me]TR[ne])\n(;B[le]C[Snap back! If white plays O16 black  has N16 (white can keep O16 as a ko threat).RIGHT]))\n(;W[le];B[ld]C[RIGHT]))\n(;B[le];W[md]C[white saved his stones]TR[me]TR[ne])\n(;B[ld];W[md])\n(;B[nd];W[le];B[md];W[ld];B[lf])\n(;B[la];W[ka];B[ma];W[le];B[lf]C[There was a bigger move]TR[me]TR[ne])\n(;B[pg];W[le]LB[lf:A]C[Please block at A];B[lf]C[You could have captured the marked stones]TR[me]TR[ne])\n(;B[rf]C[This shape is alive!])\n(;B[sf]C[This shape is alive!])\n(;B[se]C[This shape is alive!])\n(;B[sd]C[This shape is alive!])\n(;B[jb]C[Generally you should assume groups like this one are connected to stones to the left and are therefore alive])\n(;B[og]C[It is safe to block at Q13 - but there is a bigger move]TR[me]TR[ne])\n(;B[ka];W[le]\n(;B[lf];W[la])\n(;B[la];W[lf]\n(;B[lg];W[kf]\n(;B[kg];W[je])\n(;B[je];W[kg]))\n(;B[kf];W[lg]))))",
+  "author": {
+    "id": 14046,
+    "name": "ldan",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-07-24",
+    "rank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1162.66
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 13843,
+    "failed": 6669,
+    "tries": 20512,
+    "speedSolved": 10,
+    "speedPlay": 22
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-10-03T06:44:29+00:00",
+  "source": "KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 61,
+      "name": "Snapback",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

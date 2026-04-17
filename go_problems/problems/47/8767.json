@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8767,
+  "elo": 889.02508805395,
+  "problemLevel": 6,
+  "rank": {
+    "value": 24,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "While I created this problem, a hyperactive four-year old begged me to teach him to play this game.  This problem is dedicated to him.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 31,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[ga]AW[gb]AW[gc]AW[gd]AW[ee]AW[he]AW[cf]AW[df]AW[ef]AW[ff]AW[cg]AW[gg]AW[ch]AW[fh]AW[ci]AB[fa]AB[fb]AB[fc]AB[dd]AB[ed]AB[fd]AB[be]AB[ce]AB[de]AB[fe]AB[ge]AB[bf]AB[bg]AB[bh]AB[bi]C[What move lets black win this game?]\n(;B[hf]\n(;W[gf]C[CHOICE];B[hd]C[You have successfully cut White, and her upper-right corner will be captured.  Well done! RIGHT])\n(;W[hd]C[CHOICE];B[gf]C[You have successfully cut White, and her position will soon be in shambles.  Well done! RIGHT]))\n(;B[hd];W[hc]\n(;B[hf]C[You've found the alternate solution!RIGHT])\n(;B[id];W[ie]C[You don't need to sacrifice stones to solve this problem.]))\n(;B[gf];W[hf]C[White wins, 26 to 23.])\n(;B[ie];W[id]\n(;B[hf];W[if]\n(;B[hg];W[gf]C[White will eventually capture the pieces at H3 and H4, and win the game.])\n(;B[gf];W[hg]C[With the capture, white still wins the game 24 to 23.]))\n(;B[if];W[hf]C[White easily catches these stones])\n(;B[ic];W[if]C[You're creative, but on the wrong track.])\n(;B[gf];W[hf]C[White wins the game.]))\n(;B[id];W[hf]C[White wins, 27 to 23.]))",
+  "author": {
+    "id": 4929,
+    "name": "chipuni",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-10-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 13936,
+    "failed": 8893,
+    "tries": 22829,
+    "speedSolved": 2,
+    "speedPlay": 7
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-06-22T13:22:07+00:00",
+  "source": "Amateur game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

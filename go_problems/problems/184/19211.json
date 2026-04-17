@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19211,
+  "elo": 1112.7343350177,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rc]AB[qd]AB[qe]AB[se]AB[re]AW[sd]AW[rd]AW[rb]AW[pc]AW[ob]AW[pe]AW[pf]AW[rf]AW[qf]C[3. Black to live]AP[goproblems]\n(;B[qb];W[qc];B[sb]LB[qb:1]LB[qc:2]LB[sb:3]C[Black 1 is the only move with any chance of succeeding, and succeed it does, thanks to the snapback created by 3. RIGHT])\n(;B[sb];W[qb]LB[sb:1]LB[qb:2]LB[qc:a]C[If Black hanes from the edge, White will reply at 2 (not 'a'!) and that will be that. CHOICE]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 1394,
+    "failed": 950,
+    "tries": 2344,
+    "speedSolved": 16,
+    "speedPlay": 33
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-03-23T21:13:45+00:00",
+  "source": "Go World 15",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 184,
+      "name": "6 Live 6 Die",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

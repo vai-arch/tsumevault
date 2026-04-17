@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22640,
+  "elo": 1730.304796505,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "I had originally posted a flawed version of this problem. Thanks to cae for spotting my mistake!",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\nAB [ap][bp][cp][dp][dq][fq][dr][fr][fs]\r\nAW [an][bn][cn][dn][en][eo][ep][gp][eq][hq][cr][er][hr][cs][ds]\r\n\r\nC [Black to save his group.]\r\n\r\n(; B [es]; W [ar] (; B [br]; W [bq] (; B [bs]; W [as] (; B [cq]; W [br] (; B [aq]; W [fp] C [White can fill the outside liberties. Please capture at B1.]; B [bs]; W [br] (; B [ds]; W [ar]; B [cr] C [RIGHT])(; B [cr]; W [ds]; B [ar] C [RIGHT])))(; B [aq]; W [br] (; B [cq]; W [fp] C [White can fill the outside liberties. Please capture at B1.]; B [bs]; W [br] (; B [ds]; W [ar]; B [cr] C [RIGHT])(; B [cr]; W [ds]; B [ar] C [RIGHT])))(; B [br]; W [bs] (; B [cq]; W [br] C [If black captures at A3, then white kills with B2.])(; B [aq]; W [br] C [If black captures at C3, then white kills with B2.]))(; B [bs]; W [br] (; B [cq]; W [bs] C [If black captures at A3, then white kills with B2.])(; B [aq]; W [bs] C [If black captures at C3, then white kills with B2.])))(; B [cq]; W [bs]; B [aq]; W [br] C [If black captures at A1, then white B2 kills.])(; B [aq]; W [bs]; B [cq]; W [br] C [If black captures at A1, then white B2 kills.]))(; B [aq]; W [br] C [Even capturing the five stones leaves black with a dead shape after white's throw-in at D1.])(; B [bq]; W [br] C [Even capturing the five stones leaves black with a dead shape after white's throw-in at D1.])(; B [cq]; W [br] C [Even capturing the five stones leaves black with a dead shape after white's throw-in at D1.])(; B [as]; W [br] C [Even capturing the five stones leaves black with a dead shape after white's throw-in at D1.])(; B [bs]; W [br] C [Even capturing the five stones leaves black with a dead shape after white's throw-in at D1.]))\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 94,
+  "attempts": {
+    "solved": 42,
+    "failed": 103,
+    "tries": 145,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-06-22T01:57:02+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 87,
+      "name": "Nakade",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

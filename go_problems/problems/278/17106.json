@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17106,
+  "elo": 906.10216270471,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Weekly Go problems; Week 31-Easy Go problem",
+  "rating": {
+    "stars": 4.2,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sr]AB[rp]AB[qq]AB[qr]AB[pr]AB[or]AW[nr]AW[nq]AW[oq]AW[pq]AW[qp]AW[qo]AW[rn]AW[so]AW[sp]AW[rq]LB[rs:a]LB[rr:b]LB[sq:c]LB[os:d]LB[ps:e]C[What's the key point in the corner?]AP[goproblems]\r\n(;B[rs];W[sq]LB[rr:a]LB[os:b]LB[ps:c]\r\n(;B[rr]C[RIGHT])\r\n(;B[ps];W[rr])\r\n(;B[os];W[rr]))\r\n(;B[sq];W[os]LB[ps:a]LB[rs:b]\r\n(;B[rs])\r\n(;B[ps];W[rs];B[ns];W[lr]))\r\n(;B[rr];W[os]LB[ps:a]LB[rs:b]\r\n(;B[ps];W[rs];B[ns];W[lr])\r\n(;B[rs];W[ps]))\r\n(;B[os];W[rr];B[rs];W[ro])\r\n(;B[ps];W[rr];B[rs];W[ro]))",
+  "author": {
+    "id": 59161,
+    "name": "1234boys",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-10-13",
+    "rank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1373.95
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 3963,
+    "failed": 4013,
+    "tries": 7976,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-01-26T23:39:22+00:00",
+  "source": "Weekly Go problems Week 31",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 278,
+      "name": "saxmaam hard",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

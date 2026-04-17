@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14271,
+  "elo": 1720.0765990135,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -6,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "In this common 3-3 invasion, black played 15, and white played elsewhere.  Can black get anything else out of the corner?",
+  "rating": {
+    "stars": 2,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[na]AB[nb]AB[oc]AB[od]AB[pd]AB[qd]AB[re]AB[sd]AW[rd]AW[rc]AW[qc]AW[qb]AW[pc]AW[ob]AW[oa]LB[pd:1]LB[qc:2]LB[qd:3]LB[pc:4]LB[oc:5]LB[rd:6]LB[re:7]LB[rc:8]LB[od:9]LB[ob:10]LB[nb:11]LB[oa:12]LB[na:13]LB[qb:14]LB[sd:15]C[Black to do something in the corner]AP[goproblems]\n(;B[rb];W[sb]\n(;B[ra];W[qa];B[pa];W[pb])\n(;B[pa]C[]\n(;W[ra];B[pb])\n(;W[pb];B[ra];W[qa]))\n(;B[qa];W[ra]))\n(;B[ra];W[qa]\n(;B[pb];W[pa];B[sb];W[sc];B[se]C[Seki, but you lost one point from the capture.])\n(;B[sb]C[];W[sc]\n(;B[pb]\n(;W[pa];B[se]C[Seki, but you lost one point from the capture.])\n(;W[rf]C[White escapesCHOICE]))\n(;B[pa]C[RIGHT]\n(;W[pb]C[Seki, but you lost one point from the capture.];B[se]C[Seki, but you lost one point from the capture.])\n(;W[rf]C[White escapesCHOICE]))\n(;B[se]C[Seki - if white forces life at S18, black will capture two stones, resulting in a net of zero points in the corner for both players. Best result.CHOICERIGHT]))\n(;B[sc];W[sb])\n(;B[pa];W[pb];B[sb];W[sc];B[se]C[Seki, but you lost one point from the capture.]))\n(;B[qa];W[ra]\n(;B[sb];W[sc])\n(;B[sc];W[sb];B[pa];W[se]\n(;B[pb])\n(;B[sd];W[sc]))\n(;B[pa];W[pb])\n(;B[pb];W[pa]))\n(;B[sc];W[sb]\n(;B[pa];W[ra];B[pb];W[se])\n(;B[qa];W[ra];B[pa];W[se]\n(;B[pb])\n(;B[sd];W[sc]))\n(;B[ra];W[qa]))\n(;B[pa];W[pb]\n(;B[ra];W[qa];B[sb];W[sc]C[Seki, but you lost one point from the capture.];B[se]C[Seki, but you lost one point from the capture.])\n(;B[sb];W[sc];B[ra]\n(;W[qa]C[Seki];B[se]C[Seki, but you lost one point from the capture.])\n(;W[se]C[CHOICE]))\n(;B[rb];W[sb];B[ra];W[qa])\n(;B[sc];W[sb];B[ra];W[qa])\n(;B[qa];W[ra]))\n(;B[pb];W[pa];B[sb];W[ra];B[sc];W[rb])\n(;B[se];W[sb]))",
+  "author": {
+    "id": 46159,
+    "name": "ZombieLincoln",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 418,
+    "failed": 805,
+    "tries": 1223,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-12-20T08:16:13+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 76,
+      "name": "4-4 (hoshi) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 24,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

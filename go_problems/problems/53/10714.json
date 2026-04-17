@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10714,
+  "elo": 2074.7817574608,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -5,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Pay attention :-D (Bitter comments not appreciated)\r\nI modified this problem to prevent some geta but you can try in 10720 problem.\r\n",
+  "rating": {
+    "stars": 2.6,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[br]AB[bq]AB[cp]AB[co]AW[dq]AW[dp]AW[cq]AB[do]AB[fn]AW[gp]AW[iq]AW[jp]AW[jo]AW[kq]AW[kr]AB[lq]AB[kp]AB[ko]AB[lo]AB[mo]AB[mn]AB[mr]AW[mq]AW[nq]AW[pr]AW[pp]AW[oo]AW[pn]AW[pm]AW[qn]AW[rn]AB[rm]AB[qm]AB[pl]AB[qk]AB[ok]AB[oj]AB[oi]AW[ol]AW[nl]AW[nk]AW[nj]AW[lk]AW[kl]AW[kn]AW[ln]AB[ml]AB[jn]AB[in]AB[im]AW[ff]C[Can black kill the marked stones ? (hint : not knowing can't be wrong...if you really don't know)]LB[df:YES]LB[di:NO]LB[jd:I don't know]TR[kn]TR[ln]AB[pc]AB[pe]AB[qd]AB[od]AW[lj]AP[goproblems]\n(;B[di];W[pd]C[Are you sure ? Try to kill whiteFORCE]LB[km:X];B[km];W[lm]LB[ll:X]C[FORCE];B[ll];W[jm]LB[mm:X]C[FORCE];B[mm];W[km]LB[kk:X]C[FORCE];B[kk];W[jl]LB[jk:X]C[FORCE];B[jk];W[il]C[Please play the ladderFORCE];B[hl];W[ik]C[FORCE];B[ij];W[hk]C[FORCE];B[gk];W[hj]C[FORCE];B[hi];W[gj]C[FORCE];B[fj];W[gi]C[FORCE];B[gh];W[fi]C[FORCE];B[fh];W[ei]C[FORCE];B[ej];W[eh]C[FORCE];B[eg]C[White is toasted !])\n(;B[df];W[pd]C[Are you sure ? Try to kill white];B[km];W[lm];B[ll];W[jm];B[mm];W[km];B[kk];W[jl]\n(;B[jk];W[il]\n(;B[hl];W[ik];B[ij];W[hk]AB[gk]AW[hj]AB[hi]AW[gj]AB[fj]AW[gi]AB[gh]AW[fi];B[ei];W[fh];B[fg];W[eh];B[dh];W[eg]\n(;B[ef];W[gg];B[dg];W[hh]C[Sorry but white is alive])\n(;B[gg];W[ef]C[Sorry but white is alive])\n(;B[dg];W[gg]C[Sorry but white is alive]))\n(;B[hk];W[hl];B[gl];W[hm];B[hn];W[gm];B[fm];W[gk];B[fl];W[ik]\n(;B[ij];W[hj]C[White escapes])\n(;B[hj];W[jj]C[White escapes])))\n(;B[ik];W[jk]\n(;B[jj];W[kj];B[il];W[kk]C[White escapes])\n(;B[kj];W[jj]C[White escapes]))\n(;B[ij];W[jk];B[kj];W[jj]\n(;B[ji];W[ki]C[White escapes])\n(;B[ki];W[ji]C[White escapes])))\n(;B[jd]C[RIGHT];W[pd]LB[fr:Conclusion]C[Neither do i. Sorry for wasting one's time :p];B[fr]C[So black can kill white only if he believes he can't and vice versa. There is no good answer. ;-)])\n(;B[km]C[NOTTHIS])\n(;B[jm]C[NOTTHIS])\n(;B[lm]C[NOTTHIS])\n(;B[ll]C[NOTTHIS])\n(;B[jl]C[NOTTHIS])\n(;B[mm]C[NOTTHIS])\n(;B[mk]C[NOTTHIS])\n(;B[kk]C[NOTTHIS])\n(;B[jk]C[NOTTHIS])\n(;B[nm]C[NOTTHIS]))",
+  "author": {
+    "id": 17312,
+    "name": "briv",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-01-04",
+    "rank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1586.42
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 224,
+    "failed": 920,
+    "tries": 1144,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-12-20T16:05:41+00:00",
+  "source": "a fit of delirium",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 25,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

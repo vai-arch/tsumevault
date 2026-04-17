@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9508,
+  "elo": 894.03875424916,
+  "problemLevel": 6,
+  "rank": {
+    "value": 24,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": -5,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This is something that beginners seem to get caught by.\nCorrect response to w1 is B13",
+  "rating": {
+    "stars": 4.1,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bh]AB[ch]AW[bi]AW[ci]AW[di]AW[dh]AB[dg]AB[df]AB[de]AW[eh]AW[ff]AB[be]AB[ag]AW[ah]AW[bk]LB[ah:1]LB[ag:2]C[Punish black's mistake]AB[dd]AP[goproblems]\n(;W[bg]\n(;B[ai]C[CHOICE]\n(;W[cg];B[ah]\n(;W[af];B[aj]\n(;W[bj]C[RIGHT])\n(;W[ak]C[RIGHT]))\n(;W[aj];B[af]C[Black escapes]))\n(;W[af];B[cg];W[ah]C[Ko, White can do much better])\n(;W[aj];B[cg];W[ah]C[Ko, white can do better]))\n(;B[cg];W[af]C[Probably the best choice for black.])\n(;B[af];W[cg]))\n(;W[ai]\n(;B[bf]C[White can do much betterCHOICE])\n(;B[bg]C[White can do much betterCHOICE])\n(;B[cg]C[White can do much betterCHOICE]))\n(;W[cg];B[bg]\n(;W[bf];B[cf])\n(;W[cf];B[bf]))\n(;W[af];B[bg]\n(;W[bf]\n(;B[cg])\n(;B[ai];W[aj];B[cg]))\n(;W[cg];B[cf])\n(;W[cf]\n(;B[bf])\n(;B[cg])))\n(;W[bf];B[bg]\n(;W[af];B[cg])\n(;W[cg];B[cf])\n(;W[cf];B[cg]))\n(;W[cf]\n(;B[bg];W[cg];B[bf])\n(;B[cg]\n(;W[af];B[ai])\n(;W[bf]\n(;B[af])\n(;B[ai]C[CHOICE])))\n(;B[bf];W[bg];B[ai]\n(;W[cg];B[ce])\n(;W[aj];B[ah];W[cg];B[ce])))\n(;W[aa]C[Now don't be silly :D])\n(;W[ce];B[bf])\n(;W[ae];B[bf]))",
+  "author": {
+    "id": 16518,
+    "name": "Origin",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-06-28",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 9944,
+    "failed": 7437,
+    "tries": 17381,
+    "speedSolved": 3,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-11-28T11:42:01+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

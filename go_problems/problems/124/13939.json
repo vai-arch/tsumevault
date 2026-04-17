@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13939,
+  "elo": 957.97811656841,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": -1,
+    "flagSum": 11
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Here is a problem taken from a game I played on the Dragon Go Server. Black tried to save the three stones I ataried with wR1... a hopeless situation ! this is my first problem here, hope you will enjoy it. any comment is welcome!\r\n\r\n(I already modified some sequences, thanks to them!)",
+  "rating": {
+    "stars": 3.6,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qr]AB[qq]AB[pq]AB[or]AB[nr]AB[mr]AB[lr]AB[kr]AB[jr]AW[ir]AW[hs]AW[gr]AB[fs]AB[gs]AB[fr]AB[fq]AB[fp]AW[gp]AW[gq]AB[dp]AB[cn]AW[jq]AW[lq]AW[nq]AW[mq]AW[oq]AW[pp]AW[qp]AW[rq]AW[rr]AW[ko]AW[qs]C[Black just answered A to white R1, hoping to save his three stones at the right.  White to kill.]AB[pr]LB[pr:A]AW[jp]AW[oo]AP[goproblems]\n(;W[js];B[ks]\n(;W[ps]\n(;B[is]\n(;W[hr];B[os];W[ms];B[rs]\n(;W[qs]C[correct! Black is dead now.RIGHT])\n(;W[js];B[qs]C[wrong, black has got his two eyes now!CHOICE]))\n(;W[os];B[hr]C[Wrong, black is safe nowCHOICE]))\n(;B[os]\n(;W[ms];B[rs]\n(;W[qs]C[correct! Black is dead now.RIGHT])\n(;W[is];B[qs]C[CHOICE]))\n(;W[rs];B[ms]C[Wrong, black is alive.CHOICE])))\n(;W[is];B[ps]C[wrong, Black is alive now !CHOICE])\n(;W[ms]\n(;B[ps]\n(;W[ns];B[is];W[hr]C[correct! black is dead now.RIGHT])\n(;W[rs];B[ns]C[CHOICE]))\n(;B[ns];W[ps];B[os];W[kq];B[ls];W[ms]))\n(;W[ns];B[ms]C[wrong, black is alive now!CHOICE]))\n(;W[ps];B[os]\n(;W[js]\n(;B[rs]\n(;W[qs];B[ks]\n(;W[ms]C[correct! Black is dead now.RIGHT])\n(;W[is];B[ms]C[wrong, black has got his two eyes now!CHOICE]))\n(;W[ks];B[qs];W[ls];B[ms]C[wrong, black has got his two eyes now!CHOICE]))\n(;B[ks]\n(;W[ms];B[rs]\n(;W[qs]C[correct! Black is dead now.RIGHT])\n(;W[is];B[qs]C[CHOICE]))\n(;W[rs];B[ms]C[Wrong, black is alive.CHOICE])))\n(;W[rs];B[js]C[Wrong, black is alive!]\n(;W[ms];B[ls]C[])\n(;W[ls];B[ms]))\n(;W[ls];B[ms]C[wrong, black is alive now!CHOICE])\n(;W[ms];B[rs];W[qs];B[js];W[ls];B[is];W[hr]C[correct! black is dead now.RIGHT]))\n(;W[ms]\n(;B[js]\n(;W[ls];B[ps];W[ns];B[is];W[hr]C[wrong, you only get a seki now!CHOICE])\n(;W[ns];B[ls]C[CHOICE]))\n(;B[ps]\n(;W[ns];B[js];W[ls];B[is];W[hr]C[wrong, you only get a seki now!CHOICE])\n(;W[ls];B[ns]C[CHOICE]))))",
+  "author": {
+    "id": 45361,
+    "name": "mikake",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-08-24",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 53,
+  "attempts": {
+    "solved": 5150,
+    "failed": 4112,
+    "tries": 9262,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-09-04T05:30:34+00:00",
+  "source": "a game I played on DGS",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 124,
+      "name": "Hanging Edge False Eye",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 20,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

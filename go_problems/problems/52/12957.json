@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12957,
+  "elo": 927.6529175091,
+  "problemLevel": 8,
+  "rank": {
+    "value": 22,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 1.9,
+    "votes": 49,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[op]AB[pp]AB[pn]AW[np]AW[oq]AW[qo]AB[nq]AB[mq]AB[qn]AW[pq]AW[qp]AW[rq]AB[or]AW[pr]AW[no]AW[mn]TR[np]C[This is a fighting situation. Black to find the best connection.]AP[goproblems]\n(;B[on]C[An efficient connection and taking a potential shape point away from White.RIGHT]TR[mn]TR[no])\n(;B[po]C[This is not the most optimal for the following reason: It reduces liberties on the square stones, but the square stones dont have any liberty problems. A stone on P6 would take away potential shape from the triangle stones.]MA[qo]MA[qp]TR[mn]TR[no]TR[on])\n(;B[oo]C[];W[on];B[po];W[om]C[Black has bad shape.])\n(;B[om];W[po]TR[op]TR[pp]C[These are important cutting stones, don't give them up!])\n(;B[nm];W[po]TR[op]TR[pp]C[These are important cutting stones, don't give them up!])\n(;B[mp];W[po]TR[op]TR[pp]C[These are important cutting stones, don't give them up!])\n(;B[nr];W[po]TR[op]TR[pp]C[These are important cutting stones, don't give them up!])\n(;B[nn];W[po]TR[op]TR[pp]C[These are important cutting stones, don't give them up!])\n(;B[ns];W[po]TR[op]TR[pp]C[These are important cutting stones, don't give them up!]))",
+  "author": {
+    "id": 21062,
+    "name": "symplicity",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2009-08-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 4579,
+    "failed": 3160,
+    "tries": 7739,
+    "speedSolved": 1,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-07-31T18:44:46+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

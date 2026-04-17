@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7704,
+  "elo": 1003.7686065934,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "It looks like white takes a vital point, but can black live without seki or ko?",
+  "rating": {
+    "stars": 4.1,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[hs]AB[hr]AB[hq]AB[hp]AB[ip]AB[jp]AB[kp]AB[kq]AB[lq]AB[lr]AB[ls]AW[gs]AW[gr]AW[gq]AW[gp]AW[go]AW[ho]AW[io]AW[jo]AW[ko]AW[lo]AW[lp]AW[mp]AW[mq]AW[mr]AW[ms]AW[jr]AP[goproblems]\n(;B[ir]\n(;W[jq]C[CHOICE]\n(;B[js]C[Black now has two eyes.RIGHT])\n(;B[kr];W[js]C[Seki])\n(;B[iq];W[js]\n(;B[kr]C[Seki])\n(;B[is];W[kr];B[ks];W[jr]C[Dead :-(])\n(;B[ks];W[kr];B[is];W[jr]C[Dead :-(]))\n(;B[is];W[kr]\n(;B[js]C[Seki])\n(;B[ks];W[js];B[iq];W[jr]C[Dead :-(])\n(;B[iq];W[js];B[ks];W[jr]C[Dead :-(]))\n(;B[ks];W[js]\n(;B[kr]C[Seki])\n(;B[iq];W[kr];B[is];W[jr]C[Dead :-(])\n(;B[is];W[kr];B[iq];W[jr]C[Dead :-(])))\n(;W[js]C[CHOICE];B[jq]C[Black now has two eyes.RIGHT]))\n(;B[js];W[ir]C[CHOICE]\n(;B[kr]C[];W[is]C[]\n(;B[jq];W[ks]C[Ko])\n(;B[iq];W[ks]C[Ko])\n(;B[ks];W[iq];B[jq];W[ir]C[Dead :-(]))\n(;B[jq];W[is]\n(;B[kr];W[ks]C[Ko])\n(;B[ks];W[iq];B[kr];W[ir]C[Dead :-(])\n(;B[iq];W[ks]C[Dead :-(]))\n(;B[is];W[kr]\n(;B[iq];W[jq];B[ks];W[jr]C[Dead :-(])\n(;B[jq]C[Seki])\n(;B[ks];W[jq];B[iq];W[jr]C[Dead :-(]))\n(;B[iq];W[is]\n(;B[kr];W[ks]C[Ko])\n(;B[ks]C[Seki])\n(;B[jq];W[ks]C[Dead :-(]))\n(;B[ks];W[is]\n(;B[kr];W[iq];B[jq];W[ir]C[Dead :-(])\n(;B[jq];W[iq];B[kr];W[ir]C[Dead :-(])\n(;B[iq]C[Seki])))\n(;B[jq];W[ir]\n(;B[js];W[is]\n(;B[kr];W[ks]C[Ko])\n(;B[ks];W[iq];B[kr];W[ir]C[Dead :-(])\n(;B[iq];W[ks]C[Dead :-(]))\n(;B[kr];W[js]C[]\n(;B[iq]C[Not a seki. White can still capture, starting with J1])\n(;B[is]C[Seki])\n(;B[ks]C[Not a seki. White can still capture, starting with J1]))\n(;B[is];W[js]\n(;B[iq];W[kr];B[ks];W[jr]C[Dead :-(])\n(;B[kr]C[Seki])\n(;B[ks]C[];W[kr];B[iq];W[jr]C[Dead :-(]))\n(;B[iq];W[js]\n(;B[kr]C[Not a seki. White can still capture, starting with J1])\n(;B[is];W[kr];B[ks];W[jr]C[Dead :-(])\n(;B[ks];W[kr];B[is];W[jr]C[Dead :-(]))\n(;B[ks];W[js]\n(;B[kr]C[Not a seki. White can still capture, starting at J1])\n(;B[iq]C[Not a seki. White can still capture, starting at J1];W[kr];B[is];W[jr]C[Dead :-(])\n(;B[is];W[kr];B[iq];W[jr]C[Dead :-(])))\n(;B[iq];W[js]\n(;B[kr];W[jq]\n(;B[ir]C[Seki])\n(;B[is]C[];W[ir];B[ks];W[jr]C[Dead :-(])\n(;B[ks];W[ir];B[is];W[jr]C[Dead :-(]))\n(;B[ir];W[jq]\n(;B[kr]C[Seki])\n(;B[ks];W[kr];B[is];W[jr]C[Dead :-(])\n(;B[is];W[kr];B[ks];W[jr]C[Dead :-(]))\n(;B[is];W[kr]\n(;B[ks]C[]\n(;W[ir]C[CHOICE];B[jq];W[jr]C[Dead :-(])\n(;W[jq]C[CHOICE];B[ir];W[jr]C[Dead :-(]))\n(;B[jq];W[ir];B[ks];W[jr]C[Dead :-(])\n(;B[ir];W[jq];B[ks];W[jr]C[Dead :-(]))\n(;B[ks];W[ir]\n(;B[is]\n(;W[jq]C[CHOICE];B[kr];W[jr]C[Dead :-(])\n(;W[kr]C[CHOICE];B[jq];W[jr]C[Dead :-(]))\n(;B[jq];W[kr];B[is];W[jr]C[Dead :-(])\n(;B[kr];W[jq];B[is];W[jr]C[Dead :-(])))\n(;B[is];W[js]\n(;B[jq];W[ir]\n(;B[ks];W[kr];B[iq];W[jr]C[Dead :-(])\n(;B[kr]C[Seki])\n(;B[iq];W[kr];B[ks];W[jr]C[Dead :-(]))\n(;B[ir];W[jq]\n(;B[iq];W[kr];B[ks];W[jr]C[Dead :-(])\n(;B[kr]C[Seki])\n(;B[ks];W[kr];B[iq];W[jr]C[Dead :-(]))\n(;B[iq];W[kr]\n(;B[ks];W[ir];B[jq];W[jr]C[Dead :-(])\n(;B[ir];W[jq];B[ks];W[jr]C[Dead :-(])\n(;B[jq];W[ir];B[ks];W[jr]C[Dead :-(]))\n(;B[kr];W[jq]\n(;B[ks];W[ir];B[iq];W[jr]C[Dead :-(])\n(;B[iq];W[ir];B[ks];W[jr]C[Dead :-(])\n(;B[ir]C[Seki]))\n(;B[ks];W[ir]\n(;B[kr];W[jq];B[iq];W[jr]C[Dead :-(])\n(;B[jq];W[kr];B[iq];W[jr]C[Dead :-(])\n(;B[iq];W[jq];B[kr];W[jr]C[Dead :-(]))))",
+  "author": {
+    "id": 12055,
+    "name": "Mikand",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-09-29",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 8700,
+    "failed": 8684,
+    "tries": 17384,
+    "speedSolved": 19,
+    "speedPlay": 46
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-11-23T07:28:15+00:00",
+  "source": "Beginner game, KGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

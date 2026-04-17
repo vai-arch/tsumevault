@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4105,
+  "elo": 2007.4710527019,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Black has encroached with 'M'. \r\nWhat is the best defence?\r\n\r\nThanks to BartTM for providing the solution.",
+  "rating": {
+    "stars": 5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[11]AW[dc][jc][dd][de][ee][fe][ge][he][ie][je][ke][ef][if][hg][jg][eh][fh][gh][hh][ii][ij][ik]\r\nAB[fa][cb][cc][cd][ce][df][ff][gf][bg][dg][eg][fg][dh][bi][di][ei][fi][dj][gj][hj][dk][fk][hk]LB[fa:M]\r\nC[No komi, no prisoners yet - White to win.]\r\n\r\n\r\n\r\n(;W[db];B[da]\r\n\r\n(;W[eb];B[ea];W[gb];B[ga];W[fb];B[ha];W[ib];B[ia];W[ja];B[hb];W[hc];B[ca]LB[db:B][eb:A]\r\nC[You lost by 2, the best result starting at 'B'. 1st move 'A' allows a win by 1.])\r\n\r\n(;W[gb];B[ga];W[eb];B[ea];W[hb];B[ha];W[ib];B[ia];W[ja];B[fb];W[fc];B[ca]LB[db:B][eb:A]\r\nC[You lost by 2, the best result starting at 'B'. 1st move 'A' allows a win by 1.])\r\n\r\n(;W[fb];B[ga]\r\n(;W[ea];B[eb];W[ec];B[ea];W[gb];B[ha];W[ib];B[ia];W[ja];B[hb];W[hc];B[ca]LB[db:B][eb:A]\r\nC[You lost by 4, 2 points worse than the best result starting at 'B'. 1st move 'A' allows a win by 1.])\r\n\r\n(;W[eb];B[ea];W[hb];B[ha];W[ib];B[ia];W[ja];B[gb];W[gc];B[ca]LB[db:B][eb:A]\r\nC[You lost by 2, the best result starting at 'B'. 1st move 'A' allows a win by 1.])))\r\n\r\n\r\n\r\n(;W[eb];B[ea]\r\n\r\n\r\n(;W[gb]\r\n(;B[fb]C[CHOICE]\r\n(;W[db];B[da];W[fc];B[ga];W[ha];B[ca]\r\n(;W[hb]C[RIGHT You won by 1, the best result.])\r\n(;W[hc]C[RIGHT You won by 1, the best result.])\r\n(;W[ib]C[RIGHT You won by 1, the best result.])\r\n(;W[ia]C[NOTTHIS])(;W[ja]C[NOTTHIS])(;W[jb]C[NOTTHIS]))\r\n(;W[fc];B[db];W[ec];B[ga];W[ha];B[da];W[hb]LB[db:A][fc:B]C[You lost by 1. Your 1st 2 moves were correct, but your 3rd \r\nshould have been at 'A' rather than 'B'.]))\r\n\r\n(;B[da]C[];W[ga];B[fb];W[fc];B[db];W[ec]C[RIGHT You won by 1, the best result.])\r\n\r\n(;B[ga]C[CHOICE]\r\n(;W[da];B[db];W[ha];B[ca];W[fb];B[da]\r\n(;W[hb]C[RIGHT You won by 1, the best result.])\r\n(;W[hc]C[RIGHT You won by 1, the best result.])\r\n(;W[ib]C[RIGHT You won by 1, the best result.])\r\n(;W[ia]C[NOTTHIS])(;W[ja]C[NOTTHIS])(;W[jb]C[NOTTHIS]))\r\n(;W[ha];B[da];W[hb];B[fb];W[fc];B[db];W[ec]LB[da:A][ha:B]C[You lost by 1. Your 1st 2 moves were correct, but your 3rd \r\nshould have been at 'A' rather than 'B'.]))\r\n\r\n(;B[db]C[];W[fb];B[ga];W[ha];B[da]\r\n(;W[hb]C[RIGHT You won by 1, the best result.])\r\n(;W[hc]C[RIGHT You won by 1, the best result.])\r\n(;W[ib]C[RIGHT You won by 1, the best result.])\r\n(;W[ia]C[NOTTHIS])(;W[ja]C[NOTTHIS])(;W[jb]C[NOTTHIS])))\r\n\r\n\r\n(;W[da];B[db];W[fb];B[ga];W[hb];B[ha];W[ia];B[ca];W[gb];B[da];W[ib]LB[gb:A][da:B]\r\nC[You lost by 1. Your 1st move was correct, but your 2nd should have been at 'A' rather than 'B'.])\r\n\r\n\r\n(;W[fb];B[ga];W[db];B[da];W[hb];B[ha];W[ib];B[ia];W[ja];B[gb];W[gc];B[ca]LB[fb:B][gb:A]\r\nC[You lost by 2. Your 1st move was correct, but your 2nd should have been at 'A' rather than 'B'.])\r\n\r\n\r\n(;W[db];B[da];W[gb];B[ga];W[hb];B[ha];W[ib];B[ia];W[ja];B[fb];W[fc];B[ca]LB[db:B][gb:A]\r\nC[You lost by 2. Your 1st move was correct, but your 2nd should have been at 'A' rather than 'B'.]))\r\n\r\n\r\n\r\n(;W[fb];B[ga]\r\n\r\n\r\n(;W[db];B[da];W[eb];B[ea]\r\n(;W[hb];B[ha];W[ib];B[ia];W[ja];B[gb];W[gc];B[ca]LB[eb:A][fb:B][ec:C][ga:D]\r\nC[You lost by 2, the best result starting at 'B'. 1st move 'A' allows a win by 1._______ 1st move 'B' is probably \r\nthe commonest defence against the monkey jump, but it requires a friendly stone at 'C' in the starting \r\nposition, to prevent the intruder pushing to 'D' without being cut off.])\r\n\r\n(;W[gb];B[ia];W[hb];B[ha];W[ib];B[ja];W[jb];B[ka];W[kb];B[ca]LB[eb:A][fb:B][ec:C][ga:D]\r\nC[You lost by 4, 2 points worse than the best result starting at 'B'. 1st move 'A' allows a win by 1._______ 1st \r\nmove 'B' is probably the commonest defence against the monkey jump, but it requires a friendly stone at 'C' \r\nin the starting position, to prevent the intruder pushing to 'D' without being cut off.]))\r\n\r\n(;W[eb];B[ea];W[db];B[da];W[hb];B[ha];W[ib];B[ia];W[ja];B[gb];W[gc];B[ca]LB[eb:A][fb:B][ec:C][ga:D]\r\nC[You lost by 2, the best result starting at 'B'. 1st move 'A' allows a win by 1._______ 1st move 'B' is probably \r\nthe commonest defence against the monkey jump, but it requires a friendly stone at 'C' in the starting \r\nposition, to prevent the intruder pushing to 'D' without being cut off.])\r\n\r\n(;W[ea];B[eb]LB[ec:A]C[You needed a friendly stone at 'A' in the starting position, to play this defence.]))\r\n\r\n\r\n(;W[gb];B[db]\r\n\r\n(;W[eb];B[fb];W[fc];B[ea];W[ec];B[ga];W[ha];B[da];W[hb]LB[eb:A][gb:B]\r\nC[You lost by 1, the best result starting at 'B'. 1st move 'A' allows a win by 1.])\r\n\r\n(;W[fb];B[eb];W[ec];B[ga];W[ha];B[ea];W[hb]LB[eb:A][gb:B]\r\nC[You lost by 1, the best result starting at 'B'. 1st move 'A' allows a win by 1.])))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 105,
+    "failed": 1750,
+    "tries": 1855,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-22T21:08:34+00:00",
+  "source": "Sensei's Library",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 122,
+      "name": "Monkey Jump",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

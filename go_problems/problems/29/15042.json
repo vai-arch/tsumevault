@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15042,
+  "elo": 1942.5467638955,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "In the game, I played incorrectly but so did my opponent, so I lived. After reviewing, I found this sequence. Please inform me of any mistakes/omissions (there are likely to be some since this position is quite complicated)!",
+  "rating": {
+    "stars": 4.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pc]AB[pd]AB[qf]AB[qg]AB[rg]AB[qh]AB[qi]AW[rh]AW[ri]AW[qj]AW[qk]AW[rk]AW[pg]AW[nc]AW[ne]AW[lc]AW[lf]AW[kg]AW[hg]AW[ig]AW[jg]AB[kf]AB[jf]AB[hf]AB[gf]AB[if]AB[kd]AW[id]AW[fc]AW[dc]AW[cd]AW[ce]AB[de]AB[df]AB[cf]AB[dj]AW[fh]AB[hc]AB[hd]AW[ic]AW[jb]AB[hb]AB[fa]AW[eb]AB[fk]AW[bf]AB[bg]AW[be]AB[ei]AW[bh]AB[ag]AW[dh]AW[eh]AB[ch]AB[ci]AW[dg]AB[cg]AW[fg]AB[ff]AW[ef]AB[ee]AW[gj]AB[gk]AW[hk]AB[pj]AB[lj]AW[kk]AB[lk]AB[mk]AB[nj]AW[mj]AW[ll]AW[ml]AW[kl]AW[jm]AW[im]AW[pm]AW[oi]LB[oi:1]C[How should Black respond to White 1?FORCE]AB[ob]AB[nb]AB[mb]AB[mc]AW[lb]AW[md]AW[ld]AB[jd]AW[le]AW[nn]AW[mh]AB[hl]AW[ik]AW[ji]AB[dn]AB[cn]AB[en]AW[kc]AW[ka]AB[ma]AW[sj]AP[goproblems]\n(;B[pi];W[oj];B[ok]\n(;W[pk]C[White cuts. What does Black do now?CHOICE]\n(;B[nh]\n(;W[oh]C[CHOICE];B[ng];W[og]\n(;B[of];W[pf]\n(;B[oe]\n(;W[pe]C[White should make a ko with O11 (Thanks Traxtin) but this variation is shown to see what happens if White resists.CHOICE]\n(;B[od];W[qe];B[re];W[qd]\n(;B[rd]C[];W[ni];B[mi];W[mg];B[nf];W[ol];B[nk];W[li]C[Only ko, when you could have killed unconditionally.])\n(;B[qc];W[rd]\n(;B[rc];W[se]\n(;B[sf];W[rf]C[Ko])\n(;B[rf];W[sg]))\n(;B[sd];W[sc]\n(;B[rc];W[se]\n(;B[sf];W[rf]C[Ko])\n(;B[rf];W[sg]))\n(;B[se];W[sf];B[rf];W[ph])\n(;B[sf];W[se]C[Ko]))\n(;B[sf];W[sd]\n(;B[se];W[sh])\n(;B[rc];W[se]C[Ko]))\n(;B[se];W[sd]\n(;B[sg];W[rf];B[sf];W[sh])\n(;B[sf];W[sh])\n(;B[rc];W[sf];B[rf];W[ph]))))\n(;B[nf];W[qe];B[re];W[qd]\n(;B[rd]C[Only ko, when you could have killed.];W[ni];B[mi];W[ol];B[nk];W[li])\n(;B[qc];W[rd]\n(;B[sf];W[sd]\n(;B[se];W[sh])\n(;B[rc];W[se]C[Ko]))\n(;B[sd];W[sc]\n(;B[se];W[sf];B[rf];W[ph])\n(;B[sf];W[se]C[Ko])\n(;B[rc];W[se]\n(;B[sf];W[rf]C[Ko])\n(;B[rf];W[sg])))\n(;B[rc];W[se]\n(;B[sf];W[rf]C[Ko])\n(;B[rf];W[sg]))))\n(;B[qe];W[nf];B[od];W[ni])\n(;B[ni];W[qe];B[re]C[RIGHT]))\n(;W[ni];B[mi];W[mg];B[nf];W[ol];B[nk];W[li]C[RIGHT]))\n(;B[pe];W[nf];B[oe];W[ni]C[oops]))\n(;B[nf];W[of];B[oe];W[ni];B[mi];W[mg])\n(;B[oe];W[nf];B[of];W[ni]))\n(;W[ni];B[mi];W[oh];B[ng];W[og];B[of];W[nf];B[mg];W[pf];B[oe];W[pe];B[od];W[qe];B[re];W[qd];B[rd]C[RIGHT]))\n(;B[oh];W[ni])\n(;B[ni];W[oh];B[nh];W[ng])\n(;B[mi];W[nh]))\n(;W[ni];B[mi];W[pk];B[nh];W[oh];B[ng];W[og];B[of];W[nf];B[mg];W[pf];B[oe];W[pe];B[od];W[qe];B[re];W[qd];B[rd]C[RIGHT]))\n(;B[oj];W[pi]\n(;B[ni];W[og]\n(;B[nh];W[ng])\n(;B[ng];W[nh]))\n(;B[nh];W[ni];B[mi];W[ng]))\n(;B[mi];W[oj];B[ok];W[pk]\n(;B[oh];W[ni])\n(;B[pi];W[nh])\n(;B[ni];W[oh]))\n(;B[pk];W[pi];B[ni];W[nh]\n(;B[oh];W[ph];B[og];W[of])\n(;B[ph];W[oh])\n(;B[og];W[oh]))\n(;B[oh];W[ni]\n(;B[pi];W[oj])\n(;B[oj];W[pi])\n(;B[mi];W[oj]\n(;B[ok];W[pk])\n(;B[nh];W[ok])))\n(;B[ni];W[oh]\n(;B[oj];W[pi])\n(;B[pi];W[oj];B[ok];W[pk];B[nh];W[ng])\n(;B[nh];W[ng]\n(;B[oj];W[pi])\n(;B[pi];W[oj])\n(;B[mi];W[lh])))\n(;B[ok];W[pi]\n(;B[ni];W[nh]\n(;B[oh];W[ph];B[og];W[of])\n(;B[ph];W[oh]))\n(;B[nh];W[ni];B[mi];W[ng]))\n(;B[nh];W[pi]\n(;B[ni];W[og])\n(;B[oj];W[ni];B[mi];W[ng])\n(;B[ph];W[oh];B[og];W[ng])\n(;B[og];W[ni];B[mi];W[oj])\n(;B[oh];W[ni]\n(;B[ph];W[mi])\n(;B[mi];W[ph])))\n(;B[ph];W[ni]TR[oj]TR[pi]C[Black cannot defend both cuts]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 139,
+  "attempts": {
+    "solved": 22,
+    "failed": 149,
+    "tries": 171,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-08-01T19:05:29+00:00",
+  "source": "Modified from my KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

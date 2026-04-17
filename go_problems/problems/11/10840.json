@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10840,
+  "elo": 1461.7014508405,
+  "problemLevel": 27,
+  "rank": {
+    "value": 3,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Hi! White is in a bad position. Black needs to find out\nthe best move! ",
+  "rating": {
+    "stars": 3.2,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[lc]AB[nd]AB[nc]AB[pd]AB[pe]AB[qe]AB[qf]AB[rf]AB[qc]AB[rc]AW[qd]AW[rd]AW[sd]AW[re]AW[sc]AW[rb]AW[pc]AW[oc]AB[qb](;B[ra];W[sb](;B[pa](;W[pb]C[CHOICE](;B[na];W[qa];B[qb];W[qc];B[qa]C[RIGHT])(;B[ob];W[qa];B[qb];W[qc](;B[qa];W[sa])(;B[na];W[sa])(;B[oa];W[sa])(;B[nb];W[sa])(;B[mb];W[sa]))(;B[oa];W[qa];B[qb];W[qc](;B[qa];W[nb])(;B[nb];W[qa]))(;B[nb];W[oa]))(;W[ob]C[CHOICE](;B[nb];W[oa](;B[na]C[RIGHT])(;B[od]C[RIGHT]))(;B[oa];W[nb];B[mb];W[pb];B[na];W[qa];B[qb];W[qc];B[qa]C[RIGHT]))(;W[oa](;B[ob]C[RIGHT])(;B[od]C[RIGHT])(;B[na]C[RIGHT]))(;W[nb](;B[ob]C[RIGHT])(;B[od]C[RIGHT])(;B[mb]C[RIGHT])(;B[na]C[RIGHT])))(;B[ob];W[pb];B[pa];W[qa]C[CHOICE];B[qb];W[qc](;B[qa];W[sa])(;B[nb];W[sa])(;B[oa];W[sa])(;B[na];W[sa]))(;B[qa];W[pb])(;B[oa];W[pa];B[pb];W[ob];B[qa];W[na])(;B[pb];W[ob];B[oa];W[qa];B[pa];W[na])(;B[na];W[pa]))(;B[ob];W[pb]C[CHOICE])(;B[nb]C[CHOICE];W[pb])(;B[pb];W[ob]C[CHOICE])(;B[oa];W[pb])(;B[pa];W[pb])(;B[qa];W[pb]))",
+  "author": {
+    "id": 21843,
+    "name": "goks",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2008-06-14",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 473,
+    "failed": 876,
+    "tries": 1349,
+    "speedSolved": 2,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-01-24T18:49:28+00:00",
+  "source": "Books",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 11,
+      "name": "Black or White",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

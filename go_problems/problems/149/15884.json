@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15884,
+  "elo": 2008.8300741275,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "No other moves on the board - get the best local result. Sente is not important.",
+  "rating": {
+    "stars": 5,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cc]AB[cd]AB[dc]AB[fc]AB[eb]AB[fd]AB[ge]AB[ie]AB[jd]AB[jc]AB[kc]AB[lb]AB[mc]AB[nc]AB[ob]AB[ma]AB[oc]AB[oa]AW[mb]AW[lc]AW[ld]AW[ke]AW[jf]AW[hf]AW[ff]AW[ed]AW[ec]AB[ce]AB[bf]AB[ag]AB[ae]AB[af]AW[cg]AW[bg]AW[bh]AW[ah]AW[cf]AW[dd]AW[df]AW[ef]AW[fe]AW[fg]AW[hg]AW[gg]AW[db]C[What is the best endgame now? Every point counts.]AW[le]AW[if]AW[kf]AP[goproblems]\n(;B[cb];W[he];B[hd];W[je]\n(;B[id];W[de]C[White made a bonus point here])\n(;B[de];W[id];B[ic];W[ee]))\n(;B[fb];W[de];B[cb];W[he];B[hd];W[je];B[id]C[])\n(;B[de];W[ee]\n(;B[cb]\n(;W[he];B[hd];W[je];B[id]C[The best for both. Compare this with the wrong variations.RIGHT])\n(;W[fb]C[CHOICE];B[da];W[kb]C[FORCE];B[nb];W[gd];B[gc];W[hd];B[he];W[hc];B[gb];W[hb]\n(;B[fa];W[jb]\n(;B[ib];W[ic]\n(;B[ha];W[ia];B[ga]C[Good, w had nothing in here.RIGHT])\n(;B[ia];W[ha];B[ka];W[ja];B[ib];W[la]C[Tragic ko.]))\n(;B[ha];W[ib]))\n(;B[ga];W[jb]\n(;B[ka];W[ib])\n(;B[ib];W[ha];B[fa];W[ic];B[ka];W[ia];B[la];W[je];B[ja];W[gf]))))\n(;B[fb];W[ad];B[be];W[cb];B[bc];W[bb])))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 42,
+    "failed": 217,
+    "tries": 259,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-02-27T09:58:44+00:00",
+  "source": "My game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5712,
+  "elo": 1171.6189799912,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 4.1,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[hh]AB[hg]AB[gg]AB[gh]AB[gf]AW[ig]AW[hf]AW[he]AW[gd]AW[gc]AB[ge]AB[fd]AB[ee]AW[ed]AB[fe]AW[dc]AW[eb]AB[dd]AB[bf]AW[bd]AB[de]AW[fb]AB[fc]AB[bg]AW[be]AB[ce]AW[cd]AW[cc]AW[hb]AB[cg]AB[eg]AB[hd]AW[hc]AB[gb]AW[ie]C[No komi, no prisoners, japanese rules. Black to win the game.]GM[1]FF[4]CA[UTF-8]ST[2]RU[Japanese]KM[0.00]\n(;B[ih];W[ii]\n(;B[gi]C[Black will capture the two marked stones and win by 1 point.RIGHT]TR[hh]TR[ii])\n(;B[ae];W[id]C[You found the tesuji, but not the right continuation. White will win by 1 point.])\n(;B[ec];W[id]C[You found the tesuji, but not the right continuation. White will win by 1 point.])\n(;B[id];W[ic]C[You found the tesuji, but not the right continuation. White will win by 4 points.])\n(;B[hi];W[gi];B[fi]C[This move also wins the game, but if white had some more ko-threads it would have been a highly risky move. The stable move at G1 instead of H1 is better.RIGHT]))\n(;B[hi];W[ih]C[White will win by 2 points.])\n(;B[gi];W[ih]C[White will win by 2 points.])\n(;B[id];W[ic]C[White will win by 3 points.])\n(;B[ae];W[ih]C[White wins by 2 points.])\n(;B[ec];W[ih]C[White wins by 2 points.])\n(;B[ic]C[This move is not allowed, because white will play at J8 and the problem is still the same.NOTTHIS])\n(;B[ga]C[This move is not allowed, because white will play at H9 and the problem is still the same.NOTTHIS]))",
+  "author": {
+    "id": 5881,
+    "name": "Kitsune-chan",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2004-03-16",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 3796,
+    "failed": 6482,
+    "tries": 10278,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-12-18T10:51:43+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

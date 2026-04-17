@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16817,
+  "elo": 1811.4611077946,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 5,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[lb]AB[lc]AB[ld]AB[kd]AB[jd]AB[id]AB[hd]AB[hc]AB[hb]AB[ke]AB[kf]AB[ie]AB[if]AW[he]AW[hf]AW[hg]AW[ig]AW[jg]AW[je]AW[kg]AW[lg]AW[lf]AW[le]AW[md]AW[mc]AW[mb]AW[na]AW[ob]AW[la]AW[kc]AW[ic]AW[ha]AW[gb]AW[fa]AW[gc]AW[gd]AW[eb]AP[goproblems]\n(;B[jc]\n(;W[ka]\n(;B[kb]C[RIGHT])\n(;B[ja]C[RIGHT])\n(;B[jb]C[RIGHT])\n(;B[jf]C[RIGHT])\n(;B[ia]C[RIGHT])\n(;B[ib]C[RIGHT]))\n(;W[kb]\n(;B[ja]C[RIGHT])\n(;B[ka];W[ja]TR[jf]TR[ib])\n(;B[jb];W[ja]TR[ib]TR[jf])\n(;B[ib];W[jf])\n(;B[ia];W[jf])\n(;B[jf];W[ib]))\n(;W[ja]\n(;B[kb]C[RIGHT])\n(;B[ib]C[RIGHT])\n(;B[jb];W[jf]TR[kb]TR[ib])\n(;B[jf]C[RIGHT])\n(;B[ka];W[kb])\n(;B[ia];W[ib]))\n(;W[jf]C[CHOICE]\n(;B[ja]\n(;W[ka]C[CHOICE]\n(;B[kb];W[ib]\n(;B[jb]C[RIGHT])\n(;B[ma]C[RIGHT])\n(;B[ia];W[jb]))\n(;B[jb]C[RIGHT])\n(;B[ia];W[kb])\n(;B[ib];W[kb]))\n(;W[kb]\n(;B[jb]C[RIGHT])\n(;B[ka]C[RIGHT])\n(;B[ib];W[ka])\n(;B[ia];W[ka]))\n(;W[ia]C[NOTTHISRIGHT])\n(;W[ib]C[NOTTHISRIGHT]))\n(;B[ka];W[ib])\n(;B[kb];W[ib])\n(;B[jb];W[ja]TR[ib]TR[kb])\n(;B[ia]C[NOTTHIS])\n(;B[ib]C[NOTTHIS]))\n(;W[ia]C[NOTTHIS])\n(;W[ib]C[NOTTHIS]))\n(;B[ka];W[ib]TR[jc]TR[jf])\n(;B[kb];W[ib]TR[jc]TR[jf])\n(;B[ja];W[jc])\n(;B[jb];W[jf]TR[ia]TR[ka])\n(;B[jf];W[ib];B[jc];W[kb];B[jb];W[ja]\n(;B[ka];W[kb];B[ia];W[ib])\n(;B[ia];W[ib];B[ka];W[kb]))\n(;B[ia]C[NOTTHIS])\n(;B[ib]C[NOTTHIS]))",
+  "author": {
+    "id": 59467,
+    "name": "mountain root",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2019-03-22",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1984.51
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 93,
+    "failed": 192,
+    "tries": 285,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-12-19T20:44:12+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 35,
+      "name": "Symmetrical",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

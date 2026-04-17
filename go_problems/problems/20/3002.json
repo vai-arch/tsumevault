@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3002,
+  "elo": 1192.3916833287,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -1,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This problem is a little training for kyu players to evaluate the score before the end of a game.",
+  "rating": {
+    "stars": 2.8,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[dl]AW[el]AW[fl]AW[bm]AW[dm]AW[an]AW[bn]AW[cn]AW[dn]AW[co]AW[do]AW[bp]AW[bq]AW[dq]AW[iq]AW[cr]AW[dr]AW[er]AW[fr]AW[hr]AW[ir]AW[es]AW[fs]AW[gs]AW[hs]AW[is]AB[cj]AB[ej]AB[dk]AB[fk]AB[al]AB[bl]AB[cl]AB[gl]AB[am]AB[cm]AB[fm]AB[gm]AB[en]AB[eo]AB[cp]AB[dp]AB[ep]AB[ip]AB[jp]AB[cq]AB[eq]AB[fq]AB[gq]AB[hq]AB[jq]AB[gr]AB[jr]AB[js]LB[lj:1]LB[lk:2]LB[ll:3]LB[lm:4]LB[ln:5]LB[lo:6]LB[ep:3]LB[lp:7]LB[cq:1]LB[lq:8]LB[cr:2]LB[lr:9]LB[ls:10]C[The white group has how many points?FORCE]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[6.50]PW[Blanc]PB[Noir]PL[B]\n(;B[lr];W[ks]C[Good job! You may play at A or B to see the continuation.RIGHT]LB[em:A]LB[br:B]\n(;B[em];W[ls]TR[ek]C[Play at the triangle.];B[ek]\n(;W[br]C[White need to add one stone in its territory to survive to the potential black attack.CHOICERIGHT])\n(;W[ms];B[ao];W[bo];B[br]C[White is dead.]\n(;W[ar];B[bs]C[White cannot atari, but black can kill E1, so everything is dead.RIGHT])\n(;W[bs];B[ar]\n(;W[cs];B[aq]C[RIGHT])\n(;W[aq];B[ap]C[RIGHT])\n(;W[ns];B[cs]C[Black can kill if he want, so C1 is not needed.RIGHT])\n(;W[ap];B[cs]C[RIGHT]))))\n(;B[br];W[bs]TR[ar]C[Play at the triangle.];B[ar];W[cs]TR[ap];B[ap];W[ao]TR[em];B[em];W[aq]C[9 pointsRIGHT]))\n(;B[ls]C[Incorrect.])\n(;B[lq]C[Incorrect.])\n(;B[lp]C[Incorrect.])\n(;B[lo]C[Incorrect.])\n(;B[ln]C[Incorrect.])\n(;B[lm]C[Incorrect.])\n(;B[ll]C[Incorrect.])\n(;B[lk]C[Incorrect.])\n(;B[lj]C[Incorrect.]))",
+  "author": {
+    "id": 3145,
+    "name": "karmaGfa",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 59,
+  "attempts": {
+    "solved": 2981,
+    "failed": 5138,
+    "tries": 8119,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-09-26T10:12:33+00:00",
+  "source": "A game from KGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 25,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

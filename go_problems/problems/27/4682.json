@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4682,
+  "elo": 807.76857472965,
+  "problemLevel": 3,
+  "rank": {
+    "value": 27,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bc]AB[cb]AB[cc]AB[ca]AB[cd]AW[dd]AW[dc]AW[eb]AW[fc]AB[gc]AW[gb]AW[gd]AW[hd]AB[de]AB[ee]AB[fe]AB[ge]AB[db]AW[he]AW[ce]AW[be]AW[bd]AW[cg]AB[ea]AB[gg]C[how can black connect?]AP[goproblems]\n(;B[ec];W[ed]\n(;B[fd]\n(;W[ec]\n(;B[fb]C[CHOICERIGHT])\n(;B[hc];W[ic]\n(;B[fb]C[RIGHT])\n(;B[hb];W[ib]\n(;B[fb]C[RIGHT])\n(;B[ha];W[ia]C[you let white get more of a wall than necessary...]))))\n(;W[hc];B[ec]C[CHOICERIGHT]))\n(;B[fb];W[fd])\n(;B[hc];W[fd]))\n(;B[fd];W[ec]\n(;B[hc];W[ic])\n(;B[ed];W[hc]))\n(;B[ed];W[ec])\n(;B[hc];W[fd])\n(;B[ab];W[ec])\n(;B[ba];W[ec])\n(;B[fb];W[fd])\n(;B[hb];W[hc]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 18,
+  "attempts": {
+    "solved": 27185,
+    "failed": 12032,
+    "tries": 39217,
+    "speedSolved": 45,
+    "speedPlay": 79
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-06-22T01:42:30+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

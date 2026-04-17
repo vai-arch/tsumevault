@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13835,
+  "elo": 1026.4891905685,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 2.3,
+    "votes": 32,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ir]AB[jq]AB[jr]AB[kq]AB[lq]AB[ip]AB[ko]AB[jn]AB[jm]AB[km]AB[im]AB[hm]AW[hn]AW[ho]AW[hp]AW[hq]AW[iq]AW[hr]AW[lp]AW[lo]AW[kn]AW[ln]AW[mr]AW[mq]AW[np]LB[jq:A]C[Can you do anything to prevent Black from connecting A?]AP[goproblems]\r\n(;W[io];B[jo])\r\n(;W[kp];B[jp]\r\n(;W[io];B[jo])\r\n(;W[jo];B[io];W[in]C[right, ko is the best White can get here.RIGHT]))\r\n(;W[jo];B[io]\r\n(;W[kp];B[jp];W[in]C[right, ko is the best White can get here.RIGHT])\r\n(;W[in];B[jp]))\r\n(;W[jp];B[kp];W[io];B[jo])\r\n(;W[in];B[jo])\r\n(;W[lr];B[jp])\r\n(;W[is];B[jp])\r\n(;W[ks];B[kp])\r\n(;W[js];B[kp])\r\n(;W[ls];B[jp]))",
+  "author": {
+    "id": 4785,
+    "name": "kochi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-14",
+    "rank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1340.69
+  },
+  "avgSolveTimeSeconds": 64,
+  "attempts": {
+    "solved": 3161,
+    "failed": 4146,
+    "tries": 7307,
+    "speedSolved": 0,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-07-11T02:11:42+00:00",
+  "source": "kgs game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

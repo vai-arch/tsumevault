@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10504,
+  "elo": 1275.8134878446,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This position can naturaly arise in one of big avalanche variations.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rp]AB[qp]AB[qo]AB[qn]AB[rn]AW[rq]AW[qq]AW[rr]AB[qr]AB[pq]AB[pr]AW[pp]AW[po]AW[pn]AW[qm]AW[rm]AW[rl]AB[ql]AB[pm]AB[om]AW[oq]AB[or]AB[nq]AW[no]AW[nn]AB[nm]AW[so]AW[qk]C[This problem is for beginners, but even 2d opponent made mistake here.]AP[goproblems]\n(;B[sp]C[No tricks needed :)RIGHT]\n(;W[rs]\n(;B[qs]\n(;W[sn]\n(;B[sq]C[RIGHT])\n(;B[sr]C[RIGHT])\n(;B[ss];W[sr]))\n(;W[sq]\n(;B[sr]C[RIGHT])\n(;B[ss]C[RIGHT])))\n(;B[sq];W[sn]\n(;B[qs]C[RIGHT])\n(;B[sr]C[RIGHT])\n(;B[ss];W[sr]))\n(;B[sr]C[RIGHT])\n(;B[ss];W[sr]\n(;B[qs];W[sn])\n(;B[sn];W[sm];B[qs])))\n(;W[sq];B[rs]C[RIGHT])\n(;W[sr];B[rs];W[sn];B[qs];W[sm];B[ss];W[ro];B[sq]C[RIGHT])\n(;W[ss];B[sq];W[sn];B[qs];W[sm];B[rs]C[RIGHT])\n(;W[sn];B[rs]\n(;W[sq];B[sr]C[RIGHT])\n(;W[ro];B[sm]C[RIGHT])\n(;W[sr];B[qs];W[sm];B[ss];W[ro];B[sq]C[RIGHT])))\n(;B[sn];W[sm];B[sq];W[sp];B[ro];W[sp];B[so]C[Died in gote.])\n(;B[ro]C[Died in gote.])\n(;B[rs];W[sp];B[sr];W[sq];B[sn];W[ss]C[KO :(])\n(;B[sq];W[sp];B[sn];W[sr])\n(;B[sr];W[sp];B[rs];W[sq];B[sn];W[ss]C[KO :(])\n(;B[sm];W[sn];B[sp];W[sq]))",
+  "author": {
+    "id": 6567,
+    "name": "marwin",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-05-29",
+    "rank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 820.591
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 1958,
+    "failed": 3516,
+    "tries": 5474,
+    "speedSolved": 5,
+    "speedPlay": 50
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-10-16T14:37:14+00:00",
+  "source": "My game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

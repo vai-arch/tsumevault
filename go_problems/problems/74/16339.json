@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16339,
+  "elo": 1516.7908142915,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "A nice connection problem, I hope you will like it",
+  "rating": {
+    "stars": 4.1,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ba]AW[ca]AW[cb]AW[cc]AW[dc]AW[ec]AW[dd]AB[bb]AB[bc]AB[cd]AB[ce]AB[df]AB[ee]AB[da]AB[db]AB[eb]AB[fb]AB[gb]AB[hb]AB[ia]AB[jb]AW[ib]AW[ic]AW[hc]AW[gd]AW[fd]AW[jd]AW[id]AW[kd]AW[ld]AW[kb]AB[mb]AB[mc]AB[md]AB[me]AB[ke]AB[jf]AB[he]AB[ge]C[Black to both live and kill, by connecting or making eyes]AP[goproblems]\n(;B[ha];W[fa]\n(;B[kc];W[lc]\n(;B[ka];W[jc]\n(;B[ja]C[Connected, white is dead !RIGHT])\n(;B[lb];W[ja]C[Ko, black can do better])\n(;B[la];W[ja]C[Ko, black can do better]))\n(;B[lb];W[ka])\n(;B[ja];W[ka]))\n(;B[ja];W[ka])\n(;B[ka];W[la]\n(;B[kc];W[ja]C[Ko, black can do better])\n(;B[lb];W[ja]C[Ko, black can do better]))\n(;B[lb];W[ka];B[kc];W[lc]))\n(;B[kc];W[ha]\n(;B[ka];W[ja]C[Ko, but black can do better])\n(;B[ja];W[ka];B[ga];W[lc])\n(;B[ga];W[lc];B[ka];W[jc]\n(;B[lb];W[ja]C[Ko, but black can do better])\n(;B[la];W[ja]C[Ko, but black can do better])))\n(;B[lb];W[ka];B[kc];W[lc])\n(;B[ka];W[la]\n(;B[kc];W[ja]C[Ko, black can do better])\n(;B[lb];W[ja]C[Ko, black can do better]))\n(;B[ja];W[ka];B[kc];W[lc]))",
+  "author": {
+    "id": 53577,
+    "name": "Lazare",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-10-22",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1655.17
+  },
+  "avgSolveTimeSeconds": 74,
+  "attempts": {
+    "solved": 209,
+    "failed": 637,
+    "tries": 846,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-07-25T11:58:23+00:00",
+  "source": "Some chinese book with a title in chinese",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

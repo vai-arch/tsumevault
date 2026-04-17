@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17805,
+  "elo": 1282.3080166837,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cp]AB[dq]AB[eq]AB[fq]AB[hp]AB[ip]AB[ho]AB[hn]AB[jm]AB[jl]AB[ik]AB[gk]AB[ek]AB[el]AB[dm]AB[dn]AB[cm]AB[dj]AB[cj]AW[cn]AW[co]AW[do]AW[en]AW[fn]AW[fo]AW[ep]AW[gm]AB[hk]AW[hl]AW[im]AW[io]AW[jn]AW[kn]AW[ko]AW[kp]AW[jp]AW[kq]AW[kl]TR[cn]TR[co]TR[do]TR[kn]TR[ko]TR[kq]TR[kp]C[Keep the marked stones connected.]AP[goproblems]\n(;W[il];B[in]\n(;W[jk];B[hm]\n(;W[gl]C[RIGHT])\n(;W[km];B[gl]))\n(;W[jo];B[jk])\n(;W[hm];B[jk]))\n(;W[in];B[hm]\n(;W[il];B[gl])\n(;W[gl];B[il]))\n(;W[hm];B[in])\n(;W[gp];B[gq]C[This doesn't help.])\n(;W[gq];B[gp]C[This doesn't help.])\n(;W[gl];B[in])\n(;W[jk];B[il])\n(;W[km];B[in])\n(;W[hq];B[gp]C[This does not help connect.])\n(;W[dp];B[cq]C[This does not help connect.]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 84,
+  "attempts": {
+    "solved": 1002,
+    "failed": 1731,
+    "tries": 2733,
+    "speedSolved": 0,
+    "speedPlay": 13
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-07-11T21:26:38+00:00",
+  "source": "DGS #911931",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

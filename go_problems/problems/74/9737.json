@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9737,
+  "elo": 1232.3409100825,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.3,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bc]AB[bb]AB[cb]AB[db]AB[dc]AW[cc]AW[bd]AW[cd]AW[dd]AB[be]AB[bf]AB[cg]AB[ch]AB[bi]AB[bj]AB[cj]AW[bk]AW[bl]AW[ci]AW[di]AW[ej]AW[dl]AW[cf]AW[df]AW[ad]AB[ag]C[When White played 1, Black played 2 hoping to live. White to kill.]LB[ad:1]LB[ag:2]AP[goproblems]\n(;W[ae]\n(;B[bh]C[CHOICE]\n(;W[af]C[RIGHT])\n(;W[aj]C[RIGHT])\n(;W[ai]C[RIGHT])\n(;W[ah];B[af])\n(;W[ce];B[af]))\n(;B[af]C[CHOICE]\n(;W[bh]TR[ah]TR[aj]C[RIGHT])\n(;W[ce];B[bh])\n(;W[bg];B[bh])\n(;W[ah];B[bh])\n(;W[ai];B[aj]\n(;W[ah];B[bh])\n(;W[bh];B[ah]))\n(;W[aj]\n(;B[ai]C[CHOICE];W[bh]C[RIGHT])\n(;B[bh]C[CHOICE];W[ai]C[RIGHT])))\n(;B[aj]C[CHOICE]\n(;W[af];B[ah];W[bg]C[RIGHT])\n(;W[ce];B[ah];W[bg]C[];B[af])\n(;W[bg];B[af]\n(;W[ce];B[bh])\n(;W[bh];B[ah])\n(;W[ah];B[bh])\n(;W[ai];B[ah]))\n(;W[ah];B[af]\n(;W[ce]C[RIGHT])\n(;W[bg];B[bh])\n(;W[bh]C[RIGHT]))\n(;W[bh];B[ah])\n(;W[ai];B[ah])))\n(;W[ce];B[bh]\n(;W[ae];B[af]TR[ai]TR[aj])\n(;W[aj];B[ai])\n(;W[ai];B[aj]))\n(;W[af];B[ae])\n(;W[bg];B[bh]C[]\n(;W[ae];B[af]TR[ai]TR[aj])\n(;W[ai];B[aj])\n(;W[aj];B[ai]))\n(;W[ah];B[bh]\n(;W[ae];B[af]TR[ai]TR[aj])\n(;W[ai];B[aj])\n(;W[aj];B[ai]))\n(;W[bh];B[ah]\n(;W[ae];B[aj])\n(;W[aj];B[ae]))\n(;W[ai];B[ae]\n(;W[ce];B[bh])\n(;W[bg];B[bh])\n(;W[ah];B[bh])\n(;W[bh];B[ah];W[aj];B[ak])\n(;W[aj];B[bh]))\n(;W[aj];B[ae]\n(;W[bh];B[ah])\n(;W[ah];B[bh])\n(;W[ai];B[bh])))",
+  "author": {
+    "id": 14657,
+    "name": "Edgardo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-10",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 16,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 742.369
+  },
+  "avgSolveTimeSeconds": 70,
+  "attempts": {
+    "solved": 2739,
+    "failed": 4294,
+    "tries": 7033,
+    "speedSolved": 1,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-02-07T10:34:07+00:00",
+  "source": "A game on DGS",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

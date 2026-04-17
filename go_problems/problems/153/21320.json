@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21320,
+  "elo": 1534.0062055147,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Hints:\r\nBlack has a 2 point sente move (with 7 points threat) at A. Likewise, white has a 2 point sente at B. In addition, there are gote endgames, ranging from 1 to 10 points.\r\nGiven the big gote moves on the board, the sente endgames aren't proper sente moves yet (the opponent will not answer the threat, but pick a bigger gote). Start with the biggest gote endgame (M1), then find the right timing for the sente / reverse sente moves!",
+  "rating": {
+    "stars": 4.6,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]\r\nRU[Japanese]SZ[13]KM[20.00]\r\nCR[lm]AW[ca][ka][la][ab][bb][cb][kb][mb][ac][cc][ec][fc][gc][jc][kc][lc][mc][ad][md][ae][ce][ee][fe][ie][je][ke][me][af][cf][mf][ag][cg][eg][fg][ig][jg][kg][mg][ah][ch][mh][ai][ci][ei][hi][ii][ji][ki][mi][aj][bj][cj][mj][ck][ek][hk][ik][jk][kk][mk][cl][ml][cm][gm][hm][im][jm][km][mm]AB[da][ea][fa][ha][ia][ja][db][fb][gb][hb][jb][dc][cd][dd][ed][fd][gd][hd][id][jd][kd][ld][he][bf][df][ef][ff][gf][hf][if][jf][kf][lf][bg][gg][bh][dh][eh][fh][gh][hh][ih][jh][kh][lh][gi][dj][ej][fj][gj][hj][ij][jj][kj][lj][fk][dl][el][fl][gl][hl][il][jl][kl][ll][fm]LB[ic:B][bd:A]C[20 points komi, black to win the game!]\r\n(;B[lm]\r\n;W[lk]\r\n(;B[li]\r\n;W[lg]\r\n(;B[bd]\r\n;W[be]\r\n(;B[le]\r\n;W[ic]\r\n;B[hc]\r\n;W[de]\r\n;B[dg]\r\n;W[di]\r\n;B[dk]\r\n;W[dm]C[Yes, black wins by 1 point! RIGHT])\r\n(;B[ic]\r\n;W[le]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[Jigo.\r\n\r\n(reverse sente was played too early)]))\r\n(;B[le]\r\n;W[ic]\r\n(;B[hc]\r\n;W[de]\r\n(;B[bd]\r\n;W[be]\r\n;B[dg]\r\n;W[di]\r\n;B[dk]\r\n;W[dm]C[Yes, black wins by 1 point! RIGHT])\r\n(;B[dg]\r\n;W[bd]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 1 point.\r\n\r\n(sente was played too late)]))\r\n(;B[bd]\r\n;W[be]\r\n;B[hc]\r\n;W[de]\r\n;B[dg]\r\n;W[di]\r\n;B[dk]\r\n;W[dm]C[Yes, black wins by 1 point! RIGHT]))\r\n(;B[ic]\r\n;W[le]\r\n(;B[bd]\r\n;W[be]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[Jigo.\r\n\r\n(reverse sente was played too early)])\r\n(;B[de]\r\n;W[dg]\r\n(;B[bd]\r\n;W[be]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[Jigo.\r\n\r\n(reverse sente was played too early)])\r\n(;B[di]\r\n;W[bd]\r\n;B[dk]\r\n;W[dm]C[White wins by 1 point.\r\n\r\n(reverse sente was played too early)]))))\r\n(;B[bd]\r\n;W[li]\r\n(;B[lg]\r\n;W[be]\r\n(;B[le]\r\n;W[ic]\r\n;B[hc]\r\n;W[de]\r\n;B[dg]\r\n;W[di]\r\n;B[dk]\r\n;W[dm]C[Jigo.\r\n\r\n(sente was played too early)])\r\n(;B[ic]\r\n;W[le]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 1 point.\r\n\r\n(both sente and reverse sente was played too early)]))\r\n(;B[be]\r\n;W[lg]\r\n(;B[le]\r\n;W[ic]\r\n;B[hc]\r\n;W[de]\r\n;B[dg]\r\n;W[di]\r\n;B[dk]\r\n;W[dm]C[Jigo.\r\n\r\n(sente was played too early)])\r\n(;B[ic]\r\n;W[le]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 1 point.\r\n\r\n(both sente and reverse sente was played too early)]))\r\n(;B[ic]\r\n;W[lg]\r\n;B[be]\r\n;W[le]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 1 point.\r\n\r\n(both sente and reverse sente was played too early)]))\r\n(;B[ic]\r\n;W[li]\r\n(;B[lg]\r\n;W[le]\r\n(;B[de]\r\n;W[dg]\r\n(;B[bd]\r\n;W[be]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 1 point.\r\n\r\n(reverse sente was played much too early)])\r\n(;B[di]\r\n;W[bd]\r\n;B[dk]\r\n;W[dm]C[White wins by 2 points.\r\n\r\n(reverse sente was played much too early and sente was played too late)]))\r\n(;B[bd]\r\n;W[be]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 1 point.\r\n\r\n(reverse sente was played much too early)]))\r\n(;B[bd]\r\n;W[be]\r\n;B[lg]\r\n;W[le]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 1 point.\r\n\r\n(reverse sente was played much too early)])))\r\n(;B[bd]\r\n;W[lm]\r\n(;B[lk]\r\n;W[li]\r\n(;B[lg]\r\n;W[be]\r\n(;B[le]\r\n;W[ic]\r\n;B[hc]\r\n;W[de]\r\n;B[dg]\r\n;W[di]\r\n;B[dk]\r\n;W[dm]C[White wins by 1 point.])\r\n(;B[ic]\r\n;W[le]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 2 points.]))\r\n(;B[be]\r\n;W[lg]\r\n(;B[le]\r\n;W[ic]\r\n;B[hc]\r\n;W[de]\r\n;B[dg]\r\n;W[di]\r\n;B[dk]\r\n;W[dm]C[White wins by 1 point.])\r\n(;B[ic]\r\n;W[le]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 2 points.]))\r\n(;B[ic]\r\n;W[be]\r\n;B[lg]\r\n;W[le]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 2 points.]))\r\n(;B[ic]\r\n;W[lk]\r\n;B[li]\r\n;W[be]\r\n;B[lg]\r\n;W[le]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 3 points.]))\r\n(;B[ic]\r\n;W[lm]\r\n(;B[lk]\r\n;W[li]\r\n(;B[lg]\r\n;W[le]\r\n(;B[de]\r\n;W[dg]\r\n(;B[di]\r\n;W[bd]\r\n;B[dk]\r\n;W[dm]C[White wins by 3 points.])\r\n(;B[bd]\r\n;W[be]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 2 points.]))\r\n(;B[bd]\r\n;W[be]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 2 points.]))\r\n(;B[bd]\r\n;W[be]\r\n;B[lg]\r\n;W[le]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 2 points.]))\r\n(;B[bd]\r\n;W[lk]\r\n;B[li]\r\n;W[be]\r\n;B[lg]\r\n;W[le]\r\n;B[de]\r\n;W[dg]\r\n;B[di]\r\n;W[dk]\r\n;B[dm]C[White wins by 3 points.])))",
+  "author": {
+    "id": 78080,
+    "name": "tamingo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-28",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 149,
+  "attempts": {
+    "solved": 111,
+    "failed": 348,
+    "tries": 459,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-09-18T15:22:33+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 100,
+      "name": "Timing",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 153,
+      "name": "Reverse sente basics",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

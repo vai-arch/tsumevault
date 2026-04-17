@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7927,
+  "elo": 1740.5841752695,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.1,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rc]AB[qd]AB[pd]AB[qe]AB[pf]AB[oe]AB[oc]AB[nb]AB[mb]AW[lb]AW[kb]AW[mc]AW[nd]AW[ne]AW[of]AW[og]AW[nf]AW[oh]AW[ph]AW[qh]AW[qf]AW[rf]AW[rg]AW[re]AW[rd]AW[rb]C[White played the marked stone, let's follow a possible ressistance path... PLAY AT A...FORCE]LB[sc:A]TR[rb]AP[goproblems]\r\n(;B[sc];W[qb]LB[qc:A]C[FORCE]\r\n(;B[qc];W[pb]LB[nc:A]C[So far, not much choice, here A isn't the only path but lets go on with it.FORCE]\r\n(;B[nc];W[sb]C[What should Black play now?]\r\n(;B[oa]C[Well done! Black captures a living shape! :)RIGHT])\r\n(;B[ma];W[oa]C[:(])\r\n(;B[ob];W[od];B[pc];W[ra];B[pa];W[oa]C[Leads to ko... :(])\r\n(;B[pc];W[ra];B[pa];W[oa];B[ob]C[Leads to ko... :(])\r\n(;B[ra];W[od];B[pc];W[oa]\r\n(;B[ob];W[qa]C[Leads to ko... :(])\r\n(;B[na];W[ob];B[qa];W[sd]\r\n(;B[pa];W[sa];B[qa];W[pe]MA[oe]C[:(])\r\n(;B[sa];W[pa];B[ra];W[pe]C[:(]MA[oe]))\r\n(;B[qa];W[ob];B[na];W[sd]\r\n(;B[pa];W[sa];B[qa];W[pe]MA[oe]C[:(])\r\n(;B[sa];W[pa];B[ra];W[pe]C[:(]MA[oe]))\r\n(;B[ma];W[ob]C[];B[qa];W[sd]C[:(])\r\n(;B[pa];W[ob];B[qa];W[sd];B[na];W[sa];B[qa];W[pe]MA[oe]C[:(]))\r\n(;B[qa];W[ra]C[:(])\r\n(;B[pa];W[od];B[pc];W[oa]\r\n(;B[ob];W[ra]C[Leads to ko... :(])\r\n(;B[ra];W[ob];B[qa];W[sa];B[qa];W[sd];B[na];W[pe]MA[oe]C[:(])\r\n(;B[na];W[ob]C[:(]))\r\n(;B[na];W[ra];B[pa];W[od];B[pc];W[sd]C[:(]))\r\n(;B[kh]C[Just to enable free-browsing...]))\r\n(;B[kh]C[Just to enable free-browsing...]))\r\n(;B[kh]C[Just to enable free-browsing...]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 41,
+  "attempts": {
+    "solved": 543,
+    "failed": 1640,
+    "tries": 2183,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-01-06T04:22:37+00:00",
+  "source": "rapyuta9d vs Hydro",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

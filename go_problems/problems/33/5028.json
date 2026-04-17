@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5028,
+  "elo": 1578.6347038795,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to live",
+  "rating": {
+    "stars": 4.8,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[da]AW[ea]AW[ab]AW[hb]AW[ib]AW[bc]AW[dc]AW[ec]AW[fc]AW[gc]AW[bd]AW[hd]AW[be]AW[de]AW[cf]AW[cg]AW[dh]AB[ha]AB[bb]AB[cb]AB[db]AB[eb]AB[fb]AB[gb]AB[cc]AB[cd]AB[ce]AB[bf]\n(;B[ae]\n(;W[ac]C[CHOICE];B[bg];W[bh];B[af]\n(;W[ah];B[ba];W[ag];B[aa];W[ad];B[bf]C[RIGHT])\n(;W[ba]C[this is possible variation for white, but it leads to multistep ko (sure it is better then A12 now, but let the problem be not too complicated)]))\n(;W[bg];B[ac];W[af];B[aa];W[ca];B[ga]C[RIGHT]))\n(;B[ca];W[bg])\n(;B[aa];W[ba])\n(;B[ac];W[ad]\n(;B[bg];W[bh];B[ba];W[af];B[aa];W[ag])\n(;B[af];W[bg])\n(;B[aa];W[ba];B[ca];W[af];B[aa];W[bg];B[ac]C[Ko isn't enough]))\n(;B[af];W[bg]\n(;B[ae];W[ag])\n(;B[ac];W[ad]))\n(;B[bg];W[bh]\n(;B[ac];W[ad];B[ba];W[af];B[aa];W[ag])\n(;B[aa];W[ba];B[fa];W[af];B[ca];W[ac];B[aa])\n(;B[ba];W[af];B[ac];W[ad];B[aa];W[ag])\n(;B[ae];W[af]\n(;B[ac];W[ad])\n(;B[ag];W[ac];B[ba];W[ah];B[aa];W[af]))))",
+  "author": {
+    "id": 6567,
+    "name": "marwin",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-05-29",
+    "rank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 820.591
+  },
+  "avgSolveTimeSeconds": 41,
+  "attempts": {
+    "solved": 540,
+    "failed": 2197,
+    "tries": 2737,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-09-17T00:13:56+00:00",
+  "source": "book",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 33,
+      "name": "Under the Stones",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 30,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

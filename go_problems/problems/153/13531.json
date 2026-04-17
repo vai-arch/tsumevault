@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13531,
+  "elo": 992.83576518781,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Here white has a 1 point reverse sente play at A, and 3 gote plays B-D, each worth 2 points. How should white play?",
+  "rating": {
+    "stars": 3.3,
+    "votes": 40,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[7]AW[eb]AW[cc]AW[dc]AW[ec]AW[fc]AW[cd]AW[dd]AW[be]AW[de]AW[cf]AW[df]AW[bg]AB[ba]AB[da]AB[ab]AB[cb]AB[db]AB[bc]AB[bd]AB[ed]AB[fd]AB[ee]AB[ef]AB[ff]AB[gf]LB[ea:A]LB[ad:B]LB[gd:C]LB[eg:D]C[No komi, no prisoners. White to play and win.]GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]PL[W]\r\n(;W[ad];B[ea]\r\n(;W[fa];B[gc]\r\n(;W[gb];B[gd]\r\n(;W[eg];B[fg]\r\n(;W[dg]C[White wins by 1 point!RIGHT])\r\n(;W[ae];B[dg];W[ac];B[bb]C[Only jigo.]))\r\n(;W[ae];B[dg];W[ac];B[bb]C[Only jigo.]))\r\n(;W[ae];B[gb]C[Black wins.]))\r\n(;W[ae];B[fa]\r\n(;W[eg];B[fg];W[dg];B[gd])\r\n(;W[ac];B[bb]\r\n(;W[eg];B[fg];W[dg];B[gd];W[gc]C[Only jigo.])\r\n(;W[gd];B[ge];W[gc];B[dg]C[Black wins.])))\r\n(;W[eg];B[fg]\r\n(;W[fa];B[gc];W[gb];B[gd];W[dg]C[Yes, this works too.RIGHT])\r\n(;W[dg];B[fa];W[gd];B[ge];W[gc]C[Only jigo.])\r\n(;W[gd];B[ge]\r\n(;W[fa];B[gc];W[gb];B[dg];W[gd]C[Only jigo.])\r\n(;W[gc];B[fa];W[dg]C[Only jigo.])))\r\n(;W[gd];B[ge]\r\n(;W[gc];B[fa];W[eg];B[fg];W[dg]C[Only jigo.])\r\n(;W[fa];B[gc];W[gb];B[dg];W[gd]C[Only jigo.])))\r\n(;W[gd];B[ge]C[FORCE];W[gc];B[ea]\r\n(;W[fa];B[ae]\r\n(;W[af];B[ad];W[eg];B[fg];W[dg]C[white wins by 1 point!RIGHT])\r\n(;W[eg];B[fg]\r\n(;W[dg];B[af];W[bf]C[Black wins])\r\n(;W[af];B[ad];W[dg]C[Yes, you can do that.RIGHT])))\r\n(;W[ad];B[fa];W[eg];B[fg];W[dg]C[Only jigo.])\r\n(;W[eg];B[fg]\r\n(;W[dg];B[fa];W[ad]C[Only jigo.])\r\n(;W[fa];B[dg];W[ad]C[Well yes, this works too.RIGHT])))\r\n(;W[eg];B[fg]C[FORCE];W[dg];B[ea]\r\n(;W[fa];B[gc];W[gb];B[gd];W[ad]C[White wins by 1 point!RIGHT])\r\n(;W[gd];B[ge]\r\n(;W[gc];B[fa];W[ad]C[Only jigo.])\r\n(;W[fa];B[gc];W[gb];B[ae];W[af];B[ad];W[gd]C[Only jigo.]))\r\n(;W[ad];B[fa];W[gd];B[ge];W[gc]C[Only jigo.]))\r\n(;W[ea];B[gc];W[gb];B[gd]\r\n(;W[ad];B[dg]C[Only jigo. White has sente, but there isn't any endgame left to play.])\r\n(;W[eg];B[fg]\r\n(;W[dg];B[ae];W[af];B[ad]C[Only jigo. White has sente, but there isn't any endgame left to play.])\r\n(;W[ad];B[dg]C[Only jigo]))))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 79,
+  "attempts": {
+    "solved": 3861,
+    "failed": 4308,
+    "tries": 8169,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-03-27T15:24:00+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 153,
+      "name": "Reverse sente basics",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

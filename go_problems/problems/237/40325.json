@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 40325,
+  "elo": 1350.8057593225,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;TR[fd]LB[bg:a]LB[ch:b]LB[db:c]LB[df:d]LB[dg:e]LB[ec:f]LB[fe:g]AB[ad][be][bf][cd][ce][dd][ed]AW[bb][bc][bd][cc][cg][de][ee][fc][fd]C[FORCE]AP[goproblems autoextractor]PW[uhjko]PB[umaaaa]PC[The KGS Go Server at http://www.gokgs.com/]DT[2010-02-12]PL[B]GPKEY[local choice]DIFF[7k]HSL[-------------++++++++++++++++]\n(;B[db]TR[bb]TR[bc]TR[cc]TR[bd]SQ[be]SQ[ce]SQ[dd]SQ[cd]SQ[ed]SQ[bf]LB[gb:A]C[Playing here is worth about 12 points over playing away in an empty corner. The stones marked with a triangle are dead. The stones marked with a square are stronger. White would have played at A if you played away. Your move prevents white from making about 12 points in the corner. White would likely play away next. RIGHT])\n(;B[ch];W[ec]TR[bb]TR[bc]TR[cc]TR[bd]C[This loses about 8 points. The stones marked with a triangle are alive. White makes about 11 corner points. ])\n(;B[df];W[ec]TR[bb]TR[bc]TR[cc]TR[bd]C[This loses about 9 points. The stones marked with a triangle are alive. White makes about 11 corner points. ])\n(;B[dg];W[gb]TR[bb]TR[bc]TR[cc]TR[bd]C[This loses about 7 points. The stones marked with a triangle are stronger. ])\n(;B[ec];W[fb]TR[bb]TR[bc]TR[cc]TR[bd]C[This loses about 8 points. The stones marked with a triangle are stronger. ])\n(;B[fe];W[ec]TR[bb]TR[bc]TR[cc]TR[bd]SQ[ee]SQ[de]C[This loses about 7 points. The stones marked with a triangle are alive. The stones marked with a square are weaker but this is not sufficient. White makes about 10 corner points. ])\n(;B[bg];W[gb]TR[bb]TR[bc]TR[cc]TR[bd]C[This loses about 10 points. The stones marked with a triangle are alive. White makes about 11 corner points. ]))",
+  "author": {
+    "id": 109623,
+    "name": "Andjey44",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/157_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/157_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/157_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 157
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1726.83
+  },
+  "avgSolveTimeSeconds": 18,
+  "attempts": {
+    "solved": 5,
+    "failed": 4,
+    "tries": 9,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2024-12-02T18:20:52+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1344
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5359,
+  "elo": 792.51713057743,
+  "problemLevel": 3,
+  "rank": {
+    "value": 27,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem is meant for beginning players (25 kyu and lower).",
+  "rating": {
+    "stars": 4.2,
+    "votes": 41,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[aq]AB[cq]AB[dq]AW[ar]AW[bs]AW[cr]AW[ds]AB[eq]AB[fr]AB[fs]AB[ap]AB[bo]AB[cp]C[White to live with two eyes and without ko](;W[dr];B[br];W[bq];B[bp]LB[eo:A]C[Play at A if you think you're alive without answering.](;W[br]MA[as]MA[cs]C[Very good! You're alive with two true eyes (marked with a square) and avoided a ko for your death. Go back one move and click on A for what would have happened if you ignored black's last move.RIGHT]C[Very good! You're alive with two true eyes (marked with a square) and avoided a ko for your death. See navigate for what would have happened if you ignored black's last move.RIGHT])(;W[eo];B[br]TR[as]TR[cs]C[You cannot capture this ko back without finding a move that threatens to get more points if I don't answer it. Since the problem was finding life without ko, this is wrong. Note that the eyes at a1 and c1 are false now.]))(;W[br];B[dr]TR[cs]C[You're dead since the eye at c1 is false])(;W[er];B[dr]TR[cs]C[You're dead since the eye at c1 is false])(;W[bq];B[dr]TR[cs]TR[br]C[You're dead since the eyes at c1 and b2 are false])(;W[es];B[dr]TR[cs]C[You're dead since the eye at c1 is false]))",
+  "author": {
+    "id": 8581,
+    "name": "Emile",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-01-10",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 21286,
+    "failed": 10334,
+    "tries": 31620,
+    "speedSolved": 38,
+    "speedPlay": 86
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-10-27T18:21:54+00:00",
+  "source": "Avatarx thought it up in a comment on one of my problems",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 64,
+      "name": "Life on 2nd Line",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

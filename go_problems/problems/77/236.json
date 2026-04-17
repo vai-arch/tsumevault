@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 236,
+  "elo": 1198.5231312512,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.1,
+    "votes": 31,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]\r\nFF[4]\r\nAP[Hibiscus:2.1]\r\nSZ[19]\r\nST[3]\r\nLB[yy:1][cj:A][qm:B][qc:C][jc:D][eq:E][lj:F]AB[cp][jp][kp][lk][lm][lp][no][op][pd][pg][pi][qo]\r\nAW[dd][iq][kq][lq][mq][ni][nk][nm][oq][pk][pq]\r\nPL[W]\r\nC[White to play the best move.]\r\n(;W[qm]\r\nC[RIGHT White can fight freely now, as \r\nhis group is more or less settled.]\r\n)(;W[cj]\r\n;B[qm]\r\nC[A is a good point but B (=3) is even \r\nbetter.]\r\nLB[qm:3][cj:A])(;W[qc]\r\n;B[qd]\r\n;W[pc]\r\n;B[oc]\r\n;W[ob]\r\n;B[nb]\r\n;W[nc]\r\n;B[od]\r\n;W[mb]\r\n;B[nd]\r\n;W[na]\r\n;B[mc]\r\n;W[nb]\r\n;B[qm]\r\nC[The invasion is just helping black \r\nattack white.]\r\n)(;W[jc]\r\n;B[qm]\r\nC[D is big but B (=3) is still better.]\r\n)(;W[eq]\r\n;B[qm]\r\nC[E is small, the lower side is not \r\ninteresting.]\r\nLB[qm:3][qm:3][eq:E])(;W[lj]\r\n;B[kj]\r\n;W[li]\r\n;B[ki]\r\n;W[lh]\r\n;B[jg]\r\n;W[lf]\r\n;B[je]\r\n;W[ld]\r\nC[Black's thickness is very strong, he is \r\nleading.]\r\n))",
+  "author": {
+    "id": 6,
+    "name": "Spirit",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-28",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1819.71
+  },
+  "avgSolveTimeSeconds": 23,
+  "attempts": {
+    "solved": 7553,
+    "failed": 10400,
+    "tries": 17953,
+    "speedSolved": 1,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2000-10-15T04:27:34+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 77,
+      "name": "3-4 (komoku) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

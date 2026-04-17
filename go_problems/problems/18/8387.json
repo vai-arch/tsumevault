@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8387,
+  "elo": 1101.3275927411,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[6.50]\r\nPW[Blanc]PB[Noir]AW[ja][qa][ra][jb][kb][lb][mb][rb][sb][kc][lc][qc][rc][ld][md][nd][od][pd][qd][ke][le]AB[ia][la][ma][pa][ib][nb][pb][qb][hc][jc][mc][nc][oc][pc][sc][jd][kd][rd][sd][je][me][ne][oe][qe][kf][lf][pf][rf]LB[nh:T]TR[la]C[Best answer to black's move (Click T for Tenuki).]PL[W]\r\n(;W[oa]CR[oa]\r\n(;B[na]CR[na]C[CHOICE]\r\n;W[ka]CR[ka]\r\n;B[pe]CR[pe]\r\n;W[ob]CR[ob]C[RIGHT])\r\n(;B[pe]CR[pe]C[CHOICE]\r\n;W[na]CR[na]\r\n;B[ob]CR[ob]\r\n;W[na]CR[na]C[RIGHT]))\r\n(;W[na]CR[na]\r\n;B[oa]CR[oa]\r\n;W[ka]CR[ka]\r\n;B[pe]CR[pe]\r\n;W[na]CR[na]\r\n;B[ma]CR[ma]C[Seki. Definitly not the best solution.])\r\n(;W[ka]CR[ka]LB[nh:T]\r\n;B[oa]CR[oa]LB[nh:T]\r\n;W[na]CR[na]LB[nh:T]\r\n;B[ma]CR[ma]LB[nh:T]\r\n(;W[la]CR[la]\r\n;B[pe]CR[pe]\r\n;W[na]CR[na]SQ[ma]C[Ko for life. Definitly not the best solution.])\r\n(;W[nh]CR[nh]C[Seki. Definitly not the best solution.]))\r\n(;W[nh]CR[nh]\r\n;B[na]CR[na]C[Seki. White will have to give a stone to the black group after Q15 is filled. Definitly not the best solution.]))",
+  "author": {
+    "id": 3145,
+    "name": "karmaGfa",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 4410,
+    "failed": 6102,
+    "tries": 10512,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-04-12T01:58:41+00:00",
+  "source": "My game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

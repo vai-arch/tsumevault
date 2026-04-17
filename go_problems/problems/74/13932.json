@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13932,
+  "elo": 934.36764959626,
+  "problemLevel": 8,
+  "rank": {
+    "value": 22,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -5,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Tenuki is a Japanese term that means \"to play elsewhere\".",
+  "rating": {
+    "stars": 3.8,
+    "votes": 34,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AB[rr]AB[sr]AB[qr]AB[qq]AB[rq]AB[qp]AB[pq]AB[or]AB[nq]AB[np]AB[mq]AB[mr]AB[ms]AB[lr]AB[lq]AB[kq]AB[jq]AB[jr]AB[iq]AW[pr]AW[sq]AW[sp]AW[rp]AW[ro]AW[qo]AW[pp]AW[op]AW[oq]AW[oo]AW[no]AW[mp]AW[lp]AW[kp]AW[jp]AW[ip]AW[hq]AW[hr]AW[ir]AW[is]AW[js]AW[ks]AW[ls]AW[kr]AW[hp]AW[mo]C[White to play.  If the position is settled, play tenuki at T.]LB[hn:T]FF[1]GM[1]AP[Jago:Version 5.0]GN[13932]\n(;W[ns]\n(;B[os]\n(;W[nr];B[ps]C[White has gained 22 points with sente.RIGHT])\n(;W[ps];B[qs]C[Black did not capture the marked White stone, because he would have then lost the corner.];W[nr]C[White has captured the Black group in gote.  The correct solution is sente.  ------  mr0661 and others.]))\n(;B[ps];W[nr]C[When Black is ahead in ko threats then Black can play like this and take sente. If White plays P1 then bS1 wQ2 will start a ko for life.  ------  BartTM]\n(;B[os]C[Black has decided not to play the ko fight.  White has sente, Therefore the solution is correct for White.  See the comment in the previous node by BartTM.RIGHT])))\n(;W[ps]\n(;B[os]\n(;W[ns];B[qs]C[Black did not capture the marked White stone, because he would have then lost the corner.];W[nr]C[White has captured the Black group in gote.  The correct solution is sente.  ------  mr0661 and others.])\n(;W[qs];B[rs])\n(;W[nr];B[qs]C[Black did not capture the marked White stone, because he would have then lost the corner.]TR[nr];W[ns]C[White has captured the Black group in gote.  The correct solution is sente.  ------  mr0661 and others.])))\n(;W[os];B[ps])\n(;W[nr];B[ns])\n(;W[hn];B[ps]C[If White plays tenuki, Black captures the White stone and secures his group.])\n(;W[qs];B[ps])\n(;W[rs];B[ps])\n(;W[ss];B[ps])\n(;W[gr];B[ps]))",
+  "author": {
+    "id": 43266,
+    "name": "ytqb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2010-09-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 4691,
+    "failed": 5339,
+    "tries": 10030,
+    "speedSolved": 2,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-08-29T14:34:26+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

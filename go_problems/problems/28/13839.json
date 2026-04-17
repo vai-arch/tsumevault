@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13839,
+  "elo": 1102.1557056461,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Please assume that the rest of the board has been settled except for the last play for points, tenuki (T, worth 2 points) and several possible ko threats each worth more than tenuki.",
+  "rating": {
+    "stars": 4,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[pd]AW[pe]AW[oe]AW[ne]AW[me]AB[qd]AB[qe]AB[qf]AB[pf]AB[of]AB[nf]AB[mf]AB[le]AB[pc]AW[oc]AB[od]AW[ld]AW[ke]AW[kd]AB[lf]AB[kf]AB[qc]AW[pb]AW[qb]AW[rb]AW[rc]AW[re]AW[rd]AB[rf]AW[se]AB[sf]LB[pd:1]C[Nearing the end of the game, White just played 1. Should Black tenuki (T) (worth 2 points) or is there still something that Black can do in White's moyo?FORCE]LB[qg:T]AW[kb]AP[goproblems]\n(;B[nc]\n(;W[nd];B[ob]\n(;W[md];B[od]C[Right! A ko where Black takes first! This is optimal play by both sides. Note that if Black loses the ko Black can still tenuki, so it is better to play this ko out first before playing tenuki.RIGHT])\n(;W[od]C[Connecting fails for White];B[md]))\n(;W[ob]C[White doesn't want you making the ko... not a good play by white];B[md]C[Snapback.];W[nd];B[od]))\n(;B[qg]C[Nope. Black can still do something to white's moyo on the top])\n(;B[nd];W[md];B[nc];W[ob])\n(;B[md];W[nd]\n(;B[mc];W[nc])\n(;B[nc];W[mc]))\n(;B[ob];W[nc])\n(;B[nb];W[nd])\n(;B[mc];W[nd]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 55,
+  "attempts": {
+    "solved": 2643,
+    "failed": 3817,
+    "tries": 6460,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-07-11T20:19:18+00:00",
+  "source": "Modified from a KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

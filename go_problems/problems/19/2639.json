@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2639,
+  "elo": 1655.2668106156,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "Patience has its own rewards.  \r\n\r\nAdded a variation move 11 -- not sure if my assessment of \"rightness\" is valid.  Would welcome comments",
+  "rating": {
+    "stars": 3.7,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AB[do]LB[dq:A]C[This is the lead in.  Please play the marked moves]PL[W]\r\n;W[dq]CR[dq]\r\n;B[cq]LB[cr:A]CR[cq]\r\n;W[cr]CR[cr]\r\n;B[cp]LB[er:A]CR[cp]\r\n;W[er]CR[er]\r\n;B[fq]LB[ep:A]CR[fq]C[Black plays hamete.  Play at A to keep from getting fenced in.]\r\n;W[ep]CR[ep]\r\n;B[fo]CR[fo]C[The problem now starts.  How does White handle the situation?]\r\n(;W[eo]CR[eo]\r\n;B[en]CR[en]\r\n;W[fp]CR[fp]\r\n;B[gp]CR[gp]\r\n(;W[go]CR[go]\r\n;B[eq]CR[eq]\r\n;W[fn]CR[fn]\r\n;B[dp]CR[dp]C[White got greedy and is now caught])\r\n(;W[gq]CR[gq]\r\n;B[go]CR[go]\r\n;W[hq]CR[hq]\r\n;B[dm]LB[eq:B][gq:A]CR[dm]C[RIGHT ends in an inferior position for Black.  White playing at A was patient and prevents black from playing at B]))\r\n(;W[fp]CR[fp]\r\n;B[gp]CR[gp]\r\n(;W[eo]CR[eo]\r\n;B[en]CR[en]\r\n(;W[go]CR[go]\r\n;B[eq]CR[eq]\r\n;W[fn]CR[fn]\r\n;B[dp]CR[dp]C[White got greedy and is now caught])\r\n(;W[gq]CR[gq]\r\n;B[go]CR[go]\r\n;W[hq]CR[hq]\r\n;B[dm]LB[eq:B][gq:A]CR[dm]C[RIGHT ends in an inferior position for Black.  White playing at A was patient and prevents black from playing at B]))\r\n(;W[gq]CR[gq]\r\n;B[eo]CR[eo]\r\n(;W[hq]CR[hq]\r\n;B[go]CR[go]C[white gets out but black has built influence])\r\n(;W[hp]CR[hp]\r\n;B[go]CR[go]\r\n;W[hq]CR[hq]\r\n;B[ho]CR[ho]C[white gets out but black has built influence]))))",
+  "author": {
+    "id": 1811,
+    "name": "cheyenne",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-04-28",
+    "rank": {
+      "value": 16,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1104.23
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 1187,
+    "failed": 7760,
+    "tries": 8947,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-25T17:14:06+00:00",
+  "source": "rec.games.go archive",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 19,
+      "name": "Hamete",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

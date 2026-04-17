@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 52777,
+  "elo": 750.13181597448,
+  "problemLevel": 2,
+  "rank": {
+    "value": 28,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "A mistake from my last game) I thought it would be interesting to play at C4, however...",
+  "rating": {
+    "stars": 3,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AW[dq][co]AB[do][cp]LB[do:1]LB[co:2]LB[cp:3]C[Black has just played at 3. How to respond?](;W[dp];B[cn];W[bo];B[dn]LB[bp:A]LB[bn:B]TR[cp]C[Of course, White cuts. The black stone at C4 is doomed. White would probably play at A or B next.\nBy the way, Cho Hun-hyeon analysed this very mistake in his book \"Lectures on Go Techniques\".RIGHT])(;W[cn];B[dp]C[The white stones are separeted and weak. This is a terrible result for White.]))",
+  "author": {
+    "id": 113717,
+    "name": "El_psy_congroo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1387_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1387_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1387_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 1387
+    },
+    "lastOnlineAt": "2026-03-04",
+    "rank": {
+      "value": 17,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1079.59
+  },
+  "avgSolveTimeSeconds": 20,
+  "attempts": {
+    "solved": 25,
+    "failed": 4,
+    "tries": 29,
+    "speedSolved": 11,
+    "speedPlay": 17
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-11-20T15:27:49+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 77,
+      "name": "3-4 (komoku) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 868
+}

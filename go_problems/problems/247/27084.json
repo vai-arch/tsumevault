@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 27084,
+  "elo": 1631.7127098321,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "White to play at the top right. In this full board position, KataGo does not like the traditional joseki at A! What should white do instead?",
+  "rating": {
+    "stars": 3,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AP[Jago:Version 5.0]GM[1]FF[1]CA[UTF-8]AW[dp][od][ec][cc][dd][ce][bd][ee][dk][qd]AB[qp][cd][jc][gc][bc][cb][dc][cc][eb][qc][qe]LB[pd:A]GN[08-10-04-xela-anglevide20](;W[rd];B[pd](;W[pc];B[pe](;W[re];B[oc];W[pb];B[qg]C[RIGHT\nWhite can tenuki now, and play in one of the bottom corners.])(;W[qb];B[oc](;W[pb];B[re]C[Getting sealed in like this is bad news!])(;W[rc];B[pb];W[qc];B[nb]TR[od]C[From here, KataGo shows a couple of options for white trying to pull out the marked stone or start a fight nearby, and it looks complicated, but black has a clear advantage in all variations.]))(;W[rc];B[oc];W[pb];B[ob];W[qb];B[op]C[For this full board position, black's influence is worth more than white's corner profit.])(;W[pb];B[rc])(;W[oc];B[rc]))(;W[pe];B[pc](;W[qf];B[oe](;W[pf];B[nd]TR[jc][gc]C[KataGo thinks this is about 2 points worse for white than the recommended line. Black's influence works well with the marked stones. If white were strong at the top left, then this variation would be better.])(;W[re];B[pf]C[White doesn't have big enough ko threats to play this way.]))(;W[pf];B[re];W[rf];B[rc];W[qf];B[sd]C[Black's corner profit is too big.])(;W[rc];B[qf];W[pf];B[qg];W[oc];B[rb]C[White's three stones can't escape])(;W[re];B[qf](;W[rf];B[qg])(;W[rc];B[rb]C[White's four stones are in trouble!]))))(;W[pc];B[rd];W[pd];B[rb];W[qb];B[rc]C[White's shape is too heavy.])(;W[pd];B[rd]C[I told you KataGo didn't like this move! But let's play on a bit and see what happens.](;W[rc];B[rb];W[re];B[sd];W[qf];B[fp]C[In this full board position, black's ladder breaker is very effective. (I can't say I fully understand this. But it's what the machine is telling us!)])(;W[re];B[rf];W[rc];B[se];W[qb]TR[jc][gc]C[White's thickness isn't effective with the marked stones nearby.])))",
+  "author": {
+    "id": 6390,
+    "name": "xela",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-09-01",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1672.63
+  },
+  "avgSolveTimeSeconds": 16,
+  "attempts": {
+    "solved": 3,
+    "failed": 45,
+    "tries": 48,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2024-03-29T23:47:54+00:00",
+  "source": "Amateur game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 247,
+      "name": "Learn from KataGo",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

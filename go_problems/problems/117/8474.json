@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8474,
+  "elo": 1703.1496056668,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Assuming, that White has got way more ko threats than black does,- can Black kill this group anyway?",
+  "rating": {
+    "stars": 4.7,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dr]AB[er]AB[eq]AB[ep]AB[hq]AB[dn]AB[cn]AB[cl]AB[cp]AW[br]AW[cq]AW[bp]AW[dq]AW[eo]AW[fo]AW[gn]AW[fm]AW[hm]C[Black to kill]AP[goproblems]\r\n(;B[bo]\r\n(;W[dp]C[CHOICE]\r\n(;B[do];W[co]\r\n(;B[an]\r\n(;W[aq]C[CHOICE]\r\n(;B[cr];W[bs]C[Remember, - Black has no chance to win a ko fight against White.]\r\n(;B[ap]C[But W dies on double ko.CHOICERIGHT])\r\n(;B[cp]C[NOTTHIS])\r\n(;B[ao];W[ap]C[ko]))\r\n(;B[bs];W[cs];B[cr];W[as]\r\n(;B[ap]C[Double ko!RIGHT])\r\n(;B[cp];W[co]C[Remember, - Black has no chance to win a ko fight against White!];B[ap]C[But W dies on double ko.RIGHT]))\r\n(;B[ap];W[cr];B[cp];W[ao]C[w lives on double ko])\r\n(;B[cs];W[bs])\r\n(;B[cp];W[cr];B[ap];W[co]C[w lives on double ko]))\r\n(;W[cr];B[cs];W[bs];B[aq];W[ap];B[ar]C[RIGHT])\r\n(;W[ap];B[bs];W[cs];B[cr]\r\n(;W[as];B[aq]C[RIGHT])\r\n(;W[aq];B[as]C[RIGHT])))\r\n(;B[cr];W[bn]C[ko])\r\n(;B[aq];W[bn]C[ko])\r\n(;B[bn];W[aq]\r\n(;B[bs];W[cs]C[Black will lose ko fight]\r\n(;B[as];W[cr])\r\n(;B[cr];W[as]))\r\n(;B[cr];W[bs]C[black can't win a ko fight])\r\n(;B[cp];W[cr])))\r\n(;B[co];W[do]))\r\n(;W[cr];B[cs];W[bs];B[aq];W[ap];B[ar]C[RIGHT]))\r\n(;B[dp];W[cr]\r\n(;B[aq];W[ar])\r\n(;B[cs];W[bs])\r\n(;B[ar];W[aq])\r\n(;B[bo];W[aq]))\r\n(;B[cr];W[dp]\r\n(;B[do];W[co]C[]\r\n(;B[bo])\r\n(;B[bs];W[bn]))\r\n(;B[co];W[do])\r\n(;B[bo];W[do]))\r\n(;B[aq];W[dp]\r\n(;B[do];W[co]C[];B[bo])\r\n(;B[co];W[do]))\r\n(;B[bs];W[cr]\r\n(;B[cs];W[dp]\r\n(;B[do];W[co]C[Black loses ko])\r\n(;B[co];W[do]))\r\n(;B[dp];W[cs]))\r\n(;B[co];W[cr]))",
+  "author": {
+    "id": 14335,
+    "name": "kaf",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-10-23",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1562.15
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 130,
+    "failed": 931,
+    "tries": 1061,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-04-28T18:47:54+00:00",
+  "source": "dashnet",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 117,
+      "name": "Double Ko",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11923,
+  "elo": 1182.3426268094,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Simple but interesting problem from a book. Please excuse me if this is a copy of another problem because the pattern search gave no results.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rr]AB[sr]AB[rq]AB[rp]AW[qq]AW[pq]AB[pp]AB[oq]AB[pr]AW[or]AW[op]AW[nr]AW[mr]AW[mp]AW[os]AB[ps]AW[oo]AW[pn]AW[qn]AW[rn]AW[so]AW[sp]C[Black to live.]AB[nq]AP[goproblems]\n(;B[rs];W[qp]\n(;B[qr]C[Good.RIGHT])\n(;B[qo];W[po];B[qr]C[RIGHT]))\n(;B[qr];W[rs];B[qp];W[pq])\n(;B[qp];W[rs];B[qr];W[pq])\n(;B[qs];W[qp])\n(;B[ss];W[qr])\n(;B[qo];W[qr]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 2352,
+    "failed": 3696,
+    "tries": 6048,
+    "speedSolved": 6,
+    "speedPlay": 37
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-10-31T16:43:46+00:00",
+  "source": "Book",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

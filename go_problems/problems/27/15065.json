@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15065,
+  "elo": 1173.095755722,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -1,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This comes from the same game as the problem 15053.With the price of the upper right corner, and with the help of some unfortunate white choices black walled an impressive center. White makes e desperate move with the marked white stone. This is not a reduction, because are still bigger moves on board but a pitiful try to catch those 5 black stones. Black could have solved the problem maybe easier with N5. But he  chooses to secure the advantage with the marked black stone. Can white save his marked stone? The problem is only about connecting the marked white stone with other living white stones.",
+  "rating": {
+    "stars": 3.3,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qq]AB[qp]AB[qo]AB[qn]AB[mr]AB[np]AB[lp]AB[lq]AB[kp]AB[jo]AB[io]AB[ip]AB[hq]AB[gr]AB[nm]AB[ml]AB[lk]AB[lj]AB[mj]AW[ko]AW[jp]AW[jq]AW[iq]AW[jr]AW[hr]AW[hs]AW[lr]AW[ls]AW[pq]AW[pp]AW[po]AW[pn]AW[on]AW[om]AW[ol]AW[pl]AW[ql]AW[qm]AW[rk]AW[rj]AW[mk]AW[nj]AW[nk]AW[ok]AW[mn]AB[nn]TR[mn]TR[nn]LB[pr:T]C[Can white save his marked stone? The problem is only about connecting the marked white stones with other living white stones. If is possible, show it, if not, play tenuki at T. The problem is only about connecting, does not matter the value of the sequence.]AP[goproblems]\n(;W[pr]C[Wrong.CHOICE])\n(;W[no]C[Solved.  Now white can connect. There are a lot of variants which lead to the final connect, but important is this first move.]\n(;B[mo]\n(;W[mm];B[oo]\n(;W[ll]C[RIGHT])\n(;W[nl]C[RIGHT]))\n(;W[lo];B[oo])))\n(;W[mo];B[no]C[Wrong])\n(;W[mm];B[no]))",
+  "author": {
+    "id": 43772,
+    "name": "pimapis",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-02",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1269.01
+  },
+  "avgSolveTimeSeconds": 72,
+  "attempts": {
+    "solved": 2301,
+    "failed": 2576,
+    "tries": 4877,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-08-11T00:47:19+00:00",
+  "source": "Real game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

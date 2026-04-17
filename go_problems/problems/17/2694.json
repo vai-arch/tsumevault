@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2694,
+  "elo": 899.13952468434,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This is an easy problem, but I really like the shapes...\r\nPlease find the best result for Black!\r\n(japanese rules)",
+  "rating": {
+    "stars": 3.1,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[4]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[aa][da][bb][cb]AB[ac][dc][bd][cd]C[Black to move - what's the best he can do?]\r\n(;B[ab]CR[ab]\r\n(;W[bc]CR[bc]\r\n(;B[ba]CR[ba]\r\n;W[cc]CR[cc]C[Seki, Black wins by one point (the prisoner). RIGHT])\r\n(;B[ad]CR[ad]\r\n(;W[cc]CR[cc]\r\n;B[ba]CR[ba]C[Seki, Black wins by one point (the prisoner). RIGHT])\r\n(;W[ba]CR[ba]\r\n;B[db]CR[db]C[Black wins.])))\r\n(;W[cc]CR[cc]\r\n(;B[ba]CR[ba]\r\n;W[bc]CR[bc]C[Seki, Black wins by one point (the prisoner). RIGHT])\r\n(;B[bc]CR[bc]\r\n;W[ba]CR[ba]C[Seki & jigo.])\r\n(;B[dd]CR[dd]\r\n;W[bc]CR[bc]\r\n;B[ba]CR[ba]C[Seki, Black wins by one point (the prisoner). RIGHT]))\r\n(;W[ba]CR[ba]\r\n;B[db]CR[db]C[Black wins.]))\r\n(;B[db]CR[db]\r\n(;W[cc]CR[cc]\r\n(;B[ca]CR[ca]\r\n;W[bc]CR[bc]C[Seki, Black wins by one point (the prisoner). RIGHT])\r\n(;B[dd]CR[dd]\r\n(;W[bc]CR[bc]\r\n;B[ca]CR[ca]C[Seki, Black wins by one point (the prisoner) RIGHT])\r\n(;W[ca]CR[ca]\r\n;B[ab]CR[ab]C[Black wins.])))\r\n(;W[bc]CR[bc]\r\n(;B[ca]CR[ca]\r\n;W[cc]CR[cc]C[Seki, Black wins by one point (the prisoner). RIGHT])\r\n(;B[cc]CR[cc]\r\n;W[ca]CR[ca]C[Seki & jigo.])\r\n(;B[ad]CR[ad]\r\n;W[cc]CR[cc]\r\n;B[ca]CR[ca]C[Seki, Black wins by one point (the prisoner). RIGHT]))\r\n(;W[ca]CR[ca]\r\n;B[ab]CR[ab]C[Black wins.]))\r\n(;B[bc]CR[bc]\r\n;W[cc]CR[cc]\r\n;B[ab]CR[ab]\r\n;W[ba]CR[ba]C[Seki & jigo.])\r\n(;B[cc]CR[cc]\r\n;W[bc]CR[bc]\r\n;B[db]CR[db]\r\n;W[ca]CR[ca]C[Seki & jigo.])\r\n(;B[ba]CR[ba]\r\n(;W[bc]CR[bc]\r\n;B[ab]CR[ab]\r\n;W[cc]CR[cc]C[Seki, Black wins by one point (the prisoner) RIGHT])\r\n(;W[ab]CR[ab]\r\n;B[db]CR[db]\r\n(;W[cc]CR[cc]\r\n;B[ca]CR[ca]\r\n;W[da]CR[da]\r\n;B[ca]CR[ca]C[Black wins!])\r\n(;W[ca]CR[ca]\r\n(;B[cc]CR[cc]C[Black wins!])\r\n(;B[bc]CR[bc]C[Black wins!]))))\r\n(;B[ca]CR[ca]\r\n(;W[cc]CR[cc]\r\n;B[db]CR[db]\r\n;W[bc]CR[bc]C[Seki, Black wins by one point (the prisoner). RIGHT])\r\n(;W[db]CR[db]\r\n;B[ab]CR[ab]\r\n(;W[ba]CR[ba]\r\n(;B[bc]CR[bc]C[Black wins!])\r\n(;B[cc]CR[cc]C[Black wins!]))\r\n(;W[bc]CR[bc]\r\n;B[ba]CR[ba]\r\n;W[aa]CR[aa]\r\n;B[ba]CR[ba]C[Black  wins!])\r\n(;W[cc]CR[cc]\r\n;B[ba]CR[ba]\r\n;W[aa]CR[aa]\r\n;B[bc]CR[bc]\r\n;W[dd]CR[dd]\r\n;B[ba]CR[ba]C[Black wins!]))))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 9108,
+    "failed": 6505,
+    "tries": 15613,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-07-04T02:15:18+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

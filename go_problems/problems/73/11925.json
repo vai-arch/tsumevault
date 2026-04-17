@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11925,
+  "elo": 1024.1158198966,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Problem from a book. This seems simple but do not be fooled! I performed a pattern search and did not find any identical results, so please excuse me if this is a duplicate.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ns]AB[nr]AB[nq]AB[np]AB[op]AB[pp]AB[qp]AB[ro]AW[oq]AW[pq]AW[qq]AW[rq]AW[sq]AW[sr]AB[qr]AB[rr]C[White to live.]AP[goproblems]\n(;W[rs];B[qs]\n(;W[pr];B[ss];W[ps]C[RIGHT])\n(;W[ps];B[ss];W[pr]C[RIGHT])\n(;W[ss];B[os])\n(;W[or]\n(;B[os]C[NOTTHIS];W[ps];B[ss];W[pr]C[RIGHT])\n(;B[ss]\n(;W[os];B[rs]C[Seki, not the best.])\n(;W[ps];B[rs]C[White is dead.])\n(;W[pr];B[rs]C[White is dead.])))\n(;W[os];B[ss]\n(;W[or];B[rs]C[Seki. Not the best.])\n(;W[ps];B[rs])\n(;W[pr];B[rs])))\n(;W[pr];B[rs]C[White is dead.])\n(;W[ps];B[rs]\n(;W[or];B[qs])\n(;W[os];B[qs]))\n(;W[qs];B[rs]\n(;W[pr];B[os];W[ss];B[rr])\n(;W[ps];B[pr];W[or];B[os])\n(;W[os];B[or]\n(;W[pr];B[ps];W[ss];B[os];W[qs];B[rr])\n(;W[ps];B[pr])))\n(;W[or];B[os]\n(;W[ps];B[rs])\n(;W[pr];B[ps])\n(;W[rs];B[ps])\n(;W[qs];B[rs]))\n(;W[os];B[or];W[pr];B[rs]\n(;W[ss];B[qs])\n(;W[qs];B[ps];W[ss];B[os];W[qs];B[rr])))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 66,
+  "attempts": {
+    "solved": 3367,
+    "failed": 4337,
+    "tries": 7704,
+    "speedSolved": 8,
+    "speedPlay": 19
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-10-31T17:23:18+00:00",
+  "source": "Book",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

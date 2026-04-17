@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2018,
+  "elo": 1973.1289594799,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.7,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nGM[1]FF[4]VW[]AP[Many Faces of Go:11.0]\r\nSZ[19]\r\nHA[0]\r\nST[1]\r\nDT[2003-03-19]\r\nKM[0.0]\r\nRU[Japanese]\r\nAB[pd][od][qe][pf][le][jc][jd][je][jf][kf]\r\nAW[pe][lf][mf][ke][kd][kc][kb]\r\nPL[W]\r\n(;W[nc];B[nd];W[md]\r\n(;B[mc]\r\nC[CHOICE]\r\n;W[lc];B[mb];W[nb]\r\nC[RIGHT\r\nWhite 1 is the so called 'big net.']\r\nLB[nc:1]\r\n)\r\n(;B[nb]\r\nC[CHOICE]\r\n\r\n(;W[oc];B[mc]\r\n(;W[mb];B[me];W[lc]\r\nC[RIGHT\r\nWhite 1 is the so called 'big net.'  This is the best result \r\nfor both sides.  White gains sente because of A and B, while \r\nblack can choose to attack white's 2 stones outside.]\r\nLB[nc:1][ne:A][pc:B]\r\nTR[lf][mf]\r\n)\r\n(;W[me];B[pc]\r\nC[White can do much better.]\r\n))\r\n(;W[mc];B[ob]\r\nC[White's eye shape is uncertain.  White fails.]\r\n)))\r\n(;W[md];B[ne]\r\nC[White 1 is the familiar net play.  However, ...]\r\nLB[md:1]\r\n\r\n(;W[me];B[nc]\r\nC[White can do better.]\r\n)\r\n(;W[oc];B[me]\r\nC[White's 2 stones will face tough battle.]\r\nTR[lf][mf]\r\n)\r\n(;W[nc];B[me]\r\nC[White's 2 stones will face tough battle.]\r\nTR[lf][mf]\r\n))\r\n(;W[me];B[md];W[mc];B[nd]\r\nC[Black forced white's false eye.  White fails.]\r\nSQ[le]\r\n)\r\n(;W[mc];B[md]\r\n(;W[me];B[nd]\r\nC[Black forced white's false eye.  White fails.]\r\n)\r\n(;W[nd];B[ne]\r\nC[A and B are miai for black.  White fails.]\r\nLB[me:A][nc:B]\r\n))\r\n(;W[nd];B[ne];W[me];B[nc]\r\nC[White's bad aji at A forces her into gote.]\r\nLB[md:A]\r\n)\r\n(;W[ne];B[oe]\r\nC[White just helped black to strengthen her shape.]\r\n))",
+  "author": {
+    "id": 3580,
+    "name": "picketfence",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-03-18",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 119,
+    "failed": 2242,
+    "tries": 2361,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-03-18T23:48:34+00:00",
+  "source": "some chinese text",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 36,
+      "name": "Geta (net)",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

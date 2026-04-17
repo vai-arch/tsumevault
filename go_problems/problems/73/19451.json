@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19451,
+  "elo": 1252.5764310547,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "A different take on a failed problem. Special thanks to ahero on KGS for helping me work out some wrong paths!",
+  "rating": {
+    "stars": 2.6,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rp]AW[qq]AW[pq]AW[oq]AW[qo]AW[pn]AW[om]AW[nm]AW[nl]AW[lm]AW[ll]AB[ol]AB[pl]AB[ql]AB[pm]AB[qm]AB[rm]AB[qn]AB[rn]AB[ro]AB[no]AB[oo]AB[np]AW[op]AB[nq]AB[kq]AW[ok]AW[pk]AW[qk]AW[rl]AW[rj]AB[nk]AB[nj]AB[oi]AB[pi]AB[qi]AB[ri]AB[sk]AW[sm]AB[mr]AB[jp]C[Black to do well. There are probably more right moves than wrong. Feel free to tell me if I'm missing anything.]AP[goproblems]\n(;B[po];W[so]\n(;B[qp]\n(;W[sn]\n(;B[on]\n(;W[sl];B[rq]\n(;W[sp];B[rr];W[qr];B[or];W[ps];B[nr];W[rs];B[sr];W[sj];B[pp]\n(;W[qs];B[os])\n(;W[rk];B[pr]))\n(;W[sq];B[rr]\n(;W[sp];B[qr];W[pr];B[pp]C[For reference.])\n(;W[qr];B[sr])\n(;W[sr]C[This path looks like ko, but black can avoid it, as shown.];B[rs]\n(;W[os];B[ss])\n(;W[qr];B[ps]\n(;W[qs];B[sj])\n(;W[or];B[os];W[nr];B[ns];W[qs];B[sj])\n(;W[sj];B[qs];W[or];B[os])))))\n(;W[sp];B[sl];W[sj];B[rq];W[rk];B[sl];W[sk];B[rr];W[qr];B[or];W[ps];B[nr];W[rs];B[sr];W[pr];B[pp]C[For reference.])\n(;W[rq];B[sl]C[CHOICERIGHT]))\n(;B[qo];W[rq]\n(;B[sl]C[RIGHT])\n(;B[rk];W[sj])))\n(;W[rq]\n(;B[sl]C[CHOICERIGHT])\n(;B[qo];W[sn]\n(;B[sl]C[CHOICERIGHT])\n(;B[rk];W[sj]))))\n(;B[on];W[sn]\n(;B[qp];W[rq]\n(;B[sl]C[CHOICERIGHT])\n(;B[rk];W[sj]))\n(;B[pn];W[sl])))\n(;B[sl]\n(;W[rk]\n(;B[sn];W[sj];B[po];W[sm]\n(;B[sl]C[Correct, but r4 is better.CHOICERIGHT])\n(;B[qp]C[CHOICERIGHT])\n(;B[on]C[Correct, but r4 is better.CHOICERIGHT]))\n(;B[so];W[sp]))\n(;W[so];B[rk]C[CHOICERIGHT]))\n(;B[on]\n(;W[so];B[po];W[sn];B[qp]\n(;W[rq]\n(;B[sl]C[CHOICERIGHT])\n(;B[rk];W[sj]))\n(;W[sl];B[rq];W[sq];B[rr];W[sr];B[rs];W[qr];B[ps]\n(;W[qs];B[sj])\n(;W[or];B[os];W[nr];B[ns];W[qs];B[sj])\n(;W[sj];B[qs];W[or];B[os])))\n(;W[po];B[sl]C[CHOICERIGHT]))\n(;B[so];W[sp])\n(;B[rk];W[sj]\n(;B[po];W[so];B[qp];W[rq];B[on];W[sn]C[White's connected.])\n(;B[on];W[po]C[Oh no, now black's group is dead!])\n(;B[so];W[sp])))",
+  "author": {
+    "id": 57407,
+    "name": "komilatte",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-05-14",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1472.56
+  },
+  "avgSolveTimeSeconds": 85,
+  "attempts": {
+    "solved": 488,
+    "failed": 762,
+    "tries": 1250,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-04-14T01:07:35+00:00",
+  "source": "A redone failed problem, originally from a game on KGS.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 177,
+      "name": "Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

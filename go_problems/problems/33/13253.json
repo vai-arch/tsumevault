@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13253,
+  "elo": 1395.2931135729,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 14,
+    "negativeFlagSum": 0,
+    "flagSum": 14
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "My favorite problem from Cho Chikun's Encyclopedia Of Life And Death.",
+  "rating": {
+    "stars": 4.7,
+    "votes": 36,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ba]AB[bb]AB[bc]AB[bd]AB[cd]AB[dd]AB[dc]AB[ec]AB[fb]AB[gb]AW[ab]AW[ac]AW[ad]AW[be]AW[ce]AW[de]AW[ee]AW[fd]AW[fc]AW[gc]AW[hc]AW[hb]AW[ga]AW[ca]AW[cb]AW[cc]AW[jb]AP[goproblems]\n(;B[fa]\n(;W[eb]\n(;B[ha];W[ea]\n(;B[db];W[ga]\n(;B[da]\n(;W[cb];B[fb]C[RIGHT])\n(;W[ia];B[cb]C[Better play by white, but less satisfying for b.RIGHT]))\n(;B[fb];W[gb];B[da];W[fa];B[cb]C[RIGHT]))\n(;B[da];W[ga]\n(;B[db]\n(;W[cb];B[fb]C[RIGHT])\n(;W[ia];B[cb]C[Better play by white, but less satisfying for b.RIGHT]))\n(;B[fb];W[db])))\n(;B[db];W[ea];B[da];W[cb];B[fb];W[fa]C[Nearly the right idea...])\n(;B[ea];W[da]\n(;B[db];W[ea];B[fb];W[fa]C[Nearly the right idea...])\n(;B[fb];W[ea])))\n(;W[db];B[da];W[ea];B[eb]C[(Variation)RIGHT]))\n(;B[db];W[fa]\n(;B[ea];W[eb];B[fb])\n(;B[da];W[cb])\n(;B[eb];W[ha]))\n(;B[ea];W[ha]\n(;B[db];W[fa])\n(;B[fa];W[db]))\n(;B[da];W[fa])\n(;B[eb];W[fa];B[ea];W[ha])\n(;B[ha];W[db]\n(;B[fa];W[da])\n(;B[da];W[fa]\n(;B[eb];W[cb])\n(;B[ea];W[ga]))\n(;B[eb];W[fa])))",
+  "author": {
+    "id": 23088,
+    "name": "Stable",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-28",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1433.38
+  },
+  "avgSolveTimeSeconds": 75,
+  "attempts": {
+    "solved": 850,
+    "failed": 1675,
+    "tries": 2525,
+    "speedSolved": 4,
+    "speedPlay": 10
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-11-25T16:04:36+00:00",
+  "source": "Cho Chikun's Encyclopedia Of Life And Death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 33,
+      "name": "Under the Stones",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

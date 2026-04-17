@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2177,
+  "elo": 1735.4013959946,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This surreal game was recently played on Korean TV with a fast time limit. Yi Setol seems to have landed himself in an impossible position by starting a ladder that doesn't work.\r\n\r\nLadder breakers are useful tools: threaten to make the ladder work by playing a stone somewhere along the way. Sure enough, the ladder ends near a sensitive area of the board, and it seems like such a move might be possible. But where's the ladder breaker in this situation?",
+  "rating": {
+    "stars": 3.4,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[bb][db][cc][dd][ce][de][cf][dg][eg][eh][fh][rk][ml][rl][sl][km][mm][pm][qm][rm][mn][nn][on][sn][co][po][qo][so][mp][pp][qp][dq][qq][qr][rr][rs]AB[cb][dc][ec][nc][fd][pd][df][ef][cg][fg][dh][ei][rj][ok][qk][nl][pl][lm][nm][om][pn][qn][rn][lo][mo][no][oo][ro][rp][iq][nq][oq][pq][rq][sq][sr]LB[ml:2][lm:1]C[black wedged at 1, white responded at 2. how to catch either these five white stones (and save the black corner) or capture the stones in the ladder in the upper-left?]\r\n(;B[gh]CR[gh]\r\n;W[fi]CR[fi]C[does this ladder really work?]\r\n;B[fj]CR[fj]\r\n;W[gi]CR[gi]\r\n;B[hi]CR[hi]\r\n;W[gj]CR[gj]\r\n;B[gk]CR[gk]\r\n;W[hj]CR[hj]\r\n;B[ij]CR[ij]\r\n;W[hk]CR[hk]\r\n;B[hl]CR[hl]\r\n;W[ik]CR[ik]\r\n;B[jk]CR[jk]\r\n;W[il]CR[il]\r\n(;B[im]CR[im]\r\n;W[jl]CR[jl]\r\n(;B[kl]CR[kl]\r\n;W[jm]CR[jm]\r\n(;B[jn]CR[jn]\r\n;W[kn]CR[kn]\r\n(;B[ln]CR[ln]\r\n;W[ko]CR[ko]\r\n;B[mk]CR[mk]C[RIGHT\r\nblack eats the five white stones and gets the huge corner])\r\n(;B[ko]CR[ko]\r\n;W[ln]CR[ln]\r\n;B[mk]CR[mk]\r\n;W[ll]CR[ll]\r\n(;B[kk]CR[kk]\r\n;W[ss]CR[ss])\r\n(;B[lk]CR[lk]\r\n;W[kk]CR[kk])))\r\n(;B[kn]CR[kn]\r\n;W[jn]CR[jn]\r\n(;B[mk]CR[mk]\r\n;W[ss]CR[ss])\r\n(;B[jo]CR[jo]\r\n;W[in]CR[in])))\r\n(;B[jm]CR[jm]\r\n;W[kl]CR[kl]\r\n(;B[kn]CR[kn]\r\n;W[ll]CR[ll])\r\n(;B[ll]CR[ll]\r\n;W[ln]CR[ln]\r\n;B[lk]CR[lk]\r\n;W[kn]CR[kn]))\r\n(;B[kn]CR[kn]\r\n;W[ll]CR[ll]))\r\n(;B[jl]CR[jl]\r\n;W[im]CR[im]))\r\n(;B[ll]CR[ll]\r\n;W[mk]CR[mk]\r\n;B[gh]CR[gh]\r\n;W[fi]CR[fi]\r\n;B[fj]CR[fj]\r\n;W[gi]CR[gi]\r\n;B[hi]CR[hi]\r\n;W[gj]CR[gj]\r\n;B[gk]CR[gk]\r\n;W[hj]CR[hj]\r\n;B[ij]CR[ij]\r\n;W[hk]CR[hk]\r\n;B[hl]CR[hl]\r\n;W[ik]CR[ik]\r\n;B[jk]CR[jk]\r\n;W[il]CR[il]\r\n;B[im]CR[im]\r\n;W[jl]CR[jl]\r\n;B[kl]CR[kl]\r\n;W[jm]CR[jm]\r\n;B[jn]CR[jn]\r\n;W[kn]CR[kn]\r\n(;B[ln]CR[ln]\r\n;W[ko]CR[ko]\r\n(;B[jo]CR[jo]\r\n;W[kp]CR[kp]C[white escapes])\r\n(;B[kp]CR[kp]\r\n;W[jo]CR[jo]C[no way jose]))\r\n(;B[ko]CR[ko]\r\n;W[ln]CR[ln]C[c'mon...]))\r\n(;B[kl]CR[kl]\r\n;W[di]CR[di]\r\n;B[mk]CR[mk]\r\n;W[ss]CR[ss])\r\n(;B[lk]CR[lk]\r\n;W[di]CR[di]\r\n(;B[mk]CR[mk]\r\n;W[ss]CR[ss])\r\n(;B[ll]CR[ll]\r\n;W[ss]CR[ss]))\r\n(;B[jm]CR[jm]\r\n;W[di]CR[di]\r\n(;B[mk]CR[mk]\r\n;W[ss]CR[ss])\r\n(;B[ll]CR[ll]\r\n;W[mk]CR[mk]))\r\n(;B[jl]CR[jl]\r\n;W[di]CR[di]\r\n;B[mk]CR[mk]\r\n;W[ss]CR[ss])\r\n(;B[mk]CR[mk]\r\n;W[ll]CR[ll]\r\n(;B[kl]CR[kl]\r\n;W[jl]CR[jl]\r\n(;B[kk]CR[kk]\r\n;W[ln]CR[ln])\r\n(;B[ln]CR[ln]\r\n;W[kk]CR[kk])\r\n(;B[gh]CR[gh]\r\n;W[fi]CR[fi]\r\n;B[fj]CR[fj]\r\n;W[gi]CR[gi]\r\n;B[hi]CR[hi]\r\n;W[gj]CR[gj]\r\n;B[gk]CR[gk]\r\n;W[hj]CR[hj]\r\n;B[ij]CR[ij]\r\n;W[hk]CR[hk]\r\n;B[hl]CR[hl]\r\n;W[ik]CR[ik]))\r\n(;B[ln]CR[ln]\r\n;W[kl]CR[kl])\r\n(;B[gh]CR[gh]\r\n;W[fi]CR[fi]\r\n;B[fj]CR[fj]\r\n;W[gi]CR[gi]\r\n;B[hi]CR[hi]\r\n;W[gj]CR[gj]\r\n;B[gk]CR[gk]\r\n;W[hj]CR[hj]\r\n;B[ij]CR[ij]\r\n;W[hk]CR[hk]\r\n;B[hl]CR[hl]\r\n;W[ik]CR[ik]\r\n;B[jk]CR[jk]\r\n;W[il]CR[il]\r\n;B[im]CR[im]\r\n;W[jl]CR[jl]\r\n;B[jm]CR[jm]\r\n;W[kl]CR[kl])\r\n(;B[lk]CR[lk]\r\n;W[kl]CR[kl]))\r\n(;B[fi]CR[fi]\r\n;W[gh]CR[gh])\r\n(;B[gi]CR[gi]\r\n;W[di]CR[di]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 327,
+    "failed": 2071,
+    "tries": 2398,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-04-28T15:41:00+00:00",
+  "source": "Hong Jansik vs Yi Setol",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 30,
+      "name": "Stories",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 54,
+      "name": "Pro Game",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

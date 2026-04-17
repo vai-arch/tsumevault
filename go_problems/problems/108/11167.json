@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11167,
+  "elo": 1651.7561079006,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "!! Do not play unnecessary moves - they will be wrong!!",
+  "rating": {
+    "stars": 4.5,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[pc]AW[rb]AW[qb]AW[sc]AW[rd]AB[rc]AB[qc]AB[qd]AW[nb]AB[nd]AB[mc]AB[mb]AW[qg]AW[qf]AB[pe]AB[pf]AB[pg]AB[ph]AW[oi]AW[oh]AW[og]AW[of]AW[le]AB[lb]AW[re]AW[od]AB[oe]AB[ne]AW[nf]AW[mf]AW[ld]AW[pd]AB[qe]AB[qh]AW[rh]AW[pi]AW[ri]AW[pj]AB[rj]AB[rk]AB[qk]AB[pk]AB[ok]AB[oj]AB[kb]AW[kc]AW[jc]AW[ic]AB[fb]AB[fc]AW[hc]AW[gc]AB[ea]C[What can black do now?]AW[nc]AB[md]AW[na]AW[ma]AW[pb]AB[eb]AW[lf]AP[goproblems]\n(;B[qi];W[qj]\n(;B[rg];W[rf]\n(;B[sg];W[sf];B[sd]C[];W[sh];B[sb]C[Good, black can fight like this! White will probably play T10 now to create a ko. If he plays k18 now he will lose the semiai by one liberty.RIGHT])\n(;B[sd];W[sg]))\n(;B[sd];W[rg]C[Black is dead :(])\n(;B[rf];W[rg]))\n(;B[rg];W[qi];B[rf];W[sd]C[Black is dead :(])\n(;B[ja];W[ha]C[Not the tesuji])\n(;B[ia];W[ja];B[jb];W[ib];B[ha];W[ga]C[This was not the tesuji.])\n(;B[jb];W[ib]C[Not the tesuji])\n(;B[ib];W[jb];B[ja];W[ha]C[Black lost one liberty and lost the fight.])\n(;B[ha];W[ja];B[jb];W[ib]C[Black just lost one liberty and cannot win the fight anymore.])\n(;B[hb];W[jb]C[Black lost one liberty and lost the fight.])\n(;B[sd]\n(;W[qi]C[Black is dead now :(])\n(;W[rg]C[Black dies now.])))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 174,
+    "failed": 506,
+    "tries": 680,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-04-03T08:31:42+00:00",
+  "source": "Statistics",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 108,
+      "name": "0 What Group?",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

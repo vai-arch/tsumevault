@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1930,
+  "elo": 1283.3632169901,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -1,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Please note that the solution is considering Japanese style territory counting rather than area scoring.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nFF[4]\r\nGM[1]\r\nSZ[19]\r\nAP[Jago:Version 4.18]\r\nAB[ds][es][er][eq][cq][dp][do][dn][cn][dm][dk][dl][dj][cj][bj][bk][bl][al][ao]\r\nAW[dq][dr][cr][cs][co][cp][bp][ap][bn][bm][am][cm][cl][ck]\r\nC[Best endgame for black considering only points (not sente)?]\r\nGN[tempeg5]\r\n(\r\n;\r\nB[br]\r\n;\r\nW[bq]\r\n;\r\nB[bs]\r\n;\r\nW[cq]\r\n;\r\nB[ar]\r\nC[Seki. White scores 1 pt for capturing C3 and another 1 pt when she removes A5. RIGHT]\r\n)\r\n(\r\n;\r\nB[bo]\r\n;\r\nW[an]\r\n(\r\n;\r\nB[bo]\r\n;\r\nW[br]\r\n;\r\nB[ao]\r\n;\r\nW[bn]\r\n;\r\nB[bm]\r\n;\r\nW[an]\r\nC[1pt worse than the optimal seki (although sente).]\r\n)\r\n(\r\n;\r\nB[br]\r\n;\r\nW[bq]\r\n(\r\n;\r\nB[bs]\r\n;\r\nW[cq]\r\n(\r\n;\r\nB[ar]\r\n;\r\nW[aq]\r\n(\r\n;\r\nB[bo]\r\n;\r\nW[as]\r\n;\r\nB[ao]\r\n;\r\nW[bn]\r\n;\r\nB[bm]\r\n;\r\nW[an]\r\nC[Sente but 1pt worse than the optimal seki.]\r\n)\r\n(\r\n;\r\nB[ao]\r\n;\r\nW[as]\r\n;\r\nB[bo]\r\n;\r\nW[bn]\r\n;\r\nB[bm]\r\n;\r\nW[an]\r\nC[Sente but 1 pt worse than the optimal seki.]\r\n)\r\n)\r\n(\r\n;\r\nB[bo]\r\n;\r\nW[ao]\r\n;\r\nB[ar]\r\nC[Seki but black has sacrificed unneccessarily.]\r\n)\r\n(\r\n;\r\nB[ao]\r\n;\r\nW[bo]\r\n;\r\nB[ar]\r\nC[Seki but black has given white unneccessary prisoners.]\r\n)\r\n)\r\n(\r\n;\r\nB[bo]\r\n;\r\nW[ao]\r\n;\r\nB[bs]\r\n;\r\nW[cq]\r\n;\r\nB[ar]\r\nC[Seki but black has sacrificed more stones than he needed to.]\r\n)\r\n(\r\n;\r\nB[ao]\r\n;\r\nW[bo]\r\n;\r\nB[bs]\r\n;\r\nW[cq]\r\n;\r\nB[ar]\r\nC[Seki but black has sacrificed more stones than he needed to.]\r\n)\r\n)\r\n(\r\n;\r\nB[ao]\r\n;\r\nW[br]\r\n;\r\nB[bo]\r\n;\r\nW[bn]\r\n;\r\nB[bm]\r\n;\r\nW[an]\r\nC[1pt worse than the optimal seki (but sente).]\r\n)\r\n)\r\n(\r\n;\r\nB[bq]\r\n;\r\nW[br]\r\n)\r\n)",
+  "author": {
+    "id": 830,
+    "name": "Spica",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 3552,
+    "failed": 6988,
+    "tries": 10540,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-02-17T08:56:52+00:00",
+  "source": "Amateur game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 26,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

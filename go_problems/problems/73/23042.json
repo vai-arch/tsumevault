@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23042,
+  "elo": 1676.8881006551,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[besogo:0.0.2-alpha]SZ[19]ST[0]\r\nAB[or][pq][qq][rs][sr]AW[nq][nr][ns][op][pp][qp][qr][rp][sp]\r\nC[B to move]\r\n(;B[ps]\r\n(;W[rr]\r\n;B[rq]\r\n;W[sq]\r\n(;B[pr]\r\n;W[ss]SQ[sr]\r\nC[Right, ko! RIGHT])\r\n(;B[qs]\r\n;W[ss]SQ[sr]\r\nC[Right, ko! RIGHT]))\r\n(;W[rq]\r\n;B[rr]\r\nC[RIGHT]))\r\n(;B[rq]\r\n;W[pr]\r\n(;B[oq]\r\n;W[os])\r\n(;B[os]\r\n;W[oq])\r\n(;B[ps]\r\n;W[oq])\r\n(;B[qs]\r\n;W[oq]))\r\n(;B[rr]\r\n;W[ps]\r\n(;B[os]\r\n;W[oq])\r\n(;B[pr]\r\n;W[os]TR[qs][rq])\r\n(;B[qs]\r\n;W[os]TR[pr][rq])\r\n(;B[rq]\r\n;W[os]))\r\n(;B[pr]\r\n;W[rq]\r\n;B[rr]\r\n;W[ps]LB[os:2][qs:1])\r\n(;B[qs]\r\n;W[ps]\r\n(;B[os]\r\n;W[rr]\r\n;B[rq]\r\n;W[ss])\r\n(;B[pr]\r\n;W[rq]TR[os][rr])\r\n(;B[rr]\r\n;W[os]TR[pr][rq])\r\n(;B[rq]\r\n;W[pr]))\r\n(;B[os]\r\n;W[rq]\r\n;B[rr]\r\n;W[pr]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 32,
+    "failed": 118,
+    "tries": 150,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-03-11T18:42:25+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

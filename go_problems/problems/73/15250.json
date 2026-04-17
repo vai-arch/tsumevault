@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15250,
+  "elo": 1293.0252587888,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.9,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ar]AW[br]AW[cr]AW[dr]AB[ap]AB[bp]AB[cp]AB[dp]AB[ep]AB[fp]AB[gq]AB[gr]AB[gs]C[Save yourself]AP[goproblems]\n(;W[fr]\n(;B[bs]\n(;W[fs];B[er]\n(;W[eq];B[fq]\n(;W[es];B[dq]\n(;W[cs];B[er]C[well done, ko is the way to go!RIGHT])\n(;W[er];B[cs]))\n(;W[dq];B[es])\n(;W[cs];B[es]))\n(;W[fq];B[eq])\n(;W[dq];B[eq])\n(;W[es];B[eq])\n(;W[cs];B[eq]))\n(;W[eq];B[fs]LB[es:1]LB[cs:2]MA[dq]MA[fq])\n(;W[er];B[fs]MA[cs]MA[es])\n(;W[es];B[cs])\n(;W[cs];B[es]MA[er]MA[fs])\n(;W[dq];B[es]MA[er]MA[fs])\n(;W[fq];B[es]MA[er]MA[fs]))\n(;B[fs];W[es]C[RIGHT])\n(;B[es];W[ds]MA[bs]MA[fs]C[RIGHT])\n(;B[er];W[eq]LB[es:1]LB[ds:2]MA[bs]MA[fs]C[RIGHT]))\n(;W[er];B[es]MA[bs]MA[ds])\n(;W[es];B[er]MA[bs]MA[ds])\n(;W[ds];B[bs])\n(;W[bs];B[ds]MA[er]MA[es])\n(;W[eq];B[es]MA[bs]MA[ds])\n(;W[fs];B[er]MA[bs]MA[ds])\n(;W[fq];B[es]MA[bs]MA[ds])\n(;W[dq];B[es]MA[bs]MA[ds]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 72,
+  "attempts": {
+    "solved": 874,
+    "failed": 1851,
+    "tries": 2725,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-09-02T07:28:50+00:00",
+  "source": "Problem 15249",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 64,
+      "name": "Life on 2nd Line",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

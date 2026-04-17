@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2637,
+  "elo": 1177.7462585441,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Starting with this problem, I'll try to make a 4x4 problem out of each letter. I don't know if it's possible, but even trying should be fun :) To start with, here is an easy \"A\".\r\nPlease find White's best result!\r\n(japanese rules)",
+  "rating": {
+    "stars": 2.7,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[4]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[cb][cc]AB[ba][ab][ac][bc][ad][cd]C[White to move - what's the best he can do?]PL[W]\r\n(;W[ca]CR[ca]\r\n(;B[bb]CR[bb]\r\n;W[dc]CR[dc]\r\n;B[db]CR[db]\r\n;W[da]CR[da]C[Seki, White wins by one point (the prisoner) RIGHT])\r\n(;B[dc]CR[dc]\r\n;W[bb]CR[bb]\r\n;B[db]CR[db]\r\n;W[aa]CR[aa]C[White wins big, B D2 was bad!]))\r\n(;W[bb]CR[bb]\r\n;B[ca]CR[ca]\r\n(;W[dc]CR[dc]C[Seki & Jigo!])\r\n(;W[db]CR[db]C[Seki & Jigo!]))\r\n(;W[dc]CR[dc]\r\n;B[ca]CR[ca]\r\n;W[bb]CR[bb]C[Seki & Jigo!])\r\n(;W[dd]CR[dd]\r\n;B[dc]CR[dc]\r\n;W[db]CR[db]\r\n;B[bb]CR[bb]\r\n;W[dd]CR[dd]\r\n;B[bd]CR[bd]\r\n;W[ca]CR[ca]\r\n;B[dc]CR[dc]C[Black wins!]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 4757,
+    "failed": 6871,
+    "tries": 11628,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-25T16:02:46+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

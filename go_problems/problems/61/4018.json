@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4018,
+  "elo": 843.18240504628,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 26,
+    "negativeFlagSum": 0,
+    "flagSum": 26
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This position appeared in my brain today and I thought it would make a good problem for beginners.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 46,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ca]AB[cb]AB[cc]AB[cd]AB[ce]AW[dd]AW[dc]AW[db]AW[ec]AW[de]AB[df]AB[ee]AB[fd]AB[fc]AB[eb]AW[fb]AW[gb]AW[gc]AW[hc]C[Black to get the best result.]AW[ef]AB[cf]AW[ff]AW[gf]AW[ge]AP[goproblems]\n(;B[ea]\n(;W[fa]C[CHOICE]\n(;B[da]TR[de]TR[dd]TR[dc]TR[db]TR[ec]C[The descent to the edge is critical - white cannot atari from the left because of a shortage of liberties.  This is the only move for black that works.RIGHT])\n(;B[ed];W[da]C[White's escaped; the marked black stones are captured.]TR[ee]TR[ed]TR[fd]TR[fc])\n(;B[fe];W[da]TR[ee]TR[fe]TR[fd]TR[fc]C[White is safe and the marked stones can't escape.])\n(;B[gd];W[da]TR[ee]TR[fd]TR[gd]TR[fc]C[White is safe and the marked stones stand very little chance of escape.]))\n(;W[fe]C[CHOICE]\n(;B[da];W[ed];B[ee]C[The descent to the edge leaves white short of liberties.  Attempts to escape create a snapback.  White has an endgame followup at E16 for 4 points in gote.RIGHT])\n(;B[ed];W[gd]C[Ooops.])\n(;B[gd];W[ed]C[White's escaped; the marked black stones don't stand a chance.]TR[gd]TR[fd]TR[fc])))\n(;B[da];W[ea]\n(;B[ed];W[eb]C[White connects, capturing the black stones on the right.]TR[ee]TR[ed]TR[fd]TR[fc])\n(;B[fa];W[eb]C[White connects, capturing the black stones on the right.]TR[ee]TR[fd]TR[fc]TR[fa])\n(;B[gd];W[hd]TR[ee]TR[fd]TR[gd]TR[fc]C[White is safe and the marked stones cannot escape.])\n(;B[fe];W[gd]C[White is safe and the marked stones cannot escape.]TR[ee]TR[fe]TR[fd]TR[fc]))\n(;B[ed];W[ea]\n(;B[da];W[eb]C[White connects, capturing the black stones on the right.]TR[ee]TR[ed]TR[fd]TR[fc])\n(;B[fa];W[eb]C[White connects, capturing the black stones on the right.]TR[ee]TR[ed]TR[fd]TR[fc]TR[fa])\n(;B[gd];W[hd]TR[ee]TR[ed]TR[fd]TR[gd]TR[fc]C[White is safe and the marked stones cannot escape.]))\n(;B[gd];W[hd]\n(;B[ea];W[fe]C[Pushing only cost black a precious liberty.  Now the mark stones are captured.]TR[ee]TR[fd]TR[gd]TR[fc])\n(;B[da];W[ea]TR[ee]TR[fd]TR[fc]TR[gd]C[White is safe and the marked stones cannot escape.])\n(;B[ed];W[fe]C[Ooops.])\n(;B[fe];W[ea]TR[ee]TR[fe]TR[fd]TR[gd]TR[fc]C[White is safe and the marked stones cannot escape.]))\n(;B[fe];W[ea]TR[ee]TR[fe]TR[fd]TR[fc]C[White is safe and the marked stones cannot escape.]))",
+  "author": {
+    "id": 5566,
+    "name": "fwiffo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 739.424
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 23522,
+    "failed": 14943,
+    "tries": 38465,
+    "speedSolved": 17,
+    "speedPlay": 46
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-01T12:16:14+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 61,
+      "name": "Snapback",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8798,
+  "elo": 1270.3296910921,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "My first problem, so say if I did something (or, for that matter, many things) wrong",
+  "rating": {
+    "stars": 4.1,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ro]AB[rn]AB[qn]AB[rm]AW[sl]AW[rl]AW[ql]AW[qm]AW[pl]AW[pk]AB[qk]AB[qj]AB[pj]AB[rk]AB[sk]AB[qi]AB[qh]AB[ph]AW[oj]AW[oi]AW[pi]AW[oh]AW[og]AW[pg]AW[pf]AW[qg]AB[pd]AB[oe]AB[of]AW[rg]AB[ok]AB[ol]AB[mk]AW[pn]AW[om]AW[qo]C[Black to save all of his stones after white responded incorrectly]AB[nm]LB[nm:1]AW[rp]LB[rp:2]AW[mp]AW[nq]AW[lo]AB[qq]AW[mg]AP[goproblems]\n(;B[nm]AB[nm];B[oo]\n(;W[po]C[];B[sm];W[pm];B[pp];W[so])\n(;W[so]C[];B[po];W[qp];B[on];W[sn];B[pm];W[sm];B[sp]C[])\n(;W[on]C[]\n(;B[po];W[nn])\n(;B[nn];W[po];B[sm];W[pm];B[pp];W[qp];B[rq]C[]))\n(;W[nn];B[sm];W[pm];B[on];W[po])\n(;W[nl]C[CHOICE];B[nk];W[nn];B[mm];W[on];B[mo];W[no];B[sm];W[pm];B[op];W[np]))\n(;B[sm];W[pm];B[po];W[on]\n(;B[oo];W[nn];B[mn];W[no];B[mo];W[np];B[qp]C[Not both groups were saved])\n(;B[qp]C[Not all stones are safe])\n(;B[no]\n(;W[oo]C[CHOICE];B[op];W[pp]\n(;B[nn];W[po];B[pq];W[qp]\n(;B[rq]C[RIGHT])\n(;B[sp]C[RIGHT]))\n(;B[pq];W[np];B[oq];W[nn];B[mn];W[mo]))\n(;W[nl]C[CHOICE];B[nk];W[nn];B[mn];W[mm];B[oo];W[nm];B[lm];W[ml];B[ll]C[RIGHT]))\n(;B[nn];W[oo];B[no];W[op]))\n(;B[qp];W[po];B[rq];W[rh]C[Black could have saved both groups])\n(;B[po]\n(;W[so]\n(;B[qp];W[sm];B[on];W[sn];B[pm];W[sp];B[rq]C[RIGHT])\n(;B[on];W[sm];B[pm];W[sn];B[sp]C[RIGHT]))\n(;W[qp]\n(;B[sm]C[RIGHT])\n(;B[on];W[pm];B[sm]C[RIGHT]))\n(;W[on]C[CHOICE]\n(;B[no]\n(;W[oo]C[CHOICE]\n(;B[op];W[pp]\n(;B[sm];W[pm];B[nn];W[po];B[pq];W[qp]\n(;B[qq];B[rq]C[RIGHT])\n(;B[rq]C[RIGHT]))\n(;B[nn]\n(;W[pq];B[sm];W[pm];B[po]C[])\n(;W[so]C[CHOICE];B[qp]C[Ko, black can kill unconditionally])))\n(;B[qp];W[op])\n(;B[sm];W[pm];B[op];W[pp];B[nn];W[po];B[pq];W[qp]\n(;B[rq]C[RIGHT])\n(;B[sp]C[RIGHT])))\n(;W[nn]C[CHOICE]\n(;B[mn];W[oo]\n(;B[sm];W[op];B[pm]C[RIGHT])\n(;B[op];W[pp];B[sm];W[pm];B[po]C[RIGHT]))\n(;B[sm];W[pm];B[mn]C[RIGHT]))\n(;W[nl]C[CHOICE];B[nk];W[nn]\n(;B[mn];W[mm]\n(;B[oo];W[nm];B[lm];W[ln];B[sm];W[pm];B[ml]C[RIGHT])\n(;B[sm];W[pm];B[oo];W[nm];B[lm];W[ml];B[ll]C[RIGHT]))\n(;B[sm];W[pm];B[mn];W[mm];B[oo];W[nm];B[lm];W[ml];B[ll]C[RIGHT]))\n(;W[pp])\n(;W[qp];B[sm];W[pm]))\n(;B[sm];W[pm]\n(;B[oo];W[nn];B[mn];W[no];B[mo];W[np];B[qp]C[Not both groups were saved])\n(;B[no]\n(;W[oo]C[CHOICE];B[op];W[pp];B[nn];W[po];B[pq];W[qp];B[rq]C[RIGHT])\n(;W[nl]C[CHOICE];B[nk];W[nn]\n(;B[oo];W[mn])\n(;B[mn]\n(;W[mm];B[oo];W[nm];B[lm];W[ml];B[ll]C[RIGHT])\n(;W[ml]))\n(;B[mm];W[mn])))))\n(;W[nl]C[CHOICE]\n(;B[nk];W[nn]\n(;B[mm];W[on];B[sm];W[pm])\n(;B[sm]C[RIGHT]))\n(;B[sm]\n(;W[pm];B[on])\n(;W[nk]C[CHOICE]))))\n(;B[on];W[po];B[pm]C[Ko; black can kill without ko])\n(;B[oo]\n(;W[po]C[];B[sm];W[pm];B[pp];W[so])\n(;W[so]C[];B[po];W[qp];B[on];W[sn];B[pm];W[sm];B[sp]C[])\n(;W[on]C[]\n(;B[po];W[nn])\n(;B[nn];W[po];B[sm];W[pm];B[pp];W[qp];B[rq]C[]))\n(;W[nn];B[sm];W[pm];B[on];W[po])\n(;W[nl]C[CHOICE];B[nk];W[nn];B[mm];W[on];B[mo];W[no];B[sm];W[pm];B[op];W[np]))\n(;B[no]\n(;W[nn];B[mn];W[on])\n(;W[pp]C[CHOICE]\n(;B[on];W[pm];B[sm];W[po];B[op];W[pq];B[oq];W[pr];B[or];W[qr])\n(;B[qp];W[po];B[rq];W[pq]C[both groups aren't safe])\n(;B[oo];W[po]\n(;B[oq];W[op];B[np];W[pq];B[or];W[pr];B[nr];W[so])\n(;B[op];W[so])\n(;B[pq];W[so])\n(;B[on];W[pm];B[op]\n(;W[so])\n(;W[pq]C[CHOICE];B[oq];W[or])))))\n(;B[rq];W[on]C[The top group is dead]))",
+  "author": {
+    "id": 15018,
+    "name": "ketran0",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-04-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 17,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 75,
+  "attempts": {
+    "solved": 1289,
+    "failed": 2454,
+    "tries": 3743,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-06-24T17:35:26+00:00",
+  "source": "Modified from online game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 22,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

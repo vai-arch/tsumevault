@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3242,
+  "elo": 1623.8449118423,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -1,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 2.8,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[qc]AW[qd]AB[pc]AB[pd]AW[qb]AB[ob]AB[mb]AB[mc]AB[nd]AB[ne]AB[oe]AB[pe]AW[qe]AW[pf]AW[of]AW[nf]AW[mf]AW[me]AW[md]AW[lc]AW[lb]AW[jc]AW[oc]AB[ma]LB[oc:1]LB[ma:2]C[white plays 1, black responds at 2. how many different first moves can now kill black without ko? click on the number.FORCE]LB[jh:0]LB[kh:1]LB[lh:2]LB[mh:3]LB[nh:4]LB[oh:5]AP[goproblems]\r\n(;W[lh];B[lg]C[correct. A is one of the two ways to kill. now play the other.]LB[nc:A]\r\n(;W[nc]C[NOTTHIS])\r\n(;W[oa];B[pa]\r\n(;W[pb];B[na]\r\n(;W[nc]C[RIGHT])\r\n(;W[nb];B[nc]))\r\n(;W[nb];B[na]\r\n(;W[nc];B[pb])\r\n(;W[pb];B[nc])))\r\n(;W[pb];B[nc]\r\n(;W[oa];B[na]C[just ko.])\r\n(;W[na];B[oa]))\r\n(;W[pa];B[oa])\r\n(;W[nb];B[nc]\r\n(;W[oa];B[na])\r\n(;W[pb];B[na]))\r\n(;W[na];B[oa])\r\n(;W[la];B[oa]))\r\n(;W[jh]C[incorrect])\r\n(;W[kh]C[incorrect])\r\n(;W[mh]C[incorrect])\r\n(;W[nh]C[incorrect])\r\n(;W[oh]C[incorrect]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 102,
+  "attempts": {
+    "solved": 442,
+    "failed": 1579,
+    "tries": 2021,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-11-01T22:22:14+00:00",
+  "source": "club: adum vs aki",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

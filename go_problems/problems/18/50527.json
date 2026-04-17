@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 50527,
+  "elo": 1239.1439199316,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "White to play and win the capturing race",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[bo][br][cn][cr][dn][dp][dq][dr][en][eo]AW[ar][bq][co][cp][cq][do][ep][eq][er](;W[bn];B[bm](;W[ds];B[bp];W[aq];B[an];W[bs];B[ap];W[cs]LB[bn:1]C[Great! The key is the cut at 1 because it requires black to spend to moves capturing it so they can safely approach white.RIGHT])(;W[bs];B[bp];W[aq];B[an](;W[ds];B[ap];W[cs]LB[bn:1]C[Great! The key is the cut at 1 because it requires black to spend to moves capturing it so they can safely approach white.RIGHT])(;W[cs]C[RIGHT]))(;W[cs];B[bs];W[ds];B[es];W[ds];B[bp];W[aq];B[an];W[fs];B[ap];W[cs];B[es];W[ds];B[as])(;W[bp];B[an](;W[ds];B[aq])(;W[bs];B[aq])(;W[cs];B[aq]))(;W[aq];B[an](;W[bs]C[RIGHT])(;W[cs]C[RIGHT])(;W[ds]C[RIGHT])))(;W[bs];B[bp];W[aq];B[ap];W[as];B[cs])(;W[aq];B[ap](;W[bs];B[bp])(;W[bp];B[as])(;W[bn];B[bm](;W[bs];B[an]C[You've won the capturing race!RIGHT])(;W[ds];B[an]C[RIGHT]))))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1207.11
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 13,
+    "failed": 7,
+    "tries": 20,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-09-05T14:31:40+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1260
+}

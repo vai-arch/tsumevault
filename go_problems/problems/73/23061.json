@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23061,
+  "elo": 1922.9188830711,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Black to play the best local moves. Thanks to cae for pointing out a mistake!",
+  "rating": {
+    "stars": 3,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\nAB [br][cp][cr][dp][ep][eq]\r\nAW [ao][bo][bp][co][do][eo][fp][fq][fr][fs]\r\n\r\n(; B [ds] (; W [cq] (; B [bq]; W [er] (; B [dr]; W [dq] (; B [aq]; W [bs]; B [as]; W [ar]; B [cs]; W [es]; B [as] C [RIGHT][Well done!])(; B [bs] C [You could have lived with more points.]))(; B [dq]; W [dr])(; B [aq]; W [dr])(; B [bs]; W [dr]))(; B [er]; W [bq] TR [dq][es] C [D2 is not an eye. D3 and E1 are miai.])(; B [ar]; W [er] (; B [dr]; W [bs])(; B [bs]; W [dr]))(; B [bs] (; W [bq])(; W [er] C [As cae pointed out, this is the wrong refutation to B1.]))(; B [dq]; W [bq]))(; W [er] C [This move will not be played by the computer.] (; B [dr]; W [cq] (; B [bq]; W [dq]; B [aq]] C [RIGHT])(; B [dq]; W [bq]))(; B [bq]; W [dr])))\r\n\r\n(; B [dr]; W [ar] (; B [aq]; W [bq] (; B [cq]; W [ap])(; B [as]; W [cq]))(; B [bq]; W [aq]))\r\n(; B [er]; W [bq] (; B [cq]; W [ar])(; B [ar]; W [cq])(; B [ds]; W [cq])(; B [es]; W [ar]))\r\n(; B [bq]; W [dr]; B [er]; W [es])\r\n(; B [cq]; W [dr])\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 4,
+    "failed": 96,
+    "tries": 100,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-03-21T03:10:07+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

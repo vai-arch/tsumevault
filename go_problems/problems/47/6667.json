@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6667,
+  "elo": 1007.8290537608,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": -1,
+    "flagSum": 9
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4.3,
+    "votes": 33,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[as]AB[aq]AB[ap]AW[an]AW[am]AB[aj]AB[bj]AB[cj]AB[cm]AB[cn]AW[fp]AW[gp]AW[hp]AW[ip]C[Where should white play?]AW[ab]AW[ba]AW[cb]AW[bc]AW[ad]AW[bd]AW[cc]AW[da]AW[db]AW[dc]AB[cd]AB[dd]AB[ed]AB[ec]AB[eb]AB[ea]AB[fa]AB[gb]AB[gc]AB[gd]AB[fd]AB[hd]AB[id]AB[ee]AB[fe]AW[ge]AW[he]AW[ie]AW[if]AB[ii]AB[hh]AW[ih]AW[hg]AW[gg]AW[gh]AB[ai]AB[bi]AB[ci]AW[ag]AW[ah]AW[bh]AB[di]AB[dh]AB[dg]AB[cg]AB[bg]AB[be]AB[bf]AB[ae]AW[ce]AW[cf]AW[df]AW[de]AW[ef]AW[eg]AW[eh]AW[ei]AW[ff]AB[gf]AW[ga]AW[ha]AW[hb]AW[ic]AB[ia]AP[goproblems]\n(;W[fb]TR[fa]TR[ea]TR[eb]TR[ec]TR[ed]TR[dd]TR[cd]TR[ee]TR[fe]TR[fd]TR[gd]TR[hd]TR[id]TR[gc]TR[gb]LB[hc:A]C[Seki. The marked black group has only 2 liberties now. If he would play at A, it would be self-atari. This doesn't change if black captures the white stone at F8.RIGHT])\n(;W[fc]C[Seki. The marked black group has only 2 liberties now. If he would play at A, it would be self-atari. This doesn't change if black captures the white stone at F7.RIGHT]LB[hc:A]TR[fa]TR[ea]TR[eb]TR[ec]TR[ed]TR[dd]TR[cd]TR[fd]TR[gd]TR[hd]TR[id]TR[gc]TR[gb]TR[fe]TR[ee])\n(;W[hc];B[ib])\n(;W[ib];B[hc]TR[ga]TR[ha]TR[hb]TR[ib]TR[ic]C[The marked stones are dead.])\n(;W[ig];B[hc])\n(;W[hi];B[hc])\n(;W[hf];B[hc])\n(;W[af];B[ch]\n(;W[ag];B[ah])\n(;W[ah];B[ag]))\n(;W[ch];B[af]\n(;W[bh];B[ah])\n(;W[ah];B[bh])))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 10082,
+    "failed": 8785,
+    "tries": 18867,
+    "speedSolved": 1,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-10T03:23:36+00:00",
+  "source": "a game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

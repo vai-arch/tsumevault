@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5636,
+  "elo": 1236.642222527,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -6,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "See if your endgame is better than poor MrMoto's.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qr]AB[qq]AB[qp]AB[qn]AB[qm]AB[ql]AB[rl]AB[sl]AB[sk]AB[ro]AW[pr]AW[pq]AW[pp]AW[po]AW[qo]AW[pm]AW[pk]AW[pl]AB[on]AB[pn]AW[oo]AW[nn]AW[om]AW[no]AW[rk]AW[qk]AW[sj]AW[ri]AW[mm]AW[or]AW[lr]AW[lq]AW[lp]AW[mo]C[Best endgame for black?]AP[goproblems]\n(;B[rn];W[qs]\n(;B[rr];W[rs];B[sr]C[8 points])\n(;B[rs];W[ps]\n(;B[rr]C[10 points])\n(;B[sr]C[10 points])))\n(;B[rp];W[qs]\n(;B[rr];W[rs];B[sr]C[8 points])\n(;B[rs];W[ps]\n(;B[rr]C[10 points])\n(;B[sr]C[10 points])))\n(;B[ps]C[This is not an 'honest' move - your greed robs you of a liberty.];W[os]\n(;B[qs]\n(;W[rn]C[CHOICE]\n(;B[rp];W[sm];B[so]C[-9  points :(])\n(;B[sn];W[rp]\n(;B[rq];W[so]C[-40 points! :O])\n(;B[rm];W[rq];B[sp];W[sr]C[-10 points :(])\n(;B[sp];W[so]C[-40 points if you lose the ko, and white has a threat at S3.])))\n(;W[rp]C[CHOICE]\n(;B[rn];W[rq]TR[sm]TR[so]C[-40 points! :O])\n(;B[rq];W[rn];B[sp];W[sm]\n(;B[sn];W[so]C[Not a good ko for black. :|])\n(;B[so]C[-9 points :(]))\n(;B[sp];W[rn]\n(;B[rq];W[sm]\n(;B[so]C[-9 points :(])\n(;B[sn];W[so]C[Not a good ko for black. :|]))\n(;B[sn];W[so]C[-40 points if you lose the ko, and white has a threat at S3.]))))\n(;B[rs];W[qs]C[13 points, but you have to fight a ko for it, and white has nothing to lose. :T]))\n(;B[qs];W[ps]LB[mi:T]C[13 points so far ... T for tenuki?]\n(;B[rn]C[12 points, the best. :)RIGHT])\n(;B[rp]C[12 points, the best. :)RIGHT])\n(;B[mi];W[rp]C[Ack.]))\n(;B[rq]C[Black has protected against S4 and made white R1 gote. This may be either one point better or one point worse than playing R1, depending on whether black gets Q1 or white R1.RIGHT])\n(;B[rr]C[It works, but S3 looks much better.RIGHT]))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 2844,
+    "failed": 5035,
+    "tries": 7879,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-12-03T18:49:01+00:00",
+  "source": "KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

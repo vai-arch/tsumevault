@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21542,
+  "elo": 1558.1779690152,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "black to win the game. there are no prisoners at the beginning of the problem and white has a 0.5 komi. (sorry, i probably didn't put in all the combinations.)",
+  "rating": {
+    "stars": 4.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nAW [ab][hb][lb][ac][bc][hc][lc][ad][cd][hd][ld][md][ce][he][ie][je][ke][le][af][bf][cf][df][cg][eg][fg][hg][ch][fh][hh][ih][ci][di][ei][fi][hi][li][dj][gj][hj][ij][jj][kj][lj][mj][hk][lk][kl]\r\nAB [aa][ba][bb][cb][db][eb][fb][gb][dc][gc][dd][gd][de][ge][me][ef][ff][gf][hf][if][jf][kf][lf][mf][ag][bg][gg][ig][bh][gh][jh][lh][mh][bi][gi][ii][ji][ki][mi][cj][ej][fj][bk][dk][fk][gk][el]\r\nSZ [13]\r\nC [black to win the game.]\r\n     (;B[hl] ;W[il]\r\n          (;B[gl] ;W[hm]\r\n               (;B[gm] ;W[ga]\r\n                    (;B[fa] ;W[im] ;B[ha] ;W[ia] ;B[ga] C[RIGHT black wins: 33 to 32.5.])\r\n                    (;B[im] ;W[jm]\r\n                         (;B[fa] ;W[ha] ;B[hm] C[RIGHT black wins: 33 to 32.5.])\r\n                         (;B[hm] ;W[fa] ;B[ea] ;W[ha] C[white wins: 32.5 to 32.])\r\n                    )\r\n               )\r\n               (;B[ha] ;W[ia]\r\n                    (;B[ga] ;W[gm] ;B[fm] ;W[im] C[white wins: 32.5 to 32.])\r\n                    (;B[gm] ;W[ga]\r\n                         (;B[im] ;W[jm]\r\n                              (;B[fa] ;W[ha] ;B[hm] C[RIGHT black wins: 33 to 32.5.])\r\n                              (;B[hm] ;W[fa] ;B[ea] ;W[ha] C[white wins: 32.5 to 32.])\r\n                         )\r\n                         (;B[fa] ;W[im] ;B[ha] ;W[ck] ;B[cl] ;W[ga] C[white will win the ko as black has no ko threats. white wins: 34.5 to 33.])\r\n                    )\r\n               )\r\n               (;B[ga] ;W[gm]\r\n                    (;B[ha] ;W[ia] ;B[fm] ;W[im] C[white wins: 32.5 to 32.])\r\n                    (;B[fm] ;W[im] ;B[ha] ;W[ia] C[white wins: 32.5 to 32.])\r\n               )\r\n          )\r\n          (;B[ha] ;W[ia]\r\n               (;B[gl] ;W[ga]\r\n                    (;B[im] ;W[jm]\r\n                         (;B[hm] ;W[fa] ;B[ea] ;W[ha] C[white wins: 32.5 to 32.])\r\n                         (;B[fa] ;W[hm] ;B[gm] ;W[im] ;B[ha] ;W[ck] ;B[cl] ;W[ga] C[white will win the ko as black has no ko threats. white wins: 34.5 to 33.])\r\n                    )\r\n                    (;B[fa] ;W[hm] ;B[gm] ;W[im] ;B[ha] ;W[ck] ;B[cl] ;W[ga] C[white will win the ko as black has no ko threats. white wins: 34.5 to 33.])\r\n               )\r\n               (;B[ga] ;W[gl] ;B[fl] ;W[hm] ;B[fm] ;W[gm] C[white wins: 35.5 to 31.])\r\n          )\r\n          (;B[gm] ;W[im]\r\n                    (;B[hm] ;W[ga] ;B[fa] ;W[ha] C[white wins: 33.5 to 33.])\r\n                    (;B[ga] ;W[hm]\r\n                         (;B[ha] ;W[ia] ;B[gl] C[RIGHT black wins: 33 to 32.5])\r\n                         (;B[gl] ;W[ha] C[white wins: 33.5 to 33.])\r\n                    )\r\n                    (;B[ha] ;W[ia] ;B[ga] ;W[hm] ;B[gl] C[RIGHT black wins: 33 to 32.5.])\r\n          )\r\n     )\r\n\r\n\r\n     (;B[ha] ;W[ia]\r\n          (;B[hl] ;W[il] ;B[gl] ;W[ga]\r\n               (;B[im] ;W[jm] ;B[hm] ;W[fa] ;B[ea] ;W[ha] C[white wins: 32.5 to 32.])\r\n               (;B[fa] ;W[hm] ;B[gm] ;W[im] ;B[ha] ;W[ck] ;B[cl] ;W[ga] C[white will win the ko as black has no ko threats. white wins: 34.5 to 32.])\r\n          )\r\n          (;B[ga] ;W[gl] ;B[fl]\r\n               (;W[hm] ;B[fm] ;W[gm] ;B[ib] ;W[ja] ;B[jb] ;W[ka] ;B[kb] ;W[la] C[CHOICE white wins: 35.5 to 31.])\r\n               (;W[gm] ;B[fm] ;W[hl] ;B[ib] ;W[ja] ;B[jb] ;W[ka] ;B[kb] ;W[la] C[CHOICE white wins: 35.5 to 31.])\r\n          )\r\n     )\r\n     (;B[gl] ;W[hl]\r\n          (;B[hm] ;W[im]\r\n               (;B[gm] ;W[ga] ;B[fa] ;W[ha] C[white wins: 34.5 to 32.])\r\n               (;B[ha] ;W[ia]\r\n                    (;B[gm] ;W[ga] ;B[fa] ;W[ha] C[white wins: 34.5 to 32.])\r\n                    (;B[ga] ;W[gm] ;B[fm] ;W[hm] C[white wins: 34.5 to 32.])\r\n               )\r\n          )\r\n          (;B[ha] ;W[ia] ;B[ga] ;W[gm] ;B[fm] ;W[hm] C[white wins: 34.5 to 32.])\r\n          (;B[ga] ;W[ha] ;B[hm] ;W[im] ;B[gm] ;W[cc] C[white wins: 34.5 to 33.])\r\n          (;B[gm] ;W[ga] ;B[hm] ;W[im] ;B[fa] ;W[ha] C[white wins: 34.5 to 32.])\r\n     )\r\n     (;B[fl] ;W[hl] C[white wins.])\r\n     (;B[gm] ;W[hl] ;B[hm] ;W[im]\r\n          (;B[gl] ;W[ga] ;B[fa] ;W[ha] C[white wins: 34.5 to 32.])\r\n          (;B[il] ;W[gl]\r\n               (;B[jm] ;W[fm] C[white wins.])\r\n               (;B[fm] ;W[jm] C[white wins.])\r\n          )\r\n     )\r\n     (;B[hm] ;W[im]\r\n          (;B[il] ;W[hl]\r\n               (;B[gm] ;W[jm] ;B[gl] ;W[ga] ;B[fa] ;W[ha] C[white wins: 34.5 to 32.])\r\n               (;B[jm] ;W[gl]\r\n                    (;B[gm] ;W[fl] C[white wins.])\r\n                    (;B[fl] ;W[fm] C[white wins.])\r\n               )\r\n          )\r\n          (;B[hl] ;W[il] ;B[gl] ;W[ga] ;B[fa] ;W[ha] C[white wins: 33.5 to 33.])\r\n          (;B[gm] ;W[hl]\r\n               (;B[gl] ;W[ga] ;B[fa] ;W[ha] C[white wins: 34.5 to 32.])\r\n               (;B[ha] ;W[ia]\r\n                    (;B[gl] ;W[ga] ;B[fa] ;W[ha] C[white wins: 34.5 to 32.])\r\n                    (;B[ga] ;W[gl] C[white wins.])\r\n               )\r\n          )\r\n          (;B[gl] ;W[hl] ;B[ha] ;W[ia]\r\n               (;B[gm] ;W[ga] ;B[fa] ;W[ha] C[white wins: 34.5 to 32.])\r\n               (;B[ga] ;W[gm] ;B[fm] ;W[hm] C[white wins: 34.5 to 32.])\r\n          )\r\n     )\r\n)",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 88,
+  "attempts": {
+    "solved": 93,
+    "failed": 228,
+    "tries": 321,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2017-11-07T05:37:20+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

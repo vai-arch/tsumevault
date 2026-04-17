@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2672,
+  "elo": 2121.8663638802,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[cf]AB[dd]LB[gc:A]C[The following is the set up sequence.  Please play the marked moves.]PL[B]\r\n;B[gc]CR[gc]\r\n;W[ic]LB[cd:A]CR[ic]\r\n;B[cd]CR[cd]\r\n;W[ec]LB[ed:A]CR[ec]\r\n;B[ed]CR[ed]\r\n;W[fc]LB[gd:A]CR[fc]\r\n;B[gd]CR[gd]\r\n;W[fd]LB[fe:A]CR[fd]\r\n;B[fe]CR[fe]\r\n;W[gb]LB[hb:A]CR[gb]\r\n;B[hb]CR[hb]\r\n;W[fb]LB[hc:A]CR[fb]\r\n;B[hc]CR[hc]\r\n;W[ge]LB[ge:A]C[White's move A is a difficult cut for Black to answer without falling into a hamete trap.  The problem starts -- How does Black proceed?]\r\n(;B[he]CR[he]\r\n;W[gf]CR[gf]\r\n(;B[db]CR[db]\r\n;W[ib]CR[ib]\r\n;B[ha]CR[ha]\r\n;W[id]CR[id]\r\n;B[hd]CR[hd]\r\n;W[if]CR[if]\r\n;B[dc]CR[dc]\r\n;W[ee]CR[ee]\r\n;B[ff]CR[ff]\r\n;W[fg]CR[fg]\r\n;B[ef]CR[ef]\r\n;W[eg]CR[eg]\r\n;B[df]CR[df]\r\n;W[dg]CR[dg]\r\n;B[de]CR[de]\r\n;W[hf]CR[hf]\r\n;B[eb]CR[eb]\r\n;W[ie]CR[ie]\r\n;B[fa]LB[he:A]CR[fa]C[As you can see Black has succeeded in keeping the corner and capturing the five White stones, but Black paid an extravagant price to accomplish these goals.  White has a solid outside wall with tremendous influence.  The potential profits White may gain with this wall should be enormous.\r\n\r\nThe move at A (H15) is a natural response, however by playing at A, black has taken the bait and there is no turning back.])\r\n(;B[dc]CR[dc]\r\n;W[ib]CR[ib]C[Interestingly enough, D17 was  slightly better move then D18 for black.  Even though D18 could be regarded as a better shape move then D17.  At a certain stage of development students of Go learn to discern good from bad patterns.  Durning this stage many players become slaves to playing only pattern-type moves.  Learning patterns is very important to Go, but oen must abandon instinctive play to begin re-thinking.]\r\n;B[ga]CR[ga]\r\n;W[id]CR[id]\r\n;B[hd]CR[hd]\r\n;W[ff]CR[ff]\r\n;B[ee]CR[ee]\r\n;W[if]CR[if]C[This position is not as solid for white as if Black had played D18 (see the Navigate Solution for the path and comments there).  However White has nothing to be unhappy about.  White still has the superior position.]))\r\n(;B[id]CR[id]\r\n(;W[cb]CR[cb]C[CHOICE White plays into the corner in an attempt for making two eyes]\r\n;B[ff]CR[ff]\r\n;W[bc]CR[bc]\r\n;B[bd]CR[bd]\r\n;W[df]CR[df]\r\n;B[ef]CR[ef]\r\n;W[he]CR[he]\r\n(;B[jc]CR[jc]\r\n;W[hg]LB[dc:C][jd:B][eh:A]CR[hg]C[Select A, B, or C]\r\n;B[eh]CR[eh]C[RIGHT (Note other plays in the direction of E12 are possible depending on the rest of the board).\r\n\r\nAt this juncture Black's position is better then White's.  If white runs with three stones in the middle, Black builds territory on the left side by chasing White.  If White tries to save the stones on the left, Black gains a very strong position on the outside, further weakening the three White stones in the middle.  Now if you look carefully, the White corner is not unconditionally alive!. if White does not play another stone in the corner -- he is loathed to do -- there will be a ko battle.  The ko battle is not favorable for Black, because it is a two stage ko, nonetheless, Black has nothing to lose by playing it out.])\r\n(;B[jd]CR[jd]\r\n;W[hg]LB[dc:C][jc:B][eh:A]CR[hg]C[Select A B or C]\r\n;B[eh]CR[eh]C[RIGHT (Note other plays in the direction of E12 are possible depending on the rest of the board).\r\n\r\nAt this juncture Black's position is better then White's.  If white runs with three stones in the middle, Black builds territory on the left side by chasing White.  If White tries to save the stones on the left, Black gains a very strong position on the outside, further weakening the three White stones in the middle.  Now if you look carefully, the White corner is not unconditionally alive!. if White does not play another stone in the corner -- he is loathed to do -- there will be a ko battle.  The ko battle is not favorable for Black, because it is a two stage ko, nonetheless, Black has nothing to lose by playing it out.]))\r\n(;W[he]CR[he]C[CHOICE White tries to seperate the single Black stone at F15]\r\n(;B[jc]CR[jc]\r\n;W[ee]CR[ee]\r\n;B[ff]CR[ff]\r\n;W[ef]CR[ef]\r\n;B[fg]CR[fg]\r\n;W[cb]CR[cb]\r\n;B[bb]CR[bb]\r\n;W[db]CR[db]\r\n;B[bf]CR[bf]\r\n;W[bg]CR[bg]\r\n;B[eg]CR[eg]\r\n;W[df]CR[df]\r\n;B[be]CR[be]\r\n;W[ch]CR[ch]\r\n;B[bc]CR[bc]\r\n;W[ea]CR[ea]\r\n;B[hg]CR[hg]C[RIGHTAfter this exchange both groups live in the corner.  However Black has the better position on the outside.  Black has strong outside influence for territory on the upper board, and threatens the White group on the left side.  The future of the weak White group on the left side is in doubt, and it is senseless for White to try to escape with the two White stones in the middle.  ])\r\n(;B[jd]CR[jd]\r\n;W[ee]CR[ee]\r\n;B[ff]CR[ff]\r\n;W[ef]CR[ef]\r\n;B[fg]CR[fg]\r\n;W[cb]CR[cb]\r\n;B[bb]CR[bb]\r\n;W[db]CR[db]\r\n;B[bf]CR[bf]\r\n;W[bg]CR[bg]\r\n;B[eg]CR[eg]\r\n;W[df]CR[df]\r\n;B[be]CR[be]\r\n;W[ch]CR[ch]\r\n;B[bc]CR[bc]\r\n;W[ea]CR[ea]\r\n;B[hg]CR[hg]C[RIGHTAfter this exchange both groups live in the corner.  However Black has the better position on the outside.  Black has strong outside influence for territory on the upper board, and threatens the White group on the left side.  The future of the weak White group on the left side is in doubt, and it is senseless for White to try to escape with the two White stones in the middle.  ]))))",
+  "author": {
+    "id": 1811,
+    "name": "cheyenne",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-04-28",
+    "rank": {
+      "value": 16,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1104.23
+  },
+  "avgSolveTimeSeconds": 84,
+  "attempts": {
+    "solved": 34,
+    "failed": 1957,
+    "tries": 1991,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-29T13:28:38+00:00",
+  "source": "rec.games.go archive",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 19,
+      "name": "Hamete",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17515,
+  "elo": 1307.2119648807,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -1,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "From a recent game of mine. If shape is unconditionally dead, click T for Tenuki. Please comment if there are any flaws, this is my first submission.",
+  "rating": {
+    "stars": 4.6,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rq]AB[rp]AB[qp]AB[pp]AB[po]AB[no]AB[oo]AB[np]AB[qn]AB[rn]AB[rm]AW[rl]AW[ql]AW[qm]AW[pm]AB[pl]AB[ol]AW[om]AW[pn]AB[pj]AW[mn]AW[mo]AW[mp]AW[nq]AW[op]AW[oq]AW[pq]AW[qq]AW[rr]AW[sq]LB[mk:T]C[If black is unconditionally dead, play T for Tenuki.Otherwise, make life.FORCE]AW[nm]AP[goproblems]\n(;B[sm];W[so]\n(;B[ro];W[sp]\n(;B[sr];W[ss];B[sn]\n(;W[qr];B[sr];W[sq];B[sp]C[RIGHT])\n(;W[sr];B[qr];W[pr];B[rs]))\n(;B[sn];W[sr];B[qr];W[pr];B[qs];W[ps];B[rs];W[ss]))\n(;B[sr]\n(;W[ss];B[ro];W[sp];B[sn];W[qr];B[sr];W[sq];B[sp]C[RIGHT])\n(;W[qr]\n(;B[sp];W[ro])\n(;B[ro];W[ss];B[sp]C[RIGHT])))\n(;B[sp];W[ro]))\n(;B[so];W[sm]C[Only one eye.])\n(;B[sl];W[sm]\n(;B[sn];W[ro])\n(;B[so];W[sk]))\n(;B[sp];W[sm]\n(;B[sn];W[ro])\n(;B[ro];W[sn])\n(;B[so];W[sl]))\n(;B[ro];W[sm]\n(;B[sn];W[sp])\n(;B[sp];W[sn]))\n(;B[mk]C[You could have made life!]))",
+  "author": {
+    "id": 67456,
+    "name": "sligocki",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-15",
+    "rank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1372.77
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 869,
+    "failed": 1279,
+    "tries": 2148,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-11-22T22:15:42+00:00",
+  "source": "Personal game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

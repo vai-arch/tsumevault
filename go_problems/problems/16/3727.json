@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3727,
+  "elo": 1319.9491657292,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This problem is build around the corner shown in the previous problem.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[ca][fa][bb][cb][db][eb][fb][gb][cc][cd][ed][fd][ae][ce][ee][ef][gf][eg]AB[aa][ba][ab][ac][bc][dc][ec][fc][gc][bd][dd][be][de][af][bf][cf][df][dg]C[Black to play - will he win, lose or draw?]\r\n(;B[ff]CR[ff]\r\n(;W[fg]CR[fg]\r\n;B[ge]CR[ge]\r\n(;W[fe]CR[fe]\r\n;B[gd]CR[gd]C[Jigo! RIGHT])\r\n(;W[gd]CR[gd]\r\n;B[gg]CR[gg]C[White can't play this way, he has no ko threat]))\r\n(;W[gd]CR[gd]\r\n;B[fg]CR[fg]C[This is a dead shape, WG4 was a mistake!]))\r\n(;B[gd]CR[gd]\r\n;W[ge]CR[ge]C[White wins by one point]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 64,
+  "attempts": {
+    "solved": 2704,
+    "failed": 4833,
+    "tries": 7537,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-10T14:49:00+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

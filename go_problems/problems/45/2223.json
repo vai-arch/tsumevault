@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2223,
+  "elo": 1752.5223791889,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This is the first problem of another set of 4x4 problems. Please find the best result for black! A one point loss will be better (and therefore \"RIGHT\") than a two point loss, a two point win better than a one point win. \r\n(japanese rules) ",
+  "rating": {
+    "stars": 2,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[4]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[aa][cb][db][ac][bc][dc][ad][bd][dd]AB[ab][bb][cc]C[Black to play - what's the best he can do?!]\r\n(;B[ba]CR[ba]\r\n;W[cd]CR[cd]\r\n;B[ca]CR[ca]C[This jigo is best for black! B C1 instead of B B4 would have been a mistake. RIGHT])\r\n(;B[cd]CR[cd]\r\n;W[bc]CR[bc]\r\n(;B[ca]CR[ca]\r\n;W[bd]CR[bd]\r\n(;B[cc]CR[cc]\r\n;W[ac]CR[ac]C[White wins big.])\r\n(;B[ac]CR[ac]\r\n;W[da]CR[da]\r\n(;B[ba]CR[ba]\r\n;W[ad]CR[ad]C[White wins the capturing race])\r\n(;B[cc]CR[cc]\r\n;W[ba]CR[ba]\r\n;B[ca]CR[ca]\r\n;W[ba]CR[ba]C[Black is lost!]))\r\n(;B[ba]CR[ba]\r\n;W[ac]CR[ac]C[White lives]))\r\n(;B[ac]CR[ac]\r\n;W[bd]CR[bd]\r\n(;B[ba]CR[ba]\r\n;W[ca]CR[ca]C[White lives, black lives not])\r\n(;B[ca]CR[ca]\r\n;W[da]CR[da]\r\n(;B[ba]CR[ba]\r\n;W[ad]CR[ad]C[White wins the capturing race])\r\n(;B[cc]CR[cc]\r\n;W[ba]CR[ba]\r\n;B[ca]CR[ca]\r\n;W[ba]CR[ba]C[Black is dead])))\r\n(;B[ba]CR[ba]\r\n;W[ac]CR[ac]C[White has two eyes])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 32,
+  "attempts": {
+    "solved": 2975,
+    "failed": 4497,
+    "tries": 7472,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-05-13T05:24:26+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

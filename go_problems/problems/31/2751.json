@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2751,
+  "elo": 913.00952156049,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "There's a big move at 'T', but black wants this corner. Can he have both?",
+  "rating": {
+    "stars": 3.6,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[nl][ol][pl][ql][rl][sl][nm][ln][mn][lo][po][qo][ro][so][lp][op][pp][rp][sp][lq][oq][sq][lr][or][pr][sr][ls][os][ps][qs][rs][ss]\r\nAW[on][pn][qn][rn][sn][no][oo][np][nq][qq][nr][ns]\r\nLB[kk:T][ms:A] \r\nC[FORCE Either, tenuki at 'T' and then start the semeai at 'A'; or, start the semeai at 'A' allowing white to play 'T'.]\r\n\r\n(;B[ms]LB[kk:T]\r\n(;W[kk]C[RIGHT CHOICE The hana-roku (rabitty six) with vital point occupied is worth 11 dame internally, so both groups in the semeai had the same no. of dame at the start, and whoever plays first can win it. Black could not afford the tenuki, but he now has sente, whilst white has 13 ko threats.])\r\n\r\n(;W[rq]LB[mr:A][kk:T]C[FORCE];B[mr]LB[kk:T];W[qp]LB[mq:A][kk:T]C[FORCE];B[mq]LB[kk:T];W[pq]LB[mp:A][kk:T]C[FORCE];B[mp]LB[kk:T]\r\n;W[qr]LB[rr:A][kk:T]C[FORCE];B[rr]LB[kk:T];W[qq]LB[mo:A][kk:T]C[FORCE];B[mo]LB[kk:T];W[qp]LB[nn:A][kk:T]C[FORCE];B[nn]LB[kk:T]\r\n;W[pq]LB[om:A][kk:T]C[FORCE];B[om]LB[kk:T];W[qr]LB[rq:A][kk:T]C[FORCE];B[rq]LB[kk:T];W[qq]LB[pm:A][kk:T]C[FORCE];B[pm]LB[kk:T]\r\n;W[qp]LB[qm:A][kk:T]C[FORCE];B[qm]LB[kk:T];W[pq]LB[qr:A][kk:T]C[FORCE];B[qr]LB[kk:T];W[qq]LB[rm:A][kk:T]C[FORCE];B[rm]LB[kk:T];W[kk]\r\nC[RIGHT CHOICE The hana-roku (rabitty six) with vital point occupied is worth 11 dame internally, so both groups in the semeai had the same no. of dame at the start, and whoever plays first can win it. White has lost no points making sure of this, but has used up 12 ko threats.]))\r\n\r\n(;B[kk]LB[ms:A];W[rq]C[FORCE]LB[ms:A];B[ms];W[qp]C[FORCE]LB[mr:A];B[mr]\r\n;W[pq]C[FORCE]LB[mq:A];B[mq];W[qr]C[FORCE]LB[rr:A];B[rr];W[qq]C[FORCE]\r\nLB[mp:A];B[mp];W[qp]C[FORCE]LB[mo:A];B[mo];W[pq]C[FORCE]LB[nn:A];B[nn];W[qr]C[FORCE]\r\nLB[rq:A];B[rq];W[qq]C[FORCE]LB[om:A];B[om];W[qp]C[FORCE]LB[pm:A];B[pm];W[pq]C[FORCE]\r\nLB[qr:A];B[qr];W[qq]C[FORCE]LB[qm:A];B[qm];W[qp]C[FORCE]LB[pq:A];B[pq];W[qq]\r\nC[White wins the corner. The hana-roku (rabbitty six) with vital point occupied, only needs 11 more \r\ninternally unanswered white moves to capture. Black should have let white play at 'T'. Also, after the tenuki, black used 13 of the 14 ko threats he had.]))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 56,
+  "attempts": {
+    "solved": 10450,
+    "failed": 8324,
+    "tries": 18774,
+    "speedSolved": 0,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-07-22T17:28:54+00:00",
+  "source": "wtd",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

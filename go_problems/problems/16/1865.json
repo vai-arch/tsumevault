@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1865,
+  "elo": 1827.5003787351,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This is the seventh and last 7x7-endgame-ko-problem! The last white move (the marked stone)was a mistake, although a common one (A2 instead would have secured a jigo). How can black punish white for his careless play? ",
+  "rating": {
+    "stars": 4.5,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]TM[]\r\nAW[ec][cd][ed][fd][gd][ae][ce][de][ee][bf][ff]AB[fa][db][eb][bc][cc][dc][fc][gc][bd][dd][be]TR[ae]C[No komi, no prisoners - black to play and win!]\r\n(;B[af]CR[af]\r\n;W[ag]CR[ag]\r\n(;B[cf]CR[cf]\r\n;W[df]CR[df]\r\n(;B[cg]CR[cg]\r\n;W[dg]CR[dg]\r\n;B[ad]CR[ad]\r\n;W[bg]CR[bg]\r\n;B[af]CR[af]\r\n;W[fb]CR[fb]\r\n;B[gb]CR[gb]\r\n;W[ae]CR[ae]\r\n(;B[cf]CR[cf]\r\n;W[cg]CR[cg]\r\n;B[af]CR[af]C[Black connects the ko and wins by one point! RIGHT])\r\n(;B[cg]CR[cg]\r\n;W[cf]CR[cf]\r\n;B[af]CR[af]C[Black connects the ko and wins by one point! RIGHT]))\r\n(;B[ad]CR[ad]\r\n;W[cg]CR[cg]\r\n;B[af]CR[af]\r\n;W[fb]CR[fb]\r\n(;B[gb]CR[gb]\r\n;W[ae]CR[ae]C[White connects the ko - jigo!])\r\n(;B[bg]CR[bg]\r\n;W[gb]CR[gb]\r\n;B[cf]CR[cf]\r\n;W[dg]CR[dg]\r\n;B[bf]CR[bf]\r\n;W[ga]CR[ga]\r\n;B[ea]CR[ea]C[White wins by one point!])))\r\n(;B[ad]CR[ad]\r\n;W[cf]CR[cf]\r\n;B[af]CR[af]\r\n;W[fb]CR[fb]\r\n;B[gb]CR[gb]\r\n;W[ae]CR[ae]C[Whites connects the ko - jigo!]))\r\n(;B[ad]CR[ad]\r\n;W[af]CR[af]C[This is bad - White wins by one point.])\r\n(;B[cf]CR[cf]\r\n;W[af]CR[af]\r\n;B[ad]CR[ad]\r\n;W[df]CR[df]C[This is bad - White wins by one point.])\r\n(;B[bg]CR[bg]\r\n;W[cg]CR[cg]C[Now black can't get a ko with a2 (Wa2 is good, too)]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 160,
+    "failed": 2623,
+    "tries": 2783,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-01-08T15:47:53+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

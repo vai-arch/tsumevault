@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13514,
+  "elo": 1043.1336469499,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to play and live",
+  "rating": {
+    "stars": 4.2,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[fd]AB[gd]AB[fg]AB[ff]AB[fh]AB[eg]AB[dg]AB[dh]AB[ei]AB[he]AB[hf]AB[hg]AW[fc]AW[gc]AW[ed]AW[ee]AW[ef]AB[fe]AW[df]AW[cg]AW[ch]AW[ci]AW[dj]AW[ej]AW[fi]AW[gi]AW[gg]AW[hh]AW[ii]AW[ig]AW[if]AW[ie]AW[id]AW[hd]C[Black to play and live (3 moves)](;B[gf];W[gh];B[di]LB[eh:A]LB[ge:B]C[Two eyes (A and B).  Black is living.RIGHT])(;B[gh];W[gf](;B[ge];W[di]TR[ei]C[The marked stone is dead destroying the lower eye.  Black is dead.])(;B[di];W[ge]))(;B[di];W[gf]TR[he]TR[hf]TR[hg]LB[gh:A]LB[ge:B]C[If you connect at B, white next move is A and you'll have only one eye.  If you cut white at A, white response will be at B capturing the marked stones.](;B[gh];W[ge])(;B[ge];W[gh])))",
+  "author": {
+    "id": 43497,
+    "name": "Emurga",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2016-10-06",
+    "rank": {
+      "value": 23,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 23,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 911.875
+  },
+  "avgSolveTimeSeconds": 77,
+  "attempts": {
+    "solved": 4345,
+    "failed": 5388,
+    "tries": 9733,
+    "speedSolved": 23,
+    "speedPlay": 102
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-03-22T12:49:25+00:00",
+  "source": "Kano Yoshimori First book",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 148,
+      "name": "False Fake Eyes",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

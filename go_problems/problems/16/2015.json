@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2015,
+  "elo": 1604.6862881299,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "In this position, both moves lead to interesting variations, so please try \"navigate solution\" after you have solved the problem...!",
+  "rating": {
+    "stars": 4,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[7]AW[ba]AW[bb]AW[bf]AW[bg]AW[dg]AW[eg]AB[da]AB[ea]AB[cb]AB[fb]AB[gc]AB[ae]AB[cf]AB[cg]LB[cd:C]LB[ce:A]LB[de:B]TR[cf]TR[cg]C[White to capture the marked stones - should he chase them out with WA or shut them in with WB, BA, WC?]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.50]PL[W]\n(;W[ce];B[df]\n(;W[ef];B[de];W[dd];B[ee];W[fe];B[ed];W[ec];B[fd];W[fc];B[gd]\n(;W[gb];B[ga];W[ge];B[gb];W[eb];B[fa];W[ca];B[db];W[dc];B[cc];W[cd];B[bc]\n(;W[ac];B[bd];W[be]C[RIGHT])\n(;W[bd];B[ac]C[Uh-Oh... WA6 and WA4 are both impossible, so White failed. WB4 was a mistake!]))\n(;W[ge];B[gb]C[Black hasthree liberties now, so he is save]))\n(;W[ee];B[ef]\n(;W[de];B[ff];W[fe];B[ge])\n(;W[ff];B[fg];W[fe];B[de];W[dd];B[be];W[cd];B[eg]))\n(;W[de];B[ef];W[ee];B[ff];W[fe];B[ge]))\n(;W[de];B[ce];W[cd];B[be]\n(;W[df];B[bd];W[bc];B[cc];W[dd];B[ab];W[ac];B[ca]LB[ec:A]LB[fd:B]C[The black stones at the left are alive in a seki, so White would have to kill the black group at the top. A or B are the only moves he can try, but most probably it is White who will die...])\n(;W[dd];B[bd]C[An important move, as you will see later]\n(;W[bc];B[df];W[ef];B[ee];W[fe];B[ed]C[Isn't this the same ladder as in the solution?];W[ec];B[fd];W[fc];B[gd];W[gb];B[ga];W[ge];B[gb];W[eb];B[fa];W[ca];B[db]C[No - in this variation, Black is safe!])\n(;W[cc];B[bc];W[ac];B[ab]))\n(;W[bd];B[df];W[ee];B[ef];W[ff];B[fg];W[eg];B[fe];W[gg];B[fd])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 583,
+    "failed": 2935,
+    "tries": 3518,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-03-18T14:04:53+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

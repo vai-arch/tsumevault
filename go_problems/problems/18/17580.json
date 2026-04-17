@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17580,
+  "elo": 1110.4123432938,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Modified from my own game, I was white but I didn't play the correct solution.",
+  "rating": {
+    "stars": 3.8,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ka]AB[kb]AB[kc]AB[kd]AB[je]AB[ie]AB[he]AB[hd]AB[gd]AB[gc]AW[ja]AW[jb]AW[jc]AW[jd]AW[ke]AW[le]AW[me]AW[md]AW[mc]AW[mb]AW[ma]AW[hb]AW[jf]AW[if]AW[hf]AW[gf]AW[ff]AW[ee]AW[ed]AW[ec]AW[kg]AB[gb]AB[ga]AB[fc]AB[eb]AB[ea]AW[db]AW[cc]AW[bb]C[Black invaded White's moyo to deep. White to play. If you want to take liberties in the M column start at M16 and go upwards.]AP[goproblems]\n(;W[ib];B[ha]\n(;W[ld];B[ic]\n(;W[lc];B[ia]\n(;W[lb]C[Well done. The empty triangle is the only move to save the H18 stone without losing liberties, so you kill the left group as well.RIGHT])\n(;W[la]C[NOTTHIS]))\n(;W[lb]C[NOTTHIS])\n(;W[la]C[NOTTHIS]))\n(;W[hc];B[id]C[CHOICE])\n(;W[lb]C[NOTTHIS])\n(;W[la]C[NOTTHIS])\n(;W[lc]C[NOTTHIS]))\n(;W[ld];B[ib];W[lc];B[ic];W[lb];B[ha]C[You caught some stones but the left group is alive.])\n(;W[hc];B[ib]\n(;W[ha];B[id]C[CHOICE])\n(;W[ia];B[ha]C[CHOICE])\n(;W[ic];B[ha]C[CHOICE])\n(;W[ld];B[id]\n(;W[lc];B[ic]C[CHOICE])\n(;W[ic];B[ha]C[CHOICE])))\n(;W[ha];B[ib]\n(;W[ic];B[hc]C[CHOICE])\n(;W[hc];B[id]C[CHOICE])\n(;W[ld];B[ic]C[CHOICE]))\n(;W[ia];B[ic]C[CHOICE])\n(;W[ic];B[hc]\n(;W[ha];B[ib]C[CHOICE])\n(;W[ld];B[id]C[CHOICE])\n(;W[ia];B[id]C[CHOICE]))\n(;W[la]C[FORCENOTTHIS])\n(;W[lb]C[FORCENOTTHIS])\n(;W[lc]C[FORCENOTTHIS]))",
+  "author": {
+    "id": 69857,
+    "name": "querana",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-26",
+    "rank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1150.62
+  },
+  "avgSolveTimeSeconds": 128,
+  "attempts": {
+    "solved": 1598,
+    "failed": 2415,
+    "tries": 4013,
+    "speedSolved": 4,
+    "speedPlay": 10
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-01-23T08:32:28+00:00",
+  "source": "modified from my own game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

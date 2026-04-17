@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20160,
+  "elo": 1285.9345711596,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rc]AB[qc]AB[qb]AB[qd]AB[pd]AB[od]AB[nc]AW[oc]AW[pc]AW[pb]AW[oa]AW[nb]AW[lc]AW[md]AW[ne]AW[oe]AW[pe]AW[qe]AW[re]AW[rd]C[Black to play. Black wants to live in the corner, either outright or by fighting a ko. How should he play?]SZ[19]CA[utf-8]RU[Japanese]GM[1]FF[4]AP[CGoban:3]ST[2]PB[Musta]PW[Valkea]KM[0]MULTIGOGM[1]\n(;B[pa];W[qa];B[ra];W[sb];B[pa]C[RIGHT]C[CORRECTRIGHT])\n(;B[ra];W[sb];B[pa];W[qa]TR[ob]C[White takes the ko first, so this is bad for Black. White also has an extra adjacent ko-threat at the marked point.])\n(;B[qa];W[pa]\n(;B[sb];W[ra])\n(;B[ra];W[sb];B[mb];W[mc];B[nd];W[lb];B[ma];W[la]))\n(;B[mb];W[nd]\n(;B[pa];W[qa];B[ra];W[sb];B[pa];W[mc])\n(;B[ra];W[sb])\n(;B[mc];W[lb])\n(;B[qa];W[sb])\n(;B[ma];W[mc]))\n(;B[sb];W[ra]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 74,
+  "attempts": {
+    "solved": 595,
+    "failed": 1069,
+    "tries": 1664,
+    "speedSolved": 6,
+    "speedPlay": 19
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-07-25T18:38:05+00:00",
+  "source": "All about ko",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,142 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4349,
+  "elo": 1624.4389486714,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "A friend of mine showed this to me, so it may not be exactly the same situation as in Go Seigen's Tesuji Dictionary, but it should be close enough.",
+  "rating": {
+    "stars": 5,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pp]AW[nq]AB[pn]AB[jp]AW[dq]AB[do]AW[co]AB[cq]AW[cp]AB[dp]AW[cm]AB[eq]AW[dr]AB[cn]AW[bn]AB[dn]AW[bp]AW[fr]AB[er]AW[es]AP[goproblems]\r\n(;B[cr];W[ds]\r\n(;B[fq];W[gr]\r\n(;B[fs];W[gs]LB[cs:A]C[FORCE];B[cs]C[];W[fs]\r\n(;B[gq];W[hr]\r\n(;B[ir];W[hq];B[hp];W[iq]\r\n(;B[jq];W[jr]\r\n(;B[is];W[js]\r\n(;B[ip];W[hs]\r\n(;B[ir];W[is];B[kr]C[RIGHT])\r\n(;B[is];W[ir];B[kr]C[RIGHT])\r\n(;B[kr]C[RIGHT]))\r\n(;B[kr];W[hs]\r\n(;B[ip]C[RIGHT])\r\n(;B[ir]C[RIGHT])\r\n(;B[is]C[RIGHT])))\r\n(;B[kr];W[is]))\r\n(;B[jr];W[ip]))\r\n(;B[hq];W[ir]TR[cq]TR[cr]TR[cs])\r\n(;B[iq];W[bq])\r\n(;B[bq];W[hq]))\r\n(;B[hr];W[gq]))\r\n(;B[gq];W[hr]\r\n(;B[fs];W[gs]LB[cs:A]C[FORCE];B[cs];W[fs];B[ir];W[hq];B[hp];W[iq]\r\n(;B[jq];W[jr];B[is];W[js]\r\n(;B[ip];W[hs]\r\n(;B[ir];W[is];B[kr]C[RIGHT])\r\n(;B[is];W[ir];B[kr]C[RIGHT])\r\n(;B[kr]C[RIGHT]))\r\n(;B[kr];W[hs]\r\n(;B[ip]C[RIGHT])\r\n(;B[ir]C[RIGHT])\r\n(;B[is]C[RIGHT])))\r\n(;B[jr];W[ip]))\r\n(;B[hq];W[ir]TR[cq]TR[cr])\r\n(;B[ir];W[fs]TR[cq]TR[cr]))\r\n(;B[cs];W[fs];B[gq];W[hr]TR[cq]TR[cr]TR[cs]))\r\n(;B[fs];W[gs]\r\n(;B[cs];W[fs];B[fq];W[gq])\r\n(;B[fq];W[gq]))\r\n(;B[cs];W[fs];B[fq];W[gr]\r\n(;B[gq];W[hr]TR[cq]TR[cr]TR[cs])\r\n(;B[hq]TR[cq]TR[cr]TR[cs]))\r\n(;B[gr];W[fq])\r\n(;B[gq];W[fq]))\r\n(;B[ds];W[cs];B[cr];W[ds];B[bs];W[fs])\r\n(;B[fq];W[cr]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 65,
+  "attempts": {
+    "solved": 329,
+    "failed": 2307,
+    "tries": 2636,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-04-29T08:32:06+00:00",
+  "source": "tesuji dictionary",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 19,
+      "name": "Hamete",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 77,
+      "name": "3-4 (komoku) Joseki",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 88,
+      "name": "Nose Tesuji",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 130,
+      "name": "S and S Tesuji Dictionary",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3762,
+  "elo": 1006.3576468966,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 17,
+    "negativeFlagSum": 0,
+    "flagSum": 17
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Which is the best move into this high white position; kosumi 'K', small mj 'S', large mj 'L', push 'P', or one-space jump '1'?\r\n\r\nThanks to BartTM for solution, and to Andre Engels for help with variations. ---- See related problems 3844 and 4857.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[11]AW[dc][jc][dd][de][ee][fe][ge][he][ie][je][ke][if][hg][jg][eh][fh][gh][hh][ih][ii][ki][ij][ik]\r\nAB[cb][cc][cd][ce][df][ff][gf][bg][dg][eg][fg][dh][bi][di][ei][fi][gi][dj][gj][hj][dk][fk][hk]LB[da:K][ea:S][fa:L][db:P][eb:I]\r\nC[No komi, no prisoners yet - Black to win. FORCE]\r\n\r\n(;B[fa];W[eb]\r\n(;B[ea];W[gb]\r\n(;B[fb];W[db];B[da]\r\n;W[fc];B[ga];W[ha];B[ca];W[hb]LB[eb:I]\r\nC[RIGHT You won by 1 and kept sente, the best result. 1st move 'I', without a large ko threat advantage (see 3844 for \r\ndetails), is inferior by 1 and loses sente.])\r\n\r\n(;B[da];W[ga]\r\n(;B[fb];W[fc];B[db];W[ec]LB[eb:I]\r\nC[RIGHT You won by 1 and kept sente, the best result. 1st move 'I', without a large ko threat advantage (see 3844 for \r\ndetails), is inferior by 1 and loses sente.])\r\n\r\n(;B[db];W[fb]C[You lost by 1. Your 1st 3 moves were correct, but your 4th should have been at F10 rather than D10, \r\nto get a 1 point win.]))\r\n\r\n(;B[ga];W[da]\r\n(;B[db];W[ha];B[ca];W[fb];B[da];W[hb]LB[eb:I]\r\nC[RIGHT You won by 1 and kept sente, the best result. 1st move 'I', without a large ko threat advantage (see 3844 for \r\ndetails), is inferior by 1 and loses sente.])\r\n\r\n(;B[ha];W[db]C[B is cut off and cannot form a live group.]))\r\n\r\n(;B[db];W[fb];B[ga];W[ha];B[da];W[hb]LB[eb:I]\r\nC[RIGHT You won by 1 and kept sente, the best result. 1st move 'I', without a large ko threat advantage (see 3844 for \r\ndetails), is inferior by 1 and loses sente.]))\r\n\r\n(;B[db]CR[db];W[ea]CR[ea]C[B is cut off and cannot form a live group.]))\r\n\r\n\r\n(;B[eb];W[db];B[da];W[fb]\r\n(;B[fa];W[ga]\r\n(;B[ea];W[ec];B[ca];W[gb]LB[fa:L]\r\nC[You lost by 1. 1st move 'L' is better by 2.])\r\n\r\n(;B[gb];W[ea]C[White takes first in the ko, and black has no threats.]))\r\n\r\n(;B[ec];W[fa];B[ea];W[fc];B[ed];W[fd];B[ca]LB[fa:L]\r\nC[Jigo, only 2nd best. In this sequence, black gains an extra point but loses sente. Here, the sente loss doesn't \r\nmatter as there are no plays left. 1st move 'L' is better by 1.])\r\n\r\n(;B[gb];W[ec];B[fa];W[ea]C[Playing G10 forced this ko, but white takes first and you have no threats. A large \r\nko threat advantage (see 3844 for details) was required, for this sequence to be the best.]))\r\n\r\n\r\n(;B[ea];W[fb];B[fa];W[ga];B[da];W[gb];B[eb];W[ec];B[db]\r\nLB[fa:L]C[Jigo, only 2nd best. 1st move 'L' is better by 1.])\r\n\r\n\r\n(;B[da];W[fb];B[fa];W[ga]\r\n(;B[ea];W[gb];B[eb];W[ec];B[db]LB[fa:L]C[Jigo, only 2nd best. 1st move 'L' is better by 1.])\r\n\r\n(;B[eb];W[ec]\r\n(;B[db];W[gb];B[ea]LB[fa:L]C[Jigo, only 2nd best. 1st move 'L' is better by 1.])\r\n\r\n(;B[ea];W[db];B[ca];W[gb]LB[fa:L]C[You lost by 1. Jigo was possible from kosumi, whilst 1st move 'L' allows a 1 point win.])\r\n\r\n(;B[gb];W[ea];B[db];W[hb]\r\n(;B[fc];W[gc];B[fa];W[fd];B[ea]LB[fa:L]C[Jigo, only 2nd best. 1st move 'L' is better by 1.])\r\n(;B[fa];W[gc];B[ea]LB[fa:L]C[Jigo, only 2nd best. 1st move 'L' is better by 1.])\r\n(;B[gc];W[fa];B[fc];W[ha];B[hc];W[ib];B[ic];W[jb]LB[fa:L]C[You lost by 3. Jigo was possible from kosumi, whilst 1st move 'L' \r\nallows a 1 point win.]))))\r\n\r\n\r\n(;B[db];W[eb];B[ea];W[fb];B[fa];W[ga];B[da];W[gb]LB[fa:L]C[You lost by 1. 1st move 'L' is better by 2.]))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 9662,
+    "failed": 9112,
+    "tries": 18774,
+    "speedSolved": 2,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-19T20:10:33+00:00",
+  "source": "Sensei's Library",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 122,
+      "name": "Monkey Jump",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 45,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

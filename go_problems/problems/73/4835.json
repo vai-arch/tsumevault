@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4835,
+  "elo": 1027.5185754172,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is a simple problem with short paths.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[ra]AB[rb]AB[qc]AB[qd]AB[pd]AB[od]AB[nd]AB[nc]AB[nb]AW[ob]AW[oc]AW[pc]AW[qb]AW[sb]AW[rc]AW[rd]AW[qe]AW[rf]C[Black to settle the corner.](;B[pa]C[Good.RIGHT])(;B[oa];W[qa]C[White gains two stones when they could have been saved.](;B[pb];W[sa])(;B[pa];W[sa]))(;B[qa];W[pa](;B[pb]C[Ko is not necessary.])(;B[na];W[sa])(;B[oa];W[na](;B[pb])(;B[ma];W[sa])))(;B[pb];W[pa](;B[qa];W[sa])(;B[na];W[oa])(;B[oa];W[na])))",
+  "author": {
+    "id": 5469,
+    "name": "transcend",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-04-26",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 6456,
+    "failed": 7742,
+    "tries": 14198,
+    "speedSolved": 10,
+    "speedPlay": 49
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-07-18T18:42:34+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

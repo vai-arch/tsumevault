@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6206,
+  "elo": 1485.2314677222,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Black has more ko threats than White. Find the best move.",
+  "rating": {
+    "stars": 3.6,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bp]AB[cp]AB[dp]AB[eq]AB[fr]AB[gr]AB[gq]AB[hp]AB[ho]AB[hn]AB[hm]AB[iq]AB[ir]AB[fl]AW[bo]AW[co]AW[do]AW[ep]AW[fq]AW[fp]AW[gp]AW[go]AW[gn]AW[fn]AW[en]AW[dm]AW[bl]C[Beware of ko...]AP[goproblems]\n(;W[dq];B[er]\n(;W[bq];B[cq]\n(;W[cr];B[ap]\n(;W[dr];B[br]\n(;W[ar];B[aq]\n(;W[bs];B[as]C[White now has to win a two stage ko.])\n(;W[ao];B[as]))\n(;W[ao];B[aq])\n(;W[bs];B[ar]))\n(;W[br];B[dr])\n(;W[aq];B[dr])\n(;W[ao];B[dr])\n(;W[ar];B[dr])\n(;W[bs];B[dr]))\n(;W[ap];B[cr]C[White can squeeze Black even tighter than this.])\n(;W[dr];B[aq])\n(;W[br];B[ap])\n(;W[aq];B[ap])\n(;W[ao];B[ap])\n(;W[ar];B[ap]))\n(;W[cq];B[bq])\n(;W[cr];B[cq]\n(;W[dr];B[br])\n(;W[ap]\n(;B[dr]C[CHOICE]\n(;W[bq]C[White squeezes the corner away from Black.RIGHT])\n(;W[br];B[aq])\n(;W[aq];B[br])\n(;W[ar];B[br])\n(;W[ao];B[aq])\n(;W[ds];B[aq])\n(;W[cs];B[aq])\n(;W[bs];B[aq])\n(;W[as];B[aq]))\n(;B[bq]C[In the endgame this is the best way for Black to continue.CHOICE]\n(;W[br];B[dr]\n(;W[aq]C[];B[dq]C[This is what Black would play in the endgame. Next, C1 is a 5 point gote move for both.RIGHT]\n(;W[cs]C[White has secured 4 points and can get a further point per move by playing D1, E1 etc. until Black drops the lid on that.RIGHT]MA[ar]MA[as]MA[bs]MA[ao]TR[ds])\n(;W[ds];B[ar]\n(;W[as];B[cs]\n(;W[bs];B[es]\n(;W[ao];B[cs];W[ar]C[No territory at all in the corner.])\n(;W[ar];B[cs];W[ao]C[No territory at all in the corner.]))\n(;W[ao];B[es])\n(;W[ar];B[es]))\n(;W[ao];B[bs]C[Ko])\n(;W[cs];B[ao])\n(;W[bs];B[ao])))\n(;W[ar]MA[aq]MA[cs]C[White connects the stones, but this is gote and at least one point worse than wA3, bD3, wC1.]MA[dq])\n(;W[as];B[aq])\n(;W[bs];B[aq])\n(;W[cs];B[aq])\n(;W[ds];B[aq]))\n(;W[aq];B[br]\n(;W[ar];B[bs])\n(;W[dr];B[ar]\n(;W[ao];B[ds])\n(;W[bs];B[ao])\n(;W[as];B[ao])\n(;W[cs];B[ao])\n(;W[ds];B[ao]))\n(;W[bs];B[dr]\n(;W[ar];B[cs])\n(;W[cs];B[ar])\n(;W[as];B[cs])\n(;W[ao];B[ar]))\n(;W[ao];B[ar])\n(;W[cs];B[ar]\n(;W[dr];B[ao])\n(;W[ao];B[dr])\n(;W[bs];B[ao])\n(;W[as];B[ao])))\n(;W[dr];B[br]\n(;W[aq];B[ar]\n(;W[ao];B[ds])\n(;W[bs];B[ao])\n(;W[as];B[ao])\n(;W[cs];B[ao])\n(;W[ds];B[ao]))\n(;W[ar];B[bs])\n(;W[bs];B[ar]))\n(;W[ar];B[br]\n(;W[bs];B[dr]\n(;W[cs];B[ds]\n(;W[aq];B[as])\n(;W[as];B[aq])\n(;W[ao];B[as]))\n(;W[aq];B[cs])\n(;W[as];B[cs])\n(;W[ao];B[cs])\n(;W[ds];B[cs]C[A ko by which White has nothing to gain (Black can play E1 to end it); also Black has an internal ko threat at D3.]MA[es]MA[dq]))\n(;W[aq];B[bs])\n(;W[dr];B[bs])\n(;W[ao];B[bs])\n(;W[cs];B[bs])\n(;W[as];B[bs]))))\n(;W[br];B[dr]\n(;W[ap];B[aq])\n(;W[bq];B[ao])\n(;W[aq];B[ap])\n(;W[ar];B[ao])\n(;W[ao];B[ap]))\n(;W[bq];B[ap]\n(;W[dr];B[br]\n(;W[ar];B[aq]\n(;W[bs];B[as]C[White now has to win a two stage ko.])\n(;W[ao];B[as]))\n(;W[ao];B[aq])\n(;W[bs];B[ar]))\n(;W[br];B[dr])\n(;W[aq];B[dr])\n(;W[ao];B[dr])\n(;W[ar];B[dr])\n(;W[bs];B[dr]))\n(;W[aq];B[ap]\n(;W[dr];B[br]\n(;W[ao];B[bq];W[bs];B[ar])\n(;W[bq];B[ar])\n(;W[ar];B[cs])\n(;W[bs];B[ds])\n(;W[cs];B[bs])\n(;W[ds];B[es]))\n(;W[bq];B[dr])\n(;W[ao];B[dr])\n(;W[br];B[dr]))\n(;W[ao];B[ap]\n(;W[dr];B[br]\n(;W[aq];B[bq];W[bs];B[ar])\n(;W[bq];B[aq])\n(;W[ar];B[cs])\n(;W[bs];B[ds]))\n(;W[br];B[dr])\n(;W[aq];B[dr])\n(;W[bq];B[dr]))\n(;W[ar];B[aq]\n(;W[dr];B[br]\n(;W[bs];B[as]C[Two-stage ko.])\n(;W[ap];B[ao];W[bs];B[as]C[Two stage ko, and White just wasted a ko threat.])\n(;W[ao];B[cs]))\n(;W[br];B[dr])\n(;W[ap];B[ao]\n(;W[dr];B[br];W[bs];B[as]C[Two stage ko, and White just wasted a ko threat.])\n(;W[br];B[dr])\n(;W[bq];B[br])\n(;W[an];B[dr]))\n(;W[bq];B[br]))\n(;W[bs];B[dr])\n(;W[cs];B[dr]))\n(;W[dr];B[br]C[Nice solid corner.])\n(;W[br];B[cq])\n(;W[ap];B[cr]\n(;W[br];B[cq]C[Nice, but you can squeeze Black even tighter.])\n(;W[bq];B[cq]C[Nice, but you can squeeze Black even tighter.])\n(;W[cq];B[bq]\n(;W[br];B[dr];W[aq]C[Not good enough.])\n(;W[aq];B[br])\n(;W[ar];B[br]))\n(;W[aq];B[br])\n(;W[ar];B[br])\n(;W[bs];B[bq])\n(;W[dr];B[br]))\n(;W[aq];B[br])\n(;W[ar];B[br]\n(;W[cr];B[bq])\n(;W[dr];B[cr])\n(;W[bq];B[cq])\n(;W[cq];B[bq])\n(;W[ap];B[bq])\n(;W[aq];B[ap])\n(;W[bs];B[aq]\n(;W[cr];B[as]C[Don't bother to find a ko threat; ko would be a success for Black.]\n(;W[cs];B[cq]\n(;W[ao];B[ap])\n(;W[ap];B[ao])\n(;W[ar];B[dr]))\n(;W[bq];B[cs])\n(;W[dr];B[ar];W[cq])\n(;W[cq];B[cs])\n(;W[ao];B[cs])\n(;W[ap];B[cs])\n(;W[ar]C[NOTTHIS]))\n(;W[cq];B[cr])\n(;W[dr];B[cs])\n(;W[cs];B[cq])\n(;W[ao];B[cs])\n(;W[ds];B[dr]))\n(;W[cs];B[aq]))\n(;W[bs];B[cq])\n(;W[cs];B[cq])\n(;W[ds];B[cq])\n(;W[as];B[ap])\n(;W[ao];B[cq]))\n(;W[er];B[dq])\n(;W[dr];B[dq]\n(;W[ap];B[aq])\n(;W[er];B[cr])\n(;W[cr];B[er])\n(;W[cq];B[er])\n(;W[bq];B[ap]))\n(;W[bq];B[cq]\n(;W[cr];B[br]\n(;W[dr];B[er]\n(;W[dq];B[aq])\n(;W[bs]\n(;B[aq])\n(;B[ar]\n(;W[dq];B[aq])\n(;W[ap];B[dq])))\n(;W[aq];B[ap]))\n(;W[er];B[dq]\n(;W[dr];B[aq]\n(;W[ao])\n(;W[bs];B[ar]\n(;W[ao];B[ap];W[cs];B[es])\n(;W[cs];B[es])\n(;W[es];B[cs])))\n(;W[ap];B[aq];W[dr];B[ao]))\n(;W[ap];B[aq];W[er];B[dq];W[dr];B[ao]))\n(;W[dr];B[br]\n(;W[er];B[dq];W[cr];B[aq]\n(;W[ao])\n(;W[bs];B[ar]\n(;W[ao];B[ap];W[cs];B[es])\n(;W[cs];B[es])\n(;W[es];B[cs])))\n(;W[dq];B[er]\n(;W[ap];B[aq]\n(;W[cr];B[ao])\n(;W[ao];B[cr]))\n(;W[cr];B[aq]))\n(;W[cr];B[er]\n(;W[dq];B[aq])\n(;W[bs]\n(;B[aq])\n(;B[ar]\n(;W[dq];B[aq])\n(;W[ap];B[dq])))\n(;W[aq];B[ap]))\n(;W[ap];B[aq];W[er];B[dq];W[cr];B[ao])\n(;W[aq];B[ap]\n(;W[er];B[dq];W[cr];B[ar])\n(;W[dq];B[er];W[cr];B[ar])))\n(;W[ap];B[br]\n(;W[aq];B[ar]\n(;W[er];B[dq]\n(;W[cr];B[ao])\n(;W[ao];B[dr]))\n(;W[cr];B[ao])\n(;W[dr];B[er]))\n(;W[er];B[dq];W[cr];B[aq];W[dr];B[ao]))\n(;W[er];B[dq]\n(;W[ap];B[br];W[cr])\n(;W[cr];B[br]\n(;W[dr];B[aq]\n(;W[ao])\n(;W[bs];B[ar]\n(;W[ao];B[ap];W[cs];B[es])\n(;W[cs];B[es])\n(;W[es];B[cs])))\n(;W[ap];B[aq];W[dr];B[ao]))\n(;W[dr];B[br];W[cr])))\n(;W[cq];B[dq])\n(;W[cr];B[dr])\n(;W[br];B[dr])\n(;W[ap];B[cq]\n(;W[bq];B[br]\n(;W[aq];B[ar]\n(;W[er];B[dq]\n(;W[cr];B[ao])\n(;W[ao];B[dr]))\n(;W[cr];B[ao])\n(;W[dr];B[er]))\n(;W[er];B[dq];W[cr]))\n(;W[dr];B[er]\n(;W[bq];B[br]\n(;W[cr];B[aq]\n(;W[dq];B[ao])\n(;W[ao];B[dq]))\n(;W[dq];B[aq]\n(;W[cr];B[ao])\n(;W[ao];B[cr]))\n(;W[aq];B[ar])\n(;W[ar];B[aq]MA[cr]C[Black can either fight the ko or connect.];W[dq];B[ao])\n(;W[bs];B[aq])\n(;W[ao];B[aq]))\n(;W[cr];B[br]\n(;W[bq];B[aq]\n(;W[dq])\n(;W[ao];B[dq]))\n(;W[aq];B[ar]\n(;W[dq];B[bq]\n(;W[ao];B[ds])\n(;W[bs];B[ao])\n(;W[as];B[ao])\n(;W[cs];B[ao])\n(;W[ds];B[ao]))\n(;W[ao];B[bq])\n(;W[bs];B[dq]))\n(;W[ar];B[bs]\n(;W[dq];B[bq])\n(;W[bq];B[aq]C[If Black cannot win the ko the connection at A is good enough.\nIf White plays B instead of the ko then Black connects the ko; White A does not work..]LB[ao:B]LB[dq:A])\n(;W[aq];B[bq]))\n(;W[bs]\n(;B[aq])\n(;B[ar]\n(;W[dq];B[bq])\n(;W[bq];B[dq])\n(;W[aq];B[dq])))\n(;W[dq];B[bq]\n(;W[aq])\n(;W[ar];B[bs])\n(;W[bs];B[ar])))\n(;W[br];B[aq])\n(;W[aq];B[br]\n(;W[bq];B[ar])\n(;W[ar];B[bs])\n(;W[cr];B[ar]\n(;W[dq];B[bq])\n(;W[ao];B[bq])\n(;W[bs];B[dq]))\n(;W[dq];B[ar])\n(;W[cs];B[ar])\n(;W[ds];B[ar])\n(;W[bs];B[ar]))\n(;W[ar];B[br]\n(;W[cr];B[bs]\n(;W[dq];B[bq])\n(;W[bq];B[aq]C[If Black cannot win the ko the connection at A is good enough.\nIf White plays B instead of the ko then Black connects the ko; White A does not work..]LB[ao:B]LB[dq:A])\n(;W[aq];B[bq]))\n(;W[bs];B[cs])\n(;W[bq];B[aq]MA[cr]C[Black can either fight the ko or connect.];W[dq];B[ao])\n(;W[dq];B[ds])\n(;W[aq];B[bs])\n(;W[cs];B[bs])\n(;W[ds];B[bs]))\n(;W[dq];B[cr])\n(;W[cs];B[aq])\n(;W[ds];B[aq])\n(;W[bs];B[aq]))\n(;W[er];B[dr]\n(;W[dq];B[aq]\n(;W[eq];B[br])\n(;W[es];B[eq]C[Ko])\n(;W[cr];B[eq]C[Ko])\n(;W[ao];B[es])\n(;W[ds];B[eq]C[Ko])\n(;W[br];B[es]))\n(;W[bq];B[br];W[dq];B[aq])\n(;W[br];B[aq]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[ao];B[bq]\n(;W[dq];B[es])\n(;W[es];B[dq]))\n(;W[cr];B[es])\n(;W[bq];B[ao]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[an];B[ap]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[cr];B[es]))))\n(;W[es];B[dq]MA[aq]C[Instead of connecting at D3 Black might well allow the ko fight by playing A3.])\n(;W[aq];B[br]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[ar];B[es])\n(;W[bq];B[ar]))\n(;W[ar];B[br]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[bs];B[cs]\n(;W[es];B[dq])\n(;W[dq];B[as]\n(;W[es];B[aq])\n(;W[eq];B[aq])\n(;W[aq];B[es])\n(;W[ds];B[es]\n(;W[bs];B[eq])\n(;W[aq];B[eq])))\n(;W[aq];B[es])\n(;W[bq];B[as]TR[ar]TR[bq]C[The marked stones are captured with double ko.]))\n(;W[aq];B[es]))\n(;W[cr];B[br]\n(;W[dq];B[cs]\n(;W[es];B[aq])\n(;W[eq];B[es])\n(;W[aq];B[es]))\n(;W[cs];B[es])\n(;W[es];B[aq]\n(;W[dq];B[cs])\n(;W[cs];B[bs])\n(;W[ds];B[cs])))\n(;W[cs];B[aq]\n(;W[es];B[dq]\n(;W[ds];B[br]\n(;W[cr];B[ao])\n(;W[bs];B[ar]\n(;W[cr];B[ao])\n(;W[ao];B[fs]))\n(;W[ar];B[ao]\n(;W[an];B[bs])\n(;W[cr];B[bs])\n(;W[bs];B[cr]))\n(;W[ao];B[bs]))\n(;W[br];B[ds])\n(;W[ao];B[ds])\n(;W[ar];B[ao]\n(;W[ds];B[bs]\n(;W[br];B[cr])\n(;W[cr];B[br])\n(;W[an];B[br]))\n(;W[br];B[ds])\n(;W[an];B[ds])))\n(;W[ao];B[es])\n(;W[dq];B[es])\n(;W[cr];B[es])\n(;W[ds];B[es])\n(;W[br];B[es]))\n(;W[bs];B[aq]\n(;W[dq];B[es])\n(;W[es];B[dq]\n(;W[ds];B[fs];W[cs];B[br])\n(;W[ar];B[ao]\n(;W[ds];B[fs];W[cs];B[br])\n(;W[br];B[ds])\n(;W[cr];B[ds])\n(;W[cs];B[ds])\n(;W[an];B[ds]))\n(;W[ao];B[ds])\n(;W[br];B[ds]))\n(;W[ao];B[es]))\n(;W[ds];B[es]MA[aq]C[Instead of capturing at E1 Black could also allow the ko fight by playing A3]))\n(;W[br];B[aq]\n(;W[er];B[dr]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[ao];B[bq]\n(;W[dq];B[es])\n(;W[es];B[dq]))\n(;W[cr];B[es])\n(;W[bq];B[ao]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[an];B[ap]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[cr];B[es]))))\n(;W[dr];B[er])\n(;W[cr];B[dr])\n(;W[bq];B[ao]\n(;W[dr];B[er])\n(;W[er];B[dr]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[an];B[ap]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[cr];B[es])))\n(;W[cr];B[dr])\n(;W[ar];B[ap]\n(;W[dr];B[er])\n(;W[er];B[dr]\n(;W[es];B[dq])\n(;W[an];B[es])\n(;W[cr];B[es])\n(;W[dq];B[es]))\n(;W[cr];B[dr])\n(;W[an];B[dr])))\n(;W[ar];B[ao]\n(;W[dr];B[er])\n(;W[er];B[dr])\n(;W[cr];B[dr])\n(;W[an];B[ap]\n(;W[dr];B[er])\n(;W[cr];B[dr])\n(;W[er];B[dr]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[cr];B[es])))\n(;W[bq];B[ap]\n(;W[dr];B[er])\n(;W[er];B[dr]\n(;W[es];B[dq])\n(;W[an];B[es])\n(;W[cr];B[es])\n(;W[dq];B[es]))\n(;W[cr];B[dr])\n(;W[an];B[dr]))))\n(;W[cr];B[br]\n(;W[er];B[dr]\n(;W[dq];B[cs]\n(;W[es];B[aq])\n(;W[eq];B[es])\n(;W[aq];B[es]))\n(;W[cs];B[es])\n(;W[es];B[aq]\n(;W[dq];B[cs])\n(;W[cs];B[bs])\n(;W[ds];B[cs])))\n(;W[dr];B[er]\n(;W[bq])\n(;W[aq];B[ar]\n(;W[dq];B[bq])\n(;W[ao];B[bq])\n(;W[bs];B[dq]))\n(;W[ar];B[bs]\n(;W[dq];B[bq])\n(;W[bq];B[aq]C[If Black cannot win the ko the connection at A is good enough.\nIf White plays B instead of the ko then Black connects the ko; White A does not work..]LB[ao:B]LB[dq:A])\n(;W[aq];B[bq]))\n(;W[bs]\n(;B[aq])\n(;B[ar]\n(;W[dq];B[bq])\n(;W[bq])\n(;W[aq])))\n(;W[dq];B[bq]))\n(;W[ar];B[bs];W[er]\n(;B[dq]\n(;W[dr];B[bq])\n(;W[bq];B[aq];W[dr];B[ao];W[an];B[bq]))\n(;B[dr];W[dq];B[cs];W[es];B[eq]MA[aq]C[Black can also live in double ko by playing at A3.])))\n(;W[aq];B[br]\n(;W[er];B[dq])\n(;W[dr];B[er]\n(;W[bq])\n(;W[ar];B[bs])\n(;W[cr];B[ar])\n(;W[dq];B[ar])\n(;W[cs];B[ar])\n(;W[ds];B[ar])\n(;W[bs];B[ar]))\n(;W[cr];B[dr])\n(;W[ar];B[bs]\n(;W[er];B[dq])\n(;W[bq];B[dr])\n(;W[dr];B[er]))\n(;W[bq];B[ar]\n(;W[er];B[dq]\n(;W[cr];B[ao])\n(;W[ao];B[dr]))\n(;W[cr];B[ao])\n(;W[dr];B[er])))\n(;W[ar];B[br]\n(;W[dr];B[er]\n(;W[cr])\n(;W[bs];B[cs])\n(;W[bq])\n(;W[dq];B[ds])\n(;W[aq])\n(;W[cs];B[bs])\n(;W[ds];B[bs]))\n(;W[er];B[dr]\n(;W[dq];B[es])\n(;W[es];B[dq])\n(;W[bs];B[cs]\n(;W[es];B[dq])\n(;W[dq];B[as]\n(;W[es];B[aq])\n(;W[eq];B[aq])\n(;W[aq];B[es])\n(;W[ds];B[es]\n(;W[bs];B[eq])\n(;W[aq];B[eq])))\n(;W[aq];B[es])\n(;W[bq];B[as]TR[ar]TR[bq]C[The marked stones are captured with double ko.]))\n(;W[aq];B[es]))\n(;W[cr];B[bs];W[er]\n(;B[dq]\n(;W[dr];B[bq])\n(;W[bq];B[aq];W[dr];B[ao];W[an];B[bq]))\n(;B[dr];W[dq];B[cs];W[es];B[eq]MA[aq]C[Black can also live in double ko by playing at A3.]))\n(;W[bs];B[cs]\n(;W[er];B[dr]\n(;W[es];B[dq])\n(;W[dq];B[as]\n(;W[es];B[aq])\n(;W[eq];B[aq])\n(;W[aq];B[es])\n(;W[ds];B[es]\n(;W[bs];B[eq])\n(;W[aq];B[eq])))\n(;W[aq];B[es])\n(;W[bq];B[as]TR[ar]TR[bq]C[The marked stones are captured with double ko.]))\n(;W[dr];B[er])\n(;W[bq];B[aq]C[Black lives with double ko])\n(;W[aq];B[dr]))\n(;W[bq];B[cr])\n(;W[cs];B[bs]\n(;W[dr];B[er])\n(;W[er];B[dq])\n(;W[cr];B[dr])))\n(;W[cs];B[aq];W[er];B[dr]\n(;W[es];B[dq]\n(;W[ds];B[br]\n(;W[cr];B[ao])\n(;W[bs];B[ar]\n(;W[cr];B[ao])\n(;W[ao];B[fs]))\n(;W[ar];B[ao]\n(;W[an];B[bs])\n(;W[cr];B[bs])\n(;W[bs];B[cr]))\n(;W[ao];B[bs]))\n(;W[br];B[ds])\n(;W[ao];B[ds])\n(;W[ar];B[ao]\n(;W[ds];B[bs]\n(;W[br];B[cr])\n(;W[cr];B[br])\n(;W[an];B[br]))\n(;W[br];B[ds])\n(;W[an];B[ds])))\n(;W[ao];B[es])\n(;W[dq];B[es])\n(;W[cr];B[es])\n(;W[ds];B[es])\n(;W[br];B[es]))\n(;W[ds];B[aq]\n(;W[er];B[dq])\n(;W[dr];B[er])\n(;W[br];B[dr])\n(;W[cr];B[dr])\n(;W[ar];B[ao];W[er];B[dq];W[cs];B[dr];W[es];B[bs]\n(;W[br];B[cr])\n(;W[cr];B[br])\n(;W[an];B[br])))\n(;W[bs];B[aq];W[er];B[dq];W[ds];B[dr];W[es];B[fs];W[cs];B[br])\n(;W[ao];B[aq]\n(;W[br];B[bq]\n(;W[er];B[dr]\n(;W[dq];B[es])\n(;W[es];B[dq]))\n(;W[dr];B[er]))\n(;W[er];B[dr];W[dq];B[es])\n(;W[dr];B[er])))\n(;W[aq];B[dr])\n(;W[ar];B[dr])\n(;W[cs];B[dr])\n(;W[bs];B[dr])\n(;W[ds];B[dr])\n(;W[es];B[dr])\n(;W[ao];B[dr]\n(;W[ap];B[br])\n(;W[aq];B[ap])\n(;W[bq];B[ap])\n(;W[cq];B[bq])\n(;W[ar];B[ap])\n(;W[br];B[ap])\n(;W[cr];B[ap]))\n(;W[as];B[dr]))",
+  "author": {
+    "id": 3759,
+    "name": "BartTM",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-14",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1476.63
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 865,
+    "failed": 2891,
+    "tries": 3756,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-03-24T08:22:32+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

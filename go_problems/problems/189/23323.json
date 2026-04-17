@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23323,
+  "elo": 1434.7282164712,
+  "problemLevel": 26,
+  "rank": {
+    "value": 4,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to kill on this 4x7 board.\r\n\r\nThanks to blyx for the idea in http://goproblems.com/prob.php3?id=23287",
+  "rating": {
+    "stars": 3.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[3]\r\nRU[Japanese]SZ[7]HA[0]KM[5.5]\r\nPW[White]\r\nPB[Black]\r\nGN[White (W) vs. Black (B)]\r\nDT[2021-05-14]\r\nSY[Cgoban 1.9.14]TM[30:00(5x1:00)]TR[ac][bc][cc][dc][ec][fc][gc]PL[B]\r\nAW[ed][de][df][ef][ff][eg]\r\nAB[ad][bd][cd][dd][ce][af][bf][cf][cg][dg][fg]\r\nC[Black to kill on this 4x7 board\r\n]\r\n(;B[gg];W[fe]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[gf];W[ge]TR[ac][bc][cc][dc][ec][fc][gc]\r\n(;B[fd];W[fe]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[fe];W[gg]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[ee];W[fe]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[gd];W[fe]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n)\r\n\r\n(;B[ge];W[fe]\r\nC[WRONG There are various ko options but black has no threats and white takes first.\r\n]\r\nTR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[ee];W[fe]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[gd];W[fe]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[fe]\r\n(;W[ee]C[CHOICE\r\n]TR[ac][bc][cc][dc][ec][fc][gc]\r\n(;B[gf];W[gg]TR[ac][bc][cc][dc][ec][fc][gc]\r\n(;B[ge];W[fd]TR[ac][bc][cc][dc][ec][fc][gc];B[fg]\r\nC[RIGHT Ko and white has no threats.\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[fd];W[ge]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[gd];W[ge]C[WRONG Black has no threats\r\n]\r\nTR[bc][ac][cc][dc][ec][fc][gc])\r\n)\r\n\r\n(;B[gg];W[gf]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[ge];W[gf]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[gd];W[gf]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[fd];W[gf]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n)\r\n(;W[fd]C[CHOICE\r\n]TR[ac][bc][cc][dc][ec][fc][gc]\r\n(;B[gf];W[gg]TR[ac][bc][cc][dc][ec][fc][gc];B[ge];W[ee]\r\nTR[ac][bc][cc][dc][ec][fc][gc];B[fg]\r\nC[RIGHT Ko and white has no threats\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[gg];W[gf]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[ge];W[gf]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[ee];W[ge]C[WRONG\r\n]TR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n(;B[gd]C[WRONG If black plays here, white takes at G3 and lives\r\n])\r\n)\r\n)\r\n\r\n(;B[fd];W[fe]LB[ee:1][ge:2][gg:3][ed:4][gd:6]\r\nC[WRONG This path cannot be played out on the 7x7 board. But this move will result in the sequence 1-6 (black 5 passes as a ko threat) and white lives.\r\n]\r\nTR[ac][bc][cc][dc][ec][fc][gc])\r\n\r\n)",
+  "author": {
+    "id": 10184,
+    "name": "cae",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-14",
+    "rank": {
+      "value": 13,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1196.34
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 40,
+    "failed": 104,
+    "tries": 144,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-05-16T22:26:35+00:00",
+  "source": "http://goproblems.com/prob.php3?id=23287",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 189,
+      "name": "Irregular board",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

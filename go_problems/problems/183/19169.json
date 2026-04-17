@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19169,
+  "elo": 1254.7908287717,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This shape looks as if White can make it gomoku-nakade (a five-point space that becomes only one eye), but Black's hane on the edge is very useful in securing life. This problem was probably chosen by so many professionals (12) because of the simplicity of the shape. \r\n",
+  "rating": {
+    "stars": 4.1,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AW[qr]AW[qq]AW[qp]AW[qo]AW[po]AW[oo]AW[no]AB[pr]AB[pq]AB[pp]AB[op]AB[np]AB[mp]AB[mr]AB[mq]AB[ls]AW[lr]AW[lq]AW[lp]AW[lo]AW[mo]AW[jr]C[Black to play and live](;B[nr](;W[ms];B[oq];W[os];B[ps]LB[nr:1]LB[ms:2]LB[oq:3]LB[os:4]LB[ps:5]LB[ns:a]C[Black 1, turning inward on the side with the hane, is a good move.  When White tries to steal his eye shape with 2, Black calmly secures one eye with 3. If 4, Black blocks at 5, and White can't connect at 'a'. The hane works very effectively. RIGHT])(;W[oq];B[ms];W[os];B[ps]LB[or:a]LB[nr:1]LB[oq:2]LB[ms:3]LB[os:4]LB[ps:5]C[It White tries to reduce Black to one large eye with the nakade move of 2, Black expands his eye space by connecting at 3. If White 4, Black intercepts with 5 and lives: White 'a' does not create a nakade. RIGHT]))(;B[or];W[ps]LB[or:1]LB[ps:2]LB[nq:a]LB[ns:b]LB[os:c]LB[ms:d]C[IBlack 1 is on the wrong side: it doesn't make use of his own hane. White now kills Black with the hane of 2. Next, if Black 'a', White 'b'; if instead Black 'c', White 'd'. There's not enough room to live.](;B[nq];W[ns]C[CHOICE])(;B[os];W[ms]C[CHOICE]))(;B[ps];W[ms]LB[ps:1]LB[ms:2]LB[ns:a]LB[or:b]LB[nr:c]LB[oq:d]C[If Black 1, White throws in at 2 and can now create a gomoku-nakade shape. Next, if Black 'a', White 'b'; if instead Black 'c', White 'd' makes a sanmoku-nakade (three- point single eye)](;B[ns];W[or](;B[os];W[ks]C[CHOICE])(;B[nr];W[oq]C[CHOICE])(;B[oq];W[nr]C[CHOICE]))(;B[nr];W[oq](;B[or];W[ns];B[os];W[ms]C[CHOICE])(;B[ns];W[or]C[CHOICE])(;B[os];W[ks]C[CHOICE]))))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 232,
+  "attempts": {
+    "solved": 642,
+    "failed": 1033,
+    "tries": 1675,
+    "speedSolved": 5,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-03-07T15:40:04+00:00",
+  "source": "varius",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 183,
+      "name": "The Top Ten Life-and-Death Problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

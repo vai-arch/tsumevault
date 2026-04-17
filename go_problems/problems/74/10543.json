@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10543,
+  "elo": 1077.6264585718,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Slightly altered version of my previous problem. Please comment if I'm missing something.",
+  "rating": {
+    "stars": 3.3,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[js]AW[ks]AW[kr]AW[kq]AB[jr]AB[jq]AB[jp]AB[kp]AW[lp]AW[mp]AW[np]AW[op]AB[lq]AB[lr]AB[mq]AB[nq]AB[oq]AB[or]AB[ns]AB[pr]AW[pq]AW[qr]AW[pp]AW[rq]AW[ir]AW[iq]AW[ip]AB[lo]AB[kn]AB[jn]C[Can White kill the black group?FORCE]LB[nn:Yes]LB[pn:No]AP[goproblems]\n(;W[pn]C[]AB[ir]AB[iq]AB[ip]AW[jr]AW[jq]AW[jp]AW[kp]AB[kq]AB[kr]AB[ks]AB[js]AW[lq]AW[lr]AW[mq]AW[nq]AW[oq]AW[or]AW[pr]AW[ns]AB[lp]AB[mp]AB[np]AB[op]AB[pp]AB[pq]AB[qr]AB[rq]AW[lo]AW[jn]AW[kn];B[ps]C[Okay, now the colors of the stones are swithed. Please proof why the white group can't be killed]\n(;W[ls]\n(;B[mr];W[is]C[RIGHT])\n(;B[is];W[mr]C[RIGHT]))\n(;W[mr];B[ls]))\n(;W[nn];B[on]C[Okay, please kill the black group.];W[ps];B[ls]\n(;W[is];B[mr])\n(;W[mr];B[is])))",
+  "author": {
+    "id": 13781,
+    "name": "zafris",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-13",
+    "rank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1348.33
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 3497,
+    "failed": 4536,
+    "tries": 8033,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-10-25T21:23:48+00:00",
+  "source": "modified game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

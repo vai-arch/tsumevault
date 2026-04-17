@@ -1,0 +1,142 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22341,
+  "elo": 1405.2918014634,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "IMPORTANT: THIS PROBLEM USES IRREGULAR RULES. HELP YOUR OPPONENT WITH YOUR FIRST MOVE. If you dislike irregular rules problems, just skip this problem. Please flag and/or comment if there is a mistake. (Note: I'm quite sure I've covered all of the correct variations; tell me if there are any incorrect variations that I should add.)",
+  "rating": {
+    "stars": 3,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nAB[rp][qp][qq][qr]\r\nAW[rm][ro][qo][po][pp][pq][pr][nr]\r\nC[IMPORTANT: Read the introduction. White seeks to help Black make the L-group alive. Play ONE move that makes Black alive with territory (no seki).][FORCE]\r\nLB[on:T][rq:A][sq:B][rr:C][sr:D][rs:E][ss:F]\r\nTR[rp][qp][qq][qr]\r\n\r\n\r\n\r\n\r\n\r\n(\r\n; W[on] AB[rm][ro][qo][po][pp][pq][pr][nr] AW[rp][qp][qq][qr]; B[on] C[The colors have swapped. Please demonstrate how the L-group can live.]\r\n(; W[sr]; B[rs] C[Miai to kill.] TR[qs][sp])\r\n(; W[rs]; B[sr] C[Miai to kill.] TR[rr][sq])\r\n(; W[rr]; B[sq] C[Miai to kill.] TR[qs][sp])\r\n(; W[sp]; B[qs] C[Miai to kill.] TR[rs][sr])\r\n(; W[qs]; B[sp] C[Miai to kill.] TR[rs][sr])\r\n)\r\n\r\n\r\n\r\n\r\n(\r\n; W[rq] AB[rm][ro][qo][po][pp][pq][pr][nr] AW[rp][qp][qq][qr]; B[rq] C[The colors have swapped. Please demonstrate how the L-group can live.]\r\n(; W[sp]; B[qs])\r\n(; W[sq]; B[rr])\r\n(; W[rr]; B[sq] (; W[sp]; B[qs])(; W[sr] C[RIGHT]))\r\n)\r\n\r\n\r\n\r\n\r\n\r\n\r\n(\r\n; W[sq] AB[rm][ro][qo][po][pp][pq][pr][nr] AW[rp][qp][qq][qr]; B[sq] C[The colors have swapped. Please demonstrate how the L-group can live.]\r\n(; W[sp]; B[qs])\r\n)\r\n\r\n\r\n\r\n\r\n\r\n(\r\n; W[rr] AB[rm][ro][qo][po][pp][pq][pr][nr] AW[rp][qp][qq][qr]; B[rr] C[The colors have swapped. Please demonstrate how the L-group can live.]\r\n(; W[qs]; B[sp])\r\n(; W[rs]; B[sr])\r\n)\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n(\r\n; W[sr] AB[rm][ro][qo][po][pp][pq][pr][nr] AW[rp][qp][qq][qr]; B[sr] C[The colors have swapped. Please demonstrate how the L-group can live.]\r\n(; W[qs]; B[sp])\r\n(; W[sp]; B[qs])\r\n(; W[rr]; B[sq])\r\n)\r\n\r\n\r\n\r\n\r\n\r\n(\r\n; W[rs] AB[rm][ro][qo][po][pp][pq][pr][nr] AW[rp][qp][qq][qr]; B[rs] C[The colors have swapped. Please demonstrate how the L-group can live.]\r\n(; W[qs]; B[rr])\r\n(; W[rr]; B[qs])\r\n(; W[sp]; B[qs])\r\n)\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n(\r\n; W[ss] AB[rm][ro][qo][po][pp][pq][pr][nr] AW[rp][qp][qq][qr]; B[ss] C[The colors have swapped. Please demonstrate how the L-group can live.]\r\n(; W[sr]; B[sp]; W[rs] C[RIGHT])\r\n(; W[rs]; B[sr])\r\n(; W[rr]; B[sq])\r\n\r\n)\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 91,
+    "failed": 252,
+    "tries": 343,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-03-25T20:37:35+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 69,
+      "name": "L-Group",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 142,
+      "name": "Help Thy Opponent",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 205,
+      "name": "Irregular rules",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

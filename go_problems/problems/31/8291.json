@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8291,
+  "elo": 1958.349149215,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -2,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "Rotate by Pi and invert color. i.e. mimic the joseki in proper time.",
+  "rating": {
+    "stars": 3.1,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cp]AW[eq]AB[gq]AW[eo]AB[dn]AW[hp]AB[dq]AW[er]AB[hq]AW[ip]AB[gp]AW[go]AB[iq]AW[jp]AW[en]AB[dm]AB[jq]AB[lq]AW[kp]AW[hn]AW[qd]AB[oc]AP[goproblems];W[mc];B[oe];W[pf];B[ld]C[FORCE];W[pc];B[ob]C[FORCE]\n(;W[lc];B[kd]C[FORCE]\n(;W[md];B[me];W[kc];B[jd]C[FORCE];W[jc];B[of];W[pg];B[id];W[hc];B[lf]C[RIGHT])\n(;W[kc];B[jd];W[md];B[me]C[FORCE];W[jc];B[of];W[pg];B[id];W[hc]C[RIGHT];B[lf]C[RIGHT]))\n(;W[md];B[me];W[lc];B[kd];W[kc];B[jd]C[FORCE];W[jc];B[of];W[pg];B[id];W[hc]C[RIGHT];B[lf]C[RIGHT]))",
+  "author": {
+    "id": 10284,
+    "name": "Zwom",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-07-05",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1517.95
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 57,
+    "failed": 1137,
+    "tries": 1194,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-03-17T15:06:58+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 100,
+      "name": "Timing",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

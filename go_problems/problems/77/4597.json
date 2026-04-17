@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4597,
+  "elo": 1836.517886148,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "Play joseki. It's joseki from games of Kitani Minoru.If tenuki play T.\r\nLudu batalmodelon. G^i estas el ludoj de Kitani Minoru. Se vi volas metu alien - T",
+  "rating": {
+    "stars": 1.4,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qd]AB[pd]AW[od]LB[pd:1]LB[jj:T]AP[goproblems]\r\n(;W[oe];B[oc]LB[jj:T];W[nc]\r\n(;B[ob]LB[jj:T]C[CHOICE]\r\n(;W[nb]LB[jj:T];B[pf]LB[jj:T];W[jd]C[RIGHT])\r\n(;W[qf]LB[jj:T];B[nb]LB[jj:T];W[jj]C[RIGHT])\r\n(;W[jj]C[RIGHT]))\r\n(;B[pb]LB[jj:T]C[CHOICE];W[ob];B[pc]LB[jj:T];W[md];B[ic];W[pf]C[RIGHT]))\r\n(;W[oc];B[oe]LB[jj:T];W[ne];B[of]LB[jj:T]\r\n(;W[nf];B[og]LB[jj:T];W[jj]C[RIGHT])\r\n(;W[md]C[RIGHT])\r\n(;W[kc]C[RIGHT])\r\n(;W[jj]C[RIGHT])))",
+  "author": {
+    "id": 5935,
+    "name": "dobromila",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-03-22",
+    "rank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 816.52
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 918,
+    "failed": 5794,
+    "tries": 6712,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-06-07T03:10:50+00:00",
+  "source": "gobase.org",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 54,
+      "name": "Pro Game",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 77,
+      "name": "3-4 (komoku) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

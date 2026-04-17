@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21020,
+  "elo": 936.88709113992,
+  "problemLevel": 8,
+  "rank": {
+    "value": 22,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -5,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 1.2,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[4]AB[ad]AB[aa]AB[ba]AB[ca]AB[da]AB[db]AB[dc]AB[dd]AW[ac]C[FORCE]AP[goproblems]\n(;B[ab]C[FORCE];W[bc])\n(;B[bb]C[FORCE];W[bc])\n(;B[cb]C[FORCE];W[bc])\n(;B[bc]C[FORCE];W[bd]C[FORCE]\n(;B[ab]C[FORCE];W[cc]C[FORCE]\n(;B[bb]C[FORCE]\n(;W[cb]C[FORCE]\n(;B[ad]C[RIGHT])\n(;B[cd]C[RIGHT]))\n(;W[cd]C[FORCE];B[ad]C[RIGHT]))\n(;B[cb]C[FORCE];W[bb])\n(;B[cd]C[FORCE];W[bb])\n(;B[ad]C[RIGHT]))\n(;B[bb]C[FORCE]\n(;W[cc]C[FORCE]\n(;B[ab]C[FORCE];W[cb]C[FORCE]\n(;B[ad]C[RIGHT])\n(;B[cd]C[RIGHT]))\n(;B[cb]C[FORCE]\n(;W[ab]C[FORCE];B[ad]C[RIGHT])\n(;W[cd]C[FORCE];B[ad]C[RIGHT]))\n(;B[cd]C[RIGHT]))\n(;W[cd]C[FORCE]\n(;B[ab]C[FORCE]\n(;W[cb]C[FORCE]\n(;B[ad]C[RIGHT])\n(;B[cc]C[RIGHT]))\n(;W[cc]C[FORCE];B[ad]C[RIGHT]))\n(;B[cb])\n(;B[cc]C[RIGHT])))\n(;B[cb]C[FORCE]\n(;W[ab]C[FORCE]\n(;B[bb]C[RIGHT])\n(;B[cc])\n(;B[cd]C[RIGHT]))\n(;W[cd]C[FORCE]\n(;B[ab]C[RIGHT])\n(;B[bb])\n(;B[cc]C[RIGHT])))\n(;B[cc]C[FORCE]\n(;W[ab]C[FORCE]\n(;B[bb]C[RIGHT])\n(;B[cb])\n(;B[cd]C[RIGHT]))\n(;W[bb]C[FORCE]\n(;B[ab]C[RIGHT])\n(;B[cb]C[RIGHT])\n(;B[cd]C[RIGHT])))\n(;B[cd]C[FORCE];W[bb]C[FORCE]\n(;B[ab]C[FORCE];W[cc])\n(;B[cb]C[FORCE];W[cc])\n(;B[cc]C[RIGHT])))\n(;B[cc]C[FORCE];W[bc]C[FORCE];B[bd]C[FORCE];W[cd]C[FORCE];B[bd]C[FORCE];W[bb])\n(;B[bd]C[FORCE];W[bc]C[FORCE];B[cd])\n(;B[cd]C[FORCE];W[bc]C[FORCE];B[bd]))",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 1096,
+    "failed": 1159,
+    "tries": 2255,
+    "speedSolved": 2,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-03-30T04:52:39+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11583,
+  "elo": 1105.0679548796,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "An elementary _endgame_ problem... Checkout \"show solution\"->\"navigate solution\" for extra paths and elementary shape combos...",
+  "rating": {
+    "stars": 4,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[oj]AB[nj]AB[mj]AB[lj]AB[kj]AB[jj]AB[jk]AB[jl]AW[kk]AW[jm]AW[km]AW[lm]AW[il]AW[ik]AW[hk]AW[hj]AW[ji]AW[ki]AW[li]AW[mi]AW[ni]AB[mm]AB[nm]AB[om]AW[ln]AW[mn]AW[on]AB[pm]AW[pn]AW[qi]AW[qj]AW[qk]AB[pk]AB[pl]AB[ql]AW[rl]AW[qm]AW[rk]C[life is nice but there's also the matter of points... (this is an ENDGAME problem)]AB[pj]AW[pi]AW[oi]AW[ii]AW[oo]AW[no]AP[goproblems]\n(;B[ll];W[kl]\n(;B[lk]C[of course, simple is best, 6 in the middle's a living shape! =)RIGHT]MA[nk]MA[nl])\n(;B[nk];W[lk]MA[ml]MA[ol])\n(;B[mk];W[nl])\n(;B[ml];W[nk])\n(;B[nl];W[lk]MA[mk]MA[ok]))\n(;B[lk];W[ll]\n(;B[ml];W[kl];B[nk]C[life could be bigger than this...])\n(;B[kl];W[ml]\n(;B[nl]C[life could be bigger than this...])\n(;B[nk];W[nl]))\n(;B[nk];W[ml]MA[nl]MA[kl])\n(;B[nl];W[kl]\n(;B[ml]C[life could be bigger than this...])\n(;B[ok]C[life could be bigger than this...])\n(;B[mk];W[ok]))\n(;B[mk];W[kl]MA[nl]MA[ok])\n(;B[ok];W[ml]\n(;B[nl];W[kl];B[mk]C[life could be bigger than this...])\n(;B[kl];W[nl])\n(;B[mk];W[nl])))\n(;B[kl];W[ll]\n(;B[lk];W[ml]\n(;B[nl]C[life could be bigger than this...])\n(;B[nk];W[nl]))\n(;B[ml];W[lk]MA[nk]MA[ol])\n(;B[mk];W[lk]MA[nl]MA[ok])\n(;B[nk];W[lk]MA[ml]MA[ol])\n(;B[nl];W[lk]MA[mk]MA[ok]))\n(;B[ml];W[lk]MA[nk]MA[ol])\n(;B[mk];W[kl]\n(;B[nl];W[ok]MA[ll]MA[lk])\n(;B[ok];W[nl])\n(;B[ll];W[nl]))\n(;B[nl];W[lk]MA[mk]MA[ok])\n(;B[nk];W[lk]MA[ml]MA[ol])\n(;B[qn]C[NOTTHIS])\n(;B[rm]C[NOTTHIS]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 3072,
+    "failed": 4315,
+    "tries": 7387,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-07-26T08:52:08+00:00",
+  "source": "waya2-1k vs hahaha6k2k",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 54878,
+  "elo": 1502.2734295969,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Black to play, save your 5 stones. ",
+  "rating": {
+    "stars": 5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[cq][gp][hq][hr][hs][in][ip][iq][jn][jo][lo][mp][mq][mr]AW[cn][dq][dr][en][gq][gr][ho][hp][io][ir][jp][jr][kp][kr][nq](;B[fr];W[fq](;B[gs];W[go];B[fp];W[eq]C[You found the tesuji, but you can get a better result. ])(;B[fp];W[ep];B[gn]LB[fr:1]LB[fq:2]LB[fp:3]LB[ep:4]LB[gn:5]C[1 is the belly tesuji and it allows you to get 3 in sente and capture white's three stones with 5.RIGHT]))(;B[gn];W[go];B[fp];W[fo]C[The net doesn't quiet work yet, but keep trying. ])(;B[fp];W[gs];B[gn];W[jq]C[The net works now, but you were too slow about it. You're on the right track. ])(;B[go];W[hn];B[hm];W[gn];B[fn];W[gm];B[gl];W[fm]C[Ladder doesn't work. Maybe try a net. ])(;B[fq];W[fr];B[fp];W[hn]))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 112,
+  "attempts": {
+    "solved": 3,
+    "failed": 8,
+    "tries": 11,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2026-01-18T20:46:16+00:00",
+  "source": "Page 72",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 36,
+      "name": "Geta (net)",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 62,
+      "name": "Belly Attachment",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1316
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1655,
+  "elo": 1256.1120973817,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -3,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "The L-group is dead!  Kill the L-group!  Please play at 'T' for Tenuki to start the problem.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 33,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[db]AW[bc]AW[cc]AW[dc]AB[eb]AB[gb]AB[ec]AB[bd]AB[cd]AB[dd]AB[ee]AB[ge]AB[bf]LB[jd:T]C[White is dead, but wants you to prove it. Please move at 'T' for tenuki to start this problem.]GM[1]FF[4]CA[UTF-8]AP[Jago:Version 4.43]ST[2]GN[Clipboard Content];B[jd]\n(;W[ca]\n(;B[ac];W[ab];B[bb];W[ba];B[aa]C[Deny the chance of White ko])\n(;B[bb]\n(;W[ba]\n(;B[ab]C[\r\nCHOICERIGHT])\n(;B[ac];W[ab]C[Don't let W try to get a ko];B[aa]C[Deny the chance of White ko]))\n(;W[ab]\n(;B[ba]C[\r\n\r\nNo room for another White eyeCHOICERIGHT])\n(;B[aa];W[ba])\n(;B[ac];W[ba]C[Stop White from trying the ko in the corner];B[aa]C[Deny the chance of White ko])))\n(;B[ab];W[ac]\n(;B[bb]C[\r\n\r\nThere is no place for W to get another eye.CHOICERIGHT])\n(;B[ba];W[bb])\n(;B[aa];W[bb]))\n(;B[ba];W[bb]\n(;B[ac];W[ab])\n(;B[ab];W[ac])\n(;B[aa];W[ab])\n(;B[ea];W[da]\n(;B[ac];W[ab])\n(;B[ab];W[ac])\n(;B[aa];W[ab])))\n(;B[aa]\n(;W[bb]C[CHOICE]\n(;B[ac];W[ab])\n(;B[ab];W[ac])\n(;B[ba];W[ab]))\n(;W[ab]C[CHOICE]\n(;B[bb];W[ba])\n(;B[ba];W[bb])\n(;B[ac];W[ad]\n(;B[ba];W[bb])\n(;B[bb];W[ba])\n(;B[ae];W[ba]C[Actually, White does not even need to play this move yet.]))))\n(;B[cb];W[bb]C[Self-atari does not help here.]))\n(;W[bb]\n(;B[da];W[ca])\n(;B[cb];W[ca]C[Hello?])\n(;B[ca];W[da]\n(;B[ac]\n(;W[ba]\n(;B[ab]C[\r\nCHOICERIGHT])\n(;B[aa];W[ab]))\n(;W[ab]\n(;B[ba]C[\r\nCHOICERIGHT])\n(;B[aa];W[ba])))\n(;B[ab];W[ac]\n(;B[ba];W[cb])\n(;B[aa];W[ba]))\n(;B[aa];W[ba])\n(;B[ba];W[ac]\n(;B[aa]C[White is usually dead here; however, this is less than best, because Black must kill via 'bent-four-in-the-corner'. If White ends up with a non-removable ko threat, then this may end up alive in seki, under some rulesets. Find the more immediate path to victory.])\n(;B[ab];W[cb])\n(;B[cb];W[aa])))\n(;B[ba];W[ca]\n(;B[ac];W[ab])\n(;B[ab];W[ac])\n(;B[aa];W[ab])\n(;B[ea];W[da]\n(;B[ac];W[ab])\n(;B[ab];W[ac])\n(;B[aa];W[ab])))\n(;B[aa];W[ba])\n(;B[ab];W[ac]\n(;B[da];W[ca])\n(;B[ca];W[da]\n(;B[cb];W[ba])\n(;B[ba];W[cb])\n(;B[aa];W[ba])\n(;B[ea];W[ba])\n(;B[ad];W[aa]))\n(;B[ba];W[ca])\n(;B[aa];W[da])\n(;B[ea];W[da]))\n(;B[ac];W[ab]\n(;B[da];W[ca])\n(;B[ba];W[ca])\n(;B[cb];W[ca])\n(;B[aa];W[da])\n(;B[ca];W[da]\n(;B[aa];W[ba])\n(;B[ba]C[\r\nCHOICERIGHT])\n(;B[cb];W[ba])\n(;B[ea];W[ba]))))\n(;W[ba]\n(;B[da];W[ab]\n(;B[ca];W[cb]C[White lives -- an eye at 'A' and an eye at 'B'. White just needs to connect at 'C' when Black plays 'D' or (to start ko) 'E'. Try again, Black...]LB[aa:a]LB[bb:b]LB[ac:c]LB[ad:d]LB[ae:e])\n(;B[cb];W[ca])\n(;B[ac];W[ca]))\n(;B[ab];W[ac]\n(;B[aa];W[da])\n(;B[ca];W[da])\n(;B[da]\n(;W[ca]\n(;B[bb]C[ \r\nWhite eyespace is ruinedCHOICERIGHT])\n(;B[ea];W[bb])\n(;B[aa];W[bb]))\n(;W[bb]\n(;B[ca]C[ \r\nWhite has only one eye.CHOICERIGHT])\n(;B[ea];W[ca])\n(;B[cb];W[ca])))\n(;B[bb]\n(;W[da];B[cb]C[ CHOICERIGHT])\n(;W[cb];B[da]C[ CHOICERIGHT]))\n(;B[cb];W[bb]))\n(;B[cb];W[bb])\n(;B[ca];W[da]\n(;B[ab];W[ac])\n(;B[bb];W[cb])\n(;B[aa];W[bb]))\n(;B[bb];W[ab]))\n(;W[ab]\n(;B[aa];W[ba])\n(;B[bb];W[ba])\n(;B[cb];W[ca])\n(;B[ca];W[ba]\n(;B[da];W[cb]LB[aa:A]LB[bb:B]C[White lives with eyes at A and B.])\n(;B[bb];W[cb])\n(;B[cb];W[da]))\n(;B[ac];W[ba])\n(;B[ba]\n(;W[ca];B[bb]C[\r\nCHOICERIGHT])\n(;W[bb]\n(;B[ca]C[\r\nCHOICERIGHT])\n(;B[da];W[ca]C[Stop W from getting a ko -- there are better ways to kill.])\n(;B[aa];W[ca]))))\n(;W[ac]\n(;B[da];W[ca]\n(;B[bb]C[\r\n\r\nBulky five diesCHOICERIGHT])\n(;B[ea];W[bb])\n(;B[ba];W[bb]C[\r\nStop White from trying for ko. Kill more surely.CHOICE])\n(;B[ab];W[bb])\n(;B[aa]\n(;W[bb]C[CHOICE])\n(;W[ba]\n(;B[ab];W[bb]C[CHOICE])\n(;B[bb];W[ab]C[CHOICE])\n(;B[cb];W[ab])))\n(;B[cb];W[bb]))\n(;B[ba];W[bb]\n(;B[da];W[ca]C[Deny White a chance at ko.])\n(;B[ca];W[da]\n(;B[ab];W[cb])\n(;B[aa]C[This kills via 'bent-four in the corner'. If White develops an unremovable ko threat, then Black may find that White lives in seki, under some rulesets. There is a better way to kill this.]))\n(;B[aa];W[ca])\n(;B[ab];W[ca])\n(;B[cb];W[ca])\n(;B[ad];W[ca])\n(;B[ea];W[ca]))\n(;B[ca];W[da]\n(;B[bb];W[ba]\n(;B[aa]\n(;W[cb]\n(;B[ea];W[ba]C[Don't let W try for a ko.])\n(;B[ab];W[ba])\n(;B[ad];W[ba]C[Don't let White try for ko])\n(;B[ba];W[ab];B[ba]C[ \r\nThis works, but I think it's inferior because... what if White does not play A18 right now, but saves it for a ko threat? Black can kill without giving White such a chance.CHOICERIGHT]))\n(;W[ab]\n(;B[cb];W[ba])\n(;B[ea];W[ba]C[Don't let White get a ko])\n(;B[ad];W[ba]C[Don't let W try a ko])\n(;B[ba];W[cb];B[ba]C[ \r\nThis works, but I dislike it. Suppose W does not capture with C18 right away, but saves it for a threat in a ko fight. Black has better ways to kill.CHOICERIGHT])))\n(;B[cb];W[ab])\n(;B[ab];W[cb])\n(;B[ea];W[cb])\n(;B[ad];W[cb]))\n(;B[ba];W[bb]\n(;B[ab];W[aa]C[Stop W from trying a ko])\n(;B[cb];W[aa])\n(;B[aa]C[This sets up 'Bent-four in the corner', which is almost always dead. However, if W comes up with an unremovable ko threat, then White may live in seki, under some rulesets. Find a more direct way.]))\n(;B[cb];W[bb])\n(;B[aa];W[ba]\n(;B[cb];W[bb])\n(;B[ab];W[cb])\n(;B[bb];W[cb]\n(;B[ab];W[ba])\n(;B[ba];W[ab];B[ba]C[ \r\nThis seems to work, but I dislike giving White a ko threat (suppose W does not capture with A18 right now; then Wh. at A18 will be good in a ko fight). There is a simpler way.CHOICERIGHT])))\n(;B[ab]\n(;W[bb]C[CHOICE]\n(;B[cb];W[ba])\n(;B[ba];W[cb])\n(;B[aa];W[ba])\n(;B[ea];W[ba])\n(;B[ad];W[aa]))\n(;W[ba]C[CHOICE])))\n(;B[aa];W[ba]\n(;B[ab];W[bb])\n(;B[bb];W[ab])\n(;B[cb]\n(;W[ca]C[CHOICE])\n(;W[bb]C[CHOICE]))\n(;B[ca];W[ab]\n(;B[da];W[cb])\n(;B[cb];W[da])\n(;B[bb];W[cb]))\n(;B[da];W[ab]))\n(;B[cb]\n(;W[bb]C[CHOICE]\n(;B[ca];W[da])\n(;B[ba];W[ca])\n(;B[da];W[ca]))\n(;W[ba]\n(;B[ca];W[da])\n(;B[bb];W[ab])\n(;B[da];W[ca])))\n(;B[bb];W[ba]\n(;B[aa];W[ab])\n(;B[ca];W[ab]C[Don't let White try for a ko. There is a better way to kill.])\n(;B[cb];W[ab])\n(;B[ab]\n(;W[da]\n(;B[ca];W[cb])\n(;B[cb]C[ CHOICERIGHT]))\n(;W[cb];B[da]C[ CHOICERIGHT]))\n(;B[da];W[ab]))\n(;B[ab];W[bb]\n(;B[ba];W[ca])\n(;B[aa];W[da])\n(;B[ca];W[da]\n(;B[aa];W[ba])\n(;B[ba];W[cb])))))",
+  "author": {
+    "id": 8,
+    "name": "takengive",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-10-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 7443,
+    "failed": 8921,
+    "tries": 16364,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-10-17T20:10:04+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 69,
+      "name": "L-Group",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 20,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

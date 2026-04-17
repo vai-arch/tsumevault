@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1171,
+  "elo": 1224.070561468,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -6,
+    "flagSum": -5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Black's in trouble, help him.",
+  "rating": {
+    "stars": 2,
+    "votes": 31,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nFF[4]\r\nGM[1]\r\nSZ[19]\r\nAP[Jago:Version 4.18]\r\nAW[cc][dd][df][cg][ch][bi][bj][ck][bl][bm][gm][hm][gl][fn][fp][fq][gr][hq][jq][kr][lq][lp][mp][mo][no][mn][mm][nm][om][pm][pn][pl][ok][oj][nj][mi][li][lh][lg][kg][jh][ii][jj][jk][ik][il][ig][jf][hf][gg][kd][kc][kb][jb][md][nd][oe][of][pc][qc][qb][rb][qi][ql][rk][rl][rm][ss][sr][sq][rr][qq][pq][pr][or][ps][qs]\r\nAB[sp][rp][rq][qp][pp][po][oo][on][nn][np][oq][nr][mq][lr][ms][os][qm][qn][rn][sm][rj][qj][pj][pk][ol][nl][ml][jn][hp][kj][ki][kh][mh][nh][oi][og][ph][qh][qd][qe][re][sd][rc][sb][me][mf][kf][ke][je][jd][jc][ib][he][fd][ec][ff][dg][dh][ci][cj][dj][dk][cl][dm][fl][gk][hk][hl][ij][hj][gj][bo][dp][eq][er][fr]\r\nC[Black's best move?]\r\n(\r\n;\r\nB[ns]\r\nC[A white play here would start a ko for this entire group and both white and black have a local ko-threat (T6/S5 for black and L1 for white). RIGHT]\r\n)\r\n(\r\n;\r\nB[db]\r\nC[Takes some territory but black has a group in danger. C18 would be better since white can't cut at D18 due to aji of D17 followed by C16.]\r\n)\r\n(\r\n;\r\nB[eo]\r\nC[Gote so white can erase gains at C6.]\r\n)\r\n(\r\n;\r\nB[bk]\r\nC[White can connect at A9 and needn't worry about cutting points above yet.]\r\n)\r\n(\r\n;\r\nB[cb]\r\nC[Takes territory but black has a group in danger. Note white can't cut at D18.]\r\n)\r\n(\r\n;\r\nB[gs]\r\nC[Sente due to weakness at L1 (otherwise black has J1 then L1) but there is a larger move.]\r\n)\r\n(\r\n;\r\nB[fh]\r\nC[Stops white reducing with F11 but there is a more urgent move for black.]\r\n)\r\n(\r\n;\r\nB[pf]\r\nC[A couple points in gote.]\r\n)\r\n(\r\n;\r\nB[ja]\r\nC[Gote.]\r\n)\r\n(\r\n;\r\nB[ks]\r\nC[Sente due to weakness at G1 (otherwise black has J1 then G1) but there is a more urgent move.]\r\n)\r\n)",
+  "author": {
+    "id": 830,
+    "name": "Spica",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 4175,
+    "failed": 7269,
+    "tries": 11444,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-11-12T15:29:16+00:00",
+  "source": "Amateur Game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2220,
+  "elo": 1115.8373283654,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": 0,
+    "flagSum": 10
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is my first 7x7 game. If you could not find the solution, then you can play A to read the idea behind this problem.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.00]\r\nPW[White]PB[Black]\r\nAW[bb][eb][bc][cc][dc][ec][fc][cd][ed][ce][ee][df][ff]AB[ba][ea][ga][ab][cb][db][fb][ac][gc][bd][ae][ge][af][gf][bg][eg][fg]LB[da:A]C[black to kill white]\r\n(;B[be]CR[be]\r\n;W[dg]CR[dg]C[Now the best black can do is seki.]\r\n(;B[cf]CR[cf]\r\n;W[cg]LB[bf:A]CR[cg]C[A is forced]\r\n;B[bf]CR[bf]\r\n;W[fd]LB[gd:A]CR[fd]C[Please convice yourself A is forced.]\r\n;B[gd]CR[gd]\r\n;W[ef]LB[dd:B][de:A]CR[ef]C[Please convice yourself A or B is forced and play at A.]\r\n;B[de]CR[de]\r\n;W[gg]CR[gg]\r\n;B[fg]CR[fg]\r\n;W[eg]CR[eg]C[seki])\r\n(;B[cg]CR[cg]\r\n;W[cf]LB[bf:A]CR[cf]C[Please follow A to reach seki. Other lines of play are at best seki, too.]\r\n;B[bf]CR[bf]\r\n;W[fd]LB[gd:A]CR[fd]\r\n;B[gd]CR[gd]\r\n;W[ef]LB[de:A]CR[ef]\r\n;B[de]CR[de]\r\n;W[gg]LB[fg:A]CR[gg]\r\n;B[fg]CR[fg]\r\n;W[eg]CR[eg]C[seki]))\r\n(;B[bf]CR[bf]\r\n;W[dg]LB[gd:B][be:A]CR[dg]C[Now black collapses. Follow A or B to see why.]\r\n(;B[be]CR[be]\r\n;W[fd]LB[gd:A]CR[fd]\r\n;B[gd]CR[gd]\r\n;W[ef]LB[cf:A]CR[ef]\r\n;B[cf]CR[cf]\r\n;W[fe]LB[cg:A]CR[fe]\r\n;B[cg]CR[cg]\r\n;W[gg]LB[fg:A]CR[gg]\r\n;B[fg]CR[fg]\r\n;W[eg]LB[de:A]CR[eg]\r\n;B[de]CR[de]\r\n;W[gg]CR[gg]C[black has no ko threat.])\r\n(;B[gd]CR[gd]\r\n;W[ef]LB[gb:A]CR[ef]\r\n;B[gb]CR[gb]\r\n;W[fe]LB[fa:A]CR[fe]\r\n;B[fa]CR[fa]\r\n;W[fd]LB[da:A]CR[fd]\r\n;B[da]CR[da]\r\n;W[gg]LB[fg:A]CR[gg]\r\n;B[fg]CR[fg]\r\n;W[eg]LB[ca:A]CR[eg]\r\n;B[ca]CR[ca]\r\n;W[gg]LB[aa:A]CR[gg]\r\n;B[aa]CR[aa]\r\n;W[ad]CR[ad]C[black collapses.]))\r\n(;B[cf]CR[cf]\r\n;W[be]LB[ad:A]CR[be]C[A is forced.]\r\n;B[ad]CR[ad]\r\n;W[bf]LB[dg:A]CR[bf]C[The best black can do is A.]\r\n;B[dg]CR[dg]\r\n;W[cg]CR[cg]C[black has no ko threat.])\r\n(;B[cg]CR[cg]\r\n;W[dg]LB[be:A]CR[dg]C[Now the best black can do is seki. Please follow A.]\r\n;B[be]CR[be]\r\n;W[cf]LB[bf:A]CR[cf]\r\n;B[bf]CR[bf]\r\n;W[fd]LB[gd:A]CR[fd]\r\n;B[gd]CR[gd]\r\n;W[ef]LB[de:A]CR[ef]\r\n;B[de]CR[de]\r\n;W[gg]LB[fg:A]CR[gg]\r\n;B[fg]CR[fg]\r\n;W[eg]CR[eg]C[seki])\r\n(;B[dg]CR[dg]\r\n;W[bf]CR[bf]\r\n(;B[be]CR[be]\r\n;W[cf]CR[cf]\r\n;B[cg]CR[cg]\r\n;W[fd]CR[fd]\r\n;B[gd]CR[gd]C[RIGHT White is dead.])\r\n(;B[cg]CR[cg]\r\n;W[be]CR[be]\r\n;B[ad]CR[ad]\r\n;W[fd]CR[fd]\r\n;B[gd]CR[gd]C[RIGHT White is dead.]))\r\n(;B[ef]CR[ef]\r\n;W[dg]LB[fe:A]CR[dg]C[A is forced. If white got to play A black loese.]\r\n;B[fe]CR[fe]\r\n;W[be]LB[ad:A]CR[be]C[A is forced.]\r\n;B[ad]CR[ad]\r\n;W[bf]CR[bf]C[Black has two eyes but its right groups can't connect to the eyes.])\r\n(;B[fe]CR[fe]\r\n;W[dg]LB[ef:A]CR[dg]C[A is forced. If white got to play A black loses.]\r\n;B[ef]CR[ef]\r\n;W[be]LB[ad:A]CR[be]C[A is forced.]\r\n;B[ad]CR[ad]\r\n;W[bf]CR[bf]C[Black get two eyes but its right groups can't connect to the eyes.])\r\n(;B[de]CR[de]\r\n;W[dg]CR[dg]C[Now the best black can do is seki. Use the navirgator to see how to reach seki in other variations.])\r\n(;B[dd]CR[dd]\r\n;W[dg]CR[dg]C[Now the best black can do is seki. Use navirgator to see how to reach seki in other variations.])\r\n(;B[da]CR[da]C[White has one true eye and black has several false eyes. But if black can connect its false eyes in a loop, then black can kill white.])\r\n(;B[gd]CR[gd]\r\n;W[dg]CR[dg]C[Now the best black can do is seki. Use the navigator to see how to reach seki in other variations.]))",
+  "author": {
+    "id": 3940,
+    "name": "problemID",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2003-06-16",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 55,
+  "attempts": {
+    "solved": 3391,
+    "failed": 5365,
+    "tries": 8756,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-05-12T05:40:12+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

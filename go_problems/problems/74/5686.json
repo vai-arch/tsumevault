@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5686,
+  "elo": 959.80765933073,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 13,
+    "negativeFlagSum": 0,
+    "flagSum": 13
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ha]AB[jc]AB[kc]AB[lc]AW[hb]AW[ic]AW[gb]AW[id]AW[jd]AW[kd]AB[ld]AB[ga]TR[ga]TR[ha]TR[jc]C[Connect the triangled stones]AW[eb]AW[ec]AP[goproblems]\n(;B[ib];W[jb]\n(;B[ja];W[ia]C[Ko is not good enough])\n(;B[ia];W[ka];B[kb];W[fa];B[ja];W[jb]))\n(;B[jb];W[ia]\n(;B[ib];W[fa])\n(;B[ja];W[ib]))\n(;B[ia];W[jb]\n(;B[ib];W[ka];B[kb];W[fa];B[ja];W[jb])\n(;B[ka];W[ja];B[ib];W[fa])\n(;B[ja];W[kb]\n(;B[ka];W[lb];B[la];W[mb]C[extremely bad for black!])\n(;B[lb];W[ka];B[la];W[ib])))\n(;B[ja]\n(;W[ib]C[CHOICE];B[ia];W[jb];B[kb]C[RIGHT])\n(;W[jb]C[CHOICE]\n(;B[kb];W[ib];B[ia]C[RIGHT])\n(;B[ia];W[kb]\n(;B[lb];W[ka];B[la];W[ib])\n(;B[ka];W[lb];B[la];W[mb]C[very bad for black!])))))",
+  "author": {
+    "id": 6767,
+    "name": "cim",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-09-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 21,
+  "attempts": {
+    "solved": 12596,
+    "failed": 10520,
+    "tries": 23116,
+    "speedSolved": 3,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-12-12T04:41:22+00:00",
+  "source": "Modified club game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

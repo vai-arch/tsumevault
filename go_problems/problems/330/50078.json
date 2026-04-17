@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 50078,
+  "elo": 1397.3247888903,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Black to play. You will need to force a ko if you want any chance at capturing some white stones.",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[cl][cp][dl][dm][dn][dp][dq][er][fq]AW[bp][br][cm][cn][cq][cs][dr](;B[bo];W[co](;B[ap];W[bq](;B[an];W[bn](;B[do];W[ao]C[Direct ko for white to live.RIGHT])(;B[bm];W[ao]C[RIGHT]))(;B[bm];W[bn];B[an];W[ao]C[Direct ko for life! RIGHT])(;B[do](;W[bn];B[an]C[RIGHT])(;W[an];B[bm];W[bn];B[am];W[ao];B[bo]C[RIGHT])(;W[bm];B[bl](;W[an];B[al];W[ao];B[am];W[bn];B[bo]C[RIGHT])(;W[bn];B[an]))))(;B[an];W[bn]))(;B[bq];W[aq])(;B[aq];W[bo];B[bq];W[cr];B[ar];W[ap])(;B[co];W[bo]))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 12,
+    "failed": 9,
+    "tries": 21,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-08-26T18:03:52+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1400
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7536,
+  "elo": 1151.3859896188,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Don't play unneccessary forcing moves, you need to read out which stones can be saved before you play.",
+  "rating": {
+    "stars": 2,
+    "votes": 47,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[jc]AB[kc]AW[kd]AW[jd]AW[id]AW[ic]AW[gd]AW[hd]AW[ge]AB[ib]AB[ld]AB[le]AB[fc]AB[fd]AB[fe]AB[gf]AB[gg]AW[hf]AW[hg]AW[ih]AW[jh]AW[kh]AW[ii]AW[hi]AB[gh]AB[gi]AW[mf]AB[lh]AB[he]AB[ie]AB[je]AB[ke]AW[lc]AW[mc]AW[md]AW[me]AB[lf]AW[mg]AW[lg]AB[li]AB[hk]AB[hj]AB[jg]AB[kg]AB[gk]AW[ij]AB[ik]AB[ji]AB[jj]AB[kk]AB[kj]C[How can White save his stones? Don't play unneccessary forcing moves, you need to read out which stones can be saved before you play.](;W[jf](;B[hc](;W[if];B[gc];W[kf]C[Well done! :)RIGHT])(;W[ig];B[gc];W[kf]C[Well done! :)RIGHT])(;W[kf];B[if]C[:(]))(;B[kf];W[if]C[RIGHT])(;B[if];W[ig]C[RIGHT])(;B[ig];W[if]C[RIGHT]))(;W[if];B[hc](;W[jf](;B[gc];W[kf]C[Well done! :)RIGHT])(;B[kf];W[ig]C[RIGHT]))(;W[ig];B[gc]C[:(])(;W[kf];B[jf]C[:(]))(;W[ig];B[hc](;W[jf](;B[gc];W[kf]C[Well done! :)RIGHT])(;B[kf];W[if]C[RIGHT])(;B[if];W[kf]C[RIGHT]))(;W[if];B[gc]C[:(])(;W[kf];B[jf]C[:(]))(;W[kf];B[jf]C[:(])(;W[hb];B[hc](;W[jf];B[kf]C[:(])(;W[if];B[jf]C[:(])(;W[kf];B[jf]C[:(])(;W[ig];B[jf]C[:(])(;W[gc];B[gb]C[:(]))(;W[jb]C[];B[kb]LB[gc:1]LB[hc:2]TR[gd]TR[hd]TR[id]TR[ic]TR[jd]TR[kd]TR[ge]C[You've played an unneccesary forcing move. These White stones can't increase their liberties to more than 2. Try it out.FORCE](;W[hb];B[ja]C[FORCE](;W[gb];B[gc]C[FORCE];W[hc];B[fb]LB[ga:1]LB[ha:2])(;W[gc];B[gb]))(;W[ia];B[ja]C[FORCE];W[hb];B[ha]C[FORCE];W[gb];B[gc]))(;W[ki];B[ig])(;W[hh];B[if]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 4620,
+    "failed": 6684,
+    "tries": 11304,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-10-24T18:51:32+00:00",
+  "source": "Vegetarian7d vs fgamer6d (igs)",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13731,
+  "elo": 1520.0053328018,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -5,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "I finally decided to try and add a joseki problem. Since this is my first, please be a bit lenient. Joseki is one of my weaker categories, so I may be missing several variations or I might have gotten the result wrong. Please inform me if I did. Also to note, this joseki is very common yet somehow I didn't find any variant of this on the site. Well, enjoy!\r\n\r\nIMPORTANT: If any stronger (dan) players can help me, I would like to know white's best response to the black cut right away. Or maybe it is a good move for black as punishment. Either way the variations can get a little complex. I have currently blocked the cut due to a lack of variations and/or correct ones. The same applies with direct connections. I am not quite sure how white should best respond to those too and whether or not the result is good. Thanks in advance!",
+  "rating": {
+    "stars": 2,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qd]AW[od]AW[pg]AB[ld]AB[oe]AB[of]AB[qf]AW[ne]AW[nf]AW[pd]LB[qd:1]LB[od:2]LB[ld:3]LB[pg:4]LB[oe:5]LB[ne:6]LB[of:7]LB[pd:8]LB[qf:9]LB[nf:10]C[Up to 9 the joseki is standard. But then white plays 10, which is a mistake and should be at A. How should black respond? Current variations include A and B. If stronger players could help I could add more variations.FORCE]LB[qc:A]LB[og:B]AP[goproblems]\n(;B[og];W[qc]\n(;B[rd]C[Good! Now white has no good follow-up. If White A, then B is left for black to invade and white still has no base. If white C, then the exchange for D and E has been made which hurts the marked white stone. Compared to the joseki where white C is played first in response to the descent at S16, the marked stone has much more aji. RIGHT]LB[pb:A]LB[rb:B]LB[nc:C]LB[nf:D]LB[og:E]MA[pg])\n(;B[qe];W[pb]LB[pj:A]C[Please play A];B[pj]C[This leads back to the normal joseki. Black could to better.]))\n(;B[qc];W[og]LB[qe:A]C[Please play A if you wish to save the marked stones.]MA[oe]MA[of]\n(;B[qe];W[mg]LB[nd:A]C[Please cut at A.];B[nd];W[md];B[nc];W[mc];B[oc]C[White has good outside influence. Note also that the original pincer stone (marked) is blighted.]MA[ld])\n(;B[nd];W[pf]C[Good for white.])\n(;B[ob];W[pf]C[Good for white.]))\n(;B[nd]C[NOTTHIS]\n(;W[md];B[nc];W[mc]\n(;B[ob];W[mb];B[pc];W[og]\n(;B[qe]C[White has good influence and the pincer stone (marked) is blighted. However, white has cut points.]MA[ld])\n(;B[pe]C[White has good influence and the pincer stone (marked) is blighted.  However, white has cut points.]MA[ld]))\n(;B[pc]\n(;W[oc];B[nb];W[ob];B[mb]\n(;W[lc];B[pb];W[og];B[pe];W[mg])\n(;W[lb];B[lc];W[me];B[kb]\n(;W[qc];B[rc];W[pb];B[qe];W[rb];B[ng])\n(;W[og];B[pe])))\n(;W[og];B[pe];W[nb];B[oc];W[mg])))\n(;W[og];B[pe];W[md];B[nc];W[mc];B[oc]\n(;W[nb]\n(;B[pc];W[mg])\n(;B[ob];W[mg]))\n(;W[mg])))\n(;B[qe]C[NOTTHIS];W[md]\n(;B[og];W[lc])\n(;B[qc];W[og]))\n(;B[pe]C[NOTTHIS]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 313,
+    "failed": 882,
+    "tries": 1195,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-05-27T17:34:00+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 100,
+      "name": "Timing",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

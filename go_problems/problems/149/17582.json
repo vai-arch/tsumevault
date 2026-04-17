@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17582,
+  "elo": 1745.1837912064,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "COMMON GAME is a game where both sides have +- same number of ko threats with +- same value. Creating a three step unfavorable non-picnic ko is not good in a common game, although in some games it might be possible.",
+  "rating": {
+    "stars": 5,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rr]AB[rq]AB[sp]AB[ro]AB[rn]AB[sm]AB[qo]AB[pp]AW[rp]AW[qp]AW[qq]AW[pq]AW[oq]AW[nq]AW[mq]AW[lq]AW[pn]AW[ql]AW[rl]AW[sl]AB[op]AB[oo]AB[ol]AB[pk]AB[rk]AB[rj]AB[ri]AB[rh]AB[sk]AB[si]AB[sg]AB[rg]AB[oj]AB[nk]AB[ml]AB[nn]AB[mm]AW[qj]AW[qi]AW[qh]AW[ph]AW[oi]AW[og]AW[nh]AB[no]AB[mn]AB[nj]AB[qr]AB[pr]AB[or]AW[qs]AW[ps]AW[os]AW[ns]AB[rs]C[Common game: white to play]AW[nr]AB[qn]AW[pm]AB[qm]AW[pl]AB[pj]AW[pi]AW[ni]AB[nm]AP[goproblems]\n(;W[po];B[qk]\n(;W[rm];B[so]\n(;W[sq];B[sr];W[sn]C[Ko, white takes first and black has to win it twice. Black also risks significantly larger group than white. Obviously very good in a common game.RIGHT])\n(;W[sn];B[sq];W[sr];B[sm]C[Ko, black takes it first and black has to win it twice. Slightly worse than the solution.]))\n(;W[so];B[om];W[sq]C[Black is okay with this result. The loss is not big and black has sente.])\n(;W[sq];B[om];W[so]C[Black is okay with this result. The loss is not big and black has sente.]))\n(;W[qk];B[po]C[White could do better.])\n(;W[so];B[qk]\n(;W[po];B[om];W[sq]C[Black is okay with this result. The loss is not big and black has sente.])\n(;W[sq];B[po]C[White gained a few points in sente, but the gain is too small.])))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 127,
+  "attempts": {
+    "solved": 61,
+    "failed": 298,
+    "tries": 359,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-01-26T00:22:44+00:00",
+  "source": "Game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

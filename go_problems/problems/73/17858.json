@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17858,
+  "elo": 1122.5215925854,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Good luck! Remember to leave feedback and rate! If you find anything wrong with the problem, please don't hesitate to flag.",
+  "rating": {
+    "stars": 4.6,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rr]AB[qq]AB[qp]AB[rp]AW[ro]AW[rn]AW[po]AW[pp]AW[pq]AW[ps]AW[nq]C[It looks like Black needs some help!]AP[goproblems]\n(;B[qs];W[pr]\n(;B[qr];W[sq]\n(;B[sp];W[sr]\n(;B[ss];W[rs];B[rq]C[Good! White cannot connect because of your extra liberties!RIGHT])\n(;B[rq];W[ss]C[You had your chance!]))\n(;B[sr];W[sp]C[You had your chance!])\n(;B[ss];W[sp]C[You had your chance!]))\n(;B[sq];W[qr]\n(;B[rs]C[Good!RIGHT])\n(;B[ss];W[rs]C[Unneccesary ko!])\n(;B[sr];W[rs]C[You had your chance!])\n(;B[sp];W[rs]C[You failed them!]))\n(;B[ss];W[sq]C[Noo!])\n(;B[sr];W[qr]\n(;B[rs];W[sp];B[sq];W[so]C[You failed them!])\n(;B[sq];W[rs]C[Oops?])\n(;B[sp];W[rs]C[Oops?]))\n(;B[sp];W[qr];B[rs]C[Yay! Life!RIGHT]))\n(;B[qr];W[sq]\n(;B[sp];W[qs]\n(;B[rs];W[sr]C[Oops?])\n(;B[sr]C[];W[rs]C[Dead.])\n(;B[ss]C[Died in guote.])\n(;B[pr];W[or];B[rs];W[sr];B[os];W[ps]C[Q1 is a false eye!]))\n(;B[sr];W[sp]C[Noo!])\n(;B[qs]C[Died in guote.])\n(;B[ss]C[Died in guote.])\n(;B[rs]C[Died in guote.]))\n(;B[sq];W[rs]\n(;B[qr];W[qs]C[You failed them!])\n(;B[sr]C[Died in guote.])\n(;B[sp]C[Died in guote.]))\n(;B[sp];W[rs]C[Well. You tried?])\n(;B[sr];W[sp]C[Dead!])\n(;B[rs];W[sq]\n(;B[sp];W[sr]C[Noo!])\n(;B[sr];W[sp]C[Oops?]))\n(;B[ss];W[sq]C[Umm?]))",
+  "author": {
+    "id": 73376,
+    "name": "Bigfatsnoozy",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 71,
+  "attempts": {
+    "solved": 1362,
+    "failed": 2005,
+    "tries": 3367,
+    "speedSolved": 5,
+    "speedPlay": 13
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-08-22T19:01:07+00:00",
+  "source": "GoGameGuru",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 162,
+      "name": "Classic Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

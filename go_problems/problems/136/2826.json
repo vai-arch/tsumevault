@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2826,
+  "elo": 1608.8187969624,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -1,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "The tripod group in the endgame.",
+  "rating": {
+    "stars": 3.1,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[cm]AW[bo]AW[co]AW[cp]AW[dq]AW[eq]AW[gq]AB[bp]AB[aq]AB[cq]AB[cr]C[White to play the most profitable endgame sequence.]PL[W]\n(;W[ao];B[bs]\n(;W[dr];B[ar];W[ap];B[bq]C[ White has sente and black just two points.RIGHT])\n(;W[ap];B[dr]\n(;W[er];B[ds];W[bq];B[ar]LB[es:A]C[The white territory is open at A.])\n(;W[bq];B[ar];W[er];B[ds]C[The white territory is open at A.]LB[es:A])))\n(;W[dr];B[br]\n(;W[ao];B[ap]C[Black has four points.])\n(;W[cs];B[bs];W[ao];B[ap]C[Black has at least 3 points.]))\n(;W[br];B[bs]\n(;W[dr];B[ar]LB[ao:A]C[Black has at least 3 points and chance to play the endgame move at A.])\n(;W[ar];B[dr];W[er];B[ds]LB[es:A]C[Black has 5 points and the endgame at A.])\n(;W[ao];B[ar];W[ap];B[dr];W[er];B[ds];W[bq];B[bp];W[bq]LB[es:A]C[Black has 2 points and A.]))\n(;W[ar];B[br]\n(;W[ao];B[as]\n(;W[dr];B[cs];W[ap];B[bq]C[Black has 3 points.])\n(;W[ap];B[bq];W[dr];B[cs]C[Black has 3 points.]))\n(;W[dr];B[as];W[ao];B[ap]C[Black has 3 points.])\n(;W[as];B[bs];W[ao];B[ap];W[dr]C[Black has 5 points.]))\n(;W[bs];B[br]\n(;W[ao];B[as]\n(;W[ar];B[cs];W[ap];B[bq];W[dr];B[as]C[Black has 3 points.])\n(;W[dr];B[cs];W[ap];B[bq]C[Black has 3 points.]))\n(;W[ar];B[cs])))",
+  "author": {
+    "id": 222,
+    "name": "Hans",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 776,
+    "failed": 3545,
+    "tries": 4321,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-08-14T06:52:32+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 69,
+      "name": "L-Group",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 136,
+      "name": "Tripod",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

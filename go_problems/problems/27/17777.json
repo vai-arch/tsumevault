@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17777,
+  "elo": 1668.8868663807,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "A connection problem that comes from a game i've seen, please leave a comment if there is something wrong or missing.",
+  "rating": {
+    "stars": 2.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bq]AB[bp]AB[cp]AB[dq]AB[eq]AB[ep]AB[dn]AB[en]AB[ej]AB[ei]AB[gj]AB[hj]AB[ij]AB[ik]AB[il]AB[im]AB[jn]AW[hn]AW[in]AW[jo]AW[ip]AW[hq]AW[hr]AW[br]AW[cq]AW[cr]AW[dr]AW[er]AW[fq]AW[bm]AW[cn]AW[dm]AW[dk]AW[dj]AW[hk]AB[am]AB[an]AW[bk]AB[gn]AW[ho]MA[am]MA[an]MA[bp]MA[cp]MA[bq]MA[ep]MA[eq]MA[dq]MA[dn]MA[en]MA[gn]TR[ei]TR[ej]TR[gj]TR[hj]TR[ij]TR[ik]TR[il]TR[im]LB[gh:Yes]LB[ih:No]C[Can white separate the 2 black groups ? (click on yes or no)- I tried to put many variations in the problem, so please correct me if something is wrong or missing.FORCE]TR[jn]AP[goproblems]\n(;W[gh]AB[ei];B[hh]C[Sadly for white he can't separate the 2 groups, but have a try and i'll show you how black can escape.]\n(;W[gm];B[fm]\n(;W[fl];B[gl]\n(;W[hm];B[el]\n(;W[fk];B[ek]\n(;W[em];B[fn]LB[gk:A]LB[hl:B]C[A and B are miai for connectionCHOICE])\n(;W[hl];B[em]C[CHOICE]))\n(;W[em];B[fk]C[CHOICE]))\n(;W[em];B[hm]C[CHOICE]))\n(;W[gl];B[fl];W[fk];B[ek];W[el];B[gk]C[CHOICE])\n(;W[fk];B[gl]\n(;W[fl];B[hm]C[CHOICE])\n(;W[hm]C[];B[fl]LB[gk:A]LB[hl:B]C[A and B are miai for connection])))\n(;W[fm];B[gm]\n(;W[fn];B[fo]\n(;W[em];B[go]C[CHOICE])\n(;W[go];B[em];W[fl];B[el];W[ek];B[fk]C[CHOICE]))\n(;W[gl];B[em]\n(;W[el];B[hm];W[fn];B[fo]\n(;W[go];B[fl]C[CHOICE])\n(;W[fl];B[go]C[CHOICE]))\n(;W[fl];B[hm];W[fn];B[fo];W[go];B[el];W[ek];B[fk]C[CHOICE]))\n(;W[em];B[fn]C[CHOICE])\n(;W[hm];B[gl]\n(;W[fn];B[fo]\n(;W[go];B[em];W[fl];B[el];W[fk];B[ek]C[CHOICE])\n(;W[em];B[go]C[CHOICE]))\n(;W[em];B[fn]C[CHOICE]))\n(;W[fl];B[fn]\n(;W[hm];B[gl]C[CHOICE])\n(;W[gl];B[hm]C[CHOICE])))\n(;W[em];B[gm];W[fn];B[fo];W[fm];B[go]C[CHOICE])\n(;W[gl];B[gm]\n(;W[hm];B[fl]\n(;W[fm];B[em];W[el];B[fk]C[CHOICE])\n(;W[fk];B[hl]\n(;W[fm];B[gk]\n(;W[fn];B[em];W[fo];B[ek]C[CHOICE])\n(;W[em];B[fn]C[CHOICE]))\n(;W[gk];B[ek];W[fm];B[fj]\n(;W[em];B[fn]C[CHOICE])\n(;W[fn];B[em]C[CHOICE]))\n(;W[ek];B[gk]C[CHOICE])))\n(;W[fm];B[hm];W[fn];B[fo];W[go];B[em]\n(;W[fl];B[el];W[ek];B[fk]C[CHOICE])\n(;W[el];B[fl]C[CHOICE])))\n(;W[fl];B[gm]\n(;W[fm];B[fn]\n(;W[hm];B[gl]C[CHOICE])\n(;W[gl];B[hm]C[CHOICE]))\n(;W[hm];B[gl]C[CHOICE])\n(;W[gl];B[hm]C[CHOICE]))\n(;W[hl];B[gm];W[hm];B[gl];W[gk];B[fk];W[fl];B[el]C[CHOICE]))\n(;W[ih]AB[dk]AB[bk]AB[bm]AB[dm]AB[cn]AW[am]AW[an]AW[dn]AW[en]AW[bp]AW[cp]AW[bq]AB[cq]AB[br]AB[cr]AB[dr]AB[er]AW[dq]AW[eq]AW[ep]AB[fq]AB[hr]AB[hq]AB[ip]AB[ho]AB[hn]AB[in]AB[jo]AW[gn]AW[jn]AW[im]AW[il]AW[ik]AW[gj]AW[hj]AW[ij]AB[hk]AB[dj]AW[ej]AW[ei];B[fm]C[So show me how white can escape]\n(;W[em]\n(;B[fl]\n(;W[el];B[ek]\n(;W[gm]\n(;B[gl];W[hm];B[fn];W[fo]\n(;B[go];W[fk]C[RIGHT])\n(;B[fk];W[go]C[RIGHT]))\n(;B[fn];W[fo];B[go];W[fk]C[RIGHT]))\n(;W[fn];B[gm]\n(;W[hm];B[fk]C[CHOICE])\n(;W[fk];B[hm]C[CHOICE])))\n(;W[gm];B[fn];W[fo]\n(;B[go];W[el];B[ek])\n(;B[el];W[go];B[hm];W[gl]C[RIGHT]))\n(;W[fn];B[gm];W[el];B[ek]\n(;W[hm];B[fk]C[CHOICE])\n(;W[fk];B[hm]C[CHOICE]))\n(;W[hm];B[el]\n(;W[fn];B[gm]C[CHOICE])\n(;W[gm];B[fn];W[fo];B[go]C[CHOICE]))\n(;W[gl];B[el]\n(;W[fn];B[gm]C[CHOICE])\n(;W[gm];B[fn]\n(;W[fo];B[go]C[CHOICE])\n(;W[go];B[fo]\n(;W[fp];B[gp]C[CHOICE])\n(;W[gp];B[fp];W[gq];B[gr]C[CHOICE]))))\n(;W[dl]C[this move doesn't work];B[el]\n(;W[cm];B[cl];W[dm];B[bn]\n(;W[gm];B[fn];W[fo];B[go]\n(;W[ek];B[gl];W[hm];B[fp]\n(;W[eo];B[dp]\n(;W[do];B[co];W[dp];B[aq]C[white is deadCHOICE])\n(;W[co];B[do]C[CHOICE]))\n(;W[do]C[you can connect with a ko, but it is not the best solution (and this is an ugly 3 steps ko for white : he can't connect at E5 because black would kill the whole group with C5)];B[eo]C[you can connect with a ko, but it is not the best solution (and this is a 3 steps ko for white : he can't connect at E5 because black would kill the whole group with C5)]))\n(;W[do];B[ek]\n(;W[fp];B[co]C[CHOICE])\n(;W[co];B[fp]C[CHOICE]))\n(;W[co];B[ek];W[do];B[fp]C[CHOICE])\n(;W[fp];B[do];W[eo];B[ek]C[CHOICE]))\n(;W[fn];B[gm]C[CHOICE]))\n(;W[fn];B[gm]C[CHOICE])\n(;W[gm];B[fn];W[fo];B[go]\n(;W[cm];B[cl];W[dm];B[bn]\n(;W[ek];B[gl];W[hm];B[fp]\n(;W[eo];B[dp]\n(;W[do];B[co];W[dp];B[aq]C[white is deadCHOICE])\n(;W[co];B[do]C[CHOICE]))\n(;W[do]C[you can connect with a ko, but it is not the best solution (and this is an ugly 3 steps ko for white : he can't connect at E5 because black would kill the whole group with C5)];B[eo]C[you can connect with a ko, but it is not the best solution (and this is a 3 steps ko for white : he can't connect at E5 because black would kill the whole group with C5)]))\n(;W[do];B[ek]\n(;W[fp];B[co]C[CHOICE])\n(;W[co];B[fp]C[CHOICE]))\n(;W[co];B[ek];W[do];B[fp]C[CHOICE])\n(;W[fp];B[do];W[eo];B[ek]C[CHOICE]))\n(;W[ek];B[cl]C[CHOICE]))))\n(;B[el]\n(;W[gm]\n(;B[fn];W[fo];B[fl];W[go];B[hm];W[gl]C[RIGHT])\n(;B[gl]\n(;W[hm];B[fn];W[fo];B[fl];W[go]C[RIGHT])\n(;W[fn];B[hm];W[fl];B[fk]C[ko, not the best])))\n(;W[fn];B[gm]\n(;W[fl];B[hm]C[CHOICE])\n(;W[hm];B[fl]C[CHOICE]))\n(;W[fl];B[gm];W[hm];B[fn];W[go];B[fo];W[gp];B[fp]C[CHOICE])))\n(;W[gm]\n(;B[hm]\n(;W[gl];B[fn]\n(;W[fo]\n(;B[go];W[em];B[fl];W[el];B[fk];W[ek]C[RIGHT])\n(;B[em];W[go]C[RIGHT]))\n(;W[em]\n(;B[el];W[fo];B[fl];W[go]C[RIGHT])\n(;B[fl]\n(;W[el];B[ek];W[fo];B[fk];W[go]C[RIGHT])\n(;W[fo]\n(;B[el];W[go]C[RIGHT])\n(;B[go];W[el];B[fk];W[ek]C[RIGHT]))\n(;W[go];B[fo];W[fp];B[gp];W[el];B[eo]C[doesn't work for white])\n(;W[fk];B[el]C[CHOICE])))\n(;W[fl];B[em];W[fo];B[go]C[CHOICE])\n(;W[go];B[fo];W[fp];B[gp];W[em];B[eo]C[doesn't work for white]))\n(;W[em];B[fl]\n(;W[fn];B[gl];W[el];B[ek]\n(;W[hl];B[fk]C[CHOICE])\n(;W[fk];B[hl]C[CHOICE]))\n(;W[gl];B[fn];W[fo];B[go];W[el];B[fk];W[ek]C[RIGHT]))\n(;W[fl]\n(;B[em]\n(;W[fn]\n(;B[gl];W[hl]C[RIGHT])\n(;B[hl];W[gl];B[gk];W[fk]C[RIGHT]))\n(;W[gl];B[fn];W[fo];B[go]C[CHOICE]))\n(;B[fn]\n(;W[em];B[fo]\n(;W[el]C[RIGHT])\n(;W[gl];B[el]C[CHOICE])\n(;W[dl]C[RIGHT])\n(;W[ek]C[RIGHT])\n(;W[eo];B[el]C[CHOICE]))\n(;W[fo];B[em];W[go];B[gl];W[hl]C[RIGHT])\n(;W[go]\n(;B[em];W[fo];B[gl];W[hl]C[RIGHT])\n(;B[fo]\n(;W[em];B[el];W[fp];B[gl]\n(;W[eo];B[fk];W[fm];B[ek]\n(;W[co]C[no connection but you live anyway !RIGHT])\n(;W[do];B[co]C[only one eye !CHOICE])\n(;W[bn];B[co]\n(;W[bo];B[aq];W[ap]C[white is alive :)RIGHT])\n(;W[do];B[bo];W[ao];B[cm]C[false eye !CHOICE])))\n(;W[fk];B[gp]C[wrong :(CHOICE]))\n(;W[fp])))))\n(;W[fn];B[gl];W[em];B[fl];W[el];B[ek]\n(;W[hl];B[fk]C[CHOICE])\n(;W[fk];B[hl]C[CHOICE]))\n(;W[el];B[em]\n(;W[fn];B[gl];W[hl];B[fl]C[CHOICE])\n(;W[gl];B[fn];W[fo];B[go]C[CHOICE])))\n(;B[fn]\n(;W[fo]\n(;B[go];W[em];B[fl];W[el];B[ek];W[fk]C[RIGHT])\n(;B[em];W[go];B[hm];W[gl]C[RIGHT]))\n(;W[em]\n(;B[el];W[fo];B[fl];W[go];B[hm];W[gl]C[RIGHT])\n(;B[fl];W[fo]\n(;B[go])\n(;B[el])))\n(;W[go];B[fo]\n(;W[em];B[fl]\n(;W[el];B[ek];W[fp];B[gp];W[fk];B[gk];W[fj];B[hm]C[CHOICE])\n(;W[fp];B[gp];W[el];B[ek];W[fk];B[gk];W[fj];B[hm]C[CHOICE]))\n(;W[fp];B[gp];W[em];B[fl];W[el];B[ek]))\n(;W[fl];B[em]C[CHOICE])))\n(;W[fn];B[gm];W[em];B[el]\n(;W[fl];B[hm]C[CHOICE])\n(;W[hm];B[fl]C[CHOICE]))\n(;W[go];B[gm]\n(;W[em];B[el]\n(;W[fl];B[hm]C[CHOICE])\n(;W[hm];B[fl]C[CHOICE]))\n(;W[hm];B[em]C[CHOICE]))\n(;W[gl];B[gm]C[CHOICE])\n(;W[fl];B[gm];W[em];B[el];W[hm];B[fn];W[go];B[fo];W[gp];B[fp]C[CHOICE])))",
+  "author": {
+    "id": 55771,
+    "name": "Grominet",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-02-16",
+    "rank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1388.57
+  },
+  "avgSolveTimeSeconds": 113,
+  "attempts": {
+    "solved": 106,
+    "failed": 330,
+    "tries": 436,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-06-11T05:17:56+00:00",
+  "source": "Une partie",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

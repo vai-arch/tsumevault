@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17911,
+  "elo": 917.66721104162,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is from one of my games where I was playing White. Black made a mistake replying to my threat, causing him to lose the game. Can you do better than black?",
+  "rating": {
+    "stars": 2.8,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[he]AB[ie]AB[je]AW[ic]AW[jb]AW[kf]AW[jf]AW[hg]AW[fc]AW[ec]AW[dc]AB[dd]AB[ed]AW[cc]AB[cd]AB[ee]AB[df]AB[dg]AW[ef]AW[fe]AW[fd]AB[gc]AB[gd]AB[ge]AW[gb]AW[hc]AW[hd]AW[gf]AW[gg]AB[hf]AW[if]AW[ib]AB[id]AB[jd]AB[jc]AB[kb]AB[le]AB[ld]AB[mc]AW[me]AW[md]AB[nd]AB[ne]AB[oc]AB[ob]AW[pb]AW[pc]AW[qe]AW[mf]AB[pd]AB[pe]AW[qd]AW[pf]AB[nf]AW[lf]AB[ng]C[White just played the marked stone. Black to save his group.]AW[ke]MA[ke]AP[goproblems]\n(;B[kd];W[lc]\n(;B[kc];W[lb]C[Sorry, this is the way Black lost in the actual game.])\n(;B[lb];W[kc]C[You saved one stone, but lost the game.]))\n(;B[lc]\n(;W[kc]C[CHOICE]\n(;B[kd]C[Solved. The bamboo joint is your friend.RIGHT])\n(;B[lb];W[kd]C[The upper stone would still have been safe if you had just connected.])\n(;B[ka];W[kd]C[Ensure your group is safe before expanding your territory.])\n(;B[la];W[kd]C[You don't need eyes. You should have focused on saving your group.])\n(;B[ja];W[kd]C[You can't surround anything if your group is dead.]))\n(;W[kd];B[kc]C[Solved. The bamboo joint is your friend.RIGHT]))\n(;B[kc]C[Solved. Black will live now.RIGHT])\n(;B[lb];W[kc]TR[kd]TR[lc]C[Oops! Can you see what's coming? White has miai points.CHOICE]\n(;B[kd];W[lc]C[Yep, it's all gone!])\n(;B[lc];W[kd]C[Yep, it's all gone!])))",
+  "author": {
+    "id": 65209,
+    "name": "Elessar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-01-20",
+    "rank": {
+      "value": 17,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1073.73
+  },
+  "avgSolveTimeSeconds": 41,
+  "attempts": {
+    "solved": 2162,
+    "failed": 1631,
+    "tries": 3793,
+    "speedSolved": 0,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-10-08T14:45:40+00:00",
+  "source": "KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

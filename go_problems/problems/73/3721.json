@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3721,
+  "elo": 1590.2865218264,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "This is my first time of adding a problem. If something is wrong, just tell me. \r\n\r\nBlack A is not a good move. White B is the right reply for that. What should black do next...?",
+  "rating": {
+    "stars": 2.7,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dp]AW[fq]AB[hq]AW[cq]AB[dq]AW[cp]AW[cr]AB[co]LB[co:A]LB[cr:B]AP[goproblems]\n(;B[do];W[dr];B[fp];W[eq];B[gp]C[OK for both.RIGHT])\n(;B[dr];W[do]\n(;B[eo];W[dn];B[fp];W[cn]C[Bad for black.])\n(;B[cn];W[ep]C[D4 group is dead.])\n(;B[dn];W[eo]C[D4 group is dead.])))",
+  "author": {
+    "id": 5421,
+    "name": "happyboy",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-08-12",
+    "rank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1014.99
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 580,
+    "failed": 4137,
+    "tries": 4717,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-09T19:24:03+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 23,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13896,
+  "elo": 1002.5692120086,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "I have tried to include as many variations as I can. This shouldn't be too hard. Have fun!\r\n\r\nNote: of course black can tenuki, but the resistance is just shown for the sake of completeness and explanation.",
+  "rating": {
+    "stars": 3.9,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rr]AB[qq]AB[pr]AW[qr]AW[pq]AW[pp]AW[qo]AW[rp]AW[rq]AB[po]AB[pn]AB[qn]AB[ro]AB[or]AB[oq]AW[op]AW[nq]AW[mq]AW[lq]AW[no]AW[lo]AB[mr]AB[lr]AB[nr]AB[ln]AB[mn]AB[nn]AB[on]AW[mo]AW[oo]C[It is the endgame. Black has just played 1. White to respond in the best way]LB[po:1]AB[jo]AB[jp]AB[jq]AW[kp]AW[kq]AW[ko]AW[mp]AB[kr]AB[kn]AB[rn]AP[goproblems]\r\n(;W[qs]C[This move punishes Black's previous one]\r\n(;B[qp]\r\n(;W[qo];B[qp]C[Great! White has gained a few points in the corner! Black's move is a mistake, giving White the corner for free.RIGHT])\r\n(;W[sr];B[qo]C[The corner white stones can live but it's in gote, and you can do better.]))\r\n(;B[sp]C[How to respond to this?]\r\n(;W[sq]C[RIGHT];B[qp];W[qo];B[qp]C[RIGHT])\r\n(;W[qp];B[sq];W[sr];B[ss];W[rs]C[White gets a few points but loses sente, and does not have t5 to aim for anymore. Not best.])))\r\n(;W[qp];B[qs]C[You could do better in the corner.])\r\n(;W[sp];B[qs]C[You could do better in the corner. This is gote too as white needs to defend R4])\r\n(;W[sr];B[qs]C[You could do better in the corner. This is gote too as white needs to defend R4])\r\n(;W[so];B[qs]C[You could do better in the corner. This is gote too as white needs to defend R4])\r\n(;W[rs];B[qs]C[You could do better in the corner. This is gote too as white needs to defend R4])\r\n(;W[ps];B[qs]C[Oops])\r\n(;W[sq];B[qs]C[You could do better in the corner. This is gote too as white needs to defend R4]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 4226,
+    "failed": 4915,
+    "tries": 9141,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-08-06T20:05:10+00:00",
+  "source": "Modified from a KGS game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

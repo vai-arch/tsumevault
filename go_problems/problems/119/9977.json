@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9977,
+  "elo": 1005.4718913612,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "creating a problem is a good way to analyse it carefully for myself.\r\nThanks to Trucid for comments.",
+  "rating": {
+    "stars": 4.1,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[br]AB[bq]AB[bp]AB[cq]AB[dp]AB[ep]AB[eq]AB[fr]AB[gr]AB[gq]AW[ar]AW[bs]AW[cr]AW[dr]AW[dq]AW[er]AW[ds]AW[fq]AW[fp]AW[gp]AW[hp]AW[ip]AW[hq]C[Find  the best ko]AP[goproblems]\n(;B[aq];W[hr]\n(;B[as];W[gs]C[too slow :-(CHOICE])\n(;B[fs];W[hs];B[as];W[gs]C[:-( too slowCHOICE])\n(;B[hs];W[fs]C[:-( failureCHOICE])\n(;B[gs];W[hs]C[black is dead :-(CHOICE]))\n(;B[gs];W[hr];B[es];W[fs]C[nearly perfect. The only mistake is that black took the burden to find the first ko thread.CHOICE])\n(;B[fs];W[hr];B[hs];W[ir];B[aq];W[is];B[as];W[gs]C[this reslult is a double ko which black cannot win :-(CHOICE])\n(;B[es];W[fs]\n(;B[gs];W[hr];B[es]C[Correct! White has to find the first ko threatRIGHT])\n(;B[aq];W[gs];B[hr];W[ir]C[failed :-(CHOICE]))\n(;B[hr];W[ir]\n(;B[aq];W[fs];B[as];W[hs]C[too slow :-(CHOICE])\n(;B[fs];W[hs];B[aq];W[is];B[as];W[gs]C[too slow :-(CHOICE])\n(;B[es];W[fs]C[this time, this trick does not work out :-(CHOICE])\n(;B[gs];W[es]C[to place the white stone at J1 would be a mistake, because black would get her KO.];B[is];W[jr]C[];B[aq];W[js];B[as];W[hs]C[Double ko for white which black cannot win :-(CHOICE])))",
+  "author": {
+    "id": 15090,
+    "name": "vkitzing",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-04-09",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 4940,
+    "failed": 5642,
+    "tries": 10582,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-04-15T01:17:35+00:00",
+  "source": "Tesuji (James Davies)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

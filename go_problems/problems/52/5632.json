@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5632,
+  "elo": 895.81897999664,
+  "problemLevel": 6,
+  "rank": {
+    "value": 24,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": 0,
+    "flagSum": 10
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Should black defend the corner, or can he play elsewhere. To play elsewhere, click on 'A'",
+  "rating": {
+    "stars": 4,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ca][da][db][cc][bb][bd][ad][ae]AW[af][be][ce][cd][dd][dc][ed][fc][eb][ea][bf]\r\nC[Can b tenuki here?\r\n]LB[hd:A]AP[MultiGo:3.8.6]SZ[19]\r\n\r\n(;B[ac]C[RIGHT\r\nCORRECT. White only has one ko threat against the corner])\r\n(;B[ab]C[RIGHT\r\nNOT BEST MOVE. White has two ko threats against the corner])\r\n(;B[hd]C[wrong. w can get a ko.];W[ab]C[w has made a ko for the corner.]\r\n(;B[ac];W[bc]C[b dies])\r\n(;B[ba]C[not even a ko];W[bc];B[ac];W[bc]C[dead])\r\n(;B[bc];W[ba]C[ko])\r\n(;B[aa];W[ba]C[ko]))\r\n(;B[aa]C[RIGHT\r\nCORRECT. White has only one ko threat against the corner\r\n])\r\n(;B[ba]C[RIGHT\r\nNOT BEST MOVE. White has two ko threats against the corner])\r\n(;B[bc]C[RIGHT\r\nNOT BEST MOVE. This leaves white two ko threats against the corner]))",
+  "author": {
+    "id": 7542,
+    "name": "gedh2",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 10745,
+    "failed": 8251,
+    "tries": 18996,
+    "speedSolved": 1,
+    "speedPlay": 11
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-11-28T05:29:24+00:00",
+  "source": "a game on kgs",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 20,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

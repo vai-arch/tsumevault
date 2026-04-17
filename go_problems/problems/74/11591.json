@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11591,
+  "elo": 2053.5125789466,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 4.6,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ra]AB[rb]AB[rc]AB[qd]AB[pd]AB[nd]AB[od]AB[me]AB[le]AB[kd]AB[kc]AB[kb]AW[lb]AW[lc]AW[ld]AW[nc]AW[oc]AW[pc]AW[qb]AW[qa]AB[ib]C[]AP[goproblems]\n(;B[pb]\n(;W[mb]C[See variations why white has to answer here]\n(;B[qc];W[ob]\n(;B[pa];W[md];B[oa];W[na]C[CHOICERIGHT])\n(;B[oa];W[na];B[pa];W[md]C[CHOICERIGHT]))\n(;B[ob];W[qc]\n(;B[la];W[md]\n(;B[ma];W[na]\n(;B[ka];W[nb])\n(;B[nb];W[ka]))\n(;B[na];W[nb];B[ma];W[oa]))\n(;B[md];W[oa]\n(;B[na];W[nb];B[pa];W[oa])\n(;B[mc];W[nb];B[la];W[ma])\n(;B[nb];W[mc];B[la];W[ma]C[You can't kill, so you are better off capturing the two stones.])\n(;B[la];W[ma]\n(;B[mc];W[nb])\n(;B[nb];W[mc])))\n(;B[nb];W[oa]\n(;B[md];W[mc];B[la];W[ma])\n(;B[la];W[ma];B[md];W[mc])))\n(;B[la];W[ob]))\n(;W[ob];B[mb];W[mc];B[la];W[nb];B[ma];W[na];B[pa]C[RIGHT])\n(;W[pa];B[la];W[mb];B[ob]C[RIGHT])\n(;W[oa];B[qc];W[pa];B[mb]C[Black to reduce white as much as possible]))\n(;B[mb];W[mc]\n(;B[la];W[ma];B[na];W[oa]\n(;B[ka];W[nb];B[ma];W[pb])\n(;B[ma];W[nb];B[ka];W[pb]C[Not good enough])\n(;B[pb];W[nb];B[qc];W[ma];B[pa];W[ob]LB[ka:a]LB[ja:b]C[As later White can exchange a for b in sente, this is 2/3 points worse than the correct answer.]))\n(;B[pb];W[pa];B[la];W[nb];B[ma];W[na];B[ka];W[ob]))\n(;B[la];W[mb]\n(;B[pb];W[ob])\n(;B[md];W[ob]))\n(;B[na];W[nb]\n(;B[la];W[oa];B[ma];W[mb];B[ka];W[md])\n(;B[oa];W[ma])\n(;B[ma];W[la])))",
+  "author": {
+    "id": 25154,
+    "name": "Eryth",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-02",
+    "rank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1590.06
+  },
+  "avgSolveTimeSeconds": 45,
+  "attempts": {
+    "solved": 37,
+    "failed": 217,
+    "tries": 254,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-07-27T06:05:05+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5627,
+  "elo": 1228.5146672047,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -5,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 1.9,
+    "votes": 51,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ra]AB[sc]AB[rb]AB[rc]AB[rd]AB[qc]AB[pc]AW[qb]AW[pb]AW[oc]AB[ob]AB[oa]AB[nb]AW[od]AW[pd]AW[pf]AB[nc]AB[og]AB[pg]AB[qg]AB[sh]AB[si]AB[sj]AW[rh]AW[ri]AW[rj]AB[ng]AW[ne]AB[nf]AW[of]AB[md]AB[me]AW[nd]AB[mc]AW[pe]AB[qd]AW[qe]AB[qf]AW[re]AB[rf]AB[sf]C[Neither side has external ko threats. Capture at least 3 stones.]AP[goproblems]\n(;W[sb];B[sa]\n(;W[sk]\n(;B[sg]C[Black stubbornly defends the 3 stones...]\n(;W[sb]C[Ko, and since White has no threats you can win it!RIGHT])\n(;W[sd];B[qa]))\n(;B[qa]C[Black would be better off ending the ko...];W[sg]C[But then you get the 3 stones.RIGHT]))\n(;W[sg]\n(;B[rg]C[Black defends the 3 stones with a vengeance.]\n(;W[sb]C[Ko, and as Black has no real threats nothing can stop you from making the corner live.RIGHT])\n(;W[sd];B[qa]))\n(;B[qa]C[In the real world Black ends the ko...]\n(;W[sk]C[but then of course you get the 3 stones.RIGHT])\n(;W[rg]C[Or this.RIGHT])))\n(;W[se];B[qa]C[White can't capture anything])\n(;W[sd];B[qa]C[White can't capture anything])\n(;W[rg];B[qa]\n(;W[sg]C[Yay! You figured out Black has nothing to run to along the edge so you are probably right. And you ARE right because I say so!RIGHT])\n(;W[sk];B[sg]C[Nnnnnnnnnnah.])))\n(;W[sk];B[sg]\n(;W[sb];B[sa];W[se];B[qa]C[White can't capture anything])\n(;W[se];B[pa]C[White can't capture anything]))\n(;W[se];B[pa];W[sk];B[sg]C[White can't capture anything])\n(;W[sg];B[rg];W[sb];B[sa]C[Black takes the ko, and you have no threat.])\n(;W[rg];B[sg];W[sb];B[sa]C[Black takes the ko, and you have no threat.]))",
+  "author": {
+    "id": 8800,
+    "name": "bogus",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-29",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 2862,
+    "failed": 5685,
+    "tries": 8547,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-11-23T07:47:52+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 24,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 56627,
+  "elo": 1567.4930093912,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Black to play, which move gives better shape?",
+  "rating": {
+    "stars": 4.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[mc][mf]AW[jd][pc][pf][qe]LB[ke:A]LB[kf:B](;B[ke];W[je]C[next?];B[kf]LB[ld:C]LB[kd:D]LB[ke:1]LB[je:2]LB[kf:3]C[Here the shoulder hit A is best for Black. It is natural for White to push with\n2; but then Black develops good shape with 3. Black is now comfortable\nanswering White C with Black D.RIGHT])(;B[kf];W[ld]LB[kf:1]LB[ld:2]C[The one-point jump is here loose shape. With 2 White can leave Black an\neyeless and heavy floating group. ];B[md];W[me]LB[kf:1]LB[ld:2]LB[md:3]LB[me:4]C[The sharp play 4 is even possible.]))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 13,
+  "attempts": {
+    "solved": 2,
+    "failed": 10,
+    "tries": 12,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2026-03-11T18:34:48+00:00",
+  "source": "https://cdn.online-go.com/shape_up.pdf",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 377,
+      "name": "Shape Up! All Problem Sets",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 381,
+      "name": "Shape Up! Problem Set 1",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 383,
+      "name": "Shape Up! (5 kyu course)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1400
+}

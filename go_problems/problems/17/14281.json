@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14281,
+  "elo": 1795.5212015996,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Given that every single black stone is in atari, some strange things will have to happen if black is to capture everything. Luckily, half of the 4x4 board is made of 1-2-points, where such things are known to happen :-)\r\n\r\nThis is problem 42 from a Japanese booklet \"Cho U's world of four roads 1\", which comes with Nihon Ki-in's Monthly Go World magazine's issue 1/2011.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[4]AB[ca]AB[da]AB[db]AB[ac]AB[ad]AB[cd]AW[bd]AW[bc]AW[cb]AW[dc]AW[dd]AP[goproblems]\n(;B[bb]\n(;W[ba];B[cc];W[ab]\n(;B[aa];W[bc]\n(;B[bd];W[ab];B[db];W[bc];B[ca];W[da];B[bb];W[dc];B[aa]C[Black captures everything!RIGHT])\n(;B[ca];W[bd]\n(;B[db];W[da];B[cc];W[cd];B[db];W[ab];B[ac];W[da]C[white gets everything])\n(;B[cc];W[cd];B[db];W[da]C[white gets everything.]))\n(;B[db];W[ab];B[bd];W[bb];B[dc]C[only seki.]))\n(;B[ca];W[bc];B[db];W[bb];B[bd];W[da]C[black dies.])\n(;B[db];W[bc]\n(;B[bd];W[bb];B[dc]C[only seki.])\n(;B[ca];W[bb]C[White captures everything.];B[bd];W[da]C[black dies.])))\n(;W[ab]C[Reference variation: this does not help white.];B[cc];W[ba];B[cb];W[dc];B[aa]C[Black gets everything.RIGHT]))\n(;B[cc];W[bb]\n(;B[ba];W[ab]C[black dies])\n(;B[dc];W[ba]C[black dies.])\n(;B[ab];W[aa]C[black dies.])))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 59,
+    "failed": 271,
+    "tries": 330,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-12-21T00:36:21+00:00",
+  "source": "Cho U",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

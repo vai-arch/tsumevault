@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9600,
+  "elo": 1064.3998780024,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "An easy problem that comes from a game on KGS. White made a mistake and loses his entire group. Problem updated : Kill white whithout a Ko.\r\nThanks for the corrections.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ol]AB[om]AB[on]AB[pn]AB[qm]AB[qo]AB[rn]AB[pp]AB[op]AB[np]AB[mp]AB[lq]AB[lr]AB[nk]AB[mk]AB[lj]AB[ll]AB[kl]AB[jl]AB[lm]AB[jk]AB[ik]AB[im]AB[jn]AB[kn]AB[hn]AB[gn]AB[gm]AB[fm]AB[fl]AW[nl]AW[ml]AW[mm]AW[mn]AW[mo]AW[no]AW[oo]AW[po]AW[ln]AW[lp]AW[mq]AW[kq]AW[io]AW[ho]AW[fn]AW[en]AW[em]AW[cm]AW[co]AW[gq]AW[fp]LB[kq:1]C[In this game, White just played the stone marked with the number 1. A mistake.How should Black take advantage of it whitout playing a Ko ?]AB[nm]AW[jq]AB[dk]AP[goproblems]\n(;B[kp];W[ko]\n(;B[lo]C[No, this shape creates a Ko and it is possible to prevent it by playing differently.])\n(;B[jp];W[jo]C[];B[lo]C[No, playing like this leads to a Ko and it is possible to prevent it by playing differently.])\n(;B[nn];W[jp];B[lo]C[];W[mr]C[This sequence is the best. M2 and M3 are threatened but it is possible to save them thanks to the Ko at M4.RIGHT])\n(;B[jo];W[jp];B[nn];W[kp];B[lo]C[];W[mr]C[Yes it is correct but with this solution White has a chance to kill M2,M3.RIGHT]))\n(;B[ko];W[kp];B[lo];W[mr]C[That's it but with this sequence White has a chance to kill M2,M3.RIGHT])\n(;B[lo];W[ko];B[jo];W[kp])\n(;B[jo];W[kp]\n(;B[lo];W[ko])\n(;B[jp];W[ip])\n(;B[ko];W[lo];B[jp];W[ip]))\n(;B[jp];W[kp]\n(;B[ko];W[lo];B[jo];W[ip])\n(;B[lo];W[ko];B[jo];W[ip]))\n(;B[nn];W[kp];B[lo];W[mr]C[Good job but  you lose M2 and M3 which by playing another sequence can be saved.RIGHT]))",
+  "author": {
+    "id": 15600,
+    "name": "Cyrael",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-02-18",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 4792,
+    "failed": 4314,
+    "tries": 9106,
+    "speedSolved": 0,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-12-25T07:23:36+00:00",
+  "source": "A game on KGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 23,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

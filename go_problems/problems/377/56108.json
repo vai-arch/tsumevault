@@ -1,0 +1,126 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 56108,
+  "elo": 1304.487110635,
+  "problemLevel": 21,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Black to play, which move is better shape?",
+  "rating": null,
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[bg][bi][cd][ce][cf][ch][dh]AW[cg][dc][dd][de][df][dg][eh][fh][hh][ib][ic][ig][je]LB[cb:A]LB[cc:B](;B[cc];W[cb]LB[cc:1]LB[cb:2]C[Answer B is correct. Black should simply extend the three-stone chain. In the endgame white's best move is the hane at 2, how would you respond?];B[bb];W[db]C[Great, white's endgame move was worth about 13 poitns in gote.RIGHT])(;B[cb];W[cc];B[bc]LB[bb:C]MA[bd]MA[bf]C[If Black jumps into the corner (answer A) White 2 is in the hane-at-thehead-of-three-stones position relative to the marked stones. White can\ncapture the corner wit by cutting at C]))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1261.35
+  },
+  "avgSolveTimeSeconds": 9,
+  "attempts": {
+    "solved": 1,
+    "failed": 4,
+    "tries": 5,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2026-02-27T17:45:08+00:00",
+  "source": "https://cdn.online-go.com/shape_up.pdf",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 377,
+      "name": "Shape Up! All Problem Sets",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 380,
+      "name": "Shape Up! (10 kyu course)",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 381,
+      "name": "Shape Up! Problem Set 1",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 383,
+      "name": "Shape Up! (5 kyu course)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1260
+}

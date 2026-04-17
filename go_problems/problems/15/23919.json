@@ -1,0 +1,114 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23919,
+  "elo": 1471.8071252195,
+  "problemLevel": 27,
+  "rank": {
+    "value": 3,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Area scoring and no komi. White to play and get the best possible result.",
+  "rating": null,
+  "sgf": "(;\r\nSZ [9]\r\n\r\nAB [bh][ch][ci][db][dg][ec][ed][ee][ef][eg][eh][fc][gc][ge][gg][hc][hd][id]\r\nAW [ag][ah][bg][ce][cg][da][dc][dd][de][df][ea][eb][fb][gb][hb][ib][ic]\r\n\r\n(\r\n; W [bi]; B [ai]\r\n\r\n(\r\n; W [dh]; B [di]; W [bi]; B [bf]\r\n\r\n(\r\n; W [cf]; B [ai]; W [ei]; B [fi]; W [bi]; B [cb]\r\n\r\n(\r\n; W [ai]; B [bd]\r\n\r\n(\r\n; W [cc]; B [bb]\r\n\r\n(\r\n; W [bc]; B [ac]\r\n\r\n(\r\n; W [ab]; B [aa]\r\n\r\n(; W [ca] C [RIGHT][White wins by one point.])\r\n\r\n(; W [be]; B [ca])\r\n\r\n)\r\n\r\n(; W [ad]; B [ab] (; W [ca]; B [be])(; W [be]; B [ae])(; W [ae]; B [be]))\r\n(; W [ca]; B [ab] (; W [ba]; B [be])(; W [be]; B [ba]))\r\n(; W [ba]; B [ab] (; W [ca]; B [be])(; W [be]; B [ca]))\r\n(; W [be]; B [ca] (; W [af]; B [ad])(; W [ab]; B [aa])(; W [ae]; B [ad]))\r\n\r\n)\r\n\r\n(; W [ca]; B [bc]; W [be]; B [ad] (; W [ba]; B [ae])(; W [af]; B [ae]))\r\n(; W [be]; B [bc])\r\n\r\n)\r\n\r\n(; W [ca]; B [bb] (; W [be]; B [ad] (; W [ba]; B [ae] (; W [ab]; B [cc])(; W [af]; B [cc])(; W [cc]; B [bc]))(; W [cc]; B [bc]))(; W [cc]; B [bc]; W [be]; B [ad] (; W [ba]; B [ae])(; W [af]; B [ae]))(; W [ba]; B [be]))\r\n(; W [bb]; B [cc] (; W [be]; B [ae]; W [af]; B [ad])(; W [ca]; B [be]))\r\n(; W [bc]; B [cc])\r\n(; W [be]; B [bc])\r\n\r\n)\r\n\r\n(; W [bb]; B [ai] C [White has no more ko threats, and black wins by three points.])\r\n(; W [bc]; B [ai] C [White has no more ko threats, and black wins by three points.])\r\n(; W [cc]; B [ai] C [White has no more ko threats, and black wins by three points.])\r\n\r\n)\r\n\r\n(; W [be]; B [ai]; W [ei]; B [fi]; W [bi]; B [cf]; W [af]; B [ai] C [White has no more ko threats, and black wins by three points.])\r\n(; W [ai]; B [cf])\r\n\r\n)\r\n\r\n(; W [ei]; B [dh]; W [bi]; B [bf] (; W [cf]; B [ai] C [White has no more ko threats, and black wins by three points.])(; W [ai]; B [cf]))\r\n(; W [di]; B [dh]; W [bi]; B [bf] (; W [cf]; B [ai] C [White has no more ko threats, and black wins by three points.])(; W [ai]; B [cf]))\r\n(; W [cb]; B [bi] C [Black wins by three points.])\r\n\r\n)\r\n\r\n\r\n(; W [cb]; B [bi]; W [ai] C [Black wins by one point.])\r\n(; W [ai]; B [bi] C [Black wins by one point.])\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 56,
+  "attempts": {
+    "solved": 2,
+    "failed": 17,
+    "tries": 19,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2023-09-01T22:05:04+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

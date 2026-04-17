@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14263,
+  "elo": 1127.9501265546,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This is a problem from a book.",
+  "rating": {
+    "stars": 4,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[dr]AB[er]AB[fr]AW[eq]AW[fq]AW[ep]AW[cp]AW[bp]AB[co]AB[do]AB[eo]AB[fo]AB[fp]AB[gq]AB[hq]AW[gp]AW[hp]AB[ip]AW[gn]TR[gp]TR[hp]C[Black to capture the marked stones]AP[goproblems]\n(;B[hn];W[go]\n(;B[gm];W[fn]\n(;B[fm];W[en]\n(;B[dm]C[RIGHT])\n(;B[em];W[dn]\n(;B[cm];W[cn]\n(;B[bn];W[bo]TR[co]TR[do]TR[eo]TR[fo]TR[fp]C[White kills the marked stones and lives])\n(;B[bo];W[bn]TR[bo]TR[co]TR[do]TR[eo]TR[fo]TR[fp]C[White kills the marked stones and lives]))\n(;B[dm];W[cn]\n(;B[bo];W[bn]TR[bo]TR[co]TR[do]TR[eo]TR[fo]TR[fp]C[White kills the marked stones and escapes])\n(;B[bn];W[bo]TR[co]TR[do]TR[fp]TR[fo]TR[eo]C[White kills the marked stones and lives])\n(;B[bm];W[bo]TR[co]TR[do]TR[eo]TR[fo]TR[fp]C[White kills the marked stones and lives]))\n(;B[cn];W[dm];B[dl];W[cm]C[White escapes, white can't be caught in a ladder because the white stones are not in atari]))\n(;B[dn];W[em]C[White escapes, the white stones can't be caught in a ladder because they are not in atari])\n(;B[dl];W[dm];B[cm]C[RIGHT])\n(;B[cm];W[em];B[el];W[dl]\n(;B[dm];W[fl];B[ek];W[hm];B[gl];W[io])\n(;B[cl];W[dk];B[dm];W[fl];B[ek];W[hm];B[gl];W[io])\n(;B[ek];W[dm];B[dk];W[cl])))\n(;B[em];W[fm];B[fl];W[hm]\n(;B[gl];W[in];B[im];W[ho]C[White escapes])\n(;B[in];W[gl]C[White escapes])\n(;B[ho];W[gl];B[en];W[gm]C[White escapes])))\n(;B[fm];W[gm]C[White escapes]))\n(;B[go];W[ho]\n(;B[hn];W[io];B[jo];W[in]C[No, the ladder doesn't work]\n(;B[im];W[hm]C[White escapes])\n(;B[hm];W[jm]C[White escapes]))\n(;B[hm];W[hn]C[White escapes])\n(;B[in];W[hn]C[White escapes])\n(;B[io];W[hn]C[White escapes]))\n(;B[ho];W[go]C[Black has already lost here. Keep on playing if you want to see why ...]\n(;B[gm];W[hn]\n(;B[im];W[io]\n(;B[jo];W[in]\n(;B[jn];W[hm];B[hl];W[il]\n(;B[jm];W[gl]\n(;B[fm];W[hk]C[White escapes])\n(;B[hk];W[fm]C[White escapes]))\n(;B[jl];W[jm];B[km];W[im];B[ik];W[hk];B[gl];W[jk]\n(;B[ij];W[kl]C[White escapes])\n(;B[kl];W[ij]C[White escapes])))\n(;B[jm];W[jn];B[kn];W[jp]\n(;B[iq];W[ko]C[White escapes])\n(;B[ko];W[iq]C[White escapes])))\n(;B[in];W[jo]C[White escapes]))\n(;B[io];W[im]C[White escapes])\n(;B[in];W[io]\n(;B[jo];W[im]\n(;B[ho];W[jn];B[io];W[hm]C[White escapes])\n(;B[jn];W[hm]C[White escapes])\n(;B[hm];W[jn]C[White escapes]))\n(;B[hm];W[jo]C[White escapes]))\n(;B[hm];W[io];B[jo];W[jn];B[kn];W[jp]\n(;B[ko];W[iq]C[White escapes])\n(;B[iq];W[ko]C[White escapes])))\n(;B[hn];W[gm]C[White escapes]))\n(;B[gm];W[hn];B[hm];W[in]C[White escapes]))",
+  "author": {
+    "id": 46952,
+    "name": "Tomsk",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-01-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 2186,
+    "failed": 3459,
+    "tries": 5645,
+    "speedSolved": 6,
+    "speedPlay": 11
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-12-17T09:19:07+00:00",
+  "source": "Elementary Go Series Vol 3, Tesuji",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

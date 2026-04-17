@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5622,
+  "elo": 1330.0464465883,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 17,
+    "negativeFlagSum": 0,
+    "flagSum": 17
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Problem composed by Bill Spight.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 32,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[ga][eb][gb][bc][ec][fc][gc][hc][ic][bd][cd][dd][fd][ae][be][de][ee][fe][ge][he][bf][cf][ef][gf][bg][ah][bh][dh]AB[ca][da][fa][ab][bb][db][ac][cc][dc][ad][gd][hd][ie][df][ff][hf][if][cg][dg][eg][fg][gg][ig][eh][hh][bi][di][ei]\r\nLB[ea:X][id:Y][ch:Z]C[No komi, no prisoners yet - Black to win. FORCE]\r\n\r\n(;B[ch];W[id];B[ea]LB[id:Y][ch:Z]C[RIGHT You won by 1. By starting at 'Z' (miai value 1.75), and letting white have the larger local move at 'Y' (miai value 2), you got the last play at 'E9' (miai value 1.5). In other words, you kept tedomari. This, and related concepts, are more fully explained in Sensei's Library.])\r\n\r\n(;B[id];W[ch]\r\n(;B[ci];W[ea]LB[id:Y][ch:Z]C[Only jigo. You started with the biggest local move at 'Y' (miai value 2); but this let white play at 'Z' (miai value 1.75), which leaves an extra move at 'C1' in addition to 'E9'. These 2 moves (miai value 1.5 each) were shared, so white got the last play. In other words, by not playing 'Z' first, you allowed white take tedomari.])\r\n\r\n(;B[ea];W[ci]LB[id:Y][ch:Z]C[Only jigo. You started with the biggest local move at 'Y' (miai value 2); but this let white play at 'Z' (miai value 1.75), which leaves an extra move at 'C1' in addition to 'E9'. These 2 moves (miai value 1.5 each) were shared, so white got the last play. In other words, by not playing 'Z' first, you allowed white take tedomari.]))\r\n\r\n(;B[ea];W[ch]\r\n(;B[id];W[ci]LB[ea:X][ch:Z]C[Only jigo. You chose the smallest local move at 'X' (miai value 1.5), and this let white play at 'Z' (miai value 1.75), which leaves an extra move at 'C1' (miai value 1.5) in addition to 'J6' (miai value 2). So, even though you got the biggest local play, white got the last play. In other words, by not playing 'Z' first, you allowed white take tedomari.])\r\n\r\n(;B[ci];W[id]LB[ea:X][ch:Z]C[A 1 point defeat - inferior to the solution by 2. You started with the smallest local move at 'X' (miai value 1.5), and this let white play at 'Z' (miai value 1.75), which leaves an extra move at 'C1' (miai value 1.5) in addition to 'J6' (miai value 2), allowing white to make the last play. Your 2nd move was also wrong, as you chose the smaller option and got nothing in return.])))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 5494,
+    "failed": 7569,
+    "tries": 13063,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-11-21T06:43:39+00:00",
+  "source": "Sensei's Library",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 39,
+      "name": "CGT",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

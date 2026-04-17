@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1664,
+  "elo": 833.08503452133,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 15,
+    "negativeFlagSum": 0,
+    "flagSum": 15
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.3,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]AW[ef]AW[ff]AW[dg]AW[fg]AW[bh]AW[dh]AW[ci]AB[cf]AB[df]AB[eg]AB[eh]AB[di]AB[ei]TR[eg]TR[eh]TR[di]TR[ei]RU[Japanese]TM[]PW[none]PB[none]C[How can black save the marked stone ?](;B[ch];W[cg](;B[bg];W[ch](;B[ah]C[Black survives and wins the corner !RIGHT])(;B[ag];W[fh])(;B[af];W[fh])(;B[bi];W[ai])(;B[gh];W[fh])(;B[fh];W[gh])(;B[gi];W[fi];B[fh];W[gh])(;B[fi];W[gi]))(;B[bf];W[bg])(;B[bi];W[ai];B[bg];W[ch]))(;B[cg];W[ch]TR[dg]TR[bh]TR[ch]TR[dh]TR[ci]MA[eg]MA[eh]MA[di]MA[ei]C[White group have 3 liberties and your 2 so he win the capturing race.])(;B[fh];W[gh]C[Black still die.])(;B[fi];W[fh]C[black still die...])(;B[bg];W[fh]TR[eg]TR[eh]TR[di]TR[ei]C[This way to kill is too slow and white can kill you before you kill him.CHOICE])(;B[gi];W[fh];B[fi];W[gh]C[Black die...])(;B[bi];W[ai]C[It doesn't change the situation])(;B[gh];W[fh]C[White cut the connection.])(;B[ai];W[fh]C[Black die...])(;B[ah];W[fh]C[Black die...])(;B[ag];W[fh]C[Black die...]))",
+  "author": {
+    "id": 2306,
+    "name": "Era",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2009-05-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 17,
+  "attempts": {
+    "solved": 33109,
+    "failed": 13974,
+    "tries": 47083,
+    "speedSolved": 48,
+    "speedPlay": 88
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-10-25T10:06:29+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

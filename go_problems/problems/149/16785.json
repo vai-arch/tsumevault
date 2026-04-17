@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16785,
+  "elo": 1958.4948465164,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 1,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[gb]AB[fb]AB[fc]AB[ec]AB[hc]AB[ic]AB[kc]AB[kd]AB[mc]AB[ob]AB[nc]AB[pb]AB[qb]AW[rb]AW[qc]AW[pc]AW[oc]AW[rc]AW[qa]AW[nd]AW[md]AW[le]AW[ke]AW[je]AW[id]AW[hd]AW[gc]AW[gd]AW[fd]AW[ed]AW[dc]AW[db]AW[eb]AW[dd]AB[na]AB[pa]AW[ra]AW[ma]AW[hb]AB[ib]C[White to play some good endgame. If black makes a mistake punish it (the 'best for both' solution might not be correct if black makes a mistake).]AP[goproblems]\r\n(;W[lc];B[lb]\r\n(;W[ld];B[mb];W[kb];B[jc])\r\n(;W[kb];B[ka]))\r\n(;W[kb];B[jc];W[lc];B[lb];W[ld];B[mb])\r\n(;W[jc]\r\n(;B[kb];W[jb];B[ha];W[jd];B[ja];W[lb]\r\n(;B[lc];W[ka];B[ia];W[fa];B[mb];W[ea];B[la];W[ga]C[White did good.RIGHT])\r\n(;B[mb];W[lc];B[la];W[ld];B[ka]C[White did good.RIGHT]))\r\n(;B[jb]\r\n(;W[ha]\r\n(;B[ia]C[CHOICE];W[kb]\r\n(;B[jd];W[lc];B[lb];W[ld]TR[jc]TR[mb]C[Black is doomed!CHOICERIGHT])\r\n(;B[ga];W[lc];B[lb];W[ld];B[la];W[jd];B[ka]C[Black defended well but still suffered some damage.RIGHT]))\r\n(;B[jd];W[lc];B[lb];W[ld];B[mb];W[fa];B[ia];W[ga]C[RIGHT]))\r\n(;W[kb]\r\n(;B[lb];W[ha]C[CHOICERIGHT])\r\n(;B[ha];W[lc];B[lb];W[ld];B[la];W[jd];B[ka]C[RIGHT])))\r\n(;B[ha];W[lc];B[lb];W[ld]TR[kb]TR[mb]C[RIGHT])\r\n(;B[jd];W[jb];B[ha];W[lc];B[kb];W[lb]C[RIGHT]))\r\n(;W[ha];B[ia];W[jc];B[kb];W[jb];B[ga];W[jd];B[ja])\r\n(;W[lb];B[lc];W[jc];B[jb])\r\n(;W[mb];B[lb]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 80,
+  "attempts": {
+    "solved": 37,
+    "failed": 198,
+    "tries": 235,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-12-16T13:03:15+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14535,
+  "elo": 1372.5499922403,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is based off of the previous problem, 14354.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AW[br]AW[bq]AW[cq]AW[dq]AW[dr]AB[eq]AB[er]AB[es]AB[ds]AW[fp]AW[gp]AB[gr]AW[gq]AW[hr]AW[iq]AW[hp]AB[dp]AB[cp]AB[bp]AB[bn]AB[do]AW[ep]AB[en]AW[eo]AB[dn]AW[fn]AW[gn]AB[aq]MA[aq]C[Black has just played the triangled stone to try to kill the corner. How should White respond?](;W[ar];B[bs];W[ap];B[gs](;W[fr];B[fq]C[F2 used up a ko threat.])(;W[fq];B[fr]C[It is unwise to force Black to create an eye here.])(;W[hs];B[fr]C[It is unwise to force Black to create an eye here.])(;W[cs];B[cr](;W[fr];B[fq];W[cs]TR[hs]C[Ko, and Black needs 2 ko threats. (White has an internal ko threat at H1.) Unfortunately, you could have killed without ko.])(;W[fq];B[fr];W[cs]TR[hs]C[Ko, and Black needs 2 ko threats. (White has an internal ko threat at H1.) Unfortunately, you could have killed without ko.])))(;W[cs];B[ar](;W[as];B[bs]C[This is a bad ko for White. You should have let Black start the ko.])(;W[fr];B[bs];W[as]C[Ko, but you could have killed unconditionally.]))(;W[fr];B[bs]C[Now Black gets a ko. (This is a transposition of the previous problem.)])(;W[fq];B[bs]C[Now Black gets a ko. (This is a transposition of the previous problem.)])(;W[bs];B[cs](;W[ar];B[ap])(;W[fq]C[:)RIGHT])(;W[fr]C[:)RIGHT])))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 854,
+    "failed": 1655,
+    "tries": 2509,
+    "speedSolved": 1,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-02-06T21:37:23+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

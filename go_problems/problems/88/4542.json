@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4542,
+  "elo": 1320.5726972619,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -5,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Taken from Go World.",
+  "rating": {
+    "stars": 2.7,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qp]AB[pp]AB[op]AB[np]AB[oq]AB[ql]AB[nr]AW[nq]AW[mq]AW[or]AW[pr]AW[pq]AW[qq]AP[goproblems]\r\n(;B[lq];W[mr];B[mp]C[RIGHT])\r\n(;B[mp];W[lq]C[Not too good. Look for the tesuji.])\r\n(;B[lo];W[mp];B[mo];W[lr]C[Not great. Keep looking for the tesuji.])\r\n(;B[mr];W[lq];B[lr];W[kq]C[It is hard to kill the corner quickly, so white can extend to here and then hane if black pushes one more time.])\r\n(;B[rq];W[rr];B[rp];W[mp]C[Uninspired. Look for the tesuji.])\r\n(;B[rr];W[rq];B[rp];W[sr];B[rs];W[mp]C[No.]))",
+  "author": {
+    "id": 18,
+    "name": "guff",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-17",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 1862,
+    "failed": 3876,
+    "tries": 5738,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-05-28T21:51:43+00:00",
+  "source": "Murakami Akira",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 88,
+      "name": "Nose Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

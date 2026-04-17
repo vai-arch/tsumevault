@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2702,
+  "elo": 1347.2711266747,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Not many points to choose from :) There are two equally interesting variations, so maybe you should try \"navigate soltution\" after solving the problem.\r\nPlease find Blacks best result!\r\n(japanese rules)",
+  "rating": {
+    "stars": 2.9,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[4]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[ab][bb][dc][dd]AB[db][ac][ad][bd]C[Black to play - what's the best he can do?]PL[B]\r\n(;B[cb]CR[cb]\r\n(;W[cc]CR[cc]\r\n;B[bc]CR[bc]\r\n;W[cd]CR[cd]\r\n;B[bc]CR[bc]C[Black wins! RIGHT CHOICE])\r\n(;W[bc]CR[bc]\r\n;B[cc]CR[cc]\r\n;W[cd]CR[cd]\r\n;B[bd]CR[bd]\r\n;W[ca]CR[ca]\r\n;B[ba]CR[ba]C['One eye beats no eye' - Black wins! RIGHT CHOICE]))\r\n(;B[cc]CR[cc]\r\n(;W[cb]CR[cb]\r\n;B[cd]CR[cd]\r\n;W[dc]CR[dc]C[White wins!])\r\n(;W[bc]CR[bc]C[This is wrong for White....]\r\n(;B[cb]CR[cb]C[This leads back to the solution...]\r\n;W[cd]CR[cd]\r\n;B[bd]CR[bd]\r\n;W[ca]CR[ca]\r\n;B[ba]CR[ba]C[Black wins :)])\r\n(;B[cd]CR[cd]C[This move is also possible, of course]\r\n(;W[cb]CR[cb]\r\n;B[dc]CR[dc]\r\n;W[ca]CR[ca]\r\n;B[ba]CR[ba]\r\n;W[aa]CR[aa]C[Seki, Black wins by one point (2 prisoners against 1).])\r\n(;W[dc]CR[dc]\r\n;B[cb]CR[cb]C[Black wins.])))))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 1473,
+    "failed": 3202,
+    "tries": 4675,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-07-07T04:24:13+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9898,
+  "elo": 1057.0903630631,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This is to honor my first Go game. The position is exactly the same.",
+  "rating": {
+    "stars": 4,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[Does the ladder work? Y for Yes, N for No]AB[km]AW[lm]AW[kl]AW[kk]AW[ml]AW[nl]AW[lj]AW[mj]AW[mi]AB[ni]AB[nj]AB[nk]AB[mk]AB[lk]AB[ll]AW[oj]AW[ok]AB[pe]AB[si]AB[rc]AB[jj]LB[kg:Y]LB[lg:N]AP[goproblems]\n(;W[kg];B[lg]C[Prove it];W[nh];B[oi];W[pi];B[oh];W[og];B[ph];W[qh];B[pg];W[pf];B[qg]\n(;W[rg];B[qf]C[Nope])\n(;W[qf];B[rg]))\n(;W[lg]AB[kk]AB[kl]AW[ll]AW[lk]AW[km]AW[mk]AW[nk]AW[nj]AW[ni]AB[lj]AB[mj]AB[mi]AB[lm]AB[ml]AB[nl]AB[ok]AB[oj]AW[jj]AW[pe]AW[rc]AW[si];B[nh];W[oi];B[pi];W[oh];B[og];W[ph];B[qh];W[pg];B[pf];W[qg];B[rg];W[qf]C[Yep, the ladder breaks!RIGHT]))",
+  "author": {
+    "id": 17060,
+    "name": "Bleedo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-07-22",
+    "rank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1497.5
+  },
+  "avgSolveTimeSeconds": 45,
+  "attempts": {
+    "solved": 6099,
+    "failed": 5997,
+    "tries": 12096,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-03-27T12:47:54+00:00",
+  "source": "Bleedo vs. Idiotbot",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

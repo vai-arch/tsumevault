@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1663,
+  "elo": 1452.964761296,
+  "problemLevel": 26,
+  "rank": {
+    "value": 4,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "The second of two interesting life and death tesuji pulled from some games played by a friend of mine.  According to him, after this exchange, black resigned: \"what just happened...?\"",
+  "rating": {
+    "stars": 5,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[em]AW[dn]AW[gn]AW[bo]AW[ho]AW[cp]AW[dp]AW[hp]AW[aq]AW[bq]AW[gq]AW[hq]AW[dr]AW[hr]AW[hs]AB[eo]AB[go]AB[ep]AB[gp]AB[cq]AB[dq]AB[fq]AB[ar]AB[br]AB[er]AB[gr]AB[gs]C[White to kill.  Yes, everything.]AW[gm]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]TM[]PL[W]\n(;W[cr];B[eq]\n(;W[cs]\n(;B[es]C[CHOICE]\n(;W[fo];B[ds]\n(;W[bs];B[as];W[cr]C[Black is caught! RIGHT])\n(;W[fp];B[bs]C[Wha?]))\n(;W[bs];B[fo]MA[fp]MA[fr]MA[fs]C[Black gets two eyes.])\n(;W[fr];B[fs]\n(;W[bs];B[fo]MA[fp]MA[fr]C[Black gets two eyes.])\n(;W[fo];B[ds]\n(;W[bs];B[as];W[cr]C[Black is caught! RIGHT])\n(;W[fp];B[bs]C[Wha?])))\n(;W[fs];B[fr]\n(;W[bs];B[fo]MA[fp]MA[fs]C[Black gets two eyes.])\n(;W[fo];B[ds]\n(;W[bs];B[as];W[cr]C[Black is caught! RIGHT])\n(;W[fp];B[bs]C[Wha?]))))\n(;B[fs];W[fo];B[ds]\n(;W[bs];B[as])\n(;W[es]C[RIGHT])))\n(;W[es];B[cs]\n(;W[fr];B[ds]TR[gr]TR[gs]C[White only gets two stones.])\n(;W[ds];B[fs]C[No.])\n(;W[bs];B[ds]C[No.]))\n(;W[bs];B[ds]\n(;W[as];B[fo]\n(;W[fs];B[fr]MA[fp]MA[fs]C[Black gets two eyes.])\n(;W[es];B[fs]MA[fp]MA[fr]C[Black gets two eyes.]))\n(;W[cs];B[as];W[cr];B[fo]TR[ar]TR[br]TR[as]C[Clever, but not clever enough.  Black is still alive.])\n(;W[fo];B[cs]TR[go]TR[gp]C[White only gets two stones.]))\n(;W[fo];B[cs]TR[go]TR[gp]C[White only gets two stones.]))\n(;W[fo];B[cr]TR[go]TR[gp]C[White only gets two stones.])\n(;W[es];B[cr]\n(;W[fr];B[ds]TR[gr]TR[gs]C[White only gets two stones.])\n(;W[fo];B[ds]TR[go]TR[gp]C[White only gets two stones.]))\n(;W[ds];B[cr];W[es];B[fr]C[Black keeps everything.]))",
+  "author": {
+    "id": 1353,
+    "name": "Wervyn",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-24",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 119,
+  "attempts": {
+    "solved": 1003,
+    "failed": 3575,
+    "tries": 4578,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-10-23T20:51:56+00:00",
+  "source": "A friend of mine.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 22,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

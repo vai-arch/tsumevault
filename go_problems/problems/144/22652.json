@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22652,
+  "elo": 1732.727355415,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "White to play to get the best result. The most desirable results are listed here, in order from best to worst: (1) Kill (2) Make the best reduction in sente, threatening to kill (3) Tenuki at T (a gote move) if neither is possible. Please flag or comment if there is a mistake.",
+  "rating": {
+    "stars": 4,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\nAB [ih][jh][kh][lh][hi][mi][hj][mj][hk][mk][il][jl][kl][ll]\r\nAW [hg][ig][jg][kg][lg][gh][mh][gi][ni][gj][kj][nj][gk][nk][hl][ml][im][jm][km][lm]\r\n\r\nLB [pj:T]\r\n\r\nC [White to play to get the best result. The most desirable results are listed here, in order from best to worst: (1) Kill (2) Make the best reduction in sente, threatening to kill (3) Tenuki at T (a gote move) if neither is possible.]\r\n\r\n(; W [lk]; B [jj] (; W [li] C [RIGHT][Correct. White finishes in sente with more points than the seki in another variation.])(; W [jk]; B [ik]; W [li]; B [ki] C [White plays M10 next, finishing in gote.]))\r\n(; W [li]; B [lk] C [You attacked the wrong corner. Black now lives due to the liberty at H12.])\r\n(; W [jj]; B [lk] C [The best you can hope for here is a sente seki. You can do better!])\r\n(; W [pj]; B [jj] C [Black fixes. You missed an opportunity.])\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 115,
+  "attempts": {
+    "solved": 29,
+    "failed": 77,
+    "tries": 106,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-06-24T00:49:35+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 144,
+      "name": "Lack of Liberties (Damezumari)",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

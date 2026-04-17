@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13745,
+  "elo": 1606.3992784294,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "NOTE: THIS IS AN ATARI (FIRST CAPTURE) GO PROBLEM.\r\n\r\nAfter a short and boring atari go game, played without any captures, simply grabbing territory, Black realizes White is 8 points ahead of Black. Black tries to live with 1, but 2 counters it. However, White slips up and plays 4, instead of A. How can black live now?\r\n\r\nREMEMBER: THIS IS ATARI GO. FIRST PERSON TO CAPTURE WINS.",
+  "rating": {
+    "stars": 2.8,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[dd]AW[ed]AW[ee]AW[ef]AW[df]AW[cf]AW[bf]AW[af]AW[hc]AW[ic]AW[fd]AW[gd]AB[hd]AB[id]AB[he]AB[ge]AB[fe]AB[ff]AB[eg]AB[dg]AB[cg]AB[bg]AB[ag]AB[gg]AB[hh]AW[gc]AB[cb]AW[bc]AB[bb]AW[ab]C[ATARI GO: The first capture wins!]LB[db:A]LB[cb:1]LB[bc:2]LB[ab:4]LB[bb:3]AP[goproblems]\n(;B[eb];W[fb]\n(;B[ea]\n(;W[ac]\n(;B[ba];W[dc];B[db]C[Since this is atari go, white cannot play inside the black space to kill. Black lives!RIGHT])\n(;B[dc]C[Black has a two space eye and since this is atari go white cannot play inside :)RIGHT])\n(;B[cc];W[dc];B[db]\n(;W[ba];B[ca];W[aa];B[bd]C[RIGHT])\n(;W[bd];B[ba]C[Since this is atari go, white cannot play inside the black space to kill. Black lives!RIGHT])))\n(;W[ba];B[ca]C[If White responds like this black wins by capturing b9.RIGHT]))\n(;B[dc];W[ea]\n(;B[da];W[fa]\n(;B[cc];W[ec];B[db];W[bd])\n(;B[ec];W[cc])\n(;B[ba];W[ec];B[db];W[cc])\n(;B[bd];W[ad];B[cc];W[ac]))\n(;B[bd];W[ad];B[cc];W[ac]))\n(;B[db];W[ea])\n(;B[ba];W[ea];B[da];W[fa]\n(;B[dc];W[ec];B[db];W[cc])\n(;B[cc];W[bd];B[dc];W[ec]))\n(;B[cc];W[bd]\n(;B[ea]C[Since this is atari go, white cannot play inside the black space to kill. Black lives! Navigate solution and see first path for why.RIGHT])\n(;B[dc]C[];W[ea];B[da];W[fa]\n(;B[ba];W[ec])\n(;B[ec];W[ba]\n(;B[ca]C[RIGHT])\n(;B[fc]C[NOTTHIS])))\n(;B[ec];W[dc];B[db];W[ea])\n(;B[db];W[ea])\n(;B[ba];W[ea];B[da];W[fa])))\n(;B[db];W[eb])\n(;B[cc];W[bd]\n(;B[eb];W[fb]\n(;B[ea]C[Since this is atari go, white cannot play inside the black space to kill. Black lives! Navigate solution and see first path for why.RIGHT])\n(;B[dc]C[];W[ea];B[da];W[fa]\n(;B[ba];W[ec])\n(;B[ec];W[ba]\n(;B[ca]C[RIGHT])\n(;B[fc]C[NOTTHIS])))\n(;B[ec];W[dc];B[db];W[ea])\n(;B[db];W[ea])\n(;B[ba];W[ea];B[da];W[fa];B[dc];W[ec]))\n(;B[cd];W[eb])\n(;B[db];W[eb])\n(;B[fb];W[eb];B[ea];W[da];B[fa];W[db])\n(;B[ec];W[eb])\n(;B[dc];W[eb]))\n(;B[fb];W[eb]\n(;B[cc];W[bd];B[ea];W[da];B[fa];W[db])\n(;B[ea];W[da];B[fa];W[db])\n(;B[db];W[ec]))\n(;B[dc];W[eb];B[bd];W[ad];B[cc];W[ac])\n(;B[cd];W[cc]\n(;B[db];W[bd])\n(;B[eb];W[bd])\n(;B[dc];W[bd])\n(;B[bd];W[db]))\n(;B[bd];W[cc]MA[bd]C[The marked stone dies])\n(;B[ba];W[eb])\n(;B[da];W[eb]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 95,
+  "attempts": {
+    "solved": 102,
+    "failed": 314,
+    "tries": 416,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-05-31T17:36:11+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 30,
+      "name": "Stories",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

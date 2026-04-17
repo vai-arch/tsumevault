@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22359,
+  "elo": 1349.3715116262,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This came from a real game. What can Black do?",
+  "rating": {
+    "stars": 5,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]\r\nRU[Japanese]SZ[19]KM[6.50]\r\nAW[ci][ej][ek][gk][cl][dl][gl][am][bm][gm][an][cn][dn][fn][gn][eo][fo][io][ap][bp][dp][dq][cr][dr][er][fr][gr][bs][ds][gs]AB[dk][el][hl][em][hm][bn][en][hn][ao][bo][co][do][go][ho][cp][ep][fp][hp][ip][bq][cq][eq][fq][gq][ar][br][hr][ir][fs]\r\n(;B[dm]\r\n;W[cm]\r\n;B[ck]\r\n;W[fl])\r\n(;B[ck]\r\n(;W[fl]\r\n(;B[cm]\r\n;W[dm]\r\n;B[bl]\r\n;W[fm])\r\n(;B[bl]\r\n;W[fm]\r\n;B[al]\r\n;W[dm]\r\n;B[cm]C[RIGHT\r\n\r\nBlack is not alive after White's capture on B7, but the group has enough liberties to destroy seki in the corner.\r\nWell done!])\r\n(;B[al]\r\n(;W[fm]\r\n;B[bl]\r\n;W[dm]\r\n;B[cm]C[RIGHT\r\n\r\nBlack is not alive after White's capture on B7, but the group has enough liberties to destroy seki in the corner.\r\nWell done!])\r\n(;W[bk]\r\n;B[dm])))\r\n(;W[bk]\r\n;B[dm]\r\n;W[cm]\r\n;B[al]C[RIGHT])\r\n(;W[cm]\r\n;B[al]\r\n;W[fl]\r\n;B[bl]C[RIGHT])))",
+  "author": {
+    "id": 98693,
+    "name": "AlGebra",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-09-17",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 119,
+  "attempts": {
+    "solved": 66,
+    "failed": 120,
+    "tries": 186,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-04-25T09:38:51+00:00",
+  "source": "My game on FGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 76,
+      "name": "4-4 (hoshi) Joseki",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 144,
+      "name": "Lack of Liberties (Damezumari)",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

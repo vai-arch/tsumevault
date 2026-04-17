@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6984,
+  "elo": 1074.789959181,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": -1,
+    "flagSum": 8
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 32,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ap]AB[ao]AB[bo]AB[bn]AB[cn]AB[cm]AB[am]AB[dm]AB[en]AB[fn]AB[fo]AB[fm]AB[fp]AB[dp]AB[go]AW[aq]AW[bp]AW[co]AW[eo]AW[do]AW[dn]AW[cq]AW[ep]AW[fq]AW[gp]AW[ho]AW[hn]AW[gm]C[Black to cut through the white border]AP[goproblems]\n(;B[gq]\n(;W[hp];B[eq]\n(;W[cp];B[fr]C[Black cut white and invaded its territory RIGHT])\n(;W[fr];B[cp]C[Black ruined white's territoryRIGHT]))\n(;W[eq]C[CHOICE];B[hp]C[White is cut but black lost the sente. Though this solution is correct, there is a much better way to cut white while keeping the sente.RIGHT]))\n(;B[eq];W[cp]\n(;B[gq]\n(;W[hp];B[fr]C[Black cut white and invaded its territory RIGHT])\n(;W[fr]C[CHOICE]\n(;B[hp]C[Black cut white and invaded its territory while keeping the sente (white must now add a move at G2 to protect is stones at F2 and F3).RIGHT])\n(;B[gr];W[er];B[hp]C[RIGHT])))\n(;B[dq];W[cr]\n(;B[dr];W[er])\n(;B[br];W[er])\n(;B[gq]C[You did find the weakness but lost a move beforehand])))\n(;B[cp];W[dq])\n(;B[hp];W[gq]\n(;B[eq];W[cp])\n(;B[cp];W[dq]))\n(;B[bq];W[br])\n(;B[dq];W[eq]))",
+  "author": {
+    "id": 11377,
+    "name": "iPiou",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-02-03",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1279.22
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 12135,
+    "failed": 9140,
+    "tries": 21275,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-07-26T14:17:20+00:00",
+  "source": "Amateur game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

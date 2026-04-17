@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2107,
+  "elo": 1756.2998460679,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 2.2,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[ba]AW[hb]AW[ac]AW[bc]AW[cc]AW[fc]AW[gc]AW[dd]AW[ed]AW[ce]AB[ca]AB[ab]AB[bb]AB[cb]AB[eb]AB[dc]LB[ag:0]LB[bg:1]LB[cg:2]LB[dg:3]LB[eg:4]LB[fg:5]LB[gg:6]C[how many ways to kill without ko? click on the numberFORCE]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]PL[W]\n(;W[cg];B[ch]C[now you can try different approaches in the actual problemRIGHT]\n(;W[ec];B[db];W[ea];B[fb];W[fa];B[ga];W[gb]C[black deadRIGHT])\n(;W[fb];B[ea])\n(;W[db]\n(;B[fb];W[ec]C[black deadRIGHT])\n(;B[ea];W[ec]C[black deadRIGHT]))\n(;W[ea];B[fb];W[ec];B[da]\n(;W[fa];B[ga]C[ko])\n(;W[db]C[ko]))\n(;W[fa];B[ea])\n(;W[da];B[ea])\n(;W[ga];B[ea])\n(;W[gb];B[ea]))\n(;W[ag]C[incorrect. the right moves are shown after you select the correct answer.])\n(;W[bg]C[incorrect. the right moves are shown after you select the correct answer.])\n(;W[dg]C[incorrect. the right moves are shown after you select the correct answer.])\n(;W[eg]C[incorrect. the right moves are shown after you select the correct answer.])\n(;W[fg]C[incorrect. the right moves are shown after you select the correct answer.])\n(;W[gg]C[incorrect. the right moves are shown after you select the correct answer.]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 56,
+  "attempts": {
+    "solved": 832,
+    "failed": 1915,
+    "tries": 2747,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-04-09T16:01:53+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

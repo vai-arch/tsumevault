@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10372,
+  "elo": 1042.4900564364,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 34,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ba]AW[bb]AW[cb]AW[db]AW[fa]AW[fb]AW[fc]AB[bc]AB[cd]AB[dd]AB[ed]AB[fd]AB[gd]AB[gc]AB[gb]AB[ga]AP[goproblems]\n(;B[da]\n(;W[eb];B[ab]C[RIGHT])\n(;W[ec];B[dc]\n(;W[ca];B[ea];W[eb];B[ab]C[RIGHT])\n(;W[ea];B[eb]C[RIGHT])\n(;W[ab];B[eb]C[RIGHT];W[ea];B[eb]C[RIGHT]))\n(;W[ea];B[ec];W[eb];B[ab]C[RIGHT])\n(;W[ca]\n(;B[eb];W[ec];B[dc];W[ea])\n(;B[ec];W[eb];B[ab]C[RIGHT]))\n(;W[dc];B[ec];W[eb];B[ab]C[RIGHT])\n(;W[ab]C[CHOICE];B[eb];W[ec];B[dc];W[ea];B[eb]C[RIGHT]))\n(;B[ec];W[eb]TR[ab]TR[da]C[miai for living])\n(;B[dc];W[eb]TR[ab]TR[da]C[miai for living])\n(;B[eb];W[ec];B[dc];W[ea])\n(;B[ab];W[ec]\n(;B[ea];W[da])\n(;B[da];W[ea]))\n(;B[ea];W[da]))",
+  "author": {
+    "id": 6672,
+    "name": "Athanatos",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-21",
+    "rank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1585.99
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 3122,
+    "failed": 4576,
+    "tries": 7698,
+    "speedSolved": 15,
+    "speedPlay": 35
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-09-11T08:40:32+00:00",
+  "source": "Life and death encyclopedia",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 346,
+      "name": "side",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

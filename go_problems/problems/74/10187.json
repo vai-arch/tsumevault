@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10187,
+  "elo": 1835.7635782897,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -4,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "When white played like this in my game, i could not find the solution. Please comment !! (Thanks for comments, sorry for the delay in adding missing variations)",
+  "rating": {
+    "stars": 3.3,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[op]AB[pq]AB[oq]AW[pp]AW[qq]AB[qr]AW[po]AB[qm]AW[qn]AB[pm]AW[oo]AW[mp]AB[no]AW[np]AB[nn]AW[rr]AB[pr]AW[rp]AB[mr]AW[lr]C[Black to Play]LB[lr:1]AP[goproblems]\r\n(;B[mq];W[lq]\r\n(;B[lp];W[mo]\r\n(;B[kp];W[jq]\r\n(;B[ln];W[mn];B[mm];W[nm];B[on]\r\n(;W[lo]\r\n(;B[kn]C[RIGHT])\r\n(;B[ko]C[RIGHT]))\r\n(;W[lm];B[ml];W[lo];B[kn];W[ko];B[jo]C[RIGHT]))\r\n(;B[mn];W[lo];B[kn];W[ko]C[White escapes])\r\n(;B[lo];W[mn])\r\n(;B[kn];W[mn]\r\n(;B[nm]C[White escapes])\r\n(;B[mm];W[nm];B[on];W[lm]C[White escapes]))\r\n(;B[lm];W[ln];B[mn]C[RIGHT]))\r\n(;B[lo];W[mn]C[White escapes and Black has a problem])\r\n(;B[kq];W[kr];B[jq];W[jr];B[iq];W[ir]\r\n(;B[kn];W[mn];B[mm];W[nm]C[White breaks out and Black dies.])\r\n(;B[hq];W[lo];B[kp];W[nq];B[nr];W[os]\r\n(;B[or];W[qs]\r\n(;B[ps];W[rs]\r\n(;B[ns];W[ls]C[Black dies])\r\n(;B[ls];W[ns];B[ms];W[ks]C[Black dies.]))\r\n(;B[ko];W[ln]C[Black dies]))\r\n(;B[ko];W[ln];B[or]C[Black dies.]))\r\n(;B[os];W[hq]C[Glack is not alive and White is happy]))\r\n(;B[jp]))\r\n(;B[os];W[lo]C[Black must live and white has Sente.... Too submissive.])\r\n(;B[nr];W[lo]C[Black must live and White has Sente. Too submissive]))\r\n(;B[nr];W[lq];B[os]C[Black can live, but its too submissive.])\r\n(;B[nq]C[Black to play];W[lq]C[Black is dead.])\r\n(;B[os];W[lq]C[White is peaceful];B[nr]C[Black lives, but its too submissive])\r\n(;B[ns];W[lq]C[Black is dead.])\r\n(;B[lq];W[nr]\r\n(;B[nq];W[mq])\r\n(;B[mq];W[nq]C[Sliced and dead...])))",
+  "author": {
+    "id": 8645,
+    "name": "tom111",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1402.59
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 221,
+    "failed": 999,
+    "tries": 1220,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-07-24T06:26:31+00:00",
+  "source": "own game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9656,
+  "elo": 1259.085361751,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "At first, I wanted to make this a \"Black to move\" because it's more interesting for black to solve but I forgot it and made a \"White to get best result\" instead. Poor me \\(=O=)/. Enjoy it anyway ^-^.",
+  "rating": {
+    "stars": 4,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sp]AB[qp]AB[pp]AB[oq]AB[or]AB[ns]AB[on]AB[pn]AB[qn]AB[no]AB[mo]AB[lp]AB[lq]AB[kr]AB[ls]AW[kq]AW[kp]AW[jr]AW[lo]AW[mn]AW[ko]AW[nn]AW[oo]AW[os]AW[ps]AW[pr]AW[pq]AW[qq]AW[rq]AB[rp]AW[rs]AW[sr]AB[sq]AW[iq]LB[os:1]LB[ns:2]AW[mr]AB[nr]LB[mr:3]LB[nr:4]C[Reduce black territory as much as possible.]AP[goproblems]\n(;W[np];B[mq]\n(;W[nq];B[op];W[mp];B[lr]C[This is the Best result.RIGHT]MA[ks]MA[po]MA[js]MA[no]MA[ms])\n(;W[mp]C[RIGHT];B[op];W[nq];B[lr]C[This is the Best result.RIGHT]MA[no]MA[po]MA[js]MA[ks]MA[ms])\n(;W[op];B[mp]C[White can't cut.]TR[mr]TR[np]TR[op]TR[oo]))\n(;W[mp];B[np]\n(;W[mq];B[lr]C[sometimes, connect is not a good idea. White dies.]TR[mr]TR[mq]TR[mp]TR[oo])\n(;W[lr];B[mq];W[ks];B[ms]TR[lr]TR[mr]C[It look like white didn't invade at all. White can do better.]TR[oo]))\n(;W[op];B[mq];W[ms];B[lr])\n(;W[mq];B[lr]\n(;W[mp];B[np]TR[mr]TR[mq]TR[mp]TR[oo])\n(;W[np];B[mp]TR[mr]TR[mq]TR[np]TR[oo])\n(;W[op];B[np]TR[mr]TR[mq]TR[op]TR[oo])\n(;W[ms];B[np]TR[ms]TR[mr]TR[mq]TR[oo])\n(;W[nq];B[np]))\n(;W[nq];B[np]\n(;W[lr];B[mq];W[ks];B[ms]TR[lr]TR[mr]C[It look like white didn't invade at all. White can do better.]TR[oo])\n(;W[mq];B[lr]C[sometimes, connect is not a good idea. White dies.]TR[mr]TR[mq]TR[nq]TR[oo]))\n(;W[lr];B[np]\n(;W[mq];B[mp];W[ks];B[ms]MA[op]MA[kr]MA[nq]C[Very Impressive but white can do better.])\n(;W[ks];B[mq]LB[ms:a]C[FORCE];W[ms]C[Not enough. White can do better.]))\n(;W[ms];B[mq]TR[mr]TR[ms]TR[oo])\n(;W[ks];B[lr]TR[mr]TR[oo]))",
+  "author": {
+    "id": 17549,
+    "name": "JiroMaru",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-01-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 64,
+  "attempts": {
+    "solved": 1168,
+    "failed": 2409,
+    "tries": 3577,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-01-14T06:31:16+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

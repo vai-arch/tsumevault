@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3980,
+  "elo": 1783.2975032213,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -3,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This is tricky, think hard on it.\r\nThanks to those who commented, showing me the errors in my logic (and grammar) :)",
+  "rating": {
+    "stars": 1.5,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[How many squares are on a standard go board? A=0 B=42 C=324 D=361 E=2109]LB[hh:A]LB[ih:B]LB[jh:C]LB[kh:D]LB[lh:E]AP[goproblems]\r\n(;B[hh]C[Yes it's true that the 'squares' on a go board are not actually square, but if you put enough rectangles together, couldn't you make a square? (are you confused yet?)])\r\n(;B[ih]C[Correct! Each 'square' is actually a rectangle, but put 12 x 13 together and it will usually be a square (some go boards may be different but by process of elimination you should have still picked this answer)  To find the number of squares, just multiply 19-12 by 19-13, which equals 42.RIGHT])\r\n(;B[jh]C[No, think a little harder on this one.])\r\n(;B[kh]C[That's the number of intersections, genius.])\r\n(;B[lh]C[if each 'square' on a go board was actually square, this would be the best answer.]))",
+  "author": {
+    "id": 6262,
+    "name": "caleb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-06-23",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 21,
+  "attempts": {
+    "solved": 483,
+    "failed": 2282,
+    "tries": 2765,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-02-22T19:13:44+00:00",
+  "source": "Kiwi Go website",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 31,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

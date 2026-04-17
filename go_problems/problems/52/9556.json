@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9556,
+  "elo": 694.13749083633,
+  "problemLevel": 1,
+  "rank": {
+    "value": 29,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": -1,
+    "flagSum": 9
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "An endgame problem.",
+  "rating": {
+    "stars": 3.2,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ss]AW[sr]AW[sq]AW[rq]AW[qq]AW[qr]AW[pr]AW[ps]AB[nr]AB[or]AB[pq]AB[qp]AB[rp]AB[ro]AB[mr]AW[ns]AB[sn]AB[op]AB[oq]AB[pp]AB[rn]C[White to play and get the best result in this corner.]AB[ms]AP[goproblems]\r\n(;W[rs];B[os];W[sp]C[White has two points, Black has two points (remember, Black captured a stone).RIGHT]LB[ns:2]LB[qs:1]LB[rr:1])\r\n(;W[os];B[rs]C[This way, White dies. Play T to see how Black can eventually capture White, or play on to try to save the group.]LB[nq:T]\r\n(;W[sp];B[so]LB[nq:T]\r\n(;W[qs];B[rr])\r\n(;W[rr];B[qs])\r\n(;W[nq];B[qs]LB[np:T]\r\n(;W[rr];B[rs]LB[np:T]\r\n(;W[qs];B[rs])\r\n(;W[np];B[qs]))\r\n(;W[np];B[rr])))\r\n(;W[rr];B[sp]LB[nq:T]\r\n(;W[qs];B[rs])\r\n(;W[nq];B[qs]))\r\n(;W[qs];B[sp]LB[nq:T]\r\n(;W[rr];B[rs])\r\n(;W[nq];B[rr]))\r\n(;W[nq];B[sp]LB[np:T]\r\n(;W[rr];B[qs])\r\n(;W[qs];B[rr])\r\n(;W[np];B[qs]LB[no:T]\r\n(;W[rr];B[rs]LB[no:T]\r\n(;W[qs];B[rs])\r\n(;W[no];B[qs]))\r\n(;W[no];B[rr]))))\r\n(;W[sp];B[rs]C[White is dead. To see why, look at the other variation (p1 instead of t4).])\r\n(;W[so]C[This can't be good. Black can capture straight away at t4, or do something even better.])\r\n(;W[rr]C[NOTTHIS])\r\n(;W[qs]C[NOTTHIS]))",
+  "author": {
+    "id": 5298,
+    "name": "Bildstein",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-03-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 19,
+  "attempts": {
+    "solved": 27336,
+    "failed": 7038,
+    "tries": 34374,
+    "speedSolved": 2,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-12-07T16:30:39+00:00",
+  "source": "Problem 9551",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

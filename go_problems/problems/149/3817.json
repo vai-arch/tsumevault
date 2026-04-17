@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3817,
+  "elo": 1558.4352937816,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black could start a huge hanami-ko for the white stones in the middle. Neither player has any outside ko threats. Should black start the ko immediately, or play elsewhere, and save the ko for later, when he has more threats?",
+  "rating": {
+    "stars": 3.8,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[jj]AW[ho]AW[io]AW[jo]AW[ko]AW[lo]AW[gp]AW[hp]AW[lp]AW[mp]AW[gq]AW[mq]AW[gr]AW[mr]AW[gs]AW[ms]AB[ki]AB[hk]AB[kk]AB[hl]AB[kl]AB[ml]AB[hm]AB[gn]AB[mn]AB[fo]AB[no]AB[ep]AB[ip]AB[jp]AB[kp]AB[op]AB[eq]AB[hq]AB[iq]AB[kq]AB[lq]AB[oq]AB[er]AB[hr]AB[lr]AB[or]AB[es]AB[hs]AB[ls]AB[os]LB[pj:A]C[play at A whenever you want to play elsewhere.]AW[im]AW[jm]AW[km]AB[kj]AW[ik]AW[jk]AB[gj]AB[hi]AW[hh]AW[ih]AW[jh]AB[lm]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[pj];W[ji]C[white is saved.])\n(;B[ji]LB[pj:A]\n(;W[ii]LB[pj:A]\n(;B[ij]LB[pj:A];W[hj]LB[pj:A]\n(;B[jl]LB[pj:A];W[il]LB[pj:A]\n(;B[ij]LB[pj:A];W[jr]LB[pj:A]\n(;B[hj]LB[pj:A]\n(;W[js]LB[pj:A]\n(;B[fs]C[Black wins the semeai by one move.RIGHT])\n(;B[fr]C[Black wins the semeai by one move.RIGHT])\n(;B[fq]C[Black wins the semeai by one move.RIGHT])\n(;B[fp]C[Black wins the semeai by one move.RIGHT])\n(;B[go]C[Black wins the semeai by one move.RIGHT])\n(;B[hn]C[Black wins the semeai by one move.RIGHT])\n(;B[in]C[Black wins the semeai by one move.RIGHT])\n(;B[jn]C[Black wins the semeai by one move.RIGHT])\n(;B[kn]C[Black wins the semeai by one move.RIGHT])\n(;B[ln]C[Black wins the semeai by one move.RIGHT])\n(;B[mo]C[Black wins the semeai by one move.RIGHT])\n(;B[np]C[Black wins the semeai by one move.RIGHT])\n(;B[nq]C[Black wins the semeai by one move.RIGHT])\n(;B[nr]C[Black wins the semeai by one move.RIGHT])\n(;B[ns]C[Black wins the semeai by one move.RIGHT])\n(;B[pj];W[jq]C[white wins the semeai.]))\n(;W[ks]C[Reference variation: this does not help white.];B[is]\n(;W[js];B[kr]C[Temporary seki inside; white is dead without a capturing race.RIGHT])\n(;W[kr];B[js]C[Temporary seki inside, white is dead without a capturing race.RIGHT]))\n(;W[kr]C[Rerefence variation: this does not help white.];B[js]\n(;W[ir];B[jq]C[Temporary seki inside, white is dead without a capturing race.RIGHT])\n(;W[ks];B[is]C[Temporary seki inside, white is dead without a capturing race.RIGHT])))\n(;B[js];W[hj]C[white wins the ko.])\n(;B[pj];W[js]))\n(;B[pj];W[gi]))\n(;B[il]LB[pj:A];W[jl]LB[pj:A]\n(;B[ij]LB[pj:A];W[jr]LB[pj:A]\n(;B[hj]LB[pj:A];W[js]LB[pj:A]\n(;B[fs]C[Black wins the semeai by one move.RIGHT])\n(;B[fr]C[Black wins the semeai by one move.RIGHT])\n(;B[fq]C[Black wins the semeai by one move.RIGHT])\n(;B[fp]C[Black wins the semeai by one move.RIGHT])\n(;B[go]C[Black wins the semeai by one move.RIGHT])\n(;B[hn]C[Black wins the semeai by one move.RIGHT])\n(;B[in]C[Black wins the semeai by one move.RIGHT])\n(;B[jn]C[Black wins the semeai by one move.RIGHT])\n(;B[kn]C[Black wins the semeai by one move.RIGHT])\n(;B[ln]C[Black wins the semeai by one move.RIGHT])\n(;B[mo]C[Black wins the semeai by one move.RIGHT])\n(;B[np]C[Black wins the semeai by one move.RIGHT])\n(;B[nq]C[Black wins the semeai by one move.RIGHT])\n(;B[nr]C[Black wins the semeai by one move.RIGHT])\n(;B[ns]C[Black wins the semeai by one move.RIGHT])\n(;B[pj];W[jq]C[white wins the semeai.]))\n(;B[js];W[hj]C[white wins this ko.])\n(;B[pj];W[js]))\n(;B[pj];W[gi]))\n(;B[gi];W[ij])\n(;B[pj];W[gi]))\n(;B[pj];W[ij]C[white is saved.]))\n(;W[jr]C[this is a clever trick play.]\n(;B[js]C[black is tricked.];W[ii];B[ij];W[hj];B[il];W[jl];B[ij];W[is];B[hj];W[ks]C[now white can make an eye inside black's group and kill it.])\n(;B[ij];W[js];B[ln]C[connecting to K7 stones does not give white any extra liberties.])))\n(;B[jr];W[ji]C[K2 is not needed to live.  white is saved.]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 77,
+  "attempts": {
+    "solved": 413,
+    "failed": 2523,
+    "tries": 2936,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-27T07:12:32+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

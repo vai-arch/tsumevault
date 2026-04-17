@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12131,
+  "elo": 955.30311694603,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 40,
+    "negativeFlagSum": 0,
+    "flagSum": 40
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to live! Hint: Those who have one eye here, might look and play under the stones.",
+  "rating": {
+    "stars": 4.6,
+    "votes": 60,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ba]AW[bb]AB[ca]AB[db]AB[cb]AW[cc]AB[ac]AB[bc]AB[ab]AB[bd]AW[ad]AW[ae]AW[cd]AW[ce]AW[be]AW[ec]AW[fc]AW[fb]AB[eb]AW[hb]AP[goproblems]\n(;B[aa]\n(;W[bb];B[ba];W[ea]C[CHOICE])\n(;W[ba];B[bb];W[ea]C[CHOICE])\n(;W[ea]C[CHOICE]))\n(;B[ea];W[aa]\n(;B[ac];W[bc]C[CHOICE])\n(;B[ab];W[bc]C[CHOICE])\n(;B[bc];W[ac];B[ab];W[bb]\n(;B[ba];W[bd]\n(;B[bb]C[RIGHT])\n(;B[aa]C[CHOICE]))\n(;B[aa];W[ba];B[ab];W[bd]C[CHOICE]))))",
+  "author": {
+    "id": 26610,
+    "name": "Meysel",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2016-06-05",
+    "rank": {
+      "value": 22,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 22,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 925.535
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 6082,
+    "failed": 5659,
+    "tries": 11741,
+    "speedSolved": 28,
+    "speedPlay": 55
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-12-22T12:56:53+00:00",
+  "source": "Cho Chikun - Elementary Problems",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 33,
+      "name": "Under the Stones",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

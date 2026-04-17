@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23064,
+  "elo": 1580.0623319829,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\nAB [bp][cp][dp][dq][br][cr]\r\nAW [ao][bo][co][do][ep][eq][dr][er][ds]\r\n\r\nLB [eo:T]\r\nC [White to play for the best result, or tenuki at 'T' (E5) if you have nothing.]\r\n\r\n(; W [bs]; B [cs] (; W [aq] (; B [ap] (; W [bq]; B [cq]; W [ar] C [RIGHT])(; W [ar]; B [as] C [Ko.]))(; B [bq] C [This line will not be played by the computer.]; W [ar] (; B [as]; W [ap] C [RIGHT])(; B [ap]; W [cq] C [RIGHT])))(; W [ar]; B [aq])(; W [ap]; B [aq])(; W [bq]; B [aq]))\r\n(; W [cs]; B [bs] (; W [aq]; B [bq])(; W [ar]; B [aq])(; W [bq]; B [aq]))\r\n(; W [aq]; B [bq] (; W [ar]; B [ap]; W [bs]; B [as] (; W [ar]; B [cs])(; W [cs]; B [ar]))(; W [bs]; B [ar])(; W [ap]; B [ar])(; W [cs]; B [ap]))\r\n(; W [ar]; B [aq])\r\n(; W [eo]; B [aq] C [Nope, you had an unconditional kill here, but your tenuki allowed black to live.])\r\n\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 73,
+  "attempts": {
+    "solved": 39,
+    "failed": 145,
+    "tries": 184,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-03-23T16:58:13+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

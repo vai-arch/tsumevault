@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1207,
+  "elo": 1511.6516519448,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "A simple shape that occurs regularly but I often miss the best play.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nFF[4]\r\nGM[1]\r\nSZ[19]\r\nAP[Jago:Version 4.18]\r\nAB[is][hr][gq][gp][fp][fo][gn][ho][hp][io][iq][jp][kp][lp][lq][mq][lr][kq]\r\nAW[hs][gs][gr][fr][fq][eq][ep][eo][en][fn][gm][hn][in][jo][ko][lo][mo][mp][hm][nq][mr][or][op]\r\nC[Best endgame for white?]\r\n(\r\n;\r\nW[js]\r\n;\r\nB[ir]\r\n;\r\nW[ls]\r\n;\r\nB[ks]\r\n(\r\n;\r\nW[ms]\r\nC[The atari at K1 changes the hane at M1 from 1pt gote to 2 pts sente since black needs another move (assuming there aren't bigger moves elsewhere). RIGHT]\r\n)\r\n(\r\n;\r\nW[kr]\r\n;\r\nB[jr]\r\n(\r\n;\r\nW[ms]\r\n;\r\nB[ks]\r\nC[L2 overcomplicates things but still means M1 is 2 pts sente instead of the 1 pt gote (assuming there aren't bigger moves elsewhere). RIGHT]\r\n)\r\n(\r\n;\r\nW[ks]\r\n;\r\nB[ms]\r\n)\r\n)\r\n)\r\n(\r\n;\r\nW[ls]\r\n;\r\nB[ks]\r\nC[1 pt gote]\r\n)\r\n(\r\n;\r\nW[jr]\r\n;\r\nB[ir]\r\n;\r\nW[ls]\r\n;\r\nB[ks]\r\nC[1 pt gote]\r\n)\r\n)",
+  "author": {
+    "id": 830,
+    "name": "Spica",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 5252,
+    "failed": 8113,
+    "tries": 13365,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-11-29T11:46:32+00:00",
+  "source": "Amateur Game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

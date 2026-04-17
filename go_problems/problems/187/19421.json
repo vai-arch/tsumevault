@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19421,
+  "elo": 1144.8263763676,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 2.3,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[besogo:0.0.2-alpha]SZ[19]ST[0]\r\nAB[bo][bs][cp][cq][cr]AW[an][bn][bq][br][cn][do][dp][dq][dr][ds]\r\nC[B to move]\r\n(;B[ar]\r\n(;W[aq]\r\n(;B[ap]\r\nC[RIGHT]\r\n;W[as]SQ[ar]\r\nC[Right, ko! RIGHT CHOICE])\r\n(;B[bp]\r\n;W[as]SQ[ar]\r\nC[Right, ko! RIGHT])\r\n(;B[cs]\r\n;W[as]SQ[ar]TR[cs]\r\nC[A harder ko than needed - This move should've taken away one of the 3 stones liberties.]))\r\n(;W[cs]\r\n(;B[bp]\r\n;W[as]SQ[bs]\r\nC[Right, ko! RIGHT CHOICE])\r\n(;B[aq]\r\n;W[as]\r\nC[Right, ko! RIGHT])))\r\n(;B[bp]\r\n;W[ar]\r\n(;B[ao]\r\n;W[aq]\r\nC[Bulky 5 inside])\r\n(;B[aq]\r\n;W[ao])\r\n(;B[cs]TR[ao][aq]\r\nC[(gote)]))\r\n(;B[aq]\r\n;W[ap]\r\n(;B[bp]\r\n;W[ar]\r\nC[Dead shape])\r\n(;B[ar]\r\n;W[as]\r\n(;B[ar]\r\n;W[ao])\r\n(;B[bp]\r\n;W[cs])\r\n(;B[ao]\r\nC[(gote)])\r\n(;B[cs]\r\nC[(gote)])))\r\n(;B[cs]\r\n(;W[ao])\r\n(;W[bp]))\r\n(;B[ap]\r\n;W[ar])\r\n(;B[ao]\r\n;W[cs]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 221,
+    "failed": 320,
+    "tries": 541,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-04-12T16:26:56+00:00",
+  "source": "Yi Ch'ang-ho's Selected Life and Death Go Problems",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 187,
+      "name": "Yi Ch'ang-ho's Selected Life and Death Go Problems Book 2",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

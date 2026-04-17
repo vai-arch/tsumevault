@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5762,
+  "elo": 952.70617775753,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": -1,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.8,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qb]AB[qc]AB[qa]AB[rb]AB[pb]AW[ob]AW[oc]AW[pc]AW[nd]AB[pd]AB[pe]AB[pf]AW[qd]AW[rd]AW[rc]AB[re]C[Black to start a ko  in the best way possible.]AW[sb]AP[goproblems]\n(;B[qe];W[ra];B[sa]C[Direct ko, black captures first and no local threats for white.RIGHT])\n(;B[sd];W[ra];B[sa]C[Direct ko, black captures first and no local threats for white.RIGHT])\n(;B[sc];W[sd]\n(;B[qe];W[ra];B[sa]C[Direct ko and black captures first.RIGHT])\n(;B[se];W[ra];B[sa]C[Direct ko and black captures first.RIGHT])\n(;B[sa];W[ra];B[sa]C[Two stage ko in white's favour.]))\n(;B[sa];W[ra]C[Direct ko, but white captures first and she has a local threat at A.]LB[sc:A])\n(;B[ra];W[oa]\n(;B[qe];W[pa]C[No ko at all.])\n(;B[sd];W[pa]C[No ko at all.])\n(;B[sc];W[pa];B[sa];W[sb]C[No ko at all.]))\n(;B[pa];W[oa]C[No ko at all.])\n(;B[oa];W[na]\n(;B[pa];W[ra])\n(;B[ra];W[pa]C[Two step ko in white's favour.])\n(;B[sa];W[ra]C[Direct ko, but white captures first and she has a local threat at A.]LB[sc:A])\n(;B[qe];W[pa]C[Direct ko, but white captures first and she has  a local threat at A.]LB[sc:A])\n(;B[sd];W[pa]C[Direct ko, but white captures first and she has a local threat at A.]LB[sc:A])\n(;B[sc];W[sd]\n(;B[qe];W[pa]C[Direct ko, but white captures first.])\n(;B[se];W[pa]C[Direct ko, but white captures first.]))))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 20025,
+    "failed": 12576,
+    "tries": 32601,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-01-04T02:06:24+00:00",
+  "source": "a game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

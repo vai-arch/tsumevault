@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13890,
+  "elo": 1205.8316815315,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This showed up in one of my rengo games, I was white. I played the first move correctly and my partner followed through incorrectly :( Can you do better?\r\n\r\nIf there are any incorrect/addition variations, please comment. Should be a fairly straight-forward problem.",
+  "rating": {
+    "stars": 4.1,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[pr]AW[ps]AW[qq]AW[rq]AW[rp]AB[or]AB[nq]AB[pq]AB[qp]AB[pp]AB[qo]AB[ro]AB[rr]C[Black played at 1 in hope of killing the white group. White to play  and get best possible result. ]LB[rr:1]AP[goproblems]\r\n(;W[rs]\r\n(;B[sr];W[qr]C[RIGHT])\r\n(;B[qr];W[sr]C[RIGHT])\r\n(;B[sp];W[sr]C[RIGHT]))\r\n(;W[sr];B[rs]\r\n(;W[sp];B[qr]C[White can't push anymore without filling in the eye.])\r\n(;W[qr];B[sp]))\r\n(;W[qr];B[rs]\r\n(;W[sr];B[sp])\r\n(;W[sp];B[sr]C[Because black has an eye, he will be able to fill in internal liberties to take the while group. White is dead, it's not a seki. Either way, you could have gotten unconditional life with points ;-)]))\r\n(;W[sp];B[qr];W[sr]\r\n(;B[so])\r\n(;B[os])))",
+  "author": {
+    "id": 20109,
+    "name": "Ceram88",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-14",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 45,
+  "attempts": {
+    "solved": 1509,
+    "failed": 2640,
+    "tries": 4149,
+    "speedSolved": 7,
+    "speedPlay": 20
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-08-03T16:52:36+00:00",
+  "source": "KGS Rengo Game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

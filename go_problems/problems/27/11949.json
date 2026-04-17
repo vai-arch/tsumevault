@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11949,
+  "elo": 1293.9693107986,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This is a problem that is quite useful. It might already be on the site, but since the pattern search doesn't check floating problems, I cannot validate this, so please excuse me if this is a duplicate.",
+  "rating": {
+    "stars": 4,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ik]AB[jk]AB[kk]AB[jj]AW[ij]AW[hj]AW[ji]AW[kj]AW[lj]AB[pd]AB[dd]LB[jh:A]C[Please connect all stones. Does the white connection at A work? If so, play it. If not, please play a connection that will work, or that is the best in this situation. If no connection works that will connect all stones, please play T for tenuki.]LB[jd:T]AP[goproblems]\r\n(;W[jh];B[ki]\r\n(;W[lh];B[ii]\r\n(;W[hh];B[kh]\r\n(;W[kg];B[ih]\r\n(;W[jg];B[ig])\r\n(;W[li];B[ig])\r\n(;W[ig];B[jg]))\r\n(;W[ih];B[kg])\r\n(;W[ig];B[kg]))\r\n(;W[hi];B[ih];W[ig];B[hh]MA[dd]C[The ladder doesn't work.])\r\n(;W[ih];B[hi];W[gi];B[hh]C[The ladder doesn't work.]MA[dd]))\r\n(;W[kh];B[li]\r\n(;W[mi];B[lh]MA[pd]C[The ladder doesn't work.])\r\n(;W[lh];B[mi])\r\n(;W[mh];B[mi]\r\n(;W[ni];B[mj])\r\n(;W[mj];B[ni])))\r\n(;W[li];B[kh]\r\n(;W[kg];B[lh]MA[pd]C[The ladder doesn't work.])\r\n(;W[lh];B[kg])\r\n(;W[lg];B[kg];W[kf];B[jg];W[ig];B[jf];W[je];B[if];W[hf];B[ih]))\r\n(;W[lg];B[li];W[mi];B[mj];W[lk];B[mh])\r\n(;W[mh];B[kh];W[kg];B[ii]\r\n(;W[hh];B[ih])\r\n(;W[hg];B[ih];W[jg];B[hi];W[gi];B[gj];W[hk];B[gh])\r\n(;W[hi];B[ih])\r\n(;W[gh];B[ih];W[jg];B[hg])))\r\n(;W[ki];B[ii]\r\n(;W[ih];B[hi];W[gi];B[hh]C[The ladder doesn't work.]MA[dd])\r\n(;W[hh];B[ih];W[ig];B[jh];W[jg];B[kh];W[lh];B[kg];W[kf];B[lg];W[mg];B[mh];W[li];B[mf])\r\n(;W[hi];B[ih]))\r\n(;W[ii]C[NOTTHIS])\r\n(;W[ih]C[NOTTHIS])\r\n(;W[kh];B[ii]\r\n(;W[ih];B[hi];W[gi];B[hh]MA[dd]C[The ladder doesn't work.])\r\n(;W[hh];B[ih];W[ig];B[jh]\r\n(;W[jg];B[ki];W[hi];B[ji])\r\n(;W[ki];B[jg]))\r\n(;W[hi];B[ih]))\r\n(;W[jd]C[Correct. Navigate solutions for more details.RIGHT]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 1399,
+    "failed": 2379,
+    "tries": 3778,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-11-08T17:43:31+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

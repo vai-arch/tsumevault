@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22044,
+  "elo": 858.16349156302,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is a basic corner shape, but at first glance it appears like Black is very safe. He would be, in the middle of the board, which is what makes this situation unique in the corner.",
+  "rating": {
+    "stars": 4.6,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]CA[UTF-8]AP[GoGui:1.5.1]SZ[9]AB[ga][gb][gc][hc][hd][he][ie]AW[ha][hb][ib][fb][fc][gd][ge][hf][gf][fd]DT[2019-07-10]C[It looks like Black is alive, but he's not quite safe yet.](;W[ic];B[id](;W[if];B[ia](;W[ib];B[hb](;W[ha]C[RIGHT twisted four in the corner is ko])(;W[fa];B[ic]))(;W[hb];B[ib])(;W[ha];B[hb])(;W[fa];B[hb]))(;W[fa];B[ia](;W[ib];B[hb](;W[ha]C[RIGHT twisted four in the corner is ko])(;W[if];B[ic]))(;W[hb];B[ib])(;W[ha];B[hb])(;W[if];B[ib])))(;W[fa];B[ic];W[if];B[ia]C[black has two eyes])(;W[if];B[ic];W[fa];B[ia]C[black has two eyes]))",
+  "author": {
+    "id": 11062,
+    "name": "iopq",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-07-30",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1402.07
+  },
+  "avgSolveTimeSeconds": 126,
+  "attempts": {
+    "solved": 1134,
+    "failed": 653,
+    "tries": 1787,
+    "speedSolved": 6,
+    "speedPlay": 10
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2019-07-10T13:25:57+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

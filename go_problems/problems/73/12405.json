@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12405,
+  "elo": 2060.9032839473,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This is an endgame problem, but could be life and death if you make a mistake! Comments are welcome - I'm sure I've missed things.",
+  "rating": {
+    "stars": 3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ae]AB[be]AB[ce]AB[de]AW[af]AW[bf]AW[cf]AW[df]AW[cd]AB[cc]AB[eb]AW[db]AW[fb]AW[gb]AW[gc]AW[gd]AW[ge]AW[gf]AW[ff]AW[ef]AB[fc]AB[fd]AB[fe]AB[ee]LB[db:1]AP[goproblems]\n(;B[ec];W[ea];B[cb];W[ca]\n(;B[dc];W[da];B[ba];W[fa]\n(;B[ab]C[White reduce your corner 8 points in sente!])\n(;B[bb]C[White got an 8 point reduction in sente!]))\n(;B[ba];W[da];B[dc];W[fa]\n(;B[ab]C[White reduce your corner 8 points in sente!])\n(;B[bb]C[White got an 8 point reduction in sente!])))\n(;B[dc];W[ea]\n(;B[ec];W[ca]\n(;B[cb];W[da];B[ba];W[fa]\n(;B[ab]C[White reduce your corner 8 points in sente!])\n(;B[bb]C[White got an 8 point reduction in sente!]))\n(;B[ba];W[fa];B[cb];W[da]\n(;B[ab]C[White reduce your corner 8 points in sente!])\n(;B[bb]C[White got an 8 point reduction in sente!])))\n(;B[cb];W[ec]\n(;B[ca]C[White made gains in sente - Good try though!])\n(;B[ed];W[ca];B[eb];W[da];B[ba];W[ec]\n(;B[ab]C[You can do better than 9 points in gote!])\n(;B[bb]C[Saved 9 points in gote, did you not want more?]))))\n(;B[da];W[ec]\n(;B[ea];W[ca]C[Terrible idea!])\n(;B[cb];W[ea];B[ca];W[dd];B[bd];W[ed]\n(;B[ac]C[Well, it is better than seki. Try, try again!])\n(;B[bb]C[Just 6 points, come on, you can do better!])\n(;B[dc];W[eb]\n(;B[ac]C[Only 6 points of territory.  Also D17 lost a ko threat])\n(;B[bb]C[D17 lost a ko threat and you only have 6 points of territory]))))\n(;B[cb]\n(;W[ec];B[dc];W[ea]\n(;B[ca]C[White made gains in sente - Good try though!])\n(;B[ed];W[ca];B[eb];W[da];B[ba];W[ec]\n(;B[ab]C[You can do better than 9 points in gote!])\n(;B[bb]C[Saved 9 points in gote, did you not want more?])))\n(;W[ea]\n(;B[dc];W[ec]\n(;B[ca]C[White made gains in sente - Good try though!])\n(;B[ed];W[ca];B[eb];W[da];B[ba];W[ec]\n(;B[ab]C[You can do better than 9 points in gote!])\n(;B[bb]C[Saved 9 points in gote, did you not want more?])))\n(;B[ec];W[ca]\n(;B[dc];W[da];B[ba];W[fa]\n(;B[ab]C[White reduce your corner 8 points in sente!])\n(;B[bb]C[White got an 8 point reduction in sente!]))\n(;B[ba];W[da];B[dc]))))\n(;B[ea]\n(;W[dc]\n(;B[ec];W[bc]C[This ladder cannot be good for black!  (It appears seki is best result for black from here, but I've not explored all the variations)])\n(;B[cb];W[ec];B[da]C[Yep! But white has a more complicated line of playRIGHT]))\n(;W[cb]C[Oh, you want it all? Good luck!]\n(;B[dc];W[bc];B[bb]\n(;W[dd]C[];B[ec];W[ba];B[ab];W[ac]\n(;B[ca];W[aa]\n(;B[bb];W[ab];B[da];W[bd];B[bb];W[cb]C[seki])\n(;B[da];W[bb];B[bd];W[fa]C[seki]))\n(;B[da];W[aa]\n(;B[bb];W[ab]\n(;B[ca];W[bd];B[bb];W[cb]C[seki])\n(;B[bd];W[ca];B[ad]C[B wins the race because of the outside liberty! Did you really read this?!CHOICERIGHT]))\n(;B[bd];W[bb]\n(;B[ca])\n(;B[ad];W[fa]C[seki])))\n(;B[bd];W[aa];B[da];W[bb]\n(;B[ca];W[fa]C[seki])\n(;B[ad];W[fa]C[seki])))\n(;W[ec]C[]\n(;B[ed];W[ba];B[ab];W[ac]\n(;B[da];W[aa]\n(;B[bb];W[ab];B[bd];W[fa];B[ec];W[ca]C[seki])\n(;B[ca];W[bb];B[bd];W[fa];B[ec]C[seki]))\n(;B[ca];W[aa]\n(;B[bb];W[ab];B[da];W[bd];B[bb];W[cb]\n(;B[db];W[dd]C[ko])\n(;B[dd]C[One eye to none - B wins! Good reading!CHOICERIGHT])\n(;B[ad]C[D16 is left as a big ko threat for white, but this is also a solution (thanks to GameCarpenter)RIGHT]))\n(;B[da];W[bb];B[bd];W[fa];B[ec]C[seki])))\n(;B[dd];W[ba];B[ab];W[ac]\n(;B[da];W[aa];B[bb];W[ab]\n(;B[bd];W[ca];B[ed];W[fa];B[ec]C[seki])\n(;B[ca];W[fa]C[Whoops]))\n(;B[ca];W[aa];B[bb];W[ab]\n(;B[da];W[fa]C[Whoops])\n(;B[bd];W[da]C[W alive, B dead :-(])))))\n(;B[bc];W[dc]\n(;B[dd];W[ec]C[I'm not sure why you played this way either...])\n(;B[ec];W[dd]\n(;B[bd];W[bb]\n(;B[ac];W[ab];B[da];W[fa])\n(;B[ab];W[ac];B[ad];W[ba];B[da];W[fa]C[seki.]))\n(;B[bb];W[bd]\n(;B[ad];W[ba]\n(;B[ca];W[ab]\n(;B[ac];W[da];B[aa]C[Ko :-(])\n(;B[aa]C[Ko :-(]))\n(;B[ac];W[ca]\n(;B[da];W[fa];B[ab]C[Gote seki, ouch.])\n(;B[ed];W[fa];B[ab]C[Gote seki, ouch.]))\n(;B[da];W[ab];B[ac];W[fa]\n(;B[ca];W[ed]C[Atari blindness - it happens.])\n(;B[aa]C[Ko for life - Greed is only good when you can get away with it.])\n(;B[ed];W[ca]C[Atari blindness - it happens.]))\n(;B[ab];W[fa]C[Seki - well, at least you have sente.]))\n(;B[ba]C[An inventive solution! B has an eye and white will eventually be captured! (You need the F19 liberty)CHOICERIGHT])\n(;B[ca];W[ba]\n(;B[aa];W[da]\n(;B[ad];W[ba];B[ac];W[ab]C[ko])\n(;B[ac];W[ba]\n(;B[ad];W[ab]C[ko])\n(;B[ed];W[ab]C[ko])))\n(;B[da];W[ab];B[aa]C[ko.])))))\n(;B[bb];W[dc]\n(;B[bc];W[ec]C[Clearly wanting it all and having it all are two very different things....])\n(;B[ec];W[bc]C[This is not good! There are many seki and ko possibilities from here, I may add them in the future.]))\n(;B[ec];W[bc];B[dc];W[ba]\n(;B[ab];W[ac];B[bb];W[aa];B[da];W[bb];B[bd];W[dd]\n(;B[ca])\n(;B[ad];W[fa]C[seki]))\n(;B[da];W[ab];B[ca];W[bb]\n(;B[bd];W[dd]C[Seki. (Or ko, if you are really brave!)])\n(;B[dd];W[bd];B[ad];W[fa]C[Seki]))\n(;B[bd];W[ab]\n(;B[ac]C[];W[ad]C[ko?])\n(;B[dd];W[ac]C[White lives in your corner! I think you know that this is not nearly as much as you could have hoped for.]))\n(;B[ac];W[ab];B[da];W[ad]\n(;B[ca];W[bd];B[bb];W[cb]C[Whoops!])\n(;B[bd];W[ca]C[Ko for life (or you can play D16 and you both live).  Might want to have a rethink.]))))))",
+  "author": {
+    "id": 28686,
+    "name": "Radley",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2010-04-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 83,
+  "attempts": {
+    "solved": 19,
+    "failed": 156,
+    "tries": 175,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-02-20T01:37:09+00:00",
+  "source": "Myself. The corner shape came from a similar position in a KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

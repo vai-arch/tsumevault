@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15000,
+  "elo": 1855.8215193175,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.7,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bq]AB[dq]AB[er]AW[fr]AW[fq]AW[fp]AW[ep]AW[dp]AW[cp]AW[co]AW[ao]AW[bo]AW[gr]AW[hr]AP[goproblems]\n(;B[ds];W[cq];B[cr];W[bs];B[br];W[eq])\n(;B[es];W[cq];B[cr];W[bs];B[cs];W[dr])\n(;B[bs];W[ar];B[aq];W[es];B[ds];W[cr];B[cq];W[eq];B[fs];W[br])\n(;B[cr];W[bs]\n(;B[ds];W[cq];B[br];W[eq])\n(;B[es];W[cq];B[cs];W[dr])\n(;B[cq];W[eq]\n(;B[ds];W[fs])\n(;B[es];W[cs])\n(;B[fs];W[ds];B[es];W[cs];B[dr];W[aq];B[ar];W[ap])))\n(;B[cq]\n(;W[bs]C[CHOICE]\n(;B[eq];W[aq];B[ar];W[ds];B[es];W[cr])\n(;B[ds];W[eq]\n(;B[fs];W[aq];B[ar];W[cr])\n(;B[br];W[aq];B[ar];W[fs])\n(;B[aq];W[br];B[cr];W[fs]))\n(;B[cr];W[eq]\n(;B[ds];W[fs])\n(;B[es];W[cs])\n(;B[fs];W[ds];B[es];W[cs];B[dr];W[aq];B[ar];W[ap]))\n(;B[es];W[aq];B[ar];W[cr];B[eq];W[ds])\n(;B[br];W[aq];B[ar];W[ds];B[es];W[eq])\n(;B[aq]\n(;W[eq]C[CHOICE]\n(;B[ds];W[br];B[cr];W[fs])\n(;B[es];W[dr]\n(;B[cr];W[cs])\n(;B[cs];W[fs]))\n(;B[br];W[dr])\n(;B[fs]\n(;W[br]\n(;B[cr];W[gs];B[ds]C[RIGHT])\n(;B[ds];W[cr])\n(;B[es];W[dr];B[cr];W[cs];B[ds];W[gs]))\n(;W[gs];B[ds];W[br];B[cr]C[RIGHT])))\n(;W[es];B[ds];W[fs];B[br];W[as];B[eq];W[cs];B[cr]C[RIGHT])\n(;W[br];B[cr]\n(;W[es];B[ds];W[fs];B[eq]C[RIGHT])\n(;W[eq];B[es];W[cs];B[ar]C[RIGHT]))))\n(;W[aq];B[ar];W[bs];B[cr];W[eq];B[ap];W[bp];B[fs];W[gs];B[ds]C[RIGHT])))",
+  "author": {
+    "id": 46757,
+    "name": "smartaleck",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-11-13",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1472.01
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 30,
+    "failed": 201,
+    "tries": 231,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-07-22T00:22:25+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

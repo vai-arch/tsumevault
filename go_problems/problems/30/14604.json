@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14604,
+  "elo": 1159.6171041199,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "I was playing an even game with GnuGo. I killed a group in the bottom right corner (not shown to save my time)  and GnuGo kept crawling on the first line with it in my territory (maybe the software didn't know it was dead). Eventually that allowed me to make a blob of stones at the bottom left corner and that gave rise to this situation. I ended up winning this game by over 100 points (but I lose more often than I win when I play against GnuGo while giving 9 handis).",
+  "rating": {
+    "stars": 4.3,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[aq]AW[bq]AW[cq]AW[br]AW[ar]AW[as]AW[bs]AW[cs]AW[ds]AW[bo]AB[cr]AB[dr]AB[dq]AB[dp]AB[es]AB[fq]AB[cp]AW[co]AW[do]AB[eo]AB[en]AB[dn]AB[dm]AB[cn]AB[cm]AW[bn]AW[bm]AW[cl]AW[dl]AW[em]AW[el]AW[ao]AW[ap]AB[bp]AW[ck]AW[cj]AW[ci]AB[hr]AB[hq]AB[hp]AB[iq]AB[is]AB[js]AB[jr]AB[ks]AB[ls]AW[ip]AW[jp]AW[jq]AW[kq]AW[kr]AW[lr]AW[mr]AW[ms]AB[io]AB[jo]AB[in]AB[hn]AB[gm]AW[ko]AW[jn]AW[jm]AW[im]AB[hm]AW[jl]AW[kk]AB[fm]C[White to make a reduction in Black's already small, cramped area. If you think this is not possible, play T for a 1 point tenuki (assume the rest of the board is finished except for 1 point gote moves)]LB[gk:T]AP[goproblems]\n(;W[er]\n(;B[fs]C[Black stubbornly resists.CHOICE]\n(;W[fr];B[gs]C[Black should really give up these stones, but let's see what happens if Black continues to resist.]\n(;W[ep];B[eq];W[fp];B[gr];W[fn]C[Ouch.RIGHT])\n(;W[gr]C[];B[hs];W[ep];B[eq];W[fp];B[gq];W[fn]C[RIGHT]))\n(;W[ep]C[Wrong timing];B[eq];W[fp];B[fo])\n(;W[gs];B[fr]))\n(;B[fr];W[fs]\n(;B[gs];W[eq];B[ep];W[es]C[RIGHT])\n(;B[eq]C[Black can play here if Black has more ko threats (thanks BartTM)RIGHT])))\n(;W[ep];B[eq];W[fp];B[fo])\n(;W[fn];B[ep])\n(;W[fs];B[er])\n(;W[gs];B[fr])\n(;W[gk]C[Nope. White can reduce Black's territory.]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 78,
+  "attempts": {
+    "solved": 2265,
+    "failed": 2896,
+    "tries": 5161,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-03-06T09:01:19+00:00",
+  "source": "Game vs GnuGo",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 30,
+      "name": "Stories",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2782,
+  "elo": 1381.9443697296,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Kill all unconditionally",
+  "rating": {
+    "stars": 3.7,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ap]AW[bp]AW[cp]AW[aq]AW[cq]AW[dq]AW[dr]AW[es]AW[fs]AW[gs]AB[an]AB[bn]AB[cn]AB[co]AB[do]AB[eo]AB[ep]AB[eq]AB[fq]AB[gq]AB[hq]AB[ar]AB[br]AB[cr]AB[er]AB[hr]AB[ir]AB[as]AB[cs]AB[ds]AB[is]C[Tip: Do the opposite]\n(;B[ao];W[bq];B[bo];W[bs])\n(;B[hs];W[bq];B[gr];W[bs])\n(;B[dp];W[bq];B[bo];W[bs])\n(;B[fr];W[bq];B[gr];W[bs])\n(;B[bq];W[bs];B[br];W[ar];B[cs];W[cr]C[only ko])\n(;B[bs];W[bq]\n(;B[bs];W[br];B[cs];W[as];B[ar];W[ds];B[as];W[cr];B[bs];W[as];B[ar];W[cs]C[white alive])\n(;B[br];W[bs];B[ar];W[cr];B[ds]C[dead!RIGHT])\n(;B[ds];W[bs];B[ar]\n(;W[br]C[CHOICE];B[cs]C[dead!RIGHT])\n(;W[cs];B[br]C[dead!RIGHT]))\n(;B[cs];W[bs];B[br];W[ar];B[as]C[ko])))",
+  "author": {
+    "id": 4430,
+    "name": "liopic",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2009-06-22",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 1117,
+    "failed": 3327,
+    "tries": 4444,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-08-05T15:43:09+00:00",
+  "source": "Inspirated by a Computer Go Reseach Paper",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

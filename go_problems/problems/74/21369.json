@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21369,
+  "elo": 1599.3958404201,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.6,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[jc]AB[jb]AB[kb]AB[lc]AB[le]AB[nc]AB[hc]AB[hd]AB[id]AB[hf]AB[if]AB[jf]AW[ig]AW[hb]AW[ib]AW[ic]AW[gc]AW[gd]AW[ge]AW[jd]AW[kd]AW[kc]AW[ne]AW[pe]AB[pc]TR[kc]TR[kd]TR[jd]C[White's stones look surrounded but aren't dead yet. What can white do here?]AW[fg]AP[goproblems]\n(;W[lb];B[mb]\n(;W[la]\n(;B[ma];W[ld]\n(;B[md]C[White gets a Ko and captures first!CHOICERIGHT])\n(;B[mc];W[md]C[Black can't allow white's stones to escape easily, as black's stones in the middle are now floating and without eyeshape.RIGHT]))\n(;B[ld];W[ja]C[Black can compromise by giving up three stones if he can't afford to fight the Ko.RIGHT]))\n(;W[ld];B[md]\n(;W[la];B[ke];W[mc];B[je]\n(;W[lc];B[ma])\n(;W[nd];B[lc]))\n(;W[mc];B[la]))\n(;W[md];B[ld]))\n(;W[ld];B[md];W[lb];B[mb]\n(;W[la];B[ke];W[mc];B[je]\n(;W[lc];B[ma])\n(;W[nd];B[lc]))\n(;W[mc];B[la]))\n(;W[md];B[ld];W[mb];B[mc];W[lb];B[ke]\n(;W[ja];B[je];W[ka];B[la])\n(;W[ka];B[je];W[ja];B[la]))\n(;W[mb];B[ld];W[lb];B[ke]\n(;W[ja];B[je];W[ka];B[nb]C[White's stones are captured but the damage to black's corner is minimal.])\n(;W[ka];B[je];W[ja];B[nb]C[White's stones are captured but the damage to black's corner is minimal.])))",
+  "author": {
+    "id": 24774,
+    "name": "randomly_anonymous",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-15",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1434.15
+  },
+  "avgSolveTimeSeconds": 32,
+  "attempts": {
+    "solved": 118,
+    "failed": 362,
+    "tries": 480,
+    "speedSolved": 2,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2017-01-11T19:18:30+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

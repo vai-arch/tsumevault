@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9429,
+  "elo": 1227.9695841939,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.7,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[qa]AW[rb]AB[qb]AB[qc]AB[qd]AB[rd]AB[re]AB[se]AB[oa]AB[ob]AW[nb]AW[nc]AW[oc]AW[sf]AW[rf]AW[qe]AW[pd]AW[oe]AW[qf]C[White gets Seki!]AB[sc]AB[pc]AP[goproblems]\r\n(;W[na]\r\n(;B[pb]\r\n(;W[ra]\r\n(;B[sb];W[rc]C[RIGHT])\r\n(;B[rc];W[sb]C[RIGHT]))\r\n(;W[rc]\r\n(;B[sb];W[ra]C[RIGHT])\r\n(;B[ra];W[sa]C[RIGHT]))\r\n(;W[sb];B[ra]))\r\n(;B[ra]C[This does not help black.];W[sa]\r\n(;B[sb]C[This is a mistake by black, even if he can win any ko.];W[pb];B[ra];W[pa];B[rc]C[Equivalent with seki, both get 5 points. Gote for black.RIGHT])\r\n(;B[pb];W[rc]C[Still seki.RIGHT])))\r\n(;W[pa];B[ra];W[sa];B[rc])\r\n(;W[ra]\r\n(;B[sb]\r\n(;W[pb];B[pa];W[na];B[pb])\r\n(;W[na];B[pb];W[rc]C[RIGHT]))\r\n(;B[rc];W[na];B[pb];W[sb]C[RIGHT]))\r\n(;W[sb];B[ra])\r\n(;W[sa];B[rc]\r\n(;W[pb];B[pa];W[na];B[pb])\r\n(;W[na];B[pb]))\r\n(;W[pb];B[pa];W[ra];B[sb];W[na];B[pb])\r\n(;W[rc];B[sb];W[ra];B[pa];W[na];B[sa]))",
+  "author": {
+    "id": 16586,
+    "name": "xiuma",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-11-15",
+    "rank": {
+      "value": 23,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 23,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 905.95
+  },
+  "avgSolveTimeSeconds": 85,
+  "attempts": {
+    "solved": 1961,
+    "failed": 3431,
+    "tries": 5392,
+    "speedSolved": 2,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-11-12T14:54:14+00:00",
+  "source": "Own game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

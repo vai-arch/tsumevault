@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3390,
+  "elo": 1400.9247142327,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "See related problem 3469.   \r\nNo komi, no prisoners yet - White to win.",
+  "rating": {
+    "stars": 4,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[fb][fc][ed][fd][hd][ge][gf][if][hg][dh][gh][ih][bi][ci][di][fi][gi]\r\nAB[dc][ec][cd][ce][de][ee][fe][bf][df][ff][cg][dg][fg][ah][bh][eh][fh][ai]LB[ca:L][da:S][ei:C]\r\nC[Which is the biggest move; large monkey jump 'L', small mj 'S', or capture 'C'? FORCE]\r\n\r\n(;W[da];B[cb]\r\n(;W[ei];B[eb];W[ea];B[ca]LB[da:S][ei:C][cb:F]\r\nC[RIGHT You won by 1. Due to it's big followup move at 'F', the small monkey jump into this corner formation at 'S', is \r\nequal in value to a gote move worth 14 points. When black has an alternative reply to 'F' of 9 to 15 points, it is \r\nbigger than the large monkey jump at 'C9'. If 'C' is worth 8 points or less, or equals 16 points, first moves 'C9' and 'S' allow the same best result. If 'C' is worth 17 points or more, 'C9' is 1 point bigger than 'S'.])\r\n\r\n(;W[ca];B[ba]\r\n(;W[eb];B[db]\r\n(;W[ei];B[ea];W[fa];B[da]LB[ei:C]\r\nC[You lost by 1. Your 1st move was correct, but the 2nd should have been to connect at 'C', rather than play 'C9'.])\r\n\r\n(;W[ea];B[ei];W[bb];B[bc];W[aa];B[dd]C[Please play 'B9'.];W[ba];B[ac]LB[ei:C]\r\nC[Jigo. This is the 2nd best result. Your 1st move was correct, but the 2nd should have been to connect at 'C', rather than play 'C9'.]))\r\n\r\n(;W[ei];B[ea];W[eb];B[db];W[fa];B[da]LB[ei:C]\r\nC[You lost by 1. Your 1st move was correct, but the 2nd should have been to connect at 'C', rather than play 'C9'.])))\r\n\r\n\r\n(;W[ca];B[cb]\r\n(;W[ea];B[ei];W[bb];B[bc];W[db];B[cc]\r\n(;W[aa];B[eb];W[da];B[ac]LB[ca:L][da:S]\r\nC[You lost by 1. Jigo was possible from 'L', whilst 1st move 'S' allows a 1 point win.])\r\n\r\n(;W[eb];B[ab];W[ba]LB[ca:L][da:S][ei:C]\r\nC[Jigo, the best result from the large monkey jump. 'L' is inferior to 'S', when the size of the gote move at 'C' is \r\nworth 9 to 15 points. If 'C' is worth 8 points or less, or equals 16 points, first moves 'L' and 'S' allow \r\nthe same best result. If 'C' is worth 17 points or more, 'L' is 1 point bigger than 'S'.])\r\n\r\n(;W[ba];B[eb];W[da];B[ab]LB[ca:L][da:S]\r\nC[You lost by 1. Jigo was possible from 'L', whilst 1st move 'S' allows a 1 point win.]))\r\n\r\n(;W[da];B[ba]\r\n(;W[eb];B[db]\r\n(;W[ei];B[ea];W[fa];B[da]LB[ca:L][da:S]\r\nC[You lost by 1. Jigo was possible from 'L', whilst 1st move 'S' allows a 1 point win.])\r\n\r\n(;W[ea];B[ei];W[bb];B[bc];W[aa];B[dd]C[Please play 'B9'.];W[ba];B[ac]LB[ca:L][da:S][ei:C]\r\nC[Jigo, the best result from the large monkey jump. 'L' is inferior to 'S', when the size of the gote move at 'C' is \r\nworth 9 to 15 points. If 'C' is worth 8 points or less, or equals 16 points, first moves 'L' and 'S' allow \r\nthe same best result. If 'C' is worth 17 points or more, 'L' is 1 point bigger than 'S'.]))\r\n\r\n(;W[ei];B[ea];W[eb];B[db];W[fa];B[da]LB[ca:L][da:S]\r\nC[You lost by 1. Jigo was possible from 'L', whilst 1st move 'S' allows a 1 point win.]))\r\n\r\n(;W[ei];B[da];W[ea];B[db];W[eb];B[dd]LB[ca:L][da:S][ei:C]\r\nC[Jigo, the best result from the large monkey jump. 'L' is inferior to 'S', when the size of the gote move at 'C' is \r\nworth 9 to 15 points. If 'C' is worth 8 points or less, or equals 16 points, first moves 'L' and 'S' allow \r\nthe same best result. If 'C' is worth 17 points or more, 'L' is 1 point bigger than 'S'.]))\r\n\r\n\r\n(;W[ei];B[eb];W[ea];B[da];W[fa];B[dd]LB[ei:C][da:S]\r\nC[You lost by 2. If 'C' is worth 13 points or less, it is smaller than 'S'. Here, a 1st move at 'S' would have allowed a win by 1.]))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 1494,
+    "failed": 3350,
+    "tries": 4844,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-11-24T13:29:53+00:00",
+  "source": "Sensei's Library",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 122,
+      "name": "Monkey Jump",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

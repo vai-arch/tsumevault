@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1286,
+  "elo": 1922.7915121245,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.6,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(\n;\nFF[4]\nGM[1]\nSZ[19]\nAP[Jago:Version 4.27]\nAB[bc][cc][dc][eb]\nAW[fb][fc][ed][dd][cd][bd][bf][hb]\nGN[126]\n(\n;\nW[ac]\n;\nB[ab]\n;\nW[ba]\n(\n;\nB[cb]\n(\n;\nW[ec]\n(\n;\nB[da]\nC[CHOICE]\n;\nW[fa]\nC[RIGHT]\n)\n(\n;\nB[fa]\nC[CHOICE]\n(\n;\nW[da]\n;\nB[ea]\n;\nW[ca]\n;\nB[db]\n;\nW[ad]\nC[RIGHT]\n)\n(\n;\nW[ga]\n;\nB[da]\n)\n)\n)\n(\n;\nW[ea]\n;\nB[da]\n;\nW[fa]\n;\nB[ec]\nC[Ko]\n)\n)\n(\n;\nB[ea]\n;\nW[cb]\nLB[da:a][ec:b]\nC[RIGHT a and b are miai]\n)\n)\n(\n;\nW[ba]\n;\nB[ac]\n;\nW[ec]\n;\nB[fa]\n;\nW[ga]\n;\nB[da]\nC[B has a desperate ko]\n)\n)",
+  "author": {
+    "id": 1039,
+    "name": "gecko",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-01-13",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 224,
+    "failed": 1824,
+    "tries": 2048,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-01-28T17:49:47+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 71,
+      "name": "Large L-Group",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

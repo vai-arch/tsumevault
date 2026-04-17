@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7072,
+  "elo": 1241.6122120062,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ip]AW[iq]AB[io]AB[in]AB[hp]AB[hq]AW[ho]AW[hn]AW[hm]AW[im]AB[mq]AB[mn]AB[ll]AB[go]AB[fp]C[White to capture the cutting stones.]AP[goproblems]\n(;W[jo];B[jn]\n(;W[jm];B[kn])\n(;W[kn];B[jm]\n(;W[km];B[jl])\n(;W[jl];B[km])\n(;W[kl];B[km]))\n(;W[km];B[kn]))\n(;W[jn];B[jo]\n(;W[ko];B[jp]\n(;W[kp];B[jq])\n(;W[jq];B[kp]\n(;W[kq];B[lp])\n(;W[lq];B[lp])\n(;W[lp];B[kq]\n(;W[lq];B[kr])\n(;W[kr];B[lq])))\n(;W[kq];B[jq]))\n(;W[jp];B[ko])\n(;W[kp];B[ko])\n(;W[kn];B[kp]))\n(;W[kn]\n(;B[jo]\n(;W[kp]C[Black cannot escape.RIGHT])\n(;W[ko];B[jp]\n(;W[kq];B[jq])\n(;W[kp];B[jq])\n(;W[jq];B[kp]\n(;W[lp];B[kq]\n(;W[lq];B[kr])\n(;W[kr];B[lq]))\n(;W[kq];B[lp])))\n(;W[jp];B[ko]\n(;W[kp];B[lo])\n(;W[lp];B[lo])\n(;W[lo];B[kp]\n(;W[lp];B[kq])\n(;W[kq];B[lp])))\n(;W[jn];B[kp])\n(;W[kq];B[ko];W[lo];B[lp]\n(;W[kp];B[ln])\n(;W[ln];B[kp]))\n(;W[lp];B[ko];W[lo];B[jq]\n(;W[jp];B[kp];W[ir];B[lq])\n(;W[kp];B[jp])\n(;W[kq];B[ir])\n(;W[ir];B[lq]\n(;W[jp];B[kp])\n(;W[kp];B[jp];W[kq];B[jr])))\n(;W[lo];B[kp]))\n(;B[jn];W[jm];B[jo];W[kp]C[RIGHT])\n(;B[ko];W[jo]C[RIGHT])\n(;B[jp];W[jo]C[RIGHT])\n(;B[jm];W[jn];B[jo];W[kp]C[RIGHT])\n(;B[kp];W[jo]C[RIGHT])\n(;B[km];W[jn];B[jo];W[kp]C[RIGHT]))\n(;W[ko];B[jn]\n(;W[kn];B[jm])\n(;W[jm];B[kn])\n(;W[km];B[kn];W[ln];B[lm]\n(;W[lo];B[jm])\n(;W[jm];B[lo]))))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 55,
+  "attempts": {
+    "solved": 2636,
+    "failed": 5167,
+    "tries": 7803,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-08-12T10:25:15+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 36,
+      "name": "Geta (net)",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

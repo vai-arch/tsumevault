@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16152,
+  "elo": 1531.7771153016,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -1,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.5,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pa]AB[pb]AB[qc]AB[rb]AB[qd]AB[qe]AB[re]AB[sd]AW[oa]AW[ob]AW[oc]AW[pc]AW[pd]AW[pe]AW[pf]AW[qf]AW[rf]AW[sf]AW[se]AW[ra]TR[ra]C[White has just played the triangled stone. Black to defend the best way he can.]AP[goproblems]\r\n(;B[sb];W[qb];B[rc]C[Alive in gote, but White has 4 points while you have only 2. White recaptures at the marked stone if you take that.]TR[qb])\r\n(;B[rc];W[qb];B[sb]C[Alive in gote, but White has 4 points while you have only 2. White recaptures at the marked stone if you take that.]TR[qb])\r\n(;B[qb];W[sc]\r\n(;B[rd];W[sb]C[Sente seki. If White plays ar R19 then Black T19, White S19 and the position is the same as now - but White lost another point.RIGHT])\r\n(;B[sb];W[rd]C[Black has only one eye now.])\r\n(;B[rc];W[rd]C[Ko for life, White takes first. Black can do better.]))\r\n(;B[qa];W[qb]C[Oops. Snapback.])\r\n(;B[sa];W[sb]\r\n(;B[qb];W[sc]\r\n(;B[rd]C[Seki. Not the best Black can do.])\r\n(;B[rc];W[rd]C[Ko, White takes first.]))\r\n(;B[sc];W[qb]\r\n(;B[sa];W[qa])\r\n(;B[qa];W[qb])\r\n(;B[rc];W[rd])))\r\n(;B[sc];W[qb]\r\n(;B[qa];W[qb]C[Black is dead.])\r\n(;B[rc]C[Dead in gote. If you take the marked stone White replays there to capture 3 of yours.]TR[qb])\r\n(;B[sb]TR[qb]C[Dead in gote. If you take the marked stone White replays there to capture 3 of yours.]))\r\n(;B[rd];W[qb]\r\n(;B[sc]C[Dead in gote. If you take the marked stone White replays there to capture 3 of yours.]TR[qb])\r\n(;B[qa];W[qb])\r\n(;B[sa];W[sb])))",
+  "author": {
+    "id": 48328,
+    "name": "stefliew",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-07-18",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 321,
+    "failed": 706,
+    "tries": 1027,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-06-10T23:48:17+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

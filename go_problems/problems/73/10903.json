@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10903,
+  "elo": 1056.7360874976,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black first to live",
+  "rating": {
+    "stars": 4.2,
+    "votes": 35,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[aa]AB[ea]AB[ab]AB[eb]AB[bc]AB[cc]AB[ec]AW[fb]AW[hb]AW[ac]AW[fc]AW[ad]AW[bd]AW[cd]AW[dd]AW[ed]AW[gd]AP[goproblems]\r\n(;B[ca]\r\n(;W[dc];B[db];W[bb];B[cb];W[ba];B[ab]C[RIGHT])\r\n(;W[bb]\r\n(;B[cb];W[ba];B[ab];W[dc];B[db]C[RIGHT])\r\n(;B[ba];W[dc];B[cb];W[db]C[])))\r\n(;B[cb];W[ca]\r\n(;B[da];W[dc]\r\n(;B[ba];W[db]C[])\r\n(;B[db];W[ba]C[]))\r\n(;B[dc];W[da];B[db];W[ba];B[bb];W[ca]C[]))\r\n(;B[dc];W[bb]C[]))",
+  "author": {
+    "id": 7079,
+    "name": "huhss",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-22",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1262.69
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 2699,
+    "failed": 3754,
+    "tries": 6453,
+    "speedSolved": 8,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-02-12T03:53:33+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

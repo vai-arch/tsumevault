@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13437,
+  "elo": 1281.2014630678,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]\r\nRU[Japanese]SZ[19]KM[6.50]\r\nGN[Zipper Problem]PW[White]PB[Black]CP[© 2010 Fort Myers Go Club]GC[This work is licensed under the Creative Commons Attribution 3.0\r\nUnited States License. To view a copy of this license, visit:\r\n\r\nhttp://creativecommons.org/licenses/by/3.0/us/\r\n\r\nor send a letter to:\r\n\r\nCreative Commons\r\n171 Second Street, Suite 300\r\nSan Francisco, California, 94105, USA.]SO[http://www.fortmyersgo.org/]AW[ap][bp][cq][dq][br][er][fr][ds]AB[cn][ao][bo][eo][cp][dp][gp][eq][fq][gr][fs][gs]C[Black to play.]\r\n(;B[ar]\r\n;W[bq]\r\n(;B[bs]\r\n(;W[cs]C[CHOICE]\r\n(;B[dr]\r\n;W[as]LB[dr:A][cs:4]TR[bs]C[Correct. This is a two-step ko. White also has a choice of seki by playing 4 at A instead if black has surplus ko threats (navigation solution).RIGHT])\r\n(;B[es]\r\n;W[dr]C[Wrong. White is alive.])\r\n(;B[cr]\r\n;W[dr]C[Wrong. White is alive.])\r\n(;B[as]\r\n;W[es]C[Wrong. White is alive.]))\r\n(;W[dr]C[CHOICE]\r\n(;B[cs]LB[dr:4][cs:A]C[Correct. This is a seki. White has also a choice of a favorable ko by playing 4 at A instead (navigate solution).RIGHT])\r\n(;B[as]\r\n;W[cs]C[Wrong. White is alive.])\r\n(;B[aq]\r\n;W[cs]C[Wrong. White is alive.])))\r\n(;B[cs]\r\n;W[bs]C[Wrong. White is alive.])\r\n(;B[es]\r\n;W[dr]C[Wrong. White is alive.])\r\n(;B[dr]\r\n;W[cr]\r\n(;B[bs]\r\n;W[es]C[Wrong. White is alive.])\r\n(;B[es]\r\n;W[bs]\r\n;B[dr]\r\n;W[er]C[Wrong. White is alive.])\r\n(;B[cs]\r\n;W[bs]C[Wrong. White is alive.])\r\n(;B[as]\r\n;W[bs]C[Wrong. White is alive.])))\r\n(;B[dr]\r\n;W[as]\r\n(;B[es]\r\n;W[cs]C[Wrong. White is alive.])\r\n(;B[cs]\r\n;W[cr]C[Wrong. White is alive.])\r\n(;B[cr]\r\n;W[cs]C[Wrong. White is alive.]))\r\n(;B[es]\r\n;W[as]\r\n(;B[dr]\r\n;W[cs]C[Wrong. White is alive.])\r\n(;B[cs]\r\n;W[dr]C[Wrong. White is alive.])\r\n(;B[cr]\r\n;W[dr]C[Wrong. White is alive.]))\r\n(;B[cs]\r\n;W[bs]C[Wrong. White is alive.])\r\n(;B[cr]\r\n;W[bs]C[Wrong. White is alive.]))",
+  "author": {
+    "id": 5566,
+    "name": "fwiffo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 739.424
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 796,
+    "failed": 1386,
+    "tries": 2182,
+    "speedSolved": 2,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-02-12T09:43:32+00:00",
+  "source": "Inspired by Conway's Game of Life",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 61,
+      "name": "Snapback",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

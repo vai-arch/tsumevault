@@ -1,0 +1,108 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 32022,
+  "elo": 1764.4224002763,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": null,
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[9]ST[0]AB[ga][gb][gc][gd][fd][db][cc][cd][ce][cf][bf][af][bg][bh][ah][df][ef][ff][hf][gf][hg]AW[ec][dc][fc][fb][fa][hh][gg][eg][fg][dg][cg][ch][ci][cb][bb][bc][bd][be][ae]C[0.5 komi, Japanese rules. Find the winning line for Black.](;B[ih];W[hi](;B[da];W[ca](;B[ed];W[eb];B[dd];W[ea];B[bi]C[RIGHT])(;B[dd];W[eb];B[ed];W[ea];B[bi]C[RIGHT])(;B[bi];W[ed];B[ee];W[eb]C[White will win.]))(;B[gh]C[Forcing move without purpose.NOTTHIS])(;B[ea];W[eb](;B[ed];W[da]TR[bi]TR[dd]C[White gets one of them and wins.])(;B[dd];W[da]TR[bi]TR[ed]C[White gets one of them and wins.])))(;B[gh];W[ih]C[There's nothing here. White will win.])(;B[hi];W[ih];B[gh];W[fh]C[There's nothing here. White will win.])(;B[ea];W[eb];B[ed];W[da];B[ih];W[hi](;B[bi];W[dd]C[White will win.])(;B[dd];W[bi]C[White will win.]))(;B[da];W[ih]C[White will win.];B[ed];W[ca](;B[dd];W[ig];B[if];W[bi])(;B[ig];W[dd];B[de];W[bi]))(;B[ed];W[da]C[White will win.];B[ih];W[hi];B[bi];W[dd];B[de];W[gh];B[ig])(;B[dd];W[da]C[White will win.])(;B[eb];W[ih]C[White will win.])(;B[bi];W[ih]C[White will win.]))",
+  "author": {
+    "id": 10537,
+    "name": "tristesse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-12-12",
+    "rank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1573.86
+  },
+  "avgSolveTimeSeconds": 3,
+  "attempts": {
+    "solved": 1,
+    "failed": 20,
+    "tries": 21,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2024-07-10T18:15:35+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 253,
+      "name": "Whole Board Endgame",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

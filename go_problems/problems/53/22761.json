@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22761,
+  "elo": 1583.4835970677,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Keep in mind that this is a silly problem.",
+  "rating": {
+    "stars": 2.2,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\nAB [gh][mh][fi][ni][fj][hj][lj][nj][gk][mk]\r\nAW [gi][mi][gj][mj]\r\n\r\nC [White to play a move near the center. Try to save at least one ladder. The marks show where the ladders will run if played.][FORCE] LB [jf:W][ig:W][jg:W][kg:W][hh:W][ih:W][kh:W][lh:W][hi:W][li:W]\r\n\r\n(; W [jh] C [Correct! Black can capture one group, but the other will escape.][RIGHT])\r\n(; W [jg]; B [jh] C [Nope, now both groups are captured.])\r\n(; W [jf]; B [jh] C [Nope, now both groups are captured.])\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 66,
+  "attempts": {
+    "solved": 29,
+    "failed": 101,
+    "tries": 130,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-07-19T02:20:29+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

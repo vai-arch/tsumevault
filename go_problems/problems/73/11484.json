@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11484,
+  "elo": 1426.6561021035,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 2.8,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rs]AW[qr]AW[pr]AW[oq]AW[nr]AW[mq]AW[lr]AW[ls]AB[lq]AB[kq]AB[kr]AB[ks]AB[lp]AB[mp]AB[np]AW[nq]AB[op]AB[pp]AB[pq]AB[qq]AB[rp]AB[rr]C[B to play the best yose. Assume W has the exact same number of ko threats as B and the rest of the board is totally settled. Thanks to MeleeNewb for the correction.]AP[goproblems]\n(;B[qs]\n(;W[ps]\n(;B[sr]MA[ms]MA[ns]MA[os]C[Later on White has to play one of these three moves for life.RIGHT])\n(;B[ns];W[os];B[sr]C[White needs to spend another move to capture O1 at some time.RIGHT]MA[ns]))\n(;W[sr]C[White can start a ko, but...];B[ss];W[ps]C[... when Black takes the ko White has nio threats to fight it nor can White play like this.];B[ns];W[rs]C[White has to end the ko now..];B[mr];W[rq];B[or]C[Black takes the 2 chains on the left.RIGHT]))\n(;B[sr];W[qs]C[1 point worse than the solution.])\n(;B[ss];W[sr]\n(;B[sq];W[rq]C[Ko is bad for you... W takes first. : (])\n(;B[rq];W[qs]C[Nope.]))\n(;B[rq];W[qs]C[Nope.])\n(;B[sq];W[qs]C[Nope.])\n(;B[ns];W[os]\n(;B[qs]\n(;W[ps];B[sr]C[White needs to spend another move to capture O1 at some time.RIGHT]MA[ns])\n(;W[sr];B[ss]C[White has no threat.RIGHT]))\n(;B[sr];W[qs]C[One point better for White])\n(;B[ms];W[mr]\n(;B[qs];W[ps];B[sr]C[3 territory   3 stones captured; 1 point better for Black.])\n(;B[sr]C[One point better for White.])))\n(;B[os];W[ns])\n(;B[ms];W[mr];B[os];W[ns];B[qs];W[ps];B[sr];W[or]C[RIGHT])\n(;B[ps];W[os]))",
+  "author": {
+    "id": 21648,
+    "name": "TheMyron",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-02-13",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 699.264
+  },
+  "avgSolveTimeSeconds": 73,
+  "attempts": {
+    "solved": 460,
+    "failed": 604,
+    "tries": 1064,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-07-15T22:17:56+00:00",
+  "source": "KGS Game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

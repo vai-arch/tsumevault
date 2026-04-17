@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12078,
+  "elo": 1253.7575859182,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "I was taking a shower, thinking about school and then bam, I found this problem.\r\n\r\nFind the best result and dont forget to play it. :)",
+  "rating": {
+    "stars": 4.4,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[dd]AW[fd]AB[ge]AB[fe]AB[gd]AB[gc]AB[fc]AB[dc]AB[cc]AB[cd]AW[eb]AB[ce]AB[de]AW[ed]AB[ec]AW[fb]AW[gb]AW[db]AW[be]AW[bf]AW[cf]AW[df]AW[ff]AW[gf]AW[hf]AW[he]AW[hd]AW[fg]AW[dg]AW[eg]AB[bd]AW[ae]AB[bb]AB[ib]AW[cb]AW[ba]AW[ca]AW[ab]AB[bc]AB[ad]AW[fa]AB[ha]AW[hb]AB[hc]AW[ic]AW[id]AB[jb]AB[jd]AB[je]AW[jc]AB[kc]AB[kd]AW[kb]AB[lb]AW[ka]AB[la]AB[ea]C[White turn, what to play?]AP[goproblems]\n(;W[ee];B[ef]\n(;W[ed];B[ee]\n(;W[aa];B[ja]\n(;W[ac];B[ia]\n(;W[dd]C[RIGHT])\n(;W[fd]C[RIGHT]))\n(;W[dd];B[ia];W[ac]C[RIGHT])\n(;W[fd];B[ia];W[ac]C[RIGHT]))\n(;W[dd];B[ja];W[aa];B[ia];W[ac]C[RIGHT])\n(;W[fd];B[ja];W[aa];B[ia];W[ac]C[RIGHT]))\n(;W[ee];B[ed]C[Ouch]))\n(;W[ac];B[ee];W[ed];B[aa];W[ab];B[ja]C[Seki])\n(;W[ef];B[ee];W[ed];B[ja]C[Seki])\n(;W[ga];B[ee];W[ed];B[ja];W[ia]C[Weird ko, but you could do better.]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 74,
+  "attempts": {
+    "solved": 1732,
+    "failed": 2429,
+    "tries": 4161,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-12-19T03:47:55+00:00",
+  "source": "Shower",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

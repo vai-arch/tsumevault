@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8539,
+  "elo": 956.10074441282,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 13,
+    "negativeFlagSum": -2,
+    "flagSum": 11
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Can this single piece escape intact? Of course.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 31,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ii]AW[ki]AW[kk]AW[ik]AB[jj]AW[lj]AW[li]AW[lk]AP[goproblems]\n(;B[ji];W[jh];B[ij];W[hj];B[hi];W[ih]\n(;B[hk];W[gj];B[jk];W[il];B[jl]C[RIGHT])\n(;B[jk];W[jl];B[hk];W[kj]))\n(;B[jk];W[jl];B[ij];W[hj];B[hk];W[il]\n(;B[hi];W[gj];B[ji];W[ih];B[jh]C[RIGHT])\n(;B[ji];W[jh];B[hi];W[kj]))\n(;B[ij];W[hj]\n(;B[jk];W[jl];B[hk];W[il]\n(;B[hi];W[gj];B[ji];W[ih];B[jh]C[RIGHT])\n(;B[ji];W[jh];B[hi];W[kj]))\n(;B[ji];W[jh];B[hi];W[ih]\n(;B[hk];W[gj];B[jk];W[jl];B[il]C[RIGHT])\n(;B[jk];W[jl];B[hk];W[kj]))\n(;B[hk];W[jk]\n(;B[hi];W[gj];B[ji];W[ih];B[jh]C[RIGHT])\n(;B[ji];W[jh];B[hi];W[kj]))\n(;B[hi]\n(;W[jk]\n(;B[hk];W[gj];B[ji];W[ih];B[jh]C[RIGHT])\n(;B[ji];W[jh];B[ih]C[RIGHT]))\n(;W[ji]C[CHOICE]\n(;B[hk];W[gj];B[jk]\n(;W[jl];B[il];W[kj];B[ik]C[RIGHT])\n(;W[il];B[jl]C[RIGHT]))\n(;B[jk];W[jl]C[Atari])))))",
+  "author": {
+    "id": 14204,
+    "name": "xiaodai",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2021-02-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 8603,
+    "failed": 5443,
+    "tries": 14046,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-05-10T01:30:24+00:00",
+  "source": "I came across this problem",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 99,
+      "name": "Escape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

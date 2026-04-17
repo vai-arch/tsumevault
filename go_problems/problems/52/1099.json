@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1099,
+  "elo": 1631.3860213355,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[fo]AW[bp]AW[cp]AW[dp]AW[ep]AW[bq]AW[fq]AW[gq]AW[gr]AB[cq]AB[dq]AB[eq]AB[br]AB[fr]AB[fs]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]TM[]PW[White]PB[Black]PL[W]\n(;W[bs];B[ar]\n(;W[ds];B[dr]\n(;W[gs];B[er]\n(;W[cr]C[\r\nko, outside blocked offRIGHT])\n(;W[cs];B[cr]))\n(;W[cr];B[cs]C[even though ko is the answer, this result is inferior, as you haven't blocked at G1])\n(;W[cs];B[cr]\n(;W[gs];B[er])\n(;W[es];B[er]))\n(;W[es];B[er];W[cs];B[cr]))\n(;W[gs];B[ds]\n(;W[er];B[es];W[cs];B[dr])\n(;W[cs];B[dr])\n(;W[cr];B[dr])\n(;W[dr];B[er]))\n(;W[dr];B[cr])\n(;W[cr];B[dr]\n(;W[ds];B[cs]C[this ko is inferior, as white hasn't blocked at G1])\n(;W[cs];B[ds]))\n(;W[es];B[ds]))\n(;W[ar];B[bs]\n(;W[dr];B[ds]\n(;W[er];B[cr])\n(;W[cr];B[er]))\n(;W[ds];B[dr]\n(;W[es];B[cs])\n(;W[cs];B[es])\n(;W[gs];B[cs]))\n(;W[gs];B[dr];W[ds];B[cs]))\n(;W[cs];B[ds]\n(;W[dr];B[cr];W[es];B[er];W[ds];B[bs])\n(;W[cr];B[dr])\n(;W[bs];B[cr])\n(;W[ar];B[cr];W[bs];B[as];W[bs];B[er])\n(;W[gs];B[dr]))\n(;W[ds];B[dr]\n(;W[gs];B[cs])\n(;W[cs];B[cr]\n(;W[gs];B[bs];W[es];B[er]\n(;W[ds];B[ar])\n(;W[ar];B[ds]))\n(;W[bs];B[ar];W[gs];B[er])\n(;W[ar];B[es];W[bs];B[as];W[bs];B[cs]))\n(;W[bs];B[es];W[cs];B[cr])\n(;W[es];B[cs])\n(;W[ar];B[bs]\n(;W[es];B[cs])\n(;W[cs];B[es])\n(;W[gs];B[cs])))\n(;W[gs];B[dr]\n(;W[ds];B[cs])\n(;W[cs];B[ds]))\n(;W[cr];B[dr])\n(;W[dr];B[ds]\n(;W[cr];B[er])\n(;W[er];B[cr])\n(;W[cs];B[cr];W[es];B[er];W[ds];B[bs]))\n(;W[er];B[dr])\n(;W[es];B[ds]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 418,
+    "failed": 2360,
+    "tries": 2778,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-10-24T13:15:52+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

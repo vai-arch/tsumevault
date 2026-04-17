@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13781,
+  "elo": 1583.4575508815,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Note: this problem asks how many ways there are to live with points unconditionally. No ko, no seki.",
+  "rating": {
+    "stars": 2,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ip]AB[jp]AB[kp]AB[lq]AB[lr]AB[ls]AB[hq]AB[hr]AB[hs]AW[gs]AW[gr]AW[gq]AW[gp]AW[hp]AW[ho]AW[io]AW[jo]AW[ko]AW[lo]AW[lp]AW[mp]AW[mr]AW[ms]AW[mq]LB[gm:0]LB[hm:1]LB[im:2]LB[jm:3]LB[km:4]LB[lm:5]LB[mm:6]LB[in:7]LB[jn:8]LB[kn:9]C[How many different first moves can black play to live unconditionally with points? In other words, black to play and live, without seki, and no ko - how many possible moves are there?FORCE]AP[goproblems]\n(;B[gm]C[No, black can live. K2 works.])\n(;B[hm]C[K2 of course, right? But there's more. Navigate solutions for details])\n(;B[im]C[There's more! Navigate solutions for details.])\n(;B[jm];W[km]C[Correct! Now you can play around with variations of moves that work and don't work. In symmetrical situations, please play on the right.RIGHT]\n(;B[jr]C[RIGHT])\n(;B[jq]\n(;W[jr]\n(;B[js]\n(;W[ir];B[kr]C[RIGHT])\n(;W[kr];B[ir]C[RIGHT]))\n(;B[kr];W[is]\n(;B[js];W[ks]C[Ko])\n(;B[iq];W[ks]C[Ko]))\n(;B[ir]C[NOTTHIS]))\n(;W[js];B[jr]C[RIGHT])\n(;W[kr];B[jr]C[RIGHT])\n(;W[ks];B[jr]C[RIGHT]))\n(;B[js]\n(;W[jr]\n(;B[jq]\n(;W[ir];B[kr]C[RIGHT])\n(;W[kr];B[ir]C[RIGHT]))\n(;B[kr];W[iq]\n(;B[kq];W[is])\n(;B[is];W[kq]))\n(;B[ir]C[NOTTHIS])\n(;B[kq];W[ir]\n(;B[kr];W[iq])\n(;B[is];W[iq])\n(;B[iq];W[kr];B[jq]C[Seki]))\n(;B[iq]C[NOTTHIS]))\n(;W[kq]\n(;B[jq]\n(;W[kr];B[ks]C[RIGHT])\n(;W[jr];B[kr]C[RIGHT]))\n(;B[jr]C[RIGHT])\n(;B[kr]C[RIGHT]))\n(;W[jq];B[jr]C[RIGHT])\n(;W[kr];B[jr]\n(;W[jq];B[iq]C[RIGHT])\n(;W[kq];B[ks]C[RIGHT])))\n(;B[kq];W[jr]\n(;B[ir];W[js];B[jq];W[is])\n(;B[js];W[ir]\n(;B[kr];W[iq])\n(;B[is];W[iq])\n(;B[iq];W[kr];B[jq]C[Seki]))\n(;B[jq];W[is])\n(;B[iq];W[js]))\n(;B[kr];W[jr]\n(;B[jq];W[is]\n(;B[js];W[ks]C[Ko])\n(;B[iq];W[ks]C[Ko]))\n(;B[ir];W[js];B[jq]C[Seki])\n(;B[js];W[iq]\n(;B[kq];W[is])\n(;B[is];W[kq]))\n(;B[iq];W[js];B[jq];W[ks]))\n(;B[ks];W[jr]\n(;B[ir];W[js]\n(;B[jq];W[kq])\n(;B[kq];W[jq]))\n(;B[jq];W[js]\n(;B[kq];W[ir])\n(;B[ir];W[kq]))\n(;B[js];W[iq])\n(;B[kr];W[js];B[kq];W[iq])\n(;B[kq];W[iq];B[js];W[is]))\n(;B[iq]C[NOTTHIS])\n(;B[ir]C[NOTTHIS])\n(;B[is]C[NOTTHIS]))\n(;B[km]C[Nope. Too many. Navigate solution for details.])\n(;B[lm]C[Nope. Too many. Navigate solution for details.])\n(;B[mm]C[Nope. Too many. Navigate solution for details.])\n(;B[in]C[Nope. Too many. Navigate solution for details.])\n(;B[jn]C[Nope. Too many. Navigate solution for details.])\n(;B[kn]C[Did you read out the variations first? Navigate solutions for details.]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 63,
+  "attempts": {
+    "solved": 185,
+    "failed": 310,
+    "tries": 495,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-06-13T11:30:47+00:00",
+  "source": "An inspiration",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

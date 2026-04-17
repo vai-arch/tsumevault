@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4310,
+  "elo": 1316.9757710899,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 2.1,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qq]AB[pq]AB[np]AW[pp]AW[qp]AB[pn]AB[qn]AB[rn]AB[sn]AB[rm]AB[rl]AB[no]AB[mo]AW[lo]AW[ln]AW[oo]AW[on]AW[nn]AW[om]AW[nm]AW[nl]AW[ol]AW[ok]AW[nk]AW[nj]AW[oj]AW[oi]AW[ni]AW[nh]AW[oh]AB[mn]AB[mm]AB[ml]AB[mk]AB[mj]AB[mi]AB[mh]AW[lm]AW[ll]AW[lk]AW[lj]AW[li]AW[lh]AW[lg]AW[mg]AB[ng]AB[og]AB[pg]AB[qg]AW[ph]AW[pi]AW[pj]AW[pk]AW[pl]AW[pm]AW[qm]AW[ql]AW[qk]AB[qj]AB[qi]AB[qh]AB[rk]AW[rj]AW[ri]AW[rh]AW[rg]AW[rf]AW[re]AW[rd]AW[sd]AW[sj]AW[sk]AW[sl]AW[op]AB[oq]AB[mr]AB[ms]AB[or]AB[po]AB[mp]AW[lr]AW[ls]AB[mq]AW[lp]AW[lq]AB[nr]AB[os]AB[oe]AB[od]AW[mf]AW[qc]AB[qf]AB[nf]AB[pf]AB[qe]AB[pd]AW[oc]AW[pc]AW[nc]AW[ne]AW[nd]AW[me]AW[qd]AP[goproblems]\n(;W[rp];B[rq]\n(;W[sq];B[sp]\n(;W[so];B[sr]\n(;W[ro];B[sp]C[b gets a ko to kill the huge lump of W stones.])\n(;W[rr];B[sp]C[oops, you give B a ko to kill the big lump of white stones. ]\n(;W[ro];B[qo])\n(;W[sm];B[ro])\n(;W[sq];B[ro]C[]\n(;W[sm];B[sp])\n(;W[ss];B[sp]C[you have to win another ko now.])))\n(;W[qo];B[sp]C[oops, B has a ko to kill many W stones.])\n(;W[sp];B[ro]C[oops])\n(;W[sm];B[sp]C[you're in a ko for all the W stones now.  A seki would have been much better.]))\n(;W[sr];B[so]\n(;W[rr];B[ro])\n(;W[ro];B[qo])\n(;W[qo];B[ro])\n(;W[sm];B[rr]))\n(;W[ro];B[so]))\n(;W[sp];B[sq]C[good, W saved his stones in seki.RIGHT])\n(;W[ro];B[sp]\n(;W[sm];B[so])\n(;W[so];B[qo]))\n(;W[so];B[ro]\n(;W[qo];B[sp])\n(;W[sp];B[sq];W[sm];B[qo]))\n(;W[qo];B[sp]))\n(;W[rq];B[rp])\n(;W[ro];B[rp])\n(;W[qo];B[rp])\n(;W[sp];B[rp])\n(;W[sq];B[rp])\n(;W[so];B[rp]))",
+  "author": {
+    "id": 4785,
+    "name": "kochi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-14",
+    "rank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1340.69
+  },
+  "avgSolveTimeSeconds": 34,
+  "attempts": {
+    "solved": 3638,
+    "failed": 5620,
+    "tries": 9258,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-04-18T21:44:15+00:00",
+  "source": "variant of 4257",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

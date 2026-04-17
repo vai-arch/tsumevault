@@ -1,0 +1,126 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 53311,
+  "elo": 1529.2370521178,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": null,
+  "sgf": "(;TR[io]LB[eo:a]LB[fm:b]LB[gm:c]LB[gn:d]LB[hn:e]LB[ir:f]AB[cn][cp][cq][cr][dn][dr][fn][fp][fq][go][gp][hp][iq][jq]AW[do][dp][dq][em][en][eq][er][fo][fr][gq][hq][io][ip]C[FORCE]AP[goproblems autoextractor]PW[newera]PB[gomame]PC[The KGS Go Server at http://www.gokgs.com/]DT[2010-02-20]PL[B]GPKEY[local choice]DIFF[1k]\n(;B[eo]TR[eq]TR[dq]TR[dp]TR[fr]TR[do]TR[er]SQ[fq]SQ[fp]SQ[gp]SQ[go]SQ[hp]LB[hn:A]LB[ep:B]C[Playing here is worth about 20 points over playing away in an empty corner. The stones marked with a triangle are dead. The stones marked with a square are stronger. White would have played at A if you played away. White would likely play at B next. ]\n(;W[ep]C[CHOICE]\n(;B[gm]C[RIGHT])\n(;B[fo];W[fm]C[Your mistake at F5 lost approximately 1 points])\n(;B[fm];W[fl]C[Your mistake at F7 lost approximately 3 points])\n(;B[ir];W[gn]C[Your mistake at J2 lost approximately 2 points]))\n(;W[co]C[CHOICE];B[bo]C[RIGHT])\n(;W[fm]C[CHOICE]\n(;B[gm]C[RIGHT])\n(;B[hn];W[ep]C[Your mistake at H6 lost approximately 4 points])\n(;B[gn];W[hm]C[Your mistake at G6 lost approximately 14 points]))\n(;W[kp]C[CHOICE]\n(;B[ir]C[Note: the White move at L4 lost about 3 pointsRIGHT])\n(;B[kq];W[ep]C[Your mistake at L3 lost approximately 4 points])\n(;B[fm];W[kq]C[Your mistake at F7 lost approximately 16 points])\n(;B[lr];W[gm]C[Your mistake at M2 lost approximately 3 points])\n(;B[hr];W[gr]C[Your mistake at H2 lost approximately 15 points])))\n(;B[fm];W[eo]C[This loses about 11 points. ])\n(;B[gm];W[eo]TR[eq]TR[dq]TR[dp]TR[fr]TR[do]TR[er]C[This loses about 10 points. The stones marked with a triangle are alive. ])\n(;B[hn];W[eo]TR[eq]TR[dq]TR[dp]TR[fr]TR[do]TR[er]C[This loses about 10 points. The stones marked with a triangle are alive. ])\n(;B[ir];W[fm]TR[eq]TR[dq]TR[dp]TR[fr]TR[do]TR[er]C[This loses about 8 points. The stones marked with a triangle are alive. ])\n(;B[gn];W[hm]C[This loses about 11 points. ]))",
+  "author": {
+    "id": 82849,
+    "name": "Lours",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/961_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/961_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/961_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 961
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1049.93
+  },
+  "avgSolveTimeSeconds": 0,
+  "attempts": {
+    "solved": 0,
+    "failed": 3,
+    "tries": 3,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-12-06T07:34:13+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1512
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5454,
+  "elo": 1746.0164551332,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "The shape in the lower right corner occurred in a really close (.5 points) game I was reviewing. It seemed common and interesting enough to warrant a problem of its own, so here you go. As always, please add a comment if you spot a mistake or an interesting path that is not included.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[7]AB[ab]AB[ba]AB[ca]AB[cb]AB[db]AB[eb]AW[ac]AW[bc]AW[bb]AW[bd]AW[cc]AW[dc]AW[dd]AW[ce]AW[be]AW[bf]AB[cf]AW[df]AW[ef]AW[ff]AB[de]AB[ee]AB[fe]AB[gf]AB[ed]AB[ec]C[No komi, no prisoners, black to play and win.]AW[ae]AB[ea]AP[goproblems]\r\n(;B[fg];W[cg]\r\n(;B[eg]\r\n(;W[dg]\r\n(;B[aa];W[gg]C[];B[fg];W[eg]\r\n(;B[ge];W[gg];B[bg];W[cf];B[fg]C[Black wins by one point!RIGHT])\r\n(;B[gg];W[ge]))\r\n(;B[ge];W[gg];B[fg];W[aa]C[Jigo.]))\r\n(;W[aa]C[This does not help white.];B[ge];W[ab];B[gg];W[dg]C[Black wins by one point.RIGHT]))\r\n(;B[aa];W[eg];B[ge];W[gg]C[Jigo.])\r\n(;B[ge];W[eg]\r\n(;B[aa];W[gg]C[Jigo.])\r\n(;B[gg];W[aa]C[Jigo.]))\r\n(;B[gg];W[eg];B[ge];W[aa]C[Jigo.]))\r\n(;B[aa];W[fg]C[White wins.])\r\n(;B[cg];W[fg]C[White wins.])\r\n(;B[gg];W[fg]C[White wins.])\r\n(;B[dg];W[fg]C[White wins.])\r\n(;B[eg];W[fg]C[White wins.])\r\n(;B[ge];W[fg]C[White wins.]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 55,
+  "attempts": {
+    "solved": 276,
+    "failed": 1742,
+    "tries": 2018,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-11-10T15:22:00+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

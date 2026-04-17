@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12727,
+  "elo": 1698.7858534148,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "There is more than one correct answer (thanks to tails for pointing that out).",
+  "rating": {
+    "stars": 4.2,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ea]AB[eb]AB[ec]AB[gb]AB[hc]AB[jc]AB[ic]AB[jb]AW[da]AW[db]AW[dc]AW[ed]AW[fd]AW[gd]AW[hd]AW[id]AW[jd]AW[kc]AW[kb]AW[mb]C[White to kill.]AP[goproblems]\n(;W[gc]\n(;B[fb];W[ia]\n(;B[ha];W[ja]C[Black is dead.CHOICERIGHT])\n(;B[ja];W[hb]C[Black is dead.CHOICERIGHT]))\n(;B[fa]\n(;W[ja];B[ia];W[hb];B[ka]C[Black is dead. Good job to find this solution.RIGHT])\n(;W[fc]C[];B[ha]\n(;W[fb];B[ib]C[Be careful not to let Black live now. (I added this because many have stopped here)]\n(;W[ja]C[Black is dead.CHOICERIGHT])\n(;W[ga]C[RIGHT]))\n(;W[ja]\n(;B[fb];W[ia]C[RIGHT])\n(;B[ia];W[fb]C[RIGHT])))\n(;W[ha];B[ia]\n(;W[hb]C[RIGHT])\n(;W[fc];B[hb]))\n(;W[ia];B[ha];W[ja];B[fc];W[hb]C[RIGHT])))\n(;W[fb];B[fc];W[gc];B[fa]\n(;W[ha];B[hb]\n(;W[ja];B[ia];W[ib]C[Ko is not good enough.])\n(;W[ia];B[ja]C[Black lives.]))\n(;W[ia];B[ha];W[ja];B[hb])\n(;W[ja];B[ha]C[Black lives.])\n(;W[ga];B[ha]))\n(;W[ja];B[ia]\n(;W[ha];B[ka];W[fb];B[hb];W[ga];B[fa];W[ga];B[fc];W[gc];B[ha])\n(;W[fb];B[fc];W[gc];B[fa];W[hb];B[ka];W[ha]C[Black can't give atari.CHOICERIGHT]))\n(;W[ia];B[ha];W[ja];B[ib];W[gc];B[ka]\n(;W[ja];B[fb])\n(;W[fb];B[ja]))\n(;W[ga];B[ha]\n(;W[ia];B[ja];W[hb];B[ib];W[fb];B[ha]\n(;W[fc];B[gc])\n(;W[gc];B[fa];W[fc];B[ga]))\n(;W[fb];B[fc]\n(;W[ia];B[fa])\n(;W[gc];B[fa])))\n(;W[ha]\n(;B[ia]\n(;W[fb]\n(;B[hb]C[CHOICE]\n(;W[fc];B[ga])\n(;W[ga];B[fa]\n(;W[fc];B[ga])\n(;W[ga];B[fc];W[gc];B[ha]))\n(;W[fa];B[ga])))\n(;W[hb];B[gc]C[Seki.]\n(;W[fc];B[fb];W[ga]C[Seki.])\n(;W[ga];B[fc];W[fa]C[Seki.]))\n(;W[gc];B[hb]\n(;W[fb];B[ga])\n(;W[ga];B[fc]))\n(;W[ga];B[hb];W[fb];B[fc];W[gc];B[fa]))\n(;B[hb]\n(;W[ia];B[ja])\n(;W[ja];B[ia];W[ib];B[ga]\n(;W[ia];B[ka];W[ia];B[ja];W[fc];B[fb])\n(;W[fb];B[ia];W[fc];B[fa]))))\n(;W[fa];B[fb];W[ja];B[ia]\n(;W[ha];B[ga];W[ib];B[hb])\n(;W[hb];B[ga];W[gc];B[ka])))",
+  "author": {
+    "id": 30998,
+    "name": "Tantris",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-13",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 131,
+    "failed": 336,
+    "tries": 467,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-05-31T07:37:24+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

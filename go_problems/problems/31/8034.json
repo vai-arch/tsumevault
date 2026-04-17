@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8034,
+  "elo": 2009.5095297584,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 2.2,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[da]AB[db]AB[cc]AB[cd]AB[ce]AB[be]AW[bb]AB[bc]AW[ea]AW[eb]AW[dd]AW[de]AW[bf]AW[cf]AW[df]AW[ec]LB[ch:A]LB[eh:B]C[Assuming that it's white's turn...what is black's status?   A = Black is alive unconditionally, B = ko, C = seki, D =  Death]LB[ci:C]LB[ei:D]AP[goproblems]\r\n(;B[ch];W[ad]C[hmmm....]\r\n(;B[cb]\r\n(;W[ae];B[ba]C[This is the best solution for both.RIGHT])\r\n(;W[ac]C[CHOICE]\r\n(;B[ba]\r\n(;W[ae];B[ab]C[RIGHT])\r\n(;W[ab]C[CHOICE];B[ae];W[af];B[bd]C[CHOICERIGHT]))\r\n(;B[ae];W[aa]\r\n(;B[ca]C[aliveRIGHT])\r\n(;B[bd];W[dc];B[ca];W[af];B[ab];W[ac]C[dead])\r\n(;B[ba]C[ko]))))\r\n(;B[ae];W[cb];B[dc];W[ac];B[ba];W[ab];B[ca];W[af]C[seki])\r\n(;B[ac];W[cb];B[dc];W[ae]C[dead])\r\n(;B[ba]\r\n(;W[ab];B[cb]C[RIGHT])\r\n(;W[ac]C[CHOICE]\r\n(;B[cb];W[ae];B[ab]C[RIGHT])\r\n(;B[ae];W[cb]\r\n(;B[ab];W[aa]C[ko])\r\n(;B[ca];W[ab];B[dc];W[af]C[seki])))\r\n(;W[cb];B[ab]C[RIGHT]))\r\n(;B[ab];W[ac]\r\n(;B[cb];W[aa];B[ae];W[af]\r\n(;B[ba];W[ca]C[ko])\r\n(;B[ca];W[dc]C[seki])\r\n(;B[bd];W[dc];B[ab];W[ac]C[ko or seki in future.]))\r\n(;B[ba];W[aa];B[cb];W[ca]C[ko]))\r\n(;B[aa];W[ae]C[dead])\r\n(;B[ca];W[ae]C[dead])\r\n(;B[dc];W[ae]C[dead])\r\n(;B[bd];W[cb]\r\n(;B[dc];W[ae]\r\n(;B[ba];W[ab]C[dead])\r\n(;B[ab];W[ba]C[dead]))\r\n(;B[ba];W[dc]C[dead])))\r\n(;B[eh])\r\n(;B[ci])\r\n(;B[ei]))",
+  "author": {
+    "id": 6147,
+    "name": "Flame",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-04-29",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 85,
+    "failed": 1013,
+    "tries": 1098,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-01-31T09:48:10+00:00",
+  "source": "Salvaging problem 8026",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 25,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

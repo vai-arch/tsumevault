@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6997,
+  "elo": 1367.3385147506,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -10,
+    "flagSum": -10
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "What is the best (open) grid point to play on?",
+  "rating": {
+    "stars": 1.1,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[cc]AW[qh]AW[pn]AW[co]AW[mo]AW[qo]AW[np]AW[op]AW[pp]AW[cq]AW[qq]AW[rq]AB[oc]AB[qd]AB[pl]AB[oo]AB[lp]AB[mp]AB[eq]AB[hq]AB[nq]AB[oq]AB[pq]AB[qr]LB[qh:1]C[Should black play on the leftside, rightside or top?FORCE]TR[ic]TR[jd]TR[kc]TR[cj]TR[di]TR[dk]TR[og]TR[oi]MA[id]MA[jc]MA[kd]MA[ck]MA[dj]MA[ci]MA[oh]MA[qj]MA[pg]MA[pi]MA[dd]MA[oj]TR[pj]TR[nl]TR[mm]TR[mk]MA[nk]MA[ml]MA[nm]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[oi]C[RIGHT];W[pj]TR[oj];B[oj];W[ok]MA[pk];B[pk];W[qj]TR[nl];B[nl];W[nk]MA[mk];B[mk];W[nj]TR[ol];B[ol];W[mj]MA[lj];B[lj];W[nh]TR[ml];B[ml];W[oh]MA[no];B[no]C[Righteous.  Read the ladder to see who it works for.RIGHT])\n(;B[oh];W[oi]C[You were correct in choice of side but erroneous in choice therein.  Black can be seperated with the keima attachment, thus spoke Nie.])\n(;B[nl]C[If black responds like this white can jump out trivially after pushing down on black's lower side group.];W[lo];B[kp];W[nh]C[If black responds like this white can jump out trivially after pushing down on black's lower side group.]))",
+  "author": {
+    "id": 10284,
+    "name": "Zwom",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-07-05",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1517.95
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 460,
+    "failed": 3261,
+    "tries": 3721,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-07-28T23:21:58+00:00",
+  "source": "Nie Weiping game and commentary",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 54,
+      "name": "Pro Game",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 129,
+      "name": "Secret Ladder",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

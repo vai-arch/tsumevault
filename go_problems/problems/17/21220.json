@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21220,
+  "elo": 719.87906723587,
+  "problemLevel": 2,
+  "rank": {
+    "value": 28,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 5,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[4]AB[bb]AB[ab]AB[aa]AB[ba]AW[bc]AW[ac]AW[ad]AW[bd]AW[cb]AB[db]AB[cc]AW[dc]C[FORCE]AP[goproblems]\r\n(;B[ca]C[FORCE];W[cd]C[FORCE]\r\n(;B[cb]C[FORCE];W[da])\r\n(;B[da]C[FORCE];W[cb])\r\n(;B[dd]C[RIGHT]))\r\n(;B[da]C[FORCE]\r\n(;W[ca])\r\n(;W[cd]))\r\n(;B[cd]C[RIGHT])\r\n(;B[dd]C[FORCE];W[ca]))",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 21,
+  "attempts": {
+    "solved": 1319,
+    "failed": 557,
+    "tries": 1876,
+    "speedSolved": 7,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-07-09T03:27:22+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

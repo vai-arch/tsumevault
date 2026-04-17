@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2261,
+  "elo": 1280.3456522041,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "The fourth (and last) set of four 4x4 problems...!\r\nPlease find Blacks best result!\r\n(japanese rules)",
+  "rating": {
+    "stars": 3,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[4]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[aa][ab][cb][ac][cc][cd][dd]AB[da][bb][db][bc][dc][ad]C[Black to play - what's the best he can do?]\r\n(;B[ca]CR[ca]\r\n;W[ba]CR[ba]\r\n;B[ca]CR[ca]\r\n;W[bd]CR[bd]\r\n(;B[ac]CR[ac]\r\n;W[db]CR[db]\r\n;B[ba]CR[ba]\r\n;W[ab]CR[ab]\r\n;B[aa]CR[aa]C[Seki! Black wins by one point - 5 prisoners against 4. RIGHT])\r\n(;B[db]CR[db]\r\n;W[ac]CR[ac]\r\n;B[ab]CR[ab]\r\n;W[ba]CR[ba]\r\n;B[ad]CR[ad]\r\n;W[da]CR[da]C[White wins!]))\r\n(;B[ba]CR[ba]\r\n;W[ca]CR[ca]\r\n(;B[db]CR[db]\r\n(;W[bd]CR[bd]C[Black loses the capturing race])\r\n(;W[ab]CR[ab]C[This is a mistake!]\r\n;B[dc]CR[dc]\r\n;W[da]CR[da]\r\n;B[db]CR[db]\r\n;W[aa]CR[aa]\r\n;B[ac]CR[ac]\r\n;W[ab]CR[ab]C[Jigo!]))\r\n(;B[bd]CR[bd]\r\n;W[ab]CR[ab]C[Black loses the capturing race])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 1464,
+    "failed": 3508,
+    "tries": 4972,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-05-18T14:05:20+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

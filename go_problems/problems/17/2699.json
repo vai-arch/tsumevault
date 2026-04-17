@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2699,
+  "elo": 1184.4836393059,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This problem shows a tesuji you can often use in real games, too...\r\nPlease find the best result for Black!\r\n(japanese rules)",
+  "rating": {
+    "stars": 3.1,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[4]AW[ba]AW[bb]AW[ac]AB[cb]AB[db]AB[dd]C[Black to move - what's the best he can do?]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[bc]\n(;W[cc]C[];B[bd]\n(;W[ca]\n(;B[ab]C[Black has an eye, White has no eye, so... Black wins!  RIGHT])\n(;B[dc]C[Seki, Black wins by one point (the prisoner). There is a better solution, try to read it out.RIGHT]))\n(;W[ab]\n(;B[ca]C[White is short of liberties and can't atari with A1, so Black wins.   RIGHT])\n(;B[cd];W[ca]C[Seki, Black wins by one point (the prisoner). There is a better solution, try to read it out.RIGHT])\n(;B[dc];W[ca]C[Seki, Black wins by one point (the prisoner). There is a better solution, try to read it out.RIGHT])))\n(;W[bd];B[cc]\n(;W[ca]\n(;B[ab]C['One eye beats no eye' - Black wins!RIGHT])\n(;B[da];W[ab]C[Seki ",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 2001,
+    "failed": 3949,
+    "tries": 5950,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-07-06T02:09:24+00:00",
+  "source": "ferdi",
+  "playerColor": null,
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

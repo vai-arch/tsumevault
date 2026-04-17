@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 18385,
+  "elo": 1259.6744910062,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.3,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ca]AB[eb]AB[ec]AB[dc]AB[cc]AB[bc]AW[ea]AW[fa]AW[fb]AW[fc]AW[fd]AW[ed]AW[cd]AW[bd]AW[ad]AW[cf]AP[goproblems]\n(;B[bb];W[da]\n(;B[db];W[ac];B[ab]C[RIGHT])\n(;B[ac];W[db]\n(;B[aa];W[cb]C[CHOICE])\n(;B[cb];W[aa]C[CHOICE])))\n(;B[da];W[ac]\n(;B[bb]C[CHOICE])\n(;B[ab];W[bb];B[ba];W[aa]C[Disadv. koCHOICE]))\n(;B[ab];W[ba]\n(;B[aa]\n(;W[da]C[CHOICE]\n(;B[db];W[cb])\n(;B[cb];W[ac])\n(;B[bb];W[db])\n(;B[ac];W[cb]))\n(;W[cb]\n(;B[db];W[da])\n(;B[bb])))\n(;B[bb];W[da];B[db];W[cb])\n(;B[da];W[cb]\n(;B[bb];W[db])\n(;B[aa];W[bb];B[db];W[bb])\n(;B[db];W[bb];B[aa];W[bb]))\n(;B[ac];W[cb])\n(;B[cb];W[da])\n(;B[db];W[bb]\n(;B[ac];W[da])\n(;B[da];W[ac])))\n(;B[ba];W[ab]\n(;B[bb];W[ac])\n(;B[ac];W[bb];B[cb];W[da])\n(;B[aa];W[bb];B[ac];W[cb])\n(;B[da];W[bb]\n(;B[cb];W[ac])\n(;B[ac];W[cb]))\n(;B[cb];W[da])\n(;B[db];W[bb])))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 45,
+  "attempts": {
+    "solved": 638,
+    "failed": 1148,
+    "tries": 1786,
+    "speedSolved": 3,
+    "speedPlay": 18
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-11-30T16:25:01+00:00",
+  "source": "encyclopedia of life and death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 179,
+      "name": "Encyclopedia of Life and Death - Easy",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

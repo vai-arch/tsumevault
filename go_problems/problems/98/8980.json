@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8980,
+  "elo": 1935.8379964159,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.2,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dc]AB[ec]AB[cd]AW[dd]AB[de]AW[ri]AW[qj]AW[ol]AW[pk]AW[nm]AW[mn]AW[lo]AW[rg]AW[re]AW[rd]AW[kp]AW[jq]C[Can the ladder work for black?]LB[mk:N]LB[hk:Y]AP[goproblems]\n(;B[mk];W[lk]C[Are you sure?]LB[jj:Y]LB[nj:N]\n(;B[nj]C[Nope, hasn't changed; navigate solution to see])\n(;B[jj];W[ji]AB[de]C[Are you really sure?]LB[gi:Y]LB[ei:N]\n(;B[gi]C[];W[fi]C[Absolutely sure?]LB[fj:N]LB[ej:Y]\n(;B[fj];W[gk]C[Right.. but does it work now?]LB[ei:N]LB[di:Y]\n(;B[di]C[Nope, navigate solution to see why])\n(;B[ei];W[hj]C[Congratulations! You have made it ot the final round.... but does it work now?]LB[fk:Y]LB[fl:N]\n(;B[fk];W[ed]C[Show me];B[fd];W[ee];B[ef];W[fe];B[ge];W[ff];B[fg];W[gf];B[hf];W[gg]\n(;B[gh];W[hg];B[ig];W[hh]\n(;B[hi];W[ih];B[jh];W[ii];B[ki];W[ij]C[])\n(;B[ih];W[hi]))\n(;B[hg];W[gh]\n(;B[fh];W[hh])\n(;B[hh];W[fh];B[eh]C[RIGHT])))\n(;B[fl]C[Nope, navigate solution to see why])))\n(;B[ej];W[ed]C[Show me];B[fd];W[ee];B[ef];W[fe];B[ge];W[ff];B[fg];W[gf];B[hf];W[gg]C[FORCE];B[gh];W[hg];B[ig];W[hh];B[hi]C[FORCE];W[ih];B[jh]C[FORCE];W[ii];B[ki]C[FORCE];W[ij];B[ik];W[hj];B[gj]C[It works!.. but you answered wrong :(FORCE]))\n(;B[ei]C[no, navigate solution to see why])))\n(;B[hk];W[ed]C[Definately not]))",
+  "author": {
+    "id": 15018,
+    "name": "ketran0",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-04-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 17,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 111,
+  "attempts": {
+    "solved": 81,
+    "failed": 1041,
+    "tries": 1122,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-08-02T18:03:34+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 48,
+      "name": "Giant",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

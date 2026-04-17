@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17623,
+  "elo": 1966.8530109496,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -4,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This configuration appeared in one of my games. In the game, Black died. Can he live?",
+  "rating": {
+    "stars": 2.6,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cl]AB[bl]AB[al]AB[ck]AB[dk]AB[dj]AB[di]AB[ch]AB[bh]AB[bg]AW[bf]AW[cg]AW[dh]AW[df]AW[eh]AW[ei]AW[ej]AW[ek]AW[el]AW[dl]AW[dm]AW[cm]AW[bm]AW[am]LB[gj:T]C[Is Black safe? If yes, tenuki at 'T'. If no, settle your group.]AP[goproblems];B[gj];W[bj]C[Ok, now defend yourself.]\r\n(;B[bi];W[ai]\r\n(;B[ah];W[aj]\r\n(;B[cj]C[Correct. Black has two eyes. Later, White can descend at A as a ko threat.RIGHT]LB[af:A])\r\n(;B[ci];W[ak]C[White makes a dead shape. Black cannot get two eyes now.])\r\n(;B[bk]LB[cj:A]LB[ak:B]C[Correct. Black can now treat A and B as miai for life. Later, White can descend at C as a ko threat. In this variation, a white play at C threatens to kill Black, while playing B9 at A9, white can only make a seki, so this variation is inferior.RIGHT]LB[af:C])\r\n(;B[ak]LB[cj:A]LB[bk:B]LB[af:C]C[Correct. Black can now treat A and B as miai for life. Later, White can descend at C as a ko threat, threatening to make a seki.RIGHT]))\r\n(;B[cj];W[ag]C[Black cannot get two eyes now.]))\r\n(;B[ag];W[bi])\r\n(;B[ah];W[bi])\r\n(;B[ai];W[aj]\r\n(;B[ag];W[bi])\r\n(;B[bi];W[cj];B[ag];W[ci]C[It is a temporary seki, but White can capture the 6 stones with two more moves, so Black is dead.]))\r\n(;B[aj];W[ai]\r\n(;B[ah];W[bi])\r\n(;B[bi];W[ak];B[cj];W[ag])\r\n(;B[ak];W[bi])\r\n(;B[bk];W[bi]TR[aj]C[On the next move, White can capture the marked stone and make a dead shape.])\r\n(;B[ci];W[bi])\r\n(;B[cj];W[bi]))\r\n(;B[ci];W[ai]C[Black cannot prevent White from making a dead shape now.])\r\n(;B[cj];W[bi]\r\n(;B[ai];W[aj])\r\n(;B[aj];W[ai]\r\n(;B[ak];W[ci])\r\n(;B[bk];W[ak];B[ci];W[aj])\r\n(;B[ci];W[ak])\r\n(;B[ah];W[ak])))\r\n(;B[bk];W[bi])\r\n(;B[ak];W[bi]))",
+  "author": {
+    "id": 45815,
+    "name": "espen",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-26",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 69,
+  "attempts": {
+    "solved": 56,
+    "failed": 158,
+    "tries": 214,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-03-07T11:48:55+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 162,
+      "name": "Classic Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

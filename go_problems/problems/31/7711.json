@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7711,
+  "elo": 1970.2196022456,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ar]AB[bs]AB[cr]AB[dr]AB[ds]AB[er]AW[es]AW[fs]AW[fr]AW[gr]AB[eq]AB[fq]AW[hq]AW[iq]AW[kq]AB[dp]AB[do]AB[eo]AB[hp]AB[ho]AB[go]AB[fp]AW[bq]AW[cq]AW[dq]AW[bo]AW[co]AW[dn]AW[en]AW[cm]AW[bm]AW[an]AB[dm]AW[fn]AW[ip]AW[io]AW[in]AW[hm]AB[gn]AW[gm]AB[aq]AB[ap]AB[kr]AB[lq]AW[kp]AB[lp]AB[lo]C[White to play. Can the corner black group be killed? Y = Yes, N = No, K = Ko.FORCE]LB[dk:Y]LB[fk:N]LB[hk:K]AP[goproblems]\n(;W[dk];B[fk]C[Now proceed to kill.]\n(;W[br];B[gq]\n(;W[fo];B[hr]\n(;W[is]\n(;B[gs]\n(;W[fs]\n(;B[ir];W[jr];B[fr]\n(;W[js];B[jq]\n(;W[jp];B[ks]\n(;W[jq];B[es];W[hs]C[RIGHT])\n(;W[lr];B[es]LB[hs:A]C[Uh oh, white cannot approach at A.]))\n(;W[lr];B[es]C[Uh oh, white cannot approach at A.]LB[hs:A]))\n(;W[lr];B[es])\n(;W[jq];B[es]))\n(;B[fr];W[ir];B[es];W[hs]C[RIGHT]))\n(;W[ir];B[fs])\n(;W[jr];B[fs])\n(;W[fr];B[fs])\n(;W[gr];B[hs])\n(;W[hs];B[ir]))\n(;B[hs];W[ir];B[gs];W[fs]C[RIGHT])\n(;B[ir];W[jr];B[gs];W[fs]C[This transposes back to the main line.RIGHT];B[fr]\n(;W[js];B[jq]\n(;W[jp];B[ks]\n(;W[jq];B[es];W[hs]C[RIGHT])\n(;W[lr];B[es]LB[hs:A]C[Uh oh, white cannot approach at A.]))\n(;W[lr];B[es]C[Uh oh, white cannot approach at A.]LB[hs:A]))\n(;W[lr];B[es])\n(;W[jq];B[es])))\n(;W[ir];B[gs]\n(;W[fs];B[is]\n(;W[js];B[jr])\n(;W[jr];B[fr];W[js];B[es])\n(;W[fr];B[jr]))\n(;W[is];B[fs])\n(;W[fr];B[fs])\n(;W[jr];B[fs])\n(;W[js];B[fs]))\n(;W[jr];B[gs])\n(;W[hs];B[gs];W[ir];B[is];W[js];B[fs]))\n(;W[hr];B[fo])\n(;W[ir];B[fo])\n(;W[hs];B[fo]))\n(;W[gq];B[br])\n(;W[fo];B[br]))\n(;W[fk])\n(;W[hk]))",
+  "author": {
+    "id": 288,
+    "name": "unkx80",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-01-08",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1846.73
+  },
+  "avgSolveTimeSeconds": 88,
+  "attempts": {
+    "solved": 88,
+    "failed": 959,
+    "tries": 1047,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-11-26T12:50:41+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

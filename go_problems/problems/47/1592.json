@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1592,
+  "elo": 1129.4753304113,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This shape occurred in one of my games. I was playing white and played one space to the right of 1 (as it happens the game turned out OK) but I now think that white 1 shown here is a better place for W to play. \r\n\r\nthis is my first problem submitted to goproblems.com and comments from stronger players would be welcome",
+  "rating": {
+    "stars": 3.8,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[jm]AW[km]AW[lm]AW[mm]AW[nm]AW[jn]AW[nn]AW[jo]AW[no]AW[hp]AW[ip]AW[jp]AW[np]AW[hq]AW[nq]AW[hr]AW[nr]AW[js]AW[ms]AW[ns]AB[kn]AB[ln]AB[mn]AB[ko]AB[mo]AB[kp]AB[mp]AB[iq]AB[jq]AB[kq]AB[mq]AB[ir]AB[mr]AB[ls]LB[js:1]C[W has just played 1 - where should B respond for best result?]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]PW[White]PB[Black]PL[B]\n(;B[lr];W[is]\n(;B[lp]LB[jr:A]LB[ks:B]C[Black is alive with two points in gote - W can further reduce B to 2 points at 'A' or 'B' later - can do better])\n(;B[ks];W[jr];B[kr];W[hs];B[lp]C[Black is alive with 2 points in gote - can do better]))\n(;B[kr];W[is]\n(;B[ks]C[Black is alive with 4 points, in gote - can do better])\n(;B[lr];W[lp]C[Black dies])\n(;B[lp];W[ks];B[lr]C[Alive in gote, just 2 points of territory  - not the best result.]))\n(;B[ks];W[is]C[The fact that White plays here instead of tenuki means something. You can tenuki at H6 if you think it is best.]LB[hn:T]\n(;B[jr];W[hs]C[B defends and retains 5 points in sente.RIGHT]C[B defends and retains 5 points in senteRIGHT])\n(;B[hn]C[White can play K2 and reduce Black by one point in gote (reverse sente). Black K2 first would be sente; White will defend or White would not already have played J1. Depending on the rest of the board this is equal to the solution or one point worse. Correct, with reservations.RIGHT])\n(;B[kr]C[One point less and gote. Not best.]))\n(;B[is];W[lr]\n(;B[ks];W[kr];B[jr];W[ks];B[lq];W[ls]C[Black dies])\n(;B[lq];W[ks];B[kr];W[ls]C[Black dies]))\n(;B[jr];W[ks]\n(;B[kr];W[lr];B[lq];W[ls]C[Black dies])\n(;B[lr];W[is]\n(;B[lp];W[hs]C[Black can do better])\n(;B[kr];W[hs];B[lp]C[Black can do better])))\n(;B[hs];W[lr]C[Black dies.]))",
+  "author": {
+    "id": 1139,
+    "name": "Chrisg",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 4262,
+    "failed": 8043,
+    "tries": 12305,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-08-22T05:17:03+00:00",
+  "source": "From one of my games",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

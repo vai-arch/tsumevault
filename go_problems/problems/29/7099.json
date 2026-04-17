@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7099,
+  "elo": 839.14182171989,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[kh]AB[ki]AB[kj]AB[jk]AB[ik]AB[ii]AB[hj]AB[gk]AB[fk]AW[gj]AW[hk]AW[hl]AW[il]AW[jl]AW[kk]AW[lk]AW[lj]AW[lh]AW[li]AW[kg]AW[jg]AW[ih]AW[ji]AB[hh]AB[fj]AB[gh]AB[fi]TR[ik]TR[jk]TR[kj]TR[ki]TR[kh]C[White to capture as many stones as possible.](;W[ij](;B[hi]C[CHOICE](;W[jh];B[jj];W[ij]C[RIGHT])(;W[jj]C[RIGHT]))(;B[jj]C[CHOICE](;W[jh](;B[ij]C[CHOICE](;W[hi]C[RIGHT])(;W[gi];B[hi]))(;B[hi]C[CHOICE];W[ij]C[RIGHT]))(;W[hi];B[gi];W[jh];B[ij]))(;B[jh];W[hi]C[RIGHT])(;B[gi];W[hi]C[RIGHT]))(;W[jh];B[ij];W[jj];B[gi]C[White could have captured more.])(;W[jj](;B[ij]C[CHOICE](;W[hi]C[RIGHT])(;W[jh];B[hi]C[White could have captured more.]))(;B[hi]C[CHOICE](;W[ij]C[RIGHT])(;W[jh];B[ij]C[White could have captured more.]))(;B[gi];W[ij]C[RIGHT]))(;W[hi];B[gi](;W[jj];B[ij];W[jh]C[White could have captured more.])(;W[jh];B[ij];W[jj]C[White could have captured more.])(;W[ij];B[jj];W[jh];B[ij])))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 23818,
+    "failed": 11013,
+    "tries": 34831,
+    "speedSolved": 14,
+    "speedPlay": 30
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-08-16T10:10:49+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

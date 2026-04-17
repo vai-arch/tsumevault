@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23371,
+  "elo": 1303.4790992783,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "A situation that occurred in a game against Leela.\r\n",
+  "rating": {
+    "stars": 4.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nAB[qd][rd][re][rf][rg][qh][ph][pj][pk][pc][oc][nc][pe]\r\nAW[qc][rc][qb][sd][sb][ra][pd][od][nd][pf][qe][qf][qg][rh][ri][rk][lf][kd][kc][mi]\r\nCR[pf]\r\nC[White just played the marked stone. \r\nHow can black save their group of five stones on the right?]\r\nPL[B]\r\n(\r\n    ;B[of];W[oe]\r\n    (\r\n        ;B[pg];W[pe]\r\n        (;B[md];W[ne]\r\n            (;B[mf];W[nf];B[ng];W[og];B[me]C[RIGHT])\r\n            (;B[nf];W[me])\r\n            (\r\n                ;B[me];W[nf]\r\n                (;B[ng];W[mf])\r\n                (;B[mf];W[ng])\r\n            )\r\n        )\r\n        (;B[nf];W[md])\r\n        (;B[ne];W[md])\r\n    )\r\n    (;B[md];W[nf])\r\n)\r\n(;B[oe];W[of];B[ne];W[md])\r\n(;B[pg];W[of])\r\n(;B[md];W[nf])\r\n(;B[nf])\r\n(;B[ne];W[oe])\r\n(\r\n    ;B[me];W[md]\r\n    (;B[of];W[oe])\r\n    (;B[oe];W[of];B[ne];W[le])\r\n    (;B[ld];W[le];B[oe];W[of];B[ne];W[mc])\r\n)\r\n)",
+  "author": {
+    "id": 59252,
+    "name": "DK2",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-04-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 149,
+    "failed": 213,
+    "tries": 362,
+    "speedSolved": 12,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-05-21T21:15:29+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 143,
+      "name": "Squeeze Tesuji",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

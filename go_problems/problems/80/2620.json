@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2620,
+  "elo": 1075.2039245454,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -7,
+    "flagSum": -7
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "White to invade at the 3-3 point, as the black extensions on both sides are narrow.",
+  "rating": {
+    "stars": 2.5,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qk][pp][kq]LB[qq:A]\r\nC[FORCE Please play at 'A' to start.];W[qq];B[qp]\r\n(;W[rp]C[NOTTHIS])\r\n(;W[pq];B[oq]C[FORCE];W[or];B[nq]\r\nC[NB. If black had played 'O2' here, white could reply...... i) 'P4' if 'L3' is strong (see 2701)......ii) 'O3' if 'L3' is weak (giving up the corner, and attacking the lower side).]\r\n(;W[rp]C[NOTTHIS])\r\n(;W[nr];B[mq];W[rp];B[ro];W[rq];B[qn]\r\nC[RIGHT White has made territory, caused black to overconcentrate his forces, and kept sente. However, because black has made great thickness, proper timing of the 3-3 point play is required.])))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 11026,
+    "failed": 15211,
+    "tries": 26237,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-22T17:35:11+00:00",
+  "source": "Long established",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 80,
+      "name": "3-3 (san-san) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 28,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

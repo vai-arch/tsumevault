@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10536,
+  "elo": 1248.5860901567,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Nice and simple problem #3",
+  "rating": {
+    "stars": 4.6,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[bc]AW[cc]AB[cb]AB[db]AB[dc]AB[dd]AB[bd]AB[be]AW[bf]AW[cf]AW[df]C[White to save]TR[bc]TR[cc]AP[goproblems]\n(;W[ad];B[ae];W[cd];B[ce];W[de];B[ac];W[af];B[bb])\n(;W[ae]\n(;B[ad];W[cd];B[ce];W[de];B[af];W[ac]C[RIGHT])\n(;B[ac]\n(;W[ab];B[ad];W[cd];B[af];W[ce]C[RIGHT])\n(;W[bb];B[cd])\n(;W[cd];B[ce])\n(;W[ce];B[cd])))\n(;W[cd];B[ce]\n(;W[de];B[ac]))\n(;W[ce];B[cd])\n(;W[ac];B[cd]))",
+  "author": {
+    "id": 17060,
+    "name": "Bleedo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-07-22",
+    "rank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1497.5
+  },
+  "avgSolveTimeSeconds": 45,
+  "attempts": {
+    "solved": 1349,
+    "failed": 2592,
+    "tries": 3941,
+    "speedSolved": 3,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-10-24T19:16:26+00:00",
+  "source": "Basic Techniques of Go",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 346,
+      "name": "side",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

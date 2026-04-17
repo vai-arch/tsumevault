@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6715,
+  "elo": 1083.3995104299,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Final version now, I hope. Thanks to perroe, cusp and BarTM for their comments",
+  "rating": {
+    "stars": 4.2,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[ea]AW[bb]AW[eb]AW[gb]AW[hb]AW[bc]AW[dc]AW[ec]AW[hc]AW[ad]AW[bd]AW[cd]AW[fd]AW[gd]AW[hd]AW[be]AW[ce]AW[ge]AW[he]AW[ie]AW[hf]AW[hg]AW[hh]AW[hi]AB[fa]AB[cb]AB[fb]AB[cc]AB[fc]AB[gc]AB[dd]AB[ed]AB[ae]AB[de]AB[fe]AB[af]AB[bf]AB[cf]AB[ef]AB[ff]AB[gf]AB[cg]AB[gg]AB[gh]AB[gi]C[Black to play and win]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.50]PW[Blanco]PB[Negro]\n(;B[da];W[ga]\n(;B[ba];W[db]\n(;B[ab];W[ca]C[WRONG])\n(;B[ca];W[aa]C[WRONG])\n(;B[aa];W[ca]))\n(;B[ab];W[db]))\n(;B[ba]\n(;W[ga]\n(;B[ab];W[db]\n(;B[ac]C[CHOICERIGHT])\n(;B[ca]C[RIGHT])\n(;B[aa];W[ca]))\n(;B[ca];W[da]\n(;B[ab]C[RIGHT])\n(;B[ac];W[ab])\n(;B[aa];W[db]))\n(;B[da];W[db]\n(;B[ab];W[ca]C[WRONG])\n(;B[ca];W[aa]C[WRONG])\n(;B[aa];W[ca])))\n(;W[ca]\n(;B[da];W[ga]\n(;B[ab]C[RIGHT])\n(;B[ca];W[db]))\n(;B[ab];W[db]))\n(;W[ab]\n(;B[ca];W[ga];B[aa]C[RIGHT])\n(;B[db];W[ga];B[ca];W[da]C[WRONG])))\n(;B[ga];W[ha]\n(;B[ba];W[db]\n(;B[ab];W[ca]C[WRONG])\n(;B[ca];W[da]))\n(;B[ca];W[ba];B[ab];W[da])\n(;B[ab];W[ca]))\n(;B[db];W[ga]\n(;B[ba];W[da]\n(;B[ab];W[ca]C[WRONG])\n(;B[ca];W[aa]))\n(;B[da];W[ca]C[WRONG])\n(;B[ab];W[ca]))\n(;B[ca]\n(;W[ba]\n(;B[ab];W[ga]\n(;B[ac]C[RIGHT])\n(;B[aa]C[RIGHT]))\n(;B[db];W[da]C[WRONG])\n(;B[da];W[db]C[WRONG])\n(;B[aa];W[ab])\n(;B[ac];W[ab]C[WRONG]))\n(;W[ga];B[ba];W[da]\n(;B[ab]C[RIGHT])\n(;B[ac];W[ab])\n(;B[aa];W[db])))\n(;B[ab];W[ca]))",
+  "author": {
+    "id": 105129,
+    "name": "system",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-03-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 6281,
+    "failed": 7555,
+    "tries": 13836,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-16T22:59:39+00:00",
+  "source": "My own game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

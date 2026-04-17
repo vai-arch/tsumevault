@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1821,
+  "elo": 1238.2885103118,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "In this position, white has several ko threats, so please don't miss any of your own!",
+  "rating": {
+    "stars": 4.3,
+    "votes": 36,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[7]AW[ab]AW[bb]AW[fb]AW[gb]AW[cc]AW[dc]AW[ec]AW[fc]AW[ad]AW[dd]AW[ce]AW[de]AW[cf]AW[cg]AB[ac]AB[bc]AB[gc]AB[bd]AB[ed]AB[fd]AB[be]AB[ee]AB[ge]AB[bf]AB[df]AB[ff]AB[gf]AB[bg]C[No komi, no prisoners - black to play and draw!]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.50]TM[]\n(;B[dg];W[gd]\n(;B[cb];W[ca];B[gc];W[ae]\n(;B[af];W[gd]\n(;B[db];W[da];B[gc];W[ef];B[eg];W[gd]\n(;B[ba];W[eb];B[gc];W[fg]\n(;B[gg];W[gd];B[cb];W[db];B[gc];W[cd];B[gd]C[In the end, it's a jigo.... RIGHT])\n(;B[ef];W[gd];B[cb];W[db];B[gc];W[cd];B[gd]C[In the end, it's a jigo... RIGHT]))\n(;B[aa];W[eb];B[gc];W[fg]\n(;B[gg];W[gd];B[cb];W[ba];B[gc];W[cd];B[gd]C[RIGHT])\n(;B[ef];W[gd];B[cb];W[ba];B[gc];W[cd];B[gd]C[RIGHT]))\n(;B[ea];W[eb];B[gc];W[fg];B[gg];W[gd];B[cd];W[gc]C[White wins by 1 point]))\n(;B[da];W[db];B[gc];W[ef];B[eg];W[gd];B[ba];W[cb];B[gc];W[fg];B[gg];W[gd];B[cd];W[gc]C[White wins by 1 point])\n(;B[ba];W[db];B[gc];W[ef];B[eg];W[gd];B[da];W[cb];B[gc];W[fg];B[gg];W[gd];B[cd];W[gc]C[White wins by 1 point]))\n(;B[gd];W[af]C[This kills the corner]))\n(;B[db];W[cb];B[gc];W[ae];B[af];W[gd];B[cd];W[gc]C[White wins by 1 point])\n(;B[ca];W[cb];B[gc];W[ae];B[af];W[gd];B[cd];W[gc]C[White wins by 1 point]))\n(;B[gd];W[dg]\n(;B[ef];W[eg];B[fg]C[White wins by 3 points - connecting the ko was wrong])\n(;B[eg];W[ef];B[cb];W[fg]C[Black can't play this ko because his whole corner is at stake]))\n(;B[cb];W[dg]\n(;B[ef];W[eg];B[fg];W[db]C[Black must first defend at the bottom.])\n(;B[ba];W[db];B[aa];W[fg]C[The black group is dead!])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 65,
+  "attempts": {
+    "solved": 4077,
+    "failed": 7722,
+    "tries": 11799,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-12-28T08:01:16+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

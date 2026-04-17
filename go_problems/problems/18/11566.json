@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11566,
+  "elo": 1318.6220750862,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Can white win this capturing race?",
+  "rating": {
+    "stars": 4.1,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ai]AB[bi]AB[ci]AB[cj]AB[ck]AB[cl]AB[bl]AW[al]AW[bm]AW[bh]AW[di]AW[dj]AW[dk]AW[dl]AB[fm]AB[fl]AB[fk]AB[fj]AW[bf]AW[df]AW[bo]AB[ch]AW[bg]AW[bn]AW[dm]AB[cm]AB[fi]AB[dh]AW[eh]AB[ei]AB[cn]AW[co]AB[do]AB[eo]AW[dn]AB[fn]AW[cq]AW[dp]AW[dg]AW[fh]AP[goproblems]\n(;W[bj];B[ak];W[am]C[RIGHT])\n(;W[ak];B[en])\n(;W[aj];B[ak]\n(;W[bk];B[bj])\n(;W[bj];B[am]C[this ends in only ko]))\n(;W[bk];B[ak]\n(;W[aj];B[bj])\n(;W[bj];B[am]\n(;W[ah]C[NOTTHIS])\n(;W[an];B[en]\n(;W[ah]C[CHOICE])\n(;W[cg];B[em];W[ah];B[el];W[al];B[aj];W[bk];B[am]C[only ko, you can do better]))\n(;W[cg]C[CHOICE])))\n(;W[ah];B[ak];W[bj];B[am]C[])\n(;W[cg];B[ak];W[bj];B[am]C[])\n(;W[am];B[en]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 66,
+  "attempts": {
+    "solved": 1119,
+    "failed": 2097,
+    "tries": 3216,
+    "speedSolved": 1,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-07-21T15:49:49+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

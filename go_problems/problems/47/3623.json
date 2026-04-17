@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3623,
+  "elo": 1926.0560288937,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -4,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This occurred against a very weak player.  What's the most damage white can do to black's group?",
+  "rating": {
+    "stars": 1.1,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[is]AB[gr]AB[hr]AB[ir]AB[jr]AB[ks]AB[iq]AB[ip]AB[io]AB[gp]AB[hp]AB[jp]AB[kp]AB[lp]AB[ko]AB[kn]AB[fo]AB[fn]AB[gm]AB[hm]AB[il]AB[kl]AB[kk]AB[jk]AB[jj]AB[mk]AB[ml]AB[nl]AB[mm]AB[lm]AB[mn]AB[nn]AB[no]AB[om]AW[gs]AW[fr]AW[fp]AW[fq]AW[gq]AW[hq]AW[ep]AW[eo]AW[en]AW[fm]AW[fl]AW[gl]AW[hl]AW[ik]AW[ij]AW[ii]AW[hi]AW[ji]AW[lh]AW[kh]AW[li]AW[kj]AW[lk]AW[mj]AW[ni]AW[oj]AW[pk]AW[ql]AW[pm]AW[ol]AW[nk]AW[pn]AW[on]AW[oo]AW[ln]AW[lo]AW[mo]AW[mp]AW[nq]AW[np]AW[jq]AW[kq]AW[lq]AW[kr]AW[ls]AW[ns]AW[ms]AW[mr]AP[goproblems]\r\n(;W[im]\r\n(;B[jl]C[If black had made eye shape with H6, white would get only one stone. Now punish]TR[il]MA[hn]\r\n(;W[hn];B[jm]\r\n(;W[gn];B[go];W[in];B[jn]C[Two captured stones, but white can do better])\r\n(;W[in];B[jn]\r\n(;W[go]C[White gets nine points and black has 2. Not bad, but there's better])\r\n(;W[gn];B[go]C[Two captured stones, but white can do better.]))\r\n(;W[go];B[in]C[Two captures, but black gets one too.  White can do better.]))\r\n(;W[in];B[hn]C[White can still capture F5 and F6, but at a cost]TR[go])\r\n(;W[jn];B[hn]C[])\r\n(;W[jm]\r\n(;B[hn]C[];W[km]C[];B[jn]C[There you go, black just barely livesRIGHT];W[ll]C[RIGHT];B[go]C[RIGHT];W[nm]C[RIGHT])\r\n(;B[jn];W[hn])\r\n(;B[km];W[hn])))\r\n(;B[hn];W[jm];B[km];W[jl];B[jn]))\r\n(;W[go];B[gn]C[This just forces black to make needed reenforcements])\r\n(;W[gn];B[go]\r\n(;W[hn];B[im]C[Black keeps everything])\r\n(;W[im];B[hn]C[That's two eyes for black, so black can afford to fill in the rest, plus white gives up a prisoner]))\r\n(;W[jm];B[im]))",
+  "author": {
+    "id": 5610,
+    "name": "Kujo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2004-01-24",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 577,
+    "failed": 2990,
+    "tries": 3567,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-25T14:52:42+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13798,
+  "elo": 1006.0245669064,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": 0,
+    "flagSum": 10
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Please play either T if the cut does not work or A if it does.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[dp]AW[cn]AW[cj]AW[dj]AW[ej]AW[fj]AW[bk]AW[cl]AB[bj]AB[ci]AB[bh]AB[ai]AB[di]AB[ei]AB[fi]AB[gi]AB[gj]AB[cq]AB[dr]AB[cr]AB[bo]AW[dq]AW[er]AW[eq]AB[fq]AW[fs]AB[fo]AW[bn]AB[co]AW[do]AB[fk]AB[gk]LB[dn:A]C[Does the black cut at A work? If not, please play T for Tenuki. If so, play it!FORCE]AB[cp]AW[hr]AW[gs]AB[hp]AB[jo]LB[hm:T]AW[es]AB[fp]AB[jq]AW[ir]AW[jr]AB[kq]AB[lr]AW[gr]AB[ar]AP[goproblems]\n(;B[dn]\n(;W[en];B[dm]\n(;W[em];B[dl];W[el]\n(;B[ek];W[dk];B[ck]C[RIGHT])\n(;B[dk];W[ek]))\n(;W[el];B[em];W[fm]\n(;B[fn]\n(;W[eo];B[fl];W[gm];B[dl];W[ek];B[ck];W[dk];B[ck]C[RIGHT]))\n(;B[fl];W[dl])\n(;B[eo];W[fn];B[fl];W[dl])\n(;B[dl];W[dk])\n(;B[ek];W[dl]))))\n(;B[hm]C[It works. Navigate solution for details]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 53,
+  "attempts": {
+    "solved": 3902,
+    "failed": 3245,
+    "tries": 7147,
+    "speedSolved": 1,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-06-23T07:55:39+00:00",
+  "source": "Modified from a KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

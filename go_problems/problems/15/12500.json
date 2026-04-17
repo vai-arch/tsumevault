@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12500,
+  "elo": 1183.1455229415,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -3,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Simple problem: I don't think there are enough (if any) elementary endgame problems. \n\nThis one demonstrates basic sente/gote rules: play double sente first, then the rest of the sente, and then gote.\n\nOkay! Fixed up. Thanks to Meleenewb for pointing out the error and Bass for fixing the sgf.",
+  "rating": {
+    "stars": 3.3,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[ee]AW[eb]AB[db]AB[dc]AW[ec]AB[ed]AW[fd]AW[fe]AW[cg]AB[cf]AB[ce]AW[bf]AB[be]AB[ff]AB[ge]AW[gd]AB[hd]AW[hc]AB[he]AW[dh]AW[ic]AB[eg]AB[fh]AW[eh]AW[ci]AB[gg]AW[gc]AW[bg]AB[df]AW[dg]AW[ae]AB[ad]AW[af]AB[bc]C[White to win! Japanese rules, 6.5 point komi (compensation points) for white.]AW[ha]AB[dd]AP[goproblems]\n(;W[da];B[ca];W[ea];B[cb]\n(;W[id];B[ie];W[fi]\n(;B[gi];W[ei]C[You win by .5! Hooray!RIGHT])))\n(;W[id];B[ea]\n(;W[fa];B[da];W[fb];B[ie];W[fi];B[gi];W[ei]C[White loses by 1.5 D:])\n(;W[ie];B[fb]\n(;W[hf];B[gf]\n(;W[gb];B[ib])\n(;W[fc];B[fa]))\n(;W[ig];B[fc])\n(;W[fc];B[fa])))\n(;W[fi];B[gi];W[ei];B[ea];W[fa];B[da];W[gb];B[id]C[Black wins by 2.5 D:]))",
+  "author": {
+    "id": 29217,
+    "name": "dischord",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-10-08",
+    "rank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1627.09
+  },
+  "avgSolveTimeSeconds": 64,
+  "attempts": {
+    "solved": 1844,
+    "failed": 1972,
+    "tries": 3816,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-03-29T13:35:32+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 27,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

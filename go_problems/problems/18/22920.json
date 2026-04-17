@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22920,
+  "elo": 1419.6639325691,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[besogo:0.0.2-alpha]SZ[9]ST[0]\r\nAB[ah][bg][bh][cg][da][db][dd][dg][eb][ec][ed][ee][ef][fd][gc][hc][hd][he][hf]AW[bf][bi][ch][dh][ea][eg][eh][fa][fb][fc][fe][ff][gb][gd][ge][gg][hb][ib]CR[hf]\r\nC[W to move]\r\n(;W[ha]\r\n(;B[fg]\r\n(;W[fh]LB[fg:1][gf:2]\r\nC[good! B is captured! You didn't fall for 1-2! :) RIGHT])\r\n(;W[gf]\r\n;B[gh]\r\n(;W[fh]\r\n;B[hg]\r\n;W[fg]\r\n;B[hh])\r\n(;W[hg]\r\n;B[hh]\r\n(;W[fh]\r\n;B[ig]\r\n;W[fg]\r\n(;B[ic]LB[fi:B][gi:A]\r\nC[If White plays at A trying to deny the second eye, Black B will keep White eyeless.])\r\n(;B[if]))\r\n(;W[ig]\r\n;B[fh]))))\r\n(;B[hg]\r\n;W[hh]))\r\n(;W[hg]\r\n;B[ha]\r\nC[W loses the seamai!])\r\n(;W[gf]\r\n;B[ha]\r\nC[W loses the seamai!]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 63,
+  "attempts": {
+    "solved": 130,
+    "failed": 260,
+    "tries": 390,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-12-04T12:46:45+00:00",
+  "source": "http://goproblems.com/22919",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

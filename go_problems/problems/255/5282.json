@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5282,
+  "elo": 1325.636006787,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Inspired by peto.franek's comment for problem 4412.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ar]AB[br]AB[cq]AB[dq]AB[eq]AW[aq]AW[bq]AW[bp]AW[cp]AW[dp]AW[ep]AW[fp]AW[fq]AW[fr]AB[ds]C[white to kill.]AP[goproblems]\n(;W[cs]\n(;B[bs]C[CHOICE]\n(;W[dr]\n(;B[er];W[es]C[black cannot push.RIGHT])\n(;B[cr]\n(;W[er]C[RIGHT])\n(;W[es];B[er])))\n(;W[cr];B[dr])\n(;W[es];B[dr])\n(;W[er];B[dr]))\n(;B[cr]C[CHOICE]\n(;W[er]\n(;B[dr]C[CHOICE];W[bs]C[black dies this way regardless of A3 liberty.RIGHT])\n(;B[bs]C[CHOICE];W[dr]C[RIGHT]))\n(;W[bs];B[er])\n(;W[es];B[bs]))\n(;B[er]C[CHOICE];W[cr]C[black cannot approach.RIGHT]))\n(;W[es];B[dr])\n(;W[er];B[dr])\n(;W[dr];B[er]\n(;W[cr];B[cs])\n(;W[cs];B[cr]))\n(;W[cr];B[dr]\n(;W[cs];B[bs])\n(;W[bs];B[cs]))\n(;W[bs];B[cs]\n(;W[es];B[dr])\n(;W[er];B[dr])\n(;W[dr];B[er])\n(;W[cr];B[dr])))",
+  "author": {
+    "id": 1898,
+    "name": "tails",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-06-18",
+    "rank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1485.73
+  },
+  "avgSolveTimeSeconds": 152,
+  "attempts": {
+    "solved": 2267,
+    "failed": 4704,
+    "tries": 6971,
+    "speedSolved": 3,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-10-17T08:52:27+00:00",
+  "source": "Problem 4412",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 255,
+      "name": "Golden Chicken Standing on One Leg",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

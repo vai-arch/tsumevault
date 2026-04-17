@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5929,
+  "elo": 1682.8270056929,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Note: This is an endgame problem. It is not enough to just live (if possible), you need to get the best result possible.",
+  "rating": {
+    "stars": 3.6,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rb]AB[rc]AB[rd]AB[qe]AB[qf]AB[qg]AB[qh]AB[rh]AB[sh]AW[si]AW[ri]AW[qi]AW[pi]AW[ph]AW[pg]AW[pf]AW[pe]AW[qd]AW[qc]AW[qb]AW[od]AW[ra]AW[sb]AW[ob]TR[sb]C[White just played the marked move; what is black's best answer.]AP[goproblems]\n(;B[rf];W[sc]\n(;B[sd]C[White cannot do anything useful; Black can capture at T19 later.RIGHT])\n(;B[se];W[qa]C[Almost correct, but you could get a little bit more.])\n(;B[sg];W[sd]\n(;B[se];W[re];B[rd]C[Losing the three stones is not necessary.])\n(;B[re];W[se]C[You're dead.])))\n(;B[re];W[sf]\n(;B[sc];W[se]\n(;B[rf];W[sg]C[Seki is not best.])\n(;B[sg];W[rf]C[Seki is not best])\n(;B[sa];W[qa]C[This is only seki, you could have lived with points.]))\n(;B[se];W[sc]C[dead])\n(;B[rf];W[sg];B[sc];W[se]C[Seki is not the best])\n(;B[sg];W[rf];B[sc];W[se]C[Seki is not the best.]))\n(;B[se];W[rf]\n(;B[sc];W[re];B[sa];W[sg]C[That's not even ko.])\n(;B[sf];W[sc]\n(;B[rg]C[Close, but you could have done slightly better.])\n(;B[sd];W[rg];B[sa];W[sb]))\n(;B[rg];W[sc]\n(;B[sf]C[Close, but you could have done slightly better.])\n(;B[sd];W[sf];B[sa];W[sb]))\n(;B[re];W[sc]C[dead]))\n(;B[sf];W[re]\n(;B[sd];W[rf]C[dead])\n(;B[se];W[sc]\n(;B[rf]C[Close, but you could have done better.])\n(;B[sd]C[White cannot do anything useful, whereas black can capture at T19 at any moment.RIGHT]))\n(;B[rf];W[sc];B[se]C[Close, but you could have done better.]))\n(;B[sc];W[re]\n(;B[sa];W[rf]C[Not even ko])\n(;B[se];W[sd]))\n(;B[sd];W[rf]\n(;B[sf];W[re]C[Dead by damezumari])\n(;B[re];W[sf]))\n(;B[qa]C[NOTTHIS]))",
+  "author": {
+    "id": 97,
+    "name": "Andre Engels",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-04-08",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1419.89
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 884,
+    "failed": 2670,
+    "tries": 3554,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-02-11T04:23:54+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

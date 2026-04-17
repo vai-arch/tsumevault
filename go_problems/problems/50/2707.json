@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2707,
+  "elo": 1550.8919232246,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[na]AW[hb]AW[nb]AW[ic]AW[nc]AW[gd]AW[id]AW[jd]AW[kd]AW[md]AW[nd]AW[le]AB[ma]AB[gb]AB[ib]AB[mb]AB[gc]AB[jc]AB[kc]AB[lc]AB[mc]TR[hb]C[can black catch the marked stone while not losing anything?]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[hc];W[jb]\n(;B[ia];W[kb]\n(;B[ka]C[RIGHT])\n(;B[ja];W[ka];B[ha];W[ld]C[seki])\n(;B[lb];W[ld])\n(;B[la];W[ja];B[ha];W[ld]C[seki])\n(;B[ha];W[ld]))\n(;B[ha];W[kb]\n(;B[lb];W[ld])\n(;B[ka];W[ja]\n(;B[lb];W[la])\n(;B[ia];W[la])\n(;B[la];W[ld]))\n(;B[la];W[ka];B[ja];W[ia])\n(;B[ja];W[ka]\n(;B[ia];W[ld]C[seki])\n(;B[la];W[ia]))\n(;B[ia];W[ld]))\n(;B[kb];W[ia])\n(;B[ja];W[ia])\n(;B[ka];W[ia]))\n(;B[jb];W[hc];B[ha]C[you connected in gote, but this is not optimal])\n(;B[ha];W[jb]\n(;B[hc];W[kb]\n(;B[ja];W[ka]\n(;B[ia];W[ld]C[seki])\n(;B[la];W[ia]))\n(;B[ka];W[ja]\n(;B[lb];W[la])\n(;B[ia];W[la])\n(;B[la];W[ld])))\n(;B[ia];W[hc]C[not best]))\n(;B[ia];W[hc];B[ha]C[not best])\n(;B[ja];W[hc];B[ha]C[not best])\n(;B[ga];W[jb];B[ia];W[hc];B[ha]C[not best])\n(;B[kb];W[ia]\n(;B[jb];W[hc])\n(;B[ja];W[jb]))\n(;B[hd];W[jb]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 1729,
+    "failed": 4061,
+    "tries": 5790,
+    "speedSolved": 2,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-07-09T15:34:46+00:00",
+  "source": "GZP end 91",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

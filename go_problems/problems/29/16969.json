@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16969,
+  "elo": 854.63485514289,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": 0,
+    "flagSum": 10
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "I started with a game position, but found that there were too many possible variations, so I simplified the problem. Perhaps it's a bit too simplified now.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[jc]AB[jb]AB[kb]AB[lc]AB[kd]AB[id]AB[ie]AB[if]AW[jd]AW[je]AW[ld]AW[ic]AW[ib]AW[gc]AW[nd]AW[nc]AW[nb]AW[ne]AW[mf]AW[lg]AW[kh]AW[jh]AW[ih]AW[hg]AW[gf]AW[ge]AB[lb]AB[la]AB[ja]AW[fb]AW[na]C[Black to play. Try to get the best result. Assume there are no external ko threats.]AP[goproblems]\r\n(;B[kf];W[ke];B[le];W[kc]\r\n(;B[md]C[RIGHT])\r\n(;B[jf]C[Slightly inferior to N16RIGHT]))\r\n(;B[lf];W[kf]C[You could have kept all the stones.])\r\n(;B[ke];W[jf])\r\n(;B[le];W[kf]C[You could have kept all the stones.])\r\n(;B[jf];W[ke];B[le];W[kf]C[You could have kept all the stones.])\r\n(;B[kg];W[kf]C[You could have kept all the stones.])\r\n(;B[jg];W[kf]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 63,
+  "attempts": {
+    "solved": 3821,
+    "failed": 3938,
+    "tries": 7759,
+    "speedSolved": 23,
+    "speedPlay": 38
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-01-04T16:27:45+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

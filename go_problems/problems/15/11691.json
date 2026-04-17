@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11691,
+  "elo": 1702.7373940338,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Can Black catch the triangled stone? Play T if not.",
+  "rating": {
+    "stars": 2,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ah]AB[bi]AB[ci]AW[bh]AB[gi]AB[fi]AB[hi]AB[ih]AW[gh]AW[hh]AW[ig]AB[gg]AB[hf]AB[if]AB[he]AB[hd]AW[gf]AW[ge]AW[af]AW[ae]AB[bf]AW[ce]AW[df]AB[de]AW[ac]AW[ab]AW[bb]AW[ba]AB[bc]AW[cc]AW[db]AB[cb]AB[ca]AB[ea]AB[fb]AW[hb]LB[gc:T]SZ[9]TR[bh]AP[goproblems]\n(;B[bg];W[ch]\n(;B[dh];W[cg];B[cf];W[dg]\n(;B[ef];W[eg]\n(;B[eh];W[fg]\n(;B[ff];W[hg];B[fh];W[gg]\n(;B[gd];W[fe];B[ee];W[fd]\n(;B[fc];W[ed];B[dd];W[ec]\n(;B[dc];W[cd])\n(;B[eb];W[dc]))\n(;B[ed];W[fc];B[ec];W[gc]))\n(;B[fe];W[gd]\n(;B[gc];W[fd])\n(;B[fd];W[gc])))\n(;B[fh];W[ff]))\n(;B[fg];W[eh]\n(;B[fh];W[di];B[ei];W[ai])\n(;B[ei];W[di];B[fh];W[ai])))\n(;B[eg];W[ef]\n(;B[ee];W[ff])\n(;B[ff];W[ee];B[ed];W[dd])))\n(;B[cg];W[dh])\n(;B[dg];W[ag]))\n(;B[ch];W[bg];B[cg];W[ag];B[be];W[ad]\n(;B[bd];W[da])\n(;B[da];W[bd]))\n(;B[cg];W[bg])\n(;B[bd];W[be]\n(;B[bg];W[ch]\n(;B[dh];W[cg])\n(;B[cg];W[dh];B[dg];W[ag];B[eh];W[ai]))\n(;B[ch];W[bg]))\n(;B[gc]C[RIGHT]C[The ladder does not work RIGHT])\n(;B[ag];W[bg];B[ai];W[cf])\n(;B[ai];W[bg];B[ag];W[cf]))",
+  "author": {
+    "id": 6660,
+    "name": "peto.franek",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2008-11-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 78,
+  "attempts": {
+    "solved": 156,
+    "failed": 423,
+    "tries": 579,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-09-05T20:16:54+00:00",
+  "source": "phantasy",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21170,
+  "elo": 775.06786804131,
+  "problemLevel": 2,
+  "rank": {
+    "value": 28,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 2.5,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]\nRU[Japanese]SZ[19]KM[0.00]\nAW[ap][bp][cp][dp][ep][fp][gp][fq][gq][br][cr][er][fr][fs]AB[aq][bq][cq][dq][eq][ar][dr]C[FORCE]\n(;W[as]\n;B[bs]\n(;W[ds]\n;B[cs])\n(;W[cs]\n;B[ds]))\n(;W[bs]C[RIGHT])\n(;W[cs]\n;B[bs]\n;W[as]C[it is only ko])\n(;W[ds]\n;B[bs]\n(;W[as]C[RIGHT])\n(;W[cs]\n;B[es])\n(;W[es]\n;B[cs]))\n(;W[es]\n;B[bs]\n(;W[cs]\n;B[ds])\n(;W[ds]\n;B[cs])))\n",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 72,
+  "attempts": {
+    "solved": 2294,
+    "failed": 1231,
+    "tries": 3525,
+    "speedSolved": 48,
+    "speedPlay": 98
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-04-30T23:30:15+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

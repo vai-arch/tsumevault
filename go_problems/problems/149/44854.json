@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 44854,
+  "elo": 1509.1003170806,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "level:middle",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[pb][qb][rd][qe][sf]AW[ob][nc][pc][pd][pe][pf][qg][rg](;W[qc];B[rc](;W[ra];B[rb];W[rf];B[re];W[se]C[RIGHT])(;W[rf];B[ra]C[CHOICE])(;W[sb];B[rf];W[rb];B[sc];W[pa];B[se]C[CHOICE])(;W[rb];B[ra];W[sb];B[rf];W[pa];B[sc];W[qa];B[se]C[CHOICE]))(;W[rf];B[qc](;W[pa];B[rb];W[sc];B[sb]C[CHOICE])(;W[rb];B[ra];W[sb];B[pa](;W[rc];B[sd]C[CHOICE])(;W[sd];B[rc]C[CHOICE]))(;W[sb];B[rb];W[sc];B[sa]C[CHOICE])(;W[sc];B[sd];W[rb];B[rc];W[sb];B[pa]C[CHOICE]))(;W[ra];B[qc];W[rf];B[rb]C[CHOICE])(;W[pa];B[qc];W[rf];B[rb];W[sc];B[sb]C[CHOICE]))",
+  "author": {
+    "id": 112879,
+    "name": "cho159",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-28",
+    "rank": {
+      "value": 20,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 984.872
+  },
+  "avgSolveTimeSeconds": 55,
+  "attempts": {
+    "solved": 1,
+    "failed": 10,
+    "tries": 11,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-04-01T17:23:06+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1200
+}

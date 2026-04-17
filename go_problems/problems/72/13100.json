@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13100,
+  "elo": 1484.5916321527,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This problem shows a cool difference between Japanese and Ing rule sets.  See also problem #13103.",
+  "rating": {
+    "stars": 1.8,
+    "votes": 50,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[hi]AB[ii]AB[ih]AW[gi]AW[gh]AW[gg]AW[hg]AW[ig]AB[ei]AB[eh]AB[eg]AB[fg]AB[ef]AB[ee]AB[fe]AB[ge]AB[gf]AB[he]AB[ie]AW[id]AW[hd]AW[gd]AW[fd]AW[ed]AW[dd]AW[de]AW[df]AW[dg]AW[dh]AW[di]AB[ce]AB[cd]AB[cc]AB[dc]AB[ec]AB[fc]AB[gc]AW[hc]AW[hb]AW[ha]AW[ib]AB[gb]AB[ga]LB[ba:White]LB[da:Black]C[ING rules - who won? (0.5 komi) Play at  B9 for White, D9 for Black.  TAKE NOTE: Ing rules allow suicide, all stones in your own chain will be removed then. The Ing rules differ on this point from other rulesets. Remember, this problem uses Ing rules (and some Java trickery).FORCE]AB[be]AB[ae]AW[cg]AW[bg]AW[bh]AW[bi]AW[ah]AB[ag]AB[af]AW[bf]AW[cf]SZ[9]AP[goproblems]\n(;B[ba]C[OK, let's swap colors so you can prove Black, which now is White, loses. Remember, ING rules allow suicide. If you fill in liberties start at the triangle (J4).]AW[ag]AW[af]AW[ae]AW[be]AW[ce]AW[cd]AW[cc]AW[dc]AW[ec]AW[fc]AW[gc]AW[gb]AW[ga]AB[bi]AB[bh]AB[bg]AB[bf]AB[cf]AB[df]AB[de]AB[dd]AB[ed]AB[fd]AB[gd]AB[hd]AB[hc]AB[hb]AB[ha]AB[ib]AB[id]AB[cg]AB[dg]AB[dh]AB[di]AW[ei]AW[eh]AW[eg]AW[ef]AW[ee]AW[fe]AW[ge]AW[he]AW[ie]AW[fg]AW[gf]AB[gi]AB[gh]AB[gg]AB[hg]AB[ig]AW[hi]AW[ii]AW[ih];W[ca]C[OK, let's swap colors so you can prove Black, which now is White, loses. Remember, ING rules allow suicide. If you fill in liberties start at the triangle (H4).FORCE]TR[if]\n(;B[hh];W[ii]C[Seki, White wins.])\n(;B[if]AB[hh]AB[ih]AB[hi]AB[ii]AB[fh]AB[fi];W[hf]AB[hf]AB[hg]AB[ig]AB[gg]AB[gh]AB[gi]C[White played suicide (remember, Ing rules...!) at H2. Never mind that J4 is now H4, that was necessary to make the hack work in Java mode. Liberty wise it is the same. Please play at J4 again if you want to fill liberties.FORCE]TR[if]MA[hh]\n(;B[if];W[ih]\n(;B[fh];W[hi]C[Seki, White wins.])\n(;B[fi];W[hi]C[Seki, White wins.])\n(;B[hh];W[ii]C[Seki, White wins.])\n(;B[ii];W[hi]C[Seki, White wins.])\n(;B[hi]C[Seki, White wins.]))\n(;B[ih];W[hi]C[Seki, White wins.])\n(;B[hh];W[ii]C[Seki, White wins.])\n(;B[hi];W[ih]C[Seki, White wins.])\n(;B[ii];W[hh]C[Seki, White wins.])))\n(;B[da]\n(;W[if]C[Correct.  Once again, the game depends on the state of the lower right corner.  However, this time, if white decides to fill in liberties, black can sacrifice his four stones in the corner by playing triangle.  After this, if white continues to fill in liberties, black can create a seki by playing both of the points marked square.  Since black is alive in the lower right, he has enough points to win.FORCERIGHT]TR[hh]MA[hi]MA[ih])\n(;W[hf]C[Once again, the game depends on the state of the lower right corner.  However, this time, if white decides to fill in liberties, the Ing rules allow black to sacrifice four stones in the corner by playing triangle. Please play at the triangle.CHOICERIGHT]TR[hh];AW[if]AW[fh]AW[fi]B[hh]C[(This is a trick to remove the 4 stones. The white stones should appear to not have been away. Just blink at the right moment:)];AW[gg]AW[gh]AW[gi]AW[hg]AW[if]AW[hf]W[ig]C[The 4 Black stones are removed as soon as Black plays the suicide (which Ing rules allow but Japanese rules forbid). Next, White takes another liberty at the squared position. Ignore the circle mark: that is just a hack needed to make this possible]TR[ih]MA[if];B[ih];W[fi]TR[hi];B[hi]C[If white continues to fill in liberties, black can create a seki by playing in the corner. Almost anything will do. Since black is alive in the lower right, he has enough points to win.RIGHT])))",
+  "author": {
+    "id": 23449,
+    "name": "SilverHawk",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 804.867
+  },
+  "avgSolveTimeSeconds": 59,
+  "attempts": {
+    "solved": 4046,
+    "failed": 2522,
+    "tries": 6568,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-09-20T18:40:09+00:00",
+  "source": "US Go Congress",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 72,
+      "name": "Rule Set Dependent",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 38,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

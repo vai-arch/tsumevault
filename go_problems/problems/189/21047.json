@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21047,
+  "elo": 1313.9471996335,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -4,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 1.8,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[4]TR[dd]TR[da]TR[aa]TR[ad]AW[ca]AW[ba]AW[bb]AW[db]AW[dc]AW[cd]AW[bd]C[The triangles are not intersections. This looks like White can win for some people but he missed the important thing!FORCE]AP[goproblems]\n(;B[ab]TR[aa]TR[ad]TR[da]TR[dd]C[FORCE]\n(;W[bc]TR[aa]TR[ad]TR[dd]TR[da]C[])\n(;W[cc]TR[ad]TR[aa]TR[da]TR[dd]C[]))\n(;B[ac]TR[ad]TR[aa]TR[dd]TR[da]C[FORCE]\n(;W[bc]TR[ad]TR[aa]TR[dd]TR[da]C[])\n(;W[cc]TR[ad]TR[aa]TR[dd]TR[da]C[]))\n(;B[bc]TR[ad]TR[aa]TR[dd]TR[da]C[FORCE];W[cc]TR[ad]TR[aa]TR[dd]TR[da]AB[ad]AB[da]AB[dd]C[FORCE]\n(;B[ab]TR[ad]TR[aa]TR[dd]TR[da]AW[ad]AW[da]AW[aa]C[FORCE];W[ac]TR[ad]TR[aa]TR[dd]TR[da])\n(;B[ac]TR[ad]TR[aa]TR[dd]TR[da]AW[da]AW[ad]C[FORCE];W[ab]TR[ad]TR[aa]TR[dd]TR[da])\n(;B[cb]TR[ad]TR[aa]TR[dd]TR[da]C[FORCE];W[cc]TR[ad]TR[aa]TR[dd]TR[da]AB[aa]C[FORCE]\n(;B[ab]TR[ad]TR[aa]TR[dd]TR[da]C[RIGHT])\n(;B[ac]TR[ad]TR[aa]TR[dd]TR[da]AW[ad]AW[aa]AW[da]AW[dd]C[FORCE];W[db]TR[ad]TR[aa]TR[dd]TR[da])\n(;B[db]TR[ad]TR[aa]TR[dd]TR[da]AW[aa]AW[ad]AW[dd]AW[da]C[FORCE];W[dc]TR[dd]TR[ad]TR[aa]TR[da])\n(;B[dc]TR[ad]TR[aa]TR[dd]TR[da]AW[aa]AW[ad]AW[da]AW[dd]C[FORCE];W[db]TR[ad]TR[aa]TR[dd]TR[da])\n(;B[bd]TR[ad]TR[aa]TR[dd]TR[da]AW[aa]AW[ad]AW[da]AW[dd]C[FORCE];W[db]TR[dd]TR[ad]TR[aa]TR[da])\n(;B[cd]TR[ad]TR[aa]TR[dd]TR[da]AW[aa]AW[ad]AW[da]AW[dd]C[FORCE];W[db]TR[ad]TR[aa]TR[dd]TR[da])))\n(;B[cb]TR[ad]TR[aa]TR[dd]TR[da]C[FORCE]\n(;W[bc]TR[ad]TR[aa]TR[dd]TR[da]C[])\n(;W[cc]TR[ad]TR[aa]TR[dd]TR[da]C[]))\n(;B[cc]TR[ad]TR[aa]TR[dd]TR[da]C[FORCE];W[bc]TR[ad]TR[aa]TR[da]TR[dd]C[]))",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 59,
+  "attempts": {
+    "solved": 308,
+    "failed": 568,
+    "tries": 876,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-03-31T23:47:00+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 189,
+      "name": "Irregular board",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7687,
+  "elo": 1835.7519542066,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This is from game I played on IGS. \r\nThis is my first problem, so I would like to hear any comments.",
+  "rating": {
+    "stars": 2.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nFF[1]\r\nGM[1]\r\nSZ[8]\r\nAP[Jago:Version 4.7]\r\nGN[Problem]\r\nAB[ea][fa][fb][ga][hb][hc][gd][ge][gf][ff][ef][df][ag][bf][cf][bg][de][cb]\r\nAW[da][eb][dc][fc][dd][fd][ee][fe][ce][be][ae][af][Pass][Pass][Pass][Pass]\r\nC[Black just played one. Whats the best move for white?]\r\nLB[cb:1]\r\nC[Black just played one. Whats the best move for white?]\r\n(\r\n;\r\nW[db]\r\n;\r\nB[cd]\r\n(\r\n;\r\nW[bd]\r\n;\r\nB[cc]\r\n;\r\nW[bc]\r\n;\r\nB[bb]\r\nC[White dies :(]\r\n)\r\n(\r\n;\r\nW[cc]\r\n;\r\nB[bd]\r\n;\r\nW[bc]\r\n;\r\nB[ad]\r\n;\r\nW[ac]\r\nC[This is not good for white :(]\r\n)\r\n)\r\n(\r\n;\r\nW[cc]\r\n;\r\nB[db]\r\n;\r\nW[bb]\r\n;\r\nB[ec]\r\n;\r\nW[ba]\r\n;\r\nB[ca]\r\nC[Good, but white can do better.]\r\n)\r\n(\r\n;\r\nW[bc]\r\n;\r\nB[db]\r\n;\r\nW[ec]\r\n;\r\nB[bb]\r\n;\r\nW[ab]\r\n;\r\nB[gc]\r\n;\r\nW[cc]\r\n;\r\nB[ca]\r\nC[RIGHT]\r\n)\r\n)",
+  "author": {
+    "id": 12134,
+    "name": "gkmm",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-03-16",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 238,
+    "failed": 1558,
+    "tries": 1796,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-11-20T02:23:58+00:00",
+  "source": "Amateur game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

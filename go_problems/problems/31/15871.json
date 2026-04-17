@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15871,
+  "elo": 1183.828,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": -9,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 2.8,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ac]AB[bc]AB[cc]AB[cb]AB[da]AB[eb]AB[ea]AB[dc]AB[ec]AW[bb]AW[ca]AW[aa]AW[ad]AW[bd]AW[cd]AW[dd]AW[ed]AW[fc]AW[fb]AW[fa]AW[fd]C[What is the status of black's group? Japanese rules, no unremovable ko threats.CHOICEFORCE]LB[ia:dead]LB[ib:alive]LB[ic:seki]LB[id:ko]AP[goproblems]\n(;B[ib]C[Correct. After both players have passed, black can remove all white's ko threats and start the ko. Since white has no more ko threats, black can make two eyes and is alive. RIGHT])\n(;B[ia]C[Wrong. White can never capture black's group since a18 is auto atari.]TR[ab])\n(;B[ic]C[Wrong. After both players have passed, black can remove all white's ko threats and start the ko. Since white has no more ko threats, black can make two eyes and is alive. ])\n(;B[id]C[Wrong. White can never capture black's group since a18 is auto atari. After both players have passed, black can remove all white's ko threats and start the ko. Since white has no more ko threats, black can make two eyes and is alive. ]TR[ab]))",
+  "author": {
+    "id": 43922,
+    "name": "mrfunnywhiskers",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-05-27",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 717.303
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 2378,
+    "failed": 1882,
+    "tries": 4260,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-02-21T12:29:27+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

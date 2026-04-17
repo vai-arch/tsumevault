@@ -1,0 +1,108 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23593,
+  "elo": 1527.3166109811,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "black to kill without ko. sorry if i didn't get all the variations.",
+  "rating": null,
+  "sgf": "(;\r\n\r\nAW[ca][cb][dc][bd][cd][dd][ed][ce][ee][fe][ff]\r\nAB[ea][db][fb][ec][gc][fd][gd][be][de][ge][bf][cf][df][ef][hf][eg][fg][gg]\r\nSZ[13]\r\nC[black to kill without ko.]\r\n\r\n   (;B[bc] ;W[ab]\r\n      (;B[bb] ;W[ba]\r\n         (;B[ad] ;W[cc] C[white lives.])\r\n         (;B[ac] ;W[cc]\r\n            (;B[aa] ;W[ad] C[white lives.])\r\n            (;B[ad] ;W[ae] C[white lives.])\r\n         )\r\n      )\r\n\r\n      (;B[ac] ;W[ad] ;B[bb]\r\n         (;W[ba] C[CHOICE] ;B[aa] ;W[cc] C[white lives.])\r\n\r\n         (;W[cc] C[CHOICE]\r\n            (;B[aa] ;W[ba] C[white lives.])\r\n            (;B[ba] ;W[aa] C[white lives.])\r\n         )\r\n      )\r\n\r\n      (;B[ad] ;W[ac] ;B[bb] ;W[ba] ;B[aa] ;W[ac] ;B[ab] ;W[cc]\r\n         (;B[ac] ;W[ae]\r\n            (;B[ab] ;W[ac] ;B[bb] C[RIGHT white dies.])\r\n            (;B[ac] ;W[ab]\r\n               (;B[ad] ;W[bc] C[white lives.])\r\n               (;B[af] ;W[ad] C[white lives.])\r\n            )\r\n         )\r\n         (;B[ae] ;W[ac] ;B[ab] ;W[bb] C[ko.])\r\n      )\r\n   )\r\n\r\n   (;B[ab] ;W[bc]\r\n      (;B[ac] ;W[ad]\r\n         (;B[ba] ;W[bb] C[white lives.])\r\n         (;B[bb] ;W[aa]] C[white lives.])\r\n      )\r\n      (;B[ad] ;W[ac] ;B[ba]\r\n         (;W[da] C[CHOICE] C[white lives.])\r\n         (;W[ae] C[CHOICE] C[white lives.])\r\n      )\r\n      (;B[bb] ;W[ac] C[white lives.])\r\n   )\r\n\r\n   (;B[ac] ;W[bc]\r\n      (;B[ad] ;W[ab] C[white lives.])\r\n      (;B[bb]\r\n         (;W[ba] C[CHOICE] C[white lives.])\r\n         (;W[ab] C[CHOICE] C[white lives.])\r\n      )\r\n      (;B[ab] ;W[ad] ;B[ba] ;W[da] C[white lives.])\r\n   )\r\n\r\n   (;B[bb] ;W[bc]\r\n      (;B[ac] ;W[ad] C[white lives.])\r\n      (;B[ba] ;W[ab] C[white lives.])\r\n      (;B[aa] ;W[ac] C[white lives.])\r\n   )\r\n\r\n   (;B[ad] ;W[bc]\r\n      (;B[ac] ;W[ab] C[white lives.])\r\n      (;B[ab]; W[ac]\r\n         (;B[bb] ;W[ae] C[white lives.])\r\n         (;B[ba] ;W[ae] C[white lives.])\r\n      )   \r\n   )\r\n)",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 87,
+  "attempts": {
+    "solved": 14,
+    "failed": 43,
+    "tries": 57,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2022-07-11T00:13:26+00:00",
+  "source": "from a game played on KGS.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

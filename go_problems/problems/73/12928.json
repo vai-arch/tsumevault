@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12928,
+  "elo": 1410.960195422,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 11,
+    "negativeFlagSum": -3,
+    "flagSum": 8
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rd]AB[qd]AB[rf]AB[pc]AB[oc]AB[nc]AB[nb]AB[oa]AW[ob]AW[pb]AW[qc]AW[rc]AW[sb]AW[qa]AP[goproblems]\n(;B[ra];W[rb];B[na];W[pa];B[qb]C[];W[pb]LB[mg:Tenuki?]C[Can B tenuki?  If so, click 'Tenuki?'  (Otherwise, keep playing locally.)FORCE]TR[mg]\n(;B[qa];W[pa]LB[mg:Tenuki?]C[W is threatening to take the triangled stones.  Can B tenuki?  (If you think so, click 'Tenuki?')]TR[qb]TR[qa]TR[ra]\n(;B[mg];W[sa];B[qa]C[You were correct to tenuki!  W still dead.  However, you could also have tenuki'd the _first_ time, too...])\n(;B[ob]C[Although W dies, B could have played elsewhere _both times_ (W was dead anyway).  This is not the best result for B.]))\n(;B[pa];W[qa]C[Yep, W is dead.  (W can only make one eye this way.)  However, B _was_ able to tenuki the first time too...])\n(;B[mg]\n(;W[pa]\n(;B[qa];W[sa];B[qa]C[Correct!  W is dead and B was able to tenuki to boot.RIGHT])\n(;B[ob];W[qa];B[qb]C[Yes - you were correct to tenuki, and w is dead.RIGHT]))\n(;W[qa]\n(;B[pa]C[Correct!  W is dead and B was able to tenuki to boot.RIGHT])\n(;B[ob];W[pa];B[qb]C[Yep - W is dead (and B got to tenuki as well).RIGHT])))\n(;B[ob];W[qa];B[pa]C[Yes, W can only make one eye.  However, W was already dead, so you could have tenuki'd...]))\n(;B[na];W[ra]\n(;B[qb];W[pa]C[Nope -- w lives. : (])\n(;B[pa];W[qb]C[Nope -- w lives. : (]))\n(;B[rb];W[ra];B[na];W[mg]C[W tenukis...]\n(;B[pa];W[qb]C[W is alive! :-/])\n(;B[sd];W[nf]C[W tenukis again..]\n(;B[sc];W[qb]C[W is alive! :-/])\n(;B[pa];W[qb]C[W is alive! :-/])))\n(;B[sd];W[ra];B[na]LB[qb:B]LB[pa:A]C[W is alive and can even tenuki, as A and B are miai for W to live.]))",
+  "author": {
+    "id": 29629,
+    "name": "ccsco",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2009-11-15",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 64,
+  "attempts": {
+    "solved": 1264,
+    "failed": 2159,
+    "tries": 3423,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-07-17T12:19:12+00:00",
+  "source": "Problem book (Cho Chikun), with extensions (me)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

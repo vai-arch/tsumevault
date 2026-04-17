@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1949,
+  "elo": 1262.045848841,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This is all about life & death - if Black can save both groups, the remaining endgame will be very short and simple.",
+  "rating": {
+    "stars": 3.6,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]TM[]\r\nAW[fb][bc][fc][bd][dd][ed][fd][be][ce][de][af][cf][bg]AB[ab][bb][eb][ac][cc][dc][ec][ad][ae][ee][fe][df][gf]C[No komi, no prisoners - Black to play and draw!]\r\n(;B[fg]CR[fg]\r\n(;W[dg]CR[dg]\r\n;B[ef]CR[ef]\r\n(;W[da]CR[da]\r\n;B[ea]CR[ea]\r\n(;W[ba]CR[ba]\r\n;B[cb]CR[cb]\r\n;W[ca]CR[ca]\r\n(;B[fa]CR[fa]C[Jigo! RIGHT])\r\n(;B[gd]CR[gd]\r\n;W[fa]CR[fa]\r\n;B[gc]CR[gc]\r\n;W[gb]CR[gb]C[White wins by one point!]))\r\n(;W[cb]CR[cb]\r\n;B[db]CR[db]C[Black lives]))\r\n(;W[ea]CR[ea]C[This is bad!]\r\n;B[da]CR[da]\r\n(;W[ca]CR[ca]\r\n(;B[fa]CR[fa]\r\n;W[cb]CR[cb]C[This is ok for white, but B made a mistake])\r\n(;B[cb]CR[cb]\r\n;W[db]CR[db]\r\n;B[ba]CR[ba]C[Black lives!]))\r\n(;W[fa]CR[fa]\r\n;B[cb]CR[cb]\r\n;W[gd]CR[gd]C[Black wins by one point!])))\r\n(;W[ef]CR[ef]\r\n;B[dg]CR[dg]C[This doesn't work for White]))\r\n(;B[eg]CR[eg]\r\n;W[fg]CR[fg]\r\n(;B[ff]CR[ff]\r\n;W[cg]CR[cg]C[Black is dead!])\r\n(;B[cg]CR[cg]C[This is hopeless, White can play either f2 or e7]))\r\n(;B[ef]CR[ef]\r\n;W[fg]CR[fg]C[Black is dead!])\r\n(;B[dg]CR[dg]\r\n;W[fg]CR[fg]C[Black is dead!])\r\n(;B[ca]CR[ca]\r\n;W[ef]CR[ef]C[Black should have played at the bottom])\r\n(;B[fa]CR[fa]\r\n;W[ef]CR[ef]C[Black should have played at the bottom]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 64,
+  "attempts": {
+    "solved": 2179,
+    "failed": 4453,
+    "tries": 6632,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-02-18T08:54:40+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

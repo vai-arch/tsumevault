@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8591,
+  "elo": 1222.2910468163,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This one is for beginners.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[hj]AB[hk]AB[hl]AB[il]AB[jl]AB[jk]AB[jj]AB[ii]AB[ih]AB[ig]AB[jg]AB[kg]AB[kh]AB[ki]AW[gl]AW[gk]AW[gj]AW[hm]AW[im]AW[jm]AW[kl]AW[kk]AW[kj]AW[hi]AW[hh]AW[hg]AW[if]AW[jf]AW[kf]AW[lg]AW[lh]AW[li]AW[lm]AW[gf]AW[me]C[How many ko threats does white have here?FORCE]LB[nj:1]LB[ni:0]LB[nk:2]AP[goproblems]\r\n(;W[ni];B[hd]C[Wrong. White has something here. Look at the navigate solution.])\r\n(;W[nk];B[hd]C[Show them to me.]\r\n(;W[ji];B[ij]C[The first is correct, but there isn't another one. Wrong.])\r\n(;W[ij];B[ji]C[The first is correct, but there isn't another one. Wrong.]))\r\n(;W[nj];B[hd]C[Play the ko threat, please.]\r\n(;W[ji];B[id]C[If black ignores it, what do you do?];W[ij];B[ik];W[ij]C[Nice!This is called double snapback. RIGHT])\r\n(;W[ij];B[id]C[If black ignores it, what do you do?];W[ji];B[ik];W[ij]C[Nice!This is called double snapback. RIGHT])))",
+  "author": {
+    "id": 105129,
+    "name": "system",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-03-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 41,
+  "attempts": {
+    "solved": 2749,
+    "failed": 4462,
+    "tries": 7211,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-05-22T18:30:51+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 34,
+      "name": "Double Snapback",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20202,
+  "elo": 1258.0461072411,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "From a game review by Michael Redmond (Kitani Minoru (black) vs. Go Seigen). \r\nCan you read it to the end?",
+  "rating": {
+    "stars": 3.3,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nAW[dc][gc][jd][nd][je][ne][cf][kf][nf][lg][mg][jh][kh][nh][qj][ck][qm][dn][cp][pp][oq]AB[ic][jc][kc][nc][oc][id][od][qd][oe][of][ig][jg][kg][ng][og][lh][mh][fp][cq][dq][jq][mq]LB[rr:T]TR[lh][mh]C[Can white capture the marked stones in a ladder?\r\n\r\nPlay T (S2) if not.]\r\n(;W[li]\r\n;B[mi]\r\n;W[mj]\r\n;B[ni]C[Nope...])\r\n(;W[mi]\r\n;B[li]\r\n;W[lj]\r\n;B[ki]\r\n;W[ji]\r\n;AW[ij][hk][kk][gl][jl][im][hn]AB[jj][kj][ik][jk][hl][il][hm]\r\nB[gm]\r\n;W[fm]\r\n;B[gn]\r\n;W[go]\r\n;B[fn]\r\n;W[fo]\r\n;B[en]\r\n;W[em]\r\n;B[eo]\r\n;W[ep]\r\n;B[do]\r\n;W[dp]\r\n;B[co]\r\n(;W[bo]\r\n;B[cn]\r\n;W[cm]\r\n;B[bn]\r\n(;W[bm]\r\n;B[an]\r\n(;W[am]\r\n;B[dm]\r\n;W[ao]\r\n;B[dn]\r\n;W[dl]C[Well done! :) RIGHT])\r\n(;W[ao]\r\n;B[dm]\r\n;W[am]\r\n;B[dn]\r\n;W[dl]C[Well done! :) RIGHT]))\r\n(;W[an]\r\n;B[bm]\r\n;W[bl]\r\n;B[dm]\r\n;W[am]\r\n;B[cl]))\r\n(;W[cn]\r\n;B[bo]C[Black escapes!]))\r\n(;W[rr]C[No, the ladder works!]))",
+  "author": {
+    "id": 78080,
+    "name": "tamingo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-28",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 105,
+  "attempts": {
+    "solved": 466,
+    "failed": 564,
+    "tries": 1030,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-08-26T17:57:29+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

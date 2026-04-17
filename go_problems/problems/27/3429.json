@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3429,
+  "elo": 1212.8527572833,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Connect white's groups.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 31,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ab]AB[ba]AB[cb]AB[bc]AB[dc]AB[dd]AB[dg]AB[cg]AB[eg]AB[gf]AB[hg]AB[fd]AB[hd]AW[db]AW[cc]AW[ce]AW[cd]AW[cf]AW[eb]AW[ec]AW[fc]AW[gc]AW[ic]AW[jc]AP[goproblems]\n(;W[fe]\n(;B[ee]\n(;W[ef]\n(;B[df]C[CHOICE]\n(;W[de]C[RIGHT])\n(;W[ed];B[de])\n(;W[gd];B[de]))\n(;B[de]C[CHOICE];W[df]C[RIGHT])\n(;B[ff]C[CHOICE]\n(;W[ed]C[RIGHT])\n(;W[de]C[RIGHT])))\n(;W[de];B[ed]\n(;W[gd];B[ef])\n(;W[ef];B[gd]))\n(;W[ed];B[de])\n(;W[df];B[ed];W[gd];B[ef]))\n(;B[ed];W[gd]C[RIGHT]))\n(;W[de];B[ed]\n(;W[gd];B[fe])\n(;W[ee];B[fe])\n(;W[fe];B[gd]))\n(;W[ed];B[de]\n(;W[df];B[ee]\n(;W[ef];B[fe]\n(;W[ff];B[fg]\n(;W[ge];B[gd];W[he];B[ie])\n(;W[gd];B[ge])\n(;W[he];B[ge]))\n(;W[ge];B[ff])\n(;W[gd];B[ff]))\n(;W[fe];B[ef]))\n(;W[ee];B[df]))\n(;W[ee];B[ed]\n(;W[gd];B[fe]\n(;W[ef];B[ff])\n(;W[ff];B[ge])\n(;W[ge];B[ff]))\n(;W[fe];B[gd];W[ge];B[he];W[ff];B[fg])\n(;W[ge];B[gd]\n(;W[he];B[fe]\n(;W[ef];B[ff])\n(;W[ff];B[ef]))\n(;W[fe];B[he];W[ff];B[fg])))\n(;W[ca];B[da]C[You just gave Black 1 extra prisoner.  He also could have responded e16 and fought the ko.  Since you have a chance to kill cleanly, giving him this chance is wrong.])\n(;W[da]\n(;B[ed])\n(;B[de]C[If B wants to try a ko he can play this way, but usually he'd just connect at c19 and you would have wasted a move.];W[ca];B[bb];W[bd];B[ad];W[bf];B[bg];W[ae];B[ag];W[ac]C[Ko for the 4 white stones, but you could have saved them unconditionally.])))",
+  "author": {
+    "id": 4785,
+    "name": "kochi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-14",
+    "rank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1340.69
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 3985,
+    "failed": 7057,
+    "tries": 11042,
+    "speedSolved": 12,
+    "speedPlay": 18
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-11-27T10:06:18+00:00",
+  "source": "poketto tesuji",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

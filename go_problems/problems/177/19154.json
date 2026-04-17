@@ -1,0 +1,108 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19154,
+  "elo": 2036.0414190845,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Don't respond to atari automatically - many times the opponent has a hidden plan. In this problem, sacrifices occurred more than once: Black 6  and White 1  both are examples of sacrifice tesuji.  Make sure to understand Black's tactics to force his way out when surrounded this kind of sequence really occurs a lot in one shape or another. It is just like a samurai surrounded by enemies, and fighting his way out in the last moment.",
+  "rating": null,
+  "sgf": "(;AB[qd]AB[od]AB[md]AB[ce]AB[de]AB[ef]AB[eh]AB[eg]AB[ej]AB[fj]AB[dk]AB[ck]AB[cj]AB[dp]AW[ek]AW[dl]AW[cl]AW[ci]AW[dj]AW[cg]AW[fg]AW[cd]AW[dc]AW[fd]AW[ic]C[The position in Dia. 1 occured in a game I was watching on IGS. Black has just played atari on the middle of the left side - where should White play next?]AP[goproblems]\n(;W[bj];B[bk];W[bl]\n(;B[di];W[ak];B[dj];W[bh]C[White (Ishida Atsushi 9p) played in the actual game: he sacrificed his stone in atari and connected underneath in very nice shape.  Black has to capture with 4 - see next for the reason why. A common error to avoid is for White to play at 5 instead of 3, for an 'easier' (as in 'less things to read') connection - but Black would push at 3 first, which results in an extra cutting point in White's shape in the end.RIGHT]LB[bj:1]LB[bk:2]LB[bl:3]LB[di:4]LB[ak:5]LB[dj:6]LB[bh:7])\n(;B[ak];W[di];B[bi];W[bh];B[aj];W[ah]C[If Black descends to prevent White's connection on the first line, all his stones will die: he is left with 3 liberties while all of White's groups have more than that.RIGHT]LB[ak:4]LB[di:5]LB[bi:6]LB[bh:7]LB[ah:9]LB[aj:8]))\n(;W[di];B[bl];W[bm];B[el];W[fk];B[cm];W[dm];B[gk]C[The obvious move for White is to connect his stone in atari: Black only has 2 liberties, so it doesn't look like he can do anything.  But Black's stones are more resourceful than they look like: a common trick Black can use for this occasion to setup a ladder:  the 2-3 exchange is essential, and all moves that follow are forced if White persists in trying to capture Black's stones, since each Black move is an atari. After Black 8, though, White is at a loss.]LB[di:1]LB[bl:2]LB[bm:3]LB[el:4]LB[fk:5]LB[cm:6]LB[dm:7]LB[gk:8];W[fl];B[em];W[dn];B[fm]C[Following we see why White cannot capture Black: this works for Black because the ladder after 12 is favorable for him.CHOICE]LB[fl:9]LB[em:10]LB[dn:11]LB[fm:12]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 74,
+  "attempts": {
+    "solved": 15,
+    "failed": 85,
+    "tries": 100,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-03-05T22:05:38+00:00",
+  "source": "The art of sacrifice",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 177,
+      "name": "Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

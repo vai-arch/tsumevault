@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2693,
+  "elo": 1204.6154601449,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -2,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This black group is alive as it stands. If not used for ko threats, it will remain unchanged until the endgame. However, when white plays hane, black must take care.",
+  "rating": {
+    "stars": 2.8,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[or][nq][pq][qo][on][qn][rn][pp]AB[pr][qr][qq][qp][rp][ro]\r\nC[Please play at 'A' to start.FORCE]LB[kk:A]\r\n;B[kk]\r\n(;W[ps]\r\n(;B[rr]C[The standard reply to hane at 'Q1', is 'S2'. Other  replies take less territory, leave aji, become ko, or die.  CHOICERIGHT])\r\n(;B[sr]C[Please see problem 2695 for why this is inferior for Black.])\r\n(;B[rs]C[Black lives, but takes 1 point less territory than the correct reply.])\r\n(;B[sq]C[Black lives, but takes 1 point less territory than the correct reply.])\r\n(;B[qs];W[rr];B[sr];W[sq];B[rs]C[A bad ko for black.]))\r\n\r\n(;W[so]\r\n(;B[sr]C[The standard reply to hane at 'T5', is 'T2'. Other replies take less territory, lead to seki, become ko, or die. CHOICERIGHT])\r\n(;B[sp];W[ps];B[qs];W[sr];B[rr];W[sq];B[ss];W[rs]C[A bad ko for black.])\r\n(;B[rr];W[sq];B[sp];W[sr];B[ps];W[rs]C[Seki.])\r\n(;B[rs];W[ps];B[sq]C[Black lives, but takes 1 point less territory than the correct reply.])\r\n(;B[sq];W[ps]\r\n(;B[rr]C[Black lives, but takes less territory than the correct reply.])\r\n(;B[qs];W[rr]C[Black dies.])\r\n(;B[rs]C[Black lives, but takes 1 point less territory than the correct reply.]))))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 2772,
+    "failed": 5255,
+    "tries": 8027,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-07-03T16:16:59+00:00",
+  "source": "Observed game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 69,
+      "name": "L-Group",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 32,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4064,
+  "elo": 1277.3175802521,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.8,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ra]AW[rb]AW[qb]AW[pb]AW[na]AB[ma]AB[nb]AB[ob]AB[pa]AB[pc]AB[qc]AB[rc]AB[sb]AB[oc]AB[qd]AW[rd]AW[re]AW[qe]AW[pe]AW[nd]AW[nc]AW[ld]AW[lb]AW[mb]C[Don't let White capture the corner! (Japanese rules assumed)]AP[goproblems]\n(;B[qa];W[oa]\n(;B[pa];W[na]\n(;B[qa]C[];W[oa]C[And so on... Under Japanese rules, if neither player gives in the game is declared undecided; that's still better than a clear loss.With rule sets that forbid that the same position with the same player to play occurs twice (e.g. the super ko rule) White could not have played O19 directly; but can play a 'ko' threat; so this problem results in a kind of ko struggle.RIGHT]\n(;B[pa];W[na]\n(;B[qa]C[];W[oa]C[And so on... Under Japanese rules, if neither player gives in the game is declared undecided; that's still better than a clear loss.With rule sets that forbid that the same position with the same player to play occurs twice (e.g. the super ko rule) White could not have played O19 directly; but can play a 'ko' threat; so this problem results in a kind of ko struggle.RIGHT])\n(;B[oa];W[qa]C[Only one eye...])\n(;B[sc];W[qa]C[Only one eye...])\n(;B[sa];W[sc]))\n(;B[sc];W[pa])\n(;B[qa];W[pa]))\n(;B[oa];W[qa]C[Only one eye...])\n(;B[sc];W[qa]C[Only one eye...])\n(;B[sa];W[sc]))\n(;B[sc];W[pa])\n(;B[qa];W[pa]))\n(;B[oa];W[qa]C[Only one eye. If Black takes the stones White will play at R18 and there is no way Black can make life.]TR[qb])\n(;B[sa];W[sc])\n(;B[sc];W[qa]C[Only one eye. If Black takes the stones White will play at R18 and there is no way Black can make life.]TR[qb])\n(;B[od];W[oe]C[Although Black can still save the corner, this exchange just wastes a ko threat.])\n(;B[oe];W[od]C[Although Black can still save the corner this exchange only wastes points and a ko threat.])\n(;B[mc];W[qa]C[Only one eye!])\n(;B[la];W[ka]\n(;B[oa];W[qa]C[Just one eye.])\n(;B[qa];W[oa])\n(;B[sc];W[qa]C[Just one eye.])\n(;B[ma];W[qa]C[That's one eye for you.]))\n(;B[sd];W[qa]C[Just one eye.]))",
+  "author": {
+    "id": 3759,
+    "name": "BartTM",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-14",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1476.63
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 3003,
+    "failed": 6026,
+    "tries": 9029,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-12T04:18:13+00:00",
+  "source": "Graded go problems for beginners vol.4",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 39,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

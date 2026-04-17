@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11136,
+  "elo": 1510.4639025257,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Yesterday I played a 9x9 game with one minute absolute time.\r\nIt was pretty blitzy game and this situation arose after the rest of the board was played out. I had about ten seconds time left so I didn't think long (probably I didn't think at all :) ) and played the marked stone.\r\nAfter the game I realized what a big mistake I did.\r\nIt is a bit shame I played the marked move, but I promise next time I will have this position in my game with you I will kill you in ko! ;-)",
+  "rating": {
+    "stars": 3.6,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[sq]AW[rq]AW[qq]AW[pq]AW[oq]AW[or]AW[os]AB[qs]AB[sp]AB[rp]AB[qp]AB[pp]AB[op]AB[np]AB[nq]AB[nr]AB[ns]TR[qs]C[Field Mouse just played a bad bad bad move. Can you show him who is the master?]AP[goproblems]\n(;W[rs];B[rr];W[qr];B[ss]\n(;W[ps]C[Yes. Field Mouse's clumsy attempt was worth just minus one point!RIGHT])\n(;W[sr]C[RIGHT]))\n(;W[rr];B[rs]\n(;W[ps];B[sr]C[Field Mouse can play this to create a two step ko or R2 to create  seki or thousand year ko.])\n(;W[qr];B[sr]C[Field Mouse creates this two step ko. He could also play Q1 to give you the choice between thousand year ko and direct seki.Also note that even if Field Mouse loses this two step ko, this will be still one point worse than the solution.]))\n(;W[qr];B[rs];W[ps];B[sr]C[Field Mouse gets this seki.])\n(;W[ps];B[qr]\n(;W[rr];B[rs]C[You can play T2 now to create seki or let the position be thousand year ko. But Field Mouse is satisfied with this result.])\n(;W[rs];B[rr];W[sr];B[ss]C[Ko and even if Field Mouse loses it the result will be one point worse than the solution.]))\n(;W[sr];B[rs])\n(;W[ss];B[qr]\n(;W[rr];B[rs]C[Field Mouse gets thousand year ko!])\n(;W[rs];B[rr];W[sr]C[Field Mouse killed you in sente :)]))\n(;W[pr];B[rr];W[sr];B[rs]C[Killed by Field Mouse.]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 1227,
+    "failed": 1992,
+    "tries": 3219,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-03-29T03:09:45+00:00",
+  "source": "9x9 Ultra Blitz",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 30,
+      "name": "Stories",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

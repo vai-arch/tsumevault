@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2007,
+  "elo": 1508.9498321991,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This problem demonstrates another simple but useful endgame technique. White just played the marked stone - how can Black win after this?",
+  "rating": {
+    "stars": 3.5,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]\r\nAW[da][cb][cc][dd][be][ce][de][af][cf]AB[db][dc][ed][ee][bf][df][ef][bg][dg]TR[da]C[No komi, no prisoners - Black to play and win!]\r\n(;B[fb]CR[fb]\r\n(;W[ea]CR[ea]\r\n;B[cg]CR[cg]\r\n;W[eb]CR[eb]\r\n;B[ec]CR[ec]\r\n;W[fa]CR[fa]\r\n;B[gb]CR[gb]C[Black wins by one point! RIGHT CHOICE])\r\n(;W[cg]CR[cg]\r\n;B[ea]CR[ea]\r\n;W[ca]CR[ca]C[Black wins by one point! RIGHT CHOICE])\r\n(;W[fa]CR[fa]\r\n;B[eb]CR[eb]\r\n;W[ea]CR[ea]\r\n;B[cg]CR[cg]\r\n(;W[gb]CR[gb]\r\n;B[gc]CR[gc]\r\n;W[fc]CR[fc]\r\n;B[ga]CR[ga]C[White can't play this ko])\r\n(;W[ca]CR[ca]\r\n;B[gb]CR[gb]C[Black wins by three points!])))\r\n(;B[ea]CR[ea]\r\n;W[eb]CR[eb]\r\n;B[ca]CR[ca]\r\n;W[ec]CR[ec]C[Black is lost])\r\n(;B[eb]CR[eb]\r\n;W[ea]CR[ea]\r\n;B[fa]CR[fa]\r\n;W[ca]CR[ca]\r\n;B[fb]CR[fb]\r\n;W[cg]CR[cg]C[White wins by one point!])\r\n(;B[cg]CR[cg]\r\n;W[eb]CR[eb]\r\n(;B[ec]CR[ec]\r\n;W[fb]CR[fb]C[This is an easy win for white])\r\n(;B[fb]CR[fb]\r\n;W[ec]CR[ec]\r\n;B[fc]CR[fc]C[White wins!])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 52,
+  "attempts": {
+    "solved": 1356,
+    "failed": 4128,
+    "tries": 5484,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-03-15T08:45:17+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

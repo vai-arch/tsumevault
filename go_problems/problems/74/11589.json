@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11589,
+  "elo": 1944.1255106339,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ra]AB[qb]AB[rc]AB[pc]AB[pd]AB[od]AW[pa]AW[qa]AW[pb]AW[ob]AW[oc]AW[nd]AW[md]AB[ne]AB[of]AB[le]AW[lc]AW[lb]AB[kd]AB[kc]AB[kb]AP[goproblems]\n(;B[mb]\n(;W[na]\n(;B[la];W[ma];B[ka];W[mc]C[White is reduced to 4 points in senteRIGHT])\n(;B[nb];W[ma])\n(;B[ma];W[la]\n(;B[nb];W[nc];B[oa];W[mc])\n(;B[nc];W[mc]))))\n(;B[la];W[mb]C[Sente, but after Wa Bb White is left with 5 points. You can do better!]LB[ma:a]LB[ka:b])\n(;B[na];W[mb];B[la];W[ma];B[ka])\n(;B[ma];W[la]\n(;B[nb];W[nc];B[mb];W[na];B[oa];W[mc])\n(;B[mb];W[nb]))\n(;B[nc];W[nb])\n(;B[nb];W[nc];B[mb];W[na]\n(;B[ma];W[mc];B[oa];W[la])\n(;B[la];W[mc];B[ka];W[ma])))",
+  "author": {
+    "id": 25154,
+    "name": "Eryth",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-02",
+    "rank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1590.06
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 47,
+    "failed": 230,
+    "tries": 277,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-07-26T16:14:05+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

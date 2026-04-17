@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11031,
+  "elo": 1334.3426894505,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "Black to make the best move.",
+  "rating": {
+    "stars": 3,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dq]AB[cp]AB[dn]AB[pd]AB[pf]AB[pj]AB[qp]AB[nq]AW[dd]AW[df]AW[jc]AW[nc]AW[ep]AW[eq]AW[hq]AW[cl]LB[di:A]LB[jq:B]LB[je:C]LB[cn:D]LB[pb:E]AP[goproblems]\r\n(;B[cn]C[Now that black has fixed his weakness he can aim at the triangle. RIGHT]TR[di])\r\n(;B[md];W[co]C[NOTTHIS])\r\n(;B[jq];W[co]C[NOTTHIS])\r\n(;B[je];W[co]C[NOTTHIS])\r\n(;B[di];W[co]C[NOTTHIS])\r\n(;B[pb];W[co]))",
+  "author": {
+    "id": 15461,
+    "name": "sabetts",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-09-03",
+    "rank": {
+      "value": 20,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 20,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 988.808
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 1031,
+    "failed": 2151,
+    "tries": 3182,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-03-08T04:15:05+00:00",
+  "source": "501 Opening Problems",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

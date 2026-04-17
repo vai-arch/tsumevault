@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21217,
+  "elo": 263.02410121934,
+  "problemLevel": 0,
+  "rank": {
+    "value": 30,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 3.2,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[4]AB[ab]AB[aa]AB[ba]AB[ca]AB[db]AB[da]AW[ad]AW[dc]AW[ac]AW[dd]C[FORCE]AP[goproblems]\r\n(;B[bb]C[FORCE];W[bc])\r\n(;B[cb]C[FORCE];W[cc])\r\n(;B[bc]C[RIGHT])\r\n(;B[cc]C[RIGHT])\r\n(;B[bd]C[FORCE];W[bc]C[FORCE]\r\n(;B[bb]C[FORCE]\r\n(;W[cb])\r\n(;W[cc])\r\n(;W[cd]))\r\n(;B[cb]C[FORCE]\r\n(;W[cc])\r\n(;W[cd]))\r\n(;B[cc]C[FORCE];W[cd]C[FORCE]\r\n(;B[bb]C[FORCE];W[cb])\r\n(;B[cb]C[FORCE];W[bb])\r\n(;B[bd]C[FORCE];W[cd]C[RIGHT]))\r\n(;B[cd]C[FORCE];W[cc]))\r\n(;B[cd]C[FORCE];W[cc]C[FORCE]\r\n(;B[cb]C[FORCE]\r\n(;W[bb])\r\n(;W[bc])\r\n(;W[bd]))\r\n(;B[bb]C[FORCE]\r\n(;W[bc])\r\n(;W[bd]))\r\n(;B[bc]C[FORCE];W[bd]C[FORCE]\r\n(;B[bb]C[FORCE];W[cb])\r\n(;B[cb]C[FORCE];W[bb])\r\n(;B[cd]C[FORCE];W[bd]C[RIGHT]))))",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 11,
+  "attempts": {
+    "solved": 1471,
+    "failed": 59,
+    "tries": 1530,
+    "speedSolved": 9,
+    "speedPlay": 8
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-07-09T02:16:57+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

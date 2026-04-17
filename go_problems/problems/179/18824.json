@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 18824,
+  "elo": 1137.2816922711,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.1,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[ac]AB[bc]AB[cd]AB[dc]AB[db]AB[eb]AB[ea]AW[ba]AW[fa]AW[fb]AW[ec]AW[fd]AW[dd]AW[de]AW[bd]AW[be]AW[cc](;B[ca];W[ce](;B[bb];W[cd](;B[cb]C[Correct!-> Black has formed two eyes and is alive.RIGHT])(;B[ad];W[cb])(;B[aa];W[cb]))(;B[cb];W[bb]C[Incorrect!-> Your solution to this puzzle involves a Ko over the C16 intersection. However, there is a solution without Ko.Adv. ko])(;B[aa];W[bb])(;B[ab];W[cb]))(;B[cb];W[ca];B[bb];W[aa]C[Incorrect!-> Black has formed only one big eye and is dead. White can later play A18 to form a bent four in the corner and kill Black.])(;B[bb];W[ca](;B[cb];W[aa]C[Incorrect!-> Black has formed only one big eye and is dead. White can later play A18 to form a bent four in the corner and kill Black.])(;B[aa](;W[ab];B[cb]C[Incorrect!-> Your solution to this puzzle involves a Ko over the A19 intersection. However, there is a solution without Ko.](;W[aa]C[CHOICE];B[da];W[ba];B[aa];W[ab];B[ca];W[ad];B[aa]C[Incorrect!-> Your solution to this puzzle involves a Ko over the A19 intersection. However, there is a solution without Ko.])(;W[ad](;B[da];W[cc]C[Incorrect!-> Your solution to this puzzle involves a Ko over the A19 intersection. However, there is a solution without Ko.])(;B[aa];W[ce];B[da]C[Incorrect!-> Your solution to this puzzle involves a Ko over the A19 intersection. However, there is a solution without Ko.])))(;W[ce];B[cb]C[Incorrect!-> Your solution to this puzzle involves a Ko over the A19 intersection. However, there is a solution without Ko.];W[ab]C[Incorrect!-> Your solution to this puzzle involves a Ko over the A13 intersection. However, there is a solution without Ko.])))(;B[ad];W[cb])(;B[da];W[cb]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 1095,
+    "failed": 1731,
+    "tries": 2826,
+    "speedSolved": 10,
+    "speedPlay": 17
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-12-22T21:09:39+00:00",
+  "source": "Encyclopedia of Life and Death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 179,
+      "name": "Encyclopedia of Life and Death - Easy",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

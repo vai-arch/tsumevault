@@ -1,0 +1,103 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23935,
+  "elo": 1473.4165050494,
+  "problemLevel": 27,
+  "rank": null,
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": null,
+  "sgf": "(\r\n; AB [ah][ba][bh][ca][cb][ch][dc][dg][dh][ec][ed][ee][ef] AW [bb][bc][be][bg][cg][dd][de][df] LB [bj:1][cj:2][dj:3][ej:4] C [Black plays first. What is the best possible result that black can guarantee? (1) Kill (2) Ko (3) Seki (4) Nothing][FORCE]\r\n\r\n(\r\n; B [bj]; W [bj] C [Demonstrate.]\r\n\r\n(\r\n; B [cd]; W [cc]\r\n\r\n(\r\n; B [ag]; W [bd]\r\n\r\n(; B [ae]; W [ad]; B [ab]; W [af]; B [cf]; W [ce]; B [bf] AB [al][bs][bl][cs][cr][cl][dq][dm][dl][eq][ep][eo][en] AW [br][bq][bo][bm][cm][dp][do][dn]; W [bj] C [Now kill the symmetrical position at the bottom. White will play a different defense.]; B [cp]; W [co] (; B [bn]; W [an]; B [am]; W [cn]; B [bp]; W [cq]; B [ap] C [RIGHT])(; B [am]; W [bn])(; B [cq]; W [bp]))\r\n(; B [ab]; W [ae]; B [ac]; W [af]; B [cf]; W [ce]; B [bf] AB [al][bs][bl][cs][cr][cl][dq][dm][dl][eq][ep][eo][en] AW [br][bq][bo][bm][cm][dp][do][dn]; W [bj] C [Now kill the symmetrical position at the bottom. White will play a different defense.]; B [cp]; W [co] (; B [bn]; W [an]; B [am]; W [cn]; B [bp]; W [cq]; B [ap] C [RIGHT])(; B [am]; W [bn])(; B [cq]; W [bp]))\r\n(; B [af]; W [ae])\r\n(; B [ce]; W [cf])\r\n(; B [cf]; W [ce])\r\n)\r\n\r\n(; B [af]; W [bd] (; B [ae]; W [ad] (; B [ab]; W [ag])(; B [ag]; W [ab])(; B [ce]; W [cf]))(; B [bf]; W [ae])(; B [ag]; W [ae])(; B [ce]; W [cf])(; B [cf]; W [ce]))\r\n(; B [bf]; W [af])\r\n(; B [ae]; W [af])\r\n(; B [ab]; W [bd])\r\n(; B [bd]; W [ad])\r\n(; B [ce]; W [cf])\r\n(; B [cf]; W [ce])\r\n\r\n)\r\n\r\n(; B [af]; W [bf] (; B [ag]; W [ae])(; B [cd]; W [ce]))\r\n(; B [ag]; W [cd])\r\n(; B [bf]; W [af])\r\n(; B [ab]; W [cc])\r\n\r\n)\r\n\r\n(; B [cj]; W [cj] C [Actually, black can kill without ko.])\r\n\r\n(; B [dj]; W [dj] C [Black can do better than a seki.])\r\n\r\n(; B [ej]; W [ej] C [Black can do better than nothing.])\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 0,
+  "attempts": {
+    "solved": 0,
+    "failed": 5,
+    "tries": 5,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2023-09-08T22:13:03+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

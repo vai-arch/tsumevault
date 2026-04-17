@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3510,
+  "elo": 1441.6559012077,
+  "problemLevel": 26,
+  "rank": {
+    "value": 4,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "How should B settle his corner?",
+  "rating": {
+    "stars": 3,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cc]AB[dc]AB[ec]AB[fb]AW[eb]AW[ed]AW[fc]AW[gc]AW[ce]AW[de]AW[be]AP[goproblems]\n(;B[gb];W[hb]\n(;B[db];W[ga];B[ea];W[hc]C[B kept senteRIGHT])\n(;B[ea];W[ga];B[db];W[hc]C[B kept sente.RIGHT]))\n(;B[db];W[gb];B[ea]C[gote.  W will play elsewhere.])\n(;B[bd];W[db];B[cb];W[gb];B[da];W[fa])\n(;B[bc];W[db]\n(;B[gb];W[hb];B[cb];W[ga])\n(;B[cb];W[gb];B[da];W[fa];B[ba];W[ab]C[dead.]))\n(;B[ea];W[gb];B[db]C[White's weaknesses here are much less than in the correct variation, therefore he doesn't need another move and will play elsewhere.]))",
+  "author": {
+    "id": 4785,
+    "name": "kochi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-14",
+    "rank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1340.69
+  },
+  "avgSolveTimeSeconds": 20,
+  "attempts": {
+    "solved": 2634,
+    "failed": 5195,
+    "tries": 7829,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-09T19:40:34+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

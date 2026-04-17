@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6608,
+  "elo": 1017.2715898261,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "In a game I observed, one of the players failed to kill a group because he didn't know about this.\nThis is a very basic problem, but the principal is very important!",
+  "rating": {
+    "stars": 3.8,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rr]AB[rq]AB[rp]AB[ro]AW[rn]AW[qn]AW[qo]AW[pp]AW[pq]AW[qr]AB[qq]LB[qq:1]C[Black plays 1; how should white respond?]AP[goproblems]\n(;W[qs];B[rs]\n(;W[pr];B[so]C[Wrong; Black lives.])\n(;W[or];B[so]C[Wrong; Black lives.])\n(;W[so];B[pr]C[Oops...Black lives...]))\n(;W[pr];B[rs]\n(;W[so];B[sp];W[sr]C[Correct! White kills!RIGHT])\n(;W[sr];B[so];W[sq]C[Correct! White kills!RIGHT])\n(;W[sp];B[so]\n(;W[sq];B[sr]C[Oops...Black lives...])\n(;W[sr];B[sq]C[Oops...Black lives...]))\n(;W[qs];B[so]C[Black lives]))\n(;W[ps];B[rs]\n(;W[so];B[sp];W[sr]C[Correct! White kills!RIGHT])\n(;W[sr];B[so];W[sq]C[Correct! White kills!RIGHT]))\n(;W[or];B[qs];W[pr];B[so]\n(;W[rs];B[ss];W[sq]C[Correct! White kills!RIGHT])\n(;W[sq];B[sr];W[rs]C[Correct! White kills!RIGHT])\n(;W[sr];B[sq]C[Oops...Black lives...]))\n(;W[rs];B[pr]C[Oops...Black lives...])\n(;W[so];B[pr]C[Oops...Black lives...]))",
+  "author": {
+    "id": 10590,
+    "name": "Schizoid",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 8133,
+    "failed": 8761,
+    "tries": 16894,
+    "speedSolved": 4,
+    "speedPlay": 23
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-03T03:41:17+00:00",
+  "source": "A Game on KGS.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

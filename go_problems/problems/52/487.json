@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 487,
+  "elo": 1582.3354910743,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nSZ[19]\r\nAB[ga][gb][gc][fc][ec][dd][cd][bd][ad]\r\nAW[bc][cc][dc][eb][fb][ba]\r\n\t(;B[ab];W[ac]\r\n\t\t(;B[bb];W[cb]\r\n\t\t\t(;B[da];W[ea];B[fa]C[RIGHT])\r\n\t\t\t(;B[ca];W[da])\r\n\t\t\t(;B[ea];W[da];B[fa];W[aa];B[db];W[eb])\r\n\t\t\t(;B[fa];W[da];B[ea];W[aa];B[db];W[eb])\r\n\t\t)\r\n\t\t(;B[aa];W[db];B[fa];W[ea])\r\n\t\t(;B[ca];W[db]\r\n\t\t\t(;B[bb];W[cb];B[fa];W[aa];B[ea];W[da])\r\n\t\t\t(;B[fa];W[bb];B[ea];W[da])\r\n\t\t)\r\n\t\t(;B[da];W[db]\r\n\t\t\t(;B[fa];W[bb];B[ea];W[ca])\r\n\t\t\t(;B[bb];W[ca];B[fa];W[ea])\r\n\t\t)\r\n\t\t(;B[ea];W[da]\r\n\t\t\t(;B[fa];W[cb];B[db];W[eb])\r\n\t\t\t(;B[cb];W[db];B[fa];W[bb])\r\n\t\t)\r\n\t\t(;B[fa];W[da]\r\n\t\t\t(;B[ea];W[cb];B[db];W[eb])\r\n\t\t\t(;B[cb];W[bb];B[db];W[ca];B[ea];W[db])\r\n\t\t)\r\n\t\t(;B[cb];W[db]\r\n\t\t\t(;B[bb];W[ca];B[fa];W[aa];B[ea];W[bb])\r\n\t\t\t(;B[fa];W[bb];B[ea];W[da])\r\n\t\t)\r\n\t\t(;B[db];W[cb];B[fa];W[da];B[ea];W[db])\r\n\t)\r\n\t(;B[aa];W[ab];B[db];W[cb];B[fa];W[da];B[ea];W[db])\r\n\t(;B[ca];W[cb];B[da];W[ea];B[ac];W[ab];B[fa];W[db])\r\n\t(;B[da];W[db];B[ab];W[ac];B[bb];W[ca];B[fa];W[ea])\r\n\t(;B[ea];W[db]\r\n\t\t(;B[fa];W[ab];B[da];W[ca])\r\n\t\t(;B[ab];W[bb];B[ac];W[fa])\r\n\t)\r\n\t(;B[fa];W[ab]\r\n\t\t(;B[ca];W[cb];B[da];W[db];B[ea];W[ac])\r\n\t\t(;B[da];W[cb];B[db])\r\n\t)\r\n\t(;B[bb];W[ab];B[fa];W[db];B[ea];W[da];B[ac];W[cb])\r\n\t(;B[cb];W[db];B[fa];W[ea];B[ab];W[bb];B[ac];W[ca])\r\n\t(;B[db];W[cb];B[fa];W[da];B[ac];W[ab];B[ea])\r\n)",
+  "author": {
+    "id": 164,
+    "name": "shodan",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2004-05-18",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 1058,
+    "failed": 3816,
+    "tries": 4874,
+    "speedSolved": 3,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-03-30T02:20:27+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 51,
+      "name": "Xuan Xuan Qijing",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 71,
+      "name": "Large L-Group",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

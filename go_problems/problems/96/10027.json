@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10027,
+  "elo": 1247.7256065174,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.6,
+    "votes": 40,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[bc]AW[bb]AW[cb]AW[da]AW[dc]AW[eb]AW[ec]AW[ed]AW[fc]AB[bd]AB[cc]AB[cd]AB[dd]AB[ee]AB[be]AB[bf]AB[ag]AB[bh]AB[ch]AW[ce]AW[cf]AW[cg]AW[bg]AW[dh]AW[eh]AW[ef]AW[gf]AW[bj]AW[dj]AB[fd]AB[gd]AB[gc]AB[gb]AB[fb]C[can the marked stones escape or live?]TR[ch]TR[bh]TR[ag]TR[bf]TR[be]TR[bd]TR[cd]TR[dd]TR[cc]AP[goproblems]\n(;B[dg]\n(;W[df]\n(;B[ff];W[fg]\n(;B[fe]C[escaped, white cannot cut :-)RIGHT];W[eg];B[de]C[well done :-)RIGHT])\n(;B[de];W[fe]C[black neither escaped nor got two eyes to live :-(CHOICE]))\n(;B[de];W[fe]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[fe];W[de];B[ff];W[eg]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[eg];W[fg]LB[de:a]LB[fe:b]C[a and b are now miai and black is dead :-(CHOICE]))\n(;W[fe];B[df];W[de];B[ee];W[de]C[black has two eyes :-)RIGHT]))\n(;B[df];W[dg]\n(;B[de];W[fe]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[ff];W[de]\n(;B[fe]C[black neither escaped nor got two eyes to live and white has sente :-(CHOICE])\n(;B[fg];W[fe]C[black has neither two eyes nor is the group connected to the outside :-(CHOICE]))\n(;B[fe];W[de]C[black neither escaped nor got two eyes to live :-(CHOICE]))\n(;B[ff];W[de]\n(;B[dg];W[fe]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[fe];W[df]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[ge];W[dg]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[eg];W[fe]C[black neither escaped nor got two eyes to live :-(CHOICE]))\n(;B[de];W[fe]\n(;B[dg];W[df]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[df];W[dg]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[eg];W[fg];B[df];W[dg]C[black has neither two eyes nor is the group connected to the outside :-(CHOICE]))\n(;B[eg];W[fg];B[de];W[fe];B[df];W[dg]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[fe];W[de]\n(;B[df];W[dg]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[dg];W[df]C[black neither escaped nor got two eyes to live :-(CHOICE];B[ff];W[eg]C[black neither escaped nor got two eyes to live :-(CHOICE]))\n(;B[ea];W[fa]C[This does not solve the problem :-(CHOICE])\n(;B[af];W[de]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[fa];W[ea]C[this does not bring the marked stone to life :-(CHOICE])\n(;B[ba];W[de]C[black neither escaped nor got two eyes to live :-(CHOICE])\n(;B[ac];W[ab]C[];B[ad];W[af];B[ae];W[de]C[failed :-(CHOICE])\n(;B[ge];W[de]\n(;B[fe];W[ff]C[black has neither two eyes nor is the group connected to the outside :-(CHOICE])\n(;B[ff];W[eg]C[black has neither two eyes nor is the group connected to the outside :-(CHOICE]))\n(;B[ad];W[af];B[ae];W[de]C[failed :-(CHOICE])\n(;B[ai];W[aj]C[this move does not address the problem :-(CHOICE];B[ci];W[cj];B[di];W[ei]C[this move does not address the problem :-(CHOICE]))",
+  "author": {
+    "id": 15090,
+    "name": "vkitzing",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-04-09",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 59,
+  "attempts": {
+    "solved": 1865,
+    "failed": 3485,
+    "tries": 5350,
+    "speedSolved": 4,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-05-05T03:02:35+00:00",
+  "source": "James Davies, Tesuji, p 25/5",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 96,
+      "name": "Inducing Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

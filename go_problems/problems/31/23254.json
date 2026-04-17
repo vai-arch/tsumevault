@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23254,
+  "elo": 1762.8609906263,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Assume tenuki is worth more than playing locally, unless it means the death of your group.",
+  "rating": {
+    "stars": 3,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rc]AB[rd]AB[qd]AB[pd]AB[od]AB[nd]AB[mc]AB[lc]AB[kc]AW[lb]AW[mb]AW[nc]AW[oc]AW[pc]AW[qc]AW[rb]AW[ra]AB[sb]C[Can White tenuki?]LB[qf:Tenuki]AB[jd]AP[goproblems]\n(;W[qf];B[kb]C[Can White still tenuki?]LB[of:Tenuki]\n(;W[of];B[la]C[Even more tenuki?]LB[mf:Tenuki]\n(;W[na];B[pa]C[Careful, every point matters]\n(;W[pb];B[ka]\n(;W[nb]C[];B[sa]AB[sc]AB[ma];W[oa]C[White has 5 pointsRIGHT])\n(;W[qa];B[ma];W[nb]C[];B[sa]AB[sc];W[oa]C[White has 4 points])\n(;W[oa];B[nb];W[ob];B[ma];W[qa];B[nb];W[mb]C[White has 2 points (4 - 2 = 2)])\n(;W[ma];B[oa]C[oops]))\n(;W[qa];B[ka];W[pb];B[ma];W[nb]C[];B[sa]AB[sc];W[oa]C[White has 4 points])\n(;W[oa];B[ka]\n(;W[pb];B[nb];W[ob];B[ma];W[qa];B[nb];W[mb]C[White has 2 points (4 - 2 = 2)])\n(;W[qa];B[pb]C[oops])))\n(;W[pa];B[nb];W[ob];B[na];W[qb]C[White has minus 2 points (2 - 4 = -2)])\n(;W[nb];B[pb];W[pa];B[qb];W[ob];B[ma]C[White is dead :(])\n(;W[mf];B[nb]C[White is dead :(])\n(;W[oa];B[ma]C[White is dead :(])\n(;W[ob];B[na]C[White is dead :(])\n(;W[pb];B[nb]C[White is dead :(])\n(;W[qa];B[ma]C[White is dead :(])\n(;W[qb];B[pa]C[White is dead :(])\n(;W[ma];B[nb]C[White is dead :(]))\n(;W[la];B[nf]C[Black takes sente and wins in yose])\n(;W[na];B[of]C[Black takes sente and wins in yose]))\n(;W[kb];B[qf]C[Black takes sente and wins in yose]))",
+  "author": {
+    "id": 52754,
+    "name": "nimbim",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-30",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1429.6
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 10,
+    "failed": 62,
+    "tries": 72,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-05-08T23:15:27+00:00",
+  "source": "one of my games",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 178,
+      "name": "Tenuki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

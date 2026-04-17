@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6237,
+  "elo": 1551.4588573763,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem came to mind while reviewing a game on KGS.  White didn't actually play N3 during that game, but I think it makes for an interesting problem.",
+  "rating": {
+    "stars": 2.6,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rs]AB[qr]AB[qq]AB[qp]AB[pp]AB[op]AB[oq]AB[qo]AB[rn]AB[qn]AB[so]AB[pm]AB[qm]AB[ql]AB[rk]AB[sl]AB[qh]AW[pq]AW[pr]AW[ps]AW[qs]AW[or]AW[os]AB[nr]AW[ms]AW[mr]AW[nq]AW[mq]TR[mq]AB[ls]AB[lr]AB[lq]AB[lp]AB[lo]AB[ln]AB[lm]AB[ll]AB[lk]AB[lj]AB[mj]AB[nk]AB[ni]AB[oj]AB[ok]AB[pj]AB[pi]AB[qg]AB[pf]AB[pe]AB[qe]AB[re]AB[pd]AW[qd]AB[qc]AB[qb]AW[rd]AW[rc]AW[rb]AW[pb]AW[pc]AW[nc]AW[oc]AW[od]AW[nb]AW[na]AW[mc]AB[mb]AB[ma]AB[lb]AB[lc]AB[ld]AB[le]AB[ne]AB[oe]AW[np]AW[no]AW[oo]AW[po]AW[nm]AW[ol]AW[nl]AW[ml]AW[mk]AW[pl]AW[pk]AW[qk]AW[qj]AW[qi]AW[rj]AW[rh]C[White has just played the marked stone.  Black to kill.]AP[goproblems]\n(;B[ns]C[];W[sg]\n(;B[sf];W[si];B[rg];W[or];B[sh]C[Ko.  Black can do better.  Why capture the stones if you can kill all of them anyway?])\n(;B[si];W[se]\n(;B[sj]\n(;W[ri]C[White escapes.])\n(;W[sh];B[sk];W[ri]C[White escapes.]))\n(;B[rg];W[sh]C[White escapes.]))\n(;B[sj];W[se]C[White escapes.])\n(;B[sh];W[si]C[White will find it easy to make two eyes or to escape now.]))\n(;B[sg]\n(;W[rg]\n(;B[sf]C[]\n(;W[si]C[CHOICE];B[sh]C[Correct!  Finding T13 is the clincher.  I had previously thought white was alive unconditionally after N3, and it took me a few hours to find T13.RIGHT])\n(;W[sh]C[CHOICE];B[sj]C[Correct!  Finding T13 is the clincher.  I had previously thought white was alive unconditionally after N3, and it took me a few hours to find T13.RIGHT])\n(;W[sj]C[CHOICE];B[sh]C[Correct!  Finding T13 is the clincher.  I had previously thought white was alive unconditionally after N3, and it took me a few hours to find T13.RIGHT]))\n(;B[rf];W[si];B[sj]C[];W[sk]C[Ko.])\n(;B[sh];W[sf])\n(;B[si];W[sf]\n(;B[se];W[rf];B[sj];W[sh])\n(;B[ri];W[sh]))\n(;B[sj];W[si]\n(;B[sk];W[sf];B[rf]C[Correct!  Thanks to BartTM for finding this variation!  Good eye!RIGHT])\n(;B[rf];W[sk]C[Ko.])\n(;B[sf];W[sk];B[rl];W[sh];B[sj]C[Ko.  Probably the most favorable ko I've found though, as in this one black takes first.])))\n(;W[si]\n(;B[sh]C[Correct!  Finding T13 is the clincher.  I had previously thought white was alive unconditionally after N3, and it took me a few hours to find T13.RIGHT])\n(;B[sk];W[sj];B[sh];W[rg];B[sf]C[RIGHT])\n(;B[rg];W[sh];B[sj];W[sk]C[Ko.]))\n(;W[sh];B[sj]C[Correct!  Finding T13 is the clincher.  I had previously thought white was alive unconditionally after N3, and it took me a few hours to find T13.RIGHT]))\n(;B[si];W[sj];B[sh]\n(;W[rg]C[FORCE];B[sg];W[sf]C[However, if white were to mistakenly atari at T13 instead of first extending an extra stone, white would die.])\n(;W[sg]C[White should not play this move.];B[rg];W[sf];B[se];W[ri];B[sh]C[This variation was to demonstrate the result of white's mistake.]))\n(;B[sj];W[si]\n(;B[rg];W[sk]C[Ko.])\n(;B[sk];W[sg]MA[rg]MA[se]C[White lives with either S13 or T15.]))\n(;B[rg];W[si];B[sj];W[sk]C[Ko.])\n(;B[sh];W[rg]\n(;B[sg];W[sf])\n(;B[si];W[sj];B[sg];W[sf]C[However, if white were to mistakenly atari at T13 instead of first extending an extra stone, white would die.])\n(;B[sj];W[sg]\n(;B[si];W[se])\n(;B[sf];W[si])\n(;B[se];W[si])))\n(;B[ri];W[si]\n(;B[rg];W[sj])\n(;B[sj];W[sg]\n(;B[rg];W[se])\n(;B[sf];W[rg])\n(;B[se];W[rg])))\n(;B[sk];W[sg]\n(;B[sj];W[se])\n(;B[si]\n(;W[se]\n(;B[ri];W[sj];B[rg];W[sh])\n(;B[sj];W[ri]))\n(;W[sj];B[rg];W[se];B[sh];W[sf];B[ri];W[rh]))\n(;B[sf];W[rg]\n(;B[sj];W[si])\n(;B[si];W[sj]))\n(;B[se];W[rg]\n(;B[si];W[sj])\n(;B[sj];W[si]))\n(;B[rg];W[sh]\n(;B[sj];W[se])\n(;B[si]\n(;W[se];B[sj];W[ri])\n(;W[sj];B[sf];W[ri])))))",
+  "author": {
+    "id": 7455,
+    "name": "Haze",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-17",
+    "rank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1355.81
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 379,
+    "failed": 1711,
+    "tries": 2090,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-03-31T00:59:12+00:00",
+  "source": "Game on KGS between fusojigen and NannyOgg",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 108,
+      "name": "0 What Group?",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

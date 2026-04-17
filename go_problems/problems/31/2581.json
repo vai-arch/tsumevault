@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2581,
+  "elo": 1085.1324644908,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 11,
+    "negativeFlagSum": 0,
+    "flagSum": 11
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Last one of these you have to look at.  Play a black stone on the intersection with the number that equals the number of points A is worth. This is like problem 2572. All other plays are completed and there are no ko threats.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[How many points is A worth?]LB[ep:A]LB[el:3]AW[bs]AW[br]AW[bq]AW[bo]AW[cn]AW[cp]AW[dp]AW[en]AW[eo]AW[eq]AB[cs]AB[cr]AB[cq]AB[dq]AB[er]AB[fo]AB[fp]AB[fq]AB[go]AB[gq]AB[hr]AB[hp]LB[al:1]LB[cl:2]LB[gl:4]\n(;B[el]C[Correct! Black can win 2 points by playing A. If White plays A, then Black must defend the cut at F2 (triangle). 2 + 1 = 3. \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nRIGHT]LB[ep:A]TR[fr])\n(;B[al]C[Sorry, this is not quite right.]LB[ep:A])\n(;B[cl]C[Sorry, this is not quite right.]LB[ep:A])\n(;B[gl]C[Sorry, try counting again, please.]LB[ep:A])\n(;B[ep]C[NOTTHIS])\n(;B[fr]C[NOTTHIS])\n(;B[dr]C[NOTTHIS])\n(;B[ds]C[NOTTHIS])\n(;B[es]C[NOTTHIS])\n(;B[fs]C[NOTTHIS])\n(;B[gr]C[NOTTHIS])\n(;B[gs]C[NOTTHIS])\n(;B[bl]C[NOTTHIS])\n(;B[dl]C[NOTTHIS])\n(;B[fl]C[NOTTHIS])\n(;B[hl]C[NOTTHIS])\n(;B[ak]C[NOTTHIS])\n(;B[bk]C[NOTTHIS])\n(;B[am]C[NOTTHIS])\n(;B[bm]C[NOTTHIS])\n(;B[ck]C[NOTTHIS])\n(;B[cm]C[NOTTHIS])\n(;B[dm]C[NOTTHIS])\n(;B[dk]C[NOTTHIS])\n(;B[ek]C[NOTTHIS])\n(;B[em])\n(;B[fm]C[NOTTHIS])\n(;B[fk])\n(;B[gk]C[NOTTHIS])\n(;B[gm]C[NOTTHIS])\n(;B[hm]C[NOTTHIS])\n(;B[hk]C[NOTTHIS])\n(;B[im]C[NOTTHIS])\n(;B[il])\n(;B[ik]C[NOTTHIS]))",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 4801,
+    "failed": 5877,
+    "tries": 10678,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-13T07:39:46+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

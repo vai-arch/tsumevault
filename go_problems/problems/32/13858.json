@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13858,
+  "elo": 1296.1855260088,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.4,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rb]AB[rc]AB[sc]AB[re]AB[qe]AB[pe]AB[od]AB[nc]AB[nb]AW[sd]AW[rd]AW[qd]AW[qc]AW[pc]AW[pb]AW[pa]C[Kill the white stones. No Seki or Ko.]AP[goproblems]\n(;B[sb]\n(;W[qb]\n(;B[ra]C[White is dead. If white captures the black killing shape, black plays at S18 which creates a dead eye space.RIGHT]MA[ra]MA[sb]MA[sc]MA[rc]TR[rb])\n(;B[sa];W[ra]C[White lives.])\n(;B[se];W[ra]C[White lives. The black stones are a killing shape, but without the required single shared liberty.]))\n(;W[ra]\n(;B[qb]C[White is dead. If white captures the black killing shape, black plays at S18 which creates a dead eye space.RIGHT]TR[rb]MA[qb]MA[sb]MA[sc]MA[rc])\n(;B[sa];W[qb]C[White lives.])\n(;B[se];W[qb]C[White lives. The black stones are a killing shape, but without the required single shared liberty.])))\n(;B[sa]\n(;W[qb]C[White lives. Black T18 would create a killing shape, but without the required single shared liberty.]))\n(;B[qb];W[sb]\n(;B[sa];W[qa]C[White lives.])\n(;B[qa];W[ra]C[White lives.])\n(;B[ra]C[White lives.]))\n(;B[qa];W[qb]C[White lives. No ko.]MA[sa];B[sa]C[No Ko.NOTTHIS])\n(;B[ra];W[sb]C[White lives.]))",
+  "author": {
+    "id": 45190,
+    "name": "Trevor",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-11-26",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 67,
+  "attempts": {
+    "solved": 1141,
+    "failed": 2042,
+    "tries": 3183,
+    "speedSolved": 1,
+    "speedPlay": 7
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-07-26T17:20:34+00:00",
+  "source": "Get Strong at Life and Death - Richard Bozulich",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 32,
+      "name": "Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

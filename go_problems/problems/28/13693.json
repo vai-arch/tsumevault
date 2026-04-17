@@ -1,0 +1,136 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13693,
+  "elo": 888.51700857257,
+  "problemLevel": 6,
+  "rank": {
+    "value": 24,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This is my first problem. Let me know if anything needs fixing.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 46,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[is]AB[ir]AB[iq]AW[hr]AW[gr]AW[fr]AB[fq]AB[gq]AB[hq]AW[eq]AW[dq]AW[cq]AW[bq]AW[cr]AW[cs]AB[gs]AW[hs]AW[aq]C[White foolishly answered A with B, trying to prevent a connection. Black to kill unconditionally.]AB[ap]AB[bp]AB[cp]AB[dp]AB[ep]AB[fp]LB[gs:A]LB[hs:B]AP[goproblems]\n(;B[er];W[br]\n(;B[as]\n(;W[es]\n(;B[fs];W[dr]\n(;B[fr]C[You killed White without leaving any ko threats :).RIGHT])\n(;B[ds]C[White is almost dead, but this leaves two ko threats for White, first at F2 and then at E1 or G2, depending on Blacks response. Can you find a better solution?RIGHT])\n(;B[gr];W[fr]C[A ko isn't an unconditional kill.CHOICE])\n(;B[hr];W[fr]C[CHOICE])\n(;B[hs];W[fr]C[CHOICE]))\n(;B[bs];W[dr]C[CHOICE])\n(;B[ar];W[dr]C[CHOICE])\n(;B[ds];W[dr]C[CHOICE])\n(;B[dr];W[ds]C[CHOICE]))\n(;W[fs]\n(;B[es]\n(;W[dr]\n(;B[gs]C[RIGHT])\n(;B[bs];W[ds]C[])\n(;B[ar];W[ds]C[]))\n(;W[ds]\n(;B[gs]C[RIGHT])\n(;B[bs];W[dr]C[])\n(;B[ar];W[dr]C[])))\n(;B[ds];W[dr]\n(;B[bs];W[es]C[])\n(;B[ar];W[es]C[FORCE]))\n(;B[dr];W[es]\n(;B[bs];W[ds]C[])\n(;B[ar];W[ds]C[]))))\n(;B[fs];W[as]C[You captured 4 stones and got some territory, but White lived.CHOICE])\n(;B[dr];W[as]C[CHOICE])\n(;B[es];W[as]C[CHOICE])\n(;B[ds];W[as]C[CHOICE]))\n(;B[fs];W[er]C[])\n(;B[es];W[er]C[])\n(;B[ds];W[er]C[])\n(;B[dr];W[er]C[])\n(;B[br];W[er]C[])\n(;B[bs];W[er]C[])\n(;B[as];W[er]C[])\n(;B[ar];W[er]C[]))",
+  "author": {
+    "id": 44145,
+    "name": "Cyphase",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-09-30",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1281.63
+  },
+  "avgSolveTimeSeconds": 135,
+  "attempts": {
+    "solved": 6029,
+    "failed": 5737,
+    "tries": 11766,
+    "speedSolved": 12,
+    "speedPlay": 13
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-05-12T02:20:01+00:00",
+  "source": "Something I've come across in many games.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 40,
+      "name": "Prevent the Connection",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 144,
+      "name": "Lack of Liberties (Damezumari)",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3619,
+  "elo": 1257.16396539,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Thanks to Alexei and fwiffo for the corrections.",
+  "rating": {
+    "stars": 2,
+    "votes": 32,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[bc]AB[bd]AB[cc]AB[dc]AB[db]AB[ca]AB[ae]AW[be]AW[bg]AW[ce]AW[cd]AW[dd]AW[ed]AW[ec]AW[eb]AW[ea]AW[da]AW[af]LB[gb:0]LB[gc:1]LB[gd:2]LB[ge:3]LB[gf:4]LB[gg:5]C[Black to move - How many different first moves can guarantee black sure life?FORCE](;B[gd]C[Yup! ;) (You can browse the explanations when using 'Navigate Solution' under 'Show Solutions-Comments button'.)RIGHT](;W[bf]C[This will prevent the applet from auto playing the possible variations.NOTTHISRIGHT])(;W[ge]LB[ba:L]LB[bb:L]LB[ab:Ko]LB[ad:x_x]LB[aa:x_x]LB[ac:x_x]LB[cb:x_x]C[Logical moves are explained here.](;B[ba]LB[ad:x]LB[bb:x]LB[ab:x](;W[ab]LB[bb:V];B[bb]LB[ac:A]LB[ad:B]C[Black'd live!RIGHT])(;W[bb]LB[ab:V];B[ab]C[Black'd live.RIGHT])(;W[ad]LB[ac:V]LB[ab:V]LB[bb:V]C[(bA17 is bigger than bA18 by one point, but leaves an imidiate ko threat. bB18 leaves the 1 moku reductino as a sente move for the endgame or potentially a ko threat - Is much worse than the other 2.)](;B[ac]LB[ab:A]LB[bb:B]C[Black'd live.RIGHT])(;B[ab]C[Black'd live.RIGHT])(;B[bb]LB[ab:A]LB[ac:B]C[Black'd live.RIGHT])))(;B[bb]C[Black'd live.RIGHT])(;B[ab]LB[ba:o]LB[ad:x]LB[bb:x]C[The only correct move for white here, is at B19 for a ko. The rest'd let live.](;W[ba]LB[bb:V]LB[cb:x]LB[ad:x]C[bB18 is the correct black move in theis situation. The rest are suicide.](;B[bb];W[cb]MA[ca]C[Only a ko... Could be better...];B[ca]C[NOTTHIS])(;B[cb];W[ad]C[Black'd die!])(;B[ad];W[cb]C[Black'd die!]))(;W[ad]LB[ba:V]LB[bb:V](;B[ba]C[Black'd live.])(;B[bb]C[Black'd live.]))(;W[bb]LB[ba:V]LB[ad:x](;B[ba]C[Black'd live.])(;B[ad];W[ba]C[Black'd die.])))(;B[ad]LB[bb:o]LB[ba:x]C[wB18 is the correct move - wB19 lets black get a ko.](;W[ba]LB[bb:V]LB[cb:x]LB[ab:x]C[bB18 is the correct black move in theis situation. The rest are suicide.](;B[bb];W[cb]MA[ca]C[Only a ko... Could be better...];B[ca]C[NOTTHIS])(;B[cb];W[ab]C[Black'd die!])(;B[ab];W[cb]C[Black'd die!]))(;W[bb]LB[ba:x]LB[ab:x](;B[ab];W[ba]C[Black'd die!])(;B[ba];W[ab]C[Black'd die!])))(;B[aa]LB[bb:x];W[bb]LB[ad:x]LB[ab:x]LB[ba:x](;B[ab]LB[ad:o];W[ad]C[Black'd die.])(;B[ba]LB[ab:A]LB[ad:B]C[Black'd die. (Thanks, Alexei)])(;B[ad]LB[ab:o]LB[ba:o](;W[ab]LB[cb:x];B[cb]C[Black'd die.])(;W[ba]C[Black'd die.])))(;B[ac]LB[ab:x]LB[bb:o]LB[ba:x]C[Only wB18 is a sure kill now.](;W[bb]C[Black'd die.])(;W[ba]LB[bb:V]LB[cb:x](;B[bb]LB[cb:o];W[cb]MA[ca];B[ca]C[NOTTHIS])(;B[cb]C[Black'd die.]))(;W[ab]LB[bb:V];B[bb]C[Black'd live.]))(;B[cb]LB[ab:o]LB[ad:o]LB[ba:o]LB[ac:x]LB[bb:x]LB[aa:x]C[Any of the marked with 'o' moves would kill.](;W[ab]C[Black'd die.])(;W[ba]LB[ab:A]LB[ad:B]C[Black'd die.])(;W[ad]LB[ab:A]LB[ba:B]C[Black'd die.])(;W[aa]LB[ab:o];B[ab]LB[ad:A]LB[ba:B]C[Black'd live.])(;W[bb]LB[ab:o];B[ab]C[Black'd live.])(;W[ac]LB[ab:o];B[ab]LB[ad:A]LB[ba:B]C[Black'd live.]))))(;B[gb]C[The correct anwser is 2. You could use 'Navigate Solution' under 'Show Solution' following the correct number (2) to see why.])(;B[gc]C[The correct anwser is 2. You could use 'Navigate Solution' under 'Show Solution' following the correct number (2) to see why.])(;B[ge]C[The correct anwser is 2. You could use 'Navigate Solution' under 'Show Solution' following the correct number (2) to see why.])(;B[gf]C[The correct anwser is 2. You could use 'Navigate Solution' under 'Show Solution' following the correct number (2) to see why.])(;B[gg]C[The correct anwser is 2. You could use 'Navigate Solution' under 'Show Solution' following the correct number (2) to see why.]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 4546,
+    "failed": 5079,
+    "tries": 9625,
+    "speedSolved": 1,
+    "speedPlay": 10
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-25T06:19:47+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}
