@@ -794,6 +794,8 @@ class Handler(BaseHTTPRequestHandler):
 
         body = json.dumps(obj, ensure_ascii=False).encode()
         accept_encoding = self.headers.get("Accept-Encoding", "")
+        print(f"[RESPOND] size={len(body)} accept_encoding={accept_encoding}")
+
         if "gzip" in accept_encoding and len(body) > 1024:
             body = gzip.compress(body, compresslevel=6)
             self.send_response(code)
