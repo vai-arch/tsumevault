@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3832,
+  "elo": 1206.4278631599,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "I observed this situation in a 9x9 amateur game.  The game was completed except for this corner, the white stones were unconditionally alife.  Black could win the game because he squeezed the last points out of this corner group.  Can you do the same?  There is also an interesting 1-point seki hidden in the variations, and if black has a huge ko threat (> 29 points), then he can pressure white into a ko fight that is even better than the solution you are supposed to find (in this case, the stone A by white would have been a mistake).",
+  "rating": {
+    "stars": 3.8,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[aq]AB[bq]AB[cq]AB[cr]AB[dq]AB[eq]AB[er]AW[ap]AW[bp]AW[cp]AW[dp]AW[ep]AW[fp]AW[fr]AW[fq]AW[fs]C[White just invaded 'your' corner with the stone A.  Defend it as good as possible!  Remember that there is no other place to play.FORCE]AW[ds]LB[ds:A]AP[goproblems]\r\n(;B[bs];W[es]C[FORCE]\r\n(;B[ar]C[Living with 2 points is the indeed the best you can do.  So much about 'your' corner!RIGHT])\r\n(;B[dr];W[ar]C[Oh no, you missed the vital point, and now the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[cs];W[ar]C[Oh no, you missed the vital point, and now the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[br]C[You filled your own eye space, and now the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[as]C[You filled your own eye space, and now the black stones are all dead.  This is the worst possible outcome!]))\r\n(;B[ar];W[bs]C[FORCE]\r\n(;B[br];W[es]C[There is no space for the black stones to make two eyes, so they are all dead.  This is the worst possible outcome!])\r\n(;B[dr];W[es]C[There is no space for the black stones to make two eyes, so they are all dead.  This is the worst possible outcome!])\r\n(;B[as];W[es]C[There is no space for the black stones to make two eyes, so they are all dead.  This is the worst possible outcome!])\r\n(;B[cs];W[es]C[There is no space for the black stones to make two eyes, so they are all dead.  This is the worst possible outcome!])\r\n(;B[es];W[cs]C[FORCE]\r\n(;B[br]C[This is seki.  There are no points for either party.  This is not the best possible outcome for black!])\r\n(;B[dr]C[This is seki.  There are no points for either party.  This is not the best possible outcome for black!])\r\n(;B[as]C[This is seki.  There are no points for either party.  This is not the best possible outcome for black!])))\r\n(;B[br];W[es]C[FORCE]\r\n(;B[ar]C[There is no space for two eyes for black, so the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[dr];W[cs]C[There is no space for two eyes for black, so the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[as];W[cs]C[There is no space for two eyes for black, so the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[bs]C[You filled your own eye space, and now the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[cs];W[as]C[Black can not make two eyes, and now the black stones are all dead.  This is the worst possible outcome!]))\r\n(;B[dr];W[es]C[FORCE]\r\n(;B[ar];W[bs]C[Black did not succeed in making two eyes, and now the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[br];W[cs]C[There is not enough room to make two eyes, and now the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[as];W[cs]C[There is not enough room to make two eyes, and now the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[bs];W[ar]C[You did not succeed in making two eyes, and now the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[cs];W[bs]C[There is not enough room to make two eyes, and now the black stones are all dead.  This is the worst possible outcome!]))\r\n(;B[as];W[es]C[FORCE]\r\n(;B[ar];W[cs]C[There is not enough room to make two eyes, and now the black stones are dead.  This is the worst possible outcome!])\r\n(;B[br];W[cs]C[You did not succeed in making two eyes, and now the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[dr];W[cs]C[There is not enough room for two eyes, and now the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[bs]C[You filled your own eye space, and now the black stones are all dead.  This is the worst possible outcome!])\r\n(;B[cs];W[br]C[You did not succeed in making two eyes, and now the black stones are all dead.  This is the worst possible outcome!]))\r\n(;B[cs];W[es]C[]\r\n(;B[ar];W[bs]C[White played on the vital point, and now the black stones are dead.  This is the worst possible outcome!])\r\n(;B[br];W[as]C[White played on the vital point, and now the black stones are dead.  This is the worst possible outcome!])\r\n(;B[dr];W[bs]C[White played on the vital point, and now all the black stones are dead.  This is the worst possible outcome!])\r\n(;B[as];W[br]C[White denies black the two eyes needed to live.  The black stones are all dead.  This is the worst possible outcome!])\r\n(;B[bs];W[ar]C[White denies black the two eyes needed to live, and now the black stones are all dead.  This is the worst possible outcome!]))\r\n(;B[es];W[bs]C[FORCE]\r\n(;B[ar];W[cs]C[FORCE]\r\n(;B[br]C[This is seki, and nobody gets any points.  There is a better option for black.])\r\n(;B[dr]C[This is seki, and nobody gets any points.  There is a better option for black!])\r\n(;B[as]C[This is seki and nobody gets any points.  There is a better option for black!]))\r\n(;B[br];W[cs]C[FORCE]\r\n(;B[ar]C[This is seki, and nobody gets any points.  There is a better option for black!])\r\n(;B[dr];W[ar]C[Oops!  All black stones are dead.  This is the worst possible outcome!])\r\n(;B[as];W[ar]C[If black can win the ko, he has made 8 points.  But the ko is big for white, so usually it won't work.]MA[as]))\r\n(;B[dr];W[cs]C[FORCE]\r\n(;B[ar]C[This is seki.  Nobody gets any points.  There is a better option for black!])\r\n(;B[br];W[ar]C[Oops!  The black stones have been captured.  This is the worst possible outcome!])\r\n(;B[as];W[ar]C[The black stones are dead now.  This is the worst possible outcome!]MA[as]))\r\n(;B[as];W[cs]C[FORCE]\r\n(;B[ar]C[This is seki.  Nobody gets any points.  There is a better option for black!])\r\n(;B[br];W[ar]C[If black can win the ko, then he made 8 points.  But this ko is big for white, so usually this won't work.])\r\n(;B[dr];W[ar]C[If black can win the ko, he made 8 points.  But this ko is big for white, so usually it won't work.]))\r\n(;B[cs];W[ar]C[FORCE]\r\n(;B[br];W[dr]C[Oops!  The black stones have been captured.  This is the worst possible outcome!])\r\n(;B[dr]C[This is seki.  Black has caputered one white stone, so this is one point for black.  However, black has an even better option!]))))",
+  "author": {
+    "id": 6038,
+    "name": "marcusb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-11-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 3740,
+    "failed": 6756,
+    "tries": 10496,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-29T18:03:14+00:00",
+  "source": "Wittnessed in a game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 20,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

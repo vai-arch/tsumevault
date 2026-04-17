@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10474,
+  "elo": 1924.7657190931,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Please comment if I'm wrong about the solution. ----- Huge thanks to totoro and manwich18 for correcting me.",
+  "rating": {
+    "stars": 3.1,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[What is the minimum number of stones (of the same color) needed to form a group that is alive as it stands? Suppose that no more moves of the group's color is allowed to be played afterwards.FORCE]LB[dj:4]LB[gj:6]LB[jj:8]LB[mj:10]LB[pj:12]AP[goproblems]\n(;B[gj];W[hj]C[Correct. Now, how many unique shapes are there that uses 6 stones to make a group that's alive (no matter what other than filling in the eyes)?FORCE]LB[dp:2]LB[gp:3]LB[jp:4]LB[mp:5]LB[pp:6]\n(;B[jp]C[]\n(;W[kp]C[Correct. These are the shapes.  RIGHT]AB[ar]AB[bs]AB[cr]AB[bq]AB[aq]AB[cs]AB[ab]AB[ba]AB[bc]AB[cb]AB[ca]AB[cc]AB[rb]AB[sb]AB[ra]AB[rc]AB[rd]AB[sd]AB[ss]AB[rr]AB[qs]AB[qr]AB[sq]AB[rq])\n(;W[as];B[ja]))\n(;B[dp])\n(;B[gp])\n(;B[mp])\n(;B[pp]))\n(;B[dj];W[ej]C[This shape?]AB[ab]AB[ba]AB[bc]AB[cb]AW[ac]AW[ad]AW[bd]AW[cd]AW[dd]AW[dc]AW[db]AW[da]AW[ca])\n(;B[jj];W[kj]C[Too many.]AB[hs]AB[hr]AB[ir]AB[jr]AB[js]AB[lr]AB[ls]AB[kr])\n(;B[mj]C[];W[nj]C[Too many.]AB[jn]AB[jo]AB[kn]AB[kp]AB[lp]AB[lo]AB[lm]AB[mn]AB[mm]AB[mo])\n(;B[pj];W[oj]C[Too many.]AB[jp]AB[jo]AB[kp]AB[lo]AB[kn]AB[lp]AB[jn]AB[ho]AB[hp]AB[ip]AB[in]AB[ln]))",
+  "author": {
+    "id": 13781,
+    "name": "zafris",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-13",
+    "rank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1348.33
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 180,
+    "failed": 690,
+    "tries": 870,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-10-08T16:58:29+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 145,
+      "name": "Construction",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

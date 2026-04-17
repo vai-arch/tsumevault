@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11734,
+  "elo": 1027.1173800011,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": -2,
+    "flagSum": 8
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This happened in a game I was playing. The only difference in the game was that there was an outside ko which we ended up fighting over. This isn't too difficult, but it was the best naturally arising problem in my games so far.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 44,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ar]AB[br]AB[cr]AB[dq]AB[eq]AB[fq]AB[gp]AB[hp]AB[hq]AB[hr]AB[gs]AB[fs]AW[hs]AW[is]AW[ir]AW[iq]AW[ip]AW[ho]AW[go]AW[fp]AW[ep]AW[dp]AW[cq]AW[bq]AW[aq]AW[cp]AP[goproblems]\r\n(;W[gr];B[gq]\r\n(;W[es];B[fr];W[dr]\r\n(;B[cs]C[CHOICE]\r\n(;W[as]C[RIGHT])\r\n(;W[bs]C[RIGHT]))\r\n(;B[bs]))\r\n(;W[dr];B[ds]))\r\n(;W[gq];B[gr])\r\n(;W[es];B[gr];W[er];B[dr])\r\n(;W[dr];B[ds]\r\n(;W[er];B[fr])\r\n(;W[gr];B[gq])))",
+  "author": {
+    "id": 26012,
+    "name": "Wopple",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2008-11-25",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 4110,
+    "failed": 4124,
+    "tries": 8234,
+    "speedSolved": 2,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-09-22T23:21:17+00:00",
+  "source": "a game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

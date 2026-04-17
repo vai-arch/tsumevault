@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1489,
+  "elo": 1843.932347318,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Comment in source:\r\n\"This one is courtesy of Jimmy Cha, who showed it to me at the Fujitsu in SF recently.  He used it for betting, as follows:  you get to look at the problem for as long as you want, then when you think you have the answer, you bet Jimmy $1.  If you make a single mistake he keeps the $1, or if (ha-ha) you happen to have solved it correctly, he pays you $5.  Last time I checked he was $14 ahead.  Note that this means there must be a simple (but wrong) line of play which appears to succeed (but fails in a subtle way).  Anyway, I promise you LOTS of surprises in working this one out. \r\n\r\nHoward A. Landman\"",
+  "rating": {
+    "stars": 4.5,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]C[White to kill Black without Ko]AB[bp]AB[bq]AB[cr]AB[dr]AB[er]AB[fr]AB[gr]AB[hr]AW[ao]AW[bo]AW[co]AW[cp]AW[cq]AW[dq]AW[eq]AW[fq]AW[gq]AW[hq]AW[hs]AW[iq]AW[ir]AW[js]AW[kr]FF[3]\n(;W[br];B[ar]\n(;W[bs]\n(;B[aq]C[CHOICE]\n(;W[gs]\n(;B[fs]C[CHOICE]\n(;W[cs];B[is]\n(;W[ds]\n(;B[es]C[CHOICE]\n(;W[ap];B[as]\n(;W[cs]\n(;B[hs]C[CHOICE];W[br]C[RIGHT])\n(;B[br];W[hs]C[RIGHT])\n(;B[ds];W[bs];B[br];W[hs]C[RIGHT]))\n(;W[bs];B[br]\n(;W[cs];B[hs])\n(;W[hs];B[cs])))\n(;W[hs];B[as]\n(;W[cs];B[bs])\n(;W[bs];B[cs])))\n(;B[hs];W[ap]C[RIGHT]))\n(;W[ap];B[ds];W[as];B[bq];W[aq];B[ar])\n(;W[hs];B[ds]))\n(;W[ap];B[cs];W[as];B[bq];W[aq];B[ar])\n(;W[ds];B[is];W[cs]\n(;B[es]C[CHOICE]\n(;W[ap];B[as]\n(;W[cs]\n(;B[hs]C[CHOICE];W[br]C[RIGHT])\n(;B[br];W[hs]C[RIGHT])\n(;B[ds];W[bs];B[br];W[hs]C[RIGHT]))\n(;W[bs];B[br]\n(;W[cs];B[hs])\n(;W[hs];B[cs])))\n(;W[hs];B[as]\n(;W[cs];B[bs])\n(;W[bs];B[cs])))\n(;B[hs];W[ap]C[RIGHT]))\n(;W[is];B[cs]))\n(;B[cs];W[fs];B[as];W[es]C[RIGHT]))\n(;W[cs];B[ds];W[gs];B[as]\n(;W[bs];B[fs])\n(;W[fs];B[bs]))\n(;W[ap];B[cs];W[as];B[bq];W[aq];B[ar])\n(;W[fs];B[gs];W[cs];B[is]C[Ko];W[ap];B[ds];W[as];B[bq];W[aq];B[ar])\n(;W[es];B[fs];W[ap];B[cs])\n(;W[ds];B[cs]))\n(;B[cs];W[aq];B[as];W[br];B[bs];W[ap];B[gs];W[es]C[RIGHT]))\n(;W[aq];B[bs]))\n(;W[gs];B[br])\n(;W[aq];B[ar];W[bs];B[br])\n(;W[ar];B[br]))",
+  "author": {
+    "id": 1615,
+    "name": "mithra",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-02-18",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1518.1
+  },
+  "avgSolveTimeSeconds": 83,
+  "attempts": {
+    "solved": 285,
+    "failed": 2465,
+    "tries": 2750,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-05-08T06:57:38+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 30,
+      "name": "Stories",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 51,
+      "name": "Xuan Xuan Qijing",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 59,
+      "name": "2-2 Crosscut",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

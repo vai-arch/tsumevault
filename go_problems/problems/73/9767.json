@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9767,
+  "elo": 1195.4120632492,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;AB [bc][bd][cb][dc][ea][eb][ec]\r\nAW [bb][be][cc][cd][ce][dd][ed][fa][fb][fc][fd]\r\nSZ [9]\r\n\r\n     (;B[ab]\r\n          (;W[ba]\r\n               (;B[da] ;W[ad] C[Black dies. White can tenuki instead of playing A6 as Blackâ€™s D9 killed Black in damezumari.])\r\n               (;B[ad]\r\n                    (;W[ae] C[CHOICE Black dies.])\r\n                    (;W[ca] C[CHOICE Black dies.])\r\n                    (;W[da] C[CHOICE Black dies.])\r\n               )\r\n               (;B[ca] C[CHOICE]\r\n                    (;W[da] ;B[aa] ;W[db] ;B[ad] C[RIGHT CHOICE Correct.])\r\n                    (;W[ad] ;B[aa] ;W[bb] ;B[ba] C[RIGHT CHOICE Correct.])\r\n               )\r\n          )\r\n          (;W[da] C[CHOICE]\r\n               (;B[ca] ;W[db] ;B[ba] C[RIGHT Correct.])\r\n               (;B[ba] ;W[db]\r\n                    (;B[ad] C[RIGHT Correct.])\r\n                    (;B[ca] C[RIGHT Correct.])\r\n               )\r\n          )\r\n     )\r\n\r\n     (;B[ba] ;W[ab] C[Black dies.])\r\n     (;B[da]\r\n          (;W[ac] C[CHOICE Black dies.])\r\n          (;W[ab] C[CHOICE Black dies.])\r\n          (;W[ba] C[CHOICE Black dies.])\r\n     )\r\n     (;B[ca]\r\n          (;W[ac] C[CHOICE Black dies.])\r\n          (;W[ab] C[CHOICE Black dies.])\r\n     )\r\n)",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 2619,
+    "failed": 3691,
+    "tries": 6310,
+    "speedSolved": 5,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-02-20T03:59:19+00:00",
+  "source": "A variation of a problem by Richard Bozulich.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

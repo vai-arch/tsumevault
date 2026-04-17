@@ -1,0 +1,114 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 54479,
+  "elo": 1301.2490174438,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Black to play and win the corner",
+  "rating": null,
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[pn][pp][pq][ql][qo][qr][rn]AW[oq][or][pr][qn][qq][ro][rp](;B[rq];W[qp](;B[sp];W[po](;B[so];W[op])(;B[op];W[rr]))(;B[po];W[rr]))(;B[qp];W[rq]C[White is safe])(;B[rr];W[rq](;B[ps];W[sr]C[Not enough liberties])(;B[sr]MA[sq]CR[ps]C[This is the only way to capture white's stones. \nBoth groups have 4 liberties, but if white takes away the liberty at X they will be losing one of their own. On the otherside if white tries to fill in the bottom 3 liberties first and take X last they will have to connect back at O because of the lack of liberties in the corner. Davies calls this the \"Decent to the edge\" tesuji, and it effectivly gives black an extra liberty which allows her to win the capturing race. RIGHT])))",
+  "author": {
+    "id": 111327,
+    "name": "Sam_mantha",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1207.11
+  },
+  "avgSolveTimeSeconds": 19,
+  "attempts": {
+    "solved": 3,
+    "failed": 4,
+    "tries": 7,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2026-01-09T20:52:49+00:00",
+  "source": "Tesuji by James Davies (Elementary Go Series)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1260
+}

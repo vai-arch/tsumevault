@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 844,
+  "elo": 1919.3895710901,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "How to prevent the connection? (Part 7)",
+  "rating": {
+    "stars": 2,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AB[dd]AB[jd]AB[jf]AB[pd]AB[pf]AW[hc]AW[jc]AW[md]GM[1]FF[4]AP[Hibiscus:2.1]ST[3]PL[B];B[kc];W[kd]TR[ld]TR[ic]C[FORCE]\n(;B[ic];W[jb]TR[ld]TR[je]C[FORCE]\n(;B[ld];W[ke];B[je]C[RIGHT])\n(;B[je];W[ib];B[ld];W[lc];B[ke];W[kb]C[White is connected.]))\n(;B[ld];W[ke]TR[je]TR[ic]C[FORCE]\n(;B[je];W[lc];B[ic];W[kb];B[ib]C[White has been cut yet Black could have done this in a more fiendish way.])\n(;B[ic];W[jb];B[je]C[RIGHT])))",
+  "author": {
+    "id": 6,
+    "name": "Spirit",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-28",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1819.71
+  },
+  "avgSolveTimeSeconds": 23,
+  "attempts": {
+    "solved": 291,
+    "failed": 5098,
+    "tries": 5389,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-07-04T07:23:14+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 40,
+      "name": "Prevent the Connection",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

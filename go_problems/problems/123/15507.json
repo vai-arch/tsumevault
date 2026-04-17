@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15507,
+  "elo": 1292.3440254643,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Yesterday I played a very messy game which I probably should have lost but won due to my opponent's mistakes. Anyway, messy games make for good problems, so here I am. Unfortunately, I could only come up with two uncool simple yet tricky endgame style problems. This is the first.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[gr]AB[hq]AB[ir]AB[hs]AB[kr]AB[lr]AW[fq]AW[fr]AW[fs]AW[gs]AW[gp]AW[ip]AW[hp]AW[iq]AW[kq]AW[lq]AW[jq]AB[mr]AB[nq]AW[mq]AB[pr]AB[np]AB[pp]C[Best endgame play for White in terms of points?]AP[goproblems]\n(;W[jr];B[js]\n(;W[ks];B[ls]\n(;W[gq];B[nr];W[hr];B[ks];W[is]C[Nice!RIGHT])\n(;W[nr]C[Pointless cut is blocked for simplicity reasons - this can branch into many pointless paths.NOTTHISRIGHT]))\n(;W[gq];B[ks];W[hr];B[is]C[You can get more than that.])\n(;W[nr];B[ks]\n(;W[gq];B[or]\n(;W[hr];B[is]C[You can get more than that.])\n(;W[ns];B[os];W[hr];B[is]C[You can get more than that.]))\n(;W[or];B[oq];W[gq];B[os];W[hr];B[is]C[You can get more than that.])\n(;W[ms];B[or];W[gq];B[ns];W[hr];B[is]C[You can get more than that.])\n(;W[ns];B[or];W[gq];B[os];W[hr];B[is]C[You can get more than that.])))\n(;W[gq];B[jr];W[hr];B[is]C[You can get more than that.])\n(;W[nr];B[jr]C[White gets nothing]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 1370,
+    "failed": 2518,
+    "tries": 3888,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-12-27T08:13:46+00:00",
+  "source": "Modified from a messy KGS game of mine",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 123,
+      "name": "Oiotoshi",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

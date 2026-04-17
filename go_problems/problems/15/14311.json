@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14311,
+  "elo": 1502.3702927525,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "We all know about the monkey jump, but we don't often know how to continue if it's ignored. Well, here we go!",
+  "rating": {
+    "stars": 4.2,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[gc]AB[ib]AB[he]AW[gd]AW[ee]AB[ef]AW[de]AW[ce]AB[df]AB[cf]AW[bf]AB[bg]AW[be]AB[ch]AW[ag]AB[ah]AW[af]AW[fe]AB[ff]AB[hf]AB[gf]AW[ge]AB[gg]C[No komi. Black to win.]AW[cc]AP[goproblems]\n(;B[hb]\n(;W[hc]\n(;B[ic];W[hd];B[id];W[gb]\n(;B[ha];W[ga]C[Black wins by 1!RIGHT])\n(;B[ga];W[ha]\n(;B[ia];W[fa]\n(;B[ie];W[ha]C[White connects the ko and wins by 1])\n(;B[fb];W[ha]C[Black has no ko threats.]))\n(;B[fa];W[ea]\n(;B[ia];W[fb];B[ie];W[ha];B[ga]C[Black won!RIGHT])\n(;B[fb]C[NOTTHISRIGHT]))))\n(;B[gb];W[ic]C[Black dies. See next problem.]))\n(;W[gb]C[CHOICE]\n(;B[ha];W[hc];B[ic];W[hd];B[id];W[ga]C[Black wins by 1!RIGHT])\n(;B[hc];W[hd];B[id];W[ha]C[Since Black must connect at J5, White wins by 1.])\n(;B[hd];W[hc];B[ic];W[ha]C[This is only a tie (Jigo)!])\n(;B[ga]\n(;W[ic]C[CHOICE];B[hc];W[hd];B[id];W[ha]\n(;B[fa];W[ea]\n(;B[ia];W[fb]\n(;B[ie];W[ha];B[ga]C[Black wins by 1 even though White captures G9RIGHT])\n(;B[ic];W[ha];B[ga]C[Black wins by 1 even though White captures G9RIGHT]))\n(;B[fb]C[NOTTHISRIGHT]))\n(;B[ia];W[fa]C[After White takes and connects the ko White will win by 1]))\n(;W[hc];B[ic];W[hd];B[id];W[ha]\n(;B[ia];W[fa]\n(;B[ie];W[ha]C[White connects the ko and wins by 1])\n(;B[fb];W[ha]C[Black has no ko threats.]))\n(;B[fa];W[ea]\n(;B[ia];W[fb];B[ie];W[ha];B[ga]C[Black won!RIGHT])\n(;B[fb]C[NOTTHISRIGHT]))))))\n(;B[ga];W[hc];B[ic];W[id]\n(;B[hd];W[hb]\n(;B[ie];W[ha]C[White won!])\n(;B[ha];W[ia]))\n(;B[hb];W[hd]))\n(;B[gb];W[hc]\n(;B[ic];W[hb]\n(;B[hd];W[ha]C[White won!])\n(;B[ha];W[id])\n(;B[id];W[ha]C[White won!]))\n(;B[hb];W[ic]C[Black dies. See next problem.]))\n(;B[hc];W[gb]\n(;B[hd];W[hb];B[ha];W[ga];B[ic];W[ia]C[White connects the ko and wins by 1.])\n(;B[hb];W[hd];B[id];W[ha]C[Since Black must connect at J5, White wins by 1.])\n(;B[ha];W[hd];B[id];W[hb];B[ic];W[ga]C[After taking the ko and connecting, White wins by 2.]))\n(;B[hd];W[hc];B[ic];W[hb]C[White wins now.])\n(;B[ha];W[hc];B[ic];W[id]\n(;B[hd];W[hb];B[ie];W[ga]C[White won!])\n(;B[hb];W[hd];B[fb];W[gb]))\n(;B[fa];W[hb]\n(;B[ic];W[hc]\n(;B[hd];W[ha])\n(;B[id];W[ha])\n(;B[ha];W[id]))\n(;B[ha];W[ic])\n(;B[hc];W[hd];B[id];W[gb]C[Not a ko.]))\n(;B[id];W[hc];B[ic];W[hb]C[White won!])\n(;B[ic];W[hd];B[id];W[hb]\n(;B[hc];W[ha]C[White won!])\n(;B[ha];W[ga]\n(;B[hc];W[ia])\n(;B[ia];W[hc];B[ie]C[White won!]))))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 66,
+  "attempts": {
+    "solved": 388,
+    "failed": 830,
+    "tries": 1218,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-12-28T07:48:48+00:00",
+  "source": "Thinking about the Monkey Jump",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

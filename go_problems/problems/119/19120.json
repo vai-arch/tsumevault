@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19120,
+  "elo": 1245.3451202385,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Many go players dislike ko fights; understandably so, for they are\r\nforced not only to think about the local situation, which is likely to be\r\ncomplicated enough, but to weigh it against all the ko threats available\r\nto both players, to weigh those ko threats against each other, and\r\npreferably to do so before the ko begins. It follows, therefore, that if you\r\ncan start a ko fight that you have a fair chance of winning, you may\r\nhave scored a psychological, as well as a tactical, triumph. There are\r\nmany simple tesuji for causing ko. Consider the following:",
+  "rating": {
+    "stars": 3.1,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[rr]AB[qr]AB[pr]AB[or]AB[nr]AB[qq]AW[rq]AW[qp]AW[qo]AW[mr]AW[mq]AW[nq]AW[oq]AW[pq]LB[rp:A]C[In this posion Black seems to be alive. To start with, black is threatening to capture a stone with A. White to thwart black aims.](;W[sr];B[rp];W[sp]LB[sr:1]LB[rp:2]LB[sp:3]C[Choosing a time when he is backed up by an adequate number of ko threats, White can unleash the double-hane tesuji at 1. Against Black 2, White plays 3 and the ko is on. This could be a nasty surprise for Black.RIGHT])(;W[rp];B[sr]LB[rp:1]LB[sr:2]C[And even if White connects, Black 2 makes a living shape.White, however, should be in no rush to play 1, an endgame move, but should leave the position as it stands. Black A is gote.  If White loses the ko, then of course he takes a certain loss on the right edge, but that should be more than compensated for by his ko threat. If Black loses, his whole group is dead; that will be harder to compensate for. This kind of ko fight, where you risk little or nothing and your opponent risks a lot, is the most fun and the most profitable.CHOICE])(;W[ns];B[sr];W[os];B[ps];W[ms];B[rs]C[CHOICE])(;W[rs];B[sr](;W[ns];B[os];W[qs];B[rp];W[ro];B[sq];W[so];B[sp]C[CHOICE])(;W[qs];B[ns];W[ps];B[rp];W[ro];B[sq];W[so];B[sp]C[CHOICE]))(;W[ps];B[sr];W[qs];B[rs]C[CHOICE])(;W[qs];B[sr];W[rs];B[ns];W[ps];B[rp];W[ro];B[sq];W[so];B[sp]C[CHOICE])(;W[os];B[sr](;W[ns];B[ps];W[ms];B[rs]C[CHOICE])(;W[ps];B[qs]C[CHOICE]))(;W[sp];B[sr])(;W[sq];B[sr]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 834,
+    "failed": 1036,
+    "tries": 1870,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-02-25T19:28:21+00:00",
+  "source": "Elementary Go Series, Volume 3",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

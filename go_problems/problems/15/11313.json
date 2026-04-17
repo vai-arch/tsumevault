@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11313,
+  "elo": 1948.265880961,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Black to play and win. No komi. Black has 1 prisoner. Please don't make unnecessary moves.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[bb]AB[cb]AB[ca]AB[cc]AB[db]AB[eb]AB[fb]AB[gb]AB[cd]AB[dd]AB[ee]AB[df]AB[ff]AB[ef]AB[cg]AB[ch]AW[dh]AW[eh]AW[eg]AW[fg]AW[gf]AW[fe]AW[fd]AW[gd]AW[dc]AW[ec]AW[gc]AW[hb]AW[ha]AW[da]AW[ea]AW[fa]AW[ga]AB[fc]C[]AP[goproblems]\r\n(;B[di]\r\n(;W[ei]\r\n(;B[ed];W[ci];B[bi];W[di]\r\n(;B[bh]C[When the liberty is filled, white will have to protect against the marked cut. Result: B+1.RIGHT]TR[gg])\r\n(;B[ah]C[When the liberty is filled, white will have to protect against the marked cut. Result: B+1.RIGHT])\r\n(;B[bg]C[When the liberty is filled, white will have to protect against the marked cut. Result: B+1.RIGHT]))\r\n(;B[ci];W[ed]C[White has to defend the marked cut when the outside liberty is filled, but the result is still Jigo.]TR[gg]))\r\n(;W[ed];B[ei];W[fi];B[ci];W[gg]C[Result: B+1.RIGHT]))\r\n(;B[ed];W[ci]\r\n(;B[bi];W[di]\r\n(;B[bh]C[Result is Jigo.])\r\n(;B[ah]C[Result is Jigo.])\r\n(;B[bg]C[Result is Jigo.]))\r\n(;B[di];W[bi];B[bh];W[ei]TR[gg]C[Result: W+1 (white has to defend the marked cut when the outside liberty is filled.)]))\r\n(;B[ci];W[ed];B[di];W[ei]C[White has to defend the marked cut when the outside liberty is filled, but the result is still Jigo.]TR[gg])\r\n(;B[gg]C[Although it doesn't make any difference for this problem, this move unnecessarily wastes ko threats.]))",
+  "author": {
+    "id": 19644,
+    "name": "ndkrempel",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-02-07",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1265.72
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 44,
+    "failed": 237,
+    "tries": 281,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-05-31T15:58:01+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

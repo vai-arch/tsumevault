@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3520,
+  "elo": 1353.4139179221,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -2,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.8,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[eb]AB[ec]AB[ed]AB[dd]AB[ce]AW[be]AW[cd]AW[cc]AW[dc]AW[db]C[How should B play down the left side?]AP[goproblems]\r\n(;B[bf];W[cf]\r\n(;B[de];W[bg]\r\n(;B[bd];W[af]\r\n(;B[bc];W[bb]\r\n(;B[da];W[cb];B[ab];W[ad])\r\n(;B[ab];W[ad])\r\n(;B[ca];W[cb]\r\n(;B[ab];W[ad])\r\n(;B[ba];W[ad]))\r\n(;B[ac];W[ab])\r\n(;B[ad];W[ae]))\r\n(;B[bb];W[bc])\r\n(;B[cb];W[bc])\r\n(;B[da];W[bc]))\r\n(;B[df];W[cg])\r\n(;B[cg];W[df])\r\n(;B[af];W[ae]\r\n(;B[bd];W[ag]\r\n(;B[bc];W[bb];B[da];W[cb];B[ca];W[ab])\r\n(;B[da];W[bb]))\r\n(;B[df];W[cg];B[bd];W[ag];B[bc];W[bb];B[da];W[cb])))\r\n(;B[df];W[cg]))\r\n(;B[cf];W[bf]\r\n(;B[cg]C[You can't double hane here.RIGHT])\r\n(;B[bg]C[B is left with a weakness below]))\r\n(;B[df];W[cf];B[de];W[cg])\r\n(;B[de];W[bf])\r\n(;B[bd];W[cf];B[de];W[bg]\r\n(;B[bc];W[bb]\r\n(;B[da];W[cb];B[ca];W[ad])\r\n(;B[ab];W[ad]))\r\n(;B[da];W[bc]))\r\n(;B[bb];W[cf];B[de];W[cg]C[W is alive and running along the side.]))",
+  "author": {
+    "id": 4785,
+    "name": "kochi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-14",
+    "rank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1340.69
+  },
+  "avgSolveTimeSeconds": 32,
+  "attempts": {
+    "solved": 1475,
+    "failed": 3110,
+    "tries": 4585,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-11T19:12:16+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

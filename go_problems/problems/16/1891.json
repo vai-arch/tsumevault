@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1891,
+  "elo": 1611.4047606128,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -2,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "There are several moves to secure life for black, but only one of them will win the game, too!",
+  "rating": {
+    "stars": 3.5,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]TM[]\r\nAW[da][fa][db][fb][dc][cd][dd][ed][fd][be][ce][bf][bg]AB[ca][ab][cb][gb][cc][ad][bd][de][ee][fe][af][cf][df]C[No komi, no prisoners - Black to play and win!]\r\n(;B[ff]CR[ff]\r\n;W[ge]CR[ge]\r\n;B[gf]CR[gf]\r\n;W[gd]CR[gd]\r\n;B[ae]CR[ae]\r\n;W[cg]CR[cg]\r\n;B[dg]LB[fg:A]TR[ff]CR[dg]C[Black wins by one point! Thanks to the marked stone, the white endgame at the right was gote - if Black starts with A instead (also a commom idea), White would be able to play g4 in sente( see navigate solution for more details). RIGHT])\r\n(;B[fg]CR[fg]\r\n;W[gd]CR[gd]\r\n(;B[ae]CR[ae]\r\n;W[gf]CR[gf]\r\n;B[ge]CR[ge]\r\n;W[ff]CR[ff]\r\n(;B[cg]CR[cg]\r\n;W[ef]CR[ef]C[Black is dead....])\r\n(;B[ef]CR[ef]\r\n;W[cg]CR[cg]C[Black is dead....]))\r\n(;B[ge]CR[ge]\r\n;W[ae]CR[ae]\r\n;B[cg]CR[cg]C[This is only a jigo!])\r\n(;B[cg]CR[cg]\r\n;W[ge]CR[ge]\r\n;B[gf]CR[gf]\r\n;W[ae]CR[ae]C[This is a desaster for black: white wins by one point!]))\r\n(;B[eg]CR[eg]\r\n;W[gd]CR[gd]\r\n(;B[ae]CR[ae]\r\n;W[gf]CR[gf]\r\n;B[ge]CR[ge]\r\n;W[ff]CR[ff]\r\n;B[cg]CR[cg]\r\n;W[ef]CR[ef]C[Black is dead....])\r\n(;B[ge]CR[ge]\r\n;W[cg]CR[cg]\r\n;B[ff]CR[ff]\r\n;W[ae]CR[ae]C[This is a two point loss for Black!]))\r\n(;B[gd]CR[gd]\r\n;W[cg]CR[cg]\r\n(;B[dg]CR[dg]\r\n;W[ge]CR[ge]\r\n(;B[gf]CR[gf]\r\n;W[fg]CR[fg]C[Black is dead])\r\n(;B[ff]CR[ff]\r\n;W[eg]CR[eg]\r\n(;B[gf]CR[gf]\r\n;W[fg]CR[fg]C[Black is dead])\r\n(;B[fg]CR[fg]\r\n;W[gf]CR[gf]C[Black is dead])))\r\n(;B[ff]CR[ff]\r\n;W[eg]CR[eg]\r\n;B[dg]CR[dg]\r\n;W[ge]CR[ge]\r\n;B[gf]CR[gf]\r\n;W[fg]CR[fg]C[Black is dead])\r\n(;B[fg]CR[fg]\r\n;W[gf]CR[gf]\r\n(;B[ff]CR[ff]\r\n;W[dg]CR[dg]\r\n;B[eg]CR[eg]\r\n;W[ge]CR[ge]C[Black is dead])\r\n(;B[ge]CR[ge]\r\n;W[ff]CR[ff]\r\n;B[dg]CR[dg]\r\n;W[ef]CR[ef]C[Black is dead]))\r\n(;B[ge]CR[ge]\r\n;W[dg]CR[dg]\r\n;B[eg]CR[eg]\r\n;W[ff]CR[ff]C[Black is dead]))\r\n(;B[ge]CR[ge]\r\n;W[ff]CR[ff]\r\n;B[fg]CR[fg]\r\n;W[eg]CR[eg]\r\n;B[gf]CR[gf]\r\n;W[gg]CR[gg]C[Black can't hope to win this ko])\r\n(;B[cg]CR[cg]\r\n;W[ff]CR[ff]\r\n;B[gf]CR[gf]\r\n;W[eg]CR[eg]\r\n;B[fg]CR[fg]\r\n;W[gg]CR[gg]C[Black can't hope to win this ko]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 357,
+    "failed": 2771,
+    "tries": 3128,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-02-01T00:53:14+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

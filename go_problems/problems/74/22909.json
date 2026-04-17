@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22909,
+  "elo": 1387.5144214618,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[besogo:0.0.2-alpha]SZ[19]ST[0]\nAB[ab][ac][ad][bb][cb][dc][de][df][ed][ef][fb][fc][fd][fe][gf]AW[ae][bc][bd][be][cc][ce][cf][db][dd][eb][gb][gc][gd][ge][hc]LB[db:A]\nC[How to answer A?]\n(;B[ec]\n(;W[ca]\n(;B[ea]\nC[good! RIGHT CHOICE])\n(;B[da]\n;W[ea]\n;B[fa]\nC[good! RIGHT])\n(;B[fa]\n;W[ba]\nC[B is captured!]))\n(;W[fa]\n(;B[da]\nC[good! RIGHT CHOICE])\n(;B[ea]\n;W[da]\n(;B[ca]\nC[good! RIGHT])\n(;B[ga]\n;W[ca]LB[ea:1]\nC[B can only get ko here!]))))\n(;B[da]\n;W[ec]CR[db][eb]LB[ea:1]\nC[B can connect but W saved the 2 stones!])\n(;B[ea]\n;W[ec]CR[db][eb]LB[da:1]\nC[B can connect but W saved the 2 stones!])\n(;B[ca]\n;W[ec]CR[db][eb]LB[ea:1]\nC[B can connect but W saved the 2 stones!])\n(;B[fa]\n;W[ca]\nC[B is captured!])\n(;B[cd]\n;W[ca]\nC[B is captured!]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 83,
+    "failed": 181,
+    "tries": 264,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-11-25T17:22:28+00:00",
+  "source": "https://online-go.com/game/28605415",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

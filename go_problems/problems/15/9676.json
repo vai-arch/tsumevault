@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9676,
+  "elo": 861.41035754167,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 17,
+    "negativeFlagSum": -2,
+    "flagSum": 15
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.4,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[ba]AB[bb]AB[ab]AB[cb]AB[db]AB[bc]AB[gb]AB[hb]AB[hc]AB[hd]AB[he]AB[hf]AB[gf]AB[gg]AB[ff]AB[fe]AB[ee]AB[ed]AB[de]AB[df]AB[cf]AB[bf]AB[af]AB[bg]AB[cg]AB[bh]C[Easy one - black to win.]AW[eb]AW[da]AW[ea]AW[fb]AW[fc]AW[gc]AW[gd]AW[ge]AW[ec]AW[dc]AW[cc]AW[dd]AW[ce]AW[be]AW[bd]AW[ad]AW[ac]AW[bi]AW[ch]AW[dh]AW[dg]AW[eg]AW[ef]AW[fg]AW[gh]AW[hh]AW[hg]AW[fi]AB[ah]AP[goproblems]\n(;B[ae];W[cd]\n(;B[fd]C[Correct - this was a clasical eye vs no-eye capturing race.RIGHT])\n(;B[fa];W[ga]\n(;B[fd]C[Correct - this was a clasical eye vs no-eye capturing race. Playing F6 a move earlier would be simpler though.RIGHT])\n(;B[ha];W[ca]C[Black cannot protect against A9 so White wins.])\n(;B[ca];W[aa]C[White can easily make two eyes now - triangled moves are miai.]TR[bb]TR[cb]))\n(;B[ca];W[aa]TR[cb]TR[bb]C[White can easily make two eyes now - triangled moves are miai.]))\n(;B[fd];W[ca]\n(;B[ae];W[aa]C[White wins now.])\n(;B[ga];W[aa]C[White wins now.])\n(;B[fa];W[ga]C[Black cannot protect against A9 so White wins.]))\n(;B[ca];W[aa]C[Come on...])\n(;B[fa];W[ca]C[Black cannot protect against A9 so White wins.])\n(;B[aa];W[ca]C[What was that?])\n(;B[ga];W[ca]C[Black cannot protect against A9 so White wins.]))",
+  "author": {
+    "id": 16859,
+    "name": "MatheusB",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2010-02-23",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 11684,
+    "failed": 6912,
+    "tries": 18596,
+    "speedSolved": 2,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-01-19T05:22:58+00:00",
+  "source": "Game on KGS, slightly modified.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

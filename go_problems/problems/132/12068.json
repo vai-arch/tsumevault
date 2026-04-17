@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12068,
+  "elo": 1780.5769290328,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -2,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "!! Warning: This is not go, this is prasátko game that I just invented!!\r\n\r\n\r\nThe rules of prasÃ¡tko game:\r\n\r\n- two players place black and white stones on the board just like in go, but they cannot pass and white has the first move\r\n- when a player places his or her stone on the board and that stone touches some other stone (no matter if friendly or enemy), then that player loses the game\r\n- stones touch like in go when they are connected by the line and they can also touch diagonally\r\n\r\nHave fun :-)",
+  "rating": {
+    "stars": 2.8,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[6]AB[da]C[Rules example: If you play A6, A5, A4, B4, C4, C5, C6 or B6, you lose as that stone would touch the B5 stone.]AB[bb]AW[af]AW[cf]AW[ee]AP[goproblems]\r\n(;B[fa];W[dc]\r\n(;B[fc];W[bd]C[Now you will have to play a stone that will touch another one - you lost! :(])\r\n(;B[bd];W[fc]C[Now you will have to play a stone that will touch another one - you lost! :(])\r\n(;B[ad];W[fc]C[Now you will have to play a stone that will touch another one - you lost! :(]))\r\n(;B[dc];W[fc]\r\n(;B[fa];W[bd]C[Now you will have to play a stone that will touch another one - you lost! :(])\r\n(;B[bd];W[fa]C[Now you will have to play a stone that will touch another one - you lost! :(])\r\n(;B[ad];W[fa]C[Now you will have to play a stone that will touch another one - you lost! :(]))\r\n(;B[ec];W[cd]\r\n(;B[fa];W[ad]C[Now you will have to play a stone that will touch another one - you lost! :(])\r\n(;B[ad];W[fa]C[Now you will have to play a stone that will touch another one - you lost! :(]))\r\n(;B[cd];W[ec]\r\n(;B[fa];W[ad]C[Now you will have to play a stone that will touch another one - you lost! :(])\r\n(;B[ad];W[fa]C[Now you will have to play a stone that will touch another one - you lost! :(]))\r\n(;B[fc];W[cd]\r\n(;B[ad];W[fa]C[Now you will have to play a stone that will touch another one - you lost! :(])\r\n(;B[fa];W[ad]C[Now you will have to play a stone that will touch another one - you lost! :(]))\r\n(;B[fb]\r\n(;W[bd]C[CHOICE];B[dc];W[aa]C[Good, white had to play a stone that touches another one, you win! :)RIGHT]TR[bb])\r\n(;W[dc]\r\n(;B[bd];W[aa]C[RIGHT])\r\n(;B[ad];W[cd]C[RIGHT]))\r\n(;W[ad]\r\n(;B[cd]C[RIGHT])\r\n(;B[dc]C[RIGHT]))\r\n(;W[cd];B[ad]C[RIGHT]))\r\n(;B[ad];W[ec]\r\n(;B[fa];W[cd]C[Now you will have to play a stone that will touch another one - you lost! :(])\r\n(;B[cd];W[fa]C[Now you will have to play a stone that will touch another one - you lost! :(]))\r\n(;B[bd];W[fc]\r\n(;B[dc];W[fa]C[Now you will have to play a stone that will touch another one - you lost! :(])\r\n(;B[fa];W[dc]C[Now you will have to play a stone that will touch another one - you lost! :(]))\r\n(;B[dd]TR[ee]C[This stone touches the marked one - you lost! :(])\r\n(;B[ed]TR[ee]C[This stone touches the marked one - you lost! :(])\r\n(;B[eb]C[This stone touches the marked one - you lost! :(]TR[da])\r\n(;B[ea]TR[da]C[This stone touches the marked one - you lost! :(])\r\n(;B[be]TR[af]TR[cf]C[This stone touches the marked ones - you lost! :(])\r\n(;B[ce]TR[cf]C[This stone touches the marked one - you lost! :(])\r\n(;B[cc]TR[bb]C[This stone touches the marked one - you lost! :(])\r\n(;B[bc]TR[bb]C[This stone touches the marked one - you lost! :(])\r\n(;B[ac]TR[bb]C[This stone touches the marked one - you lost! :(])\r\n(;B[db]TR[da]C[This stone touches the marked one - you lost! :(])\r\n(;B[cb]TR[bb]TR[da]C[This stone touches the marked ones - you lost! :(])\r\n(;B[ca]TR[bb]TR[da]C[This stone touches the marked ones - you lost! :(])\r\n(;B[ba]TR[bb]C[This stone touches the marked one - you lost! :(])\r\n(;B[aa]C[This stone touches the marked one - you lost! :(]TR[bb])\r\n(;B[ab]TR[bb]C[This stone touches the marked one - you lost! :(])\r\n(;B[fd]TR[ee]C[This stone touches the marked one - you lost! :(])\r\n(;B[fe]TR[ee]C[This stone touches the marked one - you lost! :(])\r\n(;B[ff]TR[ee]C[This stone touches the marked one - you lost! :(])\r\n(;B[ef]TR[ee]C[This stone touches the marked one - you lost! :(])\r\n(;B[ae]TR[af]C[This stone touches the marked one - you lost! :(])\r\n(;B[df]TR[cf]TR[ee]C[This stone touches the marked ones - you lost! :(])\r\n(;B[de]TR[cf]TR[ee]C[This stone touches the marked ones - you lost! :(])\r\n(;B[bf]TR[af]TR[cf]C[This stone touches the marked ones - you lost! :(]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 91,
+  "attempts": {
+    "solved": 55,
+    "failed": 232,
+    "tries": 287,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-12-16T05:29:10+00:00",
+  "source": "Sudden inspiration",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

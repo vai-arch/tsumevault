@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1276,
+  "elo": 1219.2503268594,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.9,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[bc]AW[bd]AW[dc]AW[dd]AW[ce]AW[fc]AW[gc]AW[gb]AB[ab]AB[bb]AB[cc]AB[db]AB[eb]AB[fb]FF[4]GM[1]AP[Jago:Version 4.27]GN[temp]\n(;W[fa]\n(;B[ea]C[CHOICE];W[ca];B[ba];W[cb];B[da];W[cb]C[RIGHT])\n(;B[ba]C[CHOICE]\n(;W[cb];B[ca];W[ea]C[RIGHT])\n(;W[ea];B[da];W[cb];B[ga];W[fa]C[though W a, rather than W b would have been preferableRIGHT]LB[cb:a]LB[ea:b])))\n(;W[ca];B[ba];W[cb];B[da]\n(;W[cb];B[fa])\n(;W[fa];B[cb]))\n(;W[ea];B[fa]))",
+  "author": {
+    "id": 1039,
+    "name": "gecko",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-01-13",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 3441,
+    "failed": 7507,
+    "tries": 10948,
+    "speedSolved": 9,
+    "speedPlay": 19
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-01-28T02:40:01+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 64,
+      "name": "Life on 2nd Line",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6569,
+  "elo": 1404.1481965142,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pr]AB[qr]AB[qq]AB[qp]AB[qo]AB[ro]AW[or]AW[nq]AW[pq]AW[pp]AW[po]AW[pn]AW[qn]AW[rn]AW[so]AW[sn]AB[sp]C[White to kill.  Seki is insufficient. ]AP[goproblems]\n(;W[sq];B[sr]\n(;W[rp];B[rq]\n(;W[sp];B[rs])\n(;W[rs];B[sp]))\n(;W[rr];B[rq])\n(;W[rq];B[rr]))\n(;W[sr]\n(;B[rq]C[CHOICE]\n(;W[sq];B[rr];W[rp]C[KoRIGHT])\n(;W[rs];B[rr]))\n(;B[rr]C[];W[sq];B[rq];W[rp]C[KoRIGHT])\n(;B[ps]C[CHOICE]\n(;W[sq];B[rp]\n(;W[rs];B[rr]C[Seki])\n(;W[rr];B[rs];W[os]C[Seki]))\n(;W[rq];B[rr]\n(;W[sq];B[rp];W[rs];B[ss];W[sr];B[sq])\n(;W[rs];B[rp]))\n(;W[rp];B[rq];W[sq];B[rr];W[rp]C[KoRIGHT])\n(;W[rs];B[rr];W[sq];B[rp]C[Seki])\n(;W[rr];B[rs]\n(;W[ss];B[rq];W[qs];B[sq])\n(;W[rq];B[rp];W[os]C[Seki])\n(;W[sq];B[rp];W[os]C[Seki]))))\n(;W[rs];B[sr])\n(;W[ps];B[sr])\n(;W[rq];B[sr])\n(;W[rr];B[rq]))",
+  "author": {
+    "id": 6276,
+    "name": "Lok",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-03-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 1586,
+    "failed": 3550,
+    "tries": 5136,
+    "speedSolved": 1,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-05-22T10:40:19+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 71,
+      "name": "Large L-Group",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

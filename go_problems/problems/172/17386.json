@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17386,
+  "elo": 877.75325925848,
+  "problemLevel": 6,
+  "rank": {
+    "value": 24,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.7,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[pa]AW[pb]AW[rb]AW[sb]AW[pc]AW[rc]AB[oa]AB[ob]AB[oc]AB[od]AB[pd]AB[qd]AB[rd]AB[sd]C[Very easy problem. Kill white.CHOICE]\n(;B[ra]\n(;W[qa]C[CHOICE];B[qc]C[No way can white make a second eye now.RIGHT])\n(;W[qc]C[CHOICE]\n(;B[qb];W[qa]C[Wrong. Two eyes.])\n(;B[qa]C[Good job.RIGHT])))\n(;B[qc]\n(;W[qb]C[CHOICE];B[ra]C[Good job.RIGHT])\n(;W[ra]C[CHOICE];B[qb]C[Yes.RIGHT]))\n(;B[qb];W[qc]LB[qa:A]LB[ra:B]C[Nope. a and b are miai to get two eyes.])\n(;B[qa];W[ra]LB[qc:A]LB[qb:B]C[Nope. a and b are miai for a second eye.])\n(;B[sa];W[ra]C[Now that's just silly. You can't prevent a second eye.])\n(;B[sc];W[qc]LB[qa:A]LB[ra:B]C[Nope. a and b are miai to divide this space into two eyes.]))",
+  "author": {
+    "id": 65527,
+    "name": "Plokijuh",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-10-14",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 32,
+  "attempts": {
+    "solved": 4196,
+    "failed": 3249,
+    "tries": 7445,
+    "speedSolved": 41,
+    "speedPlay": 47
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-08-01T15:32:39+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

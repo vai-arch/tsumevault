@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12052,
+  "elo": 1138.9215837328,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Fairly simple but interesting problem which the pattern search did not find on the site.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[qr]AB[rs]AB[rq]AW[rr]AW[sr]AW[qq]AW[rp]AW[qp]AW[pp]AW[op]AW[np]AB[pq]AB[oq]AB[nq]AW[mq]AW[mr]AW[nr]AB[mp]AB[lp]AB[lq]AB[lr]MA[mq]MA[mr]MA[nr]C[Black to capture the marked stones.](;B[os];W[pr](;B[or]C[RIGHT])(;B[qs];W[or])(;B[ps];W[or])(;B[ms];W[or])(;B[ns];W[or]))(;B[or];W[os](;B[ps];W[pr])(;B[ms];W[pr])(;B[ns];W[pr])(;B[pr];W[qs])(;B[qs];W[pr]))(;B[ps];W[or];B[pr];W[os])(;B[pr];W[os](;B[ps];W[or])(;B[or];W[qs])(;B[qs];W[or];B[ms];W[sq](;B[ns];W[ls])(;B[ps];W[ss])(;B[ls];W[ss]))(;B[ms];W[or](;B[ls];W[qs])(;B[qs];W[sq](;B[ns];W[ls])(;B[ps];W[ss])(;B[ls];W[ss])))(;B[ns];W[or](;B[ls];W[ms])(;B[ms];W[ls])(;B[qs];W[ms])))(;B[qs];W[pr])(;B[sq]C[NOTTHIS])(;B[ss]C[NOTTHIS])(;B[ms];W[pr])(;B[ns];W[pr])(;B[ls];W[pr]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 3418,
+    "failed": 4592,
+    "tries": 8010,
+    "speedSolved": 7,
+    "speedPlay": 53
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-12-13T08:05:30+00:00",
+  "source": "Book",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

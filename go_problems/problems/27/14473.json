@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14473,
+  "elo": 1245.712197717,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.4,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[gi]AB[gk]AB[ik]AB[hi]AW[ij]AW[jj]AW[jh]AW[hh]AW[fg]AW[fh]AW[fi]AW[ej]AW[ei]AW[ek]AB[fm]AB[dk]AB[ck]AB[di]AB[ci]AB[eh]AB[eg]AB[fe]AB[hf]AB[hm]AB[lh]AB[lf]AB[le]AB[ld]AB[fc]MA[hi]LB[ei:A]C[White to connect. Black just played the marked move, trying to seperate White's group A and group B.]AB[hd]AB[dm]AB[ef]AB[lj]LB[jj:B]AB[mj]AB[nh]AW[jk]AW[kk]AW[lk]AW[mk]AB[il]AW[nm]AW[lm]AP[goproblems]\n(;W[ii]\n(;B[gh]C[CHOICE]\n(;W[gg];B[hg]\n(;W[gj];B[ih];W[hj]C[Nice! White connected!RIGHT])\n(;W[ih];B[hk]))\n(;W[gj];B[hj];W[gg];B[hk];W[hg]C[Nice! White connected!RIGHT])\n(;W[hj];B[gj]))\n(;B[hk];W[gh]C[RIGHT])\n(;B[ig];W[gh];B[ih];W[gj]C[RIGHT]))\n(;W[gh];B[ii]\n(;W[ih];B[ji];W[ki];B[hk]TR[kh]TR[kj])\n(;W[ji];B[ih];W[ig];B[hk]TR[hg]TR[jg])\n(;W[kg];B[ji]))\n(;W[hg];B[ii]\n(;W[ji];B[ih])\n(;W[ih];B[ji])\n(;W[kg];B[ji]))\n(;W[ih];B[gh])\n(;W[gj];B[hj]\n(;W[ii];B[gh];W[gg];B[hk];W[hg]C[Nice! White connected!RIGHT])\n(;W[gh];B[ii]\n(;W[ih];B[ji];W[ki];B[fj]TR[kh]TR[kj])\n(;W[ji];B[ih];W[ig];B[fj]TR[hg]TR[jg]))))",
+  "author": {
+    "id": 12035,
+    "name": "whendrik",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2014-02-01",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 717.007
+  },
+  "avgSolveTimeSeconds": 77,
+  "attempts": {
+    "solved": 1438,
+    "failed": 2158,
+    "tries": 3596,
+    "speedSolved": 1,
+    "speedPlay": 8
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-01-19T12:11:44+00:00",
+  "source": "Game on KGS",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

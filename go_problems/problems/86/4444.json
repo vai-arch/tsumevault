@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4444,
+  "elo": 1256.0647929104,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -2,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "The Japanese rules used to have a special rule that 'bent four in the corner' was dead. This rule was eventually changed, but bent four in the corner is still unconditionally dead in Japanese Rules.\r\n\r\nThis game was played under Ing Rules, which do not ensure that bent four in the corner is dead. In many situations it must be played out. Even after the game 'stops' in Ing Rules, the ko rules are the same, unlike Japanese Rules, so bent four in the corner can, in some cases, live.\r\n\r\nThe marked shape is bent four in the corner. There is no komi. Ing Rules use area scoring. Play and win. Don't make unnecessary moves, e.g. inside your own territory, even though you can.",
+  "rating": {
+    "stars": 2.7,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[NZ]SZ[13]KM[0.00]\r\nPW[White]PB[Black]AW[ha][ia][ja][cb][db][eb][fb][jb][kb][lb][cc][ec][fc][ic][mc][id][ld][md][ae][be][ce][ie][je][ke][le][cf][df][lf][cg][lg][mg][ah][bh][eh][ih][kh][lh][bi][hi][ii][ji][ki][aj][cj][fj][gj][hj][jj][bk][ck][dk][ek][fk][gk][jk][fl][hl][ml][em][gm][hm][im][lm]AB[ba][ca][da][ea][fa][ga][ab][bb][gb][hb][ib][dc][gc][hc][jc][kc][lc][ad][bd][cd][dd][fd][hd][kd][de][fe][he][ef][ff][if][jf][kf][ag][bg][dg][eg][fg][gg][hg][ig][jg][kg][ch][dh][fh][hh][jh][mh][ci][di][fi][gi][li][mi][dj][ej][ij][kj][lj][mj][hk][ik][kk][lk][il][jl][kl][ll][jm]SQ[mh][li][mi][ij][kj][lj][mj][hk][ik][kk][lk][il][jl][kl][ll][jm]TW[ka][la][ma][mb][jc][kc][lc][jd][kd][me][mf][ai][bj][ak][al][bl][cl][dl][el][gl][am][bm][cm][dm][fm][mm]TB[aa][cb][db][eb][fb][ac][bc][cc][ec][fc][ed][gd][ee][ge][gf][hf][gh]PL[W]\r\n(;W[mm]CR[mm]\r\n;B[am]CR[am]\r\n(;W[mk]CR[mk]\r\n;B[km]CR[km]\r\n(;W[ml]CR[ml]\r\n;B[mm]CR[mm]\r\n;W[lm]CR[lm]\r\n;B[bf]CR[bf]\r\n(;W[mm]CR[mm]\r\n;B[af]CR[af]C[RIGHTThe seki is worth less than the bent four, so you ignored the threat. White wins by 17 points.])\r\n(;W[mk]CR[mk]\r\n;B[af]CR[af]C[RIGHTThe seki is worth less than the bent four, so you ignored the threat. White wins by 17 points.]))\r\n(;W[bf]CR[bf]\r\n;B[ml]CR[ml]\r\n;W[af]CR[af]C[The seki is worth less than the bent four, so black ignores the threat and lives, winning by five points.])\r\n(;W[af]CR[af]\r\n;B[ml]CR[ml]\r\n;W[bf]CR[bf]C[The seki is worth less than the bent four, so black ignores the threat and lives, winning by five points.]))\r\n(;W[km]CR[km]\r\n;B[mk]CR[mk]\r\n(;W[lm]CR[lm]\r\n;B[mm]CR[mm]\r\n;W[ml]CR[ml]\r\n;B[bf]CR[bf]\r\n(;W[km]CR[km]\r\n;B[af]CR[af]C[RIGHTThe seki is worth less than the bent four, so you ignored the threat. White wins by 17 points.])\r\n(;W[mm]CR[mm]\r\n;B[af]CR[af]C[RIGHTThe seki is worth less than the bent four, so you ignored the threat. White wins by 17 points.]))\r\n(;W[bf]CR[bf]\r\n;B[lm]CR[lm]\r\n;W[af]CR[af]C[The seki is worth less than the bent four, so black ignores the threat and lives, winning by five points.])\r\n(;W[af]CR[af]\r\n;B[lm]CR[lm]\r\n;W[bf]CR[bf]C[The seki is worth less than the bent four, so black ignores the threat and lives, winning by five points.]))\r\n(;W[bf]CR[bf]\r\n;B[af]CR[af]\r\n(;W[mk]CR[mk]\r\n;B[km]CR[km]\r\n;W[ml]CR[ml]\r\n;B[mm]CR[mm]\r\n;W[lm]CR[lm]C[RIGHTThe seki is worth less than the bent four, and after it is gone there is no ko threat.])\r\n(;W[km]CR[km]\r\n;B[mk]CR[mk]\r\n;W[lm]CR[lm]\r\n;B[mm]CR[mm]\r\n;W[ml]CR[ml]C[RIGHTThe seki is worth less than the bent four, and after it is gone there is no ko threat.]))\r\n(;W[af]CR[af]\r\n;B[bf]CR[bf]\r\n(;W[mk]CR[mk]\r\n;B[km]CR[km]\r\n;W[ml]CR[ml]\r\n;B[mm]CR[mm]\r\n;W[lm]CR[lm]C[RIGHTThe seki is worth less than the bent four, and after it is gone there is no ko threat.])\r\n(;W[km]CR[km]\r\n;B[mk]CR[mk]\r\n;W[lm]CR[lm]\r\n;B[mm]CR[mm]\r\n;W[ml]CR[ml]C[RIGHTThe seki is worth less than the bent four, and after it is gone there is no ko threat.])))\r\n(;W[bf]CR[bf]\r\n;B[af]CR[af]\r\n;W[mm]CR[mm]\r\n;B[am]CR[am]\r\n(;W[mk]CR[mk]\r\n;B[km]CR[km]\r\n;W[ml]CR[ml]\r\n;B[mm]CR[mm]\r\n;W[lm]CR[lm]C[RIGHTThe seki is worth less than the bent four, and after it is gone there is no ko threat.])\r\n(;W[km]CR[km]\r\n;B[mk]CR[mk]\r\n;W[lm]CR[lm]\r\n;B[mm]CR[mm]\r\n;W[ml]CR[ml]C[RIGHTThe seki is worth less than the bent four, and after it is gone there is no ko threat.]))\r\n(;W[af]CR[af]\r\n;B[bf]CR[bf]\r\n;W[mm]CR[mm]\r\n;B[am]CR[am]\r\n(;W[mk]CR[mk]\r\n;B[km]CR[km]\r\n;W[ml]CR[ml]\r\n;B[mm]CR[mm]\r\n;W[lm]CR[lm]C[RIGHTThe seki is worth less than the bent four, and after it is gone there is no ko threat.])\r\n(;W[km]CR[km]\r\n;B[mk]CR[mk]\r\n;W[lm]CR[lm]\r\n;B[mm]CR[mm]\r\n;W[ml]CR[ml]C[RIGHTThe seki is worth less than the bent four, and after it is gone there is no ko threat.])))",
+  "author": {
+    "id": 5912,
+    "name": "ellbur",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-05-28",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 86,
+  "attempts": {
+    "solved": 2238,
+    "failed": 3183,
+    "tries": 5421,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-05-10T12:50:39+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 72,
+      "name": "Rule Set Dependent",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 86,
+      "name": "13*13 Games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

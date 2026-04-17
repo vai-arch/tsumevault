@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21259,
+  "elo": 1913.8815777255,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 2.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]SZ[9]C[Black to play the only killing move.\r\n\r\nI constructed this problem myself. It has a fairly simple, but a bit counter intuitive solution, which is probably why it has such a high rank.]\r\n\r\n  AB[ba][eb][gb][gc][ad][dd][ed][fd][ae][be][ce]\r\n  AW[bb][fb][bc][dc][ec][fc][bd]\r\n  (;B[db];W[fa];B[cc];W[cb];B[cd];W[da];B[ab];W[ea];B[ac]C[RIGHT])\r\n  (;B[fa];W[db];B[cc];W[da];B[ab];W[cb];B[ac];W[cd];B[ga];W[ea])\r\n  (;B[ea];W[fa];B[cc];W[cb];B[ga];W[cd])\r\n  (;B[ab];W[ac];B[da];W[cb];B[fa];W[ca])\r\n  (;B[da];W[cb];B[fa];W[ca])\r\n  (;B[ac];W[ab];B[fa];W[db];B[ea];W[ca])\r\n  (;B[cd];W[ea];B[ac];W[db];B[ab];W[ca];B[cc];W[cb])\r\n  (;B[cc];W[db];B[cb];W[cd];B[da];W[ca];B[cb];W[ea]C[White does not need to respond to this.]))",
+  "author": {
+    "id": 74533,
+    "name": "aik",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2018-09-22",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1947.8
+  },
+  "avgSolveTimeSeconds": 90,
+  "attempts": {
+    "solved": 13,
+    "failed": 88,
+    "tries": 101,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-08-01T07:59:47+00:00",
+  "source": "Handcrafted",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6686,
+  "elo": 1309.2170008972,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "The exchange didn't happen in the game.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dd]AB[dc]AB[ch]AB[cg]AB[cf]AB[ce]AB[cc]AB[bg]AB[bd]AB[ai]AB[ah]AB[ag]AB[af]AB[ae]AB[fi]AB[if]AB[ie]AB[ic]AB[he]AB[ge]AB[gd]AB[gb]AB[ga]AB[fe]AB[fc]AB[ef]AB[ed]AB[ec]AB[dg]AB[de]AW[ei]AW[eg]AW[eb]AW[di]AW[dh]AW[db]AW[ci]AW[bi]AW[bh]AW[bc]AW[bb]AW[ad]AW[gf]AW[gg]AW[ha]AW[gc]AW[fh]AW[ff]AW[fb]AW[hb]AW[hc]AW[hd]AW[hf]AW[id]AW[ig]AW[eh]C[White mistakenly answers black F1 with white E2. What can black do?]SZ[9]AW[cb]AB[ca]AW[ac]\n(;B[gi];W[gh]C[Nope, White is safe.])\n(;B[hh];W[gh]C[]\n(;B[hg];W[hi];B[ih]C[Black does capture something but loses the game])\n(;B[ih];W[hg])\n(;B[gi];W[hi]))\n(;B[gh];W[gi]\n(;B[hh]\n(;W[ih];B[hi];W[hg];B[fi]C[Yep! There are no real threats for white so Black kills and wins!RIGHT])\n(;W[hi];B[ih]C[RIGHT]))\n(;B[ih];W[hh]C[This ko is too small to win the game.]))\n(;B[ih];W[hh]C[This ko is too small to win the game.]))",
+  "author": {
+    "id": 10590,
+    "name": "Schizoid",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 3889,
+    "failed": 5326,
+    "tries": 9215,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-12T05:40:29+00:00",
+  "source": "KGS game.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7686,
+  "elo": 2040.0901925095,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Of the four sensible plays, only one is best. In fact, unless ko considerations apply, if it and one of the others are on the same board, choosing it over the other will never be wrong. ",
+  "rating": {
+    "stars": 4,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nFF[1]\r\nGM[1]\r\nSZ[19]\r\nAP[Jago:Version 4.6]\r\nAB[ca][ia][ib][cb][db][eb][fb][gb][hb][jb][ic][jd][id][hd][gd][fd][ed][dd][cd][ie][if][jf][hf][gf][ff][ef][df][cf][lc][mc][me][ra][rb][rc][rd][re][rf][sf]\r\nAW[ba][bb][bc][gc][hc][ge][bd][be][bf][af][ja][ka][kb][kc][jc][kd][ke][je][kf][lf][mf][nf][of][pf][qf][ld][md][nd][od][pd][qd][lb][mb][nb][ob][pb][qb][qa]\r\nC[The rest of the board is jigo. Obviously this is an even position.\r\n\r\nBlack to play. White can make jigo by mirror go, but is required *not* to mirror on the first move only. (E. g., if Black plays at H15 White cannot reply at M15. White can mirror later.) So if Black makes the best move, White cannot make the best response and Black can win by getting the last play.]\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[cc]\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[ce]\r\n(\r\n;\r\nB[oe]\r\n;\r\nW[ne]\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[de]\r\n(\r\n;\r\nB[pc]\r\n;\r\nW[ee]\r\n(\r\n;\r\nB[oc]\r\n;\r\nW[nc]\r\n;\r\nB[fe]\r\n;\r\nW[dc]\r\n;\r\nB[ec]\r\nC[Black wins by 1 point.\r\n\r\nRIGHT]\r\n)\r\n(\r\n;\r\nB[fe]\r\n;\r\nW[dc]\r\nC[White has made a mirror position, and can get jigo by mirror go.]\r\n)\r\n)\r\n(\r\n;\r\nB[ee]\r\nC[The top corridors are miai, so Black can win by 1 point by mirror go.\r\n\r\nRIGHT]\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[ee]\r\n;\r\nB[fe]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[de]\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[ee]\r\n;\r\nB[fe]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[ee]\r\n;\r\nW[qc]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[de]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[qc]\r\nC[Jigo]\r\n)\r\n)\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[de]\r\nC[White has made a mirror position and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[de]\r\n(\r\n;\r\nB[oe]\r\n;\r\nW[ee]\r\n(\r\n;\r\nB[ne]\r\n;\r\nW[fe]\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[fe]\r\n;\r\nW[ne]\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[ee]\r\n;\r\nW[oe]\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[de]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[oe]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[ne]\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[oe]\r\n;\r\nB[pc]\r\n;\r\nW[oc]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[oe]\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n)\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[ce]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[ce]\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[de]\r\n(\r\n;\r\nB[oe]\r\n;\r\nW[ee]\r\n(\r\n;\r\nB[ne]\r\n;\r\nW[fe]\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[fe]\r\n;\r\nW[ne]\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[ee]\r\n;\r\nW[qc]\r\n;\r\nB[oe]\r\n;\r\nW[ne]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[de]\r\n;\r\nW[qc]\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[ce]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[oe]\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[pc]\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[qc]\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n)\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[ce]\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[cc]\r\nC[White has made a mirror position and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[pc]\r\n;\r\nW[de]\r\n(\r\n;\r\nB[oc]\r\n;\r\nW[nc]\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[ee]\r\n;\r\nB[fe]\r\n;\r\nW[cc]\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[oe]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[ne]\r\nC[Jigo.]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[cc]\r\n;\r\nW[ee]\r\n;\r\nB[fe]\r\n;\r\nW[qe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[ee]\r\n;\r\nW[cc]\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[qe]\r\nC[Jigo]\r\n)\r\n)\r\n)\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[ee]\r\n(\r\n;\r\nB[oc]\r\n;\r\nW[nc]\r\n;\r\nB[fe]\r\n;\r\nW[cc]\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[oe]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[ne]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[fe]\r\n;\r\nW[cc]\r\n(\r\n;\r\nB[oc]\r\n;\r\nW[nc]\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[oe]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[ne]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n)\r\n)\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[oc]\r\n;\r\nW[ec]\r\n(\r\n;\r\nB[nc]\r\n;\r\nW[fc]\r\n;\r\nB[oe]\r\n;\r\nW[ne]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[oe]\r\n;\r\nW[ne]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[fc]\r\n;\r\nW[nc]\r\n;\r\nB[oe]\r\n;\r\nW[ne]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[oe]\r\n;\r\nW[ne]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[oc]\r\n;\r\nB[oe]\r\n;\r\nW[ne]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[oc]\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n)\r\n)\r\n(\r\n;\r\nB[cc]\r\n;\r\nW[ee]\r\n(\r\n;\r\nB[oc]\r\n;\r\nW[nc]\r\n;\r\nB[fe]\r\n;\r\nW[qe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[fe]\r\n;\r\nW[oc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[ee]\r\n;\r\nW[cc]\r\n(\r\n;\r\nB[oc]\r\n;\r\nW[nc]\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[qe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[oc]\r\n;\r\nW[ec]\r\n(\r\n;\r\nB[nc]\r\n;\r\nW[fc]\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[fc]\r\n;\r\nW[nc]\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[oc]\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[oc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n)\r\n(\r\n;\r\nB[cc]\r\n;\r\nW[de]\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[ee]\r\n;\r\nB[fe]\r\n;\r\nW[pc]\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[pc]\r\n;\r\nW[ee]\r\n(\r\n;\r\nB[oc]\r\n;\r\nW[nc]\r\n;\r\nB[fe]\r\n;\r\nW[qe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[fe]\r\n;\r\nW[oc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[ee]\r\n;\r\nW[pc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[de]\r\n;\r\nW[cc]\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[White has made a mirror position and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[pc]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[oc]\r\n;\r\nW[ec]\r\n(\r\n;\r\nB[nc]\r\n;\r\nW[fc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[fc]\r\n;\r\nW[nc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[JIgo]\r\n)\r\n)\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[White has made a mirror position, and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[oc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[pc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n)\r\n(\r\n;\r\nB[cc]\r\n;\r\nW[ce]\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[qc]\r\nC[White has made a mirror position and can get jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[de]\r\n(\r\n;\r\nB[pc]\r\n;\r\nW[ee]\r\n(\r\n;\r\nB[oc]\r\n;\r\nW[nc]\r\n;\r\nB[fe]\r\n;\r\nW[qe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[fe]\r\n;\r\nW[oc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[ee]\r\n;\r\nB[fe]\r\n;\r\nW[pc]\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[ee]\r\n;\r\nW[pc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[de]\r\n;\r\nW[qc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[ce]\r\n;\r\nW[cc]\r\n(\r\n;\r\nB[qe]\r\n;\r\nW[dc]\r\n(\r\n;\r\nB[pe]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[oe]\r\n;\r\nB[qc]\r\n;\r\nW[pc]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[ec]\r\n;\r\nB[fc]\r\n;\r\nW[pc]\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n(\r\n;\r\nB[ec]\r\n;\r\nW[qc]\r\n;\r\nB[pe]\r\n;\r\nW[oe]\r\nC[Jigo]\r\n)\r\n)\r\n(\r\n;\r\nB[qc]\r\n;\r\nW[qe]\r\nC[White has made a mirror position and can make jigo by mirror go.]\r\n)\r\n(\r\n;\r\nB[dc]\r\n;\r\nW[qc]\r\n;\r\nB[qe]\r\n;\r\nW[pe]\r\nC[Jigo]\r\n)\r\n)\r\n)",
+  "author": {
+    "id": 105129,
+    "name": "system",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-03-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 52,
+  "attempts": {
+    "solved": 183,
+    "failed": 1342,
+    "tries": 1525,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-11-19T19:32:27+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 39,
+      "name": "CGT",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

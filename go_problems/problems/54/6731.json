@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6731,
+  "elo": 1594.4383486514,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -3,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This problem is from a game between K.Kobayashi(black) and Rin Kaiho",
+  "rating": {
+    "stars": 3,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bb]AB[cc]AB[cd]AB[dd]AB[de]AB[cf]AB[ef]AW[ba]AW[cb]AW[da]AW[dc]AW[ec]AW[eb]AW[ed]AW[ee]AW[fe]AB[gd]AW[cp]AW[dp]AW[fp]AW[jq]AW[kq]AW[lr]AB[lq]AB[mr]AB[nr]AB[mp]AB[np]AB[op]AB[oq]AB[pq]AW[oo]AW[qo]AW[qm]AW[rq]AB[qk]AB[ok]AW[qb]AW[pb]AW[qc]AW[rd]AB[rf]AB[pf]AB[pd]AB[pc]AB[ob]AB[kd]LB[ic:a]LB[bh:b]AB[bo]AB[cl]C[Black to play : a or b Please consider the whole board situation]AW[dh]AP[goproblems]\n(;B[bh]C[Connecting your groups is very important and the white invasion at J17 is not a good move. (see variations)RIGHT]\n(;W[ic]C[Correct ! Connecting your groups is the biggest move available. Lets see why White J17 is not dangerous at all... (see variations for White playing J16)];B[id];W[jc];B[jd];W[hc];B[kc]C[blacks thickness works fine and white has gained almost nothingRIGHT])\n(;W[id];B[ic];W[hc];B[jc];W[hd]C[black has sente and gained more than white]))\n(;B[ic];W[bh]C[Allowing white to play here splits your groups apart. The big white group on top is in no real trouble and J17 is too small from territorial point of view.FORCE]))",
+  "author": {
+    "id": 8645,
+    "name": "tom111",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1402.59
+  },
+  "avgSolveTimeSeconds": 26,
+  "attempts": {
+    "solved": 4765,
+    "failed": 4217,
+    "tries": 8982,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-19T10:48:23+00:00",
+  "source": "Attack & Defense (Ishida Davies)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 54,
+      "name": "Pro Game",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

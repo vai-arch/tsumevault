@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3276,
+  "elo": 1124.5840495922,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "White to kill",
+  "rating": {
+    "stars": 3.8,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[bc]AW[cb]AW[db]AW[da]AW[bd]AW[be]AW[cf]AW[df]AW[ef]AW[ff]AW[ge]AW[ec]AW[ed]AW[gc]AW[hc]AW[ic]AW[jc]AW[jb]AW[ja]AB[dc]AB[ce]AB[de]AB[ee]AB[fe]AB[fd]AB[fc]AB[eb]AB[ea]AB[gb]AB[ib]AB[ia]SZ[19]C[White to kill]\n(;W[ga]\n(;B[dd]\n(;W[hb];B[fa]\n(;W[ha]C[RIGHT])\n(;W[fb];B[if]C[If Black plays a ko threat somewhere else, will you answer it or kill the group? Suppose answering Black's threat is smaller than the group but bigger than just taking sente. Play A (K14) if you want to answer the threat.]\n(;W[jf];B[gb]C[Play T (J15) if you need a ko threat.]LB[ie:T]\n(;W[ha]C[You don't need a threat! The ko was not real.RIGHT])\n(;W[ie];B[ha]MA[fb]MA[ec]MA[ed]C[Black has 2 eyes. Black will recapture G19 if you play there. You did not need a threat to kill, that's the worst part of it.])\n(;W[ec];B[ha]C[Black lives and will retake G19 if you play there.]))\n(;W[ec]C[You wasted a move on a group that was already dead, giving Black a followup on the threat for free.])\n(;W[gb]C[It was already dead. Now Black will follow up on the threat for free.])\n(;W[ha]C[It was already dead. Now Black will follow up on the threat for free.]))\n(;W[ec];B[ha]C[Black lives and will retake G19 if you play there.]))\n(;W[ha];B[fa]\n(;W[hb]C[RIGHT])\n(;W[ec];B[hb]))\n(;W[fa];B[hb])\n(;W[fb];B[fa]\n(;W[hb];B[ha];W[ga];B[ha])\n(;W[ec];B[ha];W[hb];B[ed]C[Black lives and will retake G19 if you play there.]))\n(;W[ec]\n(;B[hb];W[fb]\n(;B[ed];W[ha]C[RIGHT])\n(;B[fa];W[fb]C[RIGHT]))\n(;B[ed];W[hb]C[RIGHT])))\n(;B[hb];W[fb]\n(;B[fa];W[fb]C[RIGHT])\n(;B[dd];W[ha]C[RIGHT])))\n(;W[dd];B[cd])\n(;W[hb];B[ga];W[fb];B[dd]\n(;W[ha];B[fa])\n(;W[ec];B[fa]))\n(;W[ha];B[hb])\n(;W[fa];B[fb]\n(;W[hb];B[ga])\n(;W[ga];B[hb]))\n(;W[fb];B[fa]\n(;W[hb];B[ga])\n(;W[ga];B[ha];W[hb];B[dd];W[ga];B[ha])))",
+  "author": {
+    "id": 5185,
+    "name": "polo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-09-05",
+    "rank": {
+      "value": 13,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 13,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1186.74
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 4837,
+    "failed": 7619,
+    "tries": 12456,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-11-03T17:05:23+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

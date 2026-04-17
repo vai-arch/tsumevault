@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12179,
+  "elo": 1283.0336111238,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 14,
+    "negativeFlagSum": 0,
+    "flagSum": 14
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "A position that arose on a game on KGS that I played. It has been modified to make a better, clearer problem.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 46,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pp]AB[np]AB[no]AB[pq]AB[po]AW[oq]AW[nq]AW[mp]AW[lq]AW[nn]AW[on]AB[qm]AB[ql]AW[nm]AW[jp]C[White to connect the two groups. If this is not possible, play T for tenuki.]AW[jq]AB[qn]AW[pn]AB[om]AB[pm]AB[nl]AB[nk]LB[hp:T]AB[mk]AB[kk]AB[jl]AB[im]AB[in]AP[goproblems]\n(;W[ln];B[mo]\n(;W[lo];B[mn]\n(;W[mm];B[lm])\n(;W[lm];B[mm]))\n(;W[mn];B[lo]\n(;W[ko];B[kn])\n(;W[kn];B[ko]\n(;W[jo];B[jn])\n(;W[jn];B[jo]C[]))\n(;W[jn];B[ko]\n(;W[jo];B[kn])\n(;W[kn];B[jo])))\n(;W[km];B[lo];W[ko]C[RIGHT])\n(;W[lm];B[lo]\n(;W[ko];B[kn])\n(;W[jn];B[ko]\n(;W[jo];B[kn])\n(;W[kn];B[jo])))\n(;W[kn];B[mn];W[mm];B[lm]))\n(;W[mo];B[mn]\n(;W[ln];B[mm])\n(;W[mm];B[ln]\n(;W[km];B[lm];W[ll];B[ml])\n(;W[lm];B[kn]C[White is separated and in trouble.]))\n(;W[lm];B[mm]))\n(;W[lo];B[mn])\n(;W[mn];B[mo]\n(;W[lo];B[ln])\n(;W[ln];B[lo]\n(;W[ko];B[kn])\n(;W[kn];B[ko]\n(;W[jo];B[jn])\n(;W[jn];B[jo]C[]))\n(;W[jn];B[ko]\n(;W[jo];B[kn])\n(;W[kn];B[jo]))))\n(;W[hp]C[No, it is possible to connect the two groups.])\n(;W[lm];B[mo]\n(;W[lo];B[mn]\n(;W[mm];B[ln])\n(;W[ln];B[mm]))\n(;W[ln];B[lo]\n(;W[ko];B[kn])\n(;W[jn];B[ko]\n(;W[jo];B[kn])\n(;W[kn];B[jo])))\n(;W[mn];B[lo]))\n(;W[kn];B[mo]\n(;W[mn];B[lo]\n(;W[ln];B[ko]\n(;W[jo];B[jn])\n(;W[jn];B[jo]C[]))\n(;W[ko];B[ln];W[lm];B[km]))\n(;W[lo];B[mn];W[mm];B[lm])\n(;W[ln];B[mn];W[mm];B[lm])\n(;W[km];B[mn];W[mm];B[ln];W[lm];B[ko])\n(;W[lm];B[ko]\n(;W[jo];B[jn];W[lo];B[mn];W[mm];B[ln]\n(;W[km];B[lp])\n(;W[kp];B[km]))\n(;W[lo];B[mn];W[mm];B[ln])\n(;W[jn];B[jo];W[lo];B[mn]\n(;W[mm];B[ln])\n(;W[ln];B[mm]))))\n(;W[km];B[mn];W[mm];B[ln]\n(;W[lm];B[kn])\n(;W[kn];B[lm])\n(;W[mo];B[lm];W[ll];B[ml])))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 1614,
+    "failed": 2641,
+    "tries": 4255,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-12-29T08:31:35+00:00",
+  "source": "Modified from a game on KGS",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

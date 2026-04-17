@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16562,
+  "elo": 1794.2719733178,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Initially I tried to make a life&death problem but anyway, i think this one is quite interesting too, tell me if you see other variation/solution etc please :)",
+  "rating": {
+    "stars": 4,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[bb]AW[cc]AW[db]AB[bc]AB[bd]AB[ce]AB[dd]AB[dc]AB[fd]AW[eb]AW[de]AW[cf]AW[df]AW[bf]C[White to save his corner]AW[fe]AW[fg]AW[ge]AB[gb]AB[gd]AW[ae]AB[hc]AW[hd]AW[he]AB[ic]AB[fb]AW[fc]AB[gc]AP[goproblems]\n(;W[ac];B[ad]\n(;W[be];B[cd]\n(;W[ed];B[cb]\n(;W[ec];B[ab]C[Not bad but white can do much better])\n(;W[ca];B[ec]C[CHOICE])\n(;W[ab];B[ec]C[CHOICE]))\n(;W[cb];B[ec]\n(;W[ab];B[ea]C[CHOICE])\n(;W[ea];B[ab]C[CHOICE]))\n(;W[ab];B[ec];W[cb];B[ea]C[CHOICE])\n(;W[ca];B[ec];W[ab];B[ea]C[CHOICE])\n(;W[ec];B[ed]C[white is totally dead hereCHOICE]))\n(;W[ed];B[cd]\n(;W[cb];B[ec]C[White is all dead here.CHOICE])\n(;W[ec]C[RIGHT];B[cb];W[ca];B[ba]\n(;W[aa];B[ab];W[cc]C[Good, ko to kill black in white favor :)RIGHT])\n(;W[cc]C[Good, ko to kill black  in white favor :)RIGHT])))\n(;W[cb];B[cd]\n(;W[ed];B[ec]C[CHOICE])\n(;W[ec];B[ed]C[CHOICE];W[ab];B[ea]C[CHOICE]))\n(;W[ec];B[ed]C[CHOICE]\n(;W[be];B[cd]C[CHOICE])\n(;W[cb];B[cd]C[CHOICE])\n(;W[ea];B[cd]C[CHOICE])))\n(;W[cb];B[cd]\n(;W[ac];B[ad]\n(;W[ed];B[ec]C[CHOICE])\n(;W[ec];B[ed]C[CHOICE];W[ab];B[ea]C[CHOICE])\n(;W[ab];B[ea]C[CHOICE])\n(;W[ea];B[ab]C[CHOICE]))\n(;W[ad];B[ac]\n(;W[ab];B[ea]C[CHOICE])\n(;W[ea];B[ab]C[CHOICE])\n(;W[ed];B[ec]C[CHOICE]))\n(;W[ec];B[ed];W[ac];B[ad];W[ab];B[ea]C[CHOICE])\n(;W[ed];B[ec]\n(;W[ac];B[ad])\n(;W[ab];B[ea]C[CHOICE];W[ac];B[ad])\n(;W[ba];B[ab]C[CHOICE]))\n(;W[ab];B[ea]\n(;W[ec];B[ed]C[CHOICE])\n(;W[ac];B[ad]C[CHOICE])))\n(;W[ab];B[cd]\n(;W[ca];B[ea]C[CHOICE])\n(;W[ac];B[ad]\n(;W[ed];B[ec]C[CHOICE])\n(;W[ec];B[ed]C[CHOICE])\n(;W[ca];B[ea]C[CHOICE])\n(;W[cb];B[ea]C[CHOICE]))\n(;W[cb];B[ea]\n(;W[ec];B[ed]C[CHOICE])\n(;W[ac];B[ad]C[CHOICE]))\n(;W[ba];B[cb]C[CHOICE])\n(;W[ea];B[cb]C[CHOICE]))\n(;W[ec];B[ed]\n(;W[ac];B[ad]\n(;W[be];B[cd]C[CHOICE])\n(;W[cb];B[cd]C[CHOICE];W[ab];B[ea]C[CHOICE])\n(;W[ea];B[cd]C[CHOICE]))\n(;W[cb];B[cd]C[CHOICE];W[ac];B[ad])\n(;W[ab];B[cd]\n(;W[ac];B[ad]C[CHOICE])\n(;W[cb];B[ea]C[CHOICE]))\n(;W[be];B[cd]C[CHOICE]))\n(;W[ca];B[ab]C[CHOICE])\n(;W[ba];B[ab]C[CHOICE])\n(;W[be];B[cd]\n(;W[ac];B[ad]\n(;W[ed];B[cb]\n(;W[ec];B[ab]C[Not bad but white can do much better])\n(;W[ca];B[ec]C[CHOICE])\n(;W[ab];B[ec]C[CHOICE]))\n(;W[cb];B[ec]\n(;W[ab];B[ea]C[CHOICE])\n(;W[ea];B[ab]C[CHOICE]))\n(;W[ab];B[ec];W[cb];B[ea]C[CHOICE])\n(;W[ca];B[ec];W[ab];B[ea]C[CHOICE])\n(;W[ec];B[ed]C[white is totally dead hereCHOICE]))\n(;W[ad];B[ac]\n(;W[ab]\n(;B[ec]C[CHOICE])\n(;B[cb]C[CHOICE]))\n(;W[ec];B[ed]C[CHOICE])\n(;W[cb];B[ec]C[CHOICE])))\n(;W[ad];B[ac];W[be];B[cd]\n(;W[ab]\n(;B[ec]C[CHOICE])\n(;B[cb]C[CHOICE]))\n(;W[ec];B[ed]C[CHOICE])\n(;W[cb];B[ec]C[CHOICE]))\n(;W[ed];B[cd]\n(;W[ec];B[cb]\n(;W[ca];B[ab];W[ba]C[RIGHT])\n(;W[ba]C[RIGHT]))\n(;W[ac];B[ad]\n(;W[cb];B[ec]C[White is all dead here.CHOICE])\n(;W[ec]C[RIGHT];B[cb];W[ca];B[ba]\n(;W[aa];B[ab];W[cc]C[Good, ko to kill black in white favor :)RIGHT])\n(;W[cc]C[Good, ko to kill black  in white favor :)RIGHT])))))",
+  "author": {
+    "id": 51641,
+    "name": "nightMoriak",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-25",
+    "rank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1315.35
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 86,
+    "failed": 262,
+    "tries": 348,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-10-27T11:58:13+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

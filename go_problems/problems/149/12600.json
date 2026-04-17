@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12600,
+  "elo": 1966.2809893569,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "! ! Warning ! !\r\nNot only points, but ko threats are important here too.",
+  "rating": {
+    "stars": 2,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[jr]AB[jq]AB[kp]AB[ko]AW[ir]AW[jp]AW[ip]AW[iq]AW[jo]AB[mo]AB[no]AB[oo]AB[pp]AB[qq]AB[qr]AW[po]AW[pn]AW[on]AW[nn]AW[mn]AW[ln]AW[kn]AW[jn]AB[mp]AB[pq]AB[qo]AB[rp]AB[rn]AW[rm]AW[qm]AW[qn]AB[ro]AW[rk]AW[gr]C[Black to play - what will you do in an endgame? Points are the priority, but ko threats are also important. Sente is worth 0,5 pts (the ko)]AP[goproblems]\r\n(;B[sm];W[sl];B[sn];W[js];B[kr];W[ks];B[ls];W[is];B[lr];W[lo];B[lp])\r\n(;B[kq];W[js];B[ks];W[is];B[sm];W[sl];B[sn];W[lo];B[lp]LB[kr:A]LB[ls:B]C[A bit suboptimal - white will have two threats at A and B])\r\n(;B[lq];W[js];B[ks];W[is];B[kr];W[lo]\r\n(;B[lp];W[sn];B[so];W[sm])\r\n(;B[sm];W[sl];B[sn];W[lp];B[mq];W[kq];B[kp]))\r\n(;B[kr];W[lo];B[lp];W[js];B[ks];W[is];B[sm];W[sl];B[sn]LB[kq:A]C[Good, white has only one threat at A and you can atari at S8RIGHT])\r\n(;B[lr];W[lo];B[lp];W[js];B[ks];W[is];B[sm];W[sl];B[sn]C[White has two threats - a little suboptimal!])\r\n(;B[js];W[kq];B[kr];W[is];B[lq];W[lo];B[sm];W[sl];B[sn];W[lp]\r\n(;B[kq];W[mq];B[mr];W[nq];B[op];W[ls])\r\n(;B[mq];W[kq];B[kp]))\r\n(;B[ks];W[lo];B[lp];W[sn];B[so];W[sm];B[is];W[hs];B[js]C[white has 3 threats, not optimal..])\r\n(;B[lo];W[js];B[kr];W[ks];B[ls];W[is];B[lr];W[sn];B[so];W[sm]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 78,
+    "failed": 274,
+    "tries": 352,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-04-23T04:23:29+00:00",
+  "source": "School",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

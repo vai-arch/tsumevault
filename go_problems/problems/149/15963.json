@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15963,
+  "elo": 1708.420740308,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -5,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem was deleted when I put it up, due to concerns about the bulky five shape. White can still make life in the corner, if he plays correctly.",
+  "rating": {
+    "stars": 2.4,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dp]AB[lp]AB[mq]AB[nq]AB[mr]AB[ls]AW[lr]AW[kr]AW[jr]AW[js]AW[lq]AW[lo]AW[ko]AW[jo]AW[iq]AW[jq]AB[hq]AB[hr]AB[ir]AB[is]AW[hp]AW[io]AB[op]AB[no]AB[mo]AB[ln]AB[kn]AB[jn]AB[in]AB[ho]AB[gp]AB[go]AW[gq]AB[fq]C[Black has put white's base in trouble. Save the group!]AW[bq]AP[goproblems]\n(;W[ip];B[kp];W[gr]\n(;B[gs]C[CHOICE]\n(;W[fr];B[er];W[hs]C[White lives :)RIGHT])\n(;W[hs];B[hr]\n(;W[fs];B[fr]C[Correct. :)RIGHT])\n(;W[is];B[fr];W[fs];B[hq];W[gs];B[er]C[Oh no! White only has one eye. :(])\n(;W[ir];B[fr]\n(;W[hq]C[Two eyes!RIGHT])\n(;W[fs]C[White lives.RIGHT]))\n(;W[fr]C[White escapes to the side! Thanks to MeleeNewb for catching this one. :)RIGHT])))\n(;B[hs]C[CHOICE];W[fr]\n(;B[er]C[CHOICE];W[gs];B[hr];W[eq]\n(;B[dq]C[CHOICE];W[fp];B[ep];W[fq]\n(;B[dr]C[CHOICE];W[fo];B[fn];W[en]C[White escapes.RIGHT])\n(;B[fo]C[CHOICE];W[dr]C[White makes a second eye.RIGHT]))\n(;B[fp]C[CHOICE];W[dr]C[White makes a second eye.RIGHT])\n(;B[dr]C[CHOICE];W[fp]\n(;B[fo]C[];W[dq];B[ep]C[CHOICE]\n(;W[cq]C[RIGHT])\n(;W[cr]C[RIGHT]))\n(;B[dq]C[CHOICE];W[fo]\n(;B[ep]C[CHOICE];W[fq];B[fn];W[en]C[White escapes.RIGHT])\n(;B[fn]C[CHOICE];W[en]C[White escapes.RIGHT]))\n(;B[ep]C[CHOICE];W[fo];B[dq];W[fq];B[fn];W[en]C[White escapes.RIGHT])))\n(;B[eq]C[CHOICE];W[er];B[dr]\n(;W[es];B[ds];W[gs]C[RIGHT])\n(;W[gs]C[Correct. :)RIGHT]))))\n(;W[gr];B[ip]C[Dead :(])\n(;W[kp];B[ip]C[Nope.])\n(;W[jp];B[ip]C[Not quite.]))",
+  "author": {
+    "id": 51992,
+    "name": "pitchflare",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-01-14",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 321,
+    "failed": 373,
+    "tries": 694,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-04-10T12:10:47+00:00",
+  "source": "Own time",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 44,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

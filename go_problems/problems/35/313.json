@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 313,
+  "elo": 866.99627244096,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Initially having seen this in a book, I was reminded of it by problem 312 (Weak shoulders)\nSurprisingly enough, black often thinks he's unconditionally alive.",
+  "rating": {
+    "stars": 4,
+    "votes": 43,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cc]AB[bd]AB[db]AB[bb]AB[ad]AB[da]AW[dc]AW[ec]AW[eb]AW[cd]AW[ce]AW[be]AW[ea]AW[ae]C[White to kill.]\n(;W[ab];B[bc]\n(;W[ba];B[cb]C[Indeed - this black shape is dead. If there are big kos on the board, black can use the approach moves (A17/C19) as ko threats.RIGHT])\n(;W[ca];B[cb];W[ba];B[aa];W[ba]C[Indeed - this black shape is dead.If there are big kos on the board, black can use the approach moves (A17/C19) as ko threats.RIGHT]))\n(;W[aa];B[ba]\n(;W[ac];B[bc])\n(;W[ab];B[ac]))\n(;W[ca];B[cb]\n(;W[ac];B[bc]\n(;W[ab];B[aa])\n(;W[aa];B[ba])\n(;W[ba];B[aa]))\n(;W[ab];B[bc];W[ba];B[aa];W[ba]C[Indeed - this black shape is dead.If there are big kos on the board, black can use the approach moves (A17/C19) as ko threats.RIGHT]))\n(;W[ba];B[cb]\n(;W[ab];B[bc]C[Indeed - this black shape is dead.If there are big kos on the board, black can use the approach moves (A17/C19) as ko threats.RIGHT])\n(;W[ac];B[bc];W[ab];B[aa];W[ab]C[Indeed - this black shape is dead.If there are big kos on the board, black can use the approach moves (A17/C19) as ko threats.RIGHT]))\n(;W[ac];B[bc]\n(;W[ba];B[cb];W[ab];B[aa];W[ab]C[Indeed - this black shape is dead.If there are big kos on the board, black can use the approach moves (A17/C19) as ko threats.RIGHT])\n(;W[ca];B[cb]\n(;W[ba];B[aa])\n(;W[ab];B[aa])\n(;W[aa];B[ba]))))",
+  "author": {
+    "id": 14,
+    "name": "morten",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-06-28",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1407.22
+  },
+  "avgSolveTimeSeconds": 23,
+  "attempts": {
+    "solved": 24747,
+    "failed": 14854,
+    "tries": 39601,
+    "speedSolved": 31,
+    "speedPlay": 54
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2000-12-14T04:08:50+00:00",
+  "source": "Classic Problem",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 35,
+      "name": "Symmetrical",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 32,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

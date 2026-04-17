@@ -1,0 +1,108 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22517,
+  "elo": 1927.9802196239,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Please flag or comment if there is a mistake. Thanks to jmdingess for a correction!",
+  "rating": null,
+  "sgf": "(\r\n;\r\n\r\nSZ [5]\r\n\r\nAB [cd]\r\n\r\nC [Chinese rules. Komi is 3 points. White to play the best sequence.]\r\n\r\n(; W [cc]; B [dc] (; W [dd]; B [de] (; W [bd]; B [ed] (; W [cb]; B [be] (; W [ad]; B [db] (; W [ca]; B [ab] (; W [bb] C [RIGHT][Multiple continuations from here result in jigo, best for both. See continuation in solution tree.])(; W [da]; B [bb]))(; W [da]; B [ab] (; W [bb]; B [ac])(; W [ca]; B [bb])(; W [ba]; B [bb])))(; W [ac]; B [db] (; W [ca]; B [bb])(; W [bb]; B [da] C [White lives but loses in points. See continuation for details.]))(; W [db]; B [bc]))(; W [bc]; B [cb])(; W [bb]; B [cb])(; W [db]; B [cb]))(; W [ed]; B [bd] (; W [db]; B [cb] (; W [bc]; B [bb] (; W [ac]; B [ad]; W [ec]; B [ab]; W [dc]; B [da] C [White loses. See continuation in solution tree.])(; W [ec]; B [ac]))(; W [ec]; B [bc]))(; W [cb]; B [ec])))(; W [cb] (; B [bd] C [Black wins. See continuation in solution tree.])(; B [bc] C [B3 is a mistake. Thanks to jmdingess for pointing this out!]))(; W [bc] (; B [db] C [Black wins. See continuation in solution tree.])(; B [cb] C [C4 is a mistake. Thanks to jmdingess for pointing this out!])))\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 13,
+  "attempts": {
+    "solved": 3,
+    "failed": 45,
+    "tries": 48,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-06-02T20:48:28+00:00",
+  "source": "http://erikvanderwerf.tengen.nl/5x5/5x5solved.html",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 8,
+      "name": "5x5 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

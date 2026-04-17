@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16925,
+  "elo": 895.78241375391,
+  "problemLevel": 6,
+  "rank": {
+    "value": 24,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": 0,
+    "flagSum": 10
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Weekly Go problems Week 65-Easy Go problem",
+  "rating": {
+    "stars": 4.3,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qs]AB[qr]AB[or]AB[pq]AB[op]AB[po]AB[pn]AB[pm]AB[qm]AB[rm]AB[sm]AB[rp]AW[rr]AW[rs]AW[pp]AW[qp]AW[qo]AW[qn]AW[rn]AW[sn]AW[so]AW[sp]AW[sq]LB[rq:a]LB[qq:b]LB[sr:c]LB[ss:d]C[Black to kill.]AP[goproblems]\r\n(;B[rq];W[qq]\r\n(;B[sr];W[ro];B[rq]C[Correct. The white stones is dead. (marked D)RIGHT]LB[rs:D]LB[rr:D]LB[qq:D]LB[pp:D]LB[qp:D]LB[qo:D]LB[qn:D]LB[rn:D]LB[ro:D]LB[sn:D]LB[so:D]LB[sp:D]LB[sq:D])\r\n(;B[ss];W[sr]C[Wrong. The white stones is unconditionally alive. (marked E)]LB[rs:E]LB[rr:E]LB[sr:E]LB[qq:E]LB[pp:E]LB[qp:E]LB[qo:E]LB[qn:E]LB[rn:E]LB[sn:E]LB[so:E]LB[sp:E]LB[sq:E]))\r\n(;B[qq];W[rq]LB[rs:E]LB[rr:E]LB[rq:E]LB[qp:E]LB[pp:E]LB[qo:E]LB[qn:E]LB[rn:E]LB[sn:E]LB[so:E]LB[sp:E]LB[sq:E]C[Wrong. The white stones is unconditionally alive. (marked E)])\r\n(;B[sr];W[rq]LB[rs:E]LB[rr:E]LB[rq:E]LB[sq:E]LB[qp:E]LB[pp:E]LB[qo:E]LB[qn:E]LB[rn:E]LB[sn:E]LB[so:E]LB[sp:E]C[Wrong. The white stones is unconditionally alive. (marked E)])\r\n(;B[ss];W[qq];B[rq];W[sr]LB[rs:E]LB[rr:E]LB[sr:E]LB[qq:E]LB[pp:E]LB[qp:E]LB[qo:E]LB[qn:E]LB[rn:E]LB[sn:E]LB[so:E]LB[sp:E]LB[sq:E]C[Wrong. The white stones is unconditionally alive. (marked E)]))",
+  "author": {
+    "id": 59161,
+    "name": "1234boys",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-10-13",
+    "rank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1373.95
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 5061,
+    "failed": 4361,
+    "tries": 9422,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-12-28T19:46:05+00:00",
+  "source": "Weekly Go problems Week 65",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

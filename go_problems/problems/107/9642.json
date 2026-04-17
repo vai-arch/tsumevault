@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9642,
+  "elo": 1507.3584372327,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 2.3,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ra]AW[sb]AB[qa]AB[qb]AB[qc]AB[pc]AB[rc]AB[sc]AB[qd]AW[pb]AW[oc]AW[pd]AW[qe]AB[re]AB[se]AW[rf]AW[sf]AW[ob]AW[nc]AW[pf]C[White to get the optimal result. Play at T (O14) if you want to Tenuki.]LB[nf:T]AP[goproblems]\r\n(;W[rd];B[sd];W[pa]C[Seki, but one point worse than the right answer. You did not need to sacrifice that stone.])\r\n(;W[pa];B[nf]C[Black tenukies! If you think White does wise to play a move here just play it. Otherwise play at N for No (O16).FORCE]LB[nd:N]\r\n(;W[nd]C[];B[rb]C[If  Black does not play here until the game ends then it would be counted as seki. But Black decides to play here anyway.]\r\n(;W[rd];B[sa];W[sd]C[Both sides have 4 points, cancelling each other out. So the result is the same as it would have been if it had remained a seki.RIGHT])\r\n(;W[sd];B[sa];W[rd]C[Both sides have 4 points, cancelling each other out. So the result is the same as it would have been if it had remained a seki.RIGHT]))\r\n(;W[rd];B[sd]C[Seki, but one point worse than the right answer. You did not need to sacrifice that stone.])\r\n(;W[sd];B[rd]C[Seki, but one point worse than the right answer. You did not need to sacrifice that stone.]))\r\n(;W[nf];B[rb])\r\n(;W[sd];B[rd];W[pa]C[Seki, but one point worse than the right answer. You did not need to sacrifice that stone.]))",
+  "author": {
+    "id": 15730,
+    "name": "Drai",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-10-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 682.427
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 684,
+    "failed": 1934,
+    "tries": 2618,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-01-06T09:15:12+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

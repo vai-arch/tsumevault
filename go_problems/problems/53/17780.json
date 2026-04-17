@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17780,
+  "elo": 1169.7048682588,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -4,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[jj]AB[ji]AW[ki]AW[kj]AB[kk]AB[hi]AW[jh]AW[ih]AB[kh]AB[kg]AB[lg]AW[jf]AW[je]AB[jd]AB[jc]AW[lh]AW[lf]AB[md]AB[nd]AB[od]AW[jk]LB[lj:b]TR[jk]AW[pe]C[White just played the triangle stone. You have 2 choices : defend in ( a ) or go for an hypothetic ladder in ( b ). Does it really worth the risk ?]AW[hj]LB[ii:a]AW[qe]AP[goproblems]\r\n(;B[lj]\r\n(;W[li]C[CHOICE]\r\n(;B[mi];W[mh]\r\n(;B[nh];W[mg]\r\n(;B[mf];W[ng]\r\n(;B[og];W[nf]\r\n(;B[of];W[me];B[ne];W[mf]\r\n(;B[kf];W[le]\r\n(;B[ke];W[ld]\r\n(;B[lc];W[kd];B[kc]C[Yeah ! Now they call you ladder master.RIGHT])\r\n(;B[kd];W[lc]C[I can't believe you let him escape !]))\r\n(;B[ld];W[ke]C[Oooh, seriously ?]))\r\n(;B[le];W[kf]C[Oooh, seriously ?]))\r\n(;B[me];W[kf]C[Look at all these cutting points...])\r\n(;B[ne];W[of]C[White has connected to a friend. Look at all these cutting points...]))\r\n(;B[nf];W[og]C[White has escaped. Look at all these cutting points.]))\r\n(;B[ng];W[mf]C[Look at all these cutting points...]))\r\n(;B[mg];W[nh]C[White has escaped, black is going to have a hard time now...]))\r\n(;B[mh];W[mi]\r\n(;B[ni];W[mj]C[White has escaped, black is going to have a hard time now...])\r\n(;B[mj];W[ni]C[White has escaped, black is going to have a hard time now...])))\r\n(;W[ii];B[li];W[kf]C[Will probably end up like this if white read the ladder. Yet it is still a better result than just defend at J11.]))\r\n(;B[ii]C[Do you really like this result ? It's time to take some reading and go for the ladder.]))",
+  "author": {
+    "id": 50402,
+    "name": "zwim",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2021-07-14",
+    "rank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1307.55
+  },
+  "avgSolveTimeSeconds": 78,
+  "attempts": {
+    "solved": 1090,
+    "failed": 1180,
+    "tries": 2270,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-06-14T15:19:44+00:00",
+  "source": "Position adapted from amateur game.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

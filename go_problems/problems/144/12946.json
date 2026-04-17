@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12946,
+  "elo": 1279.6130264821,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "I saw this in a 13kyu game on KGS.  The problem has been modified to make it mildly more interesting.  The original game was on 19x19 and Black was well behind.",
+  "rating": {
+    "stars": 4,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[hb]AB[gd]AB[ha]AB[gc]AW[gb]AW[ga]AW[fc]AW[fd]AW[ec]AW[eb]AW[dd]AW[cd]AW[be]AW[ad]AW[bf]AB[fe]AB[ee]AB[ed]AB[de]AB[ce]AW[cf]AB[df]C[White has 25 + 6.5 Komi, Black has only 24.  Black will lose unless he can find the winning move.]AB[eh]AB[ei]AW[dh]AB[eg]AW[dg]AW[cg]AW[ci]AB[di]AB[he]AB[gf]SZ[9]AP[goproblems]\n(;B[dc]\n(;W[cc]C[It's so obvious!]\n(;B[fa];W[db];B[fb];W[ea]C[Black 26+2 prisoners, White 20+1 prisoners+6.5 Komi.  Black wins by 0.5 points!RIGHT])\n(;B[db];W[fa])\n(;B[ea];W[da]C[Black has nothing here.])\n(;B[da];W[db]C[Black has nothing here.]))\n(;W[fa];B[cc];W[bd];B[db];W[ca];B[da];W[bc];B[bb];W[ab];B[ba];W[ac]C[sekiRIGHT]))\n(;B[fa]\n(;W[ea]C[White F8 would be a disaster, see variations.]\n(;B[fb];W[dc]C[Black 26+2 prisoners, White 21+6.5 Komi.  Black wins by 0.5 points!  This is the simplest path.RIGHT])\n(;B[dc];W[cc]))\n(;W[fb];B[dc]\n(;W[db];B[cc]\n(;W[bd];B[cb];W[ea];B[ca];W[bc];B[da];W[bb];B[fa];W[ba])\n(;W[cb];B[bd];W[bc];B[cd];W[bb]))\n(;W[cc];B[db];W[cb];B[ea];W[ca])))\n(;B[db];W[dc]C[Black has nothing here.])\n(;B[ea];W[da];B[db];W[dc];B[ca];W[fb]C[Black has nothing here.])\n(;B[da];W[dc]C[Black has nothing here.]))",
+  "author": {
+    "id": 21642,
+    "name": "Silowyi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-08",
+    "rank": {
+      "value": 11,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1236.99
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 1282,
+    "failed": 2367,
+    "tries": 3649,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-07-25T18:50:54+00:00",
+  "source": "A 13kyu game.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 90,
+      "name": "Dual Threat Tesuji",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 104,
+      "name": "1st Line Tesuji",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 144,
+      "name": "Lack of Liberties (Damezumari)",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

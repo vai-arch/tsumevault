@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22352,
+  "elo": 1705.6331882833,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "How many ways to connect the uppermost group? Comment or flag if there is a mistake. Thank you to frasrjim for a correction!",
+  "rating": {
+    "stars": 2.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ie][je][ke][hf][if][kf][lf][hg][lg][hh][lh][hi][li][hj][lj][hk][lk][hl][ll][hm][lm]AW[ig][jg][kg][ij][kj][im][jm][km][hn][jn][ln][ho][io][jo][ko][lo]LB[oo:0][on:1][om:2][ol:3][ok:4][oj:5][oi:6][oh:7][og:8][of:9][oe:10][od:11][oc:12][ob:13]TR[ig][jg][kg]C[How many ways can white connect the uppermost group?](;W[oo];B[jj]AW[jj]LB[on:1][om:2][ol:3][ok:4][oj:5][oi:6][oh:7][og:8][of:9][oe:10][od:11][oc:12][ob:13]C[Correct. White cannot save that group. But if white stubbornly plays K10, how many ways can Black cut?](;W[on]C[Nope.])(;W[om]C[Nope.])(;W[ol]C[Nope.])(;W[ok]C[Nope.])(;W[oj]C[Nope.])(;W[oi]C[Nope.])(;W[oh]C[Nope.])(;W[og]C[Nope.])(;W[of]C[Nope.])(;W[oe]C[Nope.])(;W[od]C[Nope.])(;W[oc]C[Nope.])(;W[ob]C[Correct! See solution tree for details.RIGHT]))(;W[on];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[om];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[ol];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[ok];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[oj];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[oi];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[oh];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[og];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[of];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[oe];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[od];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[oc];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.]))(;W[ob];B[oa]C[Then play one move that makes this group connected.](;W[ih];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and K10 are miai.])(;W[jh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. J11 and L11 are miai.])(;W[kh];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ji]C[White is cut. L11 and K10 are miai.])(;W[ii];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[lj]C[White is cut. K10 and J12 are miai.])(;W[ji];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[ii]TR[jj];W[jj];B[jh]TR[kh];W[kh];B[ki]TR[ih];W[ih];B[jf]C[White is captured in oiostoshi (connect-and-die)])(;W[ki];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jj]C[White is cut. K10 and L12 are miai.])(;W[jj];B[jk]TR[ik]C[Follow the marked spaces.];W[ik];B[il]TR[kk];W[kk];B[kl]TR[jl];W[jl];B[jh]TR[ih];W[ih];B[ii]TR[kh];W[kh];B[ki]TR[ji];W[ji];B[jf]C[White is captured in oiotoshi (connect-and-die).])(;W[ik];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kk];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[il];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[jl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])(;W[kl];B[ji]TR[ii]C[Follow the marked spaces.];W[ii];B[ih]TR[ki];W[ki];B[kh]C[White is cut.])))",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 147,
+  "attempts": {
+    "solved": 13,
+    "failed": 89,
+    "tries": 102,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-04-20T17:32:52+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

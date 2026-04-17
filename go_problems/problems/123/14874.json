@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14874,
+  "elo": 1263.0413327956,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[ig]AW[jg]AW[kg]AW[lg]AW[mg]AW[gh]AW[hh]AW[nh]AW[oh]AW[gi]AW[ii]AW[oi]AW[gj]AW[oj]AW[gk]AW[hk]AW[ik]AW[jk]AW[lk]AW[mk]AW[nk]AW[ok]AB[ih]AB[jh]AB[kh]AB[lh]AB[mh]AB[hi]AB[ni]AB[hj]AB[ij]AB[jj]AB[lj]AB[mj]AB[nj]LB[hm:T]C[Please play at T if you think black is already alive.FORCE]GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\r\n(;B[hm];W[kj];B[ji];W[li];B[mi]C[\r\nExactly. White cannot connect back, so black is alive.RIGHT])\r\n(;B[kk];W[kl]\r\n(;B[kj]C[Black was already alive.])\r\n(;B[hm];W[kj]C[Black will live. However, the sacrifice only helped white.]))\r\n(;B[ji]C[Black was already alive.])\r\n(;B[ki]C[Black was already alive.])\r\n(;B[kj]C[Black was already alive.])\r\n(;B[li]C[Black was already alive.]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 1853,
+    "failed": 1812,
+    "tries": 3665,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-06-04T13:54:14+00:00",
+  "source": "Inspired by problem 14862",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 123,
+      "name": "Oiotoshi",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

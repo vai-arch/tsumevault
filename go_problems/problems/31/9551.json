@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9551,
+  "elo": 820.61100238868,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 17,
+    "negativeFlagSum": -2,
+    "flagSum": 15
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "I saw this interesting shape, and the solution wasn't immediately obvious, so I thought I'd share it.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ss]AW[rs]AW[qs]AB[ps]AB[pr]AB[qr]AB[qq]AB[rq]AB[rr]AB[sq]AB[rp]AW[sp]AW[so]AW[ro]AW[qo]AW[qp]AW[pp]AW[qn]AW[pn]AW[on]AW[oo]AW[nq]AW[ns]AW[ms]AW[os]AW[oq]AW[or]AW[mr]AB[mq]AB[lq]AB[lr]AB[ls]AB[np]AB[op]AB[no]AB[nn]AB[mm]AB[om]AB[pm]AB[rm]AB[qm]AB[rn]AB[sn]LB[ln:T]C[Black has just played A. White to play. Play if you think you have to, otherwise play T to tenuki.]LB[op:A]AP[goproblems]\n(;W[pq]C[];B[sr]\n(;W[rs]TR[pq]C[If you hadn't played the marked stone, Black would play there now and win.RIGHT])\n(;W[qs];B[rs]C[Black should have died])\n(;W[ss];B[rs]C[Black should have died]))\n(;W[ln]\n(;B[sr]\n(;W[rs];B[pq]C[White dies])\n(;W[pq];B[rs]C[White lives, but so does Black])\n(;W[qs];B[pq]C[White dies])\n(;W[ss];B[pq]C[White dies])\n(;W[nr];B[pq])\n(;W[po];B[pq]))\n(;B[pq];W[sr]))\n(;W[po];B[pq])\n(;W[nr];B[pq]))",
+  "author": {
+    "id": 5298,
+    "name": "Bildstein",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-03-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 20239,
+    "failed": 7636,
+    "tries": 27875,
+    "speedSolved": 1,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-12-07T13:23:49+00:00",
+  "source": "Igowin",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

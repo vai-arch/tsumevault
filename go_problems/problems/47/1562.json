@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1562,
+  "elo": 1047.6941310842,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "In the game, White, thinking that Black could\r\ncause trouble with A, defended this group.  Show\r\nthat White had nothing to fear.\r\n",
+  "rating": {
+    "stars": 4,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]TM[]\r\nPW[White]PB[Black]AW[ep][fp][gp][dq][fq][hq][dr][hr][ds][hs]AB[do][eo][fo][go][ho][dp][hp][cq][iq][cr][fr][ir][cs][is]LB[fr:A]PL[W]\r\n(;W[fs]CR[fs]\r\n;B[gr]CR[gr]\r\n(;W[er]CR[er]C[RIGHT  Black can not push; White lives.])\r\n(;W[gq]CR[gq]\r\n;B[er]LB[eq:A][es:B][gs:C]CR[er]C[White has to protect at A, B, or C to get a seki.  White can do better.])\r\n(;W[gs]CR[gs]\r\n;B[er]LB[eq:A][gq:B][es:C]CR[er]C[White has to protect at A, B, or C to get a seki.  White can do better.])\r\n(;W[es]CR[es]\r\n;B[gs]CR[gs]C[White dies.])\r\n(;W[eq]CR[eq]\r\n;B[gq]CR[gq]C[White dies.]))\r\n(;W[er]CR[er]\r\n;B[gs]CR[gs]\r\n(;W[gq]CR[gq]\r\n;B[es]LB[fs:A]CR[es]C[Black starts a ko or gets a seki by playing at A instead.  White can do better.])\r\n(;W[fs]CR[fs]\r\n;B[es]CR[es]C[Ko.  White can do better.])\r\n(;W[gr]CR[gr]\r\n;B[gq]CR[gq]C[White dies.])\r\n(;W[es]CR[es]\r\n;B[gq]CR[gq]C[White dies (the three stones are caught in a snapback).])\r\n(;W[eq]CR[eq]\r\n;B[gq]CR[gq]C[White dies (the three stones are caught in a snapback).]))\r\n(;W[gr]CR[gr]\r\n;B[es]CR[es]\r\n(;W[eq]CR[eq]\r\n;B[gs]LB[fs:A]CR[gs]C[Black starts a ko or plays at A to get a seki.  White can do better.])\r\n(;W[fs]CR[fs]\r\n;B[gs]CR[gs]C[Ko.  White can do better.])\r\n(;W[gq]CR[gq]\r\n;B[eq]CR[eq]C[White dies (the three stones are caught in a snapback).])\r\n(;W[gs]CR[gs]\r\n;B[eq]CR[eq]C[White dies (the three stones are caught in a snapback).])\r\n(;W[er]CR[er]\r\n;B[eq]CR[eq]C[White dies.]))\r\n(;W[gq]CR[gq]\r\n;B[er]CR[er]\r\n(;W[eq]CR[eq]\r\n;B[fs]CR[fs]C[White has only one eye and dies.])\r\n(;W[gr]CR[gr]\r\n;B[eq]CR[eq]C[White dies.])\r\n(;W[es]CR[es]\r\n;B[eq]CR[eq]C[White dies.])\r\n(;W[fs]CR[fs]\r\n;B[eq]CR[eq]C[White dies.])\r\n(;W[gs]CR[gs]\r\n;B[eq]CR[eq]C[White dies.]))\r\n(;W[eq]CR[eq]\r\n;B[gr]CR[gr]\r\n(;W[gq]CR[gq]\r\n;B[fs]CR[fs]C[White has only one eye and dies.])\r\n(;W[er]CR[er]\r\n;B[gq]CR[gq]C[White dies.])\r\n(;W[es]CR[es]\r\n;B[gq]CR[gq]C[White dies.])\r\n(;W[fs]CR[fs]\r\n;B[gq]CR[gq]C[White dies.])\r\n(;W[gs]CR[gs]\r\n;B[gq]CR[gq]C[White dies.]))\r\n(;W[gs]CR[gs]\r\n;B[fs]CR[fs]\r\n(;W[gq]CR[gq]\r\n;B[er]LB[eq:A]CR[er]C[White dies.  Defending the cut at A leaves one eye.])\r\n(;W[er]CR[er]\r\n;B[gq]CR[gq]C[White dies (the four stones in an L are caught in a snapback).])\r\n(;W[es]CR[es]\r\n;B[gr]CR[gr]C[White dies (even without the last Black move).])\r\n(;W[eq]CR[eq]\r\n;B[gr]CR[gr]C[White dies (even without the last Black move).])\r\n(;W[gr]CR[gr]\r\n;B[gq]CR[gq]C[White dies (even without the last Black move).]))\r\n(;W[es]CR[es]\r\n;B[fs]CR[fs]\r\n(;W[eq]CR[eq]\r\n;B[gr]LB[gq:A]CR[gr]C[White dies.  Defending the cut at A leaves one eye.])\r\n(;W[er]CR[er]\r\n;B[eq]CR[eq]C[White dies (even without the last Black move)])\r\n(;W[gq]CR[gq]\r\n;B[er]CR[er]C[White dies (even without the last Black move).])\r\n(;W[gr]CR[gr]\r\n;B[eq]CR[eq]C[White dies (the four stones in an L are caught in a snapback).])\r\n(;W[gs]CR[gs]\r\n;B[er]CR[er]C[White dies (even without the last Black move).])))",
+  "author": {
+    "id": 105129,
+    "name": "system",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-03-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 9065,
+    "failed": 11431,
+    "tries": 20496,
+    "speedSolved": 13,
+    "speedPlay": 17
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-08-13T18:27:49+00:00",
+  "source": "Amateur game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5585,
+  "elo": 1317.1978697215,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Happened in a game. Not too hard, but not neccessarily immediately intuitive. And plenty of room for error on black's part. Please comment if you have any suggestions.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rr]AB[sq]AB[rp]AB[qp]AB[pq]AB[pr]AB[ps]AW[os]AW[or]AW[oq]AW[op]AW[pp]AW[po]AW[qo]AW[ro]AW[so]AW[sp]AW[rs]C[Black to live]AP[goproblems]\r\n(;B[qs];W[qq]C[white wins]\r\n(;B[rq];W[qr])\r\n(;B[ss];W[rq]))\r\n(;B[qr];W[rq]\r\n(;B[sr];W[qq])\r\n(;B[qq];W[sr];B[ss]C[Ko, black takes first]))\r\n(;B[qq];W[sr]\r\n(;B[ss]C[ko,  black takes first])\r\n(;B[qs];W[rq]C[ko, white takes first. Or.... ];B[ss];W[sq]C[death for black.]))\r\n\r\n(;B[rq];W[qr]\r\n\r\n(;B[qq];W[sr]\r\n(;B[qs];W[qr];C[Black is taken in a snapback])\r\n(;B[ss]C[ko, black takes first]))\r\n\r\n(;B[ss];W[sr]C[ko, white takes first]))\r\n\r\n(;B[sr]C[black winsRIGHT]\r\n(;W[qr];B[qq]C[RIGHT])\r\n(;W[qq];B[rq];W[qr];B[qs]C[RIGHT])\r\n(;W[qs];B[qr];W[qq];B[rq]C[RIGHT])))",
+  "author": {
+    "id": 105129,
+    "name": "system",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-03-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 1937,
+    "failed": 4012,
+    "tries": 5949,
+    "speedSolved": 1,
+    "speedPlay": 13
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-11-19T04:54:20+00:00",
+  "source": "A Game of mine",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

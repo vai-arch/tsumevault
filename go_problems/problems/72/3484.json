@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3484,
+  "elo": 1798.625595134,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -2,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Hmm... I thought, of this really simple problem, I saw here... It's kinda the same, simple counting only with Area Scoring - Used in rule sets such as AGAs, Chinese, New Zealands..\n\n(Thanks to the guys at the \"straw hut\" for the help!)",
+  "rating": {
+    "stars": 1.7,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[gr]AB[gq]AB[hq]AW[hr]AB[is]AB[ir]AW[fs]AW[gs]AW[fr]AW[fq]LB[hs:A]C[AGA/Chinese/NZ Rules - How big is the difference between white/black playing at A?FORCE]LB[fo:1]LB[go:2]LB[ho:3]LB[io:4]AB[iq]AP[goproblems]\n(;W[io]C[Correct. According to the NZ rules set, only territory's counted - Including the territory under the stones. If white takes it, both H1 and H2 are 2 points for him, otherwise it's 2 points for black. The difference, is 4 points. :)FORCERIGHT])\n(;W[fo]C[Wrong. According to the NZ rules set, only territory's counted - Including the territory under the stones. If white takes it, both H1 and H2 are 2 points for him, otherwise it's 2 points for black. The difference, is 4 points.FORCE])\n(;W[go]C[Wrong. According to the NZ rules set, only territory's counted - Including the territory under the stones. If white takes it, both H1 and H2 are 2 points for him, otherwise it's 2 points for black. The difference, is 4 points.FORCE])\n(;W[ho]C[Wrong. According to the NZ rules set, only territory's counted - Including the territory under the stones. If white takes it, both H1 and H2 are 2 points for him, otherwise it's 2 points for black. The difference, is 4 points.FORCE]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 728,
+    "failed": 3548,
+    "tries": 4276,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-04T11:27:25+00:00",
+  "source": "Some problem here.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 72,
+      "name": "Rule Set Dependent",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

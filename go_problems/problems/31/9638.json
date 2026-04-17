@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9638,
+  "elo": 1932.3256582647,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Thanks to bass and edegroot for the corrections. Leave a comment if you find any more problems.",
+  "rating": {
+    "stars": 3.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rr]AW[sq]AW[rp]AW[qq]AW[pq]AB[qs]AB[or]AB[oq]AB[qp]AB[ro]AB[qn]AB[op]C[How many ways for White to live?]LB[lp:1]LB[mp:2]LB[lq:3]LB[mq:4]LB[lr:5]LB[mr:6]AB[rn]AB[po]AP[goproblems]\r\n(;W[mq];B[lq]LB[ss:1]LB[rs:2]LB[sr:3]LB[sp:4]LB[rq:5]LB[qr:6]LB[ps:7]LB[os:8]LB[pr:9]LB[so:10]C[Starting from 1, what is the first way for White to live? (Click on the lowest number that is one of the 4 moves that save White).]\r\n(;W[rs]\r\n(;B[sc]AB[re]AB[qe]AB[pe]AB[pc]AB[ob]AB[nb]AB[nc]AB[ca]AB[eb]AB[ec]AB[ed]AB[cd]AB[be]AB[bf]AB[cf]AB[aq]AB[bo]AB[co]AB[do]AB[dq]AB[er]AB[fr]AB[fq]AW[qa]AW[rb]AW[pb]AW[qd]AW[qc]AW[bb]AW[dc]AW[bd]AW[ac]AW[cc]AW[br]AW[cq]AW[dr]AW[cs]AW[cp]LB[ra:3]LB[pa:4]LB[qb:5]LB[rc:6]LB[sd:7]LB[se:8]LB[rd:9]LB[oa:10]C[The second (as numbered)? (in the top right corner)]AB[od]AB[de]AB[ep]\r\n(;W[rc]\r\n(;B[kq]LB[da:7]LB[ea:8]LB[db:9]LB[ae:10]C[Third? (in the top left corner)]\r\n(;W[da]\r\n(;B[jq]LB[ao:8]LB[bp:9]LB[es:10]C[Fourth? (in the lower left corner)]\r\n(;W[bp]\r\n(;B[ar]C[Now finish the problem in the bottom left corner.];W[ap];B[es]\r\n(;W[as]\r\n(;B[ds];W[cr];B[bs];W[bq];B[ao];W[as]C[RIGHT])\r\n(;B[bs];W[bq];B[ds]\r\n(;W[cr];B[ao];W[as]C[RIGHT])\r\n(;W[as];B[cr]C[Ko])))\r\n(;W[ds];B[bs]\r\n(;W[cr];B[dp];W[as]C[Only ko])\r\n(;W[as]C[Only ko])\r\n(;W[bq];B[cr])))\r\n(;B[ap]C[Now finish the problem in the bottom left corner.];W[ar];B[es];W[ds];B[ao]\r\n(;W[dp];B[bq];W[eq]C[Ko])\r\n(;W[bq]C[RIGHT])))\r\n(;W[ao];B[ar])\r\n(;W[es];B[ar])\r\n(;W[ap]C[NOTTHIS])\r\n(;W[bq]C[NOTTHIS])\r\n(;W[cr]C[NOTTHIS])\r\n(;W[ds]C[NOTTHIS])\r\n(;W[ar]C[NOTTHIS])\r\n(;W[bs]C[NOTTHIS])\r\n(;W[as]C[NOTTHIS]))\r\n(;B[db];W[cb]\r\n(;B[ea];W[ba])\r\n(;B[ba];W[aa]))\r\n(;B[ba];W[cb]\r\n(;B[ae];W[ad]\r\n(;B[db];W[aa])\r\n(;B[ab];W[aa]))\r\n(;B[aa];W[ab])\r\n(;B[db];W[aa])\r\n(;B[ab];W[aa]))\r\n(;B[ae];W[db];B[ad];W[bc];B[ba];W[aa];B[ab];W[cb]))\r\n(;W[ea];B[ba])\r\n(;W[db]C[This works, but so did 7 (and 7 comes before 9).])\r\n(;W[ae];B[ba])\r\n(;W[cb]C[NOTTHIS])\r\n(;W[bc]C[NOTTHIS])\r\n(;W[ad]C[NOTTHIS])\r\n(;W[ba]C[NOTTHIS])\r\n(;W[ab]C[NOTTHIS])\r\n(;W[aa]C[NOTTHIS]))\r\n(;B[sb];W[sd];B[rd];W[sa])\r\n(;B[sd];W[sb])\r\n(;B[oa];W[pa]\r\n(;B[sd];W[sb])\r\n(;B[sb];W[sd]\r\n(;B[rd];W[sa])\r\n(;B[ra];W[sa]))))\r\n(;W[ra];B[sb])\r\n(;W[pa];B[sb])\r\n(;W[qb]C[You just killed yourself.])\r\n(;W[sd]C[This works, but so did 6 (and 6 comes before 7).])\r\n(;W[se];B[sb])\r\n(;W[rd]C[This works, but so did 6 (and 6 comes before 9).])\r\n(;W[oa];B[sb])\r\n(;W[sb]C[NOTTHIS])\r\n(;W[sa]C[NOTTHIS]))\r\n(;B[qr];W[pr])\r\n(;B[pr];W[qr])\r\n(;B[so];W[sp]\r\n(;B[qr];W[pr])\r\n(;B[pr];W[qr])\r\n(;B[ps];W[qr]))\r\n(;B[ps];W[qr];B[so];W[sp]))\r\n(;W[ss];B[qr])\r\n(;W[sr];B[rs])\r\n(;W[sp];B[rs])\r\n(;W[rq]C[You just killed yourself.])\r\n(;W[qr]C[this works, but so did 2 (and 2 comes before 6).])\r\n(;W[ps]C[this works, but so did 2 (and 2 comes before 7).])\r\n(;W[os];B[rs])\r\n(;W[pr]C[this works, but so did 2 (and 2 comes before 9).])\r\n(;W[so];B[rs]))\r\n(;W[lp]C[There's more than 1.])\r\n(;W[mp]C[There's more than 2.])\r\n(;W[lq]C[There's more than 3.])\r\n(;W[lr]C[there's less than 5.])\r\n(;W[mr]C[There's less than 6.])\r\n(;W[so]C[NOTTHIS])\r\n(;W[sp]C[NOTTHIS])\r\n(;W[rq]C[NOTTHIS])\r\n(;W[sr]C[NOTTHIS])\r\n(;W[qr]C[NOTTHIS])\r\n(;W[ss]C[NOTTHIS])\r\n(;W[rs]C[NOTTHIS])\r\n(;W[ps]C[NOTTHIS])\r\n(;W[pr]C[NOTTHIS])\r\n(;W[os]C[NOTTHIS]))",
+  "author": {
+    "id": 5298,
+    "name": "Bildstein",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-03-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 134,
+  "attempts": {
+    "solved": 83,
+    "failed": 606,
+    "tries": 689,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-01-04T14:31:03+00:00",
+  "source": "Igowin",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

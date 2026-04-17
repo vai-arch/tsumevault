@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17154,
+  "elo": 1972.4206584342,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "RULES: After your first move your opponent cannot chose the best move. After your second move your opponent will play perfectly. What is the best result you can get?\r\n\r\n(if there are X good replies to your first move the opponent will chose the second best of them, not the worst!).\r\n\r\nAfter the first move, A marker represents the place where the best move would have been, NOT the spot you must play :-)",
+  "rating": {
+    "stars": 3,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pb]AB[pc]AB[qd]AB[rc]AB[re]AW[rf]AW[qf]AW[qe]AW[pe]AW[pd]AW[od]AW[oc]AW[nc]C[White to play and get a good result. Do not forget to read the rules!]AW[nb]AW[rg]AP[goproblems]\n(;W[rd];B[ra]LB[sd:A];W[qc];B[qb];W[sb];B[sc];W[pa]C[RIGHT])\n(;W[se]\n(;B[rd]C[Explanationary variation (the computer will not chose this path during solving)];W[rb];B[sb];W[qb];B[qc];W[ra];B[sd];W[pa]C[The ko goes for example something like this.])\n(;B[sd]C[Black can make a ko, but white could do better. If black connected at S16 I think it is ko too, but the variations are quite complicated.CHOICE]LB[ra:A]))\n(;W[sd];B[sc]LB[se:A]C[Black lives.])\n(;W[qc];B[qb]LB[rd:A]C[Black lives.])\n(;W[rb];B[sb]LB[sd:A]C[Black lives.])\n(;W[sb];B[rb]C[Black lives.]LB[sd:A])\n(;W[qb];B[qa]LB[rb:A]C[Black lives.]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 20,
+  "attempts": {
+    "solved": 67,
+    "failed": 255,
+    "tries": 322,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-02-16T01:34:22+00:00",
+  "source": "Morning girlfriend",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14468,
+  "elo": 874.34077234569,
+  "problemLevel": 6,
+  "rank": {
+    "value": 24,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 13,
+    "negativeFlagSum": 0,
+    "flagSum": 13
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.8,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bs]AB[br]AB[cr]AB[dq]AB[dp]AB[ep]AB[cp]AB[co]AB[bn]AB[cm]AW[ar]AW[bq]AW[cq]AW[bp]AW[bo]AW[ao]AW[dr]AW[er]AW[eq]AW[fp]AW[gq]AP[goproblems]\n(;B[aq]\n(;W[ds]C[CHOICE]\n(;B[an]C[RIGHT])\n(;B[cs];W[as])\n(;B[as];W[cs]\n(;B[an];W[ar])\n(;B[ap];W[ar])\n(;B[ar];W[ap])))\n(;W[ap];B[an]C[RIGHT];W[aq]))\n(;B[ap];W[aq]TR[as]C[White made an eye. Now Black will never be able to approach, due a shortage of liberties.])\n(;B[an];W[aq]TR[as]C[White made an eye. Now Black will never be able to approach, due a shortage of liberties.])\n(;B[as];W[cs])\n(;B[ds];W[aq]TR[as]C[White made an eye. Now Black will never be able to approach, due a shortage of liberties.])\n(;B[cs];W[aq]TR[as]C[White made an eye. Now Black will never be able to approach, due a shortage of liberties.]))",
+  "author": {
+    "id": 12035,
+    "name": "whendrik",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2014-02-01",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 717.007
+  },
+  "avgSolveTimeSeconds": 34,
+  "attempts": {
+    "solved": 7186,
+    "failed": 5433,
+    "tries": 12619,
+    "speedSolved": 31,
+    "speedPlay": 27
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-01-17T15:55:42+00:00",
+  "source": "&#26446;&#26124;&#38224; (Lee Chang-ho) &#22260;&#26827;&#25163;&#31563; &#31532;&#20108;&#21367; Problem 2",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 144,
+      "name": "Lack of Liberties (Damezumari)",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

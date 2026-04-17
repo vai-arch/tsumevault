@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6927,
+  "elo": 1490.3946749314,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "jigo = failure",
+  "rating": {
+    "stars": 2.6,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[5]KM[0.00]\r\nPW[White]PB[Black]AW[bb][db][eb][bc][cc]AB[dc][ec][ad][bd][cd][dd]\r\n(;B[ab]CR[ab]\r\n;W[ac]CR[ac]\r\n;B[ba]CR[ba]\r\n;W[aa]CR[aa]\r\n;B[ca]CR[ca]\r\n;W[cb]CR[cb]\r\n;B[ab]CR[ab]\r\n;W[ee]CR[ee]C[In this peculiar variation white sacrifices a stone do to lack of ko threats and to prevent the game from ending with two consecutive passes.  If black passes, white captures, black passes again, white captures again and it's jigo. both sides have 8 points.  Comments appreciated on this variaton as it is pretty confusing.])\r\n(;B[ba]CR[ba]\r\n(;W[ca]CR[ca]\r\n;B[ab]CR[ab]\r\n;W[aa]CR[aa]\r\n;B[ac]CR[ac]\r\n;W[ba]CR[ba]C[RIGHT])\r\n(;W[ab]CR[ab]\r\n;B[da]CR[da]C[RIGHT])\r\n(;W[ac]CR[ac]\r\n;B[da]CR[da]C[RIGHT])))",
+  "author": {
+    "id": 10284,
+    "name": "Zwom",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-07-05",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1517.95
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 1355,
+    "failed": 2833,
+    "tries": 4188,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-07-17T22:02:00+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 8,
+      "name": "5x5 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

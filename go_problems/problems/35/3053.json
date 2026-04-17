@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3053,
+  "elo": 1116.9442248122,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -3,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Another easy problem.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ir]AB[hr]AB[kr]AB[lr]AW[hq]AW[hp]AW[ho]AW[in]AW[jn]AW[jo]AW[kn]AW[lo]AW[lp]AW[lq]AB[gq]AB[gp]AB[go]AB[hn]AB[hm]AB[im]AB[jm]AB[km]AB[lm]AB[ln]AB[mo]AB[mp]AB[mq]LB[jk:D]C[Can white live? If not, please play at D.]AP[goproblems]\r\n(;W[jq]\r\n(;B[ip]C[CHOICE]\r\n(;W[iq];B[kp]\r\n(;W[kq];B[jp]C[Seki.RIGHT])\r\n(;W[jp];B[kq]))\r\n(;W[jp];B[iq])\r\n(;W[kq];B[iq])\r\n(;W[kp];B[iq]))\r\n(;B[iq];W[ip];B[kq];W[kp]C[RIGHT])\r\n(;B[kq];W[kp];B[iq];W[ip]C[RIGHT])\r\n(;B[kp]C[CHOICE]\r\n(;W[kq];B[ip]\r\n(;W[iq];B[jp]C[Seki.RIGHT])\r\n(;W[jp];B[iq]))\r\n(;W[jp];B[kq])\r\n(;W[iq];B[kq])\r\n(;W[ip];B[kq])))\r\n(;W[jp]C[Please see the previous problem.])\r\n(;W[ip];B[jq]\r\n(;W[jp];B[kp])\r\n(;W[kp];B[jp])\r\n(;W[kq];B[jp]))\r\n(;W[kp];B[jq]\r\n(;W[jp];B[ip])\r\n(;W[ip];B[jp])\r\n(;W[iq];B[jp]))\r\n(;W[kq];B[jq]\r\n(;W[jp];B[ip])\r\n(;W[ip];B[jp])\r\n(;W[iq];B[jp]))\r\n(;W[iq];B[jq]\r\n(;W[jp];B[kp])\r\n(;W[kp];B[jp])\r\n(;W[kq];B[jp]))\r\n(;W[jk]C[White is not dead yet.]))",
+  "author": {
+    "id": 288,
+    "name": "unkx80",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-01-08",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1846.73
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 4266,
+    "failed": 5619,
+    "tries": 9885,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-10-05T01:21:32+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 35,
+      "name": "Symmetrical",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

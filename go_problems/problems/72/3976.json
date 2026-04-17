@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3976,
+  "elo": 1378.1540337587,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "The result of this game depends on the ko. Under which ruleset can b win the game?\r\nA chinese rules\r\nB Ing rules",
+  "rating": {
+    "stars": 1.4,
+    "votes": 36,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[7]AW[ba]AW[da]AW[fa]AW[bb]AW[cb]AW[eb]AW[fb]AW[ac]AW[bc]AW[dc]AW[ae]AW[be]AW[ce]AW[ge]AW[bf]AW[cf]AW[cg]AW[dg]AB[gb]AB[cc]AB[ec]AB[fc]AB[ad]AB[bd]AB[cd]AB[dd]AB[ed]AB[fd]AB[gd]AB[ee]AB[af]AB[ef]AB[ff]AB[gf]AB[bg]AB[fg]LB[db:1]LB[dc:4]LB[de:A]LB[ge:2]LB[df:B]LB[gf:3]C[FORCE]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[6.50]PW[Florian]PB[Florian]WR[6k]BR[6k]DT[2004-02-22]PC[The Kiseido Go Server (KGS) at http://kgs.kiseido.com/]\n(;B[de]C[No, under chinese rules b has no ko threat and will lose the game.])\n(;B[df]C[Under Ing rules suicide is allowed, so b has a ko thread at a1 and will win the game.RIGHT]))",
+  "author": {
+    "id": 2818,
+    "name": "Florian",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2021-12-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 2653,
+    "failed": 2917,
+    "tries": 5570,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-02-22T11:41:26+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 72,
+      "name": "Rule Set Dependent",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

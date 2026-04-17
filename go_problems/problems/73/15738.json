@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15738,
+  "elo": 1426.8528783281,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Yesterday I happened to browse \"Life and Death\" by James Davies, one of the few books in the Elementary Go Series that I had missed as a beginner. This particularly nice problem caught my attention, and I could not find it on this site, so here you go.\r\n\r\nThe actual setup of the outside stones may have been different in the book, but the idea is the same.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cr]AB[bq]AB[cp]AB[bo]AW[cq]AW[dq]AW[eq]AW[fq]AW[bn]AW[bm]AW[dm]AW[eo]AB[do]AW[dn]C[White to play and kill without ko.]AP[goproblems]\n(;W[ar]\n(;B[br]\n(;W[ao];B[ap]\n(;W[an];B[dr]\n(;W[er];B[ds];W[bs]C[bent four in the cornerRIGHT])\n(;W[es]C[NOTTHIS])\n(;W[fr]C[NOTTHIS])\n(;W[fs]C[NOTTHIS]))\n(;W[dr];B[an])\n(;W[cn]C[NOTTHIS])\n(;W[dp]C[NOTTHIS])\n(;W[co]C[NOTTHIS]))\n(;W[dr];B[ao])\n(;W[ap];B[ao];W[aq];B[dr];W[er];B[ds]))\n(;B[ao]C[reference variation];W[br]C[RIGHT])\n(;B[aq]C[reference variation];W[ao];B[ap];W[an]C[RIGHT])\n(;B[dr]C[reference variation];W[er]\n(;B[br];W[ao];B[ap];W[an]C[RIGHT];B[ds];W[bs]C[bent four in the cornerRIGHT])\n(;B[aq];W[ds];B[br];W[ao];B[ap];W[an]C[RIGHT])))\n(;W[ap];B[ao];W[ar];B[br];W[aq];B[dr];W[er];B[ds])\n(;W[ao];B[ar]\n(;W[ap];B[bs]LB[aq:A]LB[dr:B])\n(;W[bs];B[ap]))\n(;W[bs];B[br]\n(;W[dr];B[cs])\n(;W[ao];B[ap];W[an];B[ar])\n(;W[ar];B[ao]))\n(;W[br];B[ar]\n(;W[bs];B[cs])\n(;W[ao];B[bs]))\n(;W[dp];B[ar])\n(;W[dr];B[br]\n(;W[ao];B[ap];W[an];B[ar])\n(;W[ar];B[ao])\n(;W[cs];B[bs];W[ao];B[ap]\n(;W[an];B[ar])\n(;W[ar];B[an]))))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 75,
+  "attempts": {
+    "solved": 445,
+    "failed": 896,
+    "tries": 1341,
+    "speedSolved": 2,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-01-23T05:42:22+00:00",
+  "source": "Davies' Life and Death",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 92,
+      "name": "Oki (Placement) Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

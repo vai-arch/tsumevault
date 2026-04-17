@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17806,
+  "elo": 1355.5191358127,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This is a simplified game position. In the actual game, black, which was me, had already lost. Comments are welcome.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[jd]AB[id]AB[hd]AB[gd]AB[fe]AB[ef]AB[hf]AB[hg]AB[gh]AW[hl]AW[hk]AW[hj]AW[hi]AW[ih]AW[ig]AW[if]AW[ie]AW[gm]AW[fm]AW[ed]AW[de]AW[df]AW[dg]AW[he]AW[eh]AW[hh]AB[hm]AB[im]AB[kg]AB[kf]AB[je]AB[gl]AB[gk]AB[gj]AB[gi]AW[fl]TR[he]C[White attempts to live. Be careful, it's easy to make a mistake.]AB[jl]AB[jj]AB[ki]AW[ei]AW[fk]AP[goproblems]\n(;B[fg];W[gf]\n(;B[ee]C[Good! By capturing the two stones, white gets only one eye.RIGHT])\n(;B[ff]C[Good! By capturing the two stones, white gets only one eye.RIGHT])\n(;B[eg]C[Good! By capturing the two stones, white gets only one eye.RIGHT])\n(;B[gg];W[ge];B[fd];W[ff])\n(;B[ge];W[gg];B[fh];W[ff]))\n(;B[ge];W[gg];B[fg];W[gf];B[fh];W[ff])\n(;B[gf];W[fg];B[gg];W[ge])\n(;B[gg];W[ge];B[fd];W[fg])\n(;B[ff];W[fg];B[gg];W[ge])\n(;B[fh];W[ge];B[fd];W[fg])\n(;B[eg];W[ge];B[fd];W[fg])\n(;B[ee];W[fg];B[gg];W[gf])\n(;B[fd];W[fg];B[gg];W[gf]))",
+  "author": {
+    "id": 52760,
+    "name": "wurfmaul",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-21",
+    "rank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1018.78
+  },
+  "avgSolveTimeSeconds": 509,
+  "attempts": {
+    "solved": 625,
+    "failed": 1333,
+    "tries": 1958,
+    "speedSolved": 2,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-07-14T13:06:32+00:00",
+  "source": "PMT vs wurfmaul",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

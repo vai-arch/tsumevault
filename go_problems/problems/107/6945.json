@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6945,
+  "elo": 1113.7586550424,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This was a game I played on KGS as black. And a second before I hit the resign button, the winning sequence came to my mind.\r\nThis is my first problem I post here. If you find any forgotten variations, please let me know.\r\n\r\nThanks to Spica and Hans for the corrections. Hope everything is fine now and I didn't miscount.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]AP[glGo:1.0]ST[1]\r\n\r\nSZ[9]KM[0.0]\r\nPW[Weiss]PB[Schwarz]DT[2005-07-20]\r\nAB[bi][hh][gh][bh][ah][gg][fg][eg][cg][bg][cf][de][ce][be][ae][gd][cd][ad][hc][gc][fc][ec][bc][hb][fb][db][bb][ab][ga][ea][da]AW[di][ih][fh][eh][ch][hg][dg][if][hf][gf][ff][df][he][ge][ee][id][hd][fd][ed][dd][ic][dc][cc][ib][cb][ia][ha][ca][ba]C[Black to win the game, no komi]\r\n(;B[ef]\r\n;W[dh]\r\n(;B[hi]\r\n;W[fi]\r\n(;B[ci]\r\n;W[ig]\r\n;B[aa]\r\n;W[fe]C[CHOICE\r\nRIGHT\r\nSeki. Black wins by 9 points.])\r\n(;B[aa]\r\n;W[fe]\r\n;B[ci]C[CHOICE\r\nRIGHT\r\nSeki. Black wins by 9 points.]))\r\n(;B[gi]\r\n;W[fi])\r\n(;B[aa]\r\n;W[fe]\r\n;B[hi]\r\n;W[fi]\r\n;B[ci]C[CHOICE\r\nRIGHT\r\nSeki. Black wins by 9 points.]))\r\n(;B[aa]\r\n;W[ef]C[After bC1-wD2 white wins by 9 points.])\r\n(;B[ci]\r\n;W[dh]\r\n(;B[aa]\r\n;W[ef]C[White wins by 9 points.])\r\n(;B[ef]\r\n;W[gi]\r\n;B[aa]\r\n;W[hi]C[White wins by 9 points.])))",
+  "author": {
+    "id": 7732,
+    "name": "rene",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-09-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 66,
+  "attempts": {
+    "solved": 4467,
+    "failed": 5432,
+    "tries": 9899,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-07-20T04:53:10+00:00",
+  "source": "KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

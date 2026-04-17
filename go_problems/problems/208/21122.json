@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21122,
+  "elo": 864.09037722546,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -3,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 2.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[js]AB[hs]AB[ls]AW[jr]AW[ir]AW[hr]AW[kr]AW[lr]AB[fs]AB[ns]AW[gr]AW[fr]AW[mr]AW[nr]AB[es]AB[er]AB[eq]AB[ep]AB[os]AB[or]AB[oq]AB[op]AW[fq]AW[fp]AW[gp]AW[hp]AW[ip]AW[jp]AW[kp]AW[lp]AW[mp]AW[np]AW[nq]AB[oo]AB[no]AB[mo]AB[lo]AB[ko]AB[jo]AB[io]AB[ho]AB[fo]AB[go]AB[eo]TR[gs]TR[is]TR[ks]TR[ms]C[There are 4 triangles. Choose the best move of Black.FORCE]AP[goproblems]\r\n(;B[gs]C[FORCE]\r\n(;W[is]C[FORCE]\r\n(;B[ks]C[FORCE];W[ms])\r\n(;B[ms]C[FORCE];W[ks]C[RIGHT]))\r\n(;W[ks]C[FORCE]\r\n(;B[is]C[FORCE];W[ms]C[RIGHT])\r\n(;B[ms]C[FORCE];W[is]C[RIGHT]))\r\n(;W[ms]C[FORCE]\r\n(;B[is]C[FORCE];W[ks]C[RIGHT])\r\n(;B[ks]C[FORCE];W[is])))\r\n(;B[is]C[FORCE];W[gs])\r\n(;B[ks]C[FORCE];W[ms])\r\n(;B[ms]C[FORCE]\r\n(;W[gs]C[FORCE]\r\n(;B[is]C[FORCE];W[ks])\r\n(;B[ks]C[FORCE];W[is]C[RIGHT]))\r\n(;W[is]C[FORCE]\r\n(;B[gs]C[FORCE];W[ks]C[RIGHT])\r\n(;B[ks]C[FORCE];W[gs]C[RIGHT]))\r\n(;W[ks]C[FORCE]\r\n(;B[gs]C[FORCE];W[is]C[RIGHT])\r\n(;B[is]C[FORCE];W[gs]))))",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 1710,
+    "failed": 1093,
+    "tries": 2803,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-04-10T00:22:59+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 208,
+      "name": "Best move with letting enemy live",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

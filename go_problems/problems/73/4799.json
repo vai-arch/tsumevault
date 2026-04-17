@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4799,
+  "elo": 1684.9430146249,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "The rest of the board is settled.  Reduce black's corner as much as possible.",
+  "rating": {
+    "stars": 4,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[pq]AW[qo]AB[pr]AB[qq]AB[rq]AW[qp]AW[oq]AP[goproblems]\n(;W[or];B[qs]\n(;W[os];B[sr]\n(;W[rp];B[rs];W[ps];B[qr]C[Black is reduced to 2 points, and white has sente, plus T4 is black's gote.  Well done.RIGHT])\n(;W[ps];B[rp]\n(;W[qr];B[rs];W[ro];B[sp]TR[so]C[Black reduced to 1 point (counting the prisoner), but either white takes gote, or black can push out at T5.])\n(;W[ro];B[sp];W[qr];B[rs]C[Black reduced to 1 point (counting the prisoner), but either white takes gote, or black can push out at T5.]))\n(;W[qr];B[rs]\n(;W[ps];B[rp];W[ro];B[sp]TR[so]C[White either takes gote to seal off T5, or will suffer a big reduction there.])\n(;W[rp];B[ps]C[Black lives with 3 points.  Try again.])))\n(;W[rp];B[rr]C[Black lives with at least 3 points.  Try again.]))\n(;W[rp];B[rr]C[Black will live with at least 3 points.  Try again.]))",
+  "author": {
+    "id": 6186,
+    "name": "shaydwyrm",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2016-02-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 324,
+    "failed": 2102,
+    "tries": 2426,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-07-08T17:24:08+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 136,
+      "name": "Tripod",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9111,
+  "elo": 848.13222298203,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Thanks to BartTM!",
+  "rating": {
+    "stars": 3.6,
+    "votes": 36,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sb]AB[rc]AB[qc]AB[pc]AW[nc]AW[oe]AW[qd]AW[rd]AW[sc]AW[re]AW[qf]AW[pe]AB[pd]AW[nb]AW[nd]AW[oc]AB[ob]AB[pa]AW[na]AP[goproblems]\n(;B[ra]TR[sa]TR[rb]C[Creates an eye in the corner which is a useful shape in many positions.RIGHT])\n(;B[rb];W[ra];B[qa];W[pb]\n(;B[oa];W[qb])\n(;B[qb];W[oa])\n(;B[sa];W[oa]))\n(;B[oa];W[ra]\n(;B[qa];W[qb]\n(;B[pb];W[rb])\n(;B[rb];W[pb]))\n(;B[qb];W[qa])\n(;B[rb];W[qa]))\n(;B[pb];W[ra]C[Bulky five]MA[qa]MA[qb]MA[rb]MA[sa])\n(;B[qb];W[ra]C[Black is dead because white could fill the outside liberties.  Then black is left with a killable or dead shape inside.]\n(;B[oa];W[qa])\n(;B[qa];W[oa]TR[rb]C[Black only has one eye.]))\n(;B[sa]LB[pf:T]\n(;W[oa]\n(;B[pb]MA[qa]MA[ra]MA[rb]MA[qb]C[White can almost fill the marked points.])\n(;B[qb];W[ra])\n(;B[qa];W[pb])\n(;B[rb]MA[pb]MA[qa]C[Black needs both the marked points to live.])\n(;B[ra]MA[pb]MA[qb]C[Black needs both of the marked points to live.]))\n(;W[pf]C[White tenukis]))\n(;B[sd];W[ra];B[qa]LB[pf:T];W[pf]C[White tenukis; black needs both P19 and S18 to live.]\n(;B[oa];W[qb];B[pb];W[rb]C[White almost fills with a tripod dead shape. White cuts off escape and as long as the white groups live black is dead.]TR[qb]TR[rb]TR[ra])\n(;B[rb];W[pb]))\n(;B[qa];W[rb]\n(;B[ra];W[sa];B[qb];W[sb];B[sd];W[sb]\n(;B[oa];W[sc])\n(;B[sc];W[oa]))\n(;B[qb];W[sa];B[ra];W[sb];B[sd];W[sb]MA[oa]MA[sc]C[P19 and T17 are miai.]\n(;B[oa];W[sc])\n(;B[sc];W[oa]))))",
+  "author": {
+    "id": 9226,
+    "name": "LCZLAPINSKI",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-01-02",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1036.36
+  },
+  "avgSolveTimeSeconds": 18,
+  "attempts": {
+    "solved": 12418,
+    "failed": 8609,
+    "tries": 21027,
+    "speedSolved": 50,
+    "speedPlay": 88
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-08-30T20:42:09+00:00",
+  "source": "9103",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

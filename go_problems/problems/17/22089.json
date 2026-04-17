@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22089,
+  "elo": 615.84441642616,
+  "problemLevel": 0,
+  "rank": {
+    "value": 30,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 2.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[4]AP[goproblems]AB[ca]AB[cb]AB[cc]AB[cd]AW[ba]AW[bb]AW[bc](;B[ac];W[ab];B[bd];W[ad]C[The ko is nothing to White. Black wins.RIGHT])(;B[bd](;W[db](;B[dc]C[Black lives.RIGHT])(;B[ac]C[RIGHT])(;B[ab]C[RIGHT])(;B[aa]C[RIGHT]))(;W[dc](;B[db]C[Black lives.RIGHT])(;B[ac]C[RIGHT])(;B[ab]C[RIGHT])(;B[aa]C[RIGHT])))(;B[db];W[bd]C[Both groups are alive, and Black doesn't win.])(;B[dc];W[bd]C[Both groups are alive, and Black doesn't win.])(;B[ab](;W[bd];B[ac]C[RIGHT])(;W[ac];B[bd]C[RIGHT])))",
+  "author": {
+    "id": 97398,
+    "name": "niihao zhong guo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 22,
+  "attempts": {
+    "solved": 281,
+    "failed": 54,
+    "tries": 335,
+    "speedSolved": 3,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2019-11-02T08:06:55+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

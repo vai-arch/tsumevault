@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5221,
+  "elo": 1891.1049141458,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "White to play.",
+  "rating": {
+    "stars": 2.2,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[White to play.]AB[qg]AB[rf]AB[qe]AB[pe]AB[ne]AB[pc]AB[oc]AB[mb]AB[ld]AB[kd]AB[kc]AB[kb]AW[qc]AW[qd]AW[nc]AW[nb]AW[mc]AW[lc]AW[lb]\n(;W[pb];B[ob];W[oa]\n(;B[rb];W[ra];B[sc];W[rc]C[If black 'a' then white 'b' or if black 'c' then white 'd', ko.RIGHT]LB[qb:a]LB[qa:b]LB[sd:c]LB[sb:d])\n(;B[qb];W[qa];B[rb];W[ra];B[sb];W[rc];B[pa]C[RIGHT]))\n(;W[qb];B[pa];W[qa]\n(;B[oa]\n(;W[sb];B[rd];W[rc];B[ra])\n(;W[rd];B[sd];W[sc];B[rb]))\n(;B[rd]))\n(;W[pa];B[pb];W[qb];B[oa];W[qa];B[ob]\n(;W[rd];B[sd];W[sc];B[rb])\n(;W[sb];B[rd];W[rc];B[ra])))",
+  "author": {
+    "id": 7966,
+    "name": "nutcase",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-12-24",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 129,
+    "failed": 1196,
+    "tries": 1325,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-10-07T21:46:26+00:00",
+  "source": "Go Seigen",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 138,
+      "name": "Go Seigen Tsumego",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

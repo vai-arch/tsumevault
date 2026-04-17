@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14963,
+  "elo": 1295.1326287803,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 37,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]AP[glGo:1.4]ST[1]\r\n\r\nSZ[19]KM[6.5]\r\nPW[White]PB[Black]DT[2011-07-07]\r\nAB[qb][rb][rc][qf][pf][pe][rg][sg][pd][pc][od][ne]AW[qc][rd][qd][qe][se][sf][rf][pb][pa][oc][nd][nc][nb][na]C[White to win the corner unconditionally.]\r\n(;W[sb]\r\n;B[sc]\r\n(;W[ra]\r\n;B[sa]\r\n;W[qa]C[RIGHT Well done!  Black cannot approach.  White will wait until there are no ko threats left on the board, and then play t18 followed by t16.])\r\n(;W[qa]\r\n;B[ra]C[Seki])\r\n(;W[sa]\r\n;B[ra]))\r\n(;W[sc]\r\n;B[sb]\r\n(;W[qa]\r\n;B[sd]C[Two-step ko for white.])\r\n(;W[ra]\r\n;B[sd]C[Two-step ko for White.])\r\n(;W[sa]\r\n;B[sd]C[Two-step ko for White.]))\r\n(;W[ra]\r\n;B[qa]\r\n(;W[sc]\r\n;B[sa]C[Seki])\r\n(;W[sb]\r\n;B[sa]C[Ko]))\r\n(;W[qa]\r\n;B[sd]\r\n;W[sc]\r\n;B[sb]C[Ko])\r\n(;W[sa]\r\n;B[sd]\r\n;W[sc]\r\n;B[sb]C[Ko]))",
+  "author": {
+    "id": 49321,
+    "name": "discipulus",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-07-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 52,
+  "attempts": {
+    "solved": 1634,
+    "failed": 2900,
+    "tries": 4534,
+    "speedSolved": 4,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-07-07T12:21:45+00:00",
+  "source": "Interesting variation in a game I played",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

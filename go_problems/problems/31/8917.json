@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8917,
+  "elo": 1246.8250371052,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": -2,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Are the stones alive, dead, or in seki?",
+  "rating": {
+    "stars": 3.9,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rs]AB[rr]AB[sr]AB[ss]AB[sq]AW[so]AW[rp]AW[qq]AW[qr]AW[ps]AW[pr]AW[ro]AB[sn]AB[rn]AB[qn]AB[qo]AB[qp]AB[pp]AB[pq]AB[oq]AB[or]AB[os]AW[rq]LB[mi:Seki?]MA[kj]LB[mk:Black T2 Dead?]LB[mj:White dead?]MA[ki]MA[kk]C[Please click the box for the answer you want.CHOICE]AP[goproblems]\r\n(;B[qs];W[sp]\r\n(;B[rs];W[sr];B[rr]C[Instruction skipper.RIGHT])\r\n(;B[sr];W[rs];B[rr]C[Instruction skipper.RIGHT])\r\n(;B[rr]\r\n(;W[rs];B[sr]C[Instruction skipper.RIGHT])\r\n(;W[sr];B[rs]C[Instruction skipper.RIGHT])))\r\n(;B[sp];W[qs])\r\n(;B[kj];W[kk]LB[lk:Prove it]\r\n(;B[sp];W[qs])\r\n(;B[qs];W[sp]\r\n(;B[sr];W[rs];B[rr])\r\n(;B[rs];W[sr];B[rr])\r\n(;B[rr];W[sr];B[rs])))\r\n(;B[kk];W[qs];B[sp])\r\n(;B[ki];W[kj]LB[hm:Yes?]LB[jm:No]LB[nl:If black plays R1 as a ko-threat is Seki still possible?]C[If black plays at R1 as a ko-threat is Seki still possible later?  Click the yes or no lable.]\r\n(;B[jm])\r\n(;B[hm];W[im]LB[ml:Please play at R1 and show us the b2bomber then!]C[Please play at R1 and show us the B2-bomber then. :D]\r\n(;B[qs];W[sp]\r\n(;B[rs]\r\n(;W[sr];B[rr]C[RIGHT])\r\n(;W[rr]LB[ml:If white does this, white dies]C[If white responds here, white dies];B[sr]))\r\n(;B[sr]\r\n(;W[rs];B[rr]C[RIGHT]LB[kl:Very Good])\r\n(;W[ss]C[This move by white kills white];B[rs]))\r\n(;B[rr];W[rs];B[sr]C[RIGHT]))\r\n(;B[sp])))\r\n(;B[mi]C[NOTTHIS])\r\n(;B[mj]C[NOTTHIS])\r\n(;B[mk]C[NOTTHIS])\r\n(;B[li]C[NOTTHIS])\r\n(;B[lj]C[NOTTHIS])\r\n(;B[lk]C[NOTTHIS])\r\n(;B[ni]C[NOTTHIS])\r\n(;B[nj]C[NOTTHIS])\r\n(;B[nk]C[NOTTHIS]))",
+  "author": {
+    "id": 12040,
+    "name": "jocund",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-12-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 71,
+  "attempts": {
+    "solved": 2540,
+    "failed": 3522,
+    "tries": 6062,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-07-24T01:48:54+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

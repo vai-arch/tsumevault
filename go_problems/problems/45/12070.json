@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12070,
+  "elo": 1592.2577140474,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -3,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "I enjoyed Field Mouse's prasÃ¡tko game (problem 12068) and wanted to create a problem of my own with it.\r\n\r\nFrom Field Mouse's problem:\r\n\r\n\"The rules of prasÃ¡tko game:\r\n\r\n- two players place black and white stones on the board just like in go, but they cannot pass and white has the first move\r\n- when a player places his or her stone on the board and that stone touches some other stone (no matter if friendly or enemy), then that player loses the game\r\n- stones touch like in go when they are connected by the line and they can also touch diagonally\"",
+  "rating": {
+    "stars": 2.7,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[5]AB[be]AW[ea]C[Remember, diagonals count as a connection too.]AW[ab]AP[goproblems]\n(;B[dc]\n(;W[ca]C[CHOICE]\n(;B[de]C[White cannot win now. Good job :DRIGHT])\n(;B[ee]C[White cannot win now. Good job :DRIGHT]))\n(;W[de]C[CHOICE];B[ca]C[White cannot win now. Good job :DRIGHT]))\n(;B[cc];W[de]\n(;B[ec];W[ca]C[Uh oh, you have nowhere left to play.])\n(;B[ca];W[ec]C[Uh oh, you have nowhere left to play.]))\n(;B[dd];W[cb]C[Uh oh, you have nowhere left to play.])\n(;B[de];W[cc]\n(;B[ca];W[ec]C[Uh oh, you have nowhere left to play.])\n(;B[ec];W[ca]C[Uh oh, you have nowhere left to play.]))\n(;B[ee];W[cc]\n(;B[ec];W[ca]C[Uh oh, you have nowhere left to play.])\n(;B[ca];W[ec]C[Uh oh, you have nowhere left to play.]))\n(;B[ed];W[cb]C[Uh oh, you have nowhere left to play.])\n(;B[ec];W[cc]\n(;B[ca];W[de]C[Uh oh, you have nowhere left to play.])\n(;B[de];W[ca]C[Uh oh, you have nowhere left to play.])\n(;B[ee];W[ca]C[Uh oh, you have nowhere left to play.]))\n(;B[cb];W[dd]C[Uh oh, you have nowhere left to play.])\n(;B[ca];W[dd]C[Uh oh, you have nowhere left to play.])\n(;B[ae]C[Oh no! You played next to a stone!])\n(;B[ad]C[Oh no! You played next to a stone!])\n(;B[bd]C[Oh no! You played next to a stone!])\n(;B[bc]C[Oh no! You played next to a stone!])\n(;B[bb]C[Oh no! You played next to a stone!])\n(;B[ba]C[Oh no! You played next to a stone!])\n(;B[ce]C[Oh no! You played next to a stone!])\n(;B[cd]C[Oh no! You played next to a stone!])\n(;B[da]C[Oh no! You played next to a stone!])\n(;B[db]C[Oh no! You played next to a stone!])\n(;B[eb]C[Oh no! You played next to a stone!])\n(;B[aa]C[Oh no! You played next to a stone!])\n(;B[ac]C[Oh no! You played next to a stone!]))",
+  "author": {
+    "id": 15623,
+    "name": "MeleeNewb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1962.53
+  },
+  "avgSolveTimeSeconds": 93,
+  "attempts": {
+    "solved": 92,
+    "failed": 253,
+    "tries": 345,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-12-16T09:14:10+00:00",
+  "source": "Inspired by Field Mouse",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

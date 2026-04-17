@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12039,
+  "elo": 1302.628628636,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[bp]AW[cp]AW[dp]AW[bq]AW[eq]AW[er]AW[fr]AB[eo]AB[ep]AB[cq]AB[dq]AB[gq]AB[dr]AB[gr]C[Black to win the semeai.]GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]RU[Japanese]KM[0.00]PW[WeiÃŸ]PB[Schwarz]\n(;B[br];W[ds];B[cr];W[ar])\n(;B[cs];W[br];B[es];W[cr];B[fs];W[ds];B[dr]C[Not enough!])\n(;B[ds]\n(;W[cs]\n(;B[bs];W[es];B[cr];W[br])\n(;B[br]\n(;W[es];B[cr];W[ar];B[bs]C[RIGHT])\n(;W[ar];B[fs]C[RIGHT])))\n(;W[cr];B[br]\n(;W[bs];B[cs];W[ar];B[fs];W[cr]C[Only ko.])\n(;W[ar]\n(;B[cs];W[bs]C[Only ko.];B[fs];W[cr]C[Only ko.])\n(;B[bs]C[RIGHT])))))",
+  "author": {
+    "id": 21299,
+    "name": "derPlumps",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2014-06-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 1400,
+    "failed": 2321,
+    "tries": 3721,
+    "speedSolved": 2,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-12-10T04:56:28+00:00",
+  "source": "Get Strong at Tesuji",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

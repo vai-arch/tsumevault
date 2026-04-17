@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1782,
+  "elo": 1903.2836634607,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -3,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This is a small board endgame problem. I hope you like 7x7 go! ",
+  "rating": {
+    "stars": 4.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[7]AW[da]AW[db]AW[fb]AW[dc]AW[fc]AW[gc]AW[ad]AW[bd]AW[dd]AW[ed]AW[be]AW[de]AW[bf]AW[cf]AB[ba]AB[ca]AB[ab]AB[cb]AB[bc]AB[cc]AB[cd]AB[fd]AB[gd]AB[ce]AB[ee]AB[fe]AB[af]AB[df]AB[dg]C[No komi given, no prisoners taken - white to play and win!]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]TM[]PW[WeiÃ’Å¸]PB[Schwarz]PL[W]\n(;W[ef];B[ff]\n(;W[cg];B[eg];W[ag];B[bg];W[fg];B[gg];W[ag]C[RIGHT];B[eb];W[ae];B[fa];W[ec];B[gb];W[ga];B[ac]C[There was no ko threat for black...!];W[ea]C[White wins by one point RIGHT])\n(;W[ag];B[cg]C[Of course black doesn't capture at B1!]))\n(;W[cg];B[ef];W[ag];B[bg]\n(;W[gf];B[ag]\n(;W[ff];B[fg])\n(;W[fg];B[ac];W[ae];B[ag];W[ff];B[bg]C[White loses the capturing race by one move - f2 wasn't a good enough ko threat])\n(;W[ge];B[fg]))\n(;W[ff];B[ag];W[gg];B[ac];W[ae];B[ag];W[ge];B[gf]C[There is no white ko threat]))\n(;W[ag];B[cg]C[Of course black doesn't capture at B1!])\n(;W[ff];B[ef];W[gg];B[cg];W[ge];B[gf]C[There is no white ko threat]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 233,
+    "failed": 2837,
+    "tries": 3070,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-11-25T15:09:49+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

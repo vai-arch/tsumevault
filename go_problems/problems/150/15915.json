@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15915,
+  "elo": 1004.3861321954,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -5,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.2,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ad]AB[ae]AB[af]AB[bf]AB[bg]AB[cf]AB[df]AB[eg]AB[ef]AB[ee]AB[ed]AB[fd]AB[cd]AB[gf]AB[hf]AB[dh]AB[di]AB[dj]AB[ei]AB[fi]AB[gj]AB[dl]AB[cl]AB[bk]AB[jd]AB[ld]AB[le]AB[md]AW[ac]AW[bd]AW[cc]AW[dd]AW[ec]AW[fc]AW[gc]AW[ge]AW[fe]AW[ff]AW[fg]AW[fh]AW[eh]AW[gh]AW[cg]AW[dg]AW[ag]AW[bh]AW[bi]AW[ch]AW[ci]AW[cj]AW[aj]AW[ck]AW[dk]AW[ek]AB[mf]AB[ne]AB[nc]AB[nb]AB[ng]AB[mh]AW[nf]AW[of]AW[pf]AW[nd]AW[od]AW[pd]AW[oc]AW[ph]AW[ok]C[Black to connect the marked stones!]TR[ad]TR[ae]TR[af]TR[bf]TR[bg]TR[cf]TR[df]TR[eg]TR[ef]TR[ee]TR[ed]TR[fd]AP[goproblems];B[gd];W[hd]\n(;B[he]\n(;W[ic]\n(;B[id];W[hc];B[hh]C[Right, the seven white stones can't escapeCHOICERIGHT]TR[fe]TR[ge]TR[ff]TR[fg]TR[eh]TR[fh]TR[gh])\n(;B[hh]C[Right, the seven white stones can't escapeRIGHT]TR[eh]TR[fh]TR[gh]TR[fg]TR[ff]TR[fe]TR[ge]))\n(;W[ih];B[hc];W[ic];B[id]MA[hd]C[Right, black is connected.CHOICERIGHT])\n(;W[hc];B[hh]C[Right, the seven white stones can't escapeCHOICERIGHT]TR[ge]TR[fe]TR[ff]TR[fg]TR[eh]TR[fh]TR[gh]))\n(;B[hh];W[he];B[hc];W[ic]TR[hc]C[Wrong, H17 is captured and the black group is enclosed.])\n(;B[hc];W[he];B[ic];W[ih]C[Wrong, the black stones are not connected]))",
+  "author": {
+    "id": 51602,
+    "name": "Asplenium",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-04-17",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 60,
+  "attempts": {
+    "solved": 3530,
+    "failed": 2579,
+    "tries": 6109,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-03-15T01:29:42+00:00",
+  "source": "Real game on KGS 11k vs 11k",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 21,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

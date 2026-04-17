@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6693,
+  "elo": 1058.5283635167,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Both 5d players missed this in the game.",
+  "rating": {
+    "stars": 1.8,
+    "votes": 46,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ds]AB[cs]AB[bs]AB[br]AB[cq]AB[cp]AB[bo]AB[bn]AB[am]AB[bl]AB[ak]AB[bj]AB[ck]AW[es]AW[dr]AW[cr]AW[dq]AW[dp]AW[do]AW[fs]AW[gr]AW[fq]AW[cn]AW[cm]AW[bm]AW[cl]AW[dl]AW[en]AW[em]C[The rest of the board is settled.  What can white get out of this?]AB[dj]AW[ek]AW[ej]AB[di]AW[ei]AP[goproblems]\n(;W[co]\n(;B[bp]C[One point.  Good work! ;)CHOICERIGHT])\n(;B[dk]C[(Suppose black passes ... what now?)CHOICE]\n(;W[bq];B[bp]\n(;W[aq];B[ap];W[an];B[ar];W[al]C[White gets a koRIGHT])\n(;W[an];B[ao];W[aq]C[Black can't descend with either group.  White gets the corner!RIGHT]))\n(;W[bp];B[bq];W[ap];B[aq];W[an];B[ao])\n(;W[an];B[ao]\n(;W[bp];B[bq])\n(;W[bq];B[bp];W[aq]C[Black can't descend with either group.  White gets the corner!RIGHT]))\n(;W[ap];B[bp])\n(;W[aq];B[bq])))\n(;W[bq];B[bp]\n(;W[aq];B[ap]\n(;W[co];B[ar]C[That works.  White gets a point.RIGHT])\n(;W[an];B[ao]C[ 1 point. C5 isn't dame; Black needs to defend.RIGHT]))\n(;W[an];B[ao]\n(;W[aq];B[ap]C[ 1 point. C5 isn't dame; Black needs to defend.RIGHT])\n(;W[co];B[aq]C[ 1 point. C5 isn't dame; Black needs to defend.RIGHT]MA[co]))\n(;W[co];B[aq]MA[co]C[ 1 point. C5 isn't dame; Black needs to defend.RIGHT]))\n(;W[bp];B[co]\n(;W[bq];B[ap])\n(;W[ap];B[ao]))\n(;W[an];B[ao]\n(;W[co];B[bp]C[1 pointRIGHT])\n(;W[bq];B[bp]\n(;W[aq];B[ap]C[ 1 point. C5 isn't dame; Black needs to defend.RIGHT])\n(;W[co];B[aq]C[ 1 point. C5 isn't dame; Black needs to defend.RIGHT]MA[co]))))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 9747,
+    "failed": 8414,
+    "tries": 18161,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-12T14:10:54+00:00",
+  "source": "KGS",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 30,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

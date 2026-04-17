@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10688,
+  "elo": 1593.4725027645,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 2.8,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[hr]AB[ir]AB[jq]AB[kq]AB[lq]AB[mq]AB[mr]AW[gr]AW[gq]AW[hq]AW[iq]AW[jp]AW[kp]AW[lp]AW[np]AW[mp]AW[nq]AW[nr]C[Is this group alive (A), dead (D), or must black still play there (P)?FORCE]LB[go:A]LB[ho:D]LB[io:P]AW[ns]LB[aa: ]AW[an]AP[goproblems]\n(;B[io];W[ip]C[Then bring it to life.]\n(;B[kr]\n(;W[ls];B[ms];W[js];B[ks];W[hs];B[jr]C[Good job!RIGHT])\n(;W[js];B[ks];W[ms];B[ls];W[hs];B[jr]C[Good job!RIGHT]))\n(;B[js];W[kr]\n(;B[hs];W[ls]\n(;B[ms];W[jr])\n(;B[ks];W[ms]\n(;B[lr];W[jr])\n(;B[jr];W[lr]))\n(;B[lr];W[ms]\n(;B[jr];W[ks])\n(;B[ks];W[jr])))\n(;B[ks];W[hs]\n(;B[ms];W[lr])\n(;B[lr];W[ms]))\n(;B[lr];W[hs]\n(;B[ks];W[ms])\n(;B[ms];W[ks])))\n(;B[hs];W[js]\n(;B[ks];W[kr];B[ls];W[jr])\n(;B[jr];W[ls]\n(;B[ms];W[kr])\n(;B[kr];W[ms]))\n(;B[ms];W[jr])\n(;B[kr];W[ls];B[ms];W[jr]))\n(;B[ms];W[hs]\n(;B[is];W[jr];B[gs];W[js])\n(;B[js];W[kr])\n(;B[kr];W[js])\n(;B[ks];W[jr])\n(;B[jr];W[ks])\n(;B[ls];W[jr]))\n(;B[ks];W[hs];B[is];W[jr];B[gs];W[kr])\n(;B[ls];W[hs]\n(;B[kr];W[js])\n(;B[js];W[kr])\n(;B[is];W[jr])\n(;B[jr];W[kr]\n(;B[ks];W[is])\n(;B[is];W[ks]))\n(;B[ks];W[jr])))\n(;B[ho]C[No, black still has a chance at survival.])\n(;B[go]C[No, black isn't alive yet. For fun though you might try to find the only local move white has that wont kill black.]))",
+  "author": {
+    "id": 15623,
+    "name": "MeleeNewb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1962.53
+  },
+  "avgSolveTimeSeconds": 60,
+  "attempts": {
+    "solved": 353,
+    "failed": 1064,
+    "tries": 1417,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-12-11T20:28:24+00:00",
+  "source": "Self",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

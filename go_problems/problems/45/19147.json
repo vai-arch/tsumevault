@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19147,
+  "elo": 1678.0774910534,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This is \"White To Play -- find the worst move\"! The group in the lower left is dead if White does not play at 1. It seems as if Black dies if White plays anywhere else but 1",
+  "rating": {
+    "stars": 2.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ra]AB[qa]AB[ab]AB[ac]AB[dc]AB[ec]AB[fe]AB[ge]AB[gg]AB[hh]AB[ig]AB[jg]AB[ji]AB[ij]AB[ik]AB[kj]AB[kk]AB[jl]AB[im]AB[km]AB[lm]AB[mo]AB[no]AB[pq]AB[oq]AB[sq]AB[sr]AB[qd]AB[qe]AB[of]AB[og]AB[mh]AB[ds]AB[cr]AB[cq]AB[cp]AB[ao]AB[bo]AB[co]AB[eo]AB[ep]AB[cm]AB[cl]AB[bl]AW[ii]AW[cs]AW[bs]AW[as]AW[ar]AW[br]AW[bp]AW[dr]AW[dq]AW[dp]AW[do]AW[dn]AW[dm]AW[cn]AW[bn]AW[bm]AW[am]AB[gm]AB[gn]C[http://harryfearnley.com/go/bestiary/brain_hurts.html  - http://denisfeldmann.fr/bestiary3.htm - White to play and save the black stones in the SW corner (and, if Black tries then to use this opportunity, who wins the game ?]LB[jj:1]LB[jk:2]AB[mi]AP[goproblems]\n(;W[jj];B[es]TR[er];W[er];B[fs];W[fr];B[gs];W[gr];B[hs];W[hr];B[is];W[ir];B[js];W[jr];B[ks];W[kr];B[ls];W[lr];B[ms];W[mr];B[ns];W[nr];B[os];W[or];B[ps];W[pr];B[qs];W[qr];B[rs];W[rr];B[ss];W[rq];B[sp];W[rp];B[so];W[ro];B[sn];W[rn];B[sm];W[rm];B[sl];W[rl];B[sk];W[rk];B[sj];W[rj];B[si];W[ri];B[sh];W[rh];B[sg];W[rg];B[sf];W[rf];B[se];W[re];B[sd];W[rd];B[sc];W[rc];B[sb];W[rb];B[sa];W[qb];B[pa];W[pb];B[oa];W[ob];B[na];W[nb];B[ma];W[mb];B[la];W[lb];B[ka];W[kb];B[ja];W[jb];B[ia];W[ib];B[ha];W[hb];B[ga];W[gb];B[fa];W[fb];B[ea];W[eb];B[da];W[db];B[ca];W[cb];B[ba];W[bb];B[aa];W[bc];B[ad];W[bd];B[ae];W[be];B[af];W[bf];B[ag];W[bg];B[ah];W[bh];B[ai];W[bi];B[aj];W[bj];B[ak];W[bk];B[al]TR[dl];W[dl];B[ck];W[dk];B[cj];W[dj];B[ci];W[di];B[ch];W[dh];B[cg];W[dg];B[cf];W[df];B[ce];W[de];B[cd];W[dd];B[cc];W[ed];B[fc];W[fd];B[gc];W[gd];B[hc];W[hd];B[ic];W[id];B[jc];W[jd];B[kc];W[kd];B[lc];W[ld];B[mc];W[md];B[nc];W[nd];B[oc];W[od];B[pc];W[pd];B[qc];W[pe];B[qf];W[pf];B[qg];W[pg];B[qh];W[ph];B[qi];W[pi];B[qj];W[pj];B[qk];W[pk];B[ql];W[pl];B[qm];W[pm];B[qn];W[pn];B[qo];W[po];B[qp];W[pp];B[qq];W[op];B[nq];W[np];B[mq];W[mp];B[lq];W[lp];B[kq];W[kp];B[jq];W[jp];B[iq];W[ip];B[hq];W[hp];B[gq];W[gp];B[fq];W[fp];B[eq];W[fo];B[en];W[fn];B[em];W[fm];B[el];W[fl];B[ek];W[fk];B[ej];W[fj];B[ei];W[fi];B[eh];W[fh];B[eg];W[fg];B[ef];W[ff];B[ee];W[gf];B[he];W[hf];B[ie];W[if];B[je];W[jf];B[ke];W[kf];B[le];W[lf];B[me];W[mf];B[ne];W[nf];B[oe];W[ng];B[oh];W[nh];B[oi];W[ni];B[oj];W[nj];B[ok];W[nk];B[ol];W[nl];B[om];W[nm];B[on];W[nn];B[oo];W[mn];B[lo];W[ln];B[ko];W[kn];B[jo];W[jn];B[io];W[in];B[ho];W[hn];B[go];W[hm];B[gl];W[hl];B[gk];W[hk];B[gj];W[hj];B[gi];W[hi];B[gh];W[ih];B[hg];W[jh];B[kg];W[kh];B[lg];W[lh];B[mg];W[li];B[mj];W[lj];B[mk];W[lk];B[ml];W[ll];B[mm];W[kl];B[jm]TR[ki];W[ki];B[bq]TR[jk];W[jk]\n(;B[aq]TR[il];W[il];B[cs]C[We must again assume that after White's move, both players will do their best. The incredible idea behind the problem is to self-break a ladder, with a white stone preventing the sacrifice which would end it otherwise (it must be said that this is a Pyrrhic victory for Black, as he destroyed all his territory in the process and loses by three and a half point (Japanese counting) with a 5,5 komiRIGHT])\n(;B[ap];W[il]C[RIGHT]))\n(;W[jk];B[es];W[er];B[fs];W[fr];B[gs];W[gr];B[hs];W[hr];B[is];W[ir];B[js];W[jr];B[ks];W[kr];B[ls];W[lr];B[ms];W[mr];B[ns];W[nr];B[os];W[or];B[ps];W[pr];B[qs];W[qr];B[rs];W[rr];B[ss];W[rq];B[sp];W[rp];B[so];W[ro];B[sn];W[rn];B[sm];W[rm];B[sl];W[rl];B[sk];W[rk];B[sj];W[rj];B[si];W[ri];B[sh];W[rh];B[sg];W[rg];B[sf];W[rf];B[se];W[re];B[sd];W[rd];B[sc];W[rc];B[sb];W[rb];B[sa];W[qb];B[pa];W[pb];B[oa];W[ob];B[na];W[nb];B[ma];W[mb];B[la];W[lb];B[ka];W[kb];B[ja];W[jb];B[ia];W[ib];B[ha];W[hb];B[ga];W[gb];B[fa];W[fb];B[ea];W[eb];B[da];W[db];B[ca];W[cb];B[ba];W[bb];B[aa];W[bc];B[ad];W[bd];B[ae];W[be];B[af];W[bf];B[ag];W[bg];B[ah];W[bh];B[ai];W[bi];B[aj];W[bj];B[ak];W[bk];B[al];W[dl];B[ck];W[dk];B[cj];W[dj];B[ci];W[di];B[ch];W[dh];B[cg];W[dg];B[cf];W[df];B[ce];W[de];B[cd];W[dd];B[cc];W[ed];B[fc];W[fd];B[gc];W[gd];B[hc];W[hd];B[ic];W[id];B[jc];W[jd];B[kc];W[kd];B[lc];W[ld];B[mc];W[md];B[nc];W[nd];B[oc];W[od];B[pc];W[pd];B[qc];W[pe];B[qf];W[pf];B[qg];W[pg];B[qh];W[ph];B[qi];W[pi];B[qj];W[pj];B[qk];W[pk];B[ql];W[pl];B[qm];W[pm];B[qn];W[pn];B[qo];W[po];B[qp];W[pp];B[qq];W[op];B[nq];W[np];B[mq];W[mp];B[lq];W[lp];B[kq];W[kp];B[jq];W[jp];B[iq];W[ip];B[hq];W[hp];B[gq];W[gp];B[fq];W[fp];B[eq];W[fo];B[en];W[fn];B[em];W[fm];B[el];W[fl];B[ek];W[fk];B[ej];W[fj];B[ei];W[fi];B[eh];W[fh];B[eg];W[fg];B[ef];W[ff];B[ee];W[gf];B[he];W[hf];B[ie];W[if];B[je];W[jf];B[ke];W[kf];B[le];W[lf];B[me];W[mf];B[ne];W[nf];B[oe];W[ng];B[oh];W[nh];B[oi];W[ni];B[oj];W[nj];B[ok];W[nk];B[ol];W[nl];B[om];W[nm];B[on];W[nn];B[oo];W[mn];B[lo];W[ln];B[ko];W[kn];B[jo];W[jn];B[io];W[in];B[ho];W[hn];B[go];W[hm];B[gl];W[hl];B[gk];W[hk];B[gj];W[hj];B[gi];W[hi];B[gh];W[ih];B[hg];W[jh];B[kg];W[kh];B[lg];W[lh];B[mg];W[li];B[mj];W[lj];B[mk];W[lk];B[ml];W[ll];B[mm];W[kl];B[jm]\n(;W[ki];B[bq];W[il]C[RIGHT])\n(;W[il]C[RIGHT])))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 248,
+  "attempts": {
+    "solved": 23,
+    "failed": 95,
+    "tries": 118,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-03-02T20:27:51+00:00",
+  "source": "varius",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

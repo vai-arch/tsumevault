@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5229,
+  "elo": 1932.4346319662,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -2,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Problem updated with Tail's solution",
+  "rating": {
+    "stars": 3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pr]AB[or]AB[oq]AB[op]AB[oo]AB[pn]AB[qn]AB[rm]AB[ql]AW[qr]AW[pq]AW[pp]AW[qo]AW[rn]AW[ro]SZ[19]C[White shape is alive but black has severe moves that can reduce white territory]\r\n(;B[rr]\r\n(;W[qs]\r\n(;B[rq];W[qq]C[so far so good...]\r\n(;B[rs]\r\n(;W[rp]C[...];B[po];W[sq];B[ps];W[qp];B[sn]C[... straight 3, white is butchered])\r\n(;W[sr]C[tesuji, now how will u cont'd?CHOICE]\r\n(;B[po]\r\n(;W[sp]C[CHOICE]\r\n(;B[sn];W[sq];B[ps];W[qp];B[sm]C[RIGHT];W[so]C[sekiRIGHT])\r\n(;B[ps];W[qp];B[sn];W[sq];B[sm]C[RIGHT];W[so]C[sekiRIGHT])\r\n(;B[qp];W[rp];B[ps];W[qp];B[sn]C[RIGHT];W[ol]C[CHOICE]))\r\n(;W[sq]C[CHOICE]\r\n(;B[ps];W[qp]\r\n(;B[sn];W[sp]C[The best result for both sides is seki.RIGHT];B[sm];W[so]C[RIGHT])\r\n(;B[sm];W[rp];B[sn];W[ss])\r\n(;B[sp];W[rp];B[ss];W[sq]\r\n(;B[sr];W[sq])\r\n(;B[sn];W[so];B[sm];W[sr])))\r\n(;B[sn];W[rp])\r\n(;B[rp];W[sp])\r\n(;B[qp];W[rp])\r\n(;B[sp];W[rp];B[ss];W[sq])\r\n(;B[so];W[rp])\r\n(;B[ss];W[rp]))\r\n(;W[rp];B[ps];W[qp])\r\n(;W[qp];B[sn];W[sp];B[sm];W[so];B[sq]))\r\n(;B[rp];W[sp]C[White wins the semeai])\r\n(;B[sn];W[rp]\r\n(;B[ps];W[sq])\r\n(;B[po];W[sq])\r\n(;B[so];W[sq])\r\n(;B[sp];W[sq];B[ss];W[sq];B[sr];W[sq])))\r\n(;W[sq]C[T3 variation as proposed by Bass...I dunno wat I'd left out, so if anyone finds anything missing, pls point it out.];B[po]\r\n(;W[qp];B[sn];W[so];B[sm];W[sp];B[ps];W[sr]C[Seki])\r\n(;W[sn];B[rp];W[qp];B[ps]))\r\n(;W[sp];B[po];W[qp];B[sn])\r\n(;W[so]C[White should not choose to play this as it can let Black to choose between direct Ko or seki];B[po]\r\n(;W[sr];B[ps];W[qp];B[sp])\r\n(;W[sq]\r\n(;B[ps];W[qp]\r\n(;B[sm];W[sr];B[sn];W[sp])\r\n(;B[sr];W[rp]C[Direct Ko]))\r\n(;B[sr];W[rp];B[sp]C[Direct Ko...])\r\n(;B[qp];W[rp];B[ps];W[qp])))\r\n(;W[po];B[rp]C[White will lose this semeai])\r\n(;W[qp];B[sn]\r\n(;W[sp]\r\n(;B[sq];W[rp];B[ps];W[sr];B[po];W[ss])\r\n(;B[ps];W[sq]\r\n(;B[po])\r\n(;B[sm];W[so];B[sr]C[RIGHT];W[rp];B[po]C[RIGHT])))\r\n(;W[so];B[sq];W[sr];B[ps];W[rp];B[po]C[RIGHT])))\r\n(;B[rp];W[sr]C[tesuji, now how will u cont'd?]\r\n(;B[sq];W[rs]\r\n(;B[po];W[qp];B[ss];W[sp];B[so];W[sn]C[white lives by double ko])\r\n(;B[ss];W[so];B[po];W[qp];B[ps];W[sm]C[White lives by double ko.]))\r\n(;B[rs];W[so]C[semeai, black lose by 1 move])\r\n(;B[po];W[rs];B[sq];W[qp];B[ss];W[sp];B[so];W[sn]C[White lives by double ko.])\r\n(;B[sn];W[so]\r\n(;B[rs];W[sp]C[Black loses the semeai.])\r\n(;B[sq];W[rs];B[ss];W[qp];B[po];W[sm]\r\n(;B[sl];W[sp])\r\n(;B[ps];W[sr]C[White lives by double ko])))))\r\n(;B[qq];W[rq];B[ps];W[qp];B[rs];W[qq])\r\n(;B[rp];W[rq];B[sq];W[qq])\r\n(;B[rs];W[rq]\r\n(;B[ps];W[qq])\r\n(;B[qq];W[qp];B[ps];W[qq])))\r\n(;W[rq];B[qs];W[qq];B[rs];W[sr];B[po];W[sn];B[sp]))\r\n(;B[qs];W[rr];B[rs];W[rq])\r\n(;B[qq];W[rq]\r\n(;B[qs];W[rr]C[Black can do much better.])\r\n(;B[rr];W[qs];B[rs];W[qp];B[ps];W[qq]C[Black accomplishes nothing.]))\r\n(;B[rq];W[rr];B[qq];W[sq];B[sp];W[sr]\r\n(;B[qs];W[rp];B[rs];W[qp]C[Black can do much better.])\r\n(;B[rp];W[qs]C[Black accomplishes nothing.])))",
+  "author": {
+    "id": 8048,
+    "name": "Cut",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-08-28",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 125,
+    "failed": 1630,
+    "tries": 1755,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-10-10T08:59:56+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 22,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

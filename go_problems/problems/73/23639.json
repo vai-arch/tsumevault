@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23639,
+  "elo": 1511.1354995143,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "black to live without seki.",
+  "rating": {
+    "stars": 5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\n\r\nAW[da][ea][eb][bc][ec][ed][ce][de][ee][af][bf][cf]\r\nAB[ca][cb][db][dc][bd][cd][dd][ae][be]\r\nSZ13\r\nC[black to live without seki.]\r\n\r\n   (;B[bb] ;W[ab]\r\n      (;B[ac] ;W[ad]\r\n         (;B[aa] ;W[ba] ;B[ac] C[RIGHT black lives in double ko.])\r\n         (;B[ba] ;W[ac] C[seki.])\r\n      )\r\n      (;B[aa] ;W[ac]\r\n         (;B[ba] ;W[ad] C[black dies.])\r\n         (;B[ad] ;W[ba] C[ko.])\r\n      )\r\n      (;B[ad] ;W[ac]\r\n         (;B[ba] C[seki.])\r\n         (;B[aa] ;W[ba] C[ko.])\r\n      )\r\n      (;B[ba] ;W[ac] C[seki.])\r\n\r\n   )\r\n   (;B[ab] ;W[bb]\r\n      (;B[ac] ;W[ba] C[seki.])\r\n      (;B[ba] ;W[ac]\r\n         (;B[ad] ;W[aa] C[ko.])\r\n         (;B[aa] ;W[cc] C[black dies.])\r\n      )\r\n   )\r\n   (;B[ac] ;W[bb]\r\n      (;B[ab] ;W[ba] C[seki.])\r\n      (;B[ba] ;W[ab]\r\n         (;B[ad] C[seki.])\r\n         (;B[aa] ;W[ad] C[ko.])\r\n      )\r\n   )\r\n)",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 92,
+  "attempts": {
+    "solved": 41,
+    "failed": 209,
+    "tries": 250,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2022-08-14T03:47:31+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

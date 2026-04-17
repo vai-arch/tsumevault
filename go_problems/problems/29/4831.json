@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4831,
+  "elo": 1345.1921728454,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -2,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 4.4,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[nh]AW[oh]AW[qh]AW[mi]AW[qi]AW[mj]AW[pj]AW[jk]AW[kk]AW[lk]AW[mk]AW[nk]AW[pk]AW[qk]AW[rk]AW[jl]AW[ll]AW[nl]AW[pl]AW[rl]AW[sl]AW[jm]AW[km]AW[mm]AW[nm]AW[sm]AB[oe]AB[jf]AB[nf]AB[pf]AB[mg]AB[ng]AB[og]AB[pg]AB[qg]AB[rg]AB[lh]AB[mh]AB[rh]AB[ji]AB[li]AB[ri]AB[ij]AB[jj]AB[lj]AB[qj]AB[rj]AB[ik]AB[il]AB[ol]AB[ql]AB[im]AB[lm]AB[om]AB[pm]AB[qm]AB[rm]AB[in]AB[jn]AB[kn]AB[ln]AB[mn]AB[nn]AB[on]AB[rn]AB[sn]C[best endgame move for black?]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[oj];W[ok]C[if white tries to protect everything...]\n(;B[pi];W[oi]C[CHOICE]\n(;B[ph]C[RIGHT])\n(;B[ni];W[nj];B[ph]C[pretty good, but you lost sente.  you can do better.]))\n(;B[ni];W[pi];B[ph];W[oi])\n(;B[ph];W[pi]\n(;B[ni];W[oi])\n(;B[oi];W[ni]))\n(;B[oi];W[ph]\n(;B[pi];W[ni])\n(;B[ni];W[pi])))\n(;B[ok];W[oj]\n(;B[pi];W[ph];B[ni];W[oi])\n(;B[ni];W[ph])\n(;B[ph];W[pi]\n(;B[ni];W[oi])\n(;B[oi];W[ni]))\n(;B[oi];W[ph]))\n(;B[ph];W[pi]\n(;B[oi];W[ni];B[oj];W[ok])\n(;B[ok];W[oj];B[ni];W[oi])\n(;B[oj];W[ok]\n(;B[ni];W[oi])\n(;B[oi];W[ni]))\n(;B[ni];W[oi];B[ok];W[oj]))\n(;B[pi];W[ph]\n(;B[ni];W[oi];B[oj];W[nj];B[ok]C[smooth maneuver, but you can actually do even better...])\n(;B[oi];W[ni]\n(;B[oj];W[ok])\n(;B[ok];W[oj]))\n(;B[ok];W[oj];B[ni];W[oi])\n(;B[oj];W[ni];B[ok];W[oi]C[smooth maneuver, but you can actually do better...]))\n(;B[oi];W[ph]\n(;B[ok];W[oj])\n(;B[oj];W[ok]\n(;B[pi];W[ni])\n(;B[ni];W[pi]))\n(;B[pi];W[ni];B[ok];W[oj])\n(;B[ni];W[pi];B[ok];W[oj]))\n(;B[ni];W[oi]\n(;B[ph];W[pi];B[ok];W[oj])\n(;B[ok];W[oj];B[ph];W[pi])\n(;B[oj];W[pi]\n(;B[ok];W[nj]C[smooth maneuver, but black can do even better])\n(;B[nj];W[ok])))\n(;B[nj];W[ok];B[pi];W[ph]\n(;B[ni];W[oi])\n(;B[oi];W[ni])))",
+  "author": {
+    "id": 7585,
+    "name": "macho",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-15",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 1824,
+    "failed": 3726,
+    "tries": 5550,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-07-16T00:12:43+00:00",
+  "source": "kgs game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

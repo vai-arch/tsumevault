@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14660,
+  "elo": 1108.9801331288,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -2,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This position occurred in a pro game. The problem deals with the end of a 3-4 joseki. Even if all the board is shown, the problem is local so think locally!",
+  "rating": {
+    "stars": 3.2,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pd]AW[dd]AB[qp]AW[dq]AB[oq]AW[qj]AB[do]AW[co]AB[dp]AW[cp]AB[eq]AW[cn]LB[cq:A]LB[dr:B]C[Play A if you believe you can capture the white D3 stone or B if you cannot.FORCE]AP[goproblems]\n(;B[dr];W[cq]C[Defend at F4.FORCE];B[fp]C[Well done ! Black's thickness works well with the keima in the lower-right corner, while white still needs a move on the left side.RIGHT])\n(;B[cq];W[dr]\n(;B[cr];W[er]\n(;B[fq];W[fr];B[gr];W[br]C[This move is tesuji for white. Moreover, a cut at G3 is dangerous for black.]\n(;B[ds];W[bq]C[End of the line. Black should have played B.])\n(;B[bs];W[bq]C[End of the line. Black should have played B.])\n(;B[cs];W[bq]C[End of the line. Black should have played B.])\n(;B[bq];W[cs]\n(;B[ar];W[bs]\n(;B[aq];W[bp]C[End of the line. Black should have played B.])\n(;B[bp];W[bo]\n(;B[aq];W[ao]C[End of the line. Black should have played B.])\n(;B[ao];W[aq];B[ap];W[an]C[End of the line. Black should have played B.])\n(;B[ds];W[es]\n(;B[gs];W[ap]C[End of the line. Black should have played B.])\n(;B[aq];W[ao]C[End of the line. Black should have played B.]))\n(;B[fs];W[ap]C[End of the line. Black should have played B.]))\n(;B[ap];W[bp]C[End of the line. Black should have played B.])\n(;B[fs];W[bp]C[End of the line. Black should have played B.])\n(;B[ds];W[es]\n(;B[gs];W[bp]C[End of the line. Black should have played B.])\n(;B[bp];W[bo]\n(;B[gs];W[ap]C[End of the line. Black should have played B.])\n(;B[aq];W[ao]C[End of the line. Black should have played B.]))))\n(;B[bp];W[bo];B[ar];W[bs]\n(;B[aq];W[ao]C[End of the line. Black should have played B.])\n(;B[ao];W[aq];B[ap];W[an]C[End of the line. Black should have played B.])\n(;B[ds];W[es]\n(;B[gs];W[ap]C[End of the line. Black should have played B.])\n(;B[aq];W[ao]C[End of the line. Black should have played B.]))\n(;B[fs];W[ap]C[End of the line. Black should have played B.]))))\n(;B[fr];W[fq]C[Wrong ! Black stones are all split appart.]))\n(;B[bq];W[cr];B[br];W[er];B[fq];W[fr];B[gr];W[bs]C[White wins the capturing race. Moreover, black has a bad aji at G3.])))",
+  "author": {
+    "id": 47505,
+    "name": "psblue",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-05-07",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 3535,
+    "failed": 4747,
+    "tries": 8282,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-03-28T03:04:11+00:00",
+  "source": "Gu Li Vs. Cho U (2009-01-17)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 54,
+      "name": "Pro Game",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 77,
+      "name": "3-4 (komoku) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

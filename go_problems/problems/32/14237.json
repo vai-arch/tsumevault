@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14237,
+  "elo": 1135.3498520539,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.8,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cq]AB[dp]AB[do]AB[dn]AB[gp]AB[hp]AB[jp]AW[eo]AW[go]AW[fq]AW[dq]AW[dr]C[The white stones all seem to be connected, facing the center, but there is a tesuji for black. Black to find the weak spot in white's shape!]AP[goproblems]\n(;B[fo]\n(;W[ep]C[CHOICE]\n(;B[en]C[Well done! White is completely covered now.RIGHT])\n(;B[fp];W[en]C[White got a strong shape, and is not sealed off from the center.])\n(;B[fn];W[en];B[em]C[Since black has many cutting points, this could lead to complications (maybe later in the game).Therefor, this is it not the best way to seal off white, since black is weak on the outside.]TR[cp]TR[dm]TR[fm]))\n(;W[fn];B[fp]\n(;W[en];B[ep]C[Well done!RIGHT])\n(;W[ep];B[en]C[Well done!RIGHT]))\n(;W[fp];B[fn];W[ep];B[en]C[RIGHT]))\n(;B[fp]C[];W[ep]LB[en:A]LB[fo:B]C[White is not sealed off from the center, since A and B are miai.])\n(;B[ep];W[fp]C[White got a strong shape, and is not sealed off from the center.])\n(;B[en];W[fo]C[White got a strong shape, and is not sealed off from the center.])\n(;B[fn];W[fo]C[White got a strong shape, and is not sealed off from the center.])\n(;B[gn];W[fo]C[White got a strong shape, and is not sealed off from the center.])\n(;B[eq];W[ep]C[White got a strong shape, and is not sealed off from the center.])\n(;B[gq];W[fo]C[White got a strong shape, and is not sealed off from the center.])\n(;B[fr];W[fp]C[White got a strong shape, and is not sealed off from the center.])\n(;B[er];W[eq]C[White got a strong shape, and is not sealed off from the center.])\n(;B[ho];W[fo]C[White got a strong shape, and cannot be sealed off from the center.])\n(;B[ki]))",
+  "author": {
+    "id": 12035,
+    "name": "whendrik",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2014-02-01",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 717.007
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 2318,
+    "failed": 3467,
+    "tries": 5785,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-12-06T03:11:58+00:00",
+  "source": "&#26446;&#26124;&#38224; (Lee Chang-ho) &#22260;&#26827;&#25163;&#31563; &#31532;&#20108;&#21367; Problem 123",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 32,
+      "name": "Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 40,
+      "name": "Prevent the Connection",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

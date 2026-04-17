@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9916,
+  "elo": 1385.146496889,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "An elementary problem. The door group gives one eye only. Black must prevent the second. ",
+  "rating": {
+    "stars": 4.1,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rq]AB[qr]AB[qq]AB[pr]AB[rp]AB[ro]AB[qn]AB[on]AB[nn]AB[mo]AB[mn]AB[ko]AB[kp]AB[kq]AB[kr]AB[ir]AW[lr]AW[lq]AW[lp]AW[mp]AW[np]AW[no]AW[po]AW[qp]AW[pq]AW[oq]AW[or]C[Black to kill]AP[goproblems]\n(;B[pp]\n(;W[qo];B[oo];W[op]\n(;B[rr]TR[lr]TR[lq]TR[lp]TR[mp]TR[np]TR[op]TR[oq]TR[or]C[Correct, the marked stones form the 'door group'. They are dead.CHOICERIGHT])\n(;B[pn];W[pp];B[rr]C[Correct, the marked stones form the 'door group'. They are dead.CHOICERIGHT]))\n(;W[op]\n(;B[qo];W[rr]C[White has a ko. Black can do better.])\n(;B[rr];W[qo];B[oo]C[CHOICERIGHT])))\n(;B[qo];W[pp];B[oo];W[rr])\n(;B[rr];W[oo])\n(;B[oo];W[rr]))",
+  "author": {
+    "id": 8645,
+    "name": "tom111",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1402.59
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 1144,
+    "failed": 2190,
+    "tries": 3334,
+    "speedSolved": 1,
+    "speedPlay": 7
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-04-02T04:52:43+00:00",
+  "source": "some pamphlet",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

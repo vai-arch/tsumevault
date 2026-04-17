@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 51472,
+  "elo": 1340.4239315984,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems autoextractor]AB[pd][pf][qb][qc][ra][rc]AW[pb][pc][qd][rb][rd][sb]TR[sb]LB[oc:a]LB[qe:b]LB[sc:c]LB[sd:d]PW[tigao]PB[GayPizza]PC[The KGS Go Server at http://www.gokgs.com/]DT[2010-02-18]C[FORCE](;B[sc]TR[pb]TR[pc]SQ[qb]SQ[qc]SQ[rc]CR[rb]CR[sb]LB[od:A]LB[pe:B]C[Playing here is worth about 7 points over playing away in an empty corner. The stones marked with a triangle are dead. The stones marked with a square are alive. The stones marked with a circle are dead. White would have played at A if you played away. White would likely play at B next. ](;W[pe]C[CHOICE];B[od]C[RIGHT])(;W[sd]C[CHOICE];B[sa]C[RIGHT];W[rb];B[qe];W[pa];B[re];W[qa])(;W[pa]C[CHOICE](;B[qe]C[Note: the White move at Q19 lost about 6 pointsRIGHT])(;B[sa];W[pe]C[Your mistake at T19 lost approximately 9 points])(;B[oc];W[qa]C[Your mistake at P17 lost approximately 10 points])))(;B[oc];W[sc]TR[pb]TR[pc]SQ[qb]SQ[qc]SQ[rc]CR[rb]CR[sb]C[This loses about 9 points. The stones marked with a triangle are alive. The stones marked with a square are dead. The stones marked with a circle are alive. ])(;B[sd];W[se]TR[pb]TR[pc]SQ[qb]SQ[qc]SQ[rc]CR[rb]CR[sb]C[This loses about 12 points. The stones marked with a triangle are alive. The stones marked with a square are dead. The stones marked with a circle are alive. ])(;B[qe];W[sc]TR[pb]TR[pc]SQ[qb]SQ[qc]SQ[rc]CR[rb]CR[sb]C[This loses about 9 points. The stones marked with a triangle are alive. The stones marked with a square are dead. The stones marked with a circle are alive. ]))",
+  "author": {
+    "id": 102753,
+    "name": "Mithirii",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1315_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1315_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1315_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 1315
+    },
+    "lastOnlineAt": "2026-04-14",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1535.67
+  },
+  "avgSolveTimeSeconds": 149,
+  "attempts": {
+    "solved": 3,
+    "failed": 3,
+    "tries": 6,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-10-14T06:07:46+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1232
+}

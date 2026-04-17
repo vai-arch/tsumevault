@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13828,
+  "elo": 1902.2255673747,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Maybe still in progress, this problem has a lot of variations. Note this is both a life and death AND endgame problem. I have posted the problem to get some testing and feedback. With all the possibilities I probably misread/miscounted something. Comments are very welcome!",
+  "rating": {
+    "stars": 3.7,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[13]AW[ac]AW[bc]AW[cc]AW[db]AW[ec]AW[ea]AW[fb]AW[fc]AW[gb]AW[ga]AW[gc]AB[ig]AB[ih]AB[hd]AB[gd]AB[hc]AB[ha]AB[hb]AB[fd]AB[ed]AB[dd]AB[dc]AB[cd]AB[bd]AB[ad]AB[df]AB[cf]AB[be]AB[de]AW[bj]AW[bk]AW[ck]AW[dl]AW[cm]AB[ml]AB[mk]AB[mj]AW[lk]AW[ll]AW[lm]AW[kk]AW[ki]AW[li]AW[mi]AB[lj]AW[ji]AW[jk]AB[hi]AB[hj]AB[il]AB[jl]AB[kl]AB[jh]AB[kh]AB[lh]AB[mh]AW[kc]AW[ke]AW[kd]AB[bi]AB[ci]AB[cj]AB[ek]AB[dk]AB[el]AW[ic]AW[ia]AW[ib]AW[id]AW[ie]AW[if]AW[hg]AB[hh]AW[gg]AW[ge]AW[gf]AW[he]AW[kf]AW[jg]AW[kg]AW[gh]AW[gi]AW[gj]AW[fj]AW[ei]AW[eh]AW[ef]AW[eg]AW[fe]AB[ee]AB[dh]AB[di]AB[dg]AB[ej]AB[fk]AB[gk]AW[km]AB[jm]AW[ld]C[Both Black and White have 2 prisoners. White has a komi of 0.5. Japanese rules. Black to win this game! Note: Please finish the local sequence before moving on to another one. If you want to play either L4 or n1, play n1.]AB[af]AB[bh]AB[ik]AB[ii]AW[jj]AB[ij]AW[jc]AW[kb]AW[ja]AW[je]AP[goproblems]\n(;B[me];W[bl]C[Black does not have enough points to win this game, regardless of the endgame played at this point. You can follow A for one variationFORCE]LB[em:A];B[em];W[dm]LB[aj:A]C[FORCE];B[aj];W[ak]LB[ai:A]C[FORCE];B[ai];W[md]C[White wins by 13.5])\n(;B[al];W[bl];B[em];W[dm]\n(;B[bm];W[am]\n(;B[me];W[ak]C[Too early. White has enough points to win now.])\n(;B[cb];W[ak]\n(;B[bb];W[lg]LB[mg:A]C[FORCE];B[mg];W[mf]LB[ca:A]C[FORCE];B[ca];W[da]LB[ai:A]C[FORCE];B[ai]C[White wins by 0.5])\n(;B[ba]\n(;W[mf]\n(;B[da];W[ca]\n(;B[mm]\n(;W[kj];B[da];W[lg]\n(;B[eb]C[White is dead and black wins! Note that connecting at C13 is better.RIGHT])\n(;B[ca]C[White is dead and black wins!RIGHT]))\n(;W[bb]C[This is another possibility that still won't save white];B[kj];W[lg];B[ai]C[Black wins by 4.5]))\n(;B[kj]C[NOTTHIS]))\n(;B[lg];W[da]\n(;B[lf];W[le]LB[ai:A]C[FORCE];B[ai];W[ca]LB[bb:A]C[FORCE];B[bb]C[Black wins by 1.5! Thanks to Bass for this variation.RIGHT])\n(;B[ai];W[lf]C[White wins by 0.5!])))\n(;W[da]C[This weaker resistance (yet better play) doesn't help white win.];B[me];W[md];B[mf];W[ca];B[bb];W[ai];B[ah];W[aj]C[Black wins by 1.5!]))\n(;B[ca];W[da]LB[bb:A]C[Please play A];B[bb];W[lg]C[FORCE]LB[mg:A];B[mg];W[mf];B[ai]C[White wins by 0.5]))\n(;B[mm];W[kj];B[bm];W[lg];B[cl];W[mg]C[White wins by 4.5])\n(;B[kj]C[NOTTHIS]))\n(;B[me];W[ak]C[Too early. White wins now.]))\n(;B[em];W[al]\n(;B[aj];W[bm];B[dm];W[cl];B[me];W[md]C[Despite the nice reduction in sente, this is not enough for black to win.])\n(;B[dm];W[cl];B[aj];W[bm];B[me];W[md]C[Despite the nice reduction in sente, this is not enough for black to win.])\n(;B[bm];W[aj])))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 67,
+  "attempts": {
+    "solved": 63,
+    "failed": 282,
+    "tries": 345,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-07-07T07:48:37+00:00",
+  "source": "Tripod Group and Myself",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 86,
+      "name": "13*13 Games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

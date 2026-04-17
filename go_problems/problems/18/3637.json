@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3637,
+  "elo": 1599.1896943698,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Black has invaded deeply, and now wants to link back to outside stones. How to respond?",
+  "rating": {
+    "stars": 3.6,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dp]AB[cq]AB[cr]AB[cn]AW[dr]AW[fq]AW[hp]AB[gq]AB[hq]AW[gp]AB[fr]AW[iq]AW[lq]AW[jq]AW[kq]LB[hq:1]LB[hp:2]LB[gq:3]LB[gp:4]LB[fr:5]AP[goproblems]\n(;W[eq];B[er]\n(;W[es];B[dq];W[gr];B[ds]C[black saves most of his stones and has a big follow-up]LB[hr:A])\n(;W[gr];B[hr]\n(;W[gs];B[dq]C[black saves most of his stones in sente])\n(;W[es];B[gs]LB[dq:A]LB[ir:B])\n(;W[ir];B[gs])\n(;W[hs];B[gs]))\n(;W[hr];B[gr])\n(;W[dq];B[ds]LB[fp:A]C[Black saves all his stones.]))\n(;W[er];B[eq]\n(;W[fp]\n(;B[gr]C[CHOICE]\n(;W[fs]C[You win the semeai. Well done!RIGHT])\n(;W[hr];B[ir])\n(;W[hs];B[ds])\n(;W[ir];B[ds])\n(;W[gs];B[fs]\n(;W[hr];B[hs])\n(;W[hs];B[ir])\n(;W[es];B[hs]))\n(;W[ep];B[dq]))\n(;B[fs]C[CHOICE]\n(;W[hs];B[ds];W[gr];B[es]C[Basically ok, but you lost a ko threat.]TR[hq]TR[gq])\n(;W[hr];B[ds];W[gr];B[es]C[You got two stones in sente, and you still have a ko-threat at G1.RIGHT])\n(;W[gr];B[hr]\n(;W[ir];B[gs];W[is];B[ds];W[hs];B[es]C[Basically ok,  but you lost some points and a ko threat.])\n(;W[hs];B[gs];W[ir];B[is];W[js];B[ds];W[hs]C[you don't need this ko to take the G3 stones.]))))\n(;W[gr];B[fp]))\n(;W[gr];B[er]C[black saves half of his stones and has a big follow-up.]LB[hr:A])\n(;W[hr];B[gr]C[black is connected.]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 1350,
+    "failed": 3267,
+    "tries": 4617,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-27T07:15:48+00:00",
+  "source": "own game (simplified)",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 95,
+      "name": "Double Hane Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

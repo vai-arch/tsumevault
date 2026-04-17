@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9134,
+  "elo": 1277.2724563222,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[qb]AW[qc]AW[rd]AW[re]AB[pb]AB[pc]AB[nc]AB[qd]AB[qe]AB[qf]AB[rf]AB[qh]AW[sc]AP[goproblems]\r\n(;B[ra]\r\n(;W[rb]C[CHOICE]\r\n(;B[qa];W[se];B[sb];W[sa]C[Ko and white takes first. This is optimal play for both sides.RIGHT])\r\n(;B[se];W[qa]))\r\n(;W[qa]C[White made a mistake, how to punish?CHOICE]\r\n(;B[sb]C[See problem 9133])\r\n(;B[rb];W[se];B[rc]C[Correct; try the other variation too (white's best play)RIGHT])\r\n(;B[se];W[rb]C[])))\r\n(;B[se];W[rb]C[])\r\n(;B[qa];W[ra]\r\n(;B[rb];W[pa]\r\n(;B[se];W[sb])\r\n(;B[sb];W[se])\r\n(;B[oa];W[sb]))\r\n(;B[se];W[rb]))\r\n(;B[rb];W[ra]\r\n(;B[sb];W[se])\r\n(;B[se];W[sb]))\r\n(;B[sb];W[rb];B[se];W[sa]))",
+  "author": {
+    "id": 177,
+    "name": "aditsu",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2018-09-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 1485,
+    "failed": 3022,
+    "tries": 4507,
+    "speedSolved": 2,
+    "speedPlay": 8
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-09-10T12:05:25+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 51,
+      "name": "Xuan Xuan Qijing",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

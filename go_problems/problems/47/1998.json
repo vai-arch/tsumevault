@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1998,
+  "elo": 1915.27315046,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "thanks for daniel for finding the refutation to the original problem.",
+  "rating": {
+    "stars": 3.6,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[el][gl][dm][em][gm][dn][hn][in][jn][kn][ln][co][ho][jo][lo][mo][cp][fp][gp][jp][mp][np][cq][kq][nq][oq][br][cr][er][fr][gr][hr][ir][or][bs][ns][os]AB[en][fn][gn][do][eo][go][io][ko][dp][hp][ip][kp][lp][dq][iq][jq][mq][dr][kr][mr][nr][cs][ds][es][fs][gs][hs][is][js][ms]LB[kq:1]C[white just played at 1. what is black's best option?]PL[B]\r\n(;B[lq]CR[lq]\r\n;W[jr]CR[jr]\r\n(;B[kq]CR[kq]\r\n;W[ls]CR[ls]\r\n(;B[ks]CR[ks]\r\n;W[hq]CR[hq]\r\n(;B[fq]CR[fq]\r\n;W[eq]CR[eq]\r\n(;B[ep]CR[ep]\r\n;W[gq]CR[gq]\r\n;B[fo]CR[fo]C[RIGHT])\r\n(;B[fo]CR[fo]\r\n;W[fm]CR[fm]))\r\n(;B[eq]CR[eq]\r\n;W[fq]CR[fq]C[seki])\r\n(;B[ep]CR[ep]\r\n;W[fq]CR[fq]C[seki]))\r\n(;B[fq]CR[fq]\r\n;W[ks]CR[ks]\r\n(;B[gq]CR[gq]\r\n;W[eq]CR[eq])\r\n(;B[eq]CR[eq]\r\n;W[gq]CR[gq])\r\n(;B[hq]CR[hq]\r\n;W[gq]CR[gq]\r\n;B[lr]CR[lr]\r\n;W[ks]CR[ks]))\r\n(;B[gq]CR[gq]\r\n;W[fq]CR[fq]\r\n;B[hq]CR[hq]\r\n;W[ks]CR[ks])\r\n(;B[lr]CR[lr]\r\n;W[hq]CR[hq]\r\n;B[ks]CR[ks]\r\n;W[fq]CR[fq])\r\n(;B[eq]CR[eq]\r\n;W[ks]CR[ks]\r\n(;B[fq]CR[fq]\r\n;W[gq]CR[gq])\r\n(;B[gq]CR[gq]\r\n;W[fq]CR[fq])))\r\n(;B[ks]CR[ks]\r\n;W[hq]CR[hq]\r\n;B[kq]CR[kq]\r\n;W[fq]CR[fq]C[seki])\r\n(;B[lr]CR[lr]\r\n;W[hq]CR[hq]\r\n;B[kq]CR[kq]\r\n;W[ks]CR[ks])\r\n(;B[ls]CR[ls]\r\n;W[hq]CR[hq]\r\n;B[kq]CR[kq]\r\n;W[fq]CR[fq]C[seki])\r\n(;B[eq]CR[eq]\r\n;W[hq]CR[hq]\r\n;B[kq]CR[kq]\r\n;W[fq]CR[fq]C[seki])\r\n(;B[hq]CR[hq]\r\n;W[gq]CR[gq]\r\n;B[kq]CR[kq]\r\n;W[eq]CR[eq]C[seki]))\r\n(;B[jr]CR[jr]\r\n;W[lq]CR[lq]C[black has already lost too much. he can do better])\r\n(;B[lr]CR[lr]\r\n;W[lq]CR[lq])\r\n(;B[ls]CR[ls]\r\n;W[lq]CR[lq])\r\n(;B[fq]CR[fq]\r\n;W[lq]CR[lq])\r\n(;B[gq]CR[gq]\r\n;W[lq]CR[lq]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 182,
+    "failed": 2130,
+    "tries": 2312,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-03-10T12:50:01+00:00",
+  "source": "KGS: adum vs bigx",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

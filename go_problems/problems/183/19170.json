@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19170,
+  "elo": 1500.6380014847,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem earned the same number of votes as Problem 3, but the latter placed third because of the more enthusiastic praise expressed by the players who voted for it.   When tackling life-and-death problems,  the tendency is to look for flashy moves, but \r\nironically this problem requires the opposite approach.  The first move decides everything. \r\n",
+  "rating": {
+    "stars": 3.7,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[qp]AB[pp]AB[op]AB[np]AB[kq]AB[lr]AB[mq]AB[mp]AW[mr]AW[nr]AW[nq]AW[oq]AW[qr]C[Black to play and kill White](;B[rq];W[rr]C[Killing White is surprisingly easy: the ordinary diagonal move of 1 does the job. If White 2, he can't get enough space to live after Black 3. Black 1 could be a blind spot for players who take life-and-death problems too seriously.];B[sr](;W[qq]LB[rq:1]LB[rr:2]LB[sr:3]C[CHOICE](;B[ro]LB[qq:1]LB[ro:2]LB[pq:a]LB[ms:b]LB[os:c]LB[pr:d]C[Forcing with White 1 doesn't help. If next White 'a', Black 'b'; if instead White 'c', Black 'd' - White 'a '- Black 'b'.](;W[pq];B[ms]LB[qq:1]LB[ro:2]LB[pq:a]LB[ms:b]LB[os:c]LB[pr:d]C[Forcing with White 1 doesn't help. If next White 'a', Black 'b'; if instead White 'c', Black 'd' - White 'a '- Black 'b'. RIGHT])(;W[os];B[pr]LB[qq:1]LB[ro:2]LB[pq:a]LB[ms:b]LB[os:c]LB[pr:d]C[Forcing with White 1 doesn't help. If next White 'a', Black 'b'; if instead White 'c', Black 'd' - White 'a '- Black 'b'. RIGHT]))(;B[sp]C[RIGHT])(;B[rp]C[RIGHT]))(;W[pq](;B[ms]C[RIGHT])(;B[rs];W[os](;B[pr];W[qs];B[sq];W[ms];B[qq];W[ps])(;B[or];W[ms](;B[qs];W[ps])(;B[ps];W[pr];B[qs];W[ss]))(;B[qs];W[ps];B[sq];W[ms];B[ss];W[qq];B[rp])(;B[ps];W[ms];B[pr];W[qq];B[qs];W[or];B[sq];W[ss])(;B[ms](;W[qs](;B[qq];W[pr])(;B[pr]C[RIGHT]))(;W[pr];B[qs]C[RIGHT])))))(;B[rr];W[pr](;B[rq];W[os]LB[rr:1]LB[pr:2]LB[rq:3]LB[os:4]C[The natural temptation is to attach at 1, as this is so often a tesuji. However, that makes White 2 sente, giving White time to live with 4. CHOICE])(;B[os];W[rq])(;B[qq];W[os]))(;B[pr];W[pq];B[rr];W[ps];B[ms];W[or]LB[pr:1]LB[pq:2]LB[rr:3]LB[ps:4]LB[ms:5]LB[or:6]LB[rq:a]LB[ns:b]C[Black 1 also looks stylish; if White 2, Black attaches at 3. However, Black runs out of moves after White 4; if Black 5, White 6 makes miai of 'a' and 'b'. CHOICE])(;B[ms];W[rq](;B[pq];W[pr];B[ns];W[or];B[rp];W[rs])(;B[pr];W[pq];B[qq];W[ps];B[rr];W[or]))(;B[os];W[rq](;B[pq];W[pr](;B[or];W[ps])(;B[rp];W[rs]))(;B[ms](;W[ns];B[pq]C[];W[rs];B[sr];W[pr];B[or];W[ps])(;W[rs]C[CHOICE];B[sr];W[pr];B[ps];W[ns]))))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 243,
+    "failed": 543,
+    "tries": 786,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-03-07T16:20:59+00:00",
+  "source": "varius",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 183,
+      "name": "The Top Ten Life-and-Death Problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

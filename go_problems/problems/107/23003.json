@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23003,
+  "elo": 1360.4242319876,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[besogo:0.0.2-alpha]SZ[19]ST[0]\nAB[hh][hi][hj][ig][ik][jg][jk][kh][kk][lg][lh][li][lj][lk]AW[gh][gi][gj][gk][hf][hg][hk][if][ii][il][jf][jl][kf][kg][kl][lf][ll][mg][mh][mi][mj][mk]\nC[B to move]\n(;B[ij]\n(;W[ji]\n(;B[jh]TR[jj][ki]\nC[Right, seki! RIGHT])\n(;B[jj]\n;W[jh]\n;B[ih]\n;W[ki])\n(;B[ki]\n;W[jh]\n;B[ih]\n;W[jj])\n(;B[ih]\nC[Gote, B left with a dead shape])\n(;B[kj]\nC[Gote, B left with a dead shape]))\n(;W[ih]\n;B[jh]\n;W[ji]\nC[(would be sente seki) RIGHT])\n(;W[jh]\n;B[ji]TR[ih][kj]\nC[RIGHT]))\n(;B[jh]\n;W[ji]\n(;B[ij]TR[jj][ki]\nC[Right, seki! RIGHT])\n(;B[jj]\n;W[ki]\n(;B[ij]\nC[Right, seki! RIGHT])\n(;B[ih]\nC[Right, seki! RIGHT])\n(;B[kj]\nC[Right, seki! RIGHT]))\n(;B[ki]\n;W[ij]\n;B[ih]\n;W[jj])\n(;B[ih]\n;W[jj]))\n(;B[ih]\n;W[ji]\nC[dead shape])\n(;B[ji]\n;W[ij]LB[ih:1][jh:2]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 90,
+  "attempts": {
+    "solved": 128,
+    "failed": 213,
+    "tries": 341,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-02-20T17:59:41+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

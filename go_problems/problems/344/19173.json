@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19173,
+  "elo": 1648.0829564266,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is the most difficult of the problems in this collection. However, it's a beautiful problem, with some impressive moves. The point is to aim at a gomoku-nakade, but you have to be careful not to get a seki.  The villain complicating matters is White's hane. \r\n",
+  "rating": {
+    "stars": 4.3,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[kp]AB[jq]AB[iq]AB[ir]AB[lp]AB[mp]AB[np]AB[op]AB[pp]AB[pq]AB[pr]AB[rr]AW[jr]AW[kr]AW[kq]AW[lq]AW[mq]AW[nq]AW[or]AW[oq]AW[ps]C[Black to play and kill White ]AP[goproblems]\r\n(;B[ns]\r\n(;W[os];B[mr]\r\n(;W[ls];B[js]C[Black has to start with the placement at 1. If White 2, Black plays 3, and killing White is quite simple. If White 'a', Black 'b'; if White 'b', Black 'a' creates a gomoku-nakade. \r\nRIGHT]LB[ns:1]LB[os:2]LB[mr:3]LB[ls:a]LB[js:b])\r\n(;W[js];B[ls]LB[ns:1]LB[os:2]LB[mr:3]LB[js:b]LB[ls:a]C[Black has to start with the placement at 1. If White 2, Black plays 3, and killing White is quite simple. If White 'a', Black 'b'; if White 'b', Black 'a' creates a gomoku-nakade. \r\nRIGHT]))\r\n(;W[js]\r\n(;B[ls]LB[ns:1]LB[js:2]LB[ls:3]LB[mr:a]LB[os:b]C[If White descends at 2, Black counters by jumping to 3: this move is the highlight of this problem. Next, 'a' and 'b' are miai, so White is dead. Black 3 is an inspired move. RIGHT])\r\n(;B[os];W[ls];B[mr];W[nr]LB[ms:a]LB[os:1]LB[ls:2]LB[mr:3]LB[nr:4]TR[ps]C[If Black hastily cuts at 1, White counters with 2 and lives: after White 4, Black can't connect at 'a' â€” note the efficacy of the marked white stone. \r\nCHOICE])))\r\n(;B[mr];W[js];B[ns];W[ls]LB[mr:1]LB[js:2]LB[ns:3]LB[ls:4]C[If Black starts with 1, White descends at 2. If Black 3, White 4 leads to the same result as in the previous diagram. If Black plays 3 at 4, White 3 creates a seki. \r\nCHOICE]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 111,
+    "failed": 223,
+    "tries": 334,
+    "speedSolved": 5,
+    "speedPlay": 10
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-03-07T18:10:40+00:00",
+  "source": "varius",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 183,
+      "name": "The Top Ten Life-and-Death Problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 344,
+      "name": "order",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 346,
+      "name": "side",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5807,
+  "elo": 1195.1081833085,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[fs]AW[fr]AW[gq]AW[fq]AB[gr]AB[hs]AB[hq]AB[iq]AB[jq]AB[kr]AB[lr]AW[kq]AW[kp]AW[jp]AW[ip]AW[hp]AW[jr]LB[jr:1]C[How should black respond to white 1?]AP[goproblems]\n(;B[js];W[gs]\n(;B[hr]C[RIGHT])\n(;B[ir];W[hr]C[Not optimal.])\n(;B[is];W[hr]C[Not optimal.]))\n(;B[ir];W[gs]C[White can tenuki, but she will be able to play at G1 in sente at the appropriate time and black will have at least one point less.])\n(;B[is];W[gs]\n(;B[hr];W[js];B[ks];W[ir]C[:(])\n(;B[ir];W[hr]C[Not optimal.])\n(;B[js];W[hr]C[Not optimal.]))\n(;B[hr];W[is]\n(;B[ir];W[gs])\n(;B[js];W[ks])\n(;B[ks];W[gs];B[js];W[ir]))\n(;B[gs];W[is];B[ir];W[hr]C[:(])\n(;B[ks];W[ir];B[hr];W[gs]C[:(]))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 5626,
+    "failed": 6909,
+    "tries": 12535,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-01-13T11:46:34+00:00",
+  "source": "a game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

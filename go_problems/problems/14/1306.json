@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1306,
+  "elo": 1735.5302423633,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Warning: 1000 year Ko is prefered over 2 step Ko in this problem.",
+  "rating": {
+    "stars": 4,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nFF[4]\r\nGM[1]\r\nSZ[19]\r\nAP[Jago:Version 4.28]\r\nAB[bd][cd][dd][dc][db][ae][ea][ba]\r\nAW[bg][be][ce][de][ee][ed][ec][eb][gb][bb]\r\nC[If I were a carpenter ... (12)]\r\nGN[temp]\r\n(\r\n;\r\nW[bc]\r\n(\r\n;\r\nB[ad]\r\n(\r\n;\r\nW[da]\r\n;\r\nB[ca]\r\n;\r\nW[ac]\r\nC[RIGHT 1000 year Ko The throw in at a is actually not so good, because without it white can trade b for c. In my faulty first version this was the only solution, so I'm leaving it correct.]\r\nLB[da:a][aa:b][ca:c]\r\n)\r\n(\r\n;\r\nW[ac]\r\nC[RIGHT 1000 year Ko]\r\n)\r\n(\r\n;\r\nW[cb]\r\n;\r\nB[ca]\r\n;\r\nW[ac]\r\nC[RIGHT 1000 year Ko]\r\n)\r\n(\r\n;\r\nW[ca]\r\n;\r\nB[cb]\r\n;\r\nW[aa]\r\n(\r\n;\r\nB[ac]\r\n(\r\n;\r\nW[fa]\r\n;\r\nB[da]\r\n;\r\nW[af]\r\n;\r\nB[ba]\r\nC[two step Ko]\r\n)\r\n(\r\n;\r\nW[af]\r\n;\r\nB[da]\r\n;\r\nW[fa]\r\n;\r\nB[ba]\r\nC[2 step Ko]\r\n)\r\n)\r\n(\r\n;\r\nB[da]\r\nC[wrong defense]\r\n;\r\nW[ac]\r\n;\r\nB[ba]\r\n(\r\n;\r\nW[af]\r\nC[2 stage ko]\r\n)\r\n(\r\n;\r\nW[fa]\r\nC[2 stage Ko]\r\n)\r\n)\r\n)\r\n(\r\n;\r\nW[ab]\r\n;\r\nB[cb]\r\n;\r\nW[da]\r\n;\r\nB[ac]\r\nC[Seki]\r\n)\r\n)\r\n(\r\n;\r\nB[cb]\r\nC[wrong defence]\r\n;\r\nW[ac]\r\n;\r\nB[ad]\r\n;\r\nW[da]\r\n;\r\nB[ab]\r\n;\r\nW[aa]\r\nC[RIGHT Ko]\r\n)\r\n)\r\n(\r\n;\r\nW[cb]\r\n;\r\nB[ca]\r\n(\r\n;\r\nW[ad]\r\n;\r\nB[ac]\r\n;\r\nW[ab]\r\n;\r\nB[bc]\r\nC[Seki]\r\n)\r\n(\r\n;\r\nW[bc]\r\n;\r\nB[ad]\r\n;\r\nW[ac]\r\nC[RIGHT 1000 year Ko]\r\n)\r\n)\r\n(\r\n;\r\nW[ca]\r\n;\r\nB[cb]\r\n;\r\nW[aa]\r\n;\r\nB[bc]\r\n;\r\nW[ac]\r\n;\r\nB[ad]\r\n(\r\n;\r\nW[af]\r\n;\r\nB[da]\r\n;\r\nW[fa]\r\n;\r\nB[ab]\r\nC[double Ko]\r\n)\r\n(\r\n;\r\nW[fa]\r\n;\r\nB[da]\r\n;\r\nW[af]\r\n;\r\nB[ab]\r\nC[double Ko]\r\n)\r\n)\r\n)",
+  "author": {
+    "id": 1039,
+    "name": "gecko",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-01-13",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 41,
+  "attempts": {
+    "solved": 457,
+    "failed": 2823,
+    "tries": 3280,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-01-29T11:10:52+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 14,
+      "name": "Carpenter's Square",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

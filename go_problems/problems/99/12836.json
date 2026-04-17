@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12836,
+  "elo": 1265.1161090601,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Try to save and connect all your stones.",
+  "rating": {
+    "stars": 2.2,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[kk]AW[lk]AW[mk]AW[kl]AW[ml]AW[nl]AW[km]AW[nm]AW[pm]AW[qm]AW[rm]AW[ln]AW[pn]AW[sn]AW[jo]AW[qo]AW[ro]AW[jp]AW[np]AW[pp]AW[qp]AW[kq]AW[lq]AW[mq]AW[nq]AW[oq]AB[jj]AB[kj]AB[lj]AB[mj]AB[nj]AB[jk]AB[nk]AB[pk]AB[qk]AB[rk]AB[sk]AB[jl]AB[ll]AB[pl]AB[jm]AB[lm]AB[mm]AB[om]AB[jn]AB[kn]AB[on]AB[oo]AB[po]AB[lp]AB[mp]C[Try to save and connect all your stones.]\n(;B[mn];W[nn]\n(;B[mo];W[no]\n(;B[ol]C[RIGHT]N[RIGHT])\n(;B[lo];W[ol]C[])\n(;B[ko];W[ol]C[])\n(;B[kp]\n(;W[ko]C[])\n(;W[ol]C[])))\n(;B[lo];W[no]\n(;B[ol]C[RIGHT])\n(;B[mo];W[ol]C[]))\n(;B[no];W[mo]C[]\n(;B[ol];W[ko])\n(;B[ko];W[ol]N[WRONG])))\n(;B[nn];W[mn]C[])\n(;B[ol];W[mn]C[])\n(;B[lo];W[mn]C[])\n(;B[no]\n(;W[mo]\n(;B[lo];W[mn]\n(;B[lm];W[ol]N[WRONG])\n(;B[ol];W[ko]N[WRONG])\n(;B[ko];W[ol]))\n(;B[mn];W[nn]\n(;B[ol];W[ko])\n(;B[ko];W[ol]N[WRONG]))\n(;B[ol];W[mn];B[ko]C[You connected but lost some stones in the processCHOICE]N[WRONG]))\n(;W[mn]\n(;B[ko]\n(;W[kp];B[lo];W[mo]\n(;B[ol];W[lm]C[You connected but lost some stones in the process]N[WRONG])\n(;B[lm];W[ol]\n(;B[mm];W[ll]N[WRONG])\n(;B[ll];W[mm]N[WRONG])))\n(;W[ol]\n(;B[mo];W[lm]N[RIGHT])\n(;B[lm];W[mo]N[WRONG])))\n(;B[lm]\n(;W[mo])\n(;W[ol]\n(;B[ko];W[mo]N[WRONG])\n(;B[mo];W[ko])))\n(;B[mo])))\n(;B[no];W[mo];B[ol];W[mn]\n(;B[ko]C[You connected but lost some stones in the processCHOICE]N[WRONG])\n(;B[lm];W[ko]))\n(;B[ko];W[ol]\n(;B[nn];W[mn])\n(;B[mn];W[nn])\n(;B[no];W[mo]\n(;B[ok];W[mn])\n(;B[nn];W[mn]))\n(;B[mo];W[no];B[ok];W[mn]))\n(;B[mo];W[mn]))",
+  "author": {
+    "id": 13729,
+    "name": "PaGoD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-09-12",
+    "rank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1153.81
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 1927,
+    "failed": 2328,
+    "tries": 4255,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-06-27T06:48:19+00:00",
+  "source": "variation of game  Harry8337 vs PaGoD",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 99,
+      "name": "Escape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

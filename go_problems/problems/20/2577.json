@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2577,
+  "elo": 1452.4221638429,
+  "problemLevel": 26,
+  "rank": {
+    "value": 4,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AB[sa]AB[sb]AB[qa]AB[pb]AB[ob]AB[nb]AB[na]AB[qc]AB[rc]AW[sc]AW[sd]AW[rd]AW[qd]AW[pd]AW[oc]AW[nc]AW[mc]AW[mb]C[How many points does black have in the corner?FORCE]LB[nf:4.0]LB[pf:4.5]LB[rf:5.0]AW[ma]FF[1]GM[1]AP[Jago:Version 4.53]GN[goproblem2577]\n(;W[rf]C[]AB[ma]AB[mb]AB[mc]AB[nc]AB[oc]AB[pd]AB[qd]AB[rd]AB[sd]AB[sc]AW[na]AW[nb]AW[ob]AW[pb]AW[qa]AW[qc]AW[rc]AW[sb]AW[sa];B[pc]C[So we swap color and Black takes the outside liberty. \r\nDo you need to defend or can you tenuki at T (Q14?)FORCE]LB[rf:5]LB[pf:T]\n(;W[pf];B[rb]\n(;W[qb];B[ra];W[sb]C[Correct! Snapback and 5 points in the corner.RIGHT])\n(;W[ra];B[qb]))\n(;W[rb]C[Just 4 points now.])\n(;W[qb]C[Just 4.])\n(;W[ra]C[That's 4 points.])\n(;W[pa];B[rb]C[Whoops.])\n(;W[oa];B[rb]C[Yay!]))\n(;W[pf];B[qf]C[So... reduce Black to less than 5 points.]LB[pf:4.5]\n(;W[pc];B[rf]C[Black tenukies...]\n(;W[rb];B[qb]\n(;W[ra];B[sb]\n(;W[sa];B[sb]C[5 points to black both sides captured 3 stones.])\n(;W[pa];B[sa]C[5 points to black both sides captured 3 stones.])\n(;W[oa];B[sa]C[5 points to Black, both sides captured 3 stones.]))\n(;W[pa];B[ra]C[5 points to Black.])\n(;W[oa];B[ra]C[5 points for Black.]))\n(;W[pa];B[rb]C[Black gets 5 points.])\n(;W[oa];B[rb]C[5 points after all.])\n(;W[qb];B[rb]C[Oho. 5 points.])\n(;W[ra];B[rb]C[Gee. 5 points.]))\n(;W[rb];B[qb]C[]\n(;W[pc];B[rf]C[Black tenukies!]\n(;W[ra];B[sb]\n(;W[sa];B[sb]C[5 points to black both sides captured 3 stones.])\n(;W[pa];B[sa]C[5 points to black both sides captured 3 stones.])\n(;W[oa];B[sa]C[5 points to Black, both sides captured 3 stones.]))\n(;W[pa];B[ra]C[5 points to Black.])\n(;W[oa];B[ra]C[5 points for Black.]))\n(;W[ra];B[sb]C[Snapback. Black gets 5 points of territory, both sides captured 2 stones.])\n(;W[pa];B[rf]C[Black tenukies...]\n(;W[ra];B[sb]\n(;W[sa];B[sb]C[5 points.])\n(;W[pc];B[sa]C[5 points to black both sides captured 3 stones.]))\n(;W[pc];B[ra]C[5 points to Black.]))\n(;W[oa];B[rf]C[Black tenukies...]\n(;W[ra];B[sb]\n(;W[sa];B[sb]C[5 points.])\n(;W[pc];B[sa]C[5 points to Black, both sides captured 3 stones.]))\n(;W[pc];B[ra]C[5 points for Black.])))\n(;W[pa];B[rb])\n(;W[oa];B[pc]C[6 points!])\n(;W[qb];B[pc]C[Whoops.])\n(;W[ra];B[rb]C[5 points.]))\n(;W[nf]C[No, Black has more than 4 points. Try again.]))",
+  "author": {
+    "id": 288,
+    "name": "unkx80",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-01-08",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1846.73
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 2967,
+    "failed": 4533,
+    "tries": 7500,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-12T07:53:45+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

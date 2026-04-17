@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21161,
+  "elo": 825.33027965876,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -4,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 1.5,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ar]AB[as]AB[aq]AB[ap]AW[bq]AW[cq]AW[cp]AW[co]AW[cn]AW[bn]AW[an]AW[dq]AW[eq]AB[fr]AB[fq]AB[fp]AB[ep]AB[dp]AB[do]AB[dn]AB[dm]AB[cm]AB[bm]AB[am]AW[cr]AW[cs]C[Black can't kill White but has the best result.FORCE]AW[ao]AW[bp]AP[goproblems]\n(;B[dr]C[FORCE];W[er]C[FORCE];B[es]C[FORCE];W[ds]C[FORCE];B[fs])\n(;B[er]C[FORCE];W[es]C[FORCE]\n(;B[dr]C[FORCE];W[ds]C[FORCE]\n(;B[fs]C[RIGHT])\n(;B[gs]C[FORCE];W[fs]))\n(;B[ds]C[FORCE];W[dr]C[FORCE];B[fs]C[FORCE];W[ds])\n(;B[fs]C[FORCE];W[ds]C[FORCE];B[dr]C[RIGHT])\n(;B[gs]C[FORCE]\n(;W[dr]C[FORCE];B[fs]C[FORCE];W[ds])\n(;W[ds]C[FORCE]\n(;B[dr]C[FORCE];W[fs])\n(;B[fs]C[FORCE];W[dr]))))\n(;B[ds]C[FORCE];W[es]C[FORCE];B[er]C[FORCE];W[dr]C[FORCE];B[fs]C[FORCE];W[ds])\n(;B[es]C[FORCE];W[er]C[FORCE]\n(;B[dr]C[FORCE];W[ds]C[FORCE];B[fs])\n(;B[ds]C[FORCE];W[dr]C[FORCE]\n(;B[fs]C[RIGHT])\n(;B[gs]C[FORCE];W[fs]C[FORCE];B[es]C[FORCE];W[ds]C[FORCE];B[fs])))\n(;B[fs]C[FORCE];W[er]C[FORCE];B[es]C[FORCE];W[ds]))",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 1535,
+    "failed": 1227,
+    "tries": 2762,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-04-25T10:26:09+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 208,
+      "name": "Best move with letting enemy live",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

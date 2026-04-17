@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10904,
+  "elo": 1087.0711525706,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black first to kill white",
+  "rating": {
+    "stars": 4.5,
+    "votes": 37,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bb]AB[gb]AB[bc]AB[gc]AB[bd]AB[fd]AB[be]AB[ce]AB[fe]AB[df]AB[ef]AB[ff]AW[ca]AW[cb]AW[cc]AW[dc]AW[ec]AW[fc]AW[cd]AW[ed]AW[de]AW[ee]AP[goproblems]\r\n(;B[ea]\r\n(;W[fa];B[fb];W[eb]\r\n(;B[da];W[db];B[ea]C[RIGHT])\r\n(;B[ga];W[da]C[]))\r\n(;W[eb]\r\n(;B[da];W[fa];B[fb];W[db];B[ea]C[RIGHT])\r\n(;B[fa];W[da]C[])\r\n(;B[fb];W[da]C[])))\r\n(;B[eb];W[fb];B[fa];W[ea];B[da];W[db]C[])\r\n(;B[fb];W[eb];B[ea];W[da]C[])\r\n(;B[fa];W[eb];B[ea];W[da]C[])\r\n(;B[da]\r\n(;W[ea];B[eb];W[fb];B[fa];W[db]C[])\r\n(;W[fb];B[fa];W[ea];B[eb];W[db]C[])))",
+  "author": {
+    "id": 7079,
+    "name": "huhss",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-22",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1262.69
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 3332,
+    "failed": 4339,
+    "tries": 7671,
+    "speedSolved": 17,
+    "speedPlay": 25
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-02-12T04:10:05+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 108,
+      "name": "0 What Group?",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

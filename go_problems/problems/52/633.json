@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 633,
+  "elo": 1521.6761233446,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.6,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AB[pb]AB[pc]AB[pd]AB[qd]AB[rd]AB[pa]AW[ob]AW[oc]AW[od]AW[oe]AW[pe]AW[qe]AW[re]AW[ra]AW[rc]AW[mb]AW[rg]LB[ra:1]LB[pa:2]LB[rc:3]C[White 1 and 3 is a wrong way to attack the carpenter's square. Black can live unconditionally.]FF[4]GM[1]AP[Jago:Version 5.00]GN[goproblem633]\r\n(;B[sb]\r\n(;W[sc]\r\n(;B[rb]\r\n(;W[qb]\r\n(;B[qc];W[sa]\r\n(;B[qa];W[sd];B[rb]C[White cannot connect at A.RIGHT]LB[sb:A])\r\n(;B[sd];W[oa]))\r\n(;B[qa];W[sa]\r\n(;B[qc];W[sd];B[rb]C[White cannot connect at A.RIGHT]LB[sb:A])\r\n(;B[sd];W[oa]))\r\n(;B[sd];W[sa]))\r\n(;W[sd];B[qc];W[se];B[qa]C[RIGHT]))\r\n(;B[sd];W[rb])\r\n(;B[qb];W[sd])\r\n(;B[qc];W[rb])\r\n(;B[qa];W[rb]))\r\n(;W[rb];B[sc]C[Seki.RIGHT]))\r\n(;B[rb];W[sb]\r\n(;B[qb];W[sd])\r\n(;B[sd];W[qb]))\r\n(;B[sc];W[sb])\r\n(;B[qb];W[sd])\r\n(;B[qc];W[rb])\r\n(;B[qa];W[rb])\r\n(;B[sd];W[rb]))",
+  "author": {
+    "id": 288,
+    "name": "unkx80",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-01-08",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1846.73
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 738,
+    "failed": 3303,
+    "tries": 4041,
+    "speedSolved": 2,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-05-30T08:19:59+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 14,
+      "name": "Carpenter's Square",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

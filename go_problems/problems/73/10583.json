@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10583,
+  "elo": 1303.114233253,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This is from a game I played on DGS, I was White and played A3 before my opponent could do anything.",
+  "rating": {
+    "stars": 3.8,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ap]AB[bp]AB[cp]AB[dp]AB[dq]AB[eq]AB[er]AW[br]AW[bq]AW[cq]AW[dr]AW[es]AW[fr]AB[fq]AW[gr]AB[gp]AW[hq]AW[hp]C[Black to do something, Sente is not important.]AP[goproblems]\n(;B[ar]\n(;W[aq];B[bs]\n(;W[cr]\n(;B[ds]C[Ko for the corner! Even if you lose the Ko you can still capture E1.RIGHT])\n(;B[cs]C[Ko! =)RIGHT]))\n(;W[as]C[Play at K (G3) if you want to play a ko threat.]LB[gq:K]\n(;B[cs];W[ds];B[ar]C[Good! Ko for the corner.RIGHT])\n(;B[gq];W[fp]C[White answers your Ko threat and has no Ko threats of his own, now what?];B[ar];W[cr];B[ds]C[White is in trouble.RIGHT])))\n(;W[bs];B[aq]C[Best for both.RIGHT]))\n(;B[aq];W[ar]C[Nothing black can do from here.])\n(;B[bs];W[ar]C[White avoids the Ko and keeps six points in the corner. =(])\n(;B[cs];W[bs]C[:(])\n(;B[fs];W[gs]C[From here you could play like in the solution but making this exchange first is slightly more disadvantageous.]))",
+  "author": {
+    "id": 14657,
+    "name": "Edgardo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-10",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 16,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 742.369
+  },
+  "avgSolveTimeSeconds": 52,
+  "attempts": {
+    "solved": 1067,
+    "failed": 2085,
+    "tries": 3152,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-11-01T17:04:14+00:00",
+  "source": "DGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

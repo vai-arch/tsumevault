@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3713,
+  "elo": 1178.9492684076,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "I'm getting a lot of inspiration from other people's problems, so here is a variation of problem 3710 by kingdavid which I quite enjoyed...  \r\nSpecial thanks to Hans for his sensible comments. :)",
+  "rating": {
+    "stars": 3.3,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qd]AB[pd]AW[qf]AB[nd]AB[mc]AB[mb]AB[lb]AB[kb]AW[jb]AW[kc]AW[lc]AW[jd]AW[md]AW[me]AB[ld]AB[le]AW[nc]TR[md]TR[me]AW[qh]C[The 2 marked stones could cause a few problems for black if not captured.]AP[goproblems]\n(;B[mf];W[ne]\n(;B[nf];W[oe]TR[md]TR[me]C[They've escaped])\n(;B[of];W[oe]\n(;B[od];W[pe]TR[md]TR[me]C[They've escaped, although you have managed to build a nice corner. Watch out for white m14 or o14!])\n(;B[nf];W[pe]C[They've escaped. If you now play p16 for the corner, expect the white cut on m14])\n(;B[pe];W[od]\n(;B[nf];W[ob]C[Now  the 4 marked stones are in real danger]MA[kb]MA[lb]MA[mb]MA[mc])\n(;B[oc];W[ob]\n(;B[pc];W[nb]\n(;B[pb]C[Very nice! RIGHT])\n(;B[nf]C[Very nice! RIGHT])\n(;B[qb];W[ma]TR[md]TR[me]C[They've escaped]))\n(;B[nf]C[];W[pc]TR[md]TR[me]C[They've escaped])\n(;B[pb];W[pc]\n(;B[qb];W[nf]\n(;B[ng];W[og];B[pf];W[mg]TR[md]TR[me]C[They've escaped])\n(;B[qc];W[ng]TR[md]TR[me]C[They've escaped]))\n(;B[qc];W[nf]\n(;B[ng];W[og];B[pf];W[mg]C[They've escaped]TR[md]TR[me])\n(;B[oc];W[ng]C[They've escaped]TR[md]TR[me])))\n(;B[nb];W[pc]C[They've escaped]TR[md]TR[me]))\n(;B[pc];W[nf];B[ng];W[og];B[pf];W[mg]TR[md]TR[me]C[They've escaped])\n(;B[nb];W[nf];B[ng];W[og];B[pf];W[mg]C[They've escaped]TR[md]TR[me])\n(;B[ob];W[nf];B[ng];W[og];B[pf];W[mg]TR[md]TR[me]C[They've escaped]))\n(;B[pf];W[lf]\n(;B[kf];W[nf]TR[md]TR[me]C[They've escaped])\n(;B[nf];W[ke]TR[md]TR[me]C[They've escaped])))\n(;B[od];W[of]TR[md]TR[me]C[They've escaped])\n(;B[oe];W[nf]C[They've escaped]TR[md]TR[me]))\n(;B[od]C[Ok you get the corner. But what about the 2 stones? They now have good local influence.]TR[md]TR[me])\n(;B[ne];W[mf]TR[md]TR[me]C[They've escaped]))",
+  "author": {
+    "id": 4506,
+    "name": "chrise",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-12-27",
+    "rank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1205.71
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 2740,
+    "failed": 5136,
+    "tries": 7876,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-08T05:47:57+00:00",
+  "source": "problem 3710 by kingdavid",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

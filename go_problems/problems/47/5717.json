@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5717,
+  "elo": 1305.3181728226,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.1,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sp]AB[rq]AB[qp]AB[qo]AB[ro]AB[pq]AB[nq]AB[oq]AB[op]AB[oo]AB[mp]AB[mo]AB[lp]AB[kp]AB[lq]AB[lr]AB[jq]AB[jr]AB[jp]AB[ks]AW[mq]AW[mr]AW[nr]AW[js]AW[is]AW[ir]AW[iq]AW[ip]AW[io]AW[jo]AW[lo]AW[ko]AW[ln]AW[mn]AW[nn]AW[no]AW[np]AW[on]AW[pn]AW[po]AW[qn]AW[rn]AW[sn]AW[so]C[White to find the best sequence.]AP[goproblems]\r\n(;W[kr]\r\n(;B[kq]\r\n(;W[ls];B[ms];W[ns];B[or];W[ls]C[Ko and white captured first.RIGHT])\r\n(;W[ns];B[or];W[ls];B[ms]C[Ko, but black captured first.])\r\n(;W[ms];B[or]C[Black saves everything.])\r\n(;W[or];B[pr]\r\n(;W[ms];B[os]C[Black saves everything.])\r\n(;W[ls];B[ms];W[ns];B[os])\r\n(;W[ns];B[ls]C[Black saves everything.])\r\n(;W[os];B[ms]C[Black saves everything.])))\r\n(;B[ls];W[ms])\r\n(;B[or];W[ls];B[ns];W[kq]))\r\n(;W[ls];B[ms]\r\n(;W[ns];B[or];W[ls];B[os];W[kr];B[ms]C[White could have gotten more.])\r\n(;W[kr];B[or];W[ls];B[ns]C[White could have gotten more.]))\r\n(;W[ms];B[or]\r\n(;W[kr];B[kq]C[Black saves everything.])\r\n(;W[ls];B[ns]))\r\n(;W[ns];B[ls];W[kr];B[or]C[White loses.])\r\n(;W[or];B[pr]\r\n(;W[kr];B[kq]\r\n(;W[ms];B[os])\r\n(;W[ns];B[ls])\r\n(;W[os];B[ms])\r\n(;W[ls];B[ms];W[ns];B[os]))\r\n(;W[ms];B[os]\r\n(;W[ls];B[ns])\r\n(;W[kr];B[kq]))))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 41,
+  "attempts": {
+    "solved": 1785,
+    "failed": 3554,
+    "tries": 5339,
+    "speedSolved": 2,
+    "speedPlay": 11
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-12-20T12:11:33+00:00",
+  "source": "shibata915 vs maya on IGS",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

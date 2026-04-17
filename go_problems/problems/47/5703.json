@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5703,
+  "elo": 1078.026157563,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -3,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 3.8,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[oj]AB[pj]AB[qj]AB[ri]AB[rh]AB[rg]AB[qf]AB[pf]AB[pg]AB[og]AB[oh]AB[nh]AB[mg]AB[lg]AB[lf]AB[lh]AB[kh]AB[jh]AW[qg]AW[qh]AW[ph]AW[ng]AW[nf]AW[of]AW[mf]AW[le]AW[kf]AW[kg]AW[jg]AW[ih]AW[ii]AW[ji]AW[ki]AW[kj]AW[pe]AW[qe]AW[rf]AW[sg]AW[se]AW[me]AW[nj]AW[mj]AB[nk]AB[mk]AW[lk]AB[ol]AW[if]AW[od]AW[kl]C[Find the best endgame sequence for white.]AP[goproblems]\r\n(;W[mh];B[mi]\r\n(;W[li];B[mh];W[oi]C[Yeah. Got it.RIGHT])\r\n(;W[oi];B[ni]\r\n(;W[li]C[];B[lj]C[Almost correct. White can capture six stones, but black captured two.])\r\n(;W[lj];B[pi];W[li]C[Yeah. Got it.RIGHT]))\r\n(;W[ni];B[oi]C[All the black stones are connected.]))\r\n(;W[oi];B[mh]C[Black saves all his stones.])\r\n(;W[li];B[mh];W[oi]C[];B[pi]C[Black wins the semeai.])\r\n(;W[mi];B[mh]C[Black wins the semeai.])\r\n(;W[ni];B[oi]C[All black stones are connected.]))",
+  "author": {
+    "id": 596,
+    "name": "berni",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2005-03-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 34,
+  "attempts": {
+    "solved": 8233,
+    "failed": 9373,
+    "tries": 17606,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-12-17T08:53:38+00:00",
+  "source": "One of my games.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

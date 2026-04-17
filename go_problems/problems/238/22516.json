@@ -1,0 +1,136 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22516,
+  "elo": 1708.2002500239,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to play and kill as much as possible. Please flag and/or comment if there is a mistake. Thanks to thuran for a correction!",
+  "rating": {
+    "stars": 5,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\nAB [ac][bc][cc][dc][ec][fc][gc][hc][ic][jc][kc][lc][mc][nc][oc][pc][qc][rc][sc][ad][ed][fd][jd][od][sd][be][ee][ge][je][oe][re][ef][gf][jf][of][rf][eg][jg][kg][og][dh][eh][jh][oh][ei][fi][ji][oi][si][aj][bj][cj][dj][ej][fj][gj][hj][ij][jj][kj][lj][mj][nj][oj][pj][qj][rj][sj]\r\nAW [bd][cd][gd][hd][ld][md][qd][rd][ae][de][fe][ie][ke][ne][pe][se][df][ff][if][nf][pf][sf][bg][cg][fg][ig][lg][mg][pg][sg][ah][fh][ih][kh][ph][sh][ai][bi][ci][di][gi][hi][ki][li][mi][ni][qi][ri]\r\n\r\n(; B [lf]; W [kf] TR [le] C [Follow the marked points for a few moves.][FORCE]; B [le]; W [kd] TR [nd] C [FORCE]; B [nd]; W [me] TR [ng] C [FORCE]; B [ng]; W [mf] C [Okay, now continue without the triangles.]; B [mh]; W [bf]; B [af]; W [ce]; B [ae]; W [ch]; B [dg]; W [gg]; B [hg]; W [gh]; B [ii]; W [hh]; B [id]; W [rh] C [Careful here. Only correct variations have been inputted.] (; B [rg]; W [pi]; B [pd]; W [qe]; B [qg] C [RIGHT][Correct!])(; B [pi] C [RIGHT][Sorry, I was missing this variation when I first posted the problem.]))\r\n\r\n(; B [ng]; W [lf])\r\n\r\n(; B [mh]; W [lf])\r\n\r\n(; B [kf]; W [lf])\r\n(; B [kd]; W [lf])\r\n(; B [le]; W [lf])\r\n(; B [nd]; W [lf])\r\n(; B [nh]; W [mh])\r\n\r\n(; B [af]; W [lf] C [That digit was already dead.])\r\n(; B [bf]; W [lf] C [That digit was already dead.])\r\n(; B [ch]; W [lf] C [That digit was already dead.])\r\n(; B [gg]; W [lf] C [That digit was already dead.])\r\n(; B [gh]; W [lf] C [That digit was already dead.])\r\n(; B [rg]; W [lf] C [That digit was already dead.])\r\n(; B [rh]; W [lf] C [That digit was already dead.])\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 133,
+  "attempts": {
+    "solved": 23,
+    "failed": 78,
+    "tries": 101,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-06-02T16:44:35+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 155,
+      "name": "cool",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 238,
+      "name": "Pictures",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

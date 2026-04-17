@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4082,
+  "elo": 1090.4920088198,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "A position that appeared in one of my games, stupidly I got it wrong, can you?",
+  "rating": {
+    "stars": 2.6,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[ba]AW[ca]AW[ga]AW[bb]AW[db]AW[eb]AW[hb]AW[cc]AW[dc]AW[hc]AW[ed]AW[fd]AW[gd]AW[hd]AW[ee]AW[ef]AW[ff]AW[gf]AW[eg]AW[gg]AW[eh]AW[gh]AW[hh]AW[hi]AB[aa]AB[ea]AB[ha]AB[ab]AB[fb]AB[gb]AB[ac]AB[bc]AB[ec]AB[fc]AB[bd]AB[cd]AB[dd]AB[de]AB[df]AB[dg]AB[fg]AB[dh]AB[fh]AB[di]AB[ei]AB[fi]AB[gi]LB[bf:B]C[No komi B to play - Who has won? If B has won, play at 'B', if W has won play at 'W'.]LB[hf:W]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[hf];W[ad]C[Yes the top isn't a seki!RIGHT])\n(;B[bf];W[hf]C[OK, prove it (W adds a stone to his own area to compensate)]\n(;B[da]C[];W[fa];B[ea];W[gc]C[Now What?])\n(;B[fa];W[gc]C[B cannot approach and is dead])))",
+  "author": {
+    "id": 1139,
+    "name": "Chrisg",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 71,
+  "attempts": {
+    "solved": 4710,
+    "failed": 5989,
+    "tries": 10699,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-16T03:58:12+00:00",
+  "source": "From one of my games",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22664,
+  "elo": 1927.8108645255,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Life on the second and third lines series #2. Play to get a chance of life, or play T for tenuki if white is unconditionally dead. Other problem(s) in the series: 22639, 22803, 22829, 22339. Sorry for the lack of incorrect variations earlier; I have added some more. If you turn on \"public attempts\" in your user settings, I can see which variations you played, and know which ones to add.",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\n\r\nAB [kr][lr][mq][nq][op][pp][qp][ro][rq][sq]\r\nAW [mr][nr][pq][rr][sr]\r\n\r\nLB [mo:T]\r\n\r\nC [Can white live or get a ko? If so, then live. If not, tenuki at T.]\r\n\r\n(; W [mo]; AB [mr][nr][pq][rr][sr] AW [kr][lr][mq][nq][op][pp][qp][ro][rq][sq] B [pr] C [The colors have swapped. Show why Q2 doesn't live.] (; W [rs]; B [qs] (; W [qq]; B [qr]; W [or]; B [oq]; W [os] C [RIGHT][Correct.])(; W [os]; B [qq]; W [ps]; B [or] C [Ko. You could (and should) have killed unconditionally.])(; W [or]; B [qq])(; W [oq]; B [qq]))(; W [qs]; B [qr])(; W [qr]; B [qq]; W [qs]; B [ps])(; W [qq]; B [qr])(; W [ps]; B [qs])(; W [os]; B [or])(; W [ns]; B [qq]; W [qs]; B [rs])(; W [ms]; B [qq]; W [qs]; B [rs])(; W [or]; B [qq]; W [qs]; B [ps]; W [rs]; B [oq]))\r\n\r\n(; W [pr]; B [rs] (; W [qs]; B [qq]; W [qr]; B [or]; W [oq]; B [os] C [Nope.])(; W [qr]; B [ms] (; W [oq]; B [os])(; W [or]; B [ns])(; W [os]; B [oq])(; W [qs]; B [os]))(; W [qq]; B [qs] (; W [ps]; B [ms] (; W [ns]; B [or])(; W [oq]; B [ns]))(; W [or]; B [qr])(; W [oq]; B [qr])))\r\n(; W [qq]; B [or])\r\n(; W [qr]; B [or])\r\n(; W [ps]; B [qr])\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 17,
+  "attempts": {
+    "solved": 7,
+    "failed": 93,
+    "tries": 100,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-06-25T23:06:54+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

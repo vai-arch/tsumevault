@@ -1,0 +1,136 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23937,
+  "elo": 1074.6254985802,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;TR[fb]LB[eb:a]LB[ib:b]AB[db][dd][de][ec][ed][fd][fe][gd][he][ic][id][ie][jd][kc]AW[cc][cd][ce][cf][dc][fb][fc][gc][ge][gf][hc][hd][jb][jc][kb]C[FORCE]AP[goproblems autoextractor]PW[ErgoProxy]PB[symanto]PC[The KGS Go Server at http://www.gokgs.com/]DT[2010-01-28]PL[B]\n(;B[eb]TR[dd]TR[gd]TR[ec]TR[fe]TR[de]TR[ed]TR[fd]C[Playing here is worth about 9 points over tenuki. The stones marked with a triangle are stronger. White would play at E18 if you did not play here. Your move prevents white from making about 16 points in the corner. RIGHT])\n(;B[ib];W[eb]TR[dd]TR[gd]TR[ec]TR[fe]TR[de]TR[ed]TR[fd]SQ[jb]SQ[jc]SQ[kb]C[This loses about 9 points. The stones marked with a triangle are weaker. The stones marked with a square are weaker but this is not sufficient. White makes about 15 corner points. ]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 80,
+  "attempts": {
+    "solved": 34,
+    "failed": 34,
+    "tries": 68,
+    "speedSolved": 1,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2023-09-10T04:08:46+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

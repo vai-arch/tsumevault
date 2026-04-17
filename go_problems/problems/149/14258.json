@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14258,
+  "elo": 1765.9508821011,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "A 7d KGS didnt find the solution in a 10 second blitz - can you do find it with an unlimited time? :)\r\n!! Be careful about kos - consider the rest of the board to be a common middle game. That means you have +- same number of ko threats as your opponent and if you start an unnecessary ko you will lose many points - let's say 30 !!",
+  "rating": {
+    "stars": 4,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ac]AW[ad]AW[be]AB[bi]AW[ci]AW[cj]AW[dj]AB[di]AB[eh]AB[ch]AB[cg]AB[dg]AB[cf]AB[ef]AB[de]AB[dd]AB[cd]AB[bd]AB[ed]AB[eb]AB[ea]AW[db]AW[dc]AW[ab]AB[gc]AB[gd]AB[hc]AB[id]AB[he]AW[fe]AW[ee]AW[fd]AW[ge]AW[fg]AW[fi]AB[ej]AW[ei]C[Black to play - can you find the correct way?]AW[hf]AW[em]AW[cm]AW[lc]AB[jc]AB[jb]AW[lb]AB[jj]AB[ik]AB[bc]AW[ca]AW[da]AW[ae]AB[ib]AW[ec]AB[fc]AB[fa]AB[gb]AB[bh]AB[bg]AB[bf]AW[ai]AW[aj]AB[bk]AW[bb]AW[cc]AB[bj]AW[bl]AW[ak]AW[dk]AW[dl]AB[af]AB[ag]AW[al]AW[ah]AB[ck]AW[cl]AW[jf]AW[ke]AW[lf]AW[lg]AP[goproblems]\n(;B[fh];W[gh]\n(;B[gg]\n(;W[dh]\n(;B[gf];W[eg];B[ff]C[Nice, you saved the major part of your group without ko!CHOICERIGHT])\n(;B[eg];W[hg];B[ff];W[gf])\n(;B[ff];W[gf];B[hg];W[if];B[eg];W[hh]C[Not optimal!]))\n(;W[ce];B[gi]C[Good - sacrificing six stones, but saving the rest of your group and making a good center shape.RIGHT]))\n(;B[gi];W[dh]C[Ow, this ko is too risky!]))\n(;B[ff];W[gf];B[gg];W[fh]C[Black is in trouble now!])\n(;B[gg];W[fh]C[This is not a good result.])\n(;B[gh];W[fh])\n(;B[gf];W[ff];B[fh];W[gh];B[gi];W[fj]C[White is happy.]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 71,
+  "attempts": {
+    "solved": 91,
+    "failed": 286,
+    "tries": 377,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-12-16T11:01:47+00:00",
+  "source": "7d - 7d game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

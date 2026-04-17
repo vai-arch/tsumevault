@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10914,
+  "elo": 1322.5740085931,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Black to play and win. There are no prisoners, and the komi is 0.5.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[id]AB[hc]AB[he]AB[ga]AB[gb]AB[gc]AB[gd]AB[ge]AW[ie]AW[if]AW[hf]AB[gf]AW[hg]AW[gg]AW[hi]AW[fg]AW[fh]AB[ff]AW[fa]AW[fb]AW\r\n\r\n[fc]AW[ed]AW[dd]AW[cd]AW[cb]AB[ce]AB[de]AB[ee]AB[fe]AB[eg]AW[eh]AB[dh]AW[di]AB[ci]AB[cg]AW[ei]C[Black to play.]AP[goproblems]\r\n\r\n   (;B[bd];W[bc]\r\n\r\n      (;B[ae];W[ac]\r\n\r\n         (;B[ad]C[RIGHT Black wins. Bl: 20 points + 0 prisoners = 20. Wh: 19 points + 0 prisoners + 0.5 komi = 19.5.])\r\n\r\n         (;B[be]C[White wins. Wh: 19 points + 0 prisoners + 0.5 komi = 19.5. Bl: 19 points + 0 prisoners = 19.])\r\n\r\n      )\r\n\r\n      (;B[ad];W[ac]\r\n\r\n         (;B[be]C[RIGHT Black wins. Bl: 20 points + 0 prisoners = 20. Wh: 19 points + 0 prisoners + 0.5 komi = 19.5.])\r\n\r\n         (;B[bf]C[RIGHT Black wins. Bl: 20 points + 0 prisoners = 20. Wh: 19 points + 0 prisoners + 0.5 komi = 19.5.])\r\n\r\n         (;B[ae]C[RIGHT Black wins. Bl: 20 points + 0 prisoners = 20. Wh: 19 points + 0 prisoners + 0.5 komi = 19.5.])\r\n\r\n\r\n      )\r\n\r\n      (;B[be];W[ad];B[ae];W[ac]C[CHOICE White wins. Wh: 19 points + 0 prisoners + 0.5 komi = 19.5. Bl: 19 points + 0 prisoners = \r\n\r\n19.])\r\n\r\n   )\r\n\r\n   (;B[be];W[bd]\r\n\r\n      (;B[ad];W[ac];B[ae];W[bb]C[CHOICE White wins. Wh: 19 points + 0 prisoners + 0.5 komi = 19.5. Bl: 19 points + 0 prisoners = \r\n\r\n19.])\r\n\r\n      (;B[ae];W[ad]C[White wins. Wh: 21 points + 0 prisoners + 0.5 komi = 21.5. Bl: 19 points + 0 prisoners = 19.])\r\n\r\n   )\r\n\r\n   (;B[ad];W[bd]\r\n\r\n         (;B[ac];W[be]C[White wins.])\r\n\r\n         (;B[be];W[ac];B[ae];W[bb]C[White wins. Wh: 19 points + 0 prisoners + 0.5 komi = 19.5. Bl: 19 points + 0 prisoners = 19.])\r\n\r\n         (;B[bc];W[be]C[White wins.])\r\n\r\n         (;B[ae];W[be];B[bf];W[ac];B[af];W[bb]C[White wins. Wh: 19 points + 0 prisoners + 0.5 komi = 19.5. Bl: 17 points + 0 prisoners = 17.])\r\n\r\n   )\r\n\r\n   (;B[ae];W[bd]\r\n\r\n      (;B[be];W[ad]C[White wins. Wh: 21 points + 0 prisoners + 0.5 komi = 21.5. Bl: 19 points + 0 prisoners = 19.])\r\n\r\n      (;B[ad]\r\n\r\n         (;W[be]C[CHOICE];B[bf];W[ac];B[af];W[bb]C[White wins. Wh: 19 points + 0 prisoners + 0.5 komi = 19.5. Bl: 17 points + 0 \r\n\r\nprisoners = 17.])\r\n\r\n         (;W[ac]C[CHOICE];B[be];W[bb]C[White wins. Wh: 19 points + 0 prisoners + 0.5 komi = 19.5. Bl: 19 points + 0 prisoners = \r\n\r\n19.])\r\n\r\n      )\r\n\r\n   )\r\n\r\n)",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 65,
+  "attempts": {
+    "solved": 1300,
+    "failed": 1794,
+    "tries": 3094,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-02-13T13:18:42+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6778,
+  "elo": 1623.5516593882,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Comments or corrections are welcome.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[co][bp][cp][ep][cq][fq][fr][hr]AB[bq][dq][cr][er][fs]C[Black to move.]\r\n(;B[aq]CR[aq]\r\n;W[bs]CR[bs]C[CHOICE]\r\n(;B[br]CR[br]\r\n;W[as]CR[as]\r\n(;B[eq]CR[eq]C[RIGHT])\r\n(;B[cs]CR[cs]\r\n;W[eq]CR[eq]C[Dead])\r\n(;B[es]CR[es]\r\n;W[eq]CR[eq]\r\n;B[dr]CR[dr]\r\n;W[cs]CR[cs]C[Dead (bent four in corner)]))\r\n(;B[cs]CR[cs]\r\n;W[eq]CR[eq]C[Dead])\r\n(;B[ds]CR[ds]\r\n;W[eq]CR[eq]C[Dead])\r\n(;B[as]CR[as]\r\n;W[br]CR[br]\r\n;B[cs]CR[cs]\r\n;W[eq]CR[eq]C[Dead])\r\n(;B[es]CR[es]\r\n;W[br]CR[br]SQ[aq][bq]C[Dead. Marked stones are captured.]))\r\n(;B[br]CR[br]\r\n;W[eq]CR[eq]C[Dead])\r\n(;B[ar]CR[ar]\r\n;W[bs]CR[bs]\r\n(;B[cs]CR[cs]\r\n;W[eq]CR[eq]C[Dead])\r\n(;B[br]CR[br]C[That doesn't even threaten to live :\\\\]))\r\n(;B[bs]CR[bs]\r\n;W[aq]CR[aq]\r\n;B[ar]CR[ar]\r\n;W[br]CR[br]C[Ko. Black can do better.]))",
+  "author": {
+    "id": 10745,
+    "name": "Trucid",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 491,
+    "failed": 2115,
+    "tries": 2606,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-28T15:01:43+00:00",
+  "source": "SL",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1662,
+  "elo": 1027.5246833207,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "We got in to a discussion about life and death at Go club, and a friend of mine pulled out a couple of neat little scenarios that appeared in some of his recent games.  Check out the next problem, too.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]TM[]\r\nAW[ao][bo][co][cp][dp][ep][fp][gp][cq][gq][br][gr][ds][es]AB[bp][bq][dq][eq][fq][ar][cr][dr][fr][fs]C[White to kill.]PL[W]\r\n(;W[bs]CR[bs]\r\n(;B[cs]CR[cs]C[CHOICE]\r\n(;W[aq]CR[aq]\r\n;B[as]CR[as]\r\n(;W[br]CR[br]\r\n;B[bs]CR[bs]\r\n;W[ap]CR[ap]C[The snapback that wouldn't die! RIGHT])\r\n(;W[ap]CR[ap]\r\n;B[br]CR[br]C[Not quite.])\r\n(;W[bs]CR[bs]\r\n;B[ap]CR[ap]C[Eh?]))\r\n(;W[ap]CR[ap]\r\n;B[aq]CR[aq]\r\n;W[as]CR[as]\r\n;B[bq]CR[bq]C[Black weasels out of it!]))\r\n(;B[aq]CR[aq]C[CHOICE]\r\n(;W[ap]CR[ap]\r\n;B[cs]CR[cs]\r\n;W[as]CR[as]\r\n;B[bq]CR[bq]C[Black weasels out of it!])\r\n(;W[cs]CR[cs]C[Black can't push. RIGHT])\r\n(;W[gs]CR[gs]C[Black can't push. RIGHT])))\r\n(;W[aq]CR[aq]\r\n;B[bs]CR[bs]C[Nice try, but something's missing...])\r\n(;W[cs]CR[cs]\r\n;B[bs]CR[bs]C[Alive.])\r\n(;W[as]CR[as]\r\n;B[bs]CR[bs]C[Alive.])\r\n(;W[ap]CR[ap]\r\n;B[bs]CR[bs]C[Alive.]))",
+  "author": {
+    "id": 1353,
+    "name": "Wervyn",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-24",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 70,
+  "attempts": {
+    "solved": 6697,
+    "failed": 9589,
+    "tries": 16286,
+    "speedSolved": 6,
+    "speedPlay": 11
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-10-23T20:19:39+00:00",
+  "source": "A friend of mine.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 374,
+      "name": "Tombstone Squeeze",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

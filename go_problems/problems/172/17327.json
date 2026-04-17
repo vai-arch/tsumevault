@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17327,
+  "elo": 1851.1225144823,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 5,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ab]AW[bb]AW[cc]AW[dc]AW[fb]AW[gb]AB[bc]AB[bd]AB[cd]AB[dd]AB[ed]AW[ec]AB[fc]AB[gc]AB[hc]AB[hb]AB[ha]C[Black to kill]AP[goproblems]\n(;B[da]\n(;W[eb]C[CHOICE];B[cb];W[db];B[ba]C[]\n(;W[ca]C[Ko, good job!RIGHT])\n(;W[ea]C[Ko, good job!... but what if white goes here?CHOICE];B[ca];W[aa]\n(;B[ca];W[ga];B[cb]C[RIGHT])\n(;B[ga];W[ca])))\n(;W[ca];B[eb];W[cb];B[fa]C[RIGHT])\n(;W[ea];B[cb];W[eb];B[ga]C[RIGHT]))\n(;B[db];W[eb]\n(;B[ga];W[da]C[White is alive])\n(;B[cb];W[ca]C[White is alive]))\n(;B[eb];W[db]\n(;B[ca];W[da];B[ba];W[ea]C[White is alive])\n(;B[ea];W[da]C[White is alive]))\n(;B[fa];W[da]\n(;B[ca];W[ba];B[db];W[cb]C[White is alive])\n(;B[eb];W[db]C[White is alive]))\n(;B[ga];W[ca]\n(;B[da];W[ea]C[White is alive])\n(;B[eb];W[db]C[White is alive])\n(;B[db];W[eb];B[ea];W[cb]C[White is alive]))\n(;B[ea];W[ca]\n(;B[eb];W[db]C[White is alive])\n(;B[da];W[fa]C[White is alive])\n(;B[db];W[eb]C[White is alive]))\n(;B[ba];W[da]\n(;B[eb];W[db]C[White is alive])\n(;B[cb];W[db];B[ca];W[aa]C[White has a miai to make life]LB[ca:A]LB[ga:B])\n(;B[ca];W[eb];B[cb];W[db];B[ga];W[aa]C[White has a miai to make life]LB[ca:A]LB[fa:B])\n(;B[ga];W[db]C[White has a miai to make life]LB[ca:A]LB[fa:B]))\n(;B[ca];W[ba]\n(;B[cb];W[db]C[White is alive])\n(;B[eb];W[db];B[ea];W[cb]C[White is alive])\n(;B[ea];W[eb]\n(;B[ga];W[fa];B[cb];W[da]C[White is alive])\n(;B[cb];W[da]C[White is alive]))))",
+  "author": {
+    "id": 64691,
+    "name": "gfeng",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 66,
+  "attempts": {
+    "solved": 103,
+    "failed": 259,
+    "tries": 362,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-06-25T14:43:02+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

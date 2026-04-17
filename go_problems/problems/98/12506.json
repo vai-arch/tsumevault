@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12506,
+  "elo": 804.31671258505,
+  "problemLevel": 3,
+  "rank": {
+    "value": 27,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -6,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "I'd elaborate on the source, but I can't read Chinese.\r\n\r\nWhy is this problem being deactivated?",
+  "rating": {
+    "stars": 3.1,
+    "votes": 36,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qp]AB[dp]AW[lq]AW[iq]LB[fq:B]LB[oq:A]C[A or B?FORCE]AP[goproblems]\r\n(;B[cl];W[ql]C[this is just to get the right board view])\r\n(;B[oq]C[Yup! Enclosing a 3-4 point is more important. A 3-4 enclosure is particularly important early game because it secures the corner well; it takes two moves to completely secure the corner at a 4-4 point.RIGHT])\r\n(;B[fq];W[oq]C[White took the more important point :(]))",
+  "author": {
+    "id": 29217,
+    "name": "dischord",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-10-08",
+    "rank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1627.09
+  },
+  "avgSolveTimeSeconds": 20,
+  "attempts": {
+    "solved": 7863,
+    "failed": 5547,
+    "tries": 13410,
+    "speedSolved": 3,
+    "speedPlay": 10
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-03-30T13:02:13+00:00",
+  "source": "Chinese problem book",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

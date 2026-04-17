@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2640,
+  "elo": 1955.7977172122,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -2,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "White sets up a trap for Black.  Black just needs to keep focused.",
+  "rating": {
+    "stars": 2.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[lc][me][oe][qf]AB[ic][nd][od][pd]LB[ic:4][lc:3][nd:2][od:6][me:7][oe:5][qf:1]\r\n;B[ne]CR[ne]\r\n;W[nf]CR[nf]\r\n(;B[md]CR[md]\r\n;W[ld]LB[md:A]CR[ld]C[Black A weakens White's shape - how to attack?]\r\n;B[mf]CR[mf]\r\n;W[le]CR[le]\r\n;B[of]CR[of]\r\n;W[ng]CR[ng]\r\n(;B[pe]CR[pe]\r\n;W[og]CR[og]\r\n;B[pf]CR[pf]\r\n;W[pg]CR[pg]\r\n;B[qg]CR[qg]\r\n;W[qh]CR[qh]\r\n;B[rg]CR[rg]\r\n;W[rh]CR[rh]\r\n;B[rf]CR[rf]C[After this sequence, White is left with a very powerful wall on the outside])\r\n(;B[og]CR[og]\r\n;W[oh]CR[oh]\r\n;B[nh]CR[nh]\r\n;W[mg]CR[mg]\r\n;B[ph]CR[ph]\r\n;W[oi]CR[oi]\r\n;B[pg]CR[pg]\r\n;W[pi]CR[pi]\r\n;B[qi]CR[qi]\r\n;W[qj]CR[qj]\r\n;B[rh]CR[rh]\r\n;W[pk]LB[qc:A]CR[pk]C[After this sequence, Black has sente, but White can later enter at 'A' to reduce Black's corner territory.  Black can do better]))\r\n(;B[mf]CR[mf]\r\n(;W[ng]CR[ng]C[CHOICE]\r\n;B[md]CR[md]\r\n;W[le]CR[le]\r\n;B[ld]LB[ne:A][mf:B]CR[ld]C[RIGHT Black B was the correct followup to Black A.  Black is not fenced in to the corner])\r\n(;W[le]CR[le]\r\n;B[pf]CR[pf]\r\n(;W[pg]CR[pg]C[CHOICE]\r\n;B[og]CR[og]\r\n(;W[ph]CR[ph]C[CHOICE]\r\n;B[ng]LB[ne:A][mf:B][pf:C]CR[ng]C[RIGHT Black has the advantage.  The two white groups are separated, and black now has outside influence.  Black B was the correct followup to Black A.  And C was the key play])\r\n(;W[of]CR[of]C[CHOICE This is a poor choice for White.  Please continue]\r\n;B[pe]CR[pe]\r\n;W[ng]CR[ng]\r\n;B[oh]CR[oh]\r\n;W[ph]CR[ph]\r\n;B[oi]CR[oi]\r\n;W[mg]CR[mg]C[Don't forget ladders and geta]\r\n;B[pi]CR[pi]\r\n;W[qi]CR[qi]\r\n;B[qj]CR[qj]\r\n;W[rh]CR[rh]\r\n;B[rj]CR[rj]\r\n;W[re]CR[re]\r\n;B[rd]CR[rd]C[RIGHT An interesting position, and Black has the advantage of the outside and corner.  Can White ignore the last Black Play at S16]))\r\n(;W[ng]CR[ng]C[This is a reasonable option for white.  Now continue.]\r\n;B[qe]LB[lg:A]CR[qe]C[RIGHT Black should feel satisfied with this sequence.  Black may further mount an outward attack on the upper right side or take advantage of Whites weakness at A]))))",
+  "author": {
+    "id": 1811,
+    "name": "cheyenne",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-04-28",
+    "rank": {
+      "value": 16,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1104.23
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 118,
+    "failed": 1905,
+    "tries": 2023,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-25T22:43:24+00:00",
+  "source": "rec.games.go archive",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 19,
+      "name": "Hamete",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

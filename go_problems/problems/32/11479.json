@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11479,
+  "elo": 1035.4503704573,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 11,
+    "negativeFlagSum": 0,
+    "flagSum": 11
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "There is a go proverb that reads Extend From a Crosscut, and another that reads Atari-Atari is Vulgar Play. Hopefully this Tsumego will illustrate that.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ij]AB[ji]AW[ii]AW[jj]TR[jj]C[White has just played the marked stone. Assuming relatively equal strength in the surrounding area, what should black do?]LB[ki:1]LB[kj:2]LB[kk:3]AP[goproblems]\n(;B[kj];W[jk]\n(;B[hi];W[ih]C[Blacks stones are split apart and weaker while whites stones are connected and stronger. Try again.])\n(;B[ih];W[hi]C[Blacks stones are split apart and weaker while whites stones are connected and stronger. Try again.])\n(;B[hj];W[ih]C[Blacks stones are split apart and weaker while whites stones are connected and stronger. Try again.])\n(;B[kk];W[ih]C[Blacks stones are split apart and weaker than whites. The ladder will be broken on the marked stone. Try again.]TR[ii])\n(;B[ki];W[hj]MA[ij]C[This stone will die in the ladder. Try again.])\n(;B[jh];W[hi]MA[ij]C[Blacks stones are split apart and (especially the marked stone) weaker while whites stones are connected and stronger. Try again.])\n(;B[ik];W[jl]C[This result is fairly even - but there is another more standard response.]))\n(;B[ki];W[jk]\n(;B[hj];W[ih]C[Perfect. This shape is called the pinwheel. Both sides derive even benefit from it, and black keeps sente.RIGHT])\n(;B[hi];W[ih];B[hj]C[Blacks position is very slightly better, but white takes sente, and can easily undo that advanatage by playing at A.]LB[ig:A])\n(;B[ik];W[jl]C[Interesting result, but not the standard response.]))\n(;B[kk];W[kj]\n(;B[jk];W[hi]C[Blacks stones are split apart and weaker while whites stones are connected and stronger. If black tries to start a ladder at L, it will be broken on the marked stone. Try again.]LB[lj:L]MA[ii])\n(;B[ki];W[hi]C[Blacks stones are split apart and weaker while whites stones are connected and stronger. Try again.])\n(;B[ih];W[hi]C[Blacks stones are split apart and weaker while whites stones are connected and stronger. Try again.])\n(;B[hi];W[ih]C[Blacks stones are split apart and weaker while whites stones are connected and stronger. Try again.])\n(;B[hj];W[jh]MA[ji]C[this stone dies in a ladder!])))",
+  "author": {
+    "id": 23851,
+    "name": "BountyHunterSAx",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-02-18",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 4444,
+    "failed": 5116,
+    "tries": 9560,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-07-15T02:04:56+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 32,
+      "name": "Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

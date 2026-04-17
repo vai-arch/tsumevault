@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1513,
+  "elo": 1244.7043961451,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -3,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "I only wish I had seen this in the game.  Ko is allowed, but only if black starts it.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]TM[]\r\nPW[Igo for windows]PB[Human]\r\nAW[dl][am][an][ao][bo][bp][dp][bq][cq][dr][fr][cs][ds][es][fs][gs]\r\nAB[al][cl][bm][cm][dm][gm][bn][cn][dn][co][eo][cp][dq][eq][fq][hq][er][gr][hs]C[Black to kill.]\r\n(;B[ar]CR[ar]\r\n(;W[aq]CR[aq]C[CHOICE]\r\n;B[bs]CR[bs]\r\n;W[cr]CR[cr]C[It's the famous two stone seki!])\r\n(;W[br]CR[br]C[CHOICE]\r\n;B[aq]CR[aq]\r\n;W[bs]CR[bs]C[WRONG White puts a stop to your evil plans!]))\r\n(;B[bs]CR[bs]\r\n;W[cr]CR[cr]\r\n;B[ar]CR[ar]\r\n;W[br]CR[br]\r\n;B[aq]CR[aq]\r\n;W[as]CR[as]C[WRONG Ko in white's favor.  White stands to lose a lot, so a suitable threat is unlikely])\r\n(;B[br]CR[br]\r\n(;W[ar]CR[ar]C[CHOICE]\r\n(;B[bs]CR[bs]\r\n;W[cr]CR[cr]\r\n;B[aq]CR[aq]\r\n;W[as]CR[as]C[The pain of loss.])\r\n(;B[aq]CR[aq]\r\n(;W[bs]CR[bs]C[CHOICE]\r\n;B[as]CR[as]C[RIGHT Ko in favor of black.  Given the size of the prize, it's unlikely that white has a viable threat.])\r\n(;W[ap]CR[ap]C[CHOICE]\r\n;B[bs]CR[bs]\r\n;W[cr]CR[cr]\r\n;B[aq]CR[aq]C[RIGHT White = 0wz0rd])))\r\n(;W[cr]CR[cr]\r\n;B[aq]CR[aq]\r\n(;W[bs]CR[bs]\r\n;B[ar]CR[ar]C[Dead as a proverbial doornail.])\r\n(;W[ar]CR[ar]\r\n;B[as]CR[as]C[Butt-whooped.])\r\n(;W[as]CR[as]\r\n;B[ar]CR[ar]C[Would be seki, but b1 works for black.]))\r\n(;W[aq]CR[aq]\r\n;B[cr]CR[cr]C[Divided and conquered.])\r\n(;W[bs]CR[bs]C[CHOICE]\r\n(;B[ar]CR[ar]\r\n;W[aq]CR[aq]C[Whoopsie.])\r\n(;B[aq]CR[aq]\r\n;W[ar]CR[ar]\r\n;B[as]CR[as]C[RIGHT Ko in favor of black.  Given the size of the prize, it's unlikely that white has a viable threat.]))))",
+  "author": {
+    "id": 1353,
+    "name": "Wervyn",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-24",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 78,
+  "attempts": {
+    "solved": 1906,
+    "failed": 4633,
+    "tries": 6539,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-05-24T07:07:56+00:00",
+  "source": "Modified game with Igowin",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

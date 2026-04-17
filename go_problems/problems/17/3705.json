@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3705,
+  "elo": 1310.7827518315,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Please find the best result for White!\r\n(japanese rules)",
+  "rating": {
+    "stars": 2.7,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[4]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[bb][cb][db]AB[ca][bc][cc][dc][bd]C[White to play - what's the best he can do?]PL[W]\r\n(;W[ab]CR[ab]\r\n(;B[ac]CR[ac]\r\n;W[ba]CR[ba]C[White wins by one point RIGHT])\r\n(;B[ba]CR[ba]\r\n;W[ac]CR[ac]\r\n;B[aa]CR[aa]\r\n(;W[cd]CR[cd]\r\n;B[dd]CR[dd]\r\n;W[da]CR[da]\r\n;B[ba]CR[ba]\r\n;W[ad]CR[ad]C[White wins big.])\r\n(;W[da]CR[da]\r\n;B[ba]CR[ba]\r\n(;W[cd]CR[cd]\r\n;B[aa]CR[aa]\r\n;W[ca]CR[ca]\r\n;B[ba]CR[ba]C[This is a 5 point win for White, but with this first black move (b4), he can do even better.])\r\n(;W[dd]CR[dd]\r\n;B[ca]CR[ca]\r\n;W[aa]CR[aa]\r\n;B[ba]CR[ba]C[This is a 5 point win for White but after this first move by Black (b4), White can do even better.]))))\r\n(;W[ac]CR[ac]\r\n;B[ab]CR[ab]\r\n(;W[ba]CR[ba]\r\n;B[ad]CR[ad]\r\n(;W[da]CR[da]\r\n;B[ac]CR[ac]\r\n;W[cd]CR[cd]\r\n;B[dd]CR[dd]C[Seki, Black wins by one point (two prisoners against one).])\r\n(;W[cd]CR[cd]C[Seki, Black wins by one point (two prisoners against one).]))\r\n(;W[aa]CR[aa]\r\n;B[ba]CR[ba]\r\n(;W[ab]CR[ab]\r\n;B[ad]CR[ad]C[Black wins!])\r\n(;W[da]CR[da]\r\n;B[ba]CR[ba]\r\n(;W[ca]CR[ca]\r\n;B[ad]CR[ad]C[Black wins!])\r\n(;W[ab]CR[ab]\r\n;B[ad]CR[ad]C[Black wins!])\r\n(;W[cd]CR[cd]\r\n;B[ab]CR[ab]C[Black wins!])\r\n(;W[dd]CR[dd]\r\n;B[ab]CR[ab]C[Black wins!])))))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 26,
+  "attempts": {
+    "solved": 3888,
+    "failed": 6818,
+    "tries": 10706,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-07T15:18:23+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

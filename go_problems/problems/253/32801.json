@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 32801,
+  "elo": 1619.2838803161,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 1,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[9]ST[0]AW[bb][cb][cc][dc][ec][dd][gb][hc][hd][fd][gd][fe][ff][fg][eg][dg][dh][di][ci][hg][ef]AB[bi][bh][ch][cg][cf][bf][df][de][cd][bd][bc][eh][fi][gh][gg][gf][ge][he][hf][hh][ih][id]C[Find the winning line for Black. Japanese rules, 0.5 komi.](;B[ab];W[fh](;B[ic];W[ib];B[ie];W[ee](;B[gi];W[ei];B[ba];W[ca];B[ac];W[aa]TR[hb]C[You will win this ko and the game!RIGHT])(;B[ba];W[ei];B[gi];W[ca];B[ac];W[aa]TR[hb]C[You will win this ko and the game!RIGHT]))(;B[gi];W[ic](;B[ie];W[ei];B[ee];W[ba]C[White wins.])(;B[ei];W[ie];B[if];W[ee];B[ba];W[ca];B[ac];W[id];B[aa]TR[id]C[White wins.]))(;B[ba];W[ic];B[ie];W[ee]C[White will win this game.]))(;B[ic];W[ib];B[ie];W[ac]C[White will win this game.])(;B[fh];W[ac]C[White will win this game.])(;B[ee];W[ac]C[White will win this game.]))",
+  "author": {
+    "id": 10537,
+    "name": "tristesse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-12-12",
+    "rank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1573.86
+  },
+  "avgSolveTimeSeconds": 83,
+  "attempts": {
+    "solved": 4,
+    "failed": 31,
+    "tries": 35,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2024-07-17T22:57:40+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 253,
+      "name": "Whole Board Endgame",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

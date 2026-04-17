@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4652,
+  "elo": 1074.1699900162,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cr]AB[br]AB[dq]AB[eq]AB[ep]AB[eo]AB[co]AW[dp]AW[dn]AW[cn]AW[bn]AW[cq]AW[bq]AW[dr]AW[er]AW[fr]AW[gq]C[Black to rescue his stones in the corner.]AP[goproblems]\r\n(;B[bp];W[bo]\r\n(;B[aq];W[do];B[cp]C[RIGHT])\r\n(;B[ap];W[do];B[cp]C[RIGHT])\r\n(;B[ao];W[do]MA[cp]C[You can't cut, so you are cut yourself.])\r\n(;B[do];W[ap];B[cp];W[aq])\r\n(;B[cp];W[do]\r\n(;B[aq]C[RIGHT])\r\n(;B[ap]C[RIGHT])))\r\n(;B[do];W[bo];B[bp];W[ap];B[cp];W[aq]C[Cut.])\r\n(;B[cp];W[bp];B[bo];W[ao])\r\n(;B[bo];W[do]\r\n(;B[cp];W[ao])\r\n(;B[bp];W[aq];B[ar];W[ao]C[Can't atari.]MA[ap]MA[cp]))\r\n(;B[aq];W[bp]\r\n(;B[bo];W[ao];B[do];W[ap])\r\n(;B[cp];W[bo])\r\n(;B[ap];W[ao])\r\n(;B[do];W[bo]))\r\n(;B[ap];W[do]\r\n(;B[cp];W[bp])\r\n(;B[bp];W[cp])\r\n(;B[bo];W[cp])))",
+  "author": {
+    "id": 5469,
+    "name": "transcend",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-04-26",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 9359,
+    "failed": 10537,
+    "tries": 19896,
+    "speedSolved": 9,
+    "speedPlay": 18
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-06-12T07:03:41+00:00",
+  "source": "Get Strong at Tesuji",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

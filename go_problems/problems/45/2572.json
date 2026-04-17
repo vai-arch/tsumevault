@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2572,
+  "elo": 893.32602026166,
+  "problemLevel": 6,
+  "rank": {
+    "value": 24,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Play a black stone on the intersection with the number that equals the number of points Black wins by playing at A.  Counting is by Japanese rules.",
+  "rating": {
+    "stars": 3,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[bp]AW[bq]AW[br]AW[bs]AW[cn]AW[co]AW[cs]AW[dr]AB[cp]AB[cq]AB[cr]AB[dp]AB[ds]AB[ep]AB[eq]AB[er]AB[es]AB[gp]AB[hq]C[How many points does Black win by playing at A? Play at B8 for 2, D8 for 3, F8 for 4 or H8 for 5.FORCE]LB[ds:A]LB[bl:2]LB[dl:3]LB[fl:4]LB[hl:5]\n(;B[dl]C[Correct! Black wins 3 points! 1 point for D3 and 2 (prisoner) at D2.RIGHT]LB[ds:A])\n(;B[bl]C[Sorry, Black wins 3 points.]LB[ds:A])\n(;B[fl]C[Sorry, Black wins 3 points.]LB[ds:A])\n(;B[hl]C[Sorry, Black wins 3 points.]LB[ds:A]))",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 10968,
+    "failed": 4685,
+    "tries": 15653,
+    "speedSolved": 1,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-11T11:30:05+00:00",
+  "source": "Let's Go",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

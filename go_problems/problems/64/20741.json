@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20741,
+  "elo": 805.23768534304,
+  "problemLevel": 3,
+  "rank": {
+    "value": 27,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "There is death in the Hane. there exists at least two solutions.",
+  "rating": {
+    "stars": 4,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]\nRU[Japanese]SZ[19]KM[0.00]\nPW[WeiÃŸ]PB[Schwarz]AW[pa][pb][pc][pd][pe][pf][rf][pg][rg]AB[ra][rb][rc][rd][re]LB[rf:1]C[White playerd 1.\nHow to answer?\n]\n(;B[se]LB[sb:A][sc:B]C[RIGHT\nNow Black got two eyes.\nA and B are miai for living.])\n(;B[sb]LB[se:A]C[RIGHT\nCorrect black lives.\n\nIf Black played at A she would gain four moku in Gote.\nnow she gained only three Moku white would\nPossibly tenuki, since it's now an two point endgame there])\n(;B[lc]\n;W[kc])\n(;B[sf]\n;W[se]\n;B[sd]\n;W[sb]LB[se:A]C[Dead! A is only a false eye.\nThe proverb says there is death in the Hane.])\n(;B[qf]\n;W[se]\n;B[sd]\n;W[sb]\n;B[sf]LB[se:A]C[Dead! A is only a false eye.\nThe proverb says there is death in the Hane])\n(;B[qe]\n;W[se]\n(;B[sf]\n(;W[sd]C[CHOICE]\n;B[sc]\n;W[se]\n;B[sd]LB[se:A]C[Dead! A is only a false eye.\nThe proverb says there is death in the Hane.])\n(;W[sg]C[CHOICE]\n;B[sd]\n;W[sb]))\n(;B[sd]\n;W[sb]\n;B[sf]LB[se:A]C[Dead! A is only a false eye.\nThe proverb says there is death in the Hane.]))\n(;B[nc]\n;W[se]C[But what if white plays here?]\n(;B[sd]\n;W[sb]LB[se:A]C[Black could not create an eye at A, it would be false.])\n(;B[sf]\n;W[sd]\n;B[sc]\n;W[se]LB[se:A]C[Killing the Stone A would create only a False eye Black is dead.]))\n(;B[sa]\n;W[se]C[Black could create only one eye.])\n(;B[sc]\n;W[se]C[black created just one eye she dies.])\n(;B[sd]\n;W[sb]C[black created only one eye, she dies]))",
+  "author": {
+    "id": 62488,
+    "name": "fmi2012",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2016-02-07",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 19,
+  "attempts": {
+    "solved": 3312,
+    "failed": 1499,
+    "tries": 4811,
+    "speedSolved": 56,
+    "speedPlay": 137
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-01-11T08:18:37+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 64,
+      "name": "Life on 2nd Line",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

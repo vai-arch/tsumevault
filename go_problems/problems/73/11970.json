@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11970,
+  "elo": 1230.1964765628,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Variation on 11969. This seems complex so please tell me if I have missed any variations. Please go for unconditional life instead of seki or ko.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[aq]AW[bq]AW[cq]AW[cr]AW[dq]AW[es]AW[fr]AW[gr]AW[hr]AW[hs]AB[is]AB[ir]AB[iq]AB[gq]AB[hq]AB[fq]AB[eq]AB[dp]AB[cp]AB[bp]AB[ap]AB[ep]AB[bs]C[What if black decides to play A instead of B? How should white respond?]LB[bs:A]LB[er:B]AP[goproblems]\n(;W[cs];B[er];W[fs]C[];B[ds];W[dr];B[ar]C[Seki.])\n(;W[er];B[cs]\n(;W[ds];B[ar]C[Seki. Not the best.])\n(;W[ar]C[RIGHT])\n(;W[br]C[RIGHT])\n(;W[dr]C[RIGHT]))\n(;W[br];B[er]\n(;W[fs];B[ds];W[cs];B[dr];W[as]C[Life, but could be better.])\n(;W[cs];B[fs];W[as]C[Life, but could be better.]))\n(;W[fs];B[cs]\n(;W[dr];B[ar]\n(;W[ds];B[er]C[Seki.])\n(;W[er];B[br]C[Seki.])\n(;W[br];B[er];W[as]C[Ko.]))\n(;W[er];B[ar]C[Seki.])\n(;W[ds];B[ar]C[Seki.]))\n(;W[ds];B[er];W[fs];B[dr]\n(;W[cs];B[ar]C[Seki.])\n(;W[br];B[ar];W[as]C[Ko.]))\n(;W[dr];B[er];W[fs];B[ds]\n(;W[cs];B[ar]C[Seki.])\n(;W[br];B[ar]\n(;W[cs];B[ds])\n(;W[as]C[Ko.]))))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 1310,
+    "failed": 2228,
+    "tries": 3538,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-11-13T16:21:28+00:00",
+  "source": "Problem 11969",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

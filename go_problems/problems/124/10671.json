@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10671,
+  "elo": 1246.9100444134,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "After a game we were discussing one of the positions, moving a few stones around came up with this non-obvious problem.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sq]AB[rq]AW[rr]AW[sr]AW[rs]AW[qq]AW[pq]AW[oq]AB[nq]AB[nr]AB[ns]AB[op]AB[pp]AB[qp]AB[qo]C[Black to kill white unconditionally.  There are two initial moves, but the playout is much the same.]AB[rn]AP[goproblems]\n(;B[or];W[rp]\n(;B[qr];W[sp]\n(;B[rq];W[sq]\n(;B[pr]C[White dies!RIGHT])\n(;B[ps]C[White is dead!RIGHT])\n(;B[qs];W[pr]TR[qr]TR[qs]C[The marked stones are dead and white lives!]))\n(;B[pr];W[rq]C[Oops!  White lives :(])\n(;B[ps];W[rq]C[Oops!  White lives :(])\n(;B[qs];W[pr]TR[qr]TR[qs]C[The marked stones are dead and white lives!]))\n(;B[pr];W[qr]TR[rq]TR[sq]C[White connects, and the marked stones are dead for two eyes :(]))\n(;B[qr];W[pr]\n(;B[ps];W[qs]\n(;B[or];W[os]C[A ko, but black can kill unconditionally.])\n(;B[os];W[rp]TR[rq]TR[sq]C[Oops.  White will take the marked stones and live!])\n(;B[rp];W[os]C[White lives with ease. Miai at A and B.]LB[or:A]LB[ps:B]))\n(;B[or];W[ps]C[Oh no!  White lives :(]))\n(;B[pr];W[qr]\n(;B[ps];W[rp]TR[rq]TR[sq]C[The marked stones are dead and white makes life!])\n(;B[os];W[rp]TR[rq]TR[sq]C[The marked stones are dead and white makes life!])\n(;B[or];W[rp]TR[rq]TR[sq]C[The marked stones are dead and white makes life!])\n(;B[rp];W[or]TR[pr]C[The marked stone is dead and white makes life!]))\n(;B[ps];W[rp]\n(;B[qr];W[sp]\n(;B[rq]C[White is dead!  White cannot threaten at A (self-atari).  Note that if white captures, black will have to respond to avoid the threat at A.RIGHT]LB[pr:A])\n(;B[pr];W[rq]C[Oops!  White lives.])\n(;B[or];W[rq]C[Oops!  White lives :(])\n(;B[os];W[rq]C[Oops!  White lives.])\n(;B[qs];W[rq]C[Oops!  White lives.]))\n(;B[pr];W[qr]C[The marked stones are dead and white makes life!]TR[rq]TR[sq])\n(;B[or];W[qr]C[The marked stones are dead and white makes life!]TR[rq]TR[sq])\n(;B[ro];W[sp]C[White has miai for life at A and B.]LB[qr:A]LB[rq:B])\n(;B[qs];W[qr]TR[rq]TR[sq]C[The marked stones are dead and white lives!]))\n(;B[rp];W[ps]\n(;B[pr];W[or]C[The marked stone is dead and white lives!]TR[pr])\n(;B[qr];W[pr]C[Sweet life for white.])\n(;B[or];W[pr]C[White makes life!])))",
+  "author": {
+    "id": 21642,
+    "name": "Silowyi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-08",
+    "rank": {
+      "value": 11,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1236.99
+  },
+  "avgSolveTimeSeconds": 95,
+  "attempts": {
+    "solved": 1707,
+    "failed": 2789,
+    "tries": 4496,
+    "speedSolved": 4,
+    "speedPlay": 15
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-12-04T02:48:56+00:00",
+  "source": "Private Game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 124,
+      "name": "Hanging Edge False Eye",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10549,
+  "elo": 833.10627420247,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "In this common corner formation, w has a move that will ruin b's day. ",
+  "rating": {
+    "stars": 3.3,
+    "votes": 36,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[ba]AB[bb]AB[cc]AB[cd]AB[be]AB[bf]AB[af]AW[ca]AW[cb]AW[db]AW[dc]AW[dd]AW[ce]AW[cf]AW[cg]AW[bg]AW[ag]C[White's move, you need to kill the group in the corner](;W[bc];B[bd];W[ac]C[RIGHT])(;W[bd];B[bc](;W[ae]C[RIGHT])(;W[ad]C[RIGHT]))(;W[ab];B[bc](;W[ad];B[ac])(;W[ac];B[ad])(;W[bd];B[ad])(;W[ae];B[ad]))(;W[ac];B[bc](;W[ad];B[ab])(;W[ab];B[ad])(;W[bd];B[ad])(;W[ae];B[ad]))(;W[ad];B[bd](;W[ab];B[ac])(;W[ac];B[ab])(;W[bc];B[ac])(;W[ae];B[ac]))(;W[ae];B[ad]))",
+  "author": {
+    "id": 13750,
+    "name": "meh",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-10-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 22,
+  "attempts": {
+    "solved": 13933,
+    "failed": 4051,
+    "tries": 17984,
+    "speedSolved": 26,
+    "speedPlay": 64
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-10-27T05:52:39+00:00",
+  "source": "Adapted from a game.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 255,
+      "name": "Golden Chicken Standing on One Leg",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

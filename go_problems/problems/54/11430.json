@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11430,
+  "elo": 1549.9045383373,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "",
+  "rating": {
+    "stars": 2.6,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pd]AB[dd]AB[jj]AB[pp]AB[dp]AW[qf]AB[nc]AW[nq]AB[qm]AW[cn]AB[fq]AW[ch]AB[cj]AW[fc]AB[fd]AW[gd]AB[fe]AW[ec]AB[dc]AW[hc]AB[cf]LB[eh:A]LB[dk:B]LB[bp:C]TR[cf]C[Black just played the marked stone. How should white answer? Think careful and read the whole sequence! (You will have to play it out!)FORCE]AP[goproblems]\n(;W[eh];B[co];W[dn]C[];B[ej];W[gh];B[fn]TR[eh]C[To run away with the marked stone shows shallow thinking. After the sequence we just saw, White is in all too apperent difficulties.])\n(;W[dk];B[dj]C[FORCE]\n(;W[ej];B[ck]TR[dl]C[FORCE];W[dl];B[dh]TR[di]C[FORCE];W[di];B[ci];W[ei];B[bh]C[FORCE];W[eh];B[dg]LB[dk:1]TR[ch]C[White 1, sacrificing the marked stone and gaining outer influence in return, is a good move here.RIGHT])\n(;W[ek];B[ej]C[This is bad for white.]))\n(;W[bp];B[cl]C[White 1 favors the A stone and tries to get it squared away, but Black 2 is severe. Can you see a tesuji so white will at least not get shut in?]LB[bp:1]LB[cl:2]\n(;W[do];B[cp]C[Nice move! This is better than playing 3-3. Since the sequence is very uncommon, i willl help you a bit :)]TR[bq]MA[do];W[bq];B[eo]TR[co];W[co];B[en]C[Although White can avoid being shut in with the tesuji at A, Black gets to stretch out in comfort with the marked moves. Black is better.]LB[do:A]MA[en]MA[eo])\n(;W[cq];B[co];W[bo];B[dn]C[White is shut in - this is very bad.])))",
+  "author": {
+    "id": 18690,
+    "name": "mafutrct",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-10",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1449.41
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 315,
+    "failed": 1034,
+    "tries": 1349,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-07-06T07:44:14+00:00",
+  "source": "Toshiro Kageyama - Kages Secret Chronicles of Handicap Go",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 54,
+      "name": "Pro Game",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 84,
+      "name": "Handicap Game",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

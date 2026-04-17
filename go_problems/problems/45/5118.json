@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5118,
+  "elo": 1685.4597530351,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Rules variation - the first player to have no legal move is the winner. Otherwise Japanese rules. If white captures the black group this is a failure for white.",
+  "rating": {
+    "stars": 2.6,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[5]AB[ba]AB[da]AB[ab]AB[bb]AB[cb]AB[db]AB[eb]AB[ac]AB[ec]AB[ad]AB[bd]AB[ed]AB[ae]AB[be]AB[ce]AB[de]AB[ee]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]PL[W]\n(;W[cc];B[bc]LB[dc:A]LB[dd:B]C[Please play A or B]\n(;W[dc];B[aa]LB[dd:A]C[Please play A]\n(;W[dd];B[cd]\n(;W[cc];B[ca]\n(;W[dd];B[ea])\n(;W[dc];B[ea]))\n(;W[dc];B[ca]\n(;W[cc];B[ea])\n(;W[dd];B[ea]))\n(;W[dd];B[ca]\n(;W[cc];B[ea])\n(;W[dc];B[ea])))\n(;W[cd]C[NOTTHIS]))\n(;W[dd];B[aa]LB[dc:A]C[Please play A]\n(;W[dc];B[cd]\n(;W[cc];B[ca]\n(;W[dd];B[ea])\n(;W[dc];B[ea]))\n(;W[dc];B[ca]\n(;W[cc];B[ea])\n(;W[dd];B[ea]))\n(;W[dd];B[ca]\n(;W[cc];B[ea])\n(;W[dc];B[ea])))\n(;W[cd]C[NOTTHIS]))\n(;W[cd]C[NOTTHIS]))\n(;W[cd];B[bc]C[This is equivalent to playing C3 first - see Navigate Solution])\n(;W[dd];B[bc]C[This is equivalent to playing C3 first - see Navigate Solution])\n(;W[dc];B[bc]C[This is equivalent to playing C3 first - see Navigate Solution])\n(;W[bc];B[aa]\n(;W[cc];B[dd]\n(;W[dc];B[cd]\n(;W[bc];B[ca]\n(;W[dc];B[ea])\n(;W[cc];B[ea]))\n(;W[cc];B[ca];W[bc];B[ea]))\n(;W[cd];B[dc]\n(;W[bc];B[ca]\n(;W[cc];B[ea])\n(;W[cd];B[ea]))\n(;W[cd];B[ca]\n(;W[cc];B[ea])\n(;W[bc];B[ea]))\n(;W[cc];B[ca]\n(;W[bc];B[ea])\n(;W[cd];B[ea]))))\n(;W[dc];B[ca]\n(;W[cc];B[ea]\n(;W[cd];B[dd]\n(;W[cc];B[cd])\n(;W[cd]C[RIGHT];B[bc];W[dc]C[RIGHT])\n(;W[bc]C[RIGHT];B[cd];W[dc]C[RIGHT])\n(;W[dc]C[RIGHT];B[cd];W[bc]C[RIGHT]))\n(;W[dd];B[cd]\n(;W[dc];B[bc])\n(;W[cc];B[dd])\n(;W[bc];B[cc]\n(;W[dc];B[bc])\n(;W[dd];B[bc]))\n(;W[dd];B[dc]\n(;W[cc];B[dd])\n(;W[bc];B[dd]))))\n(;W[cd];B[ea]\n(;W[cc];B[dd]\n(;W[cc];B[cd])\n(;W[cd]C[RIGHT];B[bc];W[dc]C[RIGHT])\n(;W[bc]C[RIGHT];B[cd];W[dc]C[RIGHT])\n(;W[dc]C[RIGHT];B[cd];W[bc]C[RIGHT]))\n(;W[dd];B[cc]\n(;W[dd];B[bc])\n(;W[cd];B[bc];W[dc]C[RIGHT])\n(;W[dc];B[bc];W[cd]C[RIGHT])))\n(;W[dd];B[ea]\n(;W[cc];B[cd]\n(;W[bc];B[cc]\n(;W[dd];B[bc])\n(;W[dc];B[bc]))\n(;W[dd];B[dc]\n(;W[cc];B[dd])\n(;W[bc];B[dd]))\n(;W[cc];B[dd])\n(;W[dc];B[bc]))\n(;W[cd];B[cc]\n(;W[dd];B[bc])\n(;W[cd];B[bc];W[dc]C[RIGHT])\n(;W[dc];B[bc];W[cd]C[RIGHT]))))\n(;W[cd];B[ca]C[]\n(;W[cc];B[ea]\n(;W[dd];B[dc]\n(;W[bc];B[cc]\n(;W[cd];B[bc])\n(;W[dd];B[bc]))\n(;W[dd];B[cd]\n(;W[cc];B[dd])\n(;W[bc];B[dd]))\n(;W[cc];B[dd])\n(;W[cd];B[bc]))\n(;W[dc];B[dd]\n(;W[bc];B[cd];W[dc]C[RIGHT])\n(;W[dc];B[cd];W[bc]C[RIGHT])\n(;W[cd];B[bc];W[dc]C[RIGHT])\n(;W[cc];B[cd])))\n(;W[dc];B[ea]\n(;W[cc];B[dd]\n(;W[cd]C[RIGHT];B[bc];W[dc]C[RIGHT])\n(;W[bc]C[RIGHT];B[cd];W[dc]C[RIGHT])\n(;W[dc]C[RIGHT];B[cd];W[bc]C[RIGHT])\n(;W[cc];B[cd]))\n(;W[dd];B[cc]\n(;W[dd];B[bc])\n(;W[cd];B[bc];W[dc]C[RIGHT])\n(;W[dc];B[bc];W[cd]C[RIGHT])))\n(;W[dd];B[ea]\n(;W[cc];B[dc]\n(;W[bc];B[cc]\n(;W[cd];B[bc])\n(;W[dd];B[bc]))\n(;W[dd];B[cd]\n(;W[cc];B[dd])\n(;W[bc];B[dd]))\n(;W[cc];B[dd])\n(;W[cd];B[bc]))\n(;W[dc];B[cc]\n(;W[cd];B[bc];W[dc]C[RIGHT])\n(;W[dc];B[bc];W[cd]C[RIGHT])\n(;W[dd];B[bc]))))\n(;W[dd];B[ca]\n(;W[dc];B[ea]\n(;W[cc];B[cd]\n(;W[bc];B[cc]\n(;W[dc];B[bc])\n(;W[dd];B[bc]))\n(;W[dd];B[dc]\n(;W[cc];B[dd])\n(;W[bc];B[dd]))\n(;W[dc];B[bc])\n(;W[cc];B[dd]))\n(;W[cd];B[cc]\n(;W[cd]C[RIGHT];B[bc];W[dc]C[RIGHT])\n(;W[dc]C[RIGHT];B[bc];W[cd]C[RIGHT])\n(;W[dd];B[bc])))\n(;W[cc];B[ea]\n(;W[cd];B[dc]\n(;W[bc]C[];B[cc]\n(;W[cd];B[bc])\n(;W[dd];B[bc]))\n(;W[dd]C[];B[cd]\n(;W[cc];B[dd])\n(;W[bc];B[dd]))\n(;W[cc];B[dd])\n(;W[cd];B[bc]))\n(;W[dc];B[cd]\n(;W[dd]C[];B[dc]\n(;W[bc];B[dd])\n(;W[cc];B[dd]))\n(;W[bc]C[];B[cc]\n(;W[dd];B[bc])\n(;W[dc];B[bc]))\n(;W[dc];B[bc])\n(;W[cc];B[dd])))\n(;W[cd];B[ea]\n(;W[cc];B[dc]\n(;W[bc]C[];B[cc]\n(;W[cd];B[bc])\n(;W[dd];B[bc]))\n(;W[dd]C[];B[cd]\n(;W[cc];B[dd])\n(;W[bc];B[dd]))\n(;W[cd];B[bc])\n(;W[cc];B[dd]))\n(;W[dc];B[cc]\n(;W[cd]C[RIGHT];B[bc];W[dc]C[RIGHT])\n(;W[dc]C[RIGHT];B[bc];W[cd]C[RIGHT])\n(;W[dd];B[bc]))))))",
+  "author": {
+    "id": 99,
+    "name": "hello",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2014-04-09",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 741.558
+  },
+  "avgSolveTimeSeconds": 56,
+  "attempts": {
+    "solved": 162,
+    "failed": 1834,
+    "tries": 1996,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-09-23T06:52:52+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6728,
+  "elo": 1067.5021981934,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": 0,
+    "flagSum": 10
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 38,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ar]AB[br]AB[bs]AB[bq]AB[cp]AB[dq]AW[aq]AW[cq]AW[cs]AW[es]AW[er]AW[eq]AW[ep]AW[dp]AW[co]AW[bo]AW[ao]AP[goproblems]\n(;B[bp]\n(;W[ap]\n(;B[dr]\n(;W[ds];B[cr]C[CHOICERIGHT])\n(;W[cr];B[ds]C[RIGHT]))\n(;B[cr];W[dr]))\n(;W[dr];B[ap]C[CHOICERIGHT]))\n(;B[cr];W[dr]\n(;B[ap];W[bp])\n(;B[bp];W[ap])\n(;B[ds]C[Argh ! Black died in Gote]))\n(;B[dr];W[bp]\n(;B[ds];W[cr])\n(;B[cr];W[ds])))",
+  "author": {
+    "id": 8645,
+    "name": "tom111",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1402.59
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 7248,
+    "failed": 8289,
+    "tries": 15537,
+    "speedSolved": 8,
+    "speedPlay": 47
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-19T05:53:45+00:00",
+  "source": "1001 Live & Death Problems",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

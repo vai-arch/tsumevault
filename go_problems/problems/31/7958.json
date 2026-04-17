@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7958,
+  "elo": 1736.333445804,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This goes to show what happens if Black plays T15 in problem 7956.",
+  "rating": {
+    "stars": 2.6,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qa]AB[qb]AB[qc]AB[pd]AB[pe]AB[qf]AB[pf]AB[pg]AW[qe]AW[qd]AW[rc]AW[rb]AW[ra]AB[se]TR[se]LB[oc:No]C[White's corner is in danger, but Black's stone at T15 looks a bit awkward. Can White save the corner? Play P17 ('No') if you think not.FORCE]AP[goproblems]\n(;W[oc]AW[qa]AW[qb]AW[qc]AW[pd]AW[pe]AW[qf]AW[pf]AW[pg]AB[qe]AB[qd]AB[rc]AB[rb]AB[ra]AW[se]C[];B[rf]C[You thought the corner was dead. So the stones have been swapped and Black has just played S14. Can you kill the corner?]\n(;W[rg];B[sd]\n(;W[sf]\n(;B[sb]\n(;W[rd]C[RIGHT])\n(;W[re];B[rd]))\n(;B[sg]C[CHOICE]\n(;W[sh];B[sb]\n(;W[rd]C[RIGHT])\n(;W[re];B[rd]))\n(;W[re];B[rd]\n(;W[sb];B[rf])\n(;W[sh];B[sb])\n(;W[rf];B[sb]))\n(;W[rd];B[re])\n(;W[sb];B[re])\n(;W[sc];B[re])))\n(;W[re];B[rd]\n(;W[sb];B[sf])\n(;W[sf];B[sb]))\n(;W[rd];B[re])\n(;W[sg];B[sb]\n(;W[rd];B[re];W[sf];B[rd])\n(;W[re];B[rd])\n(;W[sf];B[rd]))\n(;W[sb];B[sf])\n(;W[sc];B[sb]\n(;W[sf];B[rd])\n(;W[rd];B[re])\n(;W[re];B[rd])))\n(;W[re];B[rd]\n(;W[rg];B[sd]\n(;W[sf];B[sb])\n(;W[sb];B[sf]))\n(;W[sd];B[rg]C[The corner lives and grows rapidly.])\n(;W[sb];B[rg]C[The corner lives and grows like cabbage.])\n(;W[sf];B[rg]C[Come on...!])\n(;W[sc];B[rg]C[Alive and kicking.]))\n(;W[rd];B[re]\n(;W[rg];B[sd])\n(;W[sd];B[rg]C[Black gains some extra points.])\n(;W[sc];B[sf]\n(;W[sb];B[sd])\n(;W[rg];B[sd])\n(;W[sd]C[Black plays elsewhere, satisfied with living in sente.]))\n(;W[sf];B[rg])\n(;W[sb];B[sd]))\n(;W[sf];B[rg]C[This only helps Black.])\n(;W[sd];B[rg]C[Black's corner grows rapidly.])\n(;W[sg];B[rg]\n(;W[rh];B[re]\n(;W[sf];B[sd]\n(;W[sh];B[sb])\n(;W[qg];B[sh]))\n(;W[qg];B[sd]\n(;W[sf];B[sh])\n(;W[sh];B[sf]))\n(;W[sd];B[sf])\n(;W[rd];B[sd]))\n(;W[sf];B[sd]\n(;W[re];B[rd]MA[sh]MA[sb]C[Either way Black lives.])\n(;W[rd];B[re]MA[sh]MA[sb]C[Black lives.])\n(;W[sb];B[sh]))\n(;W[re];B[rd]\n(;W[rh];B[sd])\n(;W[sf];B[rh])\n(;W[qg];B[rh]))\n(;W[rd];B[re]))\n(;W[sb];B[sd]\n(;W[re];B[rd])\n(;W[rg];B[re])\n(;W[sf];B[rg])\n(;W[sg];B[rg])\n(;W[rd];B[re]))\n(;W[sc];B[rd]\n(;W[sd];B[rg])\n(;W[rg];B[sf])\n(;W[re];B[rg])\n(;W[sf];B[rg])\n(;W[sb];B[rg])\n(;W[sg];B[rg])))\n(;W[rf];B[rg]\n(;W[sf];B[rd]C[White cannot live without the marked stones; and they remain in atari even if White connects.]TR[qe]TR[qd])\n(;W[sd];B[sf]\n(;W[re];B[rd])\n(;W[sb];B[rd]\n(;W[re];B[rd])\n(;W[sg];B[re]))\n(;W[rd];B[sb])\n(;W[sg];B[sh]\n(;W[sb];B[rd];W[re];B[rd])\n(;W[re];B[rd])\n(;W[rd];B[sb]))\n(;W[pc];B[rd]\n(;W[pb];B[re])\n(;W[re];B[rd])\n(;W[sg];B[re])\n(;W[pa];B[re])))\n(;W[re];B[sf]\n(;W[sd];B[rd])\n(;W[rd]C[White dies in gote.])\n(;W[sb]C[White remains dead even without Black playing.]))\n(;W[rd];B[sf]\n(;W[sd];B[sb])\n(;W[sb];B[sd])\n(;W[re]C[White is dead even if Black plays elsewhere.])\n(;W[pc];B[pb]\n(;W[oc];B[ob]C[Black can keep on crawling until Black has enough liberties to kill the corner.White can't block; Black would cut.])\n(;W[re]C[White is dead as it stands.])\n(;W[sd];B[sb])\n(;W[sb];B[sd])\n(;W[sg];B[sh]\n(;W[sd];B[sb])\n(;W[sb];B[sd])\n(;W[re]C[White is dead as it stands.])\n(;W[oc];B[ob]C[Black can keep on crawling until Black has enough liberties to kill the corner.White can't block; Black would cut.])))\n(;W[sg];B[sh]\n(;W[pc];B[pb]\n(;W[oc];B[ob]C[Black can keep on crawling until Black has enough liberties to kill the corner.White can't block; Black would cut.])\n(;W[sd];B[sb])\n(;W[sb];B[sd])\n(;W[re]C[White is dead...!]))\n(;W[sd];B[sb])\n(;W[sb];B[sd])\n(;W[re]C[White is dead as it stands.])))\n(;W[sb];B[rd])\n(;W[sg];B[rd])\n(;W[pc];B[rd]))\n(;W[re];B[rf]\n(;W[sd];B[rd])\n(;W[rd]C[White dies even if Black plays elsewhere.])\n(;W[sb]C[White has only one eye, because Black can play either at S16 or at T16.])\n(;W[sf];B[rd]))\n(;W[rd];B[rf]\n(;W[sd];B[sb])\n(;W[sb];B[sd])\n(;W[pc];B[pb]\n(;W[sd];B[sb])\n(;W[sb];B[sd])\n(;W[oc];B[ob]C[Black can keep on crawling until Black has enough liberties to kill the corner.White can't block; Black would cut.])))\n(;W[sd];B[rf]\n(;W[rd];B[sb])\n(;W[sb];B[rd]\n(;W[re];B[rd])\n(;W[sf];B[re]))\n(;W[re];B[rd])\n(;W[sf];B[re]\n(;W[rd];B[sb])\n(;W[sb];B[rd]))\n(;W[pc];B[rd]\n(;W[pb];B[re])\n(;W[re];B[rd])\n(;W[sf];B[re])))\n(;W[sf];B[rd])\n(;W[sb];B[rd])\n(;W[sc];B[rd])\n(;W[rg];B[rd])\n(;W[sg];B[rd])\n(;W[pc];B[rd]))",
+  "author": {
+    "id": 3759,
+    "name": "BartTM",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-14",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1476.63
+  },
+  "avgSolveTimeSeconds": 59,
+  "attempts": {
+    "solved": 237,
+    "failed": 1484,
+    "tries": 1721,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-01-17T03:38:58+00:00",
+  "source": "Problem 7956",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

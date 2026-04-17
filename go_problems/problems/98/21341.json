@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21341,
+  "elo": 1657.0254814951,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "This problem is all about building thickness in a handicap game. Follow the joseki.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dd]AB[dj]AB[dp]AB[pp]AB[pj]AB[pd]AB[kp]AW[nq]AW[qn]AB[pn]AW[pm]AB[on]AW[qq]LB[pq:A]LB[qo:B]C[A or B?]LB[nq:1]LB[kp:2]LB[qn:3]LB[pn:4]LB[pm:5]LB[on:6]MA[qq]AP[goproblems]\n(;B[pq];W[qp]\n(;B[qo];W[ro];B[po]\n(;W[qm]C[a joseki mistake and how to punish];B[rn];W[rp];B[om];W[rm]C[RIGHT])\n(;W[rm]LB[om:B]LB[fp:A]C[A or B?CHOICE]\n(;B[om];W[pl]\n(;B[ol]TR[pq]TR[pp]TR[po]TR[pn]TR[on]TR[om]TR[ol]TR[pj]C[Black connects up the stones to build thickness, utilizing all of his stones on the board.RIGHT])\n(;B[nk]C[Black connects up the stones to build thickness, utilizing all of his stones on the board.RIGHT]))\n(;B[fp];W[om]TR[nn];B[nn];W[nm]TR[mn];B[mn];W[qf]TR[pj]C[White is strong on the right side now, Q10 can fall under attack.])\n(;B[pl]C[NOTTHIS])\n(;B[ol]C[NOTTHIS])\n(;B[nl]C[NOTTHIS])\n(;B[nm]C[NOTTHIS])\n(;B[nn]C[NOTTHIS])\n(;B[eo]C[NOTTHIS])\n(;B[fo]C[NOTTHIS])\n(;B[go]C[NOTTHIS])\n(;B[gp]C[NOTTHIS])\n(;B[gq]C[NOTTHIS])\n(;B[ep]C[NOTTHIS])\n(;B[eq]C[NOTTHIS])\n(;B[fq]C[NOTTHIS])))\n(;B[pr];W[po]C[out of joseki]))\n(;B[qo];W[pq]C[FORCE]\n(;B[rn]MA[pj]C[This thickness is too close to Q10. Also, there isn't a stone on K16 to make a big moyo like in the other variation. Furthermore, White can still come out on A or B.]TR[jd]LB[kr:A]LB[mo:B]TR[qo]TR[rn]TR[pn]TR[on])\n(;B[qm]MA[pj]TR[jd]LB[kr:A]LB[mo:B]C[This thickness is too close to Q10. Also, there isn't a stone on K16 to make a big moyo like in the other variation. Furthermore, White can still come out on A or B.]TR[pn]TR[on]TR[qm]TR[qo])\n(;B[ro]C[This thickness is too close to Q10. Also, there isn't a stone on K16 to make a big moyo like in the other variation. Furthermore, White can still come out on A or B.]MA[pj]TR[on]TR[pn]TR[qo]TR[ro])\n(;B[lq]C[The direction of play is wrong. R5 was for the right side, now you're trying to seal off the bottom. You've left a lot of aji behind for White to use.]))\n(;B[aa]C[NOTTHIS])\n(;B[sa]C[NOTTHIS])\n(;B[ss]C[NOTTHIS])\n(;B[as]C[NOTTHIS])\n(;B[po]C[NOTTHIS])\n(;B[qp]C[NOTTHIS])\n(;B[ro]C[NOTTHIS])\n(;B[rp]C[NOTTHIS])\n(;B[oq]C[NOTTHIS])\n(;B[op]C[NOTTHIS])\n(;B[pr]C[NOTTHIS])\n(;B[qr]C[NOTTHIS])\n(;B[or]C[NOTTHIS]))",
+  "author": {
+    "id": 52754,
+    "name": "nimbim",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-30",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1429.6
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 137,
+    "failed": 446,
+    "tries": 583,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-10-29T01:53:36+00:00",
+  "source": "All About Thickness by Ishida Yoshio 9D",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 84,
+      "name": "Handicap Game",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

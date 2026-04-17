@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3883,
+  "elo": 1326.8766608151,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This is from the book Tesuji, page 80 \"Safety plays\".  \r\nWhite to play and win unconditionally.  White cannot fight a ko.",
+  "rating": {
+    "stars": 3.6,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[br]AB[cr]AB[dr]AB[er]AB[cq]AB[fq]AB[gq]AB[hq]AB[iq]AB[jq]AB[jr]AB[kq]AW[dq]AW[eq]AW[ar]AW[bq]AW[bp]AW[cp]AW[do]AW[jp]AW[fr]AW[gr]AW[hr]AW[ir]C[White has 4 liberties, black has 4 liberties... should be easy right.]AP[goproblems]\n(;W[fs];B[is]\n(;W[es];B[hs]\n(;W[ds];B[js]\n(;W[cs];B[gs];W[bs]C[RIGHT])\n(;W[bs];B[gs];W[cs]C[RIGHT]))\n(;W[cs];B[bs])\n(;W[bs];B[js]\n(;W[ds];B[gs];W[cs]C[RIGHT])\n(;W[cs];B[gs];W[ds]C[RIGHT])))\n(;W[bs];B[cs];W[es];B[as]\n(;W[aq];B[hs];W[bs];B[as]C[Black just took back the ko after w answered a HUGE ko threat, white is cooked!])\n(;W[ds];B[aq]))\n(;W[ds];B[bs]\n(;W[hs];B[es];W[js];B[ks];W[aq];B[is]C[White has no Ko threats so white dies];W[js]C[NOTTHIS])\n(;W[aq];B[hs]\n(;W[es];B[js];W[as];B[gs];W[cs]C[RIGHT])\n(;W[as]C[RIGHT]))\n(;W[es];B[hs];W[aq];B[js];W[as]C[RIGHT];B[gs];W[cs]C[RIGHT]))\n(;W[cs];B[bs];W[es];B[hs]))\n(;W[es];B[fs]\n(;W[gs];B[ds];W[bs];B[fs];W[is];B[js];W[es];B[fs]C[white can't fight the ko, black has lots of BIG ko threats (white unfortunately has none)])\n(;W[ds];B[cs]))\n(;W[bs];B[cs];W[es];B[as];W[fs];B[aq]C[White can't fight the ko, must win unconditionally]))",
+  "author": {
+    "id": 5943,
+    "name": "norm",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2010-07-23",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 2023,
+    "failed": 4649,
+    "tries": 6672,
+    "speedSolved": 2,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-02-07T15:28:17+00:00",
+  "source": "Tesuji, James Davies",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

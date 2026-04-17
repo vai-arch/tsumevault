@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10835,
+  "elo": 1507.1019844314,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[nc]AW[oc]AB[ob]AB[na]AB[mc]AB[lc]AB[kc]AB[jb]AB[ka]AW[nd]AW[md]AW[ld]AW[kd]AW[jc]AW[jd]AW[ib]AW[pc]AW[pb]AW[pa]C[White to kill.]AW[hd]AP[goproblems]\n(;W[lb];B[mb]\n(;W[oa];B[la];W[nb]C[Ko. But White can get a slightly better result.RIGHT])\n(;W[la];B[oa]))\n(;W[mb];B[lb])\n(;W[oa];B[lb];W[nb];B[ma]TR[kb]TR[la]C[Black is alive.])\n(;W[nb];B[lb]\n(;W[oa];B[ma]TR[kb]TR[la]C[Black is alive.])\n(;W[ma];B[mb];W[oa];B[nb]))\n(;W[ia]\n(;B[lb]C[CHOICE]\n(;W[ja];B[ma]\n(;W[kb]TR[oa]C[Ko with one internal threat at P19. The best result!RIGHT])\n(;W[oa];B[nb];W[kb]C[Ko, but playing P19 lose one internal threat.])\n(;W[nb];B[oa];W[kb]C[Ko, but playing O18 lose one internal threat.]))\n(;W[ma];B[ja])\n(;W[mb];B[ja])\n(;W[oa];B[ja];W[nb];B[ma]))\n(;B[la];W[mb];B[lb];W[ja]))\n(;W[la];B[lb]\n(;W[ia];B[ma])\n(;W[oa];B[ma]))\n(;W[ma];B[lb])\n(;W[kb];B[lb])\n(;W[ja];B[ia]\n(;W[hb];B[lb])\n(;W[ha];B[hb];W[ja]C[White get a ko, but there is too much to lose.])))",
+  "author": {
+    "id": 6276,
+    "name": "Lok",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-03-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 83,
+  "attempts": {
+    "solved": 607,
+    "failed": 1261,
+    "tries": 1868,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-01-24T07:11:43+00:00",
+  "source": "KGS game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

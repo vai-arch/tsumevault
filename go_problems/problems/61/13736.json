@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13736,
+  "elo": 1944.4966789573,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "3rd time's the charm! Hopefully...\r\n\r\nWell, here goes. After two failed attempts at constructing this problem, I think I got it now. It is somewhat complex though, so I could be missing variations. Feel free to comment!\r\n\r\nNOTE: wording has been changed.",
+  "rating": {
+    "stars": 1.8,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[cr]AW[ds]AW[er]AW[fq]AW[gq]AW[gr]AW[gs]AB[fr]AB[fs]AB[eq]AB[dq]AB[dr]AB[fp]AB[gp]AB[hp]AB[iq]AB[is]AB[ir]AB[cp]AW[ep]C[If black plays A, can white reply and become unconditionally alive? Note: Please do not play any unnecessary forcing moves. Also note that if black B3, a ko can be started (see comment)FORCE]LB[gn:Yes]LB[in:No]LB[bs:A]AP[goproblems]\n(;W[gn];B[bs]C[Ok, then live!]\n(;W[bq];B[bp]\n(;W[aq]C[good!RIGHT])\n(;W[cs]C[RIGHT])\n(;W[cq];B[dp]\n(;W[cs]C[RIGHT])\n(;W[br];B[cs]\n(;W[as];B[cs]\n(;W[bs];B[aq])\n(;W[es];B[aq])\n(;W[aq];B[es]))\n(;W[es];B[aq];W[as];B[cs]))\n(;W[ar];B[cs])\n(;W[aq];B[cs];W[es];B[ar]))\n(;W[br];B[cs]\n(;W[as];B[cs]\n(;W[es];B[aq])\n(;W[bs];B[aq])\n(;W[aq];B[es]))\n(;W[es];B[aq]))\n(;W[ar];B[cs];W[es];B[cq]))\n(;W[br];B[cs]\n(;W[es];B[bp]\n(;W[as];B[cs])\n(;W[cq]C[NOTTHIS]))\n(;W[as];B[cs]\n(;W[es];B[bp])\n(;W[bs];B[bp])\n(;W[cq]C[NOTTHIS])))\n(;W[cq];B[dp]\n(;W[bq];B[cs];W[es];B[bp];W[br];B[aq];W[as];B[cs])\n(;W[br];B[cs]\n(;W[as];B[cs]\n(;W[bs];B[bp])\n(;W[es];B[bp]))\n(;W[es];B[bp];W[as];B[cs])\n(;W[bp];B[es]))\n(;W[cs];B[bq];W[br];B[ar];W[as]C[Ko.])\n(;W[es];B[bq];W[br];B[ar];W[cs];B[bp])\n(;W[bp];B[cs];W[es];B[bq])\n(;W[ar];B[cs]\n(;W[es];B[bq];W[br];B[bp])\n(;W[br];B[es])))\n(;W[cs];B[bq]\n(;W[cq];B[dp];W[br];B[ar];W[as]C[Ko.])\n(;W[br];B[ar];W[as]C[Ko.]))\n(;W[ar];B[cs]\n(;W[br];B[es])\n(;W[es];B[br]))\n(;W[bp];B[cs];W[es];B[br])\n(;W[es];B[bq]\n(;W[br];B[cq]\n(;W[ar];B[cs])\n(;W[cs];B[ar];W[as]C[];B[aq]))\n(;W[cq];B[dp];W[br];B[ar];W[cs];B[bp]))\n(;W[aq];B[cs];W[es];B[br]))\n(;W[in]C[Navigate solution for details]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 92,
+  "attempts": {
+    "solved": 41,
+    "failed": 221,
+    "tries": 262,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-05-29T08:29:13+00:00",
+  "source": "Modified from a KGS game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 61,
+      "name": "Snapback",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

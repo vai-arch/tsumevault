@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2026,
+  "elo": 1688.1182645016,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "White and Black both have three liberties, so whoever moves first should win, right?  It's not that simple.  What's the tesuji? (Ko is not sufficient)",
+  "rating": {
+    "stars": 4.3,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dc]AB[ec]AB[fc]AB[gd]AB[hd]AB[fe]AB[ff]AB[ef]AB[cd]AB[bd]AB[be]AB[bf]AB[bg]AB[bh]AB[bi]AW[cc]AW[bc]AW[dd]AW[ed]AW[fd]AW[ee]AW[de]AW[ce]AW[cf]AW[cg]AW[ch]AW[ci]AW[gc]AW[gb]AW[ge]AW[ib]C[Black to save the marked stones.]TR[dc]TR[ec]TR[fc]\n(;B[db]\n(;W[cb]C[CHOICE]\n(;B[ba];W[ca]\n(;B[da];W[ab];B[ad];W[fb];B[ac]C[RIGHT])\n(;B[ac];W[ab]\n(;B[da];W[ad];B[ae];W[fb]\n(;B[ac]C[only ko])\n(;B[bb];W[aa]\n(;B[ac];W[ea])\n(;B[bb];W[ea])))\n(;B[ad];W[da]\n(;B[ea]C[RIGHT])\n(;B[bb];W[ea])\n(;B[fb];W[fa]))))\n(;B[da]\n(;W[ba];B[ab];W[ac]\n(;B[ca];W[fb]\n(;B[ad]C[CHOICERIGHT])\n(;B[aa];W[bb])\n(;B[bb];W[aa]\n(;B[ad];W[ea])\n(;B[bb];W[ea];B[ab]C[RIGHT])))\n(;B[ad];W[fb]\n(;B[ca]C[RIGHT])\n(;B[bb];W[aa]\n(;B[bb];W[ea])\n(;B[ca];W[ea])))\n(;B[bb];W[fb]\n(;B[ca];W[aa]\n(;B[bb]C[RIGHT];W[ea];B[ab]C[RIGHT])\n(;B[ab]C[RIGHT])\n(;B[ad];W[ea]))\n(;B[ad];W[aa]\n(;B[bb];W[ea])\n(;B[ca];W[ea])))\n(;B[aa];W[fb]\n(;B[ad];W[ea])\n(;B[ca];W[bb])))\n(;W[ab];B[ba];W[ca];B[ad];W[fb];B[ac]C[CHOICERIGHT]))\n(;B[ac];W[ba]\n(;B[ab];W[da]\n(;B[bb];W[fb];B[ca]C[Black has connected, but not in the most profitable way.RIGHT])\n(;B[ea];W[fb];B[ca]C[only ko]))\n(;B[da];W[ab]))\n(;B[ca];W[ba]\n(;B[da];W[ab]C[White lives])\n(;B[ac];W[da];B[ea];W[ca]\n(;B[ab];W[fb])\n(;B[aa];W[ab])\n(;B[fb];W[ga]\n(;B[aa];W[ab])\n(;B[ab];W[fa]))))\n(;B[ab];W[fb]))\n(;W[bb]C[CHOICE]\n(;B[ac];W[ba]\n(;B[ca];W[fb]\n(;B[ab];W[eb];B[ad]C[RIGHT])\n(;B[ad];W[cb]))\n(;B[cb];W[fb];B[ab];W[eb])\n(;B[ab];W[da]\n(;B[ad];W[fb])\n(;B[ea];W[cb]\n(;B[fb];W[ga];B[ad];W[fa];B[ca]C[ko])\n(;B[ad];W[fb]\n(;B[ca]C[ko])\n(;B[eb];W[fa]))\n(;B[ca]C[ko]))\n(;B[ca];W[cb];B[ea];W[fb]C[ko])\n(;B[cb];W[fb])\n(;B[eb];W[ea]\n(;B[fa];W[ca])\n(;B[fb];W[fa])\n(;B[cb];W[ca])\n(;B[ad];W[fb]))\n(;B[fb];W[fa]C[Ko with E19 is all that remains for black.])))\n(;B[cb];W[ba]\n(;B[ac];W[fb];B[ab];W[eb])\n(;B[ca];W[fb]))\n(;B[ca];W[ba]\n(;B[ac]C[RIGHT];W[fb]\n(;B[ab];W[eb];B[ad]C[RIGHT])\n(;B[ad];W[cb]))\n(;B[ad];W[fb];B[ac];W[cb])\n(;B[ab];W[ac]\n(;B[ad];W[fb];B[cb]C[RIGHT])\n(;B[cb];W[fb];B[ad]C[RIGHT]))\n(;B[aa];W[fb]\n(;B[ac];W[ab]\n(;B[ad];W[eb])\n(;B[cb];W[ad];B[ae];W[eb]))\n(;B[ab];W[ac])\n(;B[cb];W[eb]))\n(;B[cb];W[fb]))\n(;B[ba];W[ca]\n(;B[cb];W[aa];B[da];W[fb]\n(;B[ba]C[only ko])\n(;B[ac];W[ea]C[ko];B[ba]C[ko]))\n(;B[da];W[aa]\n(;B[ac];W[fb]\n(;B[cb];W[ea];B[ba]C[ko])\n(;B[ad];W[ea];B[ab];W[eb]))\n(;B[cb];W[fb]\n(;B[ac];W[ea];B[ba]C[ko])\n(;B[ba]C[ko])))\n(;B[ac];W[da]\n(;B[ea];W[aa]\n(;B[cb];W[fb];B[ba];W[ca]\n(;B[ad];W[eb];B[ab];W[da])\n(;B[da];W[fa]C[ko]))\n(;B[ad];W[fa]))\n(;B[cb];W[aa]\n(;B[ea];W[fb];B[ba];W[ca]\n(;B[da];W[fa]C[ko])\n(;B[ad];W[eb];B[ab];W[da]))\n(;B[ad];W[fb]))\n(;B[ab];W[aa];B[ad];W[fb]C[ko])))))\n(;B[bb];W[cb]\n(;B[db];W[ab]\n(;B[ba];W[ca]\n(;B[ad];W[fb]\n(;B[ac];W[aa];B[bb];W[da])\n(;B[da];W[aa];B[ac];W[ea]))\n(;B[da];W[aa]\n(;B[ad];W[fb]\n(;B[ac];W[ea])\n(;B[bb];W[ea]))\n(;B[bb];W[fb];B[ad];W[ea])))\n(;B[ca];W[ba]C[White has two eyes.]))\n(;B[ac];W[db])\n(;B[ca];W[db]))\n(;B[cb];W[bb]\n(;B[db];W[ba];B[ac];W[fb]\n(;B[ab];W[eb])\n(;B[ca];W[eb]))\n(;B[ba];W[db]\n(;B[da];W[ca]C[Ko])\n(;B[ac];W[ca];B[ab];W[aa]C[Ko]))\n(;B[ac];W[db])\n(;B[ca];W[db];B[eb];W[ea];B[da];W[fa])\n(;B[da];W[ba]\n(;B[ac];W[fb];B[eb];W[fa]\n(;B[ab];W[ea])\n(;B[ea];W[ca]))\n(;B[eb];W[fa];B[ac];W[ea])\n(;B[fb];W[fa]\n(;B[ac];W[eb];B[db];W[ca])\n(;B[ea];W[ga]\n(;B[ca];W[db])\n(;B[db];W[ca])\n(;B[ac];W[db];B[eb];W[ca])))))\n(;B[ac];W[db]\n(;B[bb];W[cb])\n(;B[cb];W[bb])\n(;B[eb];W[ea]))\n(;B[ca];W[db])\n(;B[da];W[db]\n(;B[cb];W[eb])\n(;B[eb];W[cb]\n(;B[ac];W[fb])\n(;B[ea];W[fa];B[ca];W[ba])))\n(;B[fb];W[db]))",
+  "author": {
+    "id": 674,
+    "name": "lieten",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2003-04-16",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 264,
+    "failed": 2433,
+    "tries": 2697,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-03-21T19:21:25+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13793,
+  "elo": 1255.8335424367,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -1,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.5,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[se]AB[re]AB[qe]AB[qd]AB[pd]AB[od]AB[oc]AB[nb]AB[mb]AB[ma]AW[sd]AW[rd]AW[rc]AW[qc]AW[pc]AW[pb]AW[ob]AW[oa]AW[na]C[Best move for black]AP[goproblems]\n(;B[rb]\n(;W[qa]C[FORCE]\n(;B[ra];W[sb])\n(;B[sb]\n(;W[ra]\n(;B[sc];W[sa])\n(;B[sa];W[qb])\n(;B[qb]C[SekiRIGHT]))\n(;W[qb];B[ra]C[SekiRIGHT])))\n(;W[ra];B[sb];W[qa]\n(;B[sc];W[sa])\n(;B[sa];W[qb])\n(;B[qb]C[SekiRIGHT])))\n(;B[ra];W[rb]\n(;B[sb];W[qa])\n(;B[qa];W[sb]))\n(;B[pa]C[NOTTHIS])\n(;B[qb]C[NOTTHIS])\n(;B[qa];W[rb];B[ra];W[sb])\n(;B[sc]C[NOTTHIS])\n(;B[sb];W[rb]\n(;B[ra];W[qa])\n(;B[qa];W[ra]))\n(;B[sa]C[NOTTHIS])\n(;B[la]C[NOTTHIS])\n(;B[lb]C[NOTTHIS])\n(;B[lc]C[NOTTHIS])\n(;B[mc]C[NOTTHIS])\n(;B[nc]C[NOTTHIS])\n(;B[ld]C[NOTTHIS])\n(;B[md]C[NOTTHIS])\n(;B[nd]C[NOTTHIS])\n(;B[le]C[NOTTHIS])\n(;B[me]C[NOTTHIS])\n(;B[ne]C[NOTTHIS])\n(;B[oe]C[NOTTHIS])\n(;B[pe]C[NOTTHIS])\n(;B[lf]C[NOTTHIS])\n(;B[mf]C[NOTTHIS])\n(;B[nf]C[NOTTHIS])\n(;B[of]C[NOTTHIS])\n(;B[pf]C[NOTTHIS])\n(;B[qf]C[NOTTHIS])\n(;B[rf]C[NOTTHIS])\n(;B[sf]C[NOTTHIS]))",
+  "author": {
+    "id": 44946,
+    "name": "Hi-Lo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1090_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1090_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1090_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 1090
+    },
+    "lastOnlineAt": "2025-11-22",
+    "rank": {
+      "value": 15,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1145.1
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 1018,
+    "failed": 2047,
+    "tries": 3065,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-06-20T05:07:20+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

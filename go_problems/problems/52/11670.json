@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11670,
+  "elo": 1062.2581425603,
+  "problemLevel": 12,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is my first problem!  Thanks to bleedo and meleenewb for corrections.",
+  "rating": {
+    "stars": 3.9,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pr]AB[po]AB[no]AB[nr]AB[or]AB[pq]AB[pp]AB[oo]AB[mn]AB[ln]AB[lo]AB[ko]AB[jo]AB[jp]AB[gp]AB[hp]AB[ip]AB[gq]AB[gr]AB[gs]AB[hs]AB[is]AB[lr]AW[hr]AW[hq]AW[iq]AW[jq]AW[jr]AW[js]AW[mr]AW[nq]AW[np]AW[mp]AW[mo]AW[lp]AW[kp]C[White to liveCHOICE]AP[goproblems]\n(;W[ls]C[life];B[kr]\n(;W[lq]C[RIGHT])\n(;W[kq];B[lq]C[Seki]))\n(;W[ms];B[ls]\n(;W[kr];B[ns];W[mq];B[lq]C[dead, w must connect at l3 once p3 and p4 are filled in])\n(;W[lq];B[ns];W[mq];B[kr]C[dead]))\n(;W[lq]\n(;B[ms];W[kr];B[mq]C[ko for life, undesirable, white can do better])\n(;B[ls];W[ms];B[ns];W[mq];B[kr]C[dead]))\n(;W[kr];B[ms];W[lq];B[mq]C[ko for life, undesirable, white can do better]))",
+  "author": {
+    "id": 25665,
+    "name": "graemy",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2008-09-16",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 3174,
+    "failed": 4371,
+    "tries": 7545,
+    "speedSolved": 3,
+    "speedPlay": 13
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-08-29T20:31:22+00:00",
+  "source": "A game of mine",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

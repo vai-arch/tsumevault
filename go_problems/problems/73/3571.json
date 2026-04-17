@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3571,
+  "elo": 1826.1370537016,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "White to move and kill the corner",
+  "rating": {
+    "stars": 3.2,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[nb]AW[ob]AW[nc]AW[pc]AW[pd]AW[pe]AW[qe]AW[re]AW[rg]AB[oa]AB[pb]AB[qb]AB[oc]AB[qc]AB[qd]AB[rd]C[I tried to include a few variations for both white and black, so you can experiment against various defenses]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\r\n(;W[sd]\r\n(;B[sc]C[CHOICE];W[rb]\r\n(;B[ra]C[CHOICE];W[sb];B[se];W[pa]C[RIGHT])\r\n(;B[sb]C[CHOICE];W[ra]C[RIGHT]))\r\n(;B[sb]C[CHOICE];W[ra];B[sc];W[rb]C[RIGHT])\r\n(;B[ra]C[CHOICE];W[sb]C[RIGHT]))\r\n(;W[sb];B[rb];W[sc];B[sd];W[pa];B[qa];W[sa]C[RIGHT])\r\n(;W[rb];B[sb]\r\n(;W[ra];B[sd];W[rc];B[pa];W[na];B[sc]C[Failure: Seki])\r\n(;W[sc];B[sd];W[sa];B[rc]C[Failure: ko]))\r\n(;W[pa];B[sb]C[Not at r2, when the hane kills.  Failure for white];W[ra];B[rb]C[Black is alive with territory]))",
+  "author": {
+    "id": 5675,
+    "name": "sloweddie",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2004-03-16",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 858,
+    "failed": 2578,
+    "tries": 3436,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-20T12:10:26+00:00",
+  "source": "All about life and death",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 69,
+      "name": "L-Group",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 20,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

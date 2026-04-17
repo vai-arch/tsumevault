@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6659,
+  "elo": 1945.2257520184,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Problem 6654 shows that Black can live with points if Black plays first.\r\nCan White do something about that?\r\n\r\nThanks to Spica for pointing out the best answer, which made this problem more interesting.",
+  "rating": {
+    "stars": 2.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[da]AB[db]AB[dc]AB[cc]AB[bc]AB[bd]AB[be]AB[ae]AW[af]AW[bf]AW[cf]AW[ce]AW[cd]AW[dd]AW[ed]AW[ec]AW[eb]AW[ea]AW[bb]C[Can White either kill the corner or get any kind of profit in sente? Then play it; otherwise play tenuki at E14 (T).]LB[ef:T]AP[goproblems]\n(;W[ac]LB[ef:T]\n(;B[ba]LB[ef:T]C[Black resists. Play in the corner or tenuki at E14 (T).]\n(;W[ab]C[Gote seki.])\n(;W[aa]\n(;B[ab]MA[ca]C[Black risks nothing with this ko, as Black can always connect at C19 when White takes it back.; all you get then is a gote seki.])\n(;B[ca]LB[ef:T]C[Black simply refuses to fight the ko. Now what? Please connect or play at T for tenuki.]\n(;W[ab]C[Even if Black does not fight the ko all you can get is a gote seki.])\n(;W[ef]C[];B[ab]C[The best White can get out of this ko is a seki in gote so it's a free ko for Black.])))\n(;W[cb]LB[ef:T];B[ca]LB[ef:T]\n(;W[ab]C[Gote seki.])\n(;W[aa];B[ab])\n(;W[ad];B[ab])\n(;W[ef];B[ab]))\n(;W[ca]LB[ef:T];B[cb]LB[ef:T]\n(;W[ab]C[Gote seki, one point for Black.])\n(;W[aa];B[ab])\n(;W[ad];B[ab])\n(;W[ef];B[ab]))\n(;W[ad];B[ab])\n(;W[ef]\n(;B[ca]C[Black ignored your tenuki, now what?CHOICE]LB[ff:T]\n(;W[aa];B[ab]C[The best White can get out of this ko is a seki in gote so it's a free ko for Black.])\n(;W[ab]C[Since White could play tenuki this is in fact a sente seki for White.RIGHT])\n(;W[cb];B[ab])\n(;W[ad];B[ab])\n(;W[ff];B[ab]C[If Black loses this ko, White is the last to play here but has tenukied 2 times for 1 Black tenuki, so in fact this is a sente seki   one point for White. Yet, if Black wins the ko, White has had 3 tenukis plus sente while Black gets just 7 points.RIGHT]))\n(;B[ab]C[CHOICE];W[aa]C[Even if Black wins this ko Black gets only 7 points for double gote. If White can win it Black must play C19 (or die), then White connects; since White has played tenuki once it is in fact a sente seki for White with one extra point (the captured stone at A18). After C19 White may even tenuki; letting Black win the ko for just 6 points with triple gote.RIGHT]MA[ca]MA[ab])\n(;B[ff]C[Black can tenuki too as White can get seki at best now. Black's chance to get 8 points in gote is gone though, without White losing a move.RIGHT])))\n(;B[ca];W[ab];B[ba]C[Black C19 does not cut it either. White simply reduces the corner to seki in sente.RIGHT])\n(;B[cb];W[aa]C[White threatens to start a ko for life and Black cannot do anything to prevent it. White can postpone the ko and try to improve the ko threat situation, for example.RIGHT])\n(;B[ab];W[ca]\n(;B[ad];W[aa]C[Ko for life!RIGHT])\n(;B[aa];W[ba];B[ab]C[Sente seki; Black already lost 2 stones and leaves another 2 point gote move.RIGHT]))\n(;B[ad];W[ab]C[:)RIGHT])\n(;B[ef];W[ca];B[ab];W[aa]C[A costly tenuki.RIGHT]))\n(;W[ba]LB[ef:T];B[ac]LB[ef:T]\n(;W[ab]C[Gote seki.])\n(;W[cb];B[ab])\n(;W[ca];B[ab]C[])\n(;W[ef];B[ab]C[Black lives with points. Black may even play tenuki instead, knowing that White can only make it seki in gote.]))\n(;W[ca]LB[ef:T];B[cb]LB[ef:T]\n(;W[ac]LB[ef:T];B[ba]LB[ef:T]\n(;W[ab]C[Gote seki, Black has one point.])\n(;W[ad];B[ab])\n(;W[aa];B[ab])\n(;W[ef];B[ab]))\n(;W[aa];B[ac])\n(;W[ab]LB[ef:T];B[ba]LB[ef:T]\n(;W[ac]C[Gote seki, Black has one point.])\n(;W[aa];B[ac]C[Black might as well play tenuki instead of capturing, for it is quite hard for White to win the resulting ko. Black can tenuki twice before recapturing and starting this ko in earnest.])\n(;W[ef];B[ac]))\n(;W[ba];B[ab])\n(;W[ad];B[ba])\n(;W[ef];B[ab]))\n(;W[ab]LB[ef:T];B[ba]LB[ef:T]\n(;W[ac]C[Gote seki])\n(;W[cb];B[ac])\n(;W[ca]LB[ef:T];B[cb]LB[ef:T]\n(;W[ac]C[Gote seki, Black has one point.])\n(;W[ef];B[ac]))\n(;W[aa]LB[ef:T]\n(;B[ca]LB[ef:T]\n(;W[ac]C[Gote seki.])\n(;W[ef];B[ac]))\n(;B[cb]LB[ef:T]\n(;W[ca]MA[ac]C[Approach-move ko. White cannot connect this ko but must play A17 (or A16) after which Black retakes. White can only play this if White has one more ko threat than Black.])\n(;W[ef];B[ac])))\n(;W[ad]C[];B[ac])\n(;W[ef];B[ac]))\n(;W[aa];B[ac]C[Black is alive with points.])\n(;W[cb]LB[ef:T];B[ac]LB[ef:T]\n(;W[ab];B[ca])\n(;W[ba];B[ab])\n(;W[ca];B[ab])\n(;W[ef]C[The corner is alive with points. You can do better.])\n(;W[aa];B[ca]))\n(;W[ad];B[ab]C[Black has one eye and White hasn't.])\n(;W[ef]C[];B[ac]C[Black lives with points, which White could have prevented in sente.]))",
+  "author": {
+    "id": 3759,
+    "name": "BartTM",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-14",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1476.63
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 116,
+    "failed": 1167,
+    "tries": 1283,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-08T08:29:48+00:00",
+  "source": "Problem 6654",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

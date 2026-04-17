@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6543,
+  "elo": 1613.9797908128,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.2,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[br]AB[cr]AB[dr]AB[eq]AB[fp]AB[fq]AB[gr]AB[hr]AB[fs]AW[hs]AW[is]AW[ir]AW[gq]AW[hq]AW[fo]AW[go]AW[iq]AW[ep]AW[dq]AW[do]AW[cq]AW[bq]LB[io:T]LB[bq:1]C[White plays 1. Does black need to defend at A2 or kan he play tenuki (J5)?FORCE]AP[goproblems]\n(;B[io]\n(;W[ar]\n(;B[es]\n(;W[bs];B[cs]C[RIGHT])\n(;W[cs];B[bs]C[RIGHT])\n(;W[gs];B[fr]C[RIGHT])\n(;W[fr];B[gs]C[RIGHT])\n(;W[ds];B[cs]C[RIGHT])\n(;W[gp];B[gs]C[RIGHT]))\n(;B[er];W[gs]\n(;B[bs];W[ds])\n(;B[ds];W[bs]))\n(;B[gs];W[es]\n(;B[er];W[fr])\n(;B[ds];W[fr]))\n(;B[fr];W[bs]\n(;B[cs];W[es])\n(;B[es];W[cs]))\n(;B[ds];W[bs]\n(;B[er];W[gs])\n(;B[gs];W[er]))\n(;B[cs];W[gs]\n(;B[es];W[fr])\n(;B[fr];W[es]))\n(;B[bs];W[ds]\n(;B[er];W[gs])\n(;B[es];W[fr]\n(;B[gs];W[er])\n(;B[er];W[gs]))\n(;B[fr];W[es])\n(;B[gs];W[es])\n(;B[cs];W[gs]\n(;B[es];W[fr])\n(;B[fr];W[es])))\n(;B[as];W[bs]\n(;B[er];W[gs])\n(;B[es];W[cs])\n(;B[cs];W[gs]\n(;B[fr];W[es])\n(;B[es];W[fr])\n(;B[as];W[aq]\n(;B[es];W[fr])\n(;B[fr];W[es])))))\n(;W[gs];B[fr]\n(;W[es];B[ar]C[RIGHT];W[gp];B[er]C[RIGHT])\n(;W[ar];B[bs]\n(;W[ds];B[es];W[gp];B[cs]C[RIGHT])\n(;W[es];B[ds];W[gp];B[er]C[RIGHT]))\n(;W[bs];B[ar]C[RIGHT]))\n(;W[fr];B[er]\n(;W[ar];B[gs]C[RIGHT])\n(;W[gs];B[ar];W[fr];B[gr]C[RIGHT]))\n(;W[es];B[ar]\n(;W[fr];B[er];W[gs];B[fr]C[RIGHT])\n(;W[gs];B[fr];W[gp];B[er]C[RIGHT])\n(;W[er];B[ds]\n(;W[gp];B[fr]C[RIGHT])\n(;W[gs];B[fr]C[RIGHT])))\n(;W[bs];B[ar]C[RIGHT]))\n(;B[ar]C[not necessary.]))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 55,
+  "attempts": {
+    "solved": 967,
+    "failed": 2229,
+    "tries": 3196,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-05-18T06:38:47+00:00",
+  "source": "a game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

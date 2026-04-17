@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8207,
+  "elo": 1794.922390893,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Thanks to BartTM for his comments, every over comment is welcome",
+  "rating": {
+    "stars": 3.8,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[ob]AW[rb]AW[oc]AW[sc]AW[pd]AW[qd]AW[rd]AB[mb]AB[nb]AB[nc]AB[nd]AB[od]AB[sd]AB[pe]AB[qe]AB[re]AB[se]C[Black to reduce White's territory with a nice tesuji in sente. Black can win kos.]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[Blanc]PB[Noir]\n(;B[qb]\n(;W[pb]\n(;B[ra];W[qc];B[sb];W[qa];B[rc];W[sa];B[sc];W[ra]C[You did it !RIGHT])\n(;B[qa];W[pa];B[qc];W[ra]C[seems that you loose many points here !])\n(;B[pa];W[oa];B[qa];W[qc]C[ok , try again.])\n(;B[qc];W[qa]C[Try again please.]))\n(;W[pa]C[];B[ra];W[qa];B[pc];W[rc];B[na]C[White is dead, such a mistake !]))\n(;B[pb];W[pc];B[oa];W[qb];B[pa];W[qa];B[na]C[A bit worse than the correct answer, and gote.])\n(;B[pc];W[pb]C[hmm...];B[qc];W[rc]C[No way for black to play like this.])\n(;B[oa];W[pb];B[pa];W[qa];B[na]C[poor gote moves.])\n(;B[pa]C[]\n(;W[oa]C[Here white make a mistake.];B[qb]\n(;W[pb]C[];B[ra];W[qc];B[sb];W[qa];B[rc];W[sa];B[sc]C[White can now play elsewhere, so you end in gote moreover, you loose points compared to the correct answer...];W[ra]C[Slightly worse than the solution.])\n(;W[qc]C[This is a mistake for white to play here];B[na];W[pc]\n(;B[sb];W[sa];B[ra]C[A two step ko, nice to have find it])\n(;B[ra]C[];W[sb]C[Play T to tenuki]LB[me:T];B[qa]C[seki. (White has too much to loose in the ko)])))\n(;W[pb]C[Here white make a mistake.]\n(;B[oa];W[qa];B[na]C[Really bad for black])\n(;B[ra];W[qb]C[hmm, why don't you try again ?])\n(;B[qb];W[qc];B[ra];W[oa]C[White could also play the ko at R19 if he had some threats];B[sb];W[qa];B[rc];W[sa]C[White could also play a ko threat here];B[sc];W[ra]C[Slightly worse than the solution.]))\n(;W[qb]C[Best white answer to bQ19FORCE];B[oa]C[Poor gote movesCHOICE])))",
+  "author": {
+    "id": 5621,
+    "name": "severin333",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-03-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 217,
+    "failed": 1242,
+    "tries": 1459,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-03-06T11:29:48+00:00",
+  "source": "A book of mine",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

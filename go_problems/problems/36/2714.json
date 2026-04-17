@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2714,
+  "elo": 1184.1594925662,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\nRU[Japanese]SZ[9]KM[0.00]\nPW[White]PB[Black]SO[Go Training v. 2, prob. 5]AW[cb][db][eb][gb][cc][dd][ff]AB[dc][ec][fc][bd][cd]TR[dd]C[This problem is problem 5 from volume 2 of the Nihon Ki-in's 'Understand the Basics:  Go Training' book.  Black to capture the marked White stone.]\n(;B[de]CR[de]\n;W[ed]CR[ed]\n(;B[fe]CR[fe]\n(;W[fd]CR[fd]C[CHOICE]\n;B[gd]CR[gd]\n;W[ee]CR[ee]\n;B[ef]CR[ef]C[RIGHT])\n(;W[ee]CR[ee]C[CHOICE]\n;B[ef]CR[ef]\n;W[fd]CR[fd]\n;B[gd]CR[gd]C[RIGHT]))\n(;B[ee]CR[ee]\n;W[fd]CR[fd]\n;B[fe]CR[fe]\n;W[gd]CR[gd]))\n(;B[ed]CR[ed]\n;W[de]CR[de])\n(;B[ee]CR[ee]\n;W[de]CR[de]\n(;B[ce]CR[ce]\n;W[df]CR[df])\n(;B[df]CR[df]\n;W[ce]CR[ce]\n(;B[be]CR[be]\n;W[cf]CR[cf]\n;B[cg]CR[cg]\n;W[dg]CR[dg]\n;B[bf]CR[bf]\n;W[ef]CR[ef]C[White has broken out of Black's trap.])\n(;B[ef]CR[ef]C[A full triangle is generally considered a good thing, but White is still poised to escape.]))))",
+  "author": {
+    "id": 4037,
+    "name": "Lothe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-11-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 21,
+  "attempts": {
+    "solved": 9721,
+    "failed": 12666,
+    "tries": 22387,
+    "speedSolved": 5,
+    "speedPlay": 24
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-07-15T04:52:15+00:00",
+  "source": "Understand the Basics:  Go Training (Nihon Ki-in)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 36,
+      "name": "Geta (net)",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

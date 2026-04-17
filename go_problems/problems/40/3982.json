@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3982,
+  "elo": 1116.5994580151,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "You must capture three white stones by keeping white from connecting.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 31,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qc]AB[qd]AB[pd]AB[qf]AB[rf]AB[qg]AB[md]AB[me]AB[mf]AB[mg]AB[nh]AB[oh]AB[ph]AW[rb]AW[qb]AW[pc]AW[od]AW[nc]AW[mc]AW[ne]AW[ng]AW[og]AW[pg]AW[qh]AW[rg]AW[sh]AW[qi]AW[ri]C[Black to capture some stones and link up his groups.]AP[goproblems]\n(;B[oe];W[pe]\n(;B[of];W[nf]\n(;B[nd];W[pf]\n(;B[oe];W[of]\n(;B[qe]C[Excellent.RIGHT])\n(;B[pb];W[oc];B[qe];W[oe]C[White connected.]))\n(;B[qe];W[oe]C[In case you haven't noticed, white is connected now.]))\n(;B[pf];W[nd]C[The point of this problem was to NOT let white connect.])\n(;B[qe];W[pf]\n(;B[oe];W[nd]C[Try again.])\n(;B[nd];W[oe]C[This just isn't your day.])))\n(;B[nf];W[of]C[Sacrificing just one stone won't help.])\n(;B[pf];W[of]C[Sacrificing just one stone won't help.])\n(;B[nd];W[of]C[Sacrificing just one stone won't help.]))\n(;B[nf];W[of]C[Sorry, try again.])\n(;B[of];W[nf]C[White connects.])\n(;B[pf];W[of]C[Nope.])\n(;B[sa]C[I'm worried about your future in solving problems...])\n(;B[pb];W[oc]C[Now what, genius?])\n(;B[oc];W[ob]C[Knock knock, hey McFly.])\n(;B[sg];W[sf]C[Knock knock, hey McFly.])\n(;B[rc]C[This really doesn't keep white from connecting WHICH IS THE WHOLE POINT OF THE PROBLEM!])\n(;B[re]C[Go back and read what the goal of this problem is.])\n(;B[nd];W[oe]C[A bamboo joint will pretty much always connect. White could also play p14 here (or q15 for that matter).])\n(;B[ob]C[Whatever this move may accomplish, it's not the point of this problem.]))",
+  "author": {
+    "id": 6262,
+    "name": "caleb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-06-23",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 5201,
+    "failed": 7788,
+    "tries": 12989,
+    "speedSolved": 9,
+    "speedPlay": 12
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-02-22T19:49:03+00:00",
+  "source": "Graded Go Problems for Beginners, volume 4",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 40,
+      "name": "Prevent the Connection",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

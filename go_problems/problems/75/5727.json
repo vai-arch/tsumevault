@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5727,
+  "elo": 1118.9176720381,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.9,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cd]AB[dc]AB[ec]AW[fc]AW[fd]AW[ed]AW[gd]AB[fe]AW[id]AW[hf]AW[ig]AW[ii]AW[jh]AW[kh]AW[kg]AW[lg]AB[mg]AB[ng]AB[nf]AB[nh]AB[ni]AB[nj]AB[lh]AB[ki]AB[lj]AB[mk]AW[mj]AW[mi]AB[ml]AW[nk]AW[ok]AW[pj]AW[og]AW[of]AW[pf]AW[qf]AB[qe]AB[oe]AB[od]AB[nd]AB[md]AB[nc]AB[pc]AB[pd]AB[qc]AB[qb]AB[qa]AB[pa]AW[oc]AW[ob]AW[pb]AW[oa]AW[nb]AW[mb]AW[mc]AW[lc]AW[ld]AW[le]AW[me]AW[ne]AW[mf]AB[lf]AB[kf]AB[jf]AB[jg]AB[je]AB[jd]AB[jc]AB[jb]AB[ic]AW[hc]AW[hb]AW[ib]AB[lb]AB[kb]AW[dp]AW[dn]AB[dr]AB[fq]AB[cj]AW[qp]C[White to play the best move.]AP[goproblems]\n(;W[ma];B[la]\n(;W[ja];B[kc]\n(;W[ie];B[kd];W[if];B[ke];W[ka]C[One eye beats no eye.RIGHT])\n(;W[if];B[kd];W[ie];B[ke];W[ka]C[RIGHT]))\n(;W[ie];B[ja]C[seki])\n(;W[if];B[ja]C[seki])\n(;W[kc];B[ja];W[ie];B[kd];W[if];B[ke];W[ia];B[na]C[When filling liberties, it's usually better to start from the outside.]))\n(;W[la];B[ma]\n(;W[ja];B[ka];W[ia];B[kc]\n(;W[ie];B[kd];W[if]C[seki])\n(;W[if];B[ke];W[ie]C[seki]))\n(;W[ie];B[ka];W[if];B[kc];W[ia];B[kd];W[ja]C[seki]))\n(;W[ja];B[ma]\n(;W[ie];B[kc];W[if];B[ke];W[ka];B[la];W[ia]C[seki])\n(;W[ka];B[la];W[ia];B[kc];W[ie];B[kd];W[if]C[seki]))\n(;W[ie];B[ma];W[if];B[ja];W[la];B[kc];W[ia]C[seki])\n(;W[mh];B[ma];W[li];B[lh])\n(;W[li];B[ma];W[mh];B[lh]))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 4480,
+    "failed": 5846,
+    "tries": 10326,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-12-25T07:58:32+00:00",
+  "source": "gerhardav vs agio on IGS",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

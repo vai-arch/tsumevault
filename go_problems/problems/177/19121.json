@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19121,
+  "elo": 794.45270759835,
+  "problemLevel": 3,
+  "rank": {
+    "value": 27,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.6,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ad]AB[bd]AB[cd]AB[dd]AB[ee]AB[fe]AB[eg]AB[cg]AB[cf]AB[ch]AB[bg]AW[bb]AW[cc]AW[ec]AW[ed]AW[df]AW[de]AW[ce]AW[be]AW[bf]AW[af]C[The black and white groups touching the left edge have four liberties apiece. Since they are even, the side that plays first will win.]AP[goproblems]\r\n(;B[ef];W[dc]\r\n(;B[dg];W[bc];B[ag];W[ac];B[ae]C[If Black plays first, he ends by capturing White. Notice that he fills White's outside liberties first, saving the inside one for last.RIGHT])\r\n(;B[ag];W[bc];B[dg];W[ac];B[ae]C[If Black plays first, he ends by capturing White. Notice that he fills White's outside liberties first, saving the inside one for last.RIGHT]))\r\n(;B[ag];W[ac]\r\n(;B[dg];W[bc];B[ef];W[dc];B[ae]C[If Black plays first, he ends by capturing White. Notice that he fills White's outside liberties first, saving the inside one for last.RIGHT])\r\n(;B[ef];W[bc];B[dg];W[dc];B[ae]C[If Black plays first, he ends by capturing White. Notice that he fills White's outside liberties first, saving the inside one for last.RIGHT]))\r\n(;B[dg];W[dc]\r\n(;B[ef];W[bc];B[ag];W[ac];B[ae]C[If Black plays first, he ends by capturing White. Notice that he fills White's outside liberties first, saving the inside one for last.RIGHT])\r\n(;B[ag];W[bc];B[ef];W[ac];B[ae]C[If Black plays first, he ends by capturing White. Notice that he fills White's outside liberties first, saving the inside one for last.RIGHT]))\r\n(;B[ae];W[dc]C[If Black started from the inside, both groups would lose one liberty and suddenly White would be ahead. To fill from the outside is the first principle in fights like this.CHOICE]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 63,
+  "attempts": {
+    "solved": 5135,
+    "failed": 1254,
+    "tries": 6389,
+    "speedSolved": 14,
+    "speedPlay": 47
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-02-26T19:58:28+00:00",
+  "source": "Elementary Go Series, Volume 3",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 177,
+      "name": "Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

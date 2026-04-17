@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12596,
+  "elo": 968.75808628661,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "White to play",
+  "rating": {
+    "stars": 3.4,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rr]AB[rq]AB[qq]AB[pq]AB[pr]AB[nr]AB[nq]AB[mq]AB[lq]AB[kq]AB[kr]AB[os]AW[or]AW[oq]AW[op]AW[np]AW[mp]AW[lp]AW[kp]AW[jq]AW[jr]AW[pp]AW[qp]AW[rp]AW[ip]AB[qs]AW[js]AP[goproblems]\n(;W[ks];B[ms]C[Black takes the key point and secures an eye left of the P line.])\n(;W[ns]\n(;B[ks];W[ms];B[ls]\n(;W[mr];B[lr];W[ns];B[ms]C[CHOICE])\n(;W[lr];B[mr];W[ns];B[ms]C[CHOICE]))\n(;B[ms];W[ks];B[ls]C[CHOICE]))\n(;W[ls];B[ks];W[ns];B[ms]C[CHOICE];W[lr];B[mr]C[CHOICE])\n(;W[ms]\n(;B[ks];W[ns]\n(;B[ls];W[ps]C[Ko for lifeRIGHT])\n(;B[ps];W[ls]C[seki! But what if b doesn't answer wN1 with bL1 ? see variations...RIGHT]))\n(;B[ns]\n(;W[ks]C[Good! Point wise, this is the same as a seki, but this way B has a ko-threat.Apparantly this is optimal play for both!RIGHT])\n(;W[ls];B[ks]C[CHOICE])\n(;W[mr];B[ks]C[CHOICE])\n(;W[lr];B[ks]C[CHOICE]))\n(;B[ls];W[ks];B[ns];W[lr]C[White takes a point, Black has none left of the P line.RIGHT])\n(;B[mr];W[ks];B[ns];W[ls]C[RIGHT]))\n(;W[lr];B[ks]\n(;W[mr];B[ns]C[CHOICE])\n(;W[ns];B[ms]\n(;W[ls];B[mr]C[CHOICE])\n(;W[mr];B[ls]C[CHOICE]))\n(;W[ls];B[ns]C[CHOICE])\n(;W[ms];B[ns]C[CHOICE]))\n(;W[mr];B[ks]\n(;W[ns];B[ms]\n(;W[lr];B[ls]C[CHOICE])\n(;W[ls];B[lr]C[CHOICE]))\n(;W[ms];B[ns]C[CHOICE])\n(;W[lr];B[ns]C[CHOICE])\n(;W[ls];B[ns]C[CHOICE]))\n(;W[sq];B[ks]C[CHOICE]))",
+  "author": {
+    "id": 29425,
+    "name": "ewq123",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-14",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 23,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 45,
+  "attempts": {
+    "solved": 4297,
+    "failed": 5007,
+    "tries": 9304,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-04-20T05:51:30+00:00",
+  "source": "From a recent game...",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 21,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

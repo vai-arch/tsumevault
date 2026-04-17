@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 510,
+  "elo": 944.05084156104,
+  "problemLevel": 8,
+  "rank": {
+    "value": 22,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 15,
+    "negativeFlagSum": -2,
+    "flagSum": 13
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]SZ[19]AP[Jago:Version 4.10]AW[pc][qd][pe][of][og][oj][mf][le][ke][kg][kc]AB[me][ne][oe][oc][oh][pg][pf][qf](;B[mg]LB[nf:a][lf:b]C[RIGHTa and b reflect, if white plays at a, black puts four stones in lethal atari to connect, if white plays at b, black plays at a to put two stones in lethal atari to connect.])(;B[nf];W[ng]LB[mg:a][nh:b]C[If black plays the double atari at a, white can still keep the groups separated at b.])(;B[ng];W[nf]LB[lf:a][mg:b]C[If black plays atari at a, white can play atari at b, keeping blacks groups seperated. If black plays at b, white connects at a.]))",
+  "author": {
+    "id": 262,
+    "name": "Imperateur",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2003-11-15",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 21,
+  "attempts": {
+    "solved": 13545,
+    "failed": 11791,
+    "tries": 25336,
+    "speedSolved": 5,
+    "speedPlay": 13
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-04-13T16:40:58+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

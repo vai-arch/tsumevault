@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12753,
+  "elo": 1002.1105803353,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This corner occured in a high dan game on KGS and although it was left unplayed, it caused a big argument among the observers as to whether or not white could have done something with it",
+  "rating": {
+    "stars": 4.2,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sq]AB[rp]AB[qp]AB[qq]AB[pq]AB[pr]AB[or]AB[nr]AB[ns]AW[ms]AW[mr]AW[mq]AW[nq]AW[oq]AW[op]AW[pp]AW[po]AW[qo]AW[ro]AW[so]AW[sp]LB[mo:T]C[Can white get anything here? if not, tenuki at T]AP[goproblems]\n(;W[rr];B[rq]\n(;W[qs]\n(;B[ps]\n(;W[sr];B[rs]\n(;W[qr];B[ss])\n(;W[ss]C[RIGHT]))\n(;W[qr];B[sr];W[ss];B[rs])\n(;W[ss];B[qr]))\n(;B[qr]C[CHOICE]\n(;W[ps];B[sr];W[rs]C[RIGHT])\n(;W[rs];B[ps])\n(;W[sr];B[rs])))\n(;W[rs];B[qs]\n(;W[ps];B[qr];W[sr];B[ss])\n(;W[qr];B[ps];W[sr];B[ss])\n(;W[sr];B[qr]))\n(;W[ps];B[qr]\n(;W[qs];B[sr];W[rs]C[SekiRIGHT])\n(;W[rs];B[qs];W[sr];B[ss])\n(;W[sr];B[rs])))\n(;W[sr];B[rq]\n(;W[qs];B[rs]\n(;W[rr];B[qr])\n(;W[qr];B[rr])\n(;W[ss];B[rr])\n(;W[ps];B[rr]))\n(;W[rs]\n(;B[rr]\n(;W[qs];B[ps])\n(;W[ps];B[qs];W[qr];B[ss]C[Double Ko]))\n(;B[qs]\n(;W[rr];B[qr])\n(;W[ps];B[rr];W[qr];B[ss]C[Double ko])))\n(;W[rr];B[qr]\n(;W[qs];B[rs])\n(;W[rs];B[qs]))\n(;W[ps];B[rs]\n(;W[rr];B[qr])\n(;W[qs];B[rr])))\n(;W[mo]C[Wrong, white can can get something here]))",
+  "author": {
+    "id": 23154,
+    "name": "Fokatukc",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-02-01",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1599.75
+  },
+  "avgSolveTimeSeconds": 45,
+  "attempts": {
+    "solved": 3093,
+    "failed": 3456,
+    "tries": 6549,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-06-05T10:28:36+00:00",
+  "source": "Game on KGS",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 108,
+      "name": "0 What Group?",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

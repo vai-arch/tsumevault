@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16102,
+  "elo": 1316.1631535548,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": 0,
+    "flagSum": 10
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "When there are letters on the board, they are the only allowed moves (symmetry).",
+  "rating": {
+    "stars": 4.7,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ih]AB[kh]AB[jh]AB[il]AB[jl]AB[kl]AW[hi]AW[hj]AW[hk]AW[li]AW[lj]AW[lk]LB[lh:T]LB[ii:A]LB[ji:B]LB[ij:C]LB[jj:D]C[Can black connect without ko? If not, play at T.FORCE]AP[goproblems]\n(;B[jj];W[ji]LB[ii:A]LB[ij:B]LB[ik:C]LB[jk:D]C[FORCE]\n(;B[ii];W[jk]\n(;B[kk];W[ij]\n(;B[ki]C[Nice, black is connected!RIGHT])\n(;B[kj];W[ki]C[You almost got it. Try again!])\n(;B[ik];W[ki]C[You almost got it. Try again!]))\n(;B[ik];W[ij]\n(;B[ki];W[kk]C[You got trapped. Try again!])\n(;B[kk];W[ki]C[You got trapped. Try again!])\n(;B[kj];W[lh]C[I'm sorry, white doesn't need to move. Try again!]))\n(;B[ij];W[ik])\n(;B[ki];W[ik])\n(;B[kj];W[kk]))\n(;B[ij];W[ii])\n(;B[jk];W[ii])\n(;B[ik];W[ii]))\n(;B[ij];W[jj]LB[ii:A]LB[ji:B]LB[kj:D]LB[ki:C]C[FORCE]\n(;B[ii];W[ik]\n(;B[kj];W[ki])\n(;B[jk];W[kj]))\n(;B[kj];W[ii]\n(;B[ji];W[ik]\n(;B[jk];W[ij])\n(;B[kk];W[ki];B[jk];W[ij])\n(;B[ki];W[kk];B[jk];W[ij]))\n(;B[ki];W[kk])\n(;B[kk];W[ki])\n(;B[jk];W[ji])\n(;B[ik];W[kk]))\n(;B[ji];W[kj])\n(;B[ki];W[kj]))\n(;B[ji];W[jj]LB[ii:A]LB[ij:B]LB[ik:C]LB[jk:D]C[FORCE]\n(;B[ii];W[ij])\n(;B[ij];W[kj])\n(;B[ik];W[ij])\n(;B[jk];W[ij]))\n(;B[ii];W[jj]\n(;B[jk];W[ij])\n(;B[kj];W[ij])\n(;B[ji];W[ij])\n(;B[ij];W[ik]\n(;B[kj];W[ki])\n(;B[jk];W[kj])))\n(;B[lh];W[jj]C[Black could have connected. Try again!]))",
+  "author": {
+    "id": 52760,
+    "name": "wurfmaul",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-21",
+    "rank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1018.78
+  },
+  "avgSolveTimeSeconds": 59,
+  "attempts": {
+    "solved": 1250,
+    "failed": 2311,
+    "tries": 3561,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-06-03T08:03:41+00:00",
+  "source": "self-made",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 35,
+      "name": "Symmetrical",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

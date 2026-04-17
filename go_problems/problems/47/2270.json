@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2270,
+  "elo": 2172.6552268286,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -5,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to kill, I have inserted many variations for both black and white so go ahead and explore all options.\r\n\r\nYou should try this problem a few times, as white has some other variations where she plays either better or worse.",
+  "rating": {
+    "stars": 1.3,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[eb]AW[fb]AW[gc]AW[hc]AW[jb]AW[kb]AB[gd]AB[hd]AB[jd]AB[kd]AB[lc]AB[lb]AB[db]AB[dc]AB[ed]AB[fd]C[Black to kill]\n(;B[hb]\n(;W[gb]C[CHOICE]\n(;B[ic];W[ib];B[ha]C[White deadRIGHT])\n(;B[ib];W[ic]\n(;B[jc];W[ia]C[White livesWRONG])\n(;B[ha];W[ga]\n(;B[ea];W[ia]C[White lives, A and B are miaiWRONG]L[hb]L[ka])\n(;B[ia];W[ea]))\n(;B[ea]C[White is deadRIGHT])))\n(;W[ga];B[ib];W[ic]\n(;B[ka]\n(;W[ea]C[CHOICE]\n(;B[ia]\n(;W[jc]C[CHOICE];B[ja]C[White deadRIGHT])\n(;W[ja];B[jc];W[la];B[kc]C[White deadRIGHT]))\n(;B[ja];W[ia]\n(;B[ha];W[gb]C[White livesWRONG])\n(;B[jc];W[la]))\n(;B[jc];W[ia];B[kc]C[RIGHT]))\n(;W[ja];B[ia];W[gb];B[ea]C[White deadRIGHT]))\n(;B[ia];W[ea]\n(;B[jc];W[gb])\n(;B[ka]\n(;W[jc]C[CHOICE];B[ja]C[White deadRIGHT])\n(;W[ja];B[jc];W[la];B[kc]C[White deadRIGHT]))\n(;B[ja];W[ka];B[jc];W[gb]))))\n(;B[ha];W[ga];B[hb];W[ea]\n(;B[ib];W[ic];B[ja];W[jc];B[ka];W[gb]C[White livesWRONG])\n(;B[ic];W[ib]C[White livesWRONG]))\n(;B[ic];W[ib]C[White livesWRONG])\n(;B[ib];W[ic]\n(;B[hb];W[ia];B[ka];W[ea];B[ga];W[gb]C[White livesWRONG])\n(;B[ia];W[hb]C[White livesWRONG]))\n(;B[ea];W[hb])\n(;B[ga];W[hb])\n(;B[ka];W[hb]))",
+  "author": {
+    "id": 3494,
+    "name": "Fujiwara",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2014-11-10",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 80,
+    "failed": 1745,
+    "tries": 1825,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-05-22T07:17:50+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

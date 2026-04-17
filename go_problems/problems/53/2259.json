@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2259,
+  "elo": 2037.3851295038,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "White is able to save the group in the top left corner if he chooses, how does he do it? This is a very long problem but you rarely need to read more than a couple moves ahead.",
+  "rating": {
+    "stars": 4.1,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]SZ[19]AP[SGFC:1.13b]\r\n\r\nGN[temp2]\r\n\r\nAW[ok][ab][bb][cb][da][ea][ma][be][cd][dd][fc][gb][ag][bg][cg][ac]\r\n[ef][ed][fd][hd][gd][hf][je][jc][jd][jf][gh][bk][gm][hm][im]\r\n[jj][ij][lh][ei][di][eg][ak][ai][ck][fm][mi][pl][qn][po][pm]\r\n[pp][oq][lo][ko][kl][kk][io][bs][cr][cp][bq][co][db][ca][dr]\r\n[fr][is][fq][al][il][gk][em][jr][kr][ir][ls][ms][rr][rs][or]\r\n[sq][sp][sk][qi][kb][ri][rk][ph][la][md][ka][oa][of][na][pd]\r\n[se][qe][qd][rb][sb][pf][mc][ld]AB[nl][bc][cc][dc][eb][fa][fb]\r\n[ha][hc][ja][jb][ad][bd][ae][bf][cf][df][ee][fe][he][hg][gf]\r\n[ii][kh][hi][dh][bj][cj][hl][fl][ik][hk][ol][pn][on][op][mo]\r\n[kq][kj][jm][lj][in][jp][cq][ar][br][bp][ds][es][fs][dq][ap]\r\n[as][ec][gs][ch][fp][eq][dp][am][an][fk][gl][cn][kp][hr]\r\n[mr][nr][ns][ps][qr][rp][sn][sm][qk][ia][rl][pi][lc][ke][kc]\r\n[mb][nb][qh][sg][rd][re][qf][rc][sc][oe][lb][kd]C[How can white save the group in the top left corner and capture some black stones?]\r\n\r\n(;W[af];B[ga]C[Black should tenuki but he can't read that far.]\r\n\r\n(;W[hb];B[ce];W[ib];B[be]\r\n(;W[dg];B[de]\r\n(;W[ff];B[ge]\r\n(;W[gg]\r\n(;B[if];W[ie];B[hf]\r\n(;W[hh];B[ig];W[ih];B[jg]\r\n(;W[kg];B[jh]\r\n(;W[ki];B[ji];W[hj]\r\n(;B[gi]\r\n(;W[gj];B[fi]\r\n(;W[fj];B[fh]\r\n(;W[fg];B[eh]\r\n(;W[ci];B[bh];W[ah];B[bi];W[aj];B[dj]\r\n(;W[ej];B[dk]\r\n(;W[dl];B[ek]\r\n(;W[jk];B[li];W[el];B[ki]\r\n(;W[lk];B[mj];W[nj];B[mk];W[ml];B[nk]\r\n(;W[nm];B[om]\r\n(;W[nn];B[oo]\r\n(;W[np];B[no]\r\n(;W[mp];B[mn]\r\n(;W[mm];B[ln]\r\n(;W[kn];B[lm]\r\n(;W[ll];B[km]\r\n(;W[jl];B[jn]\r\n(;W[jo];B[hn]\r\n(;W[ho];B[gn]\r\n(;W[fn];B[go]\r\n(;W[gp];B[fo]\r\n(;W[eo];B[ep]\r\n(;W[er];B[aq];W[do];B[bq];W[bo];B[ao]\r\n(;W[bm];B[bn]\r\n(;W[cm];B[dn]\r\n(;W[en];B[cs];W[dm];B[bs]\r\n(;W[hs];B[gr];W[gq];B[hq];W[hp];B[iq]\r\n(;W[jq];B[ip];W[lp];B[lq]\r\n(;W[lr];B[mq];W[nq];B[os]\r\n(;W[qs];B[pr];W[pq];B[qq]\r\n(;W[rq];B[qp];W[qo];B[ro]\r\n(;W[rn];B[so]\r\n(;W[sl];B[rm];W[qm];B[ql];W[pk];B[qj]\r\n(;W[rj];B[pj];W[oj];B[oi];W[ni];B[oh]\r\n(;W[og];B[nh];W[mh]\r\n(;B[ng]\r\n(;W[nf];B[mg];W[lg];B[mf]\r\n(;W[me];B[lf]\r\n(;W[kf];B[le]\r\n(;W[ob];B[nc]\r\n(;W[nd];B[oc]\r\n(;W[pc];B[od]\r\n(;W[ne];B[pg];W[pe];B[ph]\r\n(;W[rh];B[qg]\r\n(;W[rf];B[rg]\r\n(;W[sh]C[success. RIGHT])\r\n(;W[sf];B[sd]))\r\n(;W[rg];B[rf]))\r\n(;W[qg];B[rg]))\r\n(;W[pe];B[ne]))\r\n(;W[od];B[pc]\r\n(;W[qc];B[pb])\r\n(;W[pb];B[qc])))\r\n(;W[oc];B[nd]\r\n(;W[ne];B[pg]C[white can't take the liberty at P16 and connect the O15 group]\r\n)\r\n(;W[od];B[ne])))\r\n(;W[nc];B[ob]))\r\n(;W[le];B[kf]))\r\n(;W[lf];B[me]\r\n(;W[le];B[ne])\r\n(;W[ne];B[le])))\r\n(;W[mg];B[nf]\r\n(;W[ne];B[mf]C[atari])\r\n(;W[mf];B[ne])))\r\n(;B[pg];W[ng];B[ph];W[rh];B[qg];W[rf];B[rg];W[sh]C[Black dies either way.]\r\n))\r\n(;W[nh];B[og]\r\n(;W[ng];B[pg])\r\n(;W[pg];B[ng]C[atari])))\r\n(;W[pj];B[oj]))\r\n(;W[rm];B[qm]))\r\n(;W[so];B[rn]C[atari]))\r\n(;W[qp];B[qo]))\r\n(;W[pr];B[pq]))\r\n(;W[mq];B[nq]))\r\n(;W[ip];B[lp]))\r\n(;W[gr];B[gq]))\r\n(;W[dm];B[en]))\r\n(;W[dn];B[cm]\r\n(;W[cl];B[cs]C[this will lead to a ko later which white cannot win]\r\n)\r\n(;W[dm];B[bl])\r\n(;W[bl];B[cl])))\r\n(;W[bn];B[bm]\r\n(;W[bl];B[cl])\r\n(;W[cm];B[cs]C[white is unable to take the liberty at B8])))\r\n(;W[do];B[er]))\r\n(;W[ep];B[eo]))\r\n(;W[fo];B[gp]))\r\n(;W[go];B[fn]\r\n(;W[en];B[fo])\r\n(;W[fo];B[en]\r\n(;W[eo];B[dn])\r\n(;W[dn];B[eo];W[do];B[ep]\r\n(;W[gp];B[er])\r\n(;W[er];B[gp]\r\n(;W[hp];B[gq])\r\n(;W[gq];B[hp]\r\n(;W[hq];B[ip])\r\n(;W[ip];B[hq])))))))\r\n(;W[gn];B[ho]\r\n(;W[go];B[hp])\r\n(;W[hp];B[go]\r\n(;W[fo];B[gp]\r\n(;W[gq];B[ep])\r\n(;W[ep];B[eo]))\r\n(;W[gp];B[fo]))))\r\n(;W[hn];B[jo]))\r\n(;W[jn];B[jl]))\r\n(;W[km];B[ll]))\r\n(;W[lm];B[kn]))\r\n(;W[ln];B[mm]))\r\n(;W[mn];B[mp]))\r\n(;W[no];B[np]\r\n(;W[mp];B[nq])\r\n(;W[nq];B[mp])))\r\n(;W[oo];B[nn]\r\n(;W[no];B[mm])\r\n(;W[mn];B[mm])))\r\n(;W[om];B[nm]\r\n(;W[mm];B[nn])\r\n(;W[nn];B[mm]\r\n(;W[mn];B[lm])\r\n(;W[lm];B[mn]))))\r\n(;W[mj];B[lk]\r\n(;W[ll];B[mk])\r\n(;W[mk];B[ll]\r\n(;W[lm];B[ml])\r\n(;W[ml];B[lm]))))\r\n(;W[el];B[jk]))\r\n(;W[ek];B[dl]))\r\n(;W[dk];B[ej]))\r\n(;W[bh];B[ci]))\r\n(;W[eh];B[fg]))\r\n(;W[fh];B[fj]))\r\n(;W[fi];B[gj]))\r\n(;B[li];W[gi];B[ki];W[lk];B[mj];W[nj];B[mk];W[ml];B[nk];W[nm]\r\n;B[om];W[nn];B[oo];W[np];B[no];W[mp];B[mn];W[mm];B[ln];W[kn]\r\n;B[lm];W[ll];B[km];W[jn]C[Black dies either way.]))\r\n(;W[ji];B[ki]))\r\n(;W[jh];B[kg]))\r\n(;W[ig];B[hh]))\r\n(;B[ie];W[if]))\r\n(;W[ie];B[gg]))\r\n(;W[ge];B[ff]\r\n(;W[fg];B[if])\r\n(;W[gg];B[if])))\r\n(;W[de];B[dg]))\r\n(;W[ib];B[hb]\r\n(;W[ic];B[ce];W[gc];B[be]\r\n(;W[de];B[dg])\r\n(;W[dg];B[de]\r\n(;W[ge];B[id])\r\n(;W[ff];B[ge]C[atari])))\r\n(;W[gc];B[ic];W[id];B[ce])))\r\n(;W[ga];B[af]))",
+  "author": {
+    "id": 830,
+    "name": "Spica",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 302,
+  "attempts": {
+    "solved": 40,
+    "failed": 3665,
+    "tries": 3705,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-05-18T13:14:41+00:00",
+  "source": "Spica",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 48,
+      "name": "Giant",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 31,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

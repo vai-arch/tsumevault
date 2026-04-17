@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21950,
+  "elo": 1182.7035990523,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Black to play. Find the best move.",
+  "rating": {
+    "stars": 2.6,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dc]AB[ec]AB[ed]AB[fd]AB[gd]AB[ff]AB[gf]AB[gg]AB[hg]AB[ig]AB[hh]AB[hi]AB[jj]AB[kj]AB[lj]AB[li]AB[kh]AB[kg]AB[mh]AB[mg]AB[lf]AW[ke]AW[kd]AW[kc]AW[jc]AW[jf]AW[if]AW[hf]AW[id]AW[hd]AW[hc]AW[gc]AW[gb]AW[fa]AB[je]AB[jd]AB[mc]AB[lc]AB[kb]AB[jb]AB[hb]AB[ic]AB[ia]AW[cb]AW[cc]AW[dd]AW[ee]AW[ef]AW[cf]AW[fg]AW[eh]AW[ei]AW[fi]AW[gi]AW[gh]AB[ib]AP[goproblems]\n(;B[fb];W[ea]\n(;B[ga];W[ha]C[FORCERIGHT])\n(;B[da];W[db];B[ga];W[eb]\n(;B[ha];W[fc])\n(;B[fc];W[ha]C[RIGHT]))\n(;B[eb]))\n(;B[da];W[db];B[eb];W[ea]C[CHOICE])\n(;B[db];W[da]\n(;B[ea];W[eb])\n(;B[eb];W[ea]))\n(;B[ea]\n(;W[eb];B[fb];W[fc])\n(;W[db];B[eb]))\n(;B[eb];W[ea]))",
+  "author": {
+    "id": 88442,
+    "name": "mrtong96",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2019-12-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 80,
+  "attempts": {
+    "solved": 316,
+    "failed": 436,
+    "tries": 752,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2018-04-26T17:52:38+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

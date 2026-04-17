@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12440,
+  "elo": 1160.5877632607,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "try to connect the 2 black groups and at the same time kill some whites",
+  "rating": {
+    "stars": 3.8,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[eg]AB[fg]AB[gg]AB[dh]AB[di]AB[ej]AB[gj]AB[ek]AB[hf]AB[ig]AB[ih]AW[hg]AW[hh]AW[gi]AW[eh]AW[ei]AW[fj]AW[ii]AW[ij]AW[jj]AW[kj]AW[lj]AW[mj]AW[nj]AB[ji]AB[ki]AB[jg]AB[hk]AB[ik]AB[jk]AB[kk]AB[lk]AB[mk]AW[dj]AW[dl]AW[dk]AW[dm]AB[fl]AB[gl]AB[dg]AB[if]AB[gf]AB[jh]AB[hl]AB[el]AP[goproblems]\n(;B[fi];W[fh];B[gh];W[hi];B[fi]C[RIGHT])\n(;B[fh];W[fi])\n(;B[gh];W[fi];B[hi];W[hj])\n(;B[fk];W[fi])\n(;B[hj];W[hi]\n(;B[fh];W[fi])\n(;B[fi];W[fh];B[gh];W[fi]))\n(;B[hi];W[hj]\n(;B[gh];W[fi];B[hi];W[hh])\n(;B[fh];W[fi];B[gh];W[hi])\n(;B[fi];W[fh];B[gh];W[fi];B[hi];W[hh])))",
+  "author": {
+    "id": 28045,
+    "name": "andysif",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2019-09-10",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 698.957
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 2904,
+    "failed": 4071,
+    "tries": 6975,
+    "speedSolved": 8,
+    "speedPlay": 60
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-03-01T06:36:10+00:00",
+  "source": "a game of mine",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

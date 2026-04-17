@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12337,
+  "elo": 858.34821773924,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 24,
+    "negativeFlagSum": 0,
+    "flagSum": 24
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "My first problem.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 56,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]\r\nRU[Japanese]SZ[9]KM[0.00]\r\nSQ[ei]AW[fe][df][ef][ff][cg][fg][bh][ch][bi][fi]AB[ge][gf][dg][eg][gg][dh][fh][ci][di]TR[fi]C[White has just played the marked stone. This is a mistake, since the squared move kills 5 black stones on the left.\r\n\r\nHow will you connect?]\r\n(;B[eh]\r\n;W[gh]\r\n(;B[gi]\r\n;W[hi])\r\n(;B[hh]\r\n;W[ei]C[Not good.])\r\n(;B[hi]\r\n;W[ei]C[Not good.]))\r\n(;B[ei]\r\n;W[eh]C[Exactly according to W's plan :)])\r\n(;B[gh]\r\n;W[eh]\r\n(;B[gi]\r\n;W[ei]C[You could have saved the left side.])\r\n(;B[ei]\r\n;W[eh]C[Exactly according to W's plan :)]))\r\n(;B[gi]\r\n(;W[ei]C[CHOICE]\r\n(;B[eh]C[RIGHT\r\nCorrect!])\r\n(;B[gh]\r\n;W[eh]C[Whoops!]))\r\n(;W[eh]C[CHOICE]\r\n(;B[gh]\r\n;W[ei]C[Whoops!])\r\n(;B[ei]C[RIGHT\r\nThat's it!]))))",
+  "author": {
+    "id": 28010,
+    "name": "Kos",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-13",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 8141,
+    "failed": 6245,
+    "tries": 14386,
+    "speedSolved": 27,
+    "speedPlay": 79
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-01-25T02:20:29+00:00",
+  "source": "My game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

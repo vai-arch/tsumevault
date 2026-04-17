@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1121,
+  "elo": 1034.1921659873,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "11/2/01 Added unkx80's variation.\r\n\r\n11/1/01 Added a variation suggested by hello.\r\n\r\n10/31/01 Added a \"much more interesting answer for white\" suggested by wol.",
+  "rating": {
+    "stars": 4.1,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[eb]AW[dc]AW[ec]AW[cd]AW[ae]AW[be]AW[ce]AB[cb]AB[db]AB[ac]AB[cc]AB[bd]C[Black to play and live. (Don't let White get a Ko).]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]TM[]\n(;B[ba]\n(;W[bc]\n(;B[bb]\n(;W[da];B[ad]C[CHOICERIGHT])\n(;W[ad];B[da];W[bc];B[ab]C[CHOICERIGHT]))\n(;B[ab]\n(;W[ad];B[da]C[CHOICERIGHT])\n(;W[da];B[ad]C[CHOICERIGHT]))\n(;B[da];W[ad]\n(;B[bb];W[ab])\n(;B[ab]C[RIGHT])))\n(;W[da];B[ab]C[Black 1 is the vital point to have two eyes.RIGHT])\n(;W[ad];B[bc]C[Black now has the option to make two eyes by playing D19 or A18RIGHT]LB[da:A]LB[ab:B]))\n(;B[bb];W[ad]\n(;B[aa];W[bc]C[If Black 1, then White 2 gets a Ko.])\n(;B[bc];W[da]))\n(;B[ad];W[ab])\n(;B[ab];W[ba]\n(;B[bb];W[ad])\n(;B[ad];W[bb]))\n(;B[da];W[ba];B[bb];W[ad]\n(;B[aa];W[ab]C[Dead by double ko. You need to win them both to live, but if you take one White takes the other.]MA[bd])\n(;B[ca];W[aa])\n(;B[bc];W[aa])))",
+  "author": {
+    "id": 801,
+    "name": "BigMetalGuy",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-09-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 140,
+  "attempts": {
+    "solved": 9084,
+    "failed": 10872,
+    "tries": 19956,
+    "speedSolved": 7,
+    "speedPlay": 7
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-10-30T14:02:37+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 69,
+      "name": "L-Group",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 136,
+      "name": "Tripod",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2671,
+  "elo": 1519.3619654921,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.1,
+    "votes": 13,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[pc]AW[jd]AW[pd]AW[qe]AB[nc]AB[qc]AB[qd]LB[pb:D]LB[qb:C]LB[nc:1]LB[pc:4]LB[qc:3]LB[jd:2]LB[qd:5]LB[pe:B]LB[qe:6]LB[re:A]C[White did not follow the normal joseki sequence and played hamete by playing the hane at 6.  How should Black respond? (select A, B C or D)]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[re];W[qf];B[rf];W[qg];B[pb];W[ob];B[qb];W[oc]C[After this exchange, White's position is far better then Black])\n(;B[pe];W[qb];B[rb];W[pb];B[re];W[qf]\n(;B[oe];W[rf];B[ra];W[se]C[White starts a tesuji. If White goes for the double atari at S16, black can capture white's group at Q18];B[rc];W[nb];B[mb];W[mc]\n(;B[nd];W[ob];B[lb];W[sc];B[na];W[rd]C[Black loses the corner])\n(;B[md];W[lc];B[ob];W[nd];B[na];W[ne];B[od];W[oc]LB[pe:B]LB[of:A]C[The result is 'ko'.  This sequence is to Whites advantage for two main reasons.  First, White may choose not to play the ko battle and lock Black in the corner by playing at A, giving White a very strong outside stance.  Second, Black's first move (B) is incorrect, and Black has a better move other than the ko battle.]))\n(;B[rf];W[oe];B[pf];W[qg]\n(;B[of];W[ra];B[rc];W[qi];B[rg];W[rh];B[ph];W[qh];B[sg];W[nd]C[After this exchange, Black lives in the corner, However Black's stance on the outside is very weak.])\n(;B[pg];W[qh];B[ph];W[qi];B[pi];W[qj];B[od];W[ra];B[rc];W[nb]C[This exchange was bad for Black])))\n(;B[qb]\n(;W[pe];B[pb];W[qi]C[ Locally White's position is ok. But since he originally wanted to stress the upper side this change in direction is bound to be in Black's favour. Note however that there are other moves for Black to play if this result is not satisfactory.RIGHT])\n(;W[pb];B[pe];W[qf];B[od];W[nb];B[ob]C[CHOICERIGHT]))\n(;B[pb];W[ob];B[qb];W[oc]C[At this juncture the next Black play may be difficult to find.  Try examining this position before proceeding.  (note only the correct response has been provided)];B[qf]\n(;W[pe]C[ You found the tesuji, see if you can play it out.CHOICE];B[re]TR[nd]C[ This is almost the normal joseki outcome, but white has exchanged R15 for S15 now. This is a bad exchange for white; He not only loses a liberty and a ko-threat but also the aji of peeping at S15 later, which means that white R12 is not much of a threat now.RIGHT])\n(;W[re]C[CHOICE];B[pe]\n(;W[rf]C[CHOICE];B[oe];W[nb];B[qg]C[ White must decide which side it is going to lose.  A difficult decision for White.RIGHT])\n(;W[oe]C[CHOICE];B[pf];W[rf];B[nb];W[oa];B[of];W[ne];B[rg]TR[qe]TR[re]TR[rf]C[ The three marked sones are dead and Black's position is superior to White'sRIGHT])\n(;W[qg]C[CHOICE];B[oe]C[ White will either lose the four stones on the upper portion of the board, or the two White stones on the right.RIGHT]))))",
+  "author": {
+    "id": 1811,
+    "name": "cheyenne",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-04-28",
+    "rank": {
+      "value": 16,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1104.23
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 1460,
+    "failed": 3487,
+    "tries": 4947,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-29T12:53:17+00:00",
+  "source": "rec.games.go archive",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 19,
+      "name": "Hamete",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 21,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

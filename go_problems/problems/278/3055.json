@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3055,
+  "elo": 897.13672515412,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 16,
+    "negativeFlagSum": 0,
+    "flagSum": 16
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "(This problem appeared origianlly on the side in my game. I just moved it to the corner.)\r\n\r\n(Thanks to kaiou for the correction.)",
+  "rating": {
+    "stars": 4.5,
+    "votes": 40,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[aa]AW[ab]AW[cb]AW[db]AW[bc]AW[cd]AW[dd]AW[ed]AW[de]AB[eb]AB[fb]AB[ac]AB[fc]AB[ad]AB[bd]AB[fd]AB[ae]AB[ce]AB[ee]AB[af]AB[bf]AB[df]AB[ff]C[Guess... ;)FORCE]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.50]PW[White]PB[Black]\n(;B[dc];W[ba]\n(;B[da];W[cc]\n(;B[ec]C[Well done!RIGHT])\n(;B[ea];W[ca];B[ec]C[Well done!RIGHT])\n(;B[ca];W[ea]C[White's alive!]TR[ec]TR[da]))\n(;B[ec]\n(;W[da];B[cc]C[Well done!CHOICERIGHT])\n(;W[cc];B[da]C[Well done!CHOICERIGHT]))\n(;B[cc];W[ec]C[White's alive!])\n(;B[ca];W[da]\n(;B[ec];W[cc]C[White's alive!])\n(;B[cc];W[ec]C[White's alive!]))\n(;B[ea];W[da]C[White's alive!]LB[cc:A]LB[ec:B]))\n(;B[ec];W[dc]\n(;B[da];W[ca]C[White's alive!])\n(;B[ca];W[da]C[White's alive!])\n(;B[ba];W[bb]C[White's alive!]LB[da:B]LB[ca:A]LB[ea:C])\n(;B[bb];W[ba]C[White's alive!]))\n(;B[cc]\n(;W[dc]\n(;B[da];W[ca]C[White's alive!])\n(;B[ca];W[da]C[White's alive!])\n(;B[ba];W[bb]C[White's alive!]LB[ca:A]LB[da:B]LB[ea:C])\n(;B[bb];W[ba]C[White's alive!]))\n(;W[bb]C[White's alive! (Each set of A and B is miai to deny an eye.)]LB[ca:A]LB[da:B]LB[dc:A]LB[ec:B]))\n(;B[da];W[ca]\n(;B[dc];W[cc];B[ec]C[Well done!RIGHT])\n(;B[ec];W[dc]C[White's alive!])\n(;B[cc]\n(;W[dc]C[White's alive!CHOICE])\n(;W[bb]C[White's alive!CHOICE]LB[dc:A]LB[ec:B]))\n(;B[ba];W[dc]\n(;B[bb];W[ab]\n(;B[cc]MA[bc]C[A ko isn't a solution when a sure kill is possible.])\n(;B[aa];W[ab]C[White's alive!]))\n(;B[ec];W[bb]C[White's alive!])\n(;B[ea];W[bb]C[White's alive!]))\n(;B[bb];W[dc]\n(;B[ba];W[ab]\n(;B[cc]C[A ko isn't a solution when sure kill is possible.]MA[bc])\n(;B[aa];W[ab]C[White's alive!]))\n(;B[cc]C[A ko isn't a solution when a sure kill is possible.]MA[bc])\n(;B[ec];W[ba]C[White's alive!])\n(;B[ea];W[ba]C[White's alive!]))\n(;B[ea]C[E17 is bigger than D17 by a point, but leave an extra ko threat.]\n(;W[ec]C[White's alive!])\n(;W[dc]C[White's alive!])))\n(;B[ca];W[da]\n(;B[ba];W[dc];B[bb];W[ab]\n(;B[aa];W[ab]C[White's alive!])\n(;B[cc]MA[bc]C[A ko isn't a solution when sure kill is possible.]))\n(;B[bb];W[ba]C[White's alive!])\n(;B[ec];W[dc]C[White's alive!])\n(;B[cc];W[dc]C[White's alive!])\n(;B[dc];W[ba]C[White's alive!]LB[cc:A]LB[ec:B]\n(;B[ec];W[cc]C[White's alive!])\n(;B[cc];W[ec]C[White's alive!]))\n(;B[ea]\n(;W[ba]C[White's alive!CHOICE])\n(;W[ec]C[White's alive!CHOICE])\n(;W[dc]C[White's alive!])))\n(;B[bb];W[ba]\n(;B[dc];W[da]C[White's alive!]LB[cc:A]LB[ec:B]\n(;B[ec];W[cc]C[White's alive!])\n(;B[cc];W[ec]C[White's alive!]))\n(;B[da]C[E17 is bigger than D17 by a point but leaves an extra ko threat.]\n(;W[dc]C[White's alive!CHOICE])\n(;W[ec]C[White's alive!CHOICE]))\n(;B[ec];W[dc]C[White's alive!])\n(;B[cc];W[dc]C[White's alive!])\n(;B[ca];W[da]C[White's alive!]))\n(;B[ba];W[bb]\n(;B[dc];W[cc]\n(;B[ec]C[Well done!RIGHT])\n(;B[da];W[ec]\n(;B[ca];W[ea]\n(;B[da];W[ca]C[White's alive!])\n(;B[ca];W[da]C[White's alive!]))\n(;B[ea];W[ca]C[White's alive!]))\n(;B[ca];W[ec]\n(;B[ea];W[da]C[White's alive!])\n(;B[da];W[ea]\n(;B[da];W[ca]C[White's alive!])\n(;B[ca];W[da]C[White's alive!]))))\n(;B[ec];W[dc]C[White's alive!]LB[ca:A]LB[da:B]LB[ea:C])\n(;B[cc];W[dc]C[White's alive!]LB[ca:A]LB[da:B]LB[ea:C])\n(;B[da];W[dc]\n(;B[ea];W[ca]C[White's alive!])\n(;B[ca];W[ea];B[da];W[ca]C[White's alive!])\n(;B[ec];W[ca]C[White's alive!]))\n(;B[ca];W[dc]\n(;B[ea];W[da]C[White's alive!])\n(;B[da];W[ea]\n(;B[da];W[ca]C[White's alive!])\n(;B[ca];W[da]C[White's alive!]))\n(;B[ec];W[da]C[White's alive!]))\n(;B[ea];W[dc]C[White's alive!]LB[ca:A]LB[da:B]\n(;B[da];W[ca]C[White's alive!CHOICE])\n(;B[ca];W[da]C[White's alive!])))\n(;B[ea]C[E17 is one point bigger than D17 but also provides an extra ko threat..]\n(;W[dc]\n(;B[ba];W[bb]\n(;B[da];W[ca]C[White's alive!CHOICE])\n(;B[ca];W[da]C[White's alive!]))\n(;B[bb];W[ba]C[White's alive!])\n(;B[ca];W[da]C[White's alive!])\n(;B[da];W[ca]C[White's alive!]))\n(;W[ec]\n(;B[da];W[ca]C[White's alive!CHOICE])\n(;B[ca];W[da]C[White's alive!])\n(;B[ba];W[bb]\n(;B[da];W[ca]C[White's alive!])\n(;B[ca];W[da]C[White's alive!])\n(;B[cc];W[dc]\n(;B[da];W[ca]C[White's alive!])\n(;B[ca];W[da]C[White's alive!]))\n(;B[dc];W[cc]\n(;B[ca];W[da]C[White's alive!])\n(;B[da];W[ca]C[White's alive!])))\n(;B[bb];W[ba]C[White's alive!]))\n(;W[ba]LB[da:A]LB[dc:B]LB[ec:B]C[White's alive!])))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 32,
+  "attempts": {
+    "solved": 27410,
+    "failed": 15288,
+    "tries": 42698,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-10-05T06:52:41+00:00",
+  "source": "A game of mine on KGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 278,
+      "name": "saxmaam hard",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 25,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

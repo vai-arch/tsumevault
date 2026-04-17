@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6114,
+  "elo": 1343.019168324,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qq]AB[qr]AW[pr]AW[pq]AB[qp]AB[qo]AB[qn]AB[rm]AB[rp]AW[pp]AW[op]AW[np]AW[mp]AW[mq]AW[mr]AW[kr]AW[kq]AW[ls]AW[kp]AW[lp]AB[js]AB[jr]AB[jq]AB[jp]AB[jo]AB[jn]AB[mn]AB[mm]AB[on]AB[pn]AW[nn]AW[nm]AB[ml]AB[ol]AW[ps]AW[qs]AB[rs]C[Black's best endgame.  The rest of the board is completely finished.]AW[ms]AW[ln]AW[kn]AB[jm]AB[km]AB[lm]AB[mo]AB[sp]AB[so]AB[rn]AB[rl]AB[sl]AW[om]AB[pm]AB[pl]AB[nl]AB[ql]AB[qm]AB[ll]AB[kl]AB[jl]LB[ps:A]AP[goproblems]\n(;B[rr];W[no]C[white 8, black 7.  No good.])\n(;B[sr];W[no]C[White 8, black 7.  No good.])\n(;B[no];W[rr]\n(;B[ss];W[sr])\n(;B[sr];W[ss]\n(;B[rs]C[NOTTHIS])\n(;B[lo]\n(;W[ko]C[CHOICE]\n(;B[rs];W[ks]\n(;B[rq]C[Black 13, white 8. That's right.RIGHT])\n(;B[ss];W[sq])\n(;B[sq];W[ss]))\n(;B[sq];W[rs]C[Black 9, White 9.  Not good enough.])\n(;B[rq];W[rs]C[White 9, Black 9.  Not good enough];B[sq]C[Black 9, White 9.  Not good enough.]))\n(;W[sq]C[CHOICE]\n(;B[ko];W[rq]C[Black 13, White 12.  Good.RIGHT])\n(;B[rq];W[ko];B[sr];W[rs];B[sq]C[Black 9, White 9.  Not good enough.])))\n(;B[ko]C[NOTTHIS])\n(;B[sq]C[];W[rs]C[Black 9, White 9.  Not good enough.])\n(;B[rq];W[rs]C[Black 9, White 9.  Not good enough.]))\n(;B[rq];W[ss]C[Black 9, White 9.  Not good enough.])\n(;B[lo];W[ko];B[sr];W[ss]C[since you wasted m5, you lose this ko.])\n(;B[ko]C[NOTTHIS])\n(;B[sq];W[ss]C[black 9, white 9.  not good enough.]))\n(;B[ko]C[NOTTHIS])\n(;B[lo];W[ko]\n(;B[no];W[rr]\n(;B[rq];W[ss]C[9 to 9.  not good enough])\n(;B[ss];W[sr])\n(;B[sq];W[ss])\n(;B[sr];W[ss]C[you wasted the m5 threat so you have no chance to win this.]))\n(;B[sr];W[no]C[white 8, black 7.])\n(;B[rr];W[no]C[white 8, black 7]))\n(;B[oo];W[no]C[you don't have enough now.]))",
+  "author": {
+    "id": 4785,
+    "name": "kochi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-14",
+    "rank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1340.69
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 1666,
+    "failed": 3907,
+    "tries": 5573,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-03-07T18:34:58+00:00",
+  "source": "a game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

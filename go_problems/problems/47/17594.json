@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17594,
+  "elo": 1511.6250877948,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This position is far more complex than I originally appreciated. I've tried to explore all of the major lines, but suggestions for new lines or comments on my dubious play are much appreciated.",
+  "rating": {
+    "stars": 3.8,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bp]AB[co]AB[dp]AB[cq]AB[dq]AB[dm]AB[dn]AB[cn]AB[cl]AB[bl]AB[aj]AB[bj]AB[bk]AW[bq]AW[aq]AW[cr]AW[dr]AW[br]AW[do]AW[eo]AW[eq]AW[fq]AW[dl]AW[el]AW[em]AW[en]AW[ai]AW[bi]AW[ci]AW[cj]AW[ap]AW[ck]C[This is a counting problem. Black to defend against white's marked move in the (locally) most advantageous manner. Assume black will lose a ko.]TR[ap]AP[goproblems]\n(;B[ao];W[an]\n(;B[bo];W[ep]C[]\n(;B[cp];W[bm]\n(;B[al];W[cm]C[Black cannot approach.])\n(;B[cm];W[al]C[Nakade.])\n(;B[am];W[al]C[Nakade.]))\n(;B[bm];W[cp]C[Black nets 7 - 6 = 1 point.])\n(;B[am];W[cp]C[Black nets 7 - 6 = 1 point.])\n(;B[bn];W[cp]C[Black nets 7 - 6 = 1 point])\n(;B[al];W[cp]C[Black needs one more move inside to avoid seki, so black nets 6 - 6 = 0 points.])\n(;B[cm];W[al]\n(;B[am];W[bm]C[Nakade.])\n(;B[bm];W[am]C[Assuming black fills C4, the seki nets 0 points.])\n(;B[bn];W[am]C[Nakade.])))\n(;B[bn];W[bo]\n(;B[am];W[cp]C[Since black has no ko threats, black gets A6 but loses D3. Black nets 4 territory   1 capture (A6) - 2 captured stones - 6 (D3) = -3 points.])\n(;B[bm];W[cp]C[Since black has no threats, black must block at A7 and loses D4. Black nets 3 territory - 2 captured stones - 6 (d6) = -5.])\n(;B[al];W[cp]C[Since black has no threats, black must block at A7 and loses D4. Black nets 3 territory - 2 captured stones - 6 (d6) = -5.]))\n(;B[am];W[bo]\n(;B[cp];W[bn]C[C7 is a false eye.])\n(;B[bn];W[cp]C[Since black has no ko threats, black gets A6 but loses D3. Black nets 4 territory   1 capture (A6) - 2 captured stones - 6 (D3) = -3 points.])\n(;B[bm];W[cp];B[bn];W[ep]C[Black has no threats, so loses this ko. Black nets 3 - 9 = -6.]))\n(;B[bm];W[bo]\n(;B[am];W[cp];B[bn];W[ep]C[Black has no threats, so loses this ko. Black nets 3 - 9 = -6.])\n(;B[bn];W[cp]C[Since black has no threats, black must block at A7 and loses D4. Black nets 3 territory - 2 captured stones - 6 (d6) = -5.])\n(;B[cp];W[bn]C[C7 is a false eye.]))\n(;B[cp];W[bm]\n(;B[bo];W[cm]C[Black cannot push.])\n(;B[cm];W[bo]\n(;B[bn];W[am]C[Black has no ko threats.])\n(;B[al];W[ao]))\n(;B[bn];W[bo]C[Since black cannot win the ko, white can fill A7.]))\n(;B[al];W[bo]\n(;B[bn];W[cp]C[Since black has no threats, black must block at A7 and loses D4. Black nets 3 territory - 2 captured stones - 6 (d6) = -5.])\n(;B[bm];W[bn]C[C7 is a false eye.])\n(;B[cp];W[bm]C[Black is dead.])\n(;B[am];W[bn]C[C7 is a false eye.])))\n(;B[an];W[bo]\n(;B[bn];W[cp]C[Black cannot win the ko, so black nets 5 - 7 = -2.])\n(;B[ao];W[cp]C[Black cannot win the ko, so black nets 5 - 7 = -2.])\n(;B[cp];W[bn];B[bm];W[ao]C[C7 is a false eye.]))\n(;B[bo]\n(;W[ep]C[CHOICE]\n(;B[cp]\n(;W[an]C[CHOICE]\n(;B[am];W[bm]\n(;B[bn];W[al]C[Black is dead.])\n(;B[ao];W[al]C[Nakade.]))\n(;B[bn];W[bm]\n(;B[al];W[ao]C[Black is dead.])\n(;B[ao];W[cm])\n(;B[am];W[al]C[Black is dead.])\n(;B[cm];W[am];B[ao];W[al]C[Nakade.]))\n(;B[bm];W[bn];B[am];W[ao]C[C7 is a false eye.])\n(;B[ao];W[bm]\n(;B[al];W[cm]C[Black cannot approach.])\n(;B[cm];W[al]C[Nakade.])\n(;B[am];W[al]C[Nakade.]))\n(;B[al];W[bm]\n(;B[ao];W[cm]C[Black cannot approach.])\n(;B[bn];W[ao]C[Black is dead.])\n(;B[cm];W[ao]C[Black is dead.])\n(;B[am];W[bn]C[Black is dead.])))\n(;W[ao]\n(;B[an];W[am]\n(;B[bn];W[bm];B[cm];W[al]C[Nakade.])\n(;B[bm];W[bn]C[Black loses this ko, so C7 is false.])\n(;B[al];W[bn]C[Black is dead.]))\n(;B[bn];W[am];B[bm];W[an];B[al])))\n(;B[ao];W[cp]C[Black nets 7 - 6 = 1.]))\n(;W[ao];B[bm];W[an];B[bn];W[am];B[al];W[ep];B[cp]C[Black nets 2.]))\n(;B[bn];W[ep]\n(;B[cp]\n(;W[am]\n(;B[ao];W[an]C[Black must block at A7 or B8 but cannot win the ko. Black nets 2 - 1 = 1.])\n(;B[an]C[Black nets 6.]))\n(;W[an]C[CHOICE]\n(;B[am];W[ao]C[Black nets 4.RIGHT])\n(;B[ao];W[am])))\n(;B[ao];W[cp]C[Black fills at B5 and nets 6 - 6 = 0.])\n(;B[bo];W[cp];B[ao]C[Black nets 6 - 6 = 0.])\n(;B[an];W[cp]C[Black fills A5 and nets 6 - 6 = 0.]))\n(;B[bm];W[ep]\n(;B[cp];W[an]\n(;B[bn];W[am]\n(;B[al];W[ao]C[Black nets 2.])\n(;B[ao];W[bo]C[Black cannot win this ko, so must block at A8. Black nets 2 - 1 = 1.]))\n(;B[am];W[bo]C[Black nets 3.])\n(;B[bo];W[bn];B[am];W[ao]C[C7 is a false eye.]))\n(;B[ao];W[an]\n(;B[bo];W[cp]C[Black nets 7 - 6 = 1 point.])\n(;B[cp];W[bo];B[bn];W[am]C[Black cannot win the ko, so must block at A8. Black nets 2.])))\n(;B[am];W[bo]\n(;B[cp];W[bn]C[C7 is a false eye.])\n(;B[bn];W[cp]C[Black cannot win the ko, so black nets 4 - 7 = -3 points.]))\n(;B[cp];W[bn]\n(;B[an];W[bo];B[bm];W[ao]C[C7 is a false eye.])\n(;B[bo];W[ao]C[Black is dead.])\n(;B[ao];W[bo]C[Black is dead.])\n(;B[cm];W[ao]C[Black is dead.])\n(;B[bm];W[ao]C[C7 is a false eye.]))\n(;B[al];W[bn]\n(;B[bo];W[ao]C[C7 is a false eye.])\n(;B[an];W[bo]C[C7 is a false eye.])\n(;B[ao];W[bo]C[Black cannot win the ko, so black is dead.])))",
+  "author": {
+    "id": 6281,
+    "name": "munisai79",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1421.12
+  },
+  "avgSolveTimeSeconds": 79,
+  "attempts": {
+    "solved": 339,
+    "failed": 882,
+    "tries": 1221,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-02-13T18:56:00+00:00",
+  "source": "KGS: ketupat (5k) vs. Munisai (3k)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

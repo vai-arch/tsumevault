@@ -1,0 +1,136 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15972,
+  "elo": 981.38963239697,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "I was surprised when the graphical pattern search didn't find this one already submitted!",
+  "rating": {
+    "stars": 3.7,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bq]AB[cq]AB[dr]AB[ds]AW[es]AW[er]AW[eq]AW[dq]AW[dp]AW[cp]AW[bp]AB[bs]C[Can you kill black? If not, Tenuki.]LB[go:T]AP[goproblems]\n(;W[cr];B[cs]\n(;W[aq];B[br];W[ar]C[Good work. :)RIGHT])\n(;W[ar];B[br];W[aq]C[Indeed.RIGHT])\n(;W[br];B[ar]))\n(;W[go]C[]AB[es]AB[er]AB[eq]AB[dq]AB[dp]AB[cp]AB[bp]AW[bs]AW[bq]AW[cq]AW[dr]AW[ds];B[cr]C[In that case, live as white!]AB[go]\n(;W[cs]\n(;B[aq]C[CHOICE];W[br];B[ar]C[Nope.])\n(;B[ar]C[CHOICE];W[br];B[aq]C[Dead.]))\n(;W[br];B[cs]C[Oops.])\n(;W[ar];B[cs];W[ap];B[br];W[aq];B[ao]C[Dangit.]))\n(;W[aq];B[ar]\n(;W[cr];B[ap]\n(;W[cs];B[bo]C[Black escapes... uh oh.])\n(;W[ao];B[cs]))\n(;W[ap];B[cr]C[Black lives.]))\n(;W[br]\n(;B[cr]C[CHOICE];W[aq];B[ar]C[D'oh!])\n(;B[ar]C[CHOICE];W[cr];B[cs]C[Drat.]))\n(;W[ar];B[aq]\n(;W[br];B[cr]C[Black is alive!])\n(;W[cr]C[This also works!RIGHT]))\n(;W[as];B[ar]C[What were you thinking, silly?])\n(;W[cs];B[cr]\n(;W[aq];B[ar]C[Nope.])\n(;W[ar];B[aq]C[Black lives and gets two prisoners! :(])))",
+  "author": {
+    "id": 51992,
+    "name": "pitchflare",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-01-14",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 3578,
+    "failed": 4681,
+    "tries": 8259,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-04-13T10:12:51+00:00",
+  "source": "Free time",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15006,
+  "elo": 1971.6650284557,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "I tried to make more interesting shape, but I couldn't.",
+  "rating": {
+    "stars": 4.6,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[es]AB[er]AB[eq]AB[dq]AB[bq]AW[cp]AW[co]AW[bo]AW[ao]AW[dp]AW[ep]AW[fp]AW[fq]AW[fr]AW[hr]AP[goproblems]\n(;W[br];B[bs]\n(;W[aq];B[ar])\n(;W[cr];B[cq]\n(;W[cs];B[ar])\n(;W[ar];B[aq];W[cs];B[dr]))\n(;W[ar];B[aq];W[cr];B[cq];W[cs];B[dr]))\n(;W[bs];B[cr];W[aq];B[ar];W[br];B[cq])\n(;W[aq];B[ar]\n(;W[br];B[bs])\n(;W[cr];B[cq];W[bs];B[ap];W[bp];B[ds];W[br];B[cs]))\n(;W[cr];B[cq]\n(;W[aq];B[ar]\n(;W[ap];B[br];W[bs];B[ds])\n(;W[bs];B[ap];W[bp];B[ds];W[br];B[cs]))\n(;W[ds];B[br]\n(;W[aq];B[bs];W[ar];B[dr])\n(;W[bs];B[aq]))\n(;W[bs]\n(;B[br]C[CHOICE]\n(;W[aq];B[ar];W[ds]C[RIGHT])\n(;W[ds];B[aq]))\n(;B[aq]C[CHOICE]\n(;W[br]C[RIGHT])\n(;W[ds];B[br])))\n(;W[br];B[bs]\n(;W[cs];B[ar])\n(;W[ar];B[aq];W[cs];B[dr]))))",
+  "author": {
+    "id": 46757,
+    "name": "smartaleck",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-11-13",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1472.01
+  },
+  "avgSolveTimeSeconds": 77,
+  "attempts": {
+    "solved": 34,
+    "failed": 140,
+    "tries": 174,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-07-23T20:55:17+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

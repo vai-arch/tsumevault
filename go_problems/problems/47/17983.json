@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17983,
+  "elo": 997.18240926803,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "A little simple problem for beginners",
+  "rating": {
+    "stars": 4.3,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pd]AB[qc]AB[qf]AB[jd]AB[kd]AB[ld]AB[me]AB[jc]AB[ic]AB[hd]AB[ie]AB[ge]AB[hb]AB[gb]AB[fc]AB[eb]AB[fa]AB[dc]AB[ce]AW[hc]AW[gc]AW[gd]AW[fd]AW[fe]AW[ff]AW[ib]AW[jb]AW[kc]AW[lc]AW[md]AW[nc]AW[ne]AW[nf]AW[pb]AB[gf]AW[df]AB[fg]AW[gg]AB[eg]AW[hg]AB[ef]LB[fg:1]LB[gg:2]LB[eg:3]LB[hg:4]LB[ef:5]C[Black is careless and plays 5 after 4. Punish him]AP[goproblems]\n(;W[ee];B[de]C[That's exact what Black wants.])\n(;W[de];B[ee]\n(;W[ed];B[dd]C[Dead.])\n(;W[dd];B[ed]C[Dead.]))\n(;W[he];B[hf];W[if];B[he]C[Black is still greedy.];W[je];B[id]\n(;W[le]C[This sequence was actually played. After this move, Black resigned.RIGHT])\n(;W[ke];B[le]\n(;W[lf]C[This works too.RIGHT])\n(;W[mf];B[lf];W[lg];B[kf];W[jf];B[kg];W[kh];B[jg];W[ig];B[jh];W[ji];B[ih]\n(;W[ii];B[hh];W[gh];B[hi];W[hj];B[gi];W[fh];B[ee]C[I liked this variation but White is still dead.])\n(;W[hh];B[ii];W[ij];B[hi]\n(;W[hj];B[gh]C[Looks fine but you've lost.])\n(;W[gi];B[gh]C[Amazing but useless.])))))\n(;W[if];B[he]\n(;W[je];B[ee]C[Black is still strong enough.])\n(;W[hf];B[ee]C[Black is strong enough to kill ya.]))\n(;W[hf];B[he]\n(;W[if];B[ee])\n(;W[je];B[ee]C[Wrong.])))",
+  "author": {
+    "id": 57070,
+    "name": "Pavel N",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1601_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1601_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1601_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 1601
+    },
+    "lastOnlineAt": "2026-01-12",
+    "rank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1506.89
+  },
+  "avgSolveTimeSeconds": 41,
+  "attempts": {
+    "solved": 2061,
+    "failed": 1617,
+    "tries": 3678,
+    "speedSolved": 1,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-11-07T09:01:58+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1169,
+  "elo": 1763.2055481579,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Similar to problem 1166 but now white has followed up his initial attack at J16 instead of K17 and black hasn't played the stone at L15.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]FF[4]GM[1]AP[Jago:Version 4.18]AW[ac]AW[bb]AW[bd]AW[cb]AW[cc]AW[cd]AW[dd]AW[cg]AW[ch]AW[df]AW[ee]AW[ef]AW[eg]AW[fd]AW[gd]AW[gc]AW[ff]AW[gf]AW[he]AW[hf]AW[if]AW[jf]AW[kf]AW[kg]AW[lf]AW[jh]AW[mf]AW[me]AW[ne]AW[nb]AW[mb]AW[lb]AW[jb]AW[od]AW[oc]AW[pc]AW[qc]AW[rd]AW[re]AW[ea]AW[id]AB[kh]AB[lg]AB[mg]AB[nf]AB[oe]AB[pd]AB[qe]AB[pf]AB[rf]AB[qg]AB[pa]AB[nc]AB[nd]AB[md]AB[lc]AB[ld]AB[le]AB[jd]AB[hd]AB[hc]AB[kb]AB[ka]AB[gb]AB[fb]AB[fc]AB[ec]AB[ed]AB[dc]AB[ad]AB[ae]AB[be]AB[ce]AB[de]AB[cf]AB[bg]AB[bh]LB[jb:a]LB[ka:b]LB[id:c]GN[temp2]C[White choses to follow 'a' with 'c' at J16 this time. Black to live unconditionally with two eyes again. (cf problem 1166).](;B[ib];W[jc](;B[je];W[ic](;B[hb];W[ke](;B[fa];W[ja])(;B[kd];W[ie])(;B[ja];W[kd])(;B[ie];W[kd])(;B[kc];W[kd]))(;B[ha];W[ja](;B[ie];W[hb])(;B[hb];W[ie]))(;B[ja];W[hb](;B[kc];W[ia])(;B[ha];W[kc])))(;B[ic];W[kd](;B[ie];W[je];B[id];W[kc]LB[fa:a]LB[ha:b]C['a' and 'b' are miai, only one eye.])(;B[je];W[ke]LB[fa:a]LB[ha:b]C['a' and 'b are miai, only one eye.])(;B[kc];W[je]LB[fa:a]LB[ha:b]C['a' and 'b' are miai, only one eye.])(;B[ke];W[je]LB[fa:a]LB[ha:b]C['a' and 'b' are miai so only one eye.])(;B[ja];W[je]C['a' and 'b' are miai so just one eye.])(;B[fa];W[ha](;B[ie];W[je];B[id];W[kc])(;B[je];W[ke])(;B[ke];W[je])(;B[kc];W[je]))(;B[ha];W[fa](;B[je];W[ke])(;B[ie];W[je];B[id];W[kc])(;B[ke];W[je])(;B[kc];W[je])))(;B[kd];W[ic](;B[hb];W[ja])(;B[ja];W[hb])(;B[ha];W[ja]))(;B[kc];W[ic](;B[hb];W[ja])(;B[je];W[ja](;B[ie];W[hb])(;B[hb];W[ie]))(;B[ha];W[ja]))(;B[ja];W[ic](;B[kc];W[hb])(;B[hb];W[je])(;B[ha];W[je])(;B[je];W[hb](;B[kc];W[ia])(;B[ha];W[kc])))(;B[hb];W[ic](;B[ja];W[kc])(;B[kc];W[ja])(;B[je];W[ke](;B[ie];W[kd])(;B[ja];W[kd])))(;B[ha];W[ic](;B[ja];W[kc])(;B[kc];W[ja])(;B[je];W[ke](;B[ie];W[kd])(;B[ja];W[kd]))))(;B[ic];W[jc](;B[kc];W[hb];B[ie];W[ib];B[id];W[kd];B[ke];W[je];B[kd];W[mc](;B[ha];W[la])(;B[ia];W[la])(;B[ja];W[la]))(;B[ib];W[kd](;B[fa];W[ha](;B[je];W[ke])(;B[ie];W[je];B[id];W[kc])(;B[ke];W[je])(;B[kc];W[je]))(;B[ha];W[fa](;B[je];W[ke])(;B[ie];W[je];B[id];W[kc])(;B[ke];W[je])(;B[kc];W[je]))(;B[je];W[ke]LB[fa:a]LB[ha:b]C['a' and 'b' are miai , just one eye])(;B[ie];W[je];B[id];W[kc]LB[fa:a]LB[ha:b]C['a' and 'b' are miai so just one eye])(;B[ke];W[je]LB[fa:a]LB[ha:b]C['a' and 'b' are miai so just one eye here.])(;B[kc];W[je]LB[fa:a]LB[ha:b]C['a' and 'b' are miai so only one eye here.]))(;B[kd];W[hb];B[ie];W[ib];B[id];W[kc])(;B[ie];W[kc](;B[ja];W[ia])(;B[ib];W[ja](;B[ia];W[la](;B[fa];W[ha])(;B[ha];W[fa]))(;B[kd];W[la](;B[ha];W[ia])(;B[fa];W[ia]))(;B[ha];W[fa])(;B[fa];W[ia]))(;B[fa];W[ib])(;B[ha];W[ib](;B[ia];W[ja])(;B[ja];W[ia]))(;B[ia];W[ib](;B[hb];W[la])(;B[ja];W[ha])(;B[ha];W[ja])))(;B[ja];W[hb];B[ie];W[ib];B[id];W[kc])(;B[ha];W[kd](;B[ie];W[je](;B[ib];W[fa];B[id];W[kc])(;B[fa];W[ib];B[id];W[kc]))(;B[je];W[ke]LB[fa:a]LB[ib:b]C['a' and 'b' are miai so only one eye.])(;B[ke];W[je]LB[fa:a]LB[ib:b]C['a' and 'b' are miai so there is only one eye])(;B[kc];W[je]LB[fa:a]LB[ib:b]C['a' and 'b' are miai so there is only one eye here])))(;B[hb];W[ic](;B[jc];W[ib])(;B[ib];W[jc](;B[je];W[ke](;B[ie];W[kd])(;B[ja];W[kd])(;B[kc];W[ja]))(;B[ja];W[je])(;B[kc];W[ja]))(;B[je];W[ie](;B[ib];W[jc](;B[ja];W[ke])(;B[kc];W[ja])(;B[ke];W[ja]))(;B[jc];W[ib])(;B[ja];W[ib](;B[ke];W[ia])(;B[kc];W[ia])(;B[ia];W[ke]))))(;B[je];W[ic](;B[ie];W[hb])(;B[ib];W[hb])(;B[hb];W[ie](;B[jc];W[ib])(;B[ib];W[jc](;B[ja];W[ke])(;B[ke];W[ja])(;B[kc];W[ja]))(;B[ja];W[ib](;B[ke];W[ia])(;B[kc];W[ia])(;B[ia];W[ke])))(;B[jc];W[hb]))(;B[kd];W[ic](;B[ib];W[hb])(;B[hb];W[ib]))(;B[kc];W[ic](;B[hb];W[ib])(;B[ib];W[hb]))(;B[ja];W[ic](;B[hb];W[ib](;B[ia];W[ke])(;B[je];W[ie](;B[ia];W[ke])(;B[ke];W[ia])(;B[kc];W[ia])))(;B[ib];W[jc](;B[kc];W[hb])(;B[hb];W[kc])(;B[ha];W[kc]))(;B[jc];W[ib](;B[hb];W[ia])(;B[ia];W[hb]))(;B[je];W[ie](;B[ib];W[jc](;B[ha];W[kc])(;B[hb];W[kc])(;B[kc];W[hb]))(;B[jc];W[ib])(;B[hb];W[ib](;B[ia];W[ke])(;B[kc];W[ia])(;B[ke];W[ia]))))(;B[ha];W[ic](;B[ib];W[jc](;B[je];W[ke](;B[kc];W[ja])(;B[ja];W[kc]))(;B[kc];W[je])(;B[ja];W[je]))(;B[hb];W[ib])(;B[jc];W[ib])(;B[je];W[hb]))(;B[ia];W[ic](;B[hb];W[ib])(;B[ib];W[jc](;B[hb];W[ja])(;B[ja];W[je])(;B[je];W[ja])(;B[kc];W[hb]))(;B[jc];W[ib](;B[hb];W[ja])(;B[ja];W[hb])))(;B[jc];W[ic](;B[hb];W[ib])(;B[je];W[hb])(;B[ja];W[ib](;B[hb];W[ia])(;B[ia];W[hb]))(;B[ib];W[hb](;B[ja];W[ha](;B[ia]C[Black sacrifices the stones on the left but is alive. RIGHT])(;B[ga];W[hc];B[ia]C[Black sacrifices the stones on the left but is alive. RIGHT]))(;B[ha];W[ia])(;B[ia];W[ha];B[ja]C[Black sacrifices the stones on the left but lives. RIGHT]))))",
+  "author": {
+    "id": 830,
+    "name": "Spica",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 1383,
+    "failed": 4303,
+    "tries": 5686,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-11-11T06:50:58+00:00",
+  "source": "Amateur Game (variation)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

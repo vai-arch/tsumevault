@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2653,
+  "elo": 825.93191470882,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 21,
+    "negativeFlagSum": -5,
+    "flagSum": 16
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This is my first problem, so I thought I'd do an elementary one. This one may have more solutions if played far enough, but I thought I'd keep it basic. Flame me if there's something wrong.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 35,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]\nFF[3]\nRU[Japanese]\nSZ[13]\nHA[0]\nKM[5.5]\nPW[White]\nPB[Black]\nGN[White (W) vs. Black (B)]\nDT[1999-07-28\nSY[Cgoban 1.9.2]\nTM[30:00(5x1:00)]\nAB[dd][dj][jd][fg][gg]\nAW[dg][ff][gf][fh][gh][ig][jj]\nC[Don't let the black stones in the middle escape]\n(;W[eg];B[hg]\n (;W[hf];B[hh]\n  (;W[ih];B[hi]C[Black gains enough liberties to fight back.])\n  (;W[hi];B[ih]\n   (;W[ii];B[jh]C[Black gains enough liberties to fight back.])\n   (;W[jh];B[ii]\n    (;W[dc];B[ji]AW[cd][ed][de]C[Successful backstab! Too bad black's middle group escaped!])\n    (;W[cc];B[ji]AB[cd][dc][bd][db][bc][bb][cb]C[An assassin, how sneaky! Guards! Arrest him!!])\n    (;W[ji];B[ij]\n     (;W[hj];B[ik]C[Black gains enough liberties to fight back.])\n     (;W[ik];B[hj]C[Black threatens the white stone and has time to escape.])\n    )\n    (;W[ij];B[ji]\n     (;W[ki]C[RIGHTAfter months of fighting, black troops catch Shicho-disease. Very deadly!])\n ))))\n (;W[hh];B[hf]\n  (;W[he];B[if]\n   (;W[jf];B[ie]\n    (;W[id];B[je]C[Black connects and is safe.])\n    (;W[je];B[id]C[Black connects and is safe.])\n))))\n\n\n(;W[hg];B[eg]\n (;W[ef];B[eh]\n  (;W[ei];B[dh]\n   (;W[ch];B[di]C[Black connects and is safe.])\n   (;W[di];B[ch]C[Black gains enough liberties to fight back.])\n ))\n (;W[eh];B[ef]\n  (;W[ee];B[df]\n   (;W[cf];B[de]C[Black connects and is safe.])\n   (;W[de];B[cf]C[Black gains enough liberties to fight back.])\n)))\n\n\n(;W[ef];B[hg]\n (;W[hf];B[hh]\n  (;W[ih];B[hi]C[Black gains enough liberties to fight back.])\n  (;W[hi];B[ih]\n   (;W[ii];B[jh]C[Black gains enough liberties to fight back.])\n   (;W[jh];B[ii]\n    (;W[ji];B[ij]\n     (;W[hj];B[ik]C[Black gains enough liberties to fight back.])\n     (;W[ik];B[hj]C[Black threatens the white stone and has time to escape.])\n    )\n    (;W[ij];B[jg]C[Blacks liberties allow him to cut through white's lines. White can do better.])\n     \n ))))\n (;W[hh];B[hf]\n  (;W[he];B[if]\n   (;W[jf];B[ie]\n    (;W[id];B[je]C[Black connects and is safe.])\n    (;W[je];B[id]C[Black connects and is safe.])\n)))\n\n\n(;W[eh];B[hg]\n (;W[hf];B[hh]\n  (;W[ih];B[hi]C[Black gains enough liberties to fight back.])\n  (;W[hi];B[ih]\n   (;W[ii];B[jh]C[Black gains enough liberties to fight back.])\n   (;W[jh];B[ii]\n    (;W[ji];B[ij]\n     (;W[hj];B[ik]C[Black gains enough liberties to fight back.])\n     (;W[ik];B[hj]C[Black threatens the white stone and has time to escape.])\n    )\n    (;W[ij];B[jg]C[Blacks liberties allow him to cut through white's lines. White can do better.])\n ))))\n (;W[hh];B[hf]\n  (;W[he];B[if]\n   (;W[jf];B[ie]\n    (;W[id];B[je]C[Black connects and is safe.])\n    (;W[je];B[id]C[Black connects and is safe.])\n)))\n\n\n(;W[hf];B[eg]\n (;W[ef];B[eh]\n  (;W[ei];B[dh]\n   (;W[ch];B[di]C[Black connects and is safe.])\n   (;W[di];B[ch]C[Black gains enough liberties to fight back.])\n ))\n (;W[eh];B[ef]\n  (;W[ee];B[df]\n   (;W[cf];B[de]C[Black connects and is safe.])\n   (;W[de];B[cf]C[Black gains enough liberties to fight back.])\n)))\n\n\n(;W[hh];B[eg]\n (;W[ef];B[eh]\n  (;W[ei];B[dh]\n   (;W[ch];B[di]C[Black connects and is safe.])\n   (;W[di];B[ch]C[Black gains enough liberties to fight back.])\n ))\n (;W[eh];B[ef]\n  (;W[ee];B[df]\n   (;W[cf];B[de]C[Black connects and is safe.])\n   (;W[de];B[cf]C[Black gains enough liberties to fight back.])\n)))\n\n\n)",
+  "author": {
+    "id": 2708,
+    "name": "Trehek",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2008-04-07",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 14516,
+    "failed": 8194,
+    "tries": 22710,
+    "speedSolved": 5,
+    "speedPlay": 22
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-27T07:41:45+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 32,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

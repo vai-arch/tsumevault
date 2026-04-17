@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6310,
+  "elo": 1359.0848099615,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.4,
+    "votes": 33,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[cq]AW[dq]AW[eq]AW[cr]AW[fr]AW[gr]AB[fq]AB[gq]AB[hq]AB[dr]AB[er]AB[hr]C[Black to play the correct move! (the one which is slightly better than the rest)]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[gs]LB[ds:A]LB[fs:B]C[Correct!!! By playing there you have made a possible White ko threat at A smaller than it would have been if you had played at B.\nMinimizing possible loss is an important principle.RIGHT])\n(;B[fs]C[Though equal in points to the solution, this move is less good as a possible White ko threat at A is now bigger than if you had played at B.]LB[ds:A]LB[gs:B])\n(;B[es];W[cs]\n(;B[gs]C[This gives White a bigger ko threat (at A) than White would have had if you had played at G1 immediately.]LB[ds:A])\n(;B[fs]C[This gives White a bigger ko threat (at A) than White would have had if you had started at B (G1).]LB[ds:A]LB[gs:B])\n(;B[hs];W[ds];B[fs];W[gs];B[er]C[Impressive, but bad.]))\n(;B[ds];W[cs]))",
+  "author": {
+    "id": 10062,
+    "name": "Chr15t1aN",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-05-17",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 3703,
+    "failed": 5072,
+    "tries": 8775,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-04-12T09:33:43+00:00",
+  "source": "My head",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

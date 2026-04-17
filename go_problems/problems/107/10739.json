@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10739,
+  "elo": 1025.2371051056,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -1,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 4.4,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pa]AB[qa]AB[qb]AB[qc]AB[pc]AB[oc]AB[od]AB[nd]AB[md]AB[ld]AB[le]AB[ke]AB[id]AB[je]AB[ie]AB[ic]AB[hc]AB[hb]AB[gb]AB[ga]AW[ha]AW[ia]AW[ib]AW[jc]AW[kb]AW[jd]AW[kd]AW[lc]AW[mc]AW[nc]AW[ob]AW[pb]AW[oa]AW[na]LB[qa:A]LB[oa:B]C[White just exchanged B for A.  Black's move.]AP[goproblems]\r\n(;B[ma];W[nb]\r\n(;B[ka]\r\n(;W[jb]C[CHOICE]\r\n(;B[lb]C[SekiRIGHT])\r\n(;B[la];W[lb])\r\n(;B[mb];W[lb]))\r\n(;W[la]C[CHOICE];B[lb];W[jb]C[SekiRIGHT]))\r\n(;B[lb];W[ka]))\r\n(;B[ka];W[la]\r\n(;B[ma];W[mb])\r\n(;B[jb];W[ja])))",
+  "author": {
+    "id": 7585,
+    "name": "macho",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-15",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 3094,
+    "failed": 3763,
+    "tries": 6857,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-12-29T18:59:18+00:00",
+  "source": "KGS game I just played",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

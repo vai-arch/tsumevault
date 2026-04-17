@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11219,
+  "elo": 1503.0237528288,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rc]AW[rb]AW[qc]AW[pc]AW[ob]AW[oa]AB[qb]AB[oc]AB[nc]AB[nb]AB[mc]AB[pd]AB[qd]AB[rd]AB[sd]C[B to move]AB[lc]AP[goproblems]\r\n(;B[pb];W[qa]\r\n(;B[sb]C[Well done! W is dead thanks to lack of liberties!RIGHT]MA[sc])\r\n(;B[sc];W[sb]C[Alive!])\r\n(;B[na];W[pa]C[Alive!]))\r\n(;B[sc];W[qa]C[Miai, alive!]MA[pb]MA[sb])\r\n(;B[sb]\r\n(;W[pb]\r\n(;B[qa];W[sc]C[Only ko!]LB[ra:1]LB[sa:2])\r\n(;B[sc];W[qa]C[Alive!]))\r\n(;W[sc];B[pb])\r\n(;W[qa];B[pb]))\r\n(;B[ra];W[qa]\r\n(;B[pa];W[pb]MA[qa]MA[sc]C[Miai, alive!])\r\n(;B[sc];W[pb])\r\n(;B[sb];W[pb])\r\n(;B[pb];W[sa])\r\n(;B[na];W[sa]))\r\n(;B[pa]\r\n(;W[pb]C[Alive!CHOICE])\r\n(;W[ra]C[Alive!CHOICE]))\r\n(;B[qa];W[ra]C[Alive!])\r\n(;B[na];W[pb]C[Alive!]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 52,
+  "attempts": {
+    "solved": 491,
+    "failed": 1166,
+    "tries": 1657,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-04-22T15:41:32+00:00",
+  "source": "miao7d on flashback6d vs yusuke1594d",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 144,
+      "name": "Lack of Liberties (Damezumari)",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

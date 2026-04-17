@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12886,
+  "elo": 1000.2875097005,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.5,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[ba]AW[bb]AW[cc]AW[cd]AW[be]AW[ce]AW[cf]AW[ag]AW[bg]AB[cb]AB[db]AB[dc]AB[bd]AB[dd]AB[de]AB[df]AB[cg]AB[dg]AB[ah]AB[bh]C[Is there any defect in white's group?]GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[ae]\n(;W[ac]C[CHOICE]\n(;B[bf];W[bc]LB[ei:Tenuki\r\n]\n(;B[af];W[ad]C[RIGHT])\n(;B[ad];W[af])\n(;B[ei]LB[af:A]C[RIGHT]))\n(;B[af]C[];W[bc];B[bf];W[ad]C[RIGHT]))\n(;W[bc]C[CHOICE]\n(;B[bf];W[ad];B[af]C[RIGHT])\n(;B[ad];W[bf])\n(;B[ac];W[bf];B[ab];W[af];B[ad];W[aa])))\n(;B[af];W[bf]\n(;B[bc];W[ae]\n(;B[ad];W[ac])\n(;B[ac];W[ab];B[ca];W[ad]))\n(;B[ae];W[bc]))\n(;B[bf];W[af];B[ad];W[ae])\n(;B[bc];W[ae];B[ac];W[ab];B[ca];W[ad])\n(;B[ac];W[bc]\n(;B[ae];W[bf];B[ab];W[af];B[ad];W[aa])\n(;B[ad];W[ae])))",
+  "author": {
+    "id": 31745,
+    "name": "stoone",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2010-06-24",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 4296,
+    "failed": 4643,
+    "tries": 8939,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-07-06T09:20:24+00:00",
+  "source": "One of my games.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 104,
+      "name": "1st Line Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

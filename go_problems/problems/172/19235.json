@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19235,
+  "elo": 1006.6751756529,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[pc]AW[qc]AW[qe]AW[nc]AB[od]AW[mb]AW[lb]AW[lc]AW[ld]AW[le]AB[mc]AB[md]AB[me]AB[mf]AB[lf]AB[ke]AB[kd]AB[kc]AB[kb]AW[kf]AW[jf]AW[ie]AW[ic]C[Black to play]AP[goproblems]\n(;B[ob]\n(;W[nb];B[oc];W[jb]\n(;B[la]C[If Black plays at 1, Black wins the capturing race by one move.  If White plays 2 at 3, Black plays 3 at  2.RIGHT]LB[ob:1]LB[nb:2]LB[oc:3]LB[jb:4]LB[la:5];W[ja]\n(;B[na];W[ka];B[nd];W[ma];B[la]C[RIGHT])\n(;B[ka]C[RIGHT])\n(;B[nd]C[RIGHT];W[ka]\n(;B[na];W[ma];B[la]C[RIGHT])\n(;B[ma];W[na])))\n(;B[ma]C[];W[ka]\n(;B[la];W[na];B[la];W[ma];B[nd];W[la])\n(;B[na];W[la]))\n(;B[na]C[];W[ka];B[la];W[ma];B[nd];W[oa];B[pa];W[ja];B[na];W[la])\n(;B[nd]\n(;W[ka]C[CHOICE]\n(;B[na];W[la])\n(;B[la];W[ma];B[oa];W[la])\n(;B[ma];W[la];B[oa];W[ja])\n(;B[oa];W[la];B[na];W[jd]))\n(;W[jc]C[];B[na]))\n(;B[ka]C[RIGHT]))\n(;W[oc];B[nb]\n(;W[na]\n(;B[la]C[RIGHT])\n(;B[ma];W[la]\n(;B[ka]C[RIGHT])\n(;B[oa];W[pb];B[ma]C[koCHOICE]))\n(;B[pb]C[RIGHT])\n(;B[oa]C[RIGHT]))\n(;W[pb]\n(;B[ma]C[RIGHT])\n(;B[la]C[RIGHT]))))\n(;B[oc];W[ob]C[Playing at  1 only helps White to link up his stones.  The four black stones on the left are now dead.CHOICE]LB[oc:1]LB[ob:2]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 108,
+  "attempts": {
+    "solved": 1433,
+    "failed": 1308,
+    "tries": 2741,
+    "speedSolved": 12,
+    "speedPlay": 15
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-04-02T19:21:29+00:00",
+  "source": "Go graded problems",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 26,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

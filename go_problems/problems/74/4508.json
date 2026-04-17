@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4508,
+  "elo": 1444.0656068565,
+  "problemLevel": 26,
+  "rank": {
+    "value": 4,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ob]AB[oa]AB[pa]AB[nc]AB[mc]AB[lb]AB[kc]AW[ma]AW[nb]AW[oc]AW[pc]AW[pb]AW[rc]TR[oa]TR[ob]TR[pa]C[Save the marked stones.]AP[goproblems]\n(;B[mb];W[qa]C[Snapback.])\n(;B[qa];W[ra]\n(;B[rb];W[sb];B[sa];W[qb]\n(;B[sc];W[na]C[Not clever enough :)])\n(;B[mb];W[ra]C[Snapback.]))\n(;B[qb];W[rb];B[mb];W[qc]C[Snapback.]))\n(;B[ra];W[qb];B[qa];W[rb]\n(;B[mb]C[Good. Black A was necessary to prevent a snapback.RIGHT]LB[ra:A])\n(;B[la]C[Good! A is necessary to prevent a snapback.RIGHT]LB[ra:A])\n(;B[sb];W[na]))\n(;B[qb];W[ra]\n(;B[qc];W[qa]C[Odd.])\n(;B[rb];W[qa];B[sa];W[qa];B[ra];W[na];B[qa];W[qc]C[You were clever, but white was even more so :)])\n(;B[qa];W[rb];B[mb];W[qc]C[Snapback.])\n(;B[mb];W[qa]C[Snapback.])))",
+  "author": {
+    "id": 5469,
+    "name": "transcend",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-04-26",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 1490,
+    "failed": 3961,
+    "tries": 5451,
+    "speedSolved": 2,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-05-23T19:29:20+00:00",
+  "source": "Get Strong at Tesuji",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 104,
+      "name": "1st Line Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

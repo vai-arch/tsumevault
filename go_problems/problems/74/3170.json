@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3170,
+  "elo": 812.37374267182,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Simple problem. Black to get a ko for life. Make sure you know the Ko rule before you add a comment to the already very long list.",
+  "rating": {
+    "stars": 2.9,
+    "votes": 32,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AB[sq]AB[rp]AB[qo]AB[qn]AB[qm]AB[ql]AB[rm]AB[rk]AB[sk]AW[rr]AW[rq]AW[qp]AW[pp]AW[oq]AW[ro]AW[pn]AW[pm]AW[pl]AW[qk]AW[qj]AW[rj]C[Black to make a ko for life](;B[so];W[sp]LB[rp:a]LB[rn:b]C[White captures, and the Ko rule prevents Black from recapturing as that creates the same position as before. So Black must find a Ko-threat (like trying to escape at Q5). If White answers the threat (P5) then Black can recapture at a, then ignore any White Ko-threat (assuming one is played) and play at b for sweet, sweet life.RIGHT])(;B[rn];W[sp](;B[sn];W[sl]C[Black is dead. No ko here.];B[so];W[rp]C[Black is dead.])(;B[so];W[sn];B[sm];W[rp];B[so]C[Ko for Death !!]))(;B[sn];W[sp](;B[sl];W[rn]C[Black is dead.])(;B[so];W[rp](;B[sl];W[rn]C[Black is dead.])(;B[sm]C[Black is dead.])(;B[rn];W[sl]C[Black is dead.]))(;B[rn];W[sl];B[so];W[rp]C[Black is dead.]))(;B[sp];W[so];B[sn];W[sr](;B[rn];W[sl]C[Black is dead.])(;B[sl];W[rn]C[Black is dead.]))(;B[sl];W[sp](;B[rn];W[sn])(;B[sn];W[rn])(;B[so];W[sn])))",
+  "author": {
+    "id": 5185,
+    "name": "polo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-09-05",
+    "rank": {
+      "value": 13,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 13,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1186.74
+  },
+  "avgSolveTimeSeconds": 17,
+  "attempts": {
+    "solved": 44078,
+    "failed": 14544,
+    "tries": 58622,
+    "speedSolved": 17,
+    "speedPlay": 103
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-10-26T01:58:51+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 35,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

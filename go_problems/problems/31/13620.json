@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13620,
+  "elo": 2106.0396833042,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Problem 13616 but with a twist. Either kill all the stones or prove that it can not be done.\r\nThanks to Tails and Sandal.",
+  "rating": {
+    "stars": 2.3,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ma]AB[mb]AB[mc]AB[md]AB[me]AB[ne]AB[of]AB[pf]AB[qf]AB[qe]AB[re]AB[ob]AW[rb]AW[rd]AW[qd]AW[pe]AW[oe]AW[od]AW[nd]AW[nc]AW[nb]AW[oa]AW[pa]SZ[19]AB[na]C[Can Black kill the whole group? If you think so, go ahead. If you think White can live with at least part of the group click at O14 (Alive)]LB[nf:Alive]CA[windows-874]AP[MultiGo:4.4.4]MULTIGOGM[1]\n(;B[qb];W[qc]\n(;B[qa];W[ra]\n(;B[pb];W[sd]C[White lives.])\n(;B[oc];W[pb]C[White cannot save all, but lives anyway.])\n(;B[pc];W[pb])\n(;B[sd];W[pb])\n(;B[pd];W[pc];B[pb];W[oa];B[pa];W[oc]))\n(;B[pb];W[ra]\n(;B[qa];W[sd]C[White lives.])\n(;B[sd];W[qa]\n(;B[pc];W[sc])\n(;B[oc];W[pc])\n(;B[sc];W[sb])\n(;B[sb];W[pc]))\n(;B[pc];W[qa])\n(;B[oc];W[pd]\n(;B[qa];W[sd])\n(;B[sd];W[qa])\n(;B[sc];W[qa]))\n(;B[sc];W[qa]\n(;B[sd];W[sb])\n(;B[rc];W[sd])\n(;B[sb];W[sd])\n(;B[pc];W[sd])\n(;B[oc];W[pc])))\n(;B[pc];W[pd]\n(;B[qa];W[ra]\n(;B[pb];W[sd])\n(;B[sd];W[pb]))\n(;B[pb];W[ra]\n(;B[qa];W[sd])\n(;B[sd];W[qa]\n(;B[sb];W[oc]\n(;B[pb];W[sc];B[rc];W[sa])\n(;B[sc];W[pb]))\n(;B[sc];W[sb]))\n(;B[sc];W[qa])\n(;B[sb];W[qa];B[sd];W[oc]\n(;B[pb];W[sc];B[rc];W[sa])\n(;B[sc];W[pb])))\n(;B[sd];W[qa])\n(;B[ra];W[oc]))\n(;B[sd];W[pb])\n(;B[oc];W[pd]\n(;B[qa];W[ra]\n(;B[pb];W[sd])\n(;B[sd];W[pb]))\n(;B[pb];W[ra]\n(;B[qa];W[sd])\n(;B[sd];W[qa])\n(;B[sc];W[qa]))\n(;B[sd];W[pb]))\n(;B[sc];W[pb]))\n(;B[pb];W[qa]C[White lives.])\n(;B[pc];W[qb]C[]\n(;B[pd]C[];W[qc]C[Nice capture, but White lives.])\n(;B[qc];W[pd]\n(;B[rc];W[sc])\n(;B[pb];W[qa])\n(;B[sd];W[rc]))\n(;B[qa];W[pb]\n(;B[pd];W[qc]C[White lives with the main part.])\n(;B[qc];W[rc]))\n(;B[pb];W[qa]\n(;B[pd];W[qc]\n(;B[oc];W[sd]C[White lives with the main part.])\n(;B[sc];W[oc])\n(;B[sd];W[oc]))\n(;B[qc];W[rc])\n(;B[sd];W[sc];B[pd];W[qc]C[White lives in sente.])))\n(;B[qa];W[pb]\n(;B[pc]C[];W[qb]\n(;B[pd];W[qc]C[White lives with the main part.])\n(;B[qc];W[rc]))\n(;B[qb];W[pc])\n(;B[qc];W[pc]))\n(;B[oc];W[pd]\n(;B[qb];W[pb])\n(;B[pb];W[qa])\n(;B[qa];W[pb]))\n(;B[sd];W[pb])\n(;B[nf]AW[ma]AW[mb]AW[mc]AW[md]AW[me]AW[ne]AW[of]AW[pf]AW[qf]AW[qe]AW[re]AW[ob]AB[rb]AB[rd]AB[qd]AB[pe]AB[oe]AB[od]AB[nd]AB[nc]AB[nb]AB[oa]AB[pa]AW[na];W[qb]C[You think the corner can live, right? The colors have been swapped so that you can prove it. Save as much as you can; losing a few stones extra but keeping sente is acceptable too.]\n(;B[qc];W[pb]\n(;B[ra];W[qa]\n(;B[sd]C[Easy!RIGHT])\n(;B[sc]C[Right!RIGHT])\n(;B[oa];W[oc]\n(;B[pd];W[sd]C[One eye only.])\n(;B[sd];W[pd]C[A bit careless to let that may stones fall away, but you're alive in sente.RIGHT])\n(;B[sc];W[pd]C[You reached the objective in sente, even though your opponent gets more than he should.RIGHT])\n(;B[pc];W[pd]\n(;B[sd]C[Alive, but in gote AND losing most of your stones - that is not good enough.])\n(;B[sc]C[Alive in gote with just a small part of your group - you could have saved a lot more than this.]))\n(;B[sb];W[sd]\n(;B[pc];W[pd])\n(;B[sc];W[se];B[pc];W[pd])))\n(;B[pc];W[oc]\n(;B[pd];W[sd])\n(;B[sd];W[pd]C[Alive in sente. A big loss in stones but okay.RIGHT])\n(;B[sc];W[pd]C[There's a price to pay for getting sente. Well I'll let it pass.RIGHT])\n(;B[sb];W[sd])\n(;B[oa];W[pd]\n(;B[sd]C[Alive, but in gote AND losing most of your stones - that is not good enough.])\n(;B[sc]C[Alive in gote with just a small part of your group - you could have saved a lot more than this.])))\n(;B[oc];W[pc]\n(;B[pd];W[sd]\n(;B[rc];W[oa])\n(;B[sc];W[rc])\n(;B[oa];W[rc]))\n(;B[sd];W[pd]C[Alive in sente albeit with just a small part of your group.RIGHT])\n(;B[sc];W[pd]C[Alive in sente albeit with just a small part of your group.RIGHT])\n(;B[sb];W[sd])\n(;B[oa];W[sd]))\n(;B[pd];W[sd]))\n(;B[qa];W[ra])\n(;B[pc];W[ra]\n(;B[sc];W[sb]C[Ko])\n(;B[oc];W[qa]\n(;B[sc];W[sb]C[Ko])\n(;B[sb];W[sd])\n(;B[sd];W[sb];B[sc];W[rc]C[Ko])\n(;B[oa];W[sc]\n(;B[sd];W[sb])\n(;B[sb];W[sd]))))\n(;B[sc];W[ra];B[pc];W[sb]C[Ko])\n(;B[sd];W[ra]\n(;B[pc];W[sb])\n(;B[sb];W[oc])))\n(;B[pb];W[pc]\n(;B[oc];W[qa]\n(;B[qc];W[ob]\n(;B[ra];W[sd]MA[pd]MA[rc])\n(;B[pd];W[sd]\n(;B[pb];W[oa]MA[rc]C[S17 is just a false eye. Black is dead.])\n(;B[ra];W[rc])\n(;B[oa];W[rc])\n(;B[sc];W[rc]))\n(;B[sc];W[ra]))\n(;B[ob];W[pd])\n(;B[pd];W[ob]\n(;B[qc];W[sd]\n(;B[pb];W[oa]MA[rc]C[S17 is just a false eye. Black is dead.])\n(;B[ra];W[rc])\n(;B[oa];W[rc])\n(;B[sc];W[rc]))\n(;B[ra];W[qc]\n(;B[rc];W[pa];B[sd];W[sb])\n(;B[pa];W[rc]))\n(;B[sc];W[ra]))\n(;B[ra];W[qc]\n(;B[rc];W[ob])\n(;B[sd];W[rc])\n(;B[pd];W[ob])\n(;B[ob];W[pd])))\n(;B[pd];W[qa])\n(;B[qc];W[qa]))\n(;B[pc]\n(;W[pb]\n(;B[qc];W[ra]\n(;B[sc];W[sb]C[Ko])\n(;B[oc];W[qa]\n(;B[sc];W[sb]C[Ko])\n(;B[sb];W[sd])\n(;B[sd];W[sb];B[sc];W[rc]C[Ko])\n(;B[oa];W[sc]\n(;B[sd];W[sb])\n(;B[sb];W[sd]))))\n(;B[ra];W[oc]\n(;B[pd];W[qa];B[sd];W[se])\n(;B[qa];W[pd]\n(;B[sd];W[se]\n(;B[qc];W[sc];B[rc];W[sb])\n(;B[rc];W[sb])\n(;B[sb];W[rc]\n(;B[sc];W[qc])\n(;B[qc];W[sc]))\n(;B[sc];W[qc]))\n(;B[qc];W[sd])\n(;B[sc];W[qc])\n(;B[sb];W[sd]))\n(;B[qc];W[pd]\n(;B[sd]C[A small life in gote ain't good enough.])\n(;B[sc]C[Alive but too small, and losing sente.]))\n(;B[sd];W[pd];B[qc]C[Alive in gote.])\n(;B[sc];W[qc])))\n(;W[qc];B[pb]))\n(;B[qa];W[ra]\n(;B[pb];W[pc])\n(;B[sa];W[pb]\n(;B[pc];W[ra])\n(;B[ra];W[rc])))\n(;B[ra];W[qc]\n(;B[pc];W[rc]\n(;B[sc];W[sb]\n(;B[sa];W[pb])\n(;B[qa];W[sd])\n(;B[pb];W[sd])\n(;B[pd];W[sd])\n(;B[oc];W[sd])\n(;B[sd];W[pb]))\n(;B[pb];W[sd]\n(;B[qa];W[pd]\n(;B[sb];W[oc])\n(;B[oc];W[sb])\n(;B[qd];W[sb]))\n(;B[pd];W[sb])\n(;B[sb];W[pd]\n(;B[qa];W[oc])\n(;B[qd];W[qa])\n(;B[oc];W[qa]))\n(;B[sc];W[pd]))\n(;B[qa];W[sd]\n(;B[sb];W[pb])\n(;B[pb];W[pd]\n(;B[sb];W[oc])\n(;B[oc];W[sb])\n(;B[qd];W[sb]))\n(;B[pd];W[pb])\n(;B[oc];W[pd]\n(;B[pb];W[sb])\n(;B[sb];W[pb]))\n(;B[sc];W[pd]))\n(;B[pd];W[pb])\n(;B[sd];W[pb]))\n(;B[pb];W[pc]\n(;B[qa];W[pd])\n(;B[oc];W[qa]\n(;B[rc];W[ob])\n(;B[sd];W[rc])\n(;B[pd];W[ob]\n(;B[rc];W[pa];B[sd];W[sb])\n(;B[pa];W[rc]))\n(;B[ob];W[pd]))\n(;B[pd];W[qa])\n(;B[rc];W[qa]))\n(;B[oc];W[pb]\n(;B[qa];W[pd])\n(;B[pd];W[qa])\n(;B[pc];W[pd])\n(;B[rc];W[qa]))\n(;B[rc];W[qa])\n(;B[sd];W[rc]\n(;B[qa];W[pb]\n(;B[sc];W[sb])\n(;B[sb];W[sc])\n(;B[pc];W[sb]))\n(;B[sc];W[pb]\n(;B[qa];W[sb])\n(;B[sb];W[qa])\n(;B[pc];W[qa]))\n(;B[pb];W[pc]\n(;B[oc];W[pd])\n(;B[pd];W[qa])\n(;B[qa];W[pd])\n(;B[sc];W[qa])\n(;B[sb];W[qa]))\n(;B[pc];W[pb]))\n(;B[qa];W[rc]\n(;B[sc];W[sb]\n(;B[sa];W[pb])\n(;B[pb];W[sd])\n(;B[sd];W[pb])\n(;B[pc];W[sd])\n(;B[oc];W[sd])\n(;B[pd];W[sd]))\n(;B[pc];W[sd]\n(;B[sb];W[pb])\n(;B[pb])\n(;B[pd];W[pb])\n(;B[oc];W[pd]\n(;B[pb])\n(;B[sb];W[pb]))\n(;B[sc];W[pd]))\n(;B[pb];W[sd]\n(;B[pd];W[pc])\n(;B[pc];W[pd]\n(;B[sb];W[oc])\n(;B[oc];W[sb])\n(;B[qd];W[sb]))\n(;B[sb];W[pd]))\n(;B[sb];W[pc]\n(;B[sc];W[pd])\n(;B[pd];W[sd]))\n(;B[oc];W[pc]\n(;B[pb];W[sd])\n(;B[pd];W[sd]))\n(;B[sd];W[pb]\n(;B[sc];W[sb])\n(;B[sb];W[sc])\n(;B[pc];W[sb]))\n(;B[pd];W[pb];B[sc];W[sb]))))\n(;B[qc];W[pc]\n(;B[pb];W[qa]\n(;B[qb];W[ra])\n(;B[rc];W[qb])\n(;B[sd];W[qb]))\n(;B[qb];W[pb])\n(;B[qa];W[pb])\n(;B[rc];W[qb])\n(;B[sd];W[qb])))",
+  "author": {
+    "id": 3759,
+    "name": "BartTM",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-14",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1476.63
+  },
+  "avgSolveTimeSeconds": 77,
+  "attempts": {
+    "solved": 28,
+    "failed": 211,
+    "tries": 239,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-04-07T15:18:30+00:00",
+  "source": "Problem 13616",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4039,
+  "elo": 1291.5362002256,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -2,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.6,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cr]AB[dr]AB[ep]AB[fq]AB[fr]AB[gq]AB[hr]AB[fo]AB[go]AB[gn]AB[gm]AB[fl]AB[fk]AW[br]AW[cq]AW[cp]AW[dp]AB[do]AB[co]AB[bo]AB[bp]AW[eo]AW[en]AW[fn]AW[fm]AW[dn]AW[cn]AW[gl]AW[gk]AW[fj]AW[fi]AW[hj]AW[cj]AW[di]LB[bq:A]LB[bn:B]C[Can you catch the black stones? Or do you give up the corner?]AP[goproblems]\n(;W[bq];B[bn]\n(;W[cm];B[bm];W[bl];B[ap]\n(;W[bs];B[aq];W[am];B[dq];W[an];B[cs];W[al];B[ar];W[ao];B[as]C[You can't win the semai])\n(;W[ar];B[bs];W[am];B[dq];W[an];B[cs];W[al];B[as];W[ao];B[aq]C[You can't win the semai])\n(;W[am];B[bs];W[an];B[dq];W[al];B[ar];W[ao];B[aq]C[You can't win the semai]))\n(;W[bm];B[cm]\n(;W[dm];B[cl]\n(;W[dl];B[bl];W[am];B[ap];W[an];B[al];W[aq];B[ao];W[am];B[bs];W[bm];B[an];W[bm];B[am];W[ck];B[dq]C[You can't win the semai])\n(;W[bl];B[dl]))\n(;W[bl];B[dm])\n(;W[cl];B[dm]))\n(;W[cl];B[bm]C[WC8 is a 'good style' move (Thanks tderz for the comment)]\n(;W[cm];B[bl];W[bk];B[bs]C[WC8 was 'good style' move. (Thanks tderz for the comment). But black got 5 liberties and white 4. You lose the semai.])\n(;W[bl];B[cm]C[After WC8, white can in general block with WB8. But it's not a good idea here.];W[el];B[dm];W[ek];B[em];W[fl])))\n(;W[bn]C[RIGHT];B[bq]C[Right you couldn't save these stones.RIGHT]))",
+  "author": {
+    "id": 6276,
+    "name": "Lok",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-03-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 3104,
+    "failed": 5774,
+    "tries": 8878,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-07T10:08:43+00:00",
+  "source": "Morphi-Lok on KGS",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2279,
+  "elo": 971.96954244786,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 16,
+    "negativeFlagSum": 0,
+    "flagSum": 16
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to play : do your best to save the marked stones.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 37,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[Blanc]PB[Noir]AW[do][fo][go][ho][dp][fp][ip][dq][fq][iq][er][ir][ds][is]AB[cn][cp][gp][cq][eq][gq][cr][dr][gr][gs]TR[gp][gq][gr][gs]C[Black to play : do your best to save the marked stones.]\r\n(;B[es]\r\n;W[fs]\r\n(;B[fr]\r\n;W[ep]\r\n(;B[cs]C[RIGHT White cannot connect at E1, black connect unconditionally.])\r\n(;B[es]CR[es]C[RIGHT In some circumtances, the move in E1 can be a better end-game move than the move in C1.]))\r\n(;B[cs]\r\n;W[fr]))\r\n(;B[fr]\r\n;W[es])\r\n(;B[cs]\r\n;W[es]))",
+  "author": {
+    "id": 3145,
+    "name": "karmaGfa",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 12141,
+    "failed": 10974,
+    "tries": 23115,
+    "speedSolved": 8,
+    "speedPlay": 31
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-05-24T04:18:50+00:00",
+  "source": "a korean teaching book translated in traditionnal chinese",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

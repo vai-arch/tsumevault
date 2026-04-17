@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14658,
+  "elo": 1957.6859965215,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Based on a game I reviewed on GTL (slightly modified). There are many variations and I sure missed some details, feel free to comment.\r\nThis time doing one point worse than the supercorrect solution is not the goal - but if you do something too crazy or obviously worse you'll still get wrong. So my advice is still always try to play the best way :)",
+  "rating": {
+    "stars": 4,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cb]AB[ec]AB[gc]AB[hc]AB[id]AB[hf]AB[hg]AW[fd]AW[gd]AW[cd]AW[de]AW[ff]AW[ci]AW[bh]AW[dm]AW[jc]AW[jd]AW[kd]AW[kb]AW[jf]AW[kf]AW[ig]AW[jk]AW[di]AW[jl]AW[kk]AW[dk]AW[ck]AW[dl]AW[gk]AW[gj]C[Common game, black to play - what will you do locally?]AB[gh]AB[fh]AB[eh]AB[ei]AB[ej]AW[fl]AB[gi]AW[fj]AW[ij]AW[dg]AB[ie]AB[gg]AW[ii]AW[jh]AW[eg]AW[fg]AW[ee]AP[goproblems]\n(;B[bc];W[fc];B[fb];W[eb]\n(;B[db];W[gb];B[ea];W[hb]C[White is happy])\n(;B[gb];W[dc];B[ea];W[db];B[da];W[ib]C[You are dead, white is very happy])\n(;B[ga];W[dc];B[ea];W[db];B[da];W[ic]\n(;B[ib];W[hd]C[White is happy])\n(;B[hd];W[hb]C[You died, white is very happy])))\n(;B[bb];W[fc];B[fb];W[eb];B[ga];W[dc];B[ea];W[db];B[da];W[ca];B[ba];W[bd]C[You died, white is very happy])\n(;B[dc]\n(;W[bb]C[CHOICE]\n(;B[bc];W[cc]\n(;B[ba];W[ab]\n(;B[eb];W[bd]C[Finish the position...];B[ib]C[Good enough if you get this point.RIGHT])\n(;B[ac];W[fc];B[fb];W[eb]\n(;B[gb];W[db];B[aa];W[dd];B[ea];W[ed];B[da];W[ib])\n(;B[ga];W[db];B[aa];W[dd];B[da];W[ed];B[ea];W[ic]\n(;B[hd];W[hb])\n(;B[hb];W[hd]))))\n(;B[ab];W[fc];B[fb]\n(;W[ba]C[CHOICE];B[ca];W[db];B[aa];W[eb]\n(;B[ga];W[ed];B[ea];W[dd];B[da]LB[bd:A]LB[ib:B]C[Good, AB are miai.RIGHT])\n(;B[gb];W[dd];B[ea];W[ed];B[da]LB[bd:A]LB[ib:B]C[AB are miai, good.RIGHT])\n(;B[fa];W[ed];B[ea];W[dd];B[da]LB[bd:A]LB[ib:B]C[AB are miai, good.RIGHT])\n(;B[ea];W[gb];B[da];W[hb]))\n(;W[db];B[ba];W[eb];B[gb];W[ed];B[ea];W[dd];B[da]C[RIGHT]))\n(;B[da];W[ba]C[White tricked you, got the corner and is okay.])\n(;B[ca]\n(;W[bd];B[ba];W[ab];B[ib]C[Okay result.RIGHT])\n(;W[db];B[ab];W[fc];B[fb];W[eb];B[gb];W[ed];B[ea];W[dd];B[da]C[RIGHT])))\n(;B[ib];W[cc]C[You live, but could do better on points. White is okay.])\n(;B[ba];W[bc];B[ib]C[PossibleRIGHT])\n(;B[da]C[Sorry, but this move is a mistake]))\n(;W[bc]C[White should probably play this, but that would be no fun in a goproblem :)]\n(;B[bb]LB[ib:B]C[AB are miai now.RIGHT]LB[ab:A])\n(;B[ib]C[+- equal to playing B18RIGHT])))\n(;B[db];W[bc]\n(;B[bb]C[Yes, the easiest good way for black :-)CHOICERIGHT])\n(;B[ib];W[bb]LB[ba:A]LB[fb:B]C[A or B?]\n(;B[ba];W[ic];B[hd];W[fb];B[fc];W[gb];B[hb];W[ca]C[Dead!])\n(;B[fb]C[Yes :)RIGHT])))\n(;B[cc];W[fc];B[fb];W[eb];B[ga];W[dc];B[ea];W[ed]\n(;B[da];W[bc];B[bb];W[bd]\n(;B[ab];W[ic];B[hd];W[hb])\n(;B[db];W[ic];B[hd];W[hb]C[White has a few step flowering ko to kill black.]))\n(;B[db];W[bc]\n(;B[bb];W[bd];B[ib];W[ab]C[Depends on a few step flowering ko - not very good.])\n(;B[ec]C[Yes, black should start taking ko now. Quite painful as black risks much more than white in it.])))\n(;B[ib];W[bb]\n(;B[db];W[bc]\n(;B[ba];W[ic];B[hd];W[fb];B[fc];W[gb];B[hb];W[ca]C[Dead!])\n(;B[fb]C[Yes :)RIGHT]))\n(;B[dc];W[cc]C[You live, but could do better on points. White is okay.]))\n(;B[eb];W[bc];B[bb]TR[eb]C[The marked move was quite strange, but looks like it works quite okay.RIGHT])\n(;B[fc];W[bb]\n(;B[db];W[ba]\n(;B[ib]C[PossibleRIGHT])\n(;B[cc];W[bc];B[ib]C[RIGHT]))\n(;B[dc];W[cc]C[Your last move was a mistake, allowing white to play this.]))\n(;B[fb];W[bb];B[db];W[bc];B[ib]C[Possible for blackRIGHT]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 77,
+  "attempts": {
+    "solved": 35,
+    "failed": 188,
+    "tries": 223,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-03-27T04:27:19+00:00",
+  "source": "Game I reviewed",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

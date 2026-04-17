@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19168,
+  "elo": 1249.3322618799,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Fourteen pros chose this problem. It's a position that often comes up in actual games. There seem to be two vital points, so the problem is to find the genuine one. Bear in mind that White's outside liberties are all \r\nfilled in. \r\n",
+  "rating": {
+    "stars": 3.9,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[rp]AB[ro]AB[qo]AB[po]AB[oo]AB[op]AB[oq]AB[nr]AB[mq]AW[rq]AW[qp]AW[pp]AW[pq]AW[pr]AW[or]C[Black to play and kill White](;B[sr];W[sq];B[rr](;W[qr];B[sp];W[qq](;B[os]LB[sr:1]LB[sq:2]LB[rr:3]LB[qr:4]LB[sp:5]LB[qq:6]LB[os:7]C[Black 1 is the real vital point, in accordance with the proverb, 'the 2-1 point is the vital point'. Intercepting at 2 is White's only answer, but Black destroys his eye space with 3 and 5, then hanes at 7, killing White. RIGHT])(;B[rs]C[RIGHT]))(;W[os](;B[sp];W[qq](;B[ns]LB[os:1]LB[sp:2]LB[qq:3]LB[ns:4]LB[qs:a]C[If White plays at 1 here, Black captures him with 2 and 4. Note that things would be different if White had an outside liberty. In that case, Black would play 4 at 'a' \u0014 we'll leave it up to you to determine what the result will be then. RIGHT])(;B[qs]C[RIGHT])(;B[qr]C[RIGHT]))(;B[qr](;W[qs];B[qq]C[RIGHT])(;W[qq](;B[qs]C[RIGHT])(;B[sp]C[RIGHT])(;B[ns]C[RIGHT])))))(;B[rr];W[sr];B[qr];W[rs];B[qs];W[qq]LB[rr:1]LB[sr:2]LB[qr:3]LB[rs:4]LB[qs:5]LB[qq:6]C[The easy mistake to make is Black 1. This also looks like a vital point for eye shape, but in this case White can resist with 2. If Black 3, White can challenge Black to a ko.])(;B[sq];W[sr];B[rr];W[sp];B[qr];W[rs]LB[sq:1]LB[sr:2]LB[rr:3]LB[sp:4]LB[qr:5]LB[rs:6]C[If Black hanes at 1, White counters with 2. Even though Black threatens his eye shape with 3 and 5, White can again resort to a ko.]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 32,
+  "attempts": {
+    "solved": 596,
+    "failed": 1110,
+    "tries": 1706,
+    "speedSolved": 4,
+    "speedPlay": 8
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-03-07T15:11:09+00:00",
+  "source": "varius",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 183,
+      "name": "The Top Ten Life-and-Death Problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

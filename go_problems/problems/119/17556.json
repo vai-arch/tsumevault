@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17556,
+  "elo": 1601.8266897656,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Thanks to Blyx and krt for pointing out some interesting variations.",
+  "rating": {
+    "stars": 3.8,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[It is the late endgame and white has just taken the ko. The only ko threats are local. The rest of the board has been counted and, as it stands, black is 6 points ahead. Lead black to victory.]AW[nm]AW[om]AW[pm]AW[qm]AW[rm]AW[nn]AW[rn]AW[sn]AW[mo]AW[oo]AW[so]AW[jp]AW[kp]AW[lp]AW[mp]AW[np]AW[pp]AW[rp]AW[jq]AW[ir]AW[kr]AW[mr]AW[or]AW[is]AW[ks]AW[ls]AW[ms]AW[ns]AW[os]AB[on]AB[pn]AB[po]AB[qo]AB[ro]AB[op]AB[sp]AB[kq]AB[lq]AB[mq]AB[nq]AB[oq]AB[sq]AB[lr]AB[nr]AB[pr]AB[qr]AB[ps]AB[rs]MA[oo]LB[no:ko]\n(;B[pq]\n(;W[qp]C[CHOICE]\n(;B[rq];W[qn]C[Jigo.])\n(;B[qq];W[qn];B[rq]C[JIGO.])\n(;B[no];W[rq]\n(;B[jr];W[js]\n(;B[sr];W[oo]C[You have no ko threats left. Your whole group is dead.])\n(;B[rr];W[sr]C[Your whole group is dead.]))\n(;B[sr];W[oo]\n(;B[jr];W[js];B[no]C[Great! White's got no more ko threats.RIGHT])\n(;B[js];W[jr];B[no]C[White has no more ko threats. You win.RIGHT]))\n(;B[rr];W[sr]C[Your whole group is dead.])))\n(;W[rq]C[CHOICE]\n(;B[qp];W[rr]C[Black is dead.])\n(;B[rr];W[sr]\n(;B[qp]\n(;W[qq]C[CHOICE]\n(;B[no]C[Good. White hasn't got any ko threats, so the marked square is an eye.RIGHT]TR[pp])\n(;B[ss];W[qn];B[no]C[Good. White has no more ko threats, so Q4 is an eye.RIGHT]))\n(;W[no]C[CHOICE]\n(;B[sp];W[sq]\n(;B[qq]C[That'll do for the win, but the T4 T3 exchange was not necessary.RIGHT])\n(;B[ss];W[sp];B[qq]C[That's good enough for the win, but all those forcing moves were not necessary.RIGHT]))\n(;B[qq]C[Very good.RIGHT])\n(;B[ss]C[RIGHT]\n(;W[qq]C[CHOICE]\n(;B[sp]C[White is caught in a snapback.RIGHT])\n(;B[sq];W[sp]C[Only one eye.]))\n(;W[sq]C[CHOICE];B[qq];W[sp]C[Good work.RIGHT]))))\n(;B[no];W[sp]C[Black's dead.]))\n(;B[sr];W[rr]\n(;B[qq];W[ss]\n(;B[qp];W[sp]C[You can't make two eyes now.])\n(;B[sr];W[qp]C[Dead.]))\n(;B[qp];W[ss];B[sr];W[sp]C[You can't get two eyes now.])\n(;B[no];W[ss];B[sr];W[sp]C[You can't make two eyes now.]))))\n(;B[qp];W[pq]\n(;B[rq];W[qq]C[You lose by 5.])\n(;B[qq]C[You lose by 3.]))\n(;B[no]C[Illegal ko recapture. White wins by forfeit.NOTTHIS])\n(;B[qq];W[pq]C[Even if you live in the corner, that big capture puts white well ahead.])\n(;B[rq];W[pq]C[Even if you live in the corner, that big capture puts white well ahead.])\n(;B[jr];W[pq]C[Even if you live in the corner, that big capture puts white ahead.])\n(;B[js];W[pq]C[Even if you manage to live in the corner, this capture is enough to win the game for white.])\n(;B[qn];W[pq]C[Worst possible thing you could have done.])\n(;B[rr];W[pq]C[You can live in the corner, but that big capture is enough to win the game for white.])\n(;B[sr];W[pq]C[You can live in the corner, but that big capture is enough to win the game for white.]))",
+  "author": {
+    "id": 65527,
+    "name": "Plokijuh",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-10-14",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 102,
+  "attempts": {
+    "solved": 283,
+    "failed": 561,
+    "tries": 844,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-12-17T01:39:38+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

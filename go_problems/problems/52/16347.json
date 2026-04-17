@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16347,
+  "elo": 1796.1970121827,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ae]AB[be]AB[ce]AB[cd]AB[cc]AB[da]AB[fb]AB[gb]AB[gc]AB[gd]AB[fd]AB[ee]AW[dc]AW[fc]AW[ec]AW[eb]AW[bc]AW[cb]AW[ea]C[Black to get the best result (kill > ko > seki > alive).]AP[goproblems]\n(;B[ba]\n(;W[bb]C[CHOICE];B[ac]\n(;W[ca];B[ab];W[aa];B[ad]C[RIGHT])\n(;W[ab];B[ca];W[ad];B[bd]C[RIGHT]))\n(;W[ab];B[bb];W[ac];B[bd];W[db];B[ad]C[RIGHT])\n(;W[ca];B[bb];W[db];B[ac]C[RIGHT])\n(;W[ac];B[bb];W[ab];B[bd];W[db];B[ad]C[RIGHT]))\n(;B[ac];W[ab]\n(;B[ba];W[ca];B[bb];W[aa];B[bb];W[ad];B[bd];W[ba];B[ac]C[Only ko (actually I didn't find a better way, but there is one).])\n(;B[bd];W[bb]))\n(;B[bb];W[ba];B[ab];W[ac])\n(;B[ab];W[ac];B[bb];W[ba]))",
+  "author": {
+    "id": 24106,
+    "name": "Piccolo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1452.04
+  },
+  "avgSolveTimeSeconds": 72,
+  "attempts": {
+    "solved": 90,
+    "failed": 325,
+    "tries": 415,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-07-28T05:17:30+00:00",
+  "source": "mingjiu tsumego on KGS+ (July 2012)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

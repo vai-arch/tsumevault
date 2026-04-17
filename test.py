@@ -1,7 +1,4 @@
-import sqlite3
-con = sqlite3.connect('tsumeVault.db')
-con.execute("DELETE FROM problems WHERE source='guo_juan'")
-con.execute("DELETE FROM chapters WHERE source='guo_juan'")
-con.execute("DELETE FROM collections WHERE source='guo_juan'")
-con.commit()
-con.close()
+import requests
+
+url = "https://goproblems.com/api/collections?text=&offset=0&limit=10&order=Size&sortDirection=desc"
+print(requests.get(url, headers={"User-Agent": "Mozilla/5.0"}).json())

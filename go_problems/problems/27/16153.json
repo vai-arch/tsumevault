@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16153,
+  "elo": 951.25367654182,
+  "problemLevel": 8,
+  "rank": {
+    "value": 22,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 37,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ap]AB[aq]AB[ar]AB[as]AB[fp]AB[fq]AB[fr]AW[eq]AW[dq]AW[cq]AW[bq]AW[cp]AW[co]AW[cn]AW[bn]AW[an]C[Black to connect the marked stones unconditionally.FORCE]TR[ap]TR[aq]TR[ar]TR[as]AP[goproblems]\r\n(;B[cs];W[ds]C[FORCE]\r\n(;B[dr]C[CHOICE]\r\n(;W[er]C[FORCE]\r\n(;B[es];W[cr]C[FORCE]\r\n(;B[ds]C[Black is connected.RIGHT])\r\n(;B[bs];W[ds]C[Ko.])\r\n(;B[br];W[ds]C[Ko.])\r\n(;B[fs];W[ds]C[Ko.]))\r\n(;B[cr];W[es])\r\n(;B[br];W[es])\r\n(;B[bs];W[es]))\r\n(;W[cr]C[FORCE]\r\n(;B[es];W[er]C[FORCE]\r\n(;B[ds]C[Black is connected.RIGHT])\r\n(;B[bs];W[ds]C[Ko.])\r\n(;B[br];W[ds]C[Ko.])\r\n(;B[fs];W[ds]C[Ko.]))\r\n(;B[bs];W[er])\r\n(;B[er];W[bs])\r\n(;B[br];W[er])))\r\n(;B[cr];W[dr])\r\n(;B[er];W[dr])\r\n(;B[es];W[dr])\r\n(;B[br];W[dr])\r\n(;B[bs];W[dr]))\r\n(;B[ds];W[cs]C[FORCE]\r\n(;B[cr];W[es]C[FORCE]\r\n(;B[bs];W[er])\r\n(;B[er];W[dr])\r\n(;B[dr];W[er])\r\n(;B[br];W[er])\r\n(;B[fs];W[er]))\r\n(;B[bs];W[cr])\r\n(;B[br];W[cr])\r\n(;B[dr];W[cr])\r\n(;B[es];W[cr])\r\n(;B[er];W[cr]))\r\n(;B[es];W[cs]C[FORCE]\r\n(;B[er];W[cr])\r\n(;B[ds];W[cr])\r\n(;B[dr];W[cr])\r\n(;B[cr];W[dr]C[FORCE]\r\n(;B[ds];W[br])\r\n(;B[br];W[ds])\r\n(;B[bs];W[ds])\r\n(;B[er];W[ds]))\r\n(;B[bs];W[cr])\r\n(;B[br];W[cr]))\r\n(;B[bs]\r\n(;W[ds]C[FORCE]\r\n(;B[br];W[dr])\r\n(;B[cr];W[dr])\r\n(;B[cs];W[dr])\r\n(;B[es];W[dr])\r\n(;B[er];W[dr])\r\n(;B[dr];W[er]C[FORCE]\r\n(;B[cr];W[es])\r\n(;B[cs];W[es])\r\n(;B[br];W[es])\r\n(;B[es];W[fs])))\r\n(;W[dr]C[FORCE]\r\n(;B[ds];W[es]C[FORCE]\r\n(;B[er];W[cs])\r\n(;B[cs];W[er])\r\n(;B[cr];W[er])\r\n(;B[br];W[er]))\r\n(;B[cr];W[ds])\r\n(;B[cs];W[ds])\r\n(;B[br];W[ds])\r\n(;B[es];W[ds])\r\n(;B[er];W[ds])))\r\n(;B[er];W[dr]\r\n(;B[ds];W[cs]\r\n(;B[es];W[cr])\r\n(;B[cr];W[es])\r\n(;B[br];W[es])\r\n(;B[bs];W[es]))\r\n(;B[es];W[ds])\r\n(;B[cs];W[ds])\r\n(;B[cr];W[ds])\r\n(;B[br];W[ds])\r\n(;B[bs];W[ds]))\r\n(;B[dr];W[er]C[FORCE]\r\n(;B[es];W[cs]C[FORCE]\r\n(;B[cr];W[br]C[FORCE]\r\n(;B[bs];W[ds])\r\n(;B[ds];W[fs])\r\n(;B[fs];W[ds]))\r\n(;B[ds];W[cr])\r\n(;B[bs];W[cr])\r\n(;B[br];W[cr]))\r\n(;B[ds];W[es])\r\n(;B[cs];W[es])\r\n(;B[cr];W[es])\r\n(;B[br];W[es])\r\n(;B[bs];W[es]))\r\n(;B[cr];W[er]\r\n(;B[dr];W[es])\r\n(;B[ds];W[es])\r\n(;B[cs];W[es])\r\n(;B[bs];W[es])\r\n(;B[br];W[es])\r\n(;B[es];W[ds]\r\n(;B[fs];W[dr])\r\n(;B[cs];W[fs])\r\n(;B[bs];W[fs])\r\n(;B[br];W[fs])\r\n(;B[dr];W[fs])))\r\n(;B[br];W[er]C[FORCE]\r\n(;B[dr];W[es])\r\n(;B[ds];W[es])\r\n(;B[cr];W[es])\r\n(;B[cs];W[es])\r\n(;B[es];W[ds]C[FORCE]\r\n(;B[dr];W[fs])\r\n(;B[cr];W[fs])\r\n(;B[fs];W[dr])\r\n(;B[cs];W[fs])\r\n(;B[bs];W[fs]))\r\n(;B[bs];W[es])))",
+  "author": {
+    "id": 48328,
+    "name": "stefliew",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-07-18",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 3510,
+    "failed": 5044,
+    "tries": 8554,
+    "speedSolved": 17,
+    "speedPlay": 24
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-06-11T00:45:55+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

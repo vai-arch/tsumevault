@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 18980,
+  "elo": 1059.0078526481,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.8,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bb]AB[cb]AB[db]AB[fb]AB[gb]AW[hc]AW[hb]AW[fc]AW[fd]AW[dc]AW[dd]AW[bc]AW[bd]AP[goproblems]\n(;B[eb];W[ab]\n(;B[ba];W[ga];B[fa];W[da]C[CHOICE])\n(;B[ga];W[ba];B[ca];W[ea]C[CHOICE])\n(;B[da]\n(;W[ba];B[ca];W[ac];B[aa];W[ga])\n(;W[ga]\n(;B[ba];W[fa])\n(;B[fa];W[ba];B[ca];W[ac]))))\n(;B[ab];W[eb]\n(;B[ea];W[ec]C[CHOICE])\n(;B[da];W[ba]C[CHOICE]))\n(;B[ea];W[ga];B[ab]C[RIGHT])\n(;B[ga];W[eb];B[ea];W[ec]C[CHOICE]))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 1251,
+    "failed": 1700,
+    "tries": 2951,
+    "speedSolved": 8,
+    "speedPlay": 12
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-12-27T16:39:33+00:00",
+  "source": "Encyclopedia of Life and Death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 64,
+      "name": "Life on 2nd Line",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 180,
+      "name": "Encyclopedia of Life and Death - Medium",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 312,
+  "elo": 904.72663384073,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 24,
+    "negativeFlagSum": 0,
+    "flagSum": 24
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "White can take the Black group in the corner.\r\nThis suprised me. I thought Black was alive in the corner. But late in the endgame, i wanted a ko threat, and played a stone that killed the whole group.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 50,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nFF[4]\r\nGM[1]\r\nSZ[19]\r\nAP[Jago:Version 4.34]\r\nAB[mn][lo][nl][lm][nm][nn][oo][pr][ns][nr][oq][op][pp][qp][qq][rr][rs][ss][ko]\r\nAW[kp][lp][np][mo][no][om][on][qm][po][qo][so][rp][sr][sq][rq][nq][mq][mr][ms]\r\nC[White to kill]\r\nGN[Clipboard Content]\r\n(\r\n;\r\nW[qr]\r\n;\r\nB[qs]\r\n)\r\n(\r\n;\r\nW[os]\r\n;\r\nB[or]\r\n(\r\n;\r\nW[qs]\r\n;\r\nB[qr]\r\n)\r\n(\r\n;\r\nW[ps]\r\n;\r\nB[qs]\r\n)\r\n(\r\n;\r\nW[qr]\r\n;\r\nB[qs]\r\n)\r\n)\r\n(\r\n;\r\nW[qs]\r\n;\r\nB[qr]\r\n(\r\n;\r\nW[os]\r\n;\r\nB[or]\r\n)\r\n(\r\n;\r\nW[or]\r\n;\r\nB[os]\r\n)\r\n(\r\n;\r\nW[ps]\r\n;\r\nB[os]\r\n)\r\n)\r\n(\r\n;\r\nW[ps]\r\n(\r\n;\r\nB[or]\r\nC[CHOICE]\r\n(\r\n;\r\nW[qr]\r\n;\r\nB[qs]\r\n;\r\nW[qr]\r\nC[RIGHT\r\nQ1 set up a snapback.]\r\nTR[ps]\r\n)\r\n(\r\n;\r\nW[qs]\r\n;\r\nB[qr]\r\n)\r\n(\r\n;\r\nW[os]\r\n;\r\nB[qs]\r\n)\r\n)\r\n(\r\n;\r\nB[qr]\r\nC[CHOICE]\r\n(\r\n;\r\nW[or]\r\n;\r\nB[os]\r\n;\r\nW[or]\r\nC[RIGHT\r\nQ1 prepared the snapback.]\r\nTR[ps]\r\n)\r\n(\r\n;\r\nW[os]\r\n;\r\nB[or]\r\n)\r\n(\r\n;\r\nW[qs]\r\n;\r\nB[os]\r\n)\r\n)\r\n)\r\n(\r\n;\r\nW[or]\r\n;\r\nB[os]\r\n)\r\n)",
+  "author": {
+    "id": 8,
+    "name": "takengive",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-10-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 27952,
+    "failed": 16897,
+    "tries": 44849,
+    "speedSolved": 23,
+    "speedPlay": 36
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2000-12-13T20:24:03+00:00",
+  "source": "A game I played, December 2000.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

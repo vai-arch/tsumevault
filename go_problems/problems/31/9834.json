@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9834,
+  "elo": 1375.6059082374,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -5,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[qa]AW[qb]AW[rb]AW[rc]AB[sa]AB[sc]AB[sd]AB[pa]AB[pb]AB[oa]AB[oc]AB[pc]AB[qc]AB[qd]AB[qe]AB[re]AW[na]AW[ma]AW[sf]AW[rf]AW[qf]AW[pe]AW[oe]AW[nc]AW[mb]AW[ob]AW[nd]C[Is black unconditionally (D)ead, unconditionally a(L)ive, will this become (S)eki or (K)o, or can black save the stones with a clever (M)ove?FORCE]LB[lf:D]LB[mf:L]LB[lg:S]LB[mg:K]LB[ng:M]AW[lc]AW[pg]AP[goproblems]\n(;B[lf]C[Oh no!  Don't give up hope so quickly for your poor stones ...])\n(;B[mf];W[ra])\n(;B[lg]C[No, you can live with points.])\n(;B[mg]C[No, you can live without ko.])\n(;B[ng];W[mg]C[Ok, what clever move will save the stones?]\n(;B[sb];W[ra])\n(;B[rd];W[ra])\n(;B[nb]C[hmmm])\n(;B[ra]\n(;W[se]C[CHOICE]\n(;B[sb];W[rd]C[:O])\n(;B[rd];W[sb]C[Continue playing locally if necessary; otherwise (T)enuki.]LB[nh:T]\n(;B[nh];W[ra]C[;(])\n(;B[sa];W[ra])\n(;B[ra]C[:)RIGHT])))\n(;W[sb]C[Continue playing locally if necessary; otherwise (T)enuki.CHOICE]LB[nh:T]\n(;B[nh];W[ra]C[;(])\n(;B[se];W[ra])\n(;B[rd];W[ra])\n(;B[ra]C[:)RIGHT])))))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 78,
+  "attempts": {
+    "solved": 1008,
+    "failed": 1853,
+    "tries": 2861,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-03-07T23:26:08+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

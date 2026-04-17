@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13714,
+  "elo": 1396.0055336386,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -2,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "I was (ofcourse) the one who missed.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ea]AB[fb]AB[ec]AB[dc]AB[cc]AB[cd]AB[bd]AB[ae]AB[be]AW[af]AW[cf]AW[bf]AW[ce]AW[de]AW[dd]AW[ed]AW[fd]AW[gb]AW[ga]AW[fa]AB[fc]AW[gc]AW[gd]C[Last endgame move, will you protect the corner?FORCE]LB[jd:Tenuki]LB[je:Protect]AP[goproblems]\n(;B[jd];W[da]C[Defent then, you can't loose a thing.]\n(;B[eb];W[bb]\n(;B[cb];W[ac]\n(;B[ca];W[ba];B[bc];W[ab]C[Seki])\n(;B[ba];W[ca]\n(;B[aa];W[ab];B[ba];W[aa])\n(;B[bc];W[aa])\n(;B[db];W[ca]\n(;B[da]C[White can pick ko or seki now.])\n(;B[aa];W[ab];B[ba];W[aa]\n(;B[da]C[White can choose ko or seki.])\n(;B[bc]C[Seki]))))\n(;B[aa];W[ba];B[ca]))\n(;B[bc];W[ac];B[cb];W[ca])\n(;B[ca];W[cb];B[db];W[ba];B[ac];W[ab];B[bc];W[da])\n(;B[ac];W[cb]\n(;B[ab];W[bc]\n(;B[db];W[ad])\n(;B[ba]))\n(;B[ca];W[ab];B[db];W[ba];B[bc];W[da]))\n(;B[ba];W[cb];B[bc];W[ab];B[db];W[ca];B[ac];W[ad])\n(;B[ab];W[cb]\n(;B[ac];W[bc]\n(;B[db];W[ad])\n(;B[ba]))\n(;B[bc];W[ac]\n(;B[ba];W[aa])\n(;B[ad];W[ba]C[not even seki, you are dead]))))\n(;B[db]C[You lost at least one point now])\n(;B[ca];W[eb]))\n(;B[je]AW[ea]AW[fb]AB[fa]AB[ga]AB[gb]AB[gc]AB[gd]AW[fc]AW[ec]AW[dc]AW[cc]AW[cd]AW[bd]AW[be]AW[ae]AB[af]AB[bf]AB[cf]AB[ce]AB[de]AB[dd]AB[ed]AB[fd]C[Ok, you would protect, so you think you can do something right?];W[jf]C[Ok, you would protect, so you think the corner isn't safe?]\n(;B[da];W[eb]\n(;B[bb];W[cb]\n(;B[ca];W[ac]\n(;B[ab];W[ba];B[aa];W[bc])\n(;B[ba];W[ab];B[bc]C[RIGHT])\n(;B[aa];W[ab])\n(;B[bc];W[ab];B[ba]C[RIGHT]))\n(;B[ac];W[ca]\n(;B[aa];W[ba])\n(;B[ba];W[bc];B[ab]C[Yes, seki.RIGHT]))\n(;B[ba]\n(;W[ca];B[ac];W[bc];B[ab]C[Yes, seki.RIGHT])\n(;W[ac];B[ca];W[ab];B[bc]C[RIGHT]))\n(;B[ab];W[ca]\n(;B[ba];W[ac])\n(;B[ac];W[ba]))\n(;B[bc];W[ca];B[ba];W[ac]))\n(;B[ba];W[bb];B[ab];W[ac];B[cb];W[bc])\n(;B[ac];W[bb]\n(;B[ab];W[ba])\n(;B[ba];W[ab])))\n(;B[cb];W[db];B[ca];W[bb])\n(;B[db];W[cb];B[da];W[eb])\n(;B[ca];W[da]\n(;B[db];W[eb];B[bb];W[cb]\n(;B[ba];W[ac])\n(;B[aa];W[ac]))\n(;B[cb];W[bb]))\n(;B[bb]\n(;W[da]\n(;B[ca];W[cb]\n(;B[ba];W[bc];B[ac];W[ab])\n(;B[ac];W[bc]))\n(;B[cb];W[db]\n(;B[ca];W[ac])\n(;B[ac];W[ca];B[ba];W[bc];B[ab]C[RIGHT]))\n(;B[ba];W[bc];B[ac];W[ab];B[aa])\n(;B[ac];W[cb];B[ba];W[bc];B[ab];W[ca];B[db]C[RIGHT])\n(;B[bc];W[cb];B[ba]C[RIGHT]))\n(;W[cb];B[da];W[eb]\n(;B[ca];W[ac]\n(;B[ab];W[ba];B[aa];W[bc])\n(;B[ba];W[ab];B[bc]C[RIGHT])\n(;B[aa];W[ab])\n(;B[bc];W[ab];B[ba]C[RIGHT]))\n(;B[ac];W[ca]\n(;B[aa];W[ba])\n(;B[ba]))\n(;B[ba]\n(;W[ca];B[ac];W[bc];B[ab]C[Yes, seki.RIGHT])\n(;W[ac];B[ca]))\n(;B[ab];W[ca]\n(;B[ba];W[ac])\n(;B[ac];W[ba]))\n(;B[bc];W[ca];B[ba];W[ac]))\n(;W[db];B[ca];W[cb];B[ba];W[da];B[ac];W[bc];B[ab]C[RIGHT])\n(;W[ca];B[cb];W[db];B[ba];W[da];B[ac];W[bc];B[ab]C[RIGHT])\n(;W[ac];B[da];W[eb];B[cb];W[ab];B[bc];W[ba]C[RIGHT]))))",
+  "author": {
+    "id": 6567,
+    "name": "marwin",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-05-29",
+    "rank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 820.591
+  },
+  "avgSolveTimeSeconds": 74,
+  "attempts": {
+    "solved": 506,
+    "failed": 1065,
+    "tries": 1571,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-05-21T15:25:17+00:00",
+  "source": "Kgs game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

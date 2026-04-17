@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3104,
+  "elo": 1015.0408980429,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 31,
+    "negativeFlagSum": 0,
+    "flagSum": 31
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "A black play at 'A', 'B', 'C', or 'D', each appears to deny white one point of territory.",
+  "rating": {
+    "stars": 4.1,
+    "votes": 57,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[aa][ba][ca][ab][ac][bc][cc][da][dc][ad][ae][be][ce][de][ee][af][ag][bg][cg][dg][eg][fg][ah][ai][bi][ci][di][ei][fi]\r\nAB[fa][ha][ia][db][eb][fb][gb][ib][ec][gc][hc][ic][ed][fd][gd][id][fe][he][ie][ff][gf][if][gg][hg][ig][gh][ih][hi][ii]\r\nLB[cb:A][dd:B][ef:C][fh:D]\r\nC[No komi, no prisoners yet - Black to win.]\r\n\r\n(;B[fh];W[eh]\r\n(;B[ef];W[df]\r\n(;B[dd];W[cd];B[cb]LB[dd:B][ef:C][fh:D]C[RIGHT You won by 1 point. ---------------- Open ended black plays (or white plays that prevent them) such as 'B-D', are more valuable than dead end gote plays such as C8. The greater the number of further moves an open ended play has, the better it is. Black 'D' was the only first move that could win.])\r\n\r\n(;B[cb];W[dd]C[Jigo.]))\r\n\r\n(;B[dd];W[ef]\r\n(;B[cd];W[cb]C[Jigo.])\r\n\r\n(;B[cb];W[cd]C[Jigo.]))\r\n\r\n(;B[cb];W[ef];B[dd];W[cd]C[Jigo.]))\r\n\r\n(;B[ef];W[fh]\r\n(;B[df];W[dd]\r\n(;B[cf];W[cb]C[Jigo.])\r\n\r\n(;B[cb];W[cf]C[Jigo.]))\r\n\r\n(;B[dd];W[df]\r\n(;B[cd];W[cb]C[Jigo.])\r\n\r\n(;B[cb];W[cd]C[Jigo.]))\r\n\r\n(;B[cb];W[df];B[dd];W[cd]C[Jigo.]))\r\n\r\n(;B[dd];W[fh]\r\n(;B[ef];W[df]\r\n(;B[cd];W[cb]C[Jigo.])\r\n\r\n(;B[cb];W[cd]C[Jigo.]))\r\n\r\n(;B[cd];W[ef];B[cb]C[Jigo.])\r\n\r\n(;B[cb];W[ef];B[cd]C[Jigo.]))\r\n\r\n(;B[cb];W[fh]\r\n(;B[ef];W[df];B[dd];W[cd]C[Jigo.])\r\n\r\n(;B[dd];W[ef];B[cd]C[Jigo.])))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 22,
+  "attempts": {
+    "solved": 19243,
+    "failed": 12980,
+    "tries": 32223,
+    "speedSolved": 2,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-10-19T18:31:42+00:00",
+  "source": "Sensei's Library",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 39,
+      "name": "CGT",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

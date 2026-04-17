@@ -1,0 +1,136 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4798,
+  "elo": 1049.3588451622,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "The complement to problem 4756.  White has played the marked stone to attack the tripod group, black to live in the best way possible.",
+  "rating": {
+    "stars": 2.6,
+    "votes": 33,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[pq]AW[qo]AW[oq]AW[mq]AW[qp]AB[pr]AB[qq]AB[rq]AW[rp]TR[rp]AP[goproblems]\n(;B[rr]C[];W[or]\n(;B[qs]C[RIGHT])\n(;B[ps];W[os]\n(;B[qs]C[RIGHT])\n(;B[rs]C[RIGHT])\n(;B[ss];W[qs])\n(;B[qr];W[sq])\n(;B[sq];W[rs]\n(;B[ss];W[sr]C[Ko])\n(;B[qs];W[qr])\n(;B[qr];W[ss]))\n(;B[sr];W[rs]))\n(;B[rs];W[ps])\n(;B[os];W[qs]\n(;B[ps];W[ns]\n(;B[qr];W[sq])\n(;B[rs];W[qr])\n(;B[sq];W[qr]))\n(;B[rs];W[ps]\n(;B[qr];W[ps])\n(;B[ns];W[ms]\n(;B[qr];W[ps])\n(;B[nr];W[mr])\n(;B[mr];W[nr])))\n(;B[ns];W[ps]\n(;B[rs];W[ms]\n(;B[qr];W[ps])\n(;B[nr];W[mr])\n(;B[mr];W[nr]))\n(;B[qr];W[ms]\n(;B[rs];W[ps])\n(;B[nr];W[mr]))\n(;B[sq];W[qr]))\n(;B[sq];W[ps])\n(;B[qr];W[ps]\n(;B[rs];W[ps])\n(;B[ns];W[ms]\n(;B[rs])\n(;B[nr];W[mr]))))\n(;B[sq];W[ps]C[This leads to ko, black can do better.])\n(;B[sr];W[qs]))\n(;B[or];W[rr]\n(;B[qr];W[sq]\n(;B[nq];W[np];B[nr];W[lr])\n(;B[nr];W[lr])\n(;B[mr];W[lr]\n(;B[nr];W[lp])\n(;B[nq];W[np];B[nr];W[lp])\n(;B[ms];W[lp];B[qs];W[sr];B[nq];W[np];B[nr];W[os]))\n(;B[qs];W[sr])\n(;B[rs];W[sr])\n(;B[sr];W[ss];B[qs];W[sp]))\n(;B[sq];W[qr]))\n(;B[rs]C[This lives, but with less points than the correct solution.]\n(;W[sq]C[CHOICE]\n(;B[sr];W[qr]\n(;B[rr];W[or]\n(;B[qs]C[RIGHT])\n(;B[ps]C[RIGHT]))\n(;B[sp];W[ps])\n(;B[ps];W[rr]))\n(;B[or];W[rr];B[qr];W[sr])\n(;B[rr];W[sr]\n(;B[or];W[nr])\n(;B[qs];W[or]))\n(;B[qr];W[sr])\n(;B[ps];W[rr]))\n(;W[qr];B[rr]C[RIGHT])\n(;W[or];B[ps]C[RIGHT]))\n(;B[sr];W[rs]\n(;B[qs]C[See problem 4779 for how white can kill.])\n(;B[or];W[qr]C[If the marked stone were absent, black might be able to get a second eye by crawling out.  However, if this were the case, white would have blocked at P2 instead of S4.]TR[mq]))\n(;B[sq];W[or]\n(;B[rs];W[ps])\n(;B[ps];W[rs]C[This leads to ko, black can do better.])\n(;B[qs];W[rr])\n(;B[rr];W[ps]C[This leads to ko, black can do better.]))\n(;B[qs];W[sr]\n(;B[rr];W[sq]C[White gets a ko this way, black can do better.])\n(;B[sq];W[rr])\n(;B[rs];W[or])\n(;B[or];W[rr]))\n(;B[qr];W[or])\n(;B[ps];W[sr]\n(;B[sq];W[rr];B[qr];W[rs])\n(;B[rr];W[sq])\n(;B[rs];W[sq])))",
+  "author": {
+    "id": 6186,
+    "name": "shaydwyrm",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2016-02-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 3966,
+    "failed": 7299,
+    "tries": 11265,
+    "speedSolved": 12,
+    "speedPlay": 19
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-07-08T17:12:28+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 136,
+      "name": "Tripod",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 283,
+      "name": "9x9 corner fight (core)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 27,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16262,
+  "elo": 1213.632553305,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cr]AB[cq]AB[cp]AB[bp]AB[ap]AB[dp]AB[ep]AW[br]AW[bq]AW[cs]AW[dr]AW[dq]AW[eq]AW[fq]AW[fp]AW[hq]AW[eo]AW[do]AW[co]AW[cn]AW[bn]AW[an]AB[bm]AB[cm]AB[dn]AB[en]AB[fn]AB[fo]C[Black to capture the marked stones.]TR[an]TR[bn]TR[cn]TR[co]TR[do]TR[eo]AP[goproblems]\n(;B[bs]\n(;W[as]\n(;B[aq];W[ds]\n(;B[am];W[bs]\n(;B[bo];W[ar];B[ao]C[RIGHT])\n(;B[ao]C[RIGHT]))\n(;B[bo];W[bs];B[am];W[ar];B[ao]C[RIGHT])\n(;B[ao]C[RIGHT]))\n(;B[am];W[aq]C[seki :(]))\n(;W[ds];B[am];W[as];B[aq];W[bs];B[bo];W[ar];B[ao]C[RIGHT]))\n(;B[ds];W[bs];B[am];W[aq];B[ar];W[es])\n(;B[ar];W[bs];B[am];W[aq]C[only seki])\n(;B[am];W[aq]C[seki :(])\n(;B[bo];W[aq];B[am];W[ao])\n(;B[ao];W[aq];B[am];W[bo])\n(;B[aq];W[bs];B[am];W[ar]C[seki :(]))",
+  "author": {
+    "id": 54704,
+    "name": "kuche12345",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-01-23",
+    "rank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1590.94
+  },
+  "avgSolveTimeSeconds": 59,
+  "attempts": {
+    "solved": 1485,
+    "failed": 2475,
+    "tries": 3960,
+    "speedSolved": 10,
+    "speedPlay": 15
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-07-21T06:23:44+00:00",
+  "source": "Japanese tsumego book",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 144,
+      "name": "Lack of Liberties (Damezumari)",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

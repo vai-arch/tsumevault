@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7683,
+  "elo": 1358.5055262553,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.9,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[as]AB[bs]AB[dr]AB[ds]AB[es]AB[er]AB[aq]AB[bq]AB[cq]AB[ap]AB[bp]AB[bo]AB[dp]AB[ep]AB[eo]AW[dq]AW[eq]AW[fq]AW[fr]AW[fs]AW[fp]AW[fo]AW[fn]AW[dn]AW[en]AW[cn]AW[co]AW[bn]AW[an]AW[ao]C[How should white play here?]AP[goproblems]\r\n(;W[cr]\r\n(;B[br]\r\n(;W[cs];B[dr]\r\n(;W[cp];B[ds]C[RIGHT])\r\n(;W[er];B[ds];W[cp]C[White loses sente.])\r\n(;W[ds];B[es]\r\n(;W[er];B[ds])\r\n(;W[ds];B[cs])))\r\n(;W[cp];B[cs]C[Not optimal.]))\r\n(;B[cs];W[br]C[RIGHT])\r\n(;B[cp];W[cs]C[RIGHT]))\r\n(;W[cp];B[cr]C[Not optimal.])\r\n(;W[cs];B[cr])\r\n(;W[br];B[cr]))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 2934,
+    "failed": 4648,
+    "tries": 7582,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-11-18T04:25:52+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 33,
+      "name": "Under the Stones",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

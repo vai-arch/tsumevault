@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22236,
+  "elo": 1263.4121028848,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Please flag and/or comment if there is a mistake.",
+  "rating": {
+    "stars": 4,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\nAB[eh][eg][fg][ff][gf][ge][jd][mf][di]\r\nAW[dh][dg][ef][fe][ei][fh][gg][hf][gc][kd][eb][mi]\r\n\r\nC[A or B?][FORCE] LB[gd:A][he:B]\r\n\r\n(; W[gd]; B[he]; W[ie]; B[hd] (; W[id]; B[hc] (; W[hb]; B[ic] (; W[jc]; B[ib] (; W[jb] C[RIGHT])(; W[ia]; B[jb]; W[kb]; B[kc]; W[ja]; B[jc] (; W[je]; B[lc])(; W[lc]; B[je] TR[id][ie])))(; W[ib]; B[jc]))(; W[ic]; B[hb]))(; W[hc]; B[id]))\r\n(; W[he]; B[gd] (; W[fd]; B[hd] (; W[id]; B[hc] (; W[hb]; B[ic] (; W[jc]; B[ie]; W[ib]; B[id] (; W[if]; B[je] (; W[ke]; B[jf]; W[jg]; B[kf]; W[lf]; B[kg]; W[kh]; B[lg]; W[mg]; B[lh]; W[li]; B[le]; W[mh]; B[lf])(; W[jf]; B[ke] TR[mf]))(; W[je]; B[if] TR[he][hf]))(; W[ib]; B[jc]))(; W[ic]; B[hb]))(; W[hc]; B[id]))(; W[hd]; B[fd] (; W[ed]; B[ee] (; W[fc]; B[df])(; W[df]; B[fi] TR[ei][fh]))(; W[ee]; B[fi] TR[ei][fh])))\r\n\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 53,
+  "attempts": {
+    "solved": 179,
+    "failed": 352,
+    "tries": 531,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-01-04T03:28:23+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

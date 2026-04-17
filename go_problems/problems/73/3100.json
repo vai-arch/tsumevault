@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3100,
+  "elo": 1519.1529487219,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem appears in \"Hikaru no Go\" episode 2.",
+  "rating": {
+    "stars": 4.6,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[db]AB[dc]AB[cd]AB[bd]AB[ce]AB[de]AB[ee]AB[bf]AB[cf]AB[cg]AB[dg]AW[bc]AW[cc]AW[cb]AW[ec]AW[ed]AW[dd]AW[be]AW[ad]AW[fe]AW[ff]AW[gc]AW[dh]AW[eh]AW[ci]AW[bh]C[Black to live in the corner]AP[goproblems]\n(;B[ef];W[ae]\n(;B[af];W[ac];B[ca];W[eb])\n(;B[ac];W[ab];B[ca];W[eb])\n(;B[ab];W[ac];B[ca];W[eb]))\n(;B[ac];W[ab]\n(;B[ae];W[ef]\n(;B[ca];W[eb])\n(;B[ba];W[eb];B[bb];W[da])\n(;B[ac];W[eb]))\n(;B[ca];W[eb]))\n(;B[ab]C[]\n(;W[ac]C[]\n(;B[ae];W[ef]\n(;B[ca]C[Black livesRIGHT])\n(;B[bb]C[]))\n(;B[ef];W[ae]\n(;B[af];W[eb])\n(;B[ca];W[eb])))\n(;W[ef]C[CHOICE]\n(;B[ac];W[bb];B[ae];W[eb])\n(;B[bb];W[ca]\n(;B[ac];W[ba])\n(;B[ba];W[ac]))\n(;B[ae];W[da]\n(;B[ac];W[bb])\n(;B[bb];W[eb];B[ac];W[ba]))\n(;B[ba];W[ca]\n(;B[ac];W[da];B[ae];W[eb];B[bb]C[Black livesRIGHT])\n(;B[ae];W[eb]\n(;B[ac];W[da];B[bb]C[Black livesRIGHT])\n(;B[bb];W[da];B[ac]C[Black livesRIGHT])))\n(;B[ca];W[eb]\n(;B[bb];W[da]\n(;B[ac];W[ba])\n(;B[ba];W[ac]))\n(;B[ac];W[da];B[bb];W[ba]))))\n(;B[ae];W[ef];B[ac];W[eb]\n(;B[bb];W[da];B[ba];W[ab];B[aa];W[ca])\n(;B[ca];W[da];B[bb];W[ba])\n(;B[da];W[ca]))\n(;B[ca];W[eb]\n(;B[bb];W[da];B[ae];W[ef])\n(;B[da];W[ba]))\n(;B[da]\n(;W[eb])\n(;W[ca]))\n(;B[eb];W[fb]C[Not actually wrong, but it is equal to the initial situation and I was too lazy to do all the (same) variations from this point over again :-)]))",
+  "author": {
+    "id": 4953,
+    "name": "hubin_at",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 594,
+    "failed": 2826,
+    "tries": 3420,
+    "speedSolved": 3,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-10-17T14:09:19+00:00",
+  "source": "Hikaru No Go",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 9,
+      "name": "Hikaru No Go",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 25,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

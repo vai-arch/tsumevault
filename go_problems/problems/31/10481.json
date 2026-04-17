@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10481,
+  "elo": 1846.134656652,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This is a construction problem I fiddled with a couple of years back. (If you only want problems that improve your go skill, feel free to skip this one.)\r\n\r\nThe question is, how many living groups will fit on the 19x19 board given the following restrictions:\r\n\r\n1. All groups have to be \"alive with points\", stones in seki are not allowed\r\n2. It must be impossible to connect any two groups into one\r\n\r\nThe answer given here is not the final word on the issue, it just happens to be the best solution I was able to find. If you find a better solution, and I invite you to try, please publish it on Sensei's Library, for example.\r\n",
+  "rating": {
+    "stars": 2.3,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rb]AB[rr]AB[br]AB[bb]C[Please read the instructions, then click your answer.FORCE]LB[kj:31]LB[mj:37]LB[oj:43]LB[qj:49]LB[ij:25]LB[ej:13]LB[gj:19]LB[cj:7]AP[goproblems]\n(;B[cj]C[The saying 'if you have six groups, one of them will die' applies to real game only.])\n(;B[ej]C[given a fifty-sixty split, this would prove the proverb (see option 7) wrong for both colours at once. But there is more..])\n(;B[gj]C[it is possible to make a living group in the center that only takes up 12 intersections, so more will fit]AW[ld]AW[kd]AW[ke]AW[kf]AW[lf]AW[me]AW[ne]AW[mg]AW[ng]AW[nf])\n(;B[ij]C[Quite close, but not quite. The edges give an edge..])\n(;B[kj]C[Just so!RIGHT]AB[ba]AB[ab]AB[bc]AB[ad]AB[bd]AB[ar]AB[cr]AB[bs]AB[dr]AB[ds]AB[dq]AB[dp]AB[eq]AB[fq]AB[qq]AB[qr]AB[qs]AB[rq]AB[sq]AB[ss]AB[ra]AB[rc]AB[rd]AB[sd]AB[sb]AB[fa]AW[ca]AW[cb]AW[cc]AW[cd]AW[dd]AW[ed]AW[ec]AW[eb]AW[ea]AW[db]AW[be]AW[ae]AW[af]AW[ah]AW[bh]AW[bi]AW[bj]AW[aj]AW[di]AW[ci]AW[dj]AW[ck]AW[dk]AW[ek]AB[fb]AB[hb]AB[ha]AB[gb]AB[fc]AB[gd]AB[fd]AB[hd]AB[hc]AB[la]AB[lb]AB[lc]AB[ld]AB[md]AB[nd]AB[nc]AB[nb]AB[na]AB[mb]AW[ia]AW[ib]AW[ic]AW[id]AW[jd]AW[kd]AW[kc]AW[kb]AW[jb]AW[ka]AW[oa]AW[ob]AW[oc]AW[od]AW[pd]AW[qd]AW[pb]AW[qc]AW[qb]AW[qa]AB[ce]AB[bf]AB[bg]AB[de]AB[cf]AB[ch]AB[dh]AB[dg]AB[ee]AB[ef]AB[ie]AB[if]AB[je]AB[ke]AB[kf]AB[jg]AB[jh]AB[hg]AB[hh]AB[ih]AB[oe]AB[pe]AB[qe]AB[of]AB[qf]AB[pg]AB[ng]AB[nh]AB[oh]AB[ph]AB[ak]AW[ag]AB[bk]AB[al]AB[am]AB[bm]AB[cl]AB[dl]AB[dm]AB[cn]AB[dn]AW[bn]AW[an]AW[bo]AW[bq]AW[ap]AW[aq]AW[cp]AW[cq]AW[do]AW[eo]AW[fe]AW[ge]AW[he]AW[hf]AW[ff]AW[gg]AW[eg]AW[eh]AW[fh]AW[gh]AW[le]AW[me]AW[ne]AW[lf]AW[kg]AW[kh]AW[lh]AW[mh]AW[nf]AW[mg]AB[ei]AB[ej]AB[fi]AB[gi]AB[gj]AB[fk]AB[fl]AB[gl]AB[hk]AB[hl]AB[ki]AB[li]AB[mi]AB[mj]AB[lk]AB[ml]AB[nl]AB[nk]AB[co]AB[qi]AB[ri]AB[si]AB[qj]AB[rk]AB[rl]AB[sl]AB[sj]AB[ll]AB[pp]AB[po]AB[qn]AB[qm]AB[pm]AB[om]AB[on]AB[no]AB[np]AB[op]AB[km]AB[jm]AB[im]AB[in]AB[kn]AB[jo]AB[jp]AB[ho]AB[hp]AB[ip]AB[em]AB[kq]AB[lq]AB[mq]AB[lr]AB[ls]AB[jr]AB[ir]AB[is]AB[ks]AB[gp]AW[en]AW[ep]AW[fp]AW[fn]AW[go]AW[fm]AW[el]AW[hn]AW[hm]AW[gm]AW[hj]AW[hi]AW[ii]AW[ji]AW[jj]AW[ik]AW[il]AW[jl]AW[kk]AW[kl]AW[nj]AW[ni]AW[oi]AW[pi]AW[pj]AW[ok]AW[ol]AW[pl]AW[ql]AW[qk]AW[ln]AW[lm]AW[mm]AW[nm]AW[nn]AW[ko]AW[kp]AW[lp]AW[mo]AW[mp]AW[er]AW[es]AW[fr]AW[gq]AW[hq]AW[gs]AW[hs]AW[hr]AW[iq]AW[jq]AW[mr]AW[ms]AW[nr]AW[nq]AW[oq]AW[pr]AW[pq]AW[os]AW[ps]AW[qo]AW[qp]AW[rn]AW[rm]AW[sm]AW[rp]AW[so]AW[sp]AW[qh]AW[qg]AW[rh]AW[sh]AW[sg]AW[rf]AW[re]AW[se])\n(;B[mj]C[Close, but not quite. Remember, the groups have to be separated from each other.])\n(;B[oj]C[This would leave an average of 8.37 intersections per group. The smallest living group in the corner takes up eight intersections..]AB[rc]AB[sb]AB[ra]AB[rd]AB[sd])\n(;B[qj]C[No, life in seki does not count. If it did, the answer would be over a hundred though!]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 202,
+    "failed": 510,
+    "tries": 712,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-10-10T03:52:41+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 48,
+      "name": "Giant",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 145,
+      "name": "Construction",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7288,
+  "elo": 1387.662870949,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Take profit or stop the jump - which is bigger?",
+  "rating": {
+    "stars": 4.5,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[9]KM[0.00]\r\nPW[White]PB[Black]AW[dc][fc][gc][dd][ed][fe][he][gf][gg][eh][fh][gh][hh][ih]AB[cb][cc][cd][be][de][cf][ef][cg][eg][dh][di][ei][gi][hi]C[No komi, no prisoners yet - White to win.]PL[W]\r\n(;W[da]CR[da]\r\n(;B[db]CR[db]\r\n;W[eb]CR[eb]\r\n(;B[fi]CR[fi]\r\n;W[ca]CR[ca]\r\n;B[ba]CR[ba]\r\n;W[ea]CR[ea]\r\n;B[bb]CR[bb]C[RIGHT You won by 1. Due to the gap in Whites stones on the 3rd line at 'E7', the correct way to stop the monkey jump is with placement at 'D9'. When the value of sente is > 2, this is better \r\nthan blocking at 'D8' (after which Black can hane and connect in sente).])\r\n(;B[ca]CR[ca]C[B will not play this.]\r\n(;W[fi]CR[fi]\r\n;B[ea]CR[ea]\r\n;W[fa]CR[fa]\r\n;B[da]CR[da]C[W +2])\r\n(;W[ea]CR[ea]\r\n;B[fi]CR[fi]C[B +1])))\r\n(;B[fi]CR[fi]\r\n(;W[ca]CR[ca]\r\n;B[db]CR[db]\r\n;W[eb]CR[eb]\r\n;B[ba]CR[ba]\r\n;W[ea]CR[ea]\r\n;B[bb]CR[bb]C[RIGHT W +1])\r\n(;W[db]CR[db]\r\n;B[ca]CR[ca]C[RIGHT W +1])))\r\n(;W[db]CR[db]\r\n(;B[da]CR[da]\r\n(;W[ea]CR[ea]\r\n(;B[ca]CR[ca]\r\n(;W[eb]CR[eb]\r\n;B[fi]CR[fi]C[You lost by 1. You could not afford to let Black jump, but due to the gap at 'E7', placement (D9) is better than simple block when the value of sente is > 2. For smaller values of \r\nsente, the placement and block are equivalent.])\r\n(;W[fb]CR[fb]\r\n;B[fi]CR[fi]C[You lost by 1. You could not afford to let Black jump, but due to the gap at 'E7', placement (D9) is better than simple block when the value of sente is > 2. For smaller values of \r\nsente, the placement and block are equivalent.])\r\n(;W[fa]CR[fa]\r\n;B[fi]CR[fi]C[You lost by 1. You could not afford to let Black jump, but due to the gap at 'E7', placement (D9) is better than simple block when the value of sente is > 2. For smaller values of \r\nsente, the placement and block are equivalent.])\r\n(;W[ec]CR[ec]\r\n;B[fi]CR[fi]C[You lost by 1. You could not afford to let Black jump, but due to the gap at 'E7', placement (D9) is better than simple block when the value of sente is > 2. For smaller values of \r\nsente, the placement and block are equivalent.])\r\n(;W[fi]CR[fi]\r\n;B[eb]CR[eb]\r\n;W[fb]CR[fb]\r\n;B[fa]CR[fa]\r\n;W[ga]CR[ga]\r\n;B[ea]CR[ea]C[You lost by 1. You could not afford to let Black jump, but due to the gap at 'E7', placement (D9) is better than simple block when the value of sente is > 2. For smaller values of \r\nsente, the placement and block are equivalent.]))\r\n(;B[fi]CR[fi]C[B will not play this.]\r\n;W[ca]CR[ca]\r\n;B[ba]CR[ba]\r\n;W[da]CR[da]\r\n;B[bb]CR[bb]C[W +3]))\r\n(;W[eb]CR[eb]\r\n(;B[fi]CR[fi]\r\n;W[ea]CR[ea]\r\n;B[ca]CR[ca]C[You lost by 1. You could not afford to let Black jump, but due to the gap at 'E7', placement (D9) is better than simple block when the value of sente is > 2. For smaller values of \r\nsente, the placement and block are equivalent.])\r\n(;B[ea]CR[ea]C[B will not play this.]\r\n;W[fa]CR[fa]\r\n;B[ca]CR[ca]\r\n;W[fi]CR[fi]C[W +3]))\r\n(;W[fi]CR[fi]\r\n(;B[fa]CR[fa]\r\n(;W[eb]CR[eb]\r\n;B[ea]CR[ea]\r\n;W[gb]CR[gb]\r\n;B[ga]CR[ga]\r\n;W[hb]CR[hb]\r\n;B[ha]CR[ha]\r\n;W[ib]CR[ib]C[B +4])\r\n(;W[fb]CR[fb]\r\n;B[ga]CR[ga]\r\n;W[ea]CR[ea]\r\n;B[eb]CR[eb]\r\n;W[ec]CR[ec]\r\n;B[ea]CR[ea]\r\n;W[hb]CR[hb]\r\n;B[ha]CR[ha]\r\n(;W[ib]CR[ib]C[B +6])\r\n(;W[gb]CR[gb]\r\n;B[ia]CR[ia]\r\n;W[ib]CR[ib]\r\n;B[ca]CR[ca]C[B +6])))\r\n(;B[ea]CR[ea]C[B will not play this.]\r\n;W[fb]CR[fb]\r\n;B[fa]CR[fa]\r\n;W[ga]CR[ga]\r\n;B[eb]CR[eb]C[Jigo])))\r\n(;B[fi]CR[fi]C[B will not play this.]\r\n;W[ca]CR[ca]\r\n;B[ba]CR[ba]\r\n;W[da]CR[da]\r\n;B[bb]CR[bb]C[W +3]))\r\n(;W[fi]CR[fi]\r\n(;B[fa]CR[fa]\r\n(;W[fb]CR[fb]\r\n(;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[db]CR[db]\r\n;W[eb]CR[eb]\r\n;B[da]CR[da]C[Only jigo - you needed to stop the jump.])\r\n(;B[da]CR[da]\r\n;W[ga]CR[ga]\r\n;B[ea]CR[ea]\r\n(;W[db]CR[db]\r\n;B[eb]CR[eb]C[Only jigo - you needed to stop the jump.])\r\n(;W[eb]CR[eb]\r\n;B[db]CR[db]C[Only jigo - you needed to stop the jump.])))\r\n(;W[ga]CR[ga]\r\n;B[ea]CR[ea]\r\n(;W[fb]CR[fb]\r\n;B[eb]CR[eb]\r\n;W[db]CR[db]\r\n;B[da]CR[da]C[Only jigo - you needed to stop the jump.])\r\n(;W[db]CR[db]\r\n;B[da]CR[da]\r\n;W[fb]CR[fb]\r\n;B[eb]CR[eb]C[Only jigo - you needed to stop the jump.]))\r\n(;W[da]CR[da]\r\n;B[db]CR[db]\r\n;W[eb]CR[eb]\r\n;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[ca]CR[ca]\r\n;W[fb]CR[fb]\r\n;B[da]CR[da]C[Only jigo - you needed to stop the jump.])\r\n(;W[eb]CR[eb]\r\n;B[ea]CR[ea]\r\n(;W[da]CR[da]\r\n;B[db]CR[db]\r\n;W[ga]CR[ga]\r\n;B[ca]CR[ca]\r\n;W[fb]CR[fb]\r\n;B[da]CR[da]C[Only jigo - you needed to stop the jump.])\r\n(;W[ga]CR[ga]\r\n(;B[db]CR[db]\r\n;W[fb]CR[fb]\r\n;B[da]CR[da]C[Only jigo - you needed to stop the jump.])\r\n(;B[da]CR[da]\r\n;W[fb]CR[fb]\r\n;B[db]CR[db]C[Only jigo - you needed to stop the jump.]))))\r\n(;B[eb]CR[eb]C[B will not play this.]\r\n;W[db]CR[db]\r\n;B[da]CR[da]\r\n;W[fb]CR[fb]\r\n;B[fa]CR[fa]\r\n(;W[ga]CR[ga]\r\n;B[ca]CR[ca]\r\n;W[ec]CR[ec]\r\n;B[ea]CR[ea]C[Jigo])\r\n(;W[ec]CR[ec]\r\n(;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[ca]CR[ca]C[Jigo])\r\n(;B[ga]CR[ga]C[Bad for whoever loses this ko.]\r\n;W[ea]CR[ea]\r\n(;B[ca]CR[ca]\r\n;W[eb]CR[eb]C[W +5])\r\n(;B[ff]CR[ff]\r\n;W[gg]CR[gg]\r\n;B[eb]CR[eb]\r\n;W[hb]CR[hb]\r\n;B[ea]CR[ea]\r\n;W[ha]CR[ha]C[B +3]))))\r\n(;B[ea]CR[ea]C[B will not play this.]\r\n;W[fa]CR[fa]\r\n;B[eb]CR[eb]\r\n;W[db]CR[db]\r\n;B[da]CR[da]\r\n;W[fb]CR[fb]C[W +1])\r\n(;B[da]CR[da]C[B will not play this.]\r\n;W[eb]CR[eb]\r\n;B[ea]CR[ea]\r\n;W[fa]CR[fa]\r\n;B[db]CR[db]C[W +2])\r\n(;B[db]CR[db]C[B will not play this.]\r\n;W[eb]CR[eb]\r\n;B[ea]CR[ea]\r\n;W[fa]CR[fa]\r\n;B[da]CR[da]C[W +2])))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 41,
+  "attempts": {
+    "solved": 1133,
+    "failed": 2906,
+    "tries": 4039,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-10-02T05:19:22+00:00",
+  "source": "Monkey Jump Workshop by Richard Hunter",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 122,
+      "name": "Monkey Jump",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

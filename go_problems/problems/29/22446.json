@@ -1,0 +1,132 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22446,
+  "elo": 1944.5908412585,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Similar to problem 22437, but the responses are different.",
+  "rating": null,
+  "sgf": "(\r\n;\r\n\r\nAB [ih][jh][kh][li][lj][lk][il][jl][kl][hi][hj][hk]\r\nAW [gi][gj][gk][hl][im][jm][km][ll][mk][mj][mi][lg][mh][kg][jg][ig][hh]\r\n\r\nC [White to play and get the best life and death result. Tenuki if black is unconditionally alive with points.]\r\nLB [mg:T]\r\n\r\n(; W [jj]; B [ik] LB [kk:A] C [In this symmetrical position, please play on or below the diagonal line of symmetry.][FORCE] (; W [kj]; B [ji] (; W [kk]; B [ij]; W [lh] C [RIGHT][Correct!])(; W [lh]; B [kk] LB [ki:1][ii:2] C [Seki.])(; W [ii]; B [ij] C [Black lives.])(; W [ki]; B [kk] C [Seki.])(; W [ij]; B [jk] C [Seki.])(; W [jk]; B [ij] C [Black lives.]))(; W [lh]; B [ki] C [Seki.])(; W [ki]; B [kj] LB [ji:1][ii:2][lh:3][kk:4] C [Seki.])(; W [jk]; B [ji] C [Black lives.])(; W [kk]; B [kj] C [Black lives.]))\r\n(; W [lh]; B [jj])\r\n(; W [ii]; B [jj])\r\n(; W [ji]; B [jj])\r\n(; W [ki]; B [jj])\r\n(; W [ij]; B [jj])\r\n(; W [kj]; B [jj])\r\n(; W [ik]; B [jj])\r\n(; W [jk]; B [jj])\r\n(; W [kk]; B [jj])\r\n(; W [mg]; B [jj] C [You missed your chance!])\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 8,
+  "attempts": {
+    "solved": 3,
+    "failed": 76,
+    "tries": 79,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-05-25T18:31:11+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 35,
+      "name": "Symmetrical",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

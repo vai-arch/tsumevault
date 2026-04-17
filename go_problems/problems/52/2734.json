@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2734,
+  "elo": 1417.2983463357,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -4,
+    "flagSum": -4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This position is inspired from a rengo game on KGS between \"a1(8k)\", \"Uizado(18k)\", \"TueurNe(9k)\", \"Frog27(17k)\".\r\n\r\nUPDATED - Thanks to Spica for the help.",
+  "rating": {
+    "stars": 2.1,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[Blanc]PB[Noir]AW[gb][bc][ec][fc][gc][cd][dd][ae][be][ee][ge][df][ef]AB[bb][cb][eb][fb][cc][dc][ed][fd][bf][cf][bg]PL[W]\r\n(;W[da]CR[da]\r\n(;B[ac]CR[ac]C[CHOICE]\r\n(;W[bd]CR[bd]\r\n;B[ca]TR[ba][da]CR[ca]C[The black group is alive ...\r\nIt have a eye in B19 and another one in D19.])\r\n(;W[ad]CR[ad]\r\n(;B[ab]CR[ab]C[CHOICE]\r\n(;W[bd]CR[bd]\r\n;B[ca]TR[ba][da]CR[ca]C[The black group is alive ...\r\nIt have a eye in B19 and another one in D19.])\r\n(;W[fa]CR[fa]\r\n;B[ce]CR[ce]\r\n;W[de]CR[de]\r\n;B[bd]CR[bd]C[RIGHT ko to fight ..]))\r\n(;B[bd]CR[bd]C[RIGHT CHOICE White have now to win the ko.])))\r\n(;B[ca]CR[ca]C[CHOICE]\r\n;W[ab]CR[ab]C[RIGHT The black group is dead.])\r\n(;B[ab]CR[ab]C[CHOICE]\r\n;W[fa]CR[fa]C[RIGHT The black group is dead, the stone in D19 cannot be eaten.]))\r\n(;W[ab]CR[ab]\r\n;B[da]CR[da]\r\n(;W[fa]CR[fa]\r\n;B[ba]CR[ba]C[The black group is alive.])\r\n(;W[ba]CR[ba]\r\n;B[fa]CR[fa]C[The black group is alive])))",
+  "author": {
+    "id": 3145,
+    "name": "karmaGfa",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 1854,
+    "failed": 4310,
+    "tries": 6164,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-07-19T05:31:35+00:00",
+  "source": "My game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

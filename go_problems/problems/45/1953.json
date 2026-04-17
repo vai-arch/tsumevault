@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1953,
+  "elo": 1928.677642883,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "One of the interesting problem when I started learning GO. The first move demonstrates a very commonly used principle in GO.",
+  "rating": {
+    "stars": 5,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ba]AW[ab]AW[bb]AW[cc]AB[db]AB[bd]AB[dd]C[Black to kill white]C[This is fun problem I encounted when I started learning GO. It demonstrates a commonly usedprinciple.]SZ[19]GM[1]FF[3]RU[Japanese]HA[0]KM[5.5]PW[White]PB[Black]GN[White (W) vs. Black (B)]DT[1999-07-28]SY[Cgoban 1.9.2]TM[30:00(5x1:00)]\n(;B[ee]\n(;W[eb]\n(;B[fb]\n(;W[da]\n(;B[ec]\n(;W[ea]\n(;B[dc];W[gb]\n(;B[fa];W[ca]\n(;B[fc]C[RIGHT])\n(;B[gc]C[RIGHT]))\n(;B[ca];W[cb];B[fa]C[RIGHT]))\n(;B[fa];W[ca];B[dc]C[RIGHT])\n(;B[ca];W[cb];B[dc];W[gb];B[fa]C[RIGHT]))\n(;W[fa];B[ga]C[RIGHT]))\n(;B[dc];W[gb]\n(;B[ec];W[fa]C[white escapes via ko])\n(;B[fa];W[fc];B[ec];W[ga]C[snapback])\n(;B[fc];W[fa]C[white escapes])))\n(;W[ec];B[dc];W[da];B[fc];W[ed];B[fd];W[be];B[bf];W[ce];B[cd];W[ad];B[cf];W[de];B[df]C[RIGHT])\n(;W[dc];B[ec];W[ea];B[fa]C[RIGHT])\n(;W[ea];B[dc];W[da]\n(;B[fc]C[RIGHT])\n(;B[ec]C[RIGHT];W[gb]\n(;B[fa];W[ca]\n(;B[fc]C[RIGHT])\n(;B[gc]C[RIGHT]))\n(;B[ca];W[cb];B[fa]C[RIGHT]))\n(;B[fa]C[RIGHT])))\n(;B[ec];W[fb]\n(;B[dc];W[da]C[white escapes])\n(;B[da];W[dc]C[white captures two black stones and live]))\n(;B[cb];W[da];B[dc];W[ca];B[fb];W[gb]C[the best black can do is ko])\n(;B[dc];W[da];B[fb];W[gb]\n(;B[ec];W[fa]C[white escapes via ko])\n(;B[fa];W[fc];B[ec];W[ga]C[snapback])\n(;B[fc];W[fa]C[white escapes]))\n(;B[bc];W[dc])\n(;B[cd];W[dc]))\n(;W[dc];B[ec];W[eb];B[fb]C[RIGHT]TR[eb];W[ea];B[fa]C[RIGHT])\n(;W[be]\n(;B[bf]\n(;W[ad]\n(;B[ce]\n(;W[ae];B[cd];W[bg];B[af];W[ac]\n(;B[cf]C[RIGHT])\n(;B[df]C[RIGHT]))\n(;W[af];B[ag]C[RIGHT]))\n(;B[cd];W[bg]\n(;B[ce];W[af]C[white escapes via ko])\n(;B[af];W[cf];B[ce];W[ag]C[snapback])\n(;B[cf];W[af]C[white escapes])))\n(;W[ce];B[cd];W[ad];B[cf];W[de];B[df];W[eb];B[fb];W[ec];B[dc];W[da];B[fc];W[ed];B[fd]C[RIGHT])\n(;W[cd];B[ce]C[RIGHT])\n(;W[ae];B[cd];W[ad];B[cf]C[RIGHT]))\n(;B[ce];W[bf]\n(;B[cd];W[ad]C[white escapes])\n(;B[ad];W[cd]C[white captures two black stones and lives]))\n(;B[cd];W[ad];B[bf];W[bg]C[the best black can do it ko]\n(;B[ce];W[af]C[white escapes via ko])\n(;B[af];W[cf];B[ce];W[ag]C[snapback])\n(;B[cf];W[af]C[white escapes]))\n(;B[bc];W[ad];B[cd];W[ac];B[bf];W[bg]C[the best black can do is ko]))\n(;W[cd];B[ce];W[be];B[bf]C[RIGHT]))\n(;B[cd];W[eb]\n(;B[dc];W[da];B[fc];W[gb]C[White escaped. While black may still kill white, depending on the rest of the board,black can do better.])\n(;B[da];W[dc];B[ec];W[fb]C[white escapes])\n(;B[ec];W[fb]\n(;B[da];W[dc])\n(;B[dc];W[da])))\n(;B[dc];W[be]\n(;B[cd];W[ad];B[cf];W[bg]C[black can do better])\n(;B[ad];W[cd];B[ce];W[bf])\n(;B[ce];W[bf]\n(;B[ad];W[cd])\n(;B[cd];W[ad])))\n(;B[ce]C[see variation on C16])\n(;B[ec]C[see variation on D17])\n(;B[de];W[eb];B[dc];W[da];B[fb];W[gb]\n(;B[ec];W[fa]C[escape via ko])\n(;B[fc];W[fa]C[white escapes])\n(;B[fa];W[fc];B[ec];W[ga]C[sanpback]))\n(;B[ed]C[see variation on D15])\n(;B[bc];W[eb]\n(;B[cb];W[da];B[ec];W[fb]C[white escapes])\n(;B[ec];W[fb];B[cb];W[da])\n(;B[dc];W[da])\n(;B[da];W[dc];B[ec];W[cb];B[fb];W[ed];B[fc];W[cd]C[white escapes]))\n(;B[cb]C[see variation on B17]))",
+  "author": {
+    "id": 2813,
+    "name": "3dan",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 107,
+    "failed": 2057,
+    "tries": 2164,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-02-19T21:22:24+00:00",
+  "source": "unknown",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

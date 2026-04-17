@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19551,
+  "elo": 1289.8007690921,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ar]AB[br]AB[cp]AB[co]AB[cn]AB[bn]AB[an]AW[am]AW[bm]AW[cm]AW[dm]AW[dn]AW[do]AW[dp]AW[dq]AW[cr]AW[bs]AW[er]AP[goproblems]\r\n(;B[bp];W[ap];B[cq]\r\n(;W[ao]C[CHOICE];B[aq]C[RIGHT])\r\n(;W[aq];B[ao]C[RIGHT]))\r\n(;B[cq];W[bp];B[ap];W[bq]LB[bo:A]\r\n(;B[aq];W[bo])\r\n(;B[bo];W[ao])\r\n(;B[ao];W[bo]))\r\n(;B[ap]\r\n(;W[cq];B[bq]LB[bp:A];W[bp];B[bo])\r\n(;W[bq]C[CHOICE];B[cq];W[bp])))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 56,
+  "attempts": {
+    "solved": 417,
+    "failed": 789,
+    "tries": 1206,
+    "speedSolved": 2,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-04-19T17:10:58+00:00",
+  "source": "Yi Ch'ang-ho's Selected Life and Death Go Problems",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 188,
+      "name": "Yi Ch'ang-ho's Selected Life and Death Go Problems Book 3",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

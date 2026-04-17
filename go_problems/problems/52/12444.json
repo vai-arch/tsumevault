@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12444,
+  "elo": 1951.6135524451,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -3,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[kr]AW[kq]AW[kp]AW[mp]AW[mq]AB[mr]AB[lr]AB[lq]AB[lp]AW[lo]AB[jo]AB[ko]AB[ip]AB[jp]AB[hp]AB[hr]AB[hq]AB[gp]AW[kn]AW[jn]AW[ho]AW[io]AW[go]AW[fp]AW[fq]AW[gq]AW[gr]AW[ln]AW[mn]AW[nn]AB[mo]AB[no]AB[on]AB[op]AB[oq]AW[fn]AB[fr]AB[er]AW[hs]MA[hs]C[White has just played the marked stone. How should black respond?]AP[goproblems]\n(;B[jr];W[js]\n(;B[ir];W[is])\n(;B[jq];W[ks]))\n(;B[ks];W[js])\n(;B[js];W[ir])\n(;B[is];W[gs]\n(;B[jr];W[ks]\n(;B[ls];W[nr])\n(;B[jq]C[RIGHT]))\n(;B[ir]\n(;W[nr]C[]\n(;B[np]C[NOTTHIS])\n(;B[nq];W[ls];B[np];W[jq]C[seki]))\n(;W[ls]C[CHOICE]\n(;B[nr];W[jq]C[seki])\n(;B[nq];W[jq])\n(;B[jq];W[nr])))\n(;B[ks];W[ir];B[jr];W[js]C[You didn't need to lose these points.]))\n(;B[ir];W[is];B[js];W[nr]\n(;B[np]C[NOTTHIS])\n(;B[nq];W[gs]\n(;B[ks]C[You lost too many points.])\n(;B[jr];W[ks]MA[jq]MA[ls]C[Black has a shortage of liberties.])\n(;B[jq];W[ks]))))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 170,
+    "failed": 432,
+    "tries": 602,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-03-05T07:35:59+00:00",
+  "source": "KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 40,
+      "name": "Prevent the Connection",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

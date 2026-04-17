@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4869,
+  "elo": 1232.2446242781,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.2,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qb]AB[pc]AB[qd]AB[pd]AB[pe]AW[rb]AW[rc]AW[qc]AW[rd]AW[re]AW[qe]AB[qf]AB[qg]AB[qh]AB[qi]AB[ri]AW[pf]AW[of]AW[ph]AW[oh]AW[nh]AB[nd]AB[oc]C[What can Black do against White's corner?]AP[goproblems]\n(;B[ra];W[pb]\n(;B[pa]C[Ko for the cornerRIGHT])\n(;B[qa];W[pa])\n(;B[sb];W[qa])\n(;B[ob];W[qa]))\n(;B[qa];W[ra]C[White is alive and Black is gote (he has to play Q18 or P18)])\n(;B[pb];W[ra]C[]\n(;B[sb];W[sc];B[se];W[rf];B[sf];W[rg];B[sg];W[sh];B[rh];W[sd];B[sg];W[sf]C[White is alive])\n(;B[rf];W[se]C[White is alive])\n(;B[sf];W[se]C[White is alive])\n(;B[se];W[rf]\n(;B[sf];W[rg];B[sg];W[sh];B[rh];W[sd]C[White is alive])\n(;B[sb];W[sc];B[sf];W[rg];B[sg];W[sh];B[rh];W[sd];B[sg];W[sf])\n(;B[sc];W[sd];B[sf];W[rg]\n(;B[sg];W[sh])\n(;B[sh];W[sg]))\n(;B[rg];W[sf])))\n(;B[rf];W[pb]C[White is alive])\n(;B[pa];W[ra]C[White is alive])\n(;B[sb];W[pb]C[])\n(;B[se];W[pb]C[]))",
+  "author": {
+    "id": 6276,
+    "name": "Lok",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-03-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 4427,
+    "failed": 7547,
+    "tries": 11974,
+    "speedSolved": 4,
+    "speedPlay": 28
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-07-27T11:38:08+00:00",
+  "source": "game vs makiro",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 64,
+      "name": "Life on 2nd Line",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10392,
+  "elo": 1549.3437917023,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "White's F6 looks like it might cause trouble? How to win from here? (0.5 Komi, no prisoners)\r\nRules are Japanese (I think some variations change who wins under chinese rules whatever starting value of komi is given.)\r\nI'd appreciate as much feedback as possible, thanks.\r\n(Update - big thanks to alpha for pointing out my line for white was wrong. I've fixed the starting position.)",
+  "rating": {
+    "stars": 4.1,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[ba]AB[ca]AB[da]AB[ea]AB[eb]AB[fb]AB[ec]AB[gc]AB[ga]AB[hb]AB[ha]AB[ia]AB[ee]AB[fe]AB[ge]AW[fd]AW[hc]AW[hd]AW[he]AW[dc]AW[dd]AW[de]AW[id]AW[ic]AW[if]AW[hf]AW[hg]AW[hh]AW[ih]AW[ff]AW[ef]AW[gf]AW[df]AW[dg]AW[fg]AW[cd]AW[cc]AW[cb]AW[db]AW[ab]AW[bb]AW[be]AW[bf]AW[af]AB[cf]AB[cg]AB[bg]AB[ag]AB[ch]AB[dh]AB[fh]AB[gh]AB[gi]AB[hi]AB[eg]AB[ei]AB[bi]AB[ah]C[Black to play - no prisoners, 0.5 komi, japanese rules.]AB[ce]AW[ad]AP[goproblems]\n(;B[gd]\n(;W[ed]C[CHOICE]\n(;B[fc];W[eh];B[bd];W[bc];B[eg];W[ii];B[eh]C[White gets 5 territory, 2 prisoners, and 0.5 komi = 7.5 points. Black has 7 territory and 1 prisoner = 8 points.Black wins by 0.5! Well Done! G6 was locally worth no points, however it eliminated a vital ko threat in sente.RIGHT])\n(;B[eh];W[fc]C[Black is dead at the top.])\n(;B[bd];W[fc]C[Black is dead at the top.]))\n(;W[eh];B[ed];W[eg]LB[di:A]C[Please play at A];B[di];W[ii]LB[fi:A]C[Please play at A];B[fi]C[White gets 6 territory, 1 prisoner and 0.5 komi = 7.5 points. Black gets 7 territory and 1 prisoner. Black wins by 0.5!RIGHT]))\n(;B[ed]\n(;W[gd]C[CHOICE]\n(;B[fc];W[eh];B[bd];W[bc];B[eg];W[ii];B[eh]C[White gets 5 territory, 2 prisoners, and 0.5 komi = 7.5 points. Black has 7 territory and 1 prisoner = 8 points.Black wins by 0.5! Well Done! E6 was locally worth no points, however it eliminated a vital ko threat in sente.RIGHT])\n(;B[eh];W[fc]C[Black is dead at the top.])\n(;B[bd];W[fc]C[Black is dead at the top.]))\n(;W[eh];B[gd];W[eg]LB[di:A]C[Please play at A];B[di];W[ii]LB[fi:A]C[Please play at A];B[fi]C[White gets 6 territory, 1 prisoner and 0.5 komi = 7.5 points. Black gets 7 territory and 1 prisoner. Black wins by 0.5!RIGHT]))\n(;B[eh];W[fc]C[Black is dead at the top.])\n(;B[fc];W[eh]\n(;B[ed];W[eg];B[gd];W[gg]\n(;B[di];W[ii];B[fi]C[White gets 6 territory, 1 prisoner, and 0.5 komi = 7.5 points. Black has 6 territory and 1 prisoner = 7 points.Black loses by 0.5!])\n(;B[fi];W[ii];B[di]C[White gets 6 territory, 1 prisoner, and 0.5 komi = 7.5 points. Black has 6 territory and 1 prisoner = 7 points.Black loses by 0.5!]))\n(;B[gd];W[eg];B[ed];W[gg]\n(;B[di];W[ii];B[fi]C[White gets 6 territory, 1 prisoner, and 0.5 komi = 7.5 points. Black has 6 territory and 1 prisoner = 7 points.Black loses by 0.5!])\n(;B[fi];W[ii];B[di]C[White gets 6 territory, 1 prisoner, and 0.5 komi = 7.5 points. Black has 6 territory and 1 prisoner = 7 points.Black loses by 0.5!]))\n(;B[bd];W[bc]\n(;B[eg];W[ed]\n(;B[gd];W[eh]LB[di:A]C[Please play at A];B[di];W[eg]LB[fi:A]C[Please play at A];B[fi];W[ii]C[White gets 5 territory, 3 prisoners, and 0.5 komi = 8.5 points. Black has 5 territory and 1 prisoner = 6 points.Black loses by 1.5!])\n(;B[eh];W[gd]C[White gets 8 territory, 5 prisoners, and 0.5 komi = 13.5 points. Black has 7 territory and 1 prisoner = 8 points.Black loses by 5.5!]))\n(;B[ed];W[eg];B[gd];W[ii]\n(;B[di];W[gg];B[fi]C[White gets 5 territory, 2 prisoners, and 0.5 komi = 7.5 points. Black has 6 territory and 1 prisoner = 7 points.Black loses by 0.5!])\n(;B[fi];W[gg];B[di]C[White gets 5 territory, 2 prisoners, and 0.5 komi = 7.5 points. Black has 6 territory and 1 prisoner = 7 points.Black loses by 0.5!]))))\n(;B[bd];W[fc]C[Black is dead at the top.]))",
+  "author": {
+    "id": 19093,
+    "name": "hotcoffee",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-21",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 73,
+  "attempts": {
+    "solved": 726,
+    "failed": 1584,
+    "tries": 2310,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-09-13T10:36:26+00:00",
+  "source": "Original creation.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

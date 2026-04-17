@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3080,
+  "elo": 1546.1062414612,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Sometimes, the problems I submit are not very original.",
+  "rating": {
+    "stars": 3,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qa]AB[qb]AB[qc]AW[rb]AW[rc]AW[qd]AW[qe]AW[rf]AW[rg]AW[qg]AW[pg]AB[qf]AB[pf]AB[pe]AB[pd]AB[og]AB[od]AB[nd]AB[nc]AB[nb]AW[ob]AW[oc]AW[pc]AW[pa]LB[ni:W]LB[pi:L]LB[ri:K]C[Choose W if you think black can win the capturing race unconditionally, L if you think black will lose the capturing race unconditionally, K if you think the result is a ko.]AB[mb]AW[mc]AP[goproblems]\n(;B[ni]C[Try again.FORCE])\n(;B[pi]C[Try again.FORCE])\n(;B[ri];W[qi]C[Please carry on. At all times please do not play at A, I have no variations for that.FORCE]LB[oa:A]\n(;B[ra];W[sc]\n(;B[rd];W[re];B[na];W[sa];B[sb]C[RIGHT])\n(;B[na];W[sa];B[sb]C[RIGHT])\n(;B[re];W[rd]\n(;B[na];W[sa];B[sb]C[RIGHT])\n(;B[se];W[sf];B[na];W[sa];B[sb]C[RIGHT])))\n(;B[rd];W[re];B[ra];W[sc];B[na];W[sa];B[sb]C[RIGHT])\n(;B[re];W[rd];B[ra];W[sb])\n(;B[na];W[ra])))",
+  "author": {
+    "id": 288,
+    "name": "unkx80",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-01-08",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1846.73
+  },
+  "avgSolveTimeSeconds": 77,
+  "attempts": {
+    "solved": 619,
+    "failed": 2530,
+    "tries": 3149,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-10-13T06:48:26+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

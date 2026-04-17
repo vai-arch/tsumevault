@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2452,
+  "elo": 1412.6968919144,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -3,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "White is behind by a few points.  If he gets away with this endgame manuever he'll win.  Can you stop him, cause he's not going to back down!",
+  "rating": {
+    "stars": 2.2,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dp]AB[cp]AB[co]AB[bo]AB[eo]AB[fn]AB[gn]AB[fm]AB[em]AB[dm]AB[cl]AB[bm]AW[an]AW[bn]AW[cn]AW[dn]AW[en]AW[fo]AW[fp]AW[bp]AW[bq]AW[cq]AW[dq]AW[fq]AW[fr]AW[fs]AW[bl]TR[bl]C[White just played B8, is this a tesuji or a mistake?]SZ[19]\n(;B[bk];W[al]\n(;B[ak];W[am]\n(;B[ao]\n(;W[cm];B[do]C[SuccessRIGHT]C[RIGHT])\n(;W[ap];B[cm]C[SuccessRIGHT]C[RIGHT]))\n(;B[do];W[ao])\n(;B[cm];W[ao]))\n(;B[cm];W[am];B[ao];W[ep];B[ak];W[do]C[Snapped back!RIGHT];B[eo]C[SuccessRIGHT]C[RIGHT]))\n(;B[cm];W[am];B[bk];W[al];B[ao];W[ep];B[ak];W[do];B[eo]C[SuccessRIGHT]C[RIGHT])\n(;B[am];W[cm])\n(;B[ao];W[am]\n(;B[bk];W[cm];B[ck])\n(;B[cm];W[bk];B[al];W[ak];B[do];W[al];B[ck];W[ap])))",
+  "author": {
+    "id": 249,
+    "name": "JoeSeki",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-11-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 62,
+  "attempts": {
+    "solved": 1807,
+    "failed": 3699,
+    "tries": 5506,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-07T20:58:15+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 25,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

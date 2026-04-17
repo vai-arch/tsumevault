@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22659,
+  "elo": 455.13719231264,
+  "problemLevel": 0,
+  "rank": {
+    "value": 30,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[5]AB[bb]AB[db]AB[bd]AB[dd]AW[bc]AB[cc]AW[ac]AB[ab]AW[ad]AB[ca]AW[be]LB[bc:1]LB[cc:2]LB[ac:3]LB[ab:4]LB[ad:5]LB[ca:6]LB[be:7]AP[goproblems]\r\n(;B[cd]C[RIGHT])\r\n(;B[ce];W[cd]\r\n(;B[de]C[RIGHT])\r\n(;B[ee];W[de]))\r\n(;B[de]\r\n(;W[cd];B[ce]C[RIGHT])\r\n(;W[ce];B[cd]C[RIGHT]))\r\n(;B[ae]C[RIGHT])\r\n(;B[ee];W[cd])\r\n(;B[ed];W[cd])\r\n(;B[ec];W[cd])\r\n(;B[dc];W[cd])\r\n(;B[eb];W[cd])\r\n(;B[ea];W[cd])\r\n(;B[da];W[cd])\r\n(;B[cb];W[cd])\r\n(;B[ba];W[cd])\r\n(;B[aa];W[cd]))",
+  "author": {
+    "id": 97489,
+    "name": "Irregular go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-09-16",
+    "rank": {
+      "value": 24,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 24,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 878.05
+  },
+  "avgSolveTimeSeconds": 20,
+  "attempts": {
+    "solved": 180,
+    "failed": 19,
+    "tries": 199,
+    "speedSolved": 4,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-06-25T01:17:51+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 84,
+      "name": "Handicap Game",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 155,
+      "name": "cool",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

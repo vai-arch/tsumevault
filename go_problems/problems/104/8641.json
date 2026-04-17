@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8641,
+  "elo": 1643.7094116745,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.3,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ca]AB[cb]AB[bc]AB[bd]AB[dc]AB[ec]AB[qd]AB[pc]AB[oc]AB[nd]AB[ne]AB[og]AB[oh]AB[oi]AB[pj]AB[ok]AB[ql]AB[ro]AB[qo]AB[qp]AB[pp]AB[op]AB[lb]AB[ld]AB[kc]AB[kd]AB[ke]AB[je]AB[jf]AB[jb]AB[ib]AB[co]AB[do]AB[en]AB[em]AB[bm]AB[bk]AB[ck]AB[cj]AB[ci]AB[ch]AB[dh]AB[dg]AB[eh]AB[fi]AB[fj]AB[fk]AB[fl]AB[gh]AB[hh]AB[ih]AB[jh]AB[ig]AB[jj]AB[jk]AB[jl]AB[gn]AW[cp]AW[dp]AW[dq]AW[eo]AW[fo]AW[dn]AW[dm]AW[cl]AW[el]AW[ek]AW[ej]AW[ei]AW[bj]AW[bi]AW[bh]AW[cg]AB[bg]AW[cf]AW[ce]AW[be]AW[cd]AW[cc]AW[db]AW[df]AW[eg]AW[fg]AW[fh]AW[gg]AW[hg]AW[if]AW[ie]AW[jd]AW[jc]AW[ic]AW[hd]AW[hb]AW[gc]AW[kb]AW[lc]AW[mc]AW[nc]AW[od]AW[nq]AW[pq]AW[qq]AW[rq]AW[rp]AW[qn]AW[jg]AW[kg]AW[kh]AW[kj]AW[kk]AW[kl]AW[nj]AW[ni]AW[oj]AW[nk]AW[nh]C[Cho Chikun vs Lee Sedol in the Fujitsu Cup. \r\nCho was white and Lee was black. In the game, Cho resigned\r\nafter black 117,(the marked stone.) However Cho could have lived and continued the game\r\nwhere should cho have moved instead of resigning?CHOICE]AP[goproblems]\r\n(;W[am]C[This is the correct moveRIGHT]\r\n(;B[bo]C[RIGHT];W[bl]C[RIGHT];B[an]C[RIGHT];W[al]C[RIGHT];B[cn]C[RIGHT];W[ak]C[RIGHT];B[cm]C[RIGHT];W[dl]C[RIGHT];B[bp]C[RIGHT];W[bq]C[RIGHT];B[ap]C[RIGHT];W[go]C[RIGHT])\r\n(;B[bl];W[cn];B[bo];W[bn]C[this is obviously a disaster for black]))\r\n(;W[bl]C[CHOICE];B[al];W[bo]\r\n(;B[cm];W[cn];B[dl]C[bad for white])\r\n(;B[cn];W[bn]C[black obviously can't play like this]))\r\n(;W[bo];B[cn];W[bn];B[cm]\r\n(;W[dl];B[bl]C[white collapse])\r\n(;W[bl];B[dl]))\r\n(;W[bn]\r\n(;B[cn];W[cm];B[bo];W[bl];B[an])\r\n(;B[bo];W[cn];B[an]C[white collapse])))",
+  "author": {
+    "id": 105129,
+    "name": "system",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-03-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 324,
+    "failed": 1440,
+    "tries": 1764,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-06-02T03:46:36+00:00",
+  "source": "Fujitsu cup.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 104,
+      "name": "1st Line Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": true,
+  "suggestedElo": null
+}

@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9524,
+  "elo": 903.52580019036,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -4,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 2.8,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[dp]AW[do]AB[ep]AB[fp]AB[gp]AB[fo]AB[fn]AW[go]AW[hp]AW[eq]AW[fq]AW[gq]AW[iq]AB[dq]AB[cq]AB[cp]AB[dn]AB[dm]AW[cm]AW[cl]AW[ck]AB[cn]AB[bn]AB[fk]AB[fl]AW[gm]AW[hm]AW[hk]AW[gk]AW[dj]AW[fj]AW[fi]AW[hi]LB[gm:1]C[White played (1) in the endgame.  The next largest move is at (N). Should black defend?  (Y or N)]AB[an]AB[dr]AW[er]LB[fm:Y]AB[bl]AB[bk]LB[bm:N]AW[bj]AW[cj]AW[ak]AW[aj]AP[goproblems]\n(;B[fm]C[];W[as]C[Yes! The marked stones are more valuable.RIGHT]TR[fk]TR[fl])\n(;B[bm];W[fm]C[Defend!]\n(;B[em];W[el];B[dl];W[ek]C[White makes a profit and G6 is sente for white.])\n(;B[en];W[el])\n(;B[el];W[en];B[em];W[gn])\n(;B[dl];W[en];B[em];W[gn])))",
+  "author": {
+    "id": 6281,
+    "name": "munisai79",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1421.12
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 9566,
+    "failed": 6597,
+    "tries": 16163,
+    "speedSolved": 1,
+    "speedPlay": 7
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-11-30T11:15:04+00:00",
+  "source": "KGS:  BmW (6d) vs. Missbear (5d)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

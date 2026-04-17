@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6325,
+  "elo": 1729.5032615899,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "White to play the best endgame in the lower left corner. Sente is worth more than two points. The amount of ko threats left matters, but not as much as points.",
+  "rating": {
+    "stars": 2.4,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.50]\r\nPW[White]PB[Black]AW[bk][gk][hk][bl][dl][el][fl][hl][il][am][bm][dm][gm][hm][bn][cn][fn][do][fo][cp][dp][fp][gp][hp][ip][eq][iq][dr][er][gr][hr][gs]AB[ci][di][ck][dk][ek][fk][jk][cl][jl][cm][im][an][gn][in][ao][bo][co][go][ho][io][bp][jp][cq][dq][fq][jq][br][cr][ir][hs][is][js]PL[W]\r\n(;W[ds]CR[ds]\r\n(;B[cj]CR[cj]C[Black does not believe D1 is sente. Prove him wrong.]\r\n(;W[ar]CR[ar]\r\n;B[aq]CR[aq]\r\n;W[bs]CR[bs]\r\n;B[as]CR[as]C[RIGHT ko])\r\n(;W[bs]CR[bs]\r\n;B[ar]CR[ar]\r\n(;W[cs]CR[cs]\r\n;B[aq]CR[aq])\r\n(;W[aq]CR[aq]\r\n;B[cs]CR[cs]))\r\n(;W[cs]CR[cs]\r\n;B[bs]CR[bs])\r\n(;W[aq]CR[aq]\r\n;B[ar]CR[ar]\r\n;W[cs]CR[cs]\r\n;B[bs]CR[bs]))\r\n(;B[cs]CR[cs]C[RIGHT This leaves three ko threats, (A3, B3, and B3 again, the last ko threat doesn't actually threaten to kill, though... )]))\r\n(;W[cs]CR[cs]\r\n;B[bs]CR[bs]\r\n;W[ds]CR[ds]C[gote])\r\n(;W[bs]CR[bs]\r\n;B[cs]CR[cs]\r\n(;W[ar]CR[ar]\r\n;B[aq]CR[aq]\r\n;W[ds]CR[ds]\r\n;B[as]CR[as]C[This leaves no ko threats.])\r\n(;W[ds]CR[ds]\r\n;B[ar]CR[ar]C[This leaves only one ko threat.]))\r\n(;W[ar]CR[ar]\r\n;B[aq]CR[aq]\r\n(;W[ds]CR[ds]\r\n;B[cs]CR[cs]C[This is what Che played. It leaves one ko threat less than the best answer, but there were no ko fights to be played out in the actual game.])\r\n(;W[bs]CR[bs]\r\n;B[cs]CR[cs]\r\n;W[ds]CR[ds]\r\n;B[as]CR[as]C[This leaves no ko threats]))\r\n(;W[aq]CR[aq]\r\n;B[ar]CR[ar]\r\n;W[cs]CR[cs]\r\n;B[bs]CR[bs]\r\n;W[ds]CR[ds]C[gote]))",
+  "author": {
+    "id": 5308,
+    "name": "sohvan",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-08-25",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 64,
+  "attempts": {
+    "solved": 325,
+    "failed": 1748,
+    "tries": 2073,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-04-15T15:52:53+00:00",
+  "source": "Che Zewu vs Lee Changho 1992-04-04",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 54,
+      "name": "Pro Game",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

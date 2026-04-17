@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8918,
+  "elo": 1026.0446775662,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": -1,
+    "flagSum": 7
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Please make these stones survive after white plays L19.",
+  "rating": {
+    "stars": 4,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dc]AB[ec]AB[ed]AB[fd]AB[gc]AB[fb]AW[gb]AW[hb]AW[hc]AW[ic]AW[hd]AW[gd]AW[fe]AW[ee]AW[de]AW[ce]AW[bd]AW[ad]AB[cc]AB[bc]AB[ac]AB[bb]AB[ba]AB[id]AB[jd]AB[kd]AW[ie]AW[if]AW[ig]AB[jc]AB[jb]AB[ib]AB[mb]AB[mc]AB[lc]AW[nb]AW[oc]AW[pd]AW[pe]AW[pf]AW[qc]AW[qb]AW[rb]AB[sb]AB[rc]AB[qd]AB[sd]AB[qe]AB[qf]AW[me]AW[le]AB[kf]AW[kg]AW[lg]AW[ka]C[In a similar game, white played at L19 to kill the group.  Prove him wrong.]MA[ka]AP[goproblems]\n(;B[kb];W[ma]\n(;B[la];W[lb]C[Ko? Oh no!];B[ja]C[Very good, whether or not white connects you now have eyes.  Sometimes a sacrifice is necessary for life. White can't make a ko here, but he thought he could in the game. L18 would have killed the group, L19 is wrong.RIGHT])\n(;B[ja];W[la]C[Now how will you get eyes?])\n(;B[lb];W[la]C[Now how will you get eyes?]))\n(;B[ma];W[kb]C[Now how will you get eyes?])\n(;B[lb];W[kb]C[Now how will you get eyes?])\n(;B[la];W[kb]C[How will you get eyes now?])\n(;B[ja];W[kb]C[How will you get eyes now?])\n(;B[ia];W[kb]C[How will you get eyes now?])\n(;B[kc];W[ma]\n(;B[la];W[lb];B[kb];W[la];B[ja];W[na]C[Ouch.])\n(;B[lb];W[la]))\n(;B[ha]\n(;W[ga];B[kb];W[ma];B[la];W[lb];B[ja];W[na];B[la]C[Ok, this works, but I don't think the move at h19 is necessary and hurts you on the top left.RIGHT])\n(;W[ma];B[ga];W[la]C[Something like this can save the group too, but I think there is a simpler better way.RIGHT])))",
+  "author": {
+    "id": 12040,
+    "name": "jocund",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-12-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 7747,
+    "failed": 6953,
+    "tries": 14700,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-07-24T03:11:24+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

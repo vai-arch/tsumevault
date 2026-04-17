@@ -1,0 +1,142 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6769,
+  "elo": 1844.8142390994,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -3,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "The ladder on the left side doesn't work for black in the traditional sense of the phrase, however Yi found a way to resurrect his stones in the lower right by playing it out anyways.  Assume Japanese rules, that each step of a failed ladder costs 7 points, and furthermore assume that the marked triangles will also become black territory.  What is the net result of the exchange?  \r\nA.  Black gains 12points  \r\nB.  Black gains 20 points\r\nC.  Black loses 12 points\r\nD.  Black loses 20 points\r\nE.  Black loses 28 points.",
+  "rating": {
+    "stars": 1.8,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cb]AB[dc]AB[ec]AB[fd]AB[pd]AB[nc]AB[rj]AB[qk]AB[pl]AB[ok]AB[om]AB[nm]AB[nl]AB[lm]AB[lo]AB[mo]AB[no]AB[oo]AB[nq]AB[oq]AB[pq]AB[pn]AB[qn]AB[rn]AB[ro]AB[rp]AB[rq]AB[sq]AB[sr]AB[iq]AW[cc]AW[db]AW[bb]AW[dd]AW[de]AW[ce]AW[cf]AW[dg]AW[dq]AW[co]AW[ml]AW[mm]AW[mn]AW[nn]AW[on]AW[km]AW[pm]AW[qm]AW[rm]AW[rl]AW[rk]AW[sl]AW[pp]AW[qp]AW[qo]AW[po]AW[qq]AW[rr]AW[qr]AW[rs]AB[df]AB[ef]AB[cg]AW[mp]LB[id:A]LB[kd:B]LB[je:C]LB[if:D]LB[kf:E]TR[op]TR[pr]TR[qs]TR[ps]TR[sj]TR[sk]TR[ql]AW[sn]AW[so]AP[goproblems]\r\n(;B[id])\r\n(;B[kd])\r\n(;B[je])\r\n(;B[if]C[Black makes 13 moves in a failed ladder: 13*7 = -91 points.  Black captures 21 stones  and gets the territory underneath them: 42 points.  Black saves  8 stones that white would have captured and the territory underneath them: 16 points.  Whites 3 other points on the t-line are now black points: 6 points.   The 7 marked squares:  7 points.  Net :     -20 points.  The look of disbelief on Hong's face upon realizing he won't have the time to cut all 13 cutting points:  PRICELESSFORCERIGHT]AB[dh]AW[eg]AB[fg]AW[eh]AB[ei]AW[fh]AB[gh]AW[fi]AB[fj]AW[gi]AB[hi]AW[gj]AB[gk]AW[hj]AB[ij]AW[hk]AB[hl]AW[ik]AB[jk]AW[il]AB[im]AW[jl]AB[kl]AW[jm]AB[jn]AW[kn]AB[ln]AW[ko]AB[mk]AB[if]TR[ql]TR[op]TR[pr]TR[ps]TR[qs]TR[sk]TR[sj])\r\n(;B[kf])\r\n(;B[dh]C[Read the instructions hot shot.]))",
+  "author": {
+    "id": 10284,
+    "name": "Zwom",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-07-05",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1517.95
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 240,
+    "failed": 1311,
+    "tries": 1551,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-27T10:40:48+00:00",
+  "source": "Hong Jansik vs. Yi Setol, variation on a theme of prob. 2177",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 54,
+      "name": "Pro Game",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

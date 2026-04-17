@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2573,
+  "elo": 1209.11704506,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -4,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Play a black stone on the intersection with the number that equals the number of points A is worth.  It is a counting exercise only.  For those who have done this one,it has changed.",
+  "rating": {
+    "stars": 3.6,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[ How much is A worth?FORCE]LB[aj:7]LB[cj:8]LB[ej:9]LB[gj:10]LB[al:11]LB[cl:12]LB[el:13]LB[gl:14]AW[bq]AW[br]AW[bs]AW[dr]AW[er]AW[fq]AW[fr]AW[hq]AW[iq]AB[ap]AB[aq]AB[bn]AB[bp]AB[cq]AB[cr]AB[do]AB[dq]AB[ep]AB[eq]AW[ar]LB[cs:A]AW[ds]AB[cs]\n(;B[aj]C[Sorry, try practicing counting more often.]LB[cs:A])\n(;B[cj]C[Sorry, no. It's worth more.]LB[cs:A])\n(;B[ej]C[Close.]LB[cs:A])\n(;B[al]C[Oops! Close.]LB[cs:A])\n(;B[el]C[Sorry, not this much.]LB[cs:A])\n(;B[gl]C[Sorry, try practicing counting more often.]LB[cs:A])\n(;B[gj]C[Correct: 10 points. Black C-1 wins 9 points (4 stones + 5 spaces). White C-1 wins 1 point at A-1.  Therefore,  9 + 1 = 10.RIGHT])\n(;B[cl]C[Sorry, it's worth less.]))",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 2280,
+    "failed": 3516,
+    "tries": 5796,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-11T14:15:16+00:00",
+  "source": "Let's Go",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 23,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

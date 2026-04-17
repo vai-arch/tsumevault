@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3009,
+  "elo": 1711.5977302863,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -3,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Black to live - White is giving B a battering, and B needs to live in order to stay in the game. You must live unconditionally with territory to solve this problem correctly.\r\n\r\n\r\nThanks to tigre, chrise, rex, atak, and Spirit for showing me the errors of my ways :-)\r\n\r\n31/10/03\r\nAdded new variation supplied by Spirit, and ko suggestion from chrise. Also stone is now marked\r\n\r\n21/06/04\r\nAdded a new variation spotted by thekro.",
+  "rating": {
+    "stars": 2.3,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[in]AW[jn]AW[kn]AW[ln]AW[io]AW[lo]AW[mo]AW[po]AW[qo]AW[ro]AW[ap]AW[bp]AW[cp]AW[dp]AW[hp]AW[mp]AW[np]AW[op]AW[rp]AW[sp]AW[eq]AW[gq]AW[qq]AW[rq]AW[dr]AW[fr]AW[hr]AW[jr]AW[lr]AW[pr]AW[qr]AB[cl]AB[ao]AB[bo]AB[co]AB[do]AB[eo]AB[go]AB[ho]AB[ep]AB[fp]AB[ip]AB[jp]AB[lp]AB[pp]AB[fq]AB[kq]AB[mq]AB[nq]AB[oq]AB[pq]AB[kr]AB[or]TR[lr]C[W:just played the marked stone. B to live, with some territory.]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]GN[Problem 3009]DT[2003-05-07]PL[B]\n(;B[ls];W[mr]\n(;B[iq];W[hq];B[ir];W[is];B[js];W[ks]C[ko])\n(;B[js];W[iq];B[os];W[ms];B[ks];W[nr]C[- B is dead]))\n(;B[js];W[ms]\n(;B[ns];W[ks]\n(;B[is];W[ir]C[- ko])\n(;B[mr];W[is]\n(;B[ls];W[js];B[lq]C[Correct (thekro's Solution)RIGHT])\n(;B[lq];W[js];B[ls]C[RIGHT])))\n(;B[iq];W[ks];B[ls];W[nj]LB[oj:A]C[Please answer W's ko threat at 'A'];B[oj];W[ks]\n(;B[ir];W[is]\n(;B[hq];W[gr];B[gp];W[lq];B[kp];W[os]C[])\n(;B[mr];W[hq];B[ns];W[ls]C[]))\n(;B[hq]\n(;W[gr];B[ls];W[nk]LB[ok:A]C[Please answer W's ko threat at 'A'];B[ok];W[ks]\n(;B[ir];W[is]\n(;B[gp];W[lq]C[])\n(;B[mr];W[gp]C[]))\n(;B[is];W[ir];B[ls];W[mr];B[ks];W[os]\n(;B[nr];W[ns]C[])\n(;B[ns];W[nr];B[lq];W[gp]C[])\n(;B[gp];W[lq];B[kp];W[ns]C[])))\n(;W[lq];B[ls];W[kp];B[mr];W[ks]C[- ko]))))\n(;B[os];W[ks];B[iq];W[hq];B[ir];W[is]C[])\n(;B[iq];W[ir]\n(;B[ls];W[hq];B[mr];W[os];B[ns];W[ps]C[Though B could do better than thisRIGHT])\n(;B[hq];W[gr];B[gp];W[lq]\n(;B[kp];W[ks]C[])\n(;B[ks];W[kp]\n(;B[ls];W[jq];B[mr];W[lp]C[])\n(;B[jq];W[ls]C[]))\n(;B[ls];W[kp];B[mr];W[lp];B[jq]C[though B could do better than thisRIGHT]))\n(;B[ks];W[hq];B[mr];W[os];B[ns];W[ps]C[RIGHT]))\n(;B[ks];W[iq]\n(;B[mr];W[os];B[ns];W[ps]C[RIGHT])\n(;B[js];W[lq];B[kp];W[mr];B[ms];W[os];B[ns]C[])\n(;B[ls];W[mr]\n(;B[ms];W[os];B[ns]C[])\n(;B[nr];W[os]C[]))))",
+  "author": {
+    "id": 1139,
+    "name": "Chrisg",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 667,
+    "failed": 2285,
+    "tries": 2952,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-09-30T00:59:20+00:00",
+  "source": "From another of my games",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 32,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

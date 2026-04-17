@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22538,
+  "elo": 1957.8958427982,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Chinese rules (remember, eyes in seki DO count), komi = 3. If you don't like irregular board problems, then just press the \"Next\" button.",
+  "rating": {
+    "stars": 1,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\nSZ [8]\r\n\r\nC [Chinese rules, komi = 3. Black to play on the 1 x 8 board at the top. The triangles mark the edge of the board. Please note that the triangles will have black stones on them when it is black's turn and may have white stones when it is white's turn. The purpose of this is to complete captures. Otherwise, stones will not be captured because of the liberty on the 7th rank (row).][FORCE]\r\n\r\n\r\n\r\nTR [ab][bb][cb][db][eb][fb][gb][hb]\r\nAB [ab][bb][cb][db][eb][fb][gb][hb]\r\n\r\n(; B [ba]; W [da] TR [ab][bb][cb][db][eb][fb][gb][hb] (; B [fa]; W [ga] TR [ab][bb][cb][db][eb][fb][gb][hb]; B [ha]; W [ea] TR [ab][bb][cb][db][eb][fb][gb][hb]; B [ca]; W [ea] TR [ab][bb][cb][db][eb][fb][gb][hb]; B [da]; AW [ab][bb][cb][db][eb][fb][gb][hb] W [ga] AB [ab][bb][cb][db][eb][fb][gb][hb] TR [ab][bb][cb][db][eb][fb][gb][hb] C [Play P if you want to pass.] LB [ac:P] (; B [ea]; AW [ab][bb][cb][db][eb][fb][gb][hb] W [aa] AB [ab][bb][cb][db][eb][fb][gb][hb]; B [ea]; W [ca] TR [ab][bb][cb][db][eb][fb][gb][hb]; B [ba]; W [fa] TR [ab][bb][cb][db][eb][fb][gb][hb]; B [ha]; W [fa] TR [ab][bb][cb][db][eb][fb][gb][hb]; B [ga]; AW [ab][bb][cb][db][eb][fb][gb][hb] W [aa] AB [ab][bb][cb][db][eb][fb][gb][hb] TR [ab][bb][cb][db][eb][fb][gb][hb] LB [ac:P] C [P = pass] (; B [da]; AW [ab][bb][cb][db][eb][fb][gb][hb] W [fa] AB [ab][bb][cb][db][eb][fb][gb][hb] TR [ab][bb][cb][db][eb][fb][gb][hb] (; B [ea] TR [ab][bb][cb][db][eb][fb][gb][hb] C [RIGHT][Despite white's seemingly superior position, the stones on C8 and F8 leave weaknesses that allow black to get a jigo.])(; B [ga] TR [ab][bb][cb][db][eb][fb][gb][hb] C [RIGHT][Despite white's seemingly superior position, the stones on C8 and F8 leave weaknesses that allow black to get a jigo.]))(; B [ac] TR [ab][bb][cb][db][eb][fb][gb][hb] C [White wins.])(; B [fa]; W [ba] TR [ab][bb][cb][db][eb][fb][gb][hb] C [Black passes and white wins. Even if black D8 instead of passing, white B8 forces black to pass, then white C8 wins.]))(; B [ac]; AW [ab][bb][cb][db][eb][fb][gb][hb] W [ea] TR [ab][bb][cb][db][eb][fb][gb][hb] AB [ab][bb][cb][db][eb][fb][gb][hb] C [White wins.]))(; B [ga]; W [ea] TR [ab][bb][cb][db][eb][fb][gb][hb] C [White wins.]))\r\n\r\n(; B [aa]; AW [ab][bb][cb][db][eb][fb][gb][hb] W [ba] AB [ab][bb][cb][db][eb][fb][gb][hb] TR [ab][bb][cb][db][eb][fb][gb][hb] C [White wins.])\r\n\r\n(; B [ca]; W [ga] TR [ab][bb][cb][db][eb][fb][gb][hb] (; B [ba]; W [ea] TR [ab][bb][cb][db][eb][fb][gb][hb] C [White wins.])(; B [da]; W [fa] TR [ab][bb][cb][db][eb][fb][gb][hb] C [White wins.])(; B [ea]; W [ba] TR [ab][bb][cb][db][eb][fb][gb][hb]; B [aa]; W [fa] TR [ab][bb][cb][db][eb][fb][gb][hb]; B [ha]; AW [ab][bb][cb][db][eb][fb][gb][hb] W [ga] AB [ab][bb][cb][db][eb][fb][gb][hb] TR [ab][bb][cb][db][eb][fb][gb][hb] C [White can win by capturing A8.]))\r\n\r\n(; B [da]; W [ga] TR [ab][bb][cb][db][eb][fb][gb][hb] (; B [ea]; W [ba] TR [ab][bb][cb][db][eb][fb][gb][hb] C [White wins.])(; B [ba]; W [fa] TR [ab][bb][cb][db][eb][fb][gb][hb] C [White wins.]))\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 0,
+  "attempts": {
+    "solved": 0,
+    "failed": 51,
+    "tries": 51,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-06-07T02:05:29+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 189,
+      "name": "Irregular board",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 20,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

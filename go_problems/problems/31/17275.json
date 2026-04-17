@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17275,
+  "elo": 874.1153364731,
+  "problemLevel": 6,
+  "rank": {
+    "value": 24,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -9,
+    "flagSum": -5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Played this in a match; after N19 L19, my opponent tenuki'd, failing to make sure his group was alive.",
+  "rating": {
+    "stars": 3,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pa]AB[pb]AB[ob]AB[la]AB[ka]AB[kb]AB[lc]AB[ld]AB[le]AB[ke]AB[me]AB[mf]AB[mg]AB[nf]AB[qc]AB[qd]AB[qe]AB[qg]AB[pg]AB[nh]AB[oh]AB[oi]AW[ng]AW[og]AW[of]AW[pf]AW[pe]AW[ne]AW[pd]AW[pc]AW[oc]AW[md]AW[mc]AW[lb]AW[ma]AW[mb]AW[nb]AW[oa]C[Black to kill. Tenuki at T if white is already dead]AB[qf]AB[qb]LB[ri:T]AP[goproblems]\r\n(;B[oe];W[nd]C[white lives])\r\n(;B[na];W[nd]C[white lives])\r\n(;B[od];W[nd]C[white lives])\r\n(;B[nc];W[nd]C[White lives])\r\n(;B[nd]\r\n(;W[od]\r\n(;B[oe]C[RIGHT]\r\n(;W[nc]LB[ri:T]C[Tenuki at T if white is dead]\r\n(;B[ne]C[RIGHT])\r\n(;B[na]C[RIGHT])\r\n(;B[ri];W[ne]C[White has two eyes now]))\r\n(;W[na];B[nc]C[RIGHT]))\r\n(;B[na];W[nc]C[White has two eyes]))\r\n(;W[na]LB[ri:T]C[Tenuki at T if white is dead now]\r\n(;B[nc]C[This kills, but you could've tenuki'd insteadRIGHT])\r\n(;B[ri]C[RIGHT]))\r\n(;W[nc];B[oe];W[od]\r\n(;B[ne]C[RIGHT])\r\n(;B[na]C[RIGHT]))\r\n(;W[oe]C[White kills himself playing here, by filling in what could've been eyes]\r\n(;B[na];W[nc];B[od]C[RIGHT])\r\n(;B[od];W[nc];B[na]C[RIGHT])\r\n(;B[nc];W[od];B[na]C[RIGHT])))\r\n(;B[ri];W[nd]C[Nope, he can still make two eyes]))",
+  "author": {
+    "id": 63525,
+    "name": "Masia",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-06-17",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 4412,
+    "failed": 3374,
+    "tries": 7786,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-05-19T06:08:14+00:00",
+  "source": "KGS match",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3527,
+  "elo": 1256.09649869,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "I'm not sure if this is technically life and death.  Please feel free to add questions or comments. Capture the black stones.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[so]AB[rn]AB[sn]AB[rm]AB[rl]AB[ql]AB[qk]AB[pj]AB[oi]AB[ni]AB[nh]AW[sp]AW[rp]AW[ro]AW[qo]AW[qn]AW[qm]AW[pn]AW[on]AW[pl]AW[pk]AW[oj]AW[nj]AW[mj]AW[nk]AW[mi]AB[mh]AB[ph]AB[rh]AW[sh]AW[sj]AW[sg]AW[rg]AW[qg]AB[lf]AW[qf]AW[qe]AW[se]C[capture the black stones!]AP[goproblems]\n(;W[qj];B[rj]\n(;W[qi];B[ri]\n(;W[qh];B[rk]\n(;W[si]C[good job!RIGHT])\n(;W[pi];B[si]C[black has two eyes.])\n(;W[sk];B[si]C[This is ok, the group still dies, but black could force you to play t8 as a ko threat.  there is a better way.];W[sl]C[RIGHT]))\n(;W[si];B[qh]))\n(;W[pi];B[qi]\n(;W[pj];B[qh]\n(;W[si];B[ri]C[black connects.])\n(;W[ri];B[si]C[black connects]))\n(;W[qh];B[pj]C[black connects.];W[ri];B[qj]C[black connects.])\n(;W[ri];B[pj]C[black connects]))\n(;W[ri];B[qi]C[black connects.])\n(;W[qh];B[qi];W[ri];B[qj]C[black connects.]))\n(;W[rj];B[qj];W[ri];B[pi]C[black connects.])\n(;W[qi];B[qj];W[pi];B[rj]\n(;W[qh];B[sk]C[Black has two eyes.])\n(;W[ri];B[sk]C[Black has two eyes.])\n(;W[si];B[sk]C[Black has two eyes.])\n(;W[sk];B[qh]\n(;W[ri];B[si]C[black has a bamboo joint.  This is an automatic connection.])\n(;W[si];B[ri]C[Black connects.])))\n(;W[qh];B[qi]C[black connects.]))",
+  "author": {
+    "id": 5161,
+    "name": "emeraldemon",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-11-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 5605,
+    "failed": 8535,
+    "tries": 14140,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-13T11:48:16+00:00",
+  "source": "My game with GNU go",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

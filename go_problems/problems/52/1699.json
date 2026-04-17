@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1699,
+  "elo": 1222.3946959203,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Sometimes it is good to know how to get a KO going, especially if you have enough Ko threats. \r\nHere you may assume, that you have a KO threat at A.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nAW[ra][pb][qb][pc][pd][rd][qe][qf][qi]AB[ob][rb][sb][oc][qc][rc][qd][oe][pe]LB[oh:A]PL[W]\r\n(;W[se]LB[oh:A]\r\n;B[od]LB[oh:A]\r\n;W[sc]LB[oh:A]\r\n;B[sd]LB[oh:A]\r\n;W[oh]CR[oh]C[RIGHT White wins the corner if she has enough KO threats])\r\n(;W[sd]LB[oh:A]\r\n;B[re]LB[oh:A]\r\n;W[rf]LB[oh:A]\r\n;B[od]LB[oh:A]\r\n;W[se]LB[oh:A]\r\n;B[pa]LB[oh:A])\r\n(;W[sa]LB[oh:A]CR[sa]\r\n;B[qa]LB[oh:A]CR[qa]\r\n;W[pa]LB[oh:A]CR[pa]\r\n;B[od]LB[oh:A]CR[od]\r\n;W[ra]LB[oh:A]CR[ra]\r\n;B[oa]LB[oh:A]CR[oa])\r\n(;W[sc]LB[oh:A]CR[sc]\r\n;B[sd]LB[oh:A]CR[sd]\r\n;W[re]LB[oh:A]CR[re]\r\n;B[od]LB[oh:A]CR[od]\r\n;W[se]LB[oh:A]CR[se]\r\n;B[pa]LB[oh:A]CR[pa])\r\n(;W[re]LB[oh:A]CR[re]\r\n;B[od]LB[oh:A]CR[od]\r\n;W[sc]LB[oh:A]CR[sc]\r\n;B[sd]LB[oh:A]CR[sd]\r\n;W[se]LB[oh:A]CR[se]\r\n;B[pa]LB[oh:A]CR[pa])))",
+  "author": {
+    "id": 2466,
+    "name": "uwe001",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-11-05",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 4030,
+    "failed": 7411,
+    "tries": 11441,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-11-08T11:05:56+00:00",
+  "source": "James Davies, Tesuji",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

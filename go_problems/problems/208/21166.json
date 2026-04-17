@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21166,
+  "elo": 901.48257144936,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 2.1,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bq]AB[cq]AB[dq]AB[bs]AW[bp]AW[ap]AW[cp]AW[dp]AW[ep]AW[eq]AW[er]AW[es]AB[ar]AB[aq]C[White can't kill Black but has the best result.FORCE]AP[goproblems]\n(;W[br]C[FORCE];B[dr]C[FORCE];W[ds]C[FORCE];B[cs])\n(;W[cr]C[FORCE];B[dr]C[FORCE];W[ds]C[FORCE];B[cs])\n(;W[dr]C[FORCE];B[cr]C[RIGHT])\n(;W[cs]C[FORCE]\n(;B[cr]C[FORCE]\n(;W[dr]C[FORCE];B[ds])\n(;W[ds]C[FORCE];B[dr]C[RIGHT]))\n(;B[dr]C[FORCE]\n(;W[br]C[FORCE];B[cr])\n(;W[cr]C[FORCE];B[ds])\n(;W[ds]C[FORCE];B[cr]C[RIGHT])))\n(;W[ds]C[FORCE]\n(;B[cr]C[RIGHT])\n(;B[dr]C[FORCE]\n(;W[br]C[FORCE];B[cs])\n(;W[cr]C[FORCE];B[cs])\n(;W[cs]C[FORCE];B[cr]C[RIGHT]))\n(;B[cs]C[FORCE]\n(;W[br]C[FORCE];B[dr])\n(;W[cr]C[FORCE];B[dr])\n(;W[dr]C[FORCE];B[cr]C[RIGHT]))))",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 1215,
+    "failed": 1280,
+    "tries": 2495,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-04-28T09:40:39+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 208,
+      "name": "Best move with letting enemy live",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

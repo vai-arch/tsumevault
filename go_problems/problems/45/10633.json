@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10633,
+  "elo": 1738.4803948103,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Long time ago, when I was just a little goproblem child, I tried to make this kind of problem with double playing white. I failed and someone commented it as a very stupid idea. Today, with more experience, IÂ´m comming back to face this kind of challenge again. I will make a double-playing-white problem that works!\r\n**\r\nPlease note that in Japanese-rules-seki white can easily capture now because she has two moves in a row.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[je]AB[ke]AB[le]AB[lf]AB[lg]AB[lh]AB[li]AB[ki]AB[ji]AB[ii]AB[hi]AB[gi]AB[gh]AB[gg]AB[ge]AB[gf]AB[he]AB[ie]AW[kd]AW[ld]AW[md]AW[me]AW[mf]AW[mg]AW[mh]AW[mi]AW[lj]AW[kj]AW[jj]AW[ij]AW[gj]AW[hj]AW[fj]AW[fi]AW[fh]AW[fg]AW[ff]AW[fe]AW[fd]AW[gd]AW[hd]AW[id]AW[jd]AW[mj]AW[kf]C[Black to play and live. After each blacks move white has two moves in a row!]AP[goproblems]\n(;B[kg]AW[jg];W[jh]\n(;B[jf]AW[ih];W[hg]\n(;B[if]C[Good, white cannot capture black any more! RIGHT])\n(;B[hf]AW[if];W[hh]C[Black cannot win this ko - white can anytime just say pass and take. And when black runs out of threats, white can play L12 and L14 to capture.])\n(;B[hh]AW[if]C[Specific form of seki - black does not live with points, but ok, you solved it :)RIGHT]))\n(;B[hg]AW[if];W[ih]\n(;B[jf]C[Good! White cannot win anymore.RIGHT])\n(;B[ig]AW[jf];W[kh]C[Not a seki, black is dead, next turn white will play both places to capture.]))\n(;B[if]AW[hg];W[jf];B[ig]AW[ih];W[hh]C[Not a seki, black is dead, next turn white will play both places to capture.])\n(;B[ih]AW[hg];W[jf];B[ig]AW[hf];W[if]C[Not a seki, black is dead, next turn white will play both places to capture.])\n(;B[ig]AW[jf];W[if];B[ih]AW[hg];W[hf]C[Not a seki, black is dead, next turn white will play both places to capture.]))\n(;B[jf]AW[jg];W[kg]\n(;B[hg]AW[ig];W[if]\n(;B[ih]C[Good, white cannot capture black any more!RIGHT])\n(;B[jh]AW[ih];W[hh]C[Not a seki, black is dead, next turn white will play both places to capture.]))\n(;B[ig]AW[ih];W[hg]\n(;B[if]AW[hh];W[jh]C[Not a seki, black is dead, next turn white will play both places to capture.])\n(;B[hf]AW[jh];W[if]C[Black has no chance in this ko - white can pass and retake any time.]))\n(;B[ih]AW[ig];W[hg]C[Not a seki, black is dead.]))\n(;B[jg]AW[jf];W[kg]\n(;B[ig]AW[if];W[hg]C[Black is in trouble.];B[hf]AW[jh];W[ih])\n(;B[jh]AW[ig];W[if])\n(;B[if]AW[jh];W[ig];B[hg]AW[kh];W[ih]C[Next, white will play H12 and 14 and wins.])\n(;B[hg]AW[if];W[ih]\n(;B[ig]AW[jh];W[kh])\n(;B[jh]AW[ig];W[kh])))\n(;B[hg]AW[if];W[ih]\n(;B[jf]AW[kg];W[ig];B[jg]AW[jh];W[kh])\n(;B[ig]AW[jf];W[jh]\n(;B[jg]AW[kg];W[kh]C[Not a seki, black is dead, next turn white will play both places to capture.])\n(;B[kg]AW[jg];W[kh]C[Not a seki, black is dead, next turn white will play both places to capture.]))\n(;B[kg]AW[jf];W[jh]C[Not a seki, black is dead.])\n(;B[jg]AW[ig];W[jf]C[Not a seki, black is dead.])\n(;B[jh]AW[ig];W[kg];B[jg]AW[jf];W[hf]C[Not a seki, black is dead, next turn white will play both places to capture.])\n(;B[kh]AW[jf];W[ig]))\n(;B[if]AW[hg];W[jh]\n(;B[kg]AW[jg];W[jf];B[ig]AW[ih];W[hh]C[Not a seki, black is dead, next turn white will play both places to capture.])\n(;B[jg]AW[kg];W[ig]C[];B[kh];W[jf]AW[jg]C[Not a seki, black is dead.])\n(;B[ig]AW[ih];W[hh]\n(;B[kg]AW[jg];W[jf])\n(;B[jg]AW[kg];W[kh]))\n(;B[ih]AW[ig];W[jg]))\n(;B[ig]AW[hg];W[if]\n(;B[jf]AW[jg];W[ih];B[kg]AW[jh];W[hf]C[Not a seki, black is dead.])\n(;B[jg]AW[jf];W[kg];B[hf]AW[jh];W[ih])\n(;B[kg]AW[jg];W[jf]\n(;B[ih]AW[hf];W[jh]C[Not a seki, black is dead, next turn white will play both places to capture.])\n(;B[jh]AW[hf];W[ih]C[Not a seki, black is dead, next turn white will play both places to capture.])\n(;B[hf]AW[jh];W[ih]C[Not a seki, black is dead.]))\n(;B[hf]AW[jg];W[ih])\n(;B[ih]AW[hf];W[jf]\n(;B[jg]AW[kg];W[kh])\n(;B[kg]AW[jg];W[jh])))\n(;B[ih]AW[hg];W[jf]\n(;B[kg]AW[jg];W[jh];B[ig]AW[if];W[hf]C[Not a seki, black is dead, next turn white will play both places to capture.])\n(;B[jg]AW[kg];W[ig];B[kh]AW[if];W[jh]C[Black really cannot win this ko in such rule system.])\n(;B[ig]AW[if];W[hf]\n(;B[jg]AW[kg];W[kh])\n(;B[kg]AW[jg];W[jh])))\n(;B[jh]AW[kg];W[ig];B[hg]AW[if];W[ih]C[Not a seki, black is dead.];B[jg]AW[jf];W[hf]C[Not a seki, black is dead, next turn white will play both places to capture.])\n(;B[kh]AW[jg];W[ig];B[hg]AW[if];W[ih]C[Not a seki, black is dead.])\n(;B[hf]AW[ig];W[jg]C[Not a seki, black is dead.])\n(;B[hh]AW[ig];W[jg]C[Not a seki, black is dead.]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 59,
+  "attempts": {
+    "solved": 129,
+    "failed": 1034,
+    "tries": 1163,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-11-21T01:55:31+00:00",
+  "source": "Go love",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 30,
+      "name": "Stories",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

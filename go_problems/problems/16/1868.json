@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1868,
+  "elo": 1638.2790793151,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This the same position as in problem 1867. The marked white stone was a mistake - now black can win despite of the komi!",
+  "rating": {
+    "stars": 4.7,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]TM[]\r\nAW[ec][ad][cd][ed][ae][ce][de][ee][fe][ge][bf][ag]AB[ea][eb][gb][bc][cc][dc][fc][bd][dd][fd][gd][be][cf]TR[ad]C[No prisoners, but a 3 point komi for white - Black to play and win!]\r\n(;B[df]CR[df]\r\n;W[ef]CR[ef]\r\n(;B[cg]CR[cg]\r\n;W[eg]CR[eg]\r\n;B[ac]CR[ac]\r\n;W[dg]CR[dg]\r\n;B[af]CR[af]\r\n;W[ae]CR[ae]\r\n;B[ad]CR[ad]\r\n;W[bg]CR[bg]\r\n;B[af]CR[af]\r\n;W[fb]CR[fb]\r\n;B[fa]CR[fa]\r\n;W[ae]CR[ae]\r\n(;B[cf]CR[cf]\r\n;W[cg]CR[cg]\r\n;B[af]CR[af]\r\n;W[db]CR[db]\r\n;B[cb]CR[cb]\r\n;W[ae]CR[ae]\r\n(;B[fg]CR[fg]\r\n(;W[gf]CR[gf]\r\n;B[af]CR[af]C[Black connects the ko and wins by one point! RIGHT])\r\n(;W[af]CR[af]\r\n;B[gf]CR[gf]C[This is a seki, so white can't ignore Bf1!]))\r\n(;B[gf]CR[gf]\r\n(;W[fg]CR[fg]\r\n;B[af]CR[af]C[Black connects the ko and wins by one point! RIGHT])\r\n(;W[af]CR[af]\r\n;B[fg]CR[fg]C[This is a seki, so white can't ignore Bg2!])))\r\n(;B[fg]CR[fg]\r\n;W[cf]CR[cf]\r\n;B[af]CR[af]\r\n;W[db]CR[db]\r\n;B[cb]CR[cb]\r\n;W[ae]CR[ae]C[White connects the ko - jigo!])\r\n(;B[gf]CR[gf]\r\n;W[cf]CR[cf]\r\n;B[af]CR[af]\r\n;W[db]CR[db]\r\n;B[cb]CR[cb]\r\n;W[ae]CR[ae]C[White connects the ko - jigo!])\r\n(;B[cg]CR[cg]\r\n;W[cf]CR[cf]\r\n;B[af]CR[af]\r\n;W[db]CR[db]\r\n;B[cb]CR[cb]\r\n;W[ae]CR[ae]C[White connects the ko - jigo!]))\r\n(;B[ac]CR[ac]\r\n;W[cg]CR[cg]\r\n;B[af]CR[af]\r\n;W[ae]CR[ae]\r\n;B[ad]CR[ad]\r\n;W[dg]CR[dg]\r\n;B[af]CR[af]\r\n;W[fb]CR[fb]\r\n;B[fa]CR[fa]\r\n;W[ae]CR[ae]\r\n;B[cf]CR[cf]\r\n(;W[bg]CR[bg]\r\n;B[af]CR[af]\r\n;W[db]CR[db]\r\n;B[cb]CR[cb]\r\n;W[ae]CR[ae]\r\n(;B[fg]CR[fg]\r\n;W[ff]CR[ff]\r\n;B[af]CR[af]C[Black connects the ko and wins by one point! RIGHT])\r\n(;B[eg]CR[eg]\r\n;W[fg]CR[fg]\r\n;B[af]CR[af]C[Black connects the ko and wins by one point! RIGHT]))\r\n(;W[df]CR[df]\r\n;B[af]CR[af]\r\n;W[db]CR[db]\r\n;B[bg]CR[bg]C[In this position, d6 is no ko threat!])))\r\n(;B[cg]CR[cg]\r\n;W[df]CR[df]\r\n;B[ac]CR[ac]\r\n;W[dg]CR[dg]\r\n;B[af]CR[af]\r\n;W[ae]CR[ae]\r\n;B[ad]CR[ad]\r\n;W[bg]CR[bg]\r\n;B[af]CR[af]\r\n;W[fb]CR[fb]\r\n;B[fa]CR[fa]\r\n;W[ae]CR[ae]\r\n(;B[cf]CR[cf]\r\n;W[cg]CR[cg]\r\n;B[af]CR[af]\r\n;W[db]CR[db]\r\n;B[cb]CR[cb]\r\n;W[ae]CR[ae]C[White connects the ko - jigo!])\r\n(;B[cg]CR[cg]\r\n;W[cf]CR[cf]\r\n;B[af]CR[af]\r\n;W[db]CR[db]\r\n;B[cb]CR[cb]\r\n;W[ae]CR[ae]C[White connects the ko - jigo!]))\r\n(;B[ac]CR[ac]\r\n;W[df]CR[df]\r\n(;B[af]CR[af]\r\n;W[ae]CR[ae]\r\n(;B[ad]CR[ad]\r\n;W[cg]CR[cg]\r\n;B[af]CR[af]\r\n;W[fb]CR[fb]\r\n;B[fa]CR[fa]\r\n;W[ae]CR[ae]C[White connects the ko - jigo!])\r\n(;B[cg]CR[cg]\r\n;W[dg]CR[dg]\r\n;B[ad]CR[ad]\r\n;W[bg]CR[bg]\r\n;B[af]CR[af]\r\n;W[fb]CR[fb]\r\n;B[fa]CR[fa]\r\n;W[ae]CR[ae]\r\n;B[cf]CR[cf]\r\n;W[cg]CR[cg]\r\n;B[af]CR[af]\r\n;W[db]CR[db]\r\n;B[cb]CR[cb]\r\n;W[ae]CR[ae]C[White connects the ko - jigo!]))\r\n(;B[cg]CR[cg]\r\n;W[dg]CR[dg]\r\n;B[af]CR[af]\r\n;W[ae]CR[ae]\r\n;B[ad]CR[ad]\r\n;W[bg]CR[bg]\r\n;B[af]CR[af]\r\n;W[fb]CR[fb]\r\n;B[fa]CR[fa]\r\n;W[ae]CR[ae]\r\n(;B[cf]CR[cf]\r\n;W[cg]CR[cg]\r\n;B[af]CR[af]\r\n;W[db]CR[db]\r\n;B[cb]CR[cb]\r\n;W[ae]CR[ae]C[White connects the ko - jigo!])\r\n(;B[cg]CR[cg]\r\n;W[cf]CR[cf]\r\n;B[af]CR[af]\r\n;W[db]CR[db]\r\n;B[cb]CR[cb]\r\n;W[ae]CR[ae]C[White connects the ko - jigo!]))))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 85,
+  "attempts": {
+    "solved": 384,
+    "failed": 2509,
+    "tries": 2893,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-01-09T15:07:58+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

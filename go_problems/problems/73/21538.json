@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21538,
+  "elo": 1417.6785233067,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "black to kill.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nAW [ca][ab][cb][bd][cd][ae]\r\nAB [ba][db][dc][dd][ce][bf][df]\r\nC[black to kill.]\r\n     (;B[be]\r\n          (;W[cc] C[CHOICE]\r\n               (;B[bb] \r\n                    (;W[bc] C[CHOICE]\r\n                         (;B[ad] C[RIGHT white dies.])\r\n                         (;B[af] ;W[ad] C[white lives.])\r\n                    )\r\n                    (;W[ad] C[CHOICE] ;B[bc] C[RIGHT white dies.])\r\n               )\r\n               (;B[ad]\r\n                    (;W[bb] ;B[ac] C[RIGHT CHOICE white dies.])\r\n                    (;W[ac] ;B[bb] C[RIGHT CHOICE white dies.])\r\n               )\r\n               (;B[bc] ;W[bb] C[white lives.])\r\n               (;B[af] ;W[ad] C[white lives.])\r\n          )\r\n          (;W[ad] C[CHOICE]\r\n               (;B[bc] ;W[cc] ;B[bb] C[RIGHT white dies.])\r\n               (;B[cc] ;W[bc] C[oops! white lives.])\r\n               (;B[bb] ;W[bc] C[white lives.])\r\n           )\r\n          (;W[bb] C[CHOICE]\r\n               (;B[cc] C[RIGHT white dies.])\r\n               (;B[ad] C[RIGHT white dies.])\r\n               (;B[af]\r\n                    (;W[cc] C[CHOICE white lives.])\r\n                    (;W[ad] C[CHOICE white lives.])\r\n               )\r\n          )\r\n          (;W[bc] C[CHOICE]\r\n               (;B[ad] C[RIGHT white dies.])\r\n               (;B[af] ;W[ad] C[white lives.])\r\n               (;B[cc] ;W[ad] C[white lives.])\r\n               (;B[af] ;W[ad] C[white lives.])\r\n          )\r\n     )\r\n\r\n\r\n     (;B[bc] ;W[cc]\r\n          (;B[be] ;W[bb] C[white lives.])\r\n          (;B[bb] ;W[be]\r\n               (;B[ac] ;W[ad] C[white lives.])\r\n               (;B[af] ;W[ac] C[white lives.])\r\n          )\r\n     )\r\n     (;B[bb] ;W[bc]\r\n          (;B[be] ;W[ad] C[white lives.])\r\n          (;B[ad] ;W[be] C[white lives.])\r\n          (;B[cc] ;W[aa] C[white lives.])\r\n     )\r\n     (;B[cc] ;W[bc]\r\n          (;B[be] ;W[ad] C[white lives.])\r\n          (;B[ad] ;W[be] C[white lives.])\r\n     )\r\n     (;B[ad] ;W[be]\r\n          (;B[cc] ;W[bc] C[white lives.])\r\n          (;B[bb] ;W[bc] C[white lives.])\r\n          (;B[bc] ;W[cc] C[white lives.])\r\n     )\r\n     (;B[ac] ;W[cc]\r\n          (;B[be] ;W[ad] ;B[bb] ;W[bc] C[white lives. white can also tenuki.])\r\n          (;B[bb] ;W[bc]\r\n               (;B[aa] ;W[ad] C[white lives.])\r\n               (;B[be] ;W[ad] C[white lives. white can also tenuki.])\r\n          )\r\n          (;B[bc] ;W[be]\r\n               (;B[af] ;W[bb] C[white lives.])\r\n               (;B[bb] ;W[ad] C[white lives.])\r\n          )\r\n          (;B[ad] ;W[be] ;B[bb] ;W[bc] C[white lives. white can also tenuki.])\r\n     )\r\n)",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 68,
+  "attempts": {
+    "solved": 275,
+    "failed": 579,
+    "tries": 854,
+    "speedSolved": 2,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2017-10-30T07:04:37+00:00",
+  "source": "Unknown source seen on KGS.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

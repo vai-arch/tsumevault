@@ -1,0 +1,114 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 51605,
+  "elo": 1515.383467052,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "White has 6.5 points komi, japanese rules (important!), no prisoners.",
+  "rating": null,
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[9]ST[0]AB[ab][bc][ba][ca][cb][ea][eb][fb][gb][ga][gc][hd][he][ge][hh][fh][eh][fg][ff][gg]AW[hg][hf][gf][gh][dh][dg][eg][ef][ee][fe][fd][gd][fc][ec][dc][db][da][cc][bd][ae][dd][de](;B[ac];W[hi](;B[gi];W[ih](;B[ii];W[hc](;B[ig];W[hb];B[ha]C[RIGHT])(;B[if];W[hb];B[ha]C[RIGHT]))(;B[gh];W[ei];B[ii];W[ad]C[Black loses by half a point.]))(;B[ih];W[gi]))(;B[gi];W[ac];B[ad];W[hc]C[You have to respond to this ko threat. After that, white can ignore any ko threat you make and win by finishing the ko.\n\nNote: white could win by an even larger margin by responding to your ko threats , e.g. b D1, since white also has more threats. In any case, black will lose the ko and thus the game.])(;B[di];W[ac];B[ad];W[ei]C[You have to respond to this ko threat. After that, white can ignore any ko threat you make and win by finishing the ko.\n\nNote: white could win by an even larger margin by responding to your ko threats , e.g. b D1, since white also has more threats. In any case, black will lose the ko and thus the game.](;B[fi];W[hi];B[gi];W[ih];B[ii];W[ac]C[You can only win one of the kos, which is not enough to win the game.])(;B[gi];W[ac];B[ci];W[ad]C[Black's reduction on the bottom left is not enough to win.\n\n (White's best move would be C2, since white has more ko threats, which would win by a larger margin. This is just to illustrate a clear ending to the variation.)]))(;B[ig];W[ac];B[ad];W[ei]C[You have to respond to this ko threat. After that, white can ignore any ko threat you make and win by finishing the ko.])(;B[if];W[ac];B[ad];W[ei]C[You have to respond to this ko threat. After that, white can ignore any ko threat you make and win by finishing the ko.\n]))",
+  "author": {
+    "id": 113656,
+    "name": "seito1",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-07",
+    "rank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1302.51
+  },
+  "avgSolveTimeSeconds": 127,
+  "attempts": {
+    "solved": 1,
+    "failed": 3,
+    "tries": 4,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-10-15T23:59:41+00:00",
+  "source": "Bottom right corner is from O Meien’s book \"Absolute Endgame\", Chapter 3, Problem F.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1540
+}

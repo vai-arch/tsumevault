@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4259,
+  "elo": 1921.2209818982,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "There is a couple of hours worth of analysis in the variations, so it may be interesting to navigate the solution afterwards.\r\n\r\nMost of the variations are based on my own analysis, so if you think there is an error or an important variation has been omitted, please add a comment.\r\n\r\nThanks to Teemu HirsimÃ¤ki for practically forcing me to count these out by showing a subproblem of this :-)",
+  "rating": {
+    "stars": 4.5,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pp]AB[pq]AB[qp]AB[rp]AW[ro]AW[rn]AW[po]AW[pn]AW[op]AW[oq]AW[or]AW[mr]AP[goproblems]\n(;B[rr];W[qr];B[pr]\n(;W[sr]\n(;B[sq];W[rs];B[ss]C[direct ko, black takes first.RIGHT])\n(;B[rq];W[ps]C[black is dead.])\n(;B[sp];W[rs]C[black is dead.])\n(;B[qq];W[sp];B[sq];W[rq]C[direct ko, white takes first.])\n(;B[qs];W[sp]C[black is dead.]))\n(;W[ps]C[this is a mistake by white. black can live.];B[rs]\n(;W[qs];B[qq];W[os];B[sq])\n(;W[sp]TR[qo]C[black has an extra liberty, and therefore will live.];B[sq];W[qs];B[qq];W[os];B[so])))\n(;B[rs]\n(;W[sp]\n(;B[sr];W[qr];B[pr];W[rr]\n(;B[rq];W[qs];B[ps];W[ss]C[direct ko, white takes first])\n(;B[qs];W[sq];B[rq];W[ss]C[direct ko, white takes first.]))\n(;B[sq];W[qr];B[pr];W[rr]\n(;B[rq];W[ps]C[black is dead.])\n(;B[sr];W[ps]C[black is dead.])\n(;B[qs];W[rq];B[so];W[sr]C[black is dead.])\n(;B[ps];W[rq];B[so];W[sr]C[black is dead.]))\n(;B[rq];W[qr];B[pr];W[rr]\n(;B[sr];W[qs];B[ps];W[ss]C[direct ko, white takes first.])\n(;B[qs];W[sq];B[sr];W[ss]C[direct ko, white takes first.])\n(;B[ps];W[sq];B[sr];W[ss]C[two-step ko for black, direct ko for white.])\n(;B[qq];W[sr]C[black is dead.])\n(;B[sq];W[ps]C[black is dead.])))\n(;W[sr]C[this is a mistake by white. black can avoid ko.];B[rq];W[qr];B[pr]\n(;W[ps];B[qs];W[rr];B[os]C[seki.])\n(;W[qs];B[ps];W[rr];B[sq]TR[qo]C[black lives due to his extra liberty.])\n(;W[rr];B[qs];W[sp];B[sq]C[seki.]))\n(;W[qr]C[this does not help white.];B[pr]\n(;W[ps]C[this is a mistake by white.];B[rr];W[sp];B[sq];W[qs];B[qq];W[os];B[so]C[black lives.])\n(;W[rr];B[qs];W[sp];B[rq];W[sq];B[sr];W[ss]C[still ko.])\n(;W[sr]C[this is a mistake by white.];B[sp]\n(;W[ps];B[qs];W[rr];B[os]C[seki.])\n(;W[qs];B[rr];W[rq];B[qq];W[ss];B[sq];W[ps];B[rr]C[black lives.]))))\n(;B[pr]\n(;W[rr]\n(;B[rs];W[sp]\n(;B[rq];W[sq];B[sr];W[ss]C[direct ko, white takes first.])\n(;B[sq];W[qr]\n(;B[qs];W[rq];B[so];W[sr]C[black is dead.])\n(;B[ps];W[rq];B[so];W[sr]C[black is dead.]))\n(;B[sr];W[rq]C[black is dead.]))\n(;B[qr]\n(;W[sq];B[sp];W[rq];B[rs];W[ps];B[sr];W[ss]C[ko for life.])\n(;W[rq]C[this does not help white.];B[sp]\n(;W[rs];B[sr];W[ps];B[qs]C[seki.])\n(;W[sr];B[rs];W[ps];B[sq]C[seki.])\n(;W[sq];B[rs];W[ps];B[sr]C[ko for life.];W[ss]C[ko for life.]))\n(;W[sp]C[CHOICE]\n(;B[sq];W[rq];B[so];W[sr]\n(;B[rs];W[sp]C[ko for seki, white takes first.])\n(;B[sp];W[rs]C[black is dead.])\n(;B[ps];W[rs]C[black is dead.]))\n(;B[rq];W[sq]C[black is dead.])\n(;B[sr];W[sq]C[black is dead.])))\n(;B[ps];W[rq]\n(;B[sp];W[rs]C[black dies.])\n(;B[sq];W[sr];B[sp];W[rs]C[black is dead.]))\n(;B[qs];W[rq]\n(;B[sp];W[rs];B[sr];W[qr]C[black is dead.])\n(;B[sq];W[sr]C[black is dead.]))\n(;B[rq]C[NOTTHIS])\n(;B[sp]C[NOTTHIS])\n(;B[sq]C[NOTTHIS])\n(;B[sr]C[NOTTHIS]))\n(;W[sr]C[this is a trick play by white. black can avoid ko.];B[sp];W[qr];B[rs]\n(;W[qs];B[rr];W[rq];B[qq];W[ss];B[sq];W[ps];B[rr])\n(;W[ps];B[qs];W[rr];B[os]C[seki.])))\n(;B[qr];W[rq]\n(;B[sp];W[rr]\n(;B[rs];W[ps]\n(;B[qs];W[sr]LB[sq:A]LB[pr:B]C[black dies.])\n(;B[sr];W[qs]C[direct ko, white takes first.]))\n(;B[sr]\n(;W[sq];B[rs];W[ss]\n(;B[pr]\n(;W[ps];B[sr]C[direct ko, black takes first.RIGHT])\n(;W[qs];B[ps];W[os]C[black can choose between a favorable direct ko and a two-stage ko.RIGHT]LB[qq:A]LB[rs:B]))\n(;B[ps]\n(;W[pr];B[sr]C[direct ko, black takes first.RIGHT])\n(;W[qs];B[pr]C[this is the complicated way of playing.];W[os]C[black can now choose between a favorable direct ko and a two-stage ko.RIGHT]LB[qq:A]LB[rs:B]))\n(;B[qq];W[qs];B[ps];W[pr];B[rs]C[direct ko, black takes first.RIGHT]))\n(;W[rs]C[this is a mistake by white.];B[pr]C[seki.];W[ps];B[qs]C[seki.])\n(;W[ps]C[this is a mistake by white.];B[qs]\n(;W[rs];B[pr]C[seki.])\n(;W[sq];B[rs];W[ss];B[qq]C[black lives.])))\n(;B[pr];W[ps]\n(;B[rs];W[sq];B[sr];W[ss]C[direct ko, white takes first])\n(;B[qs];W[sr]C[black dies.])\n(;B[sr];W[qs];B[rs];W[ss]C[good ko for white.]))\n(;B[qs];W[pr]C[black dies.]LB[sr:A]LB[rs:B]))\n(;B[sq];W[sr]\n(;B[sp];W[rr];B[rs];W[pr]C[black is dead.])\n(;B[rr];W[sp]C[black is dead.]))\n(;B[sr]\n(;W[sq];B[sp];W[rr]\n(;B[rs];W[ss]\n(;B[pr]\n(;W[ps];B[sr]C[direct ko, black takes first.RIGHT])\n(;W[qs];B[ps];W[os]C[black can choose between a favorable direct ko and a two-stage ko.RIGHT]LB[qq:A]LB[rs:B]))\n(;B[ps]\n(;W[pr];B[sr]C[direct ko, black takes first.RIGHT])\n(;W[qs];B[pr];W[os]C[black can choose between a favorable direct ko and a two-stage ko.RIGHT]LB[qq:A]LB[rs:B]))\n(;B[qq];W[qs];B[ps];W[pr];B[rs]C[direct ko, black takes first.RIGHT]))\n(;B[qs];W[ss]C[black dies.]))\n(;W[rs]C[this is a mistake by white. black can avoid ko.];B[pr]C[black gets a seki, white cannot play at 'A' because of the marked liberty.]TR[qo]LB[sq:A])))\n(;B[sr];W[qr];B[pr];W[ps]C[black is dead.])\n(;B[rq];W[qr]C[black is dead.])\n(;B[qs];W[pr];B[qr];W[rq]C[black is dead.])\n(;B[sq];W[qr];B[pr];W[ps]C[black is dead.])\n(;B[sp];W[qr];B[pr];W[ps]C[black is dead])\n(;B[ps];W[pr];B[qr];W[rq]C[black is dead.]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 624,
+    "failed": 2703,
+    "tries": 3327,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-04-14T15:36:27+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 14,
+      "name": "Carpenter's Square",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

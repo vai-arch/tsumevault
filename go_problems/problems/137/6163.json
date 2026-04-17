@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6163,
+  "elo": 1960.1851032171,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -2,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "In my previous problem I used a position where black made a mistake in the joseki. Here you are asked to reproduce the order of the moves that led to that situation.",
+  "rating": {
+    "stars": 2,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rb]AB[rc]AB[qc]AB[pb]AB[ob]AB[pd]AB[od]AW[qd]AW[rd]AW[qf]AW[oc]AW[pc]AW[qb]AW[nc]AW[nb]LB[ja:|]LB[jb:|]LB[jc:|]LB[jd:|]LB[je:|]LB[jf:|]LB[jg:|]C[Try to mirror the position on the right, with the same colors.]AP[goproblems]\n(;W[cd];B[ed]\n(;W[cf];B[cc];W[dc];B[dd];W[cb];B[bc];W[bd];B[db]C[This was black's mistake. Normal move is E17. Go on :)];W[ec];B[eb];W[fc];B[bb];W[fb]C[Yep, that's what happened in the game.\r\nAfterwards, black protected so that he wouldn't end up like in the previous problem.RIGHT])\n(;W[ec]C[Good try, but it's a different joseki])\n(;W[dc]C[I said black makes a joseki mistake, not white]))\n(;W[dd]C[That stone is black on the right side]TR[pd])\n(;W[dc]C[If white starts here, there is no black stone on the right that could be a joseki response]TR[pe]TR[qe]TR[qf]MA[pc]TR[pf])\n(;W[qa]C[You didn't understand what the problem asks you to do.])\n(;W[cc]C[That stone is black on the right side]TR[qc]))",
+  "author": {
+    "id": 177,
+    "name": "aditsu",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2018-09-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 45,
+  "attempts": {
+    "solved": 219,
+    "failed": 2712,
+    "tries": 2931,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-03-17T23:36:17+00:00",
+  "source": "KGS game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 137,
+      "name": "Reverse engineering",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13785,
+  "elo": 1137.2010600423,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Dots Go on a 4x4 board. Have fun :)",
+  "rating": {
+    "stars": 2.8,
+    "votes": 37,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[4]AB[aa]AB[ca]AW[bb]AW[db]AB[cc]AB[ac]AW[bd]AW[dd]C[No komi, no prisoners yet. Black to play and win. Some symmetrical positions have been blocked.]AP[goproblems]\n(;B[cb];W[bc]\n(;B[cd];W[ba]\n(;B[dc];W[ab]C[Jigo])\n(;B[ab];W[ad]\n(;B[ab];W[dc];B[da];W[dc]\n(;B[aa]C[RIGHT])\n(;B[ac]C[RIGHT]))\n(;B[dc];W[ab]C[Jigo])))\n(;B[ba];W[cd]\n(;B[dc];W[ab];B[ad]C[RIGHT])\n(;B[ab];W[dc]C[Jigo]))\n(;B[ab]\n(;W[cd]\n(;B[ba];W[dc])\n(;B[dc];W[ba];B[ad]C[RIGHT]))\n(;W[ba]\n(;B[cd];W[ad]\n(;B[ab];W[dc];B[da];W[dc]\n(;B[aa]C[RIGHT])\n(;B[ac]C[RIGHT]))\n(;B[dc];W[ab]C[Jigo]))\n(;B[dc];W[ad]\n(;B[ab];W[cd])\n(;B[cd];W[ab])))))\n(;B[ba]\n(;W[cb]\n(;B[ab];W[bc])\n(;B[bc];W[ab];B[dc];W[da];B[ba];W[cd];B[ad];W[cd]\n(;B[ca]C[RIGHT])\n(;B[aa]C[RIGHT])))\n(;W[bc]\n(;B[cb];W[cd]\n(;B[dc];W[ab];B[ad]C[RIGHT])\n(;B[ab];W[dc]C[Jigo]))\n(;B[ab];W[cb]))\n(;W[cd];B[bc]\n(;W[cb]\n(;B[ab];W[dc]C[Jigo])\n(;B[dc];W[ab]\n(;B[da]C[RIGHT])\n(;B[ad];W[da];B[ba];W[cd]\n(;B[ca]C[RIGHT])\n(;B[aa]C[RIGHT]))))\n(;W[dc];B[cb]C[RIGHT])))\n(;B[cd];W[cb]\n(;B[bc];W[ab]\n(;B[dc];W[ba]C[Jigo])\n(;B[ba];W[da]\n(;B[dc];W[ba]C[Jigo])\n(;B[ba];W[dc])))\n(;B[ab];W[bc])\n(;B[dc];W[bc])\n(;B[ba];W[bc]))\n(;B[bc]C[NOTTHIS])\n(;B[ab]C[NOTTHIS])\n(;B[dc]C[NOTTHIS])\n(;B[ad];W[bc]\n(;B[ba];W[cb])\n(;B[cb];W[cd];B[ba];W[ab];B[dc];W[da])\n(;B[ab];W[ba]))\n(;B[da]C[NOTTHIS]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 60,
+  "attempts": {
+    "solved": 2123,
+    "failed": 2848,
+    "tries": 4971,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-06-16T15:57:33+00:00",
+  "source": "Dots Go",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

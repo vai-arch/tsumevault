@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22829,
+  "elo": 1768.7539606661,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Life and death on the second and third lines series #4. Other problems in the series: 22639, 22664, 22803, 23399. Updated with more variations.",
+  "rating": {
+    "stars": 4,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\n\r\n\r\n\r\nAB [iq][jq][kq][gr][hr][kr][mr]\r\nAW [ip][jp][kp][fq][gq][hq][lq][mq][nq][dr][fr][nr][pr]\r\n\r\nLB [go:L][io:S][ko:K][mo:N]\r\nC [What can black get here? L = unconditional life with points, S = unconditional seki, K = ko for life, N = nothing][FORCE]\r\n\r\n\r\n\r\n\r\n\r\n(\r\n; B [go]; W [ho] C [Then please live in the best way possible.]\r\n(\r\n; B [is] (; W [gs]\r\n(; B [lr] (; W [fs] (; B [js]; W [ir] (; B [hs] C [RIGHT])(; B [jr]; W [hs] C [You were so close!]))(; B [jr]; W [hs] (; B [ms]; W [ks] C [You were so close!])(; B [ks]; W [ms] C [You were so close!]))(; B [ks]; W [hs] (; B [ir]; W [ms] C [You were so close!])(; B [ms]; W [ir] C [You were so close!])(; B [jr]; W [ms] C [You were so close!]))(; B [ms]; W [ks]; B [js]; W [ir] TR [hs][jr] C [You were so close!]))(; W [ms] C [Another possibility for white that will not be played by the computer.] (; B [jr] C [The correct response.]; W [fs]; B [hs] C [RIGHT])(; B [ls] C [A deadly mistake.]; W [js]; B [jr]; W [fs] C [Black H1 is self-atari.])))\r\n(; B [jr]; W [lr]; B [ks]; W [fs]; B [hs] C [You lived, but gave up points. After white G1, you could have saved N2.]))(; W [lr]; B [ks]; W [gs]; B [jr] C [RIGHT][Best for both. This path will not be played by the computer.])\r\n)\r\n(\r\n; B [lr]; W [is]\r\n(; B [js]; W [ir] (; B [jr]; W [ms] (; B [ls]; W [ks])(; B [hs]; W [ls]))(; B [ms]; W [gs]))\r\n(; B [ir]; W [js] (; B [ms]; W [gs] (; B [hs]; W [ks])(; B [ks]; W [hs]))(; B [gs]; W [ms]))\r\n(; B [ms]; W [gs] (; B [ir]; W [js] (; B [hs]; W [ks])(; B [ks]; W [hs]))(; B [js]; W [ir]))\r\n)\r\n(\r\n; B [js]; W [ir] (; B [is]; W [gs] TR [hs][lr])(; B [lr]; W [hs])\r\n)\r\n(\r\n; B [ir]; W [js] (; B [gs]; W [is]; B [lr]; W [ms])(; B [lr]; W [ms]; B [gs]; W [is])(; B [is]; W [gs])\r\n)\r\n(\r\n; B [gs]; W [is] (; B [ir]; W [js]; B [lr]; W [ms])(; B [js]; W [ir] (; B [lr]; W [fs])(; B [jr]; W [lr]))(; B [lr]; W [ir])\r\n)\r\n)\r\n\r\n\r\n\r\n\r\n(\r\n; B [io]; W [is] AB [ip][jp][kp][fq][gq][hq][lq][mq][nq][dr][fr][nr][pr] AW [iq][jq][kq][gr][hr][kr][mr] C [The colors have swapped. Stop the group from living with points.]\r\n(; B [gs]; W [lr] (; B [fs]; W [js])(; B [jr]; W [js])(; B [ms]; W [jr])(; B [js]; W [jr]; B [fs]; W [ks] TR [hs][ms]))\r\n(; B [lr]; W [ks] (; B [gs]; W [jr])(; B [jr]; W [gs]))\r\n(; B [ls]; W [ks] (; B [gs]; W [jr])(; B [jr]; W [gs]))\r\n(; B [ms]; W [ks] (; B [gs]; W [jr])(; B [jr]; W [gs]))\r\n)\r\n(\r\n; B [ko]; W [is] AB [ip][jp][kp][fq][gq][hq][lq][mq][nq][dr][fr][nr][pr] AW [iq][jq][kq][gr][hr][kr][mr] C [The colors have swapped. Create a ko.]\r\n(; B [gs]; W [lr] (; B [fs]; W [js])(; B [jr]; W [js])(; B [ms]; W [jr])(; B [js]; W [jr]; B [fs]; W [ks] TR [hs][ms]))\r\n(; B [lr]; W [ks] (; B [gs]; W [jr])(; B [jr]; W [gs]))\r\n(; B [ls]; W [ks] (; B [gs]; W [jr])(; B [jr]; W [gs]))\r\n(; B [ms]; W [ks] (; B [gs]; W [jr])(; B [jr]; W [gs]))\r\n)\r\n(\r\n; B [mo]; W [is] AB [ip][jp][kp][fq][gq][hq][lq][mq][nq][dr][fr][nr][pr] AW [iq][jq][kq][gr][hr][kr][mr] C [The colors have swapped. Kill the group.]\r\n(; B [gs]; W [lr] (; B [fs]; W [js])(; B [jr]; W [js])(; B [ms]; W [jr])(; B [js]; W [jr]; B [fs]; W [ks] TR [hs][ms]))\r\n(; B [lr]; W [ks] (; B [gs]; W [jr])(; B [jr]; W [gs]))\r\n(; B [ls]; W [ks] (; B [gs]; W [jr])(; B [jr]; W [gs]))\r\n(; B [ms]; W [ks] (; B [gs]; W [jr])(; B [jr]; W [gs]))\r\n)\r\n\r\n\r\n\r\n\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 67,
+  "attempts": {
+    "solved": 8,
+    "failed": 92,
+    "tries": 100,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-09-02T22:35:34+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

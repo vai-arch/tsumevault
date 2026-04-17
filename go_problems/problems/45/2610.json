@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2610,
+  "elo": 1807.4921904319,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Please find the best result for Black!\r\n(japanese rules)",
+  "rating": {
+    "stars": 3.6,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[4]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[aa][cb][ac][bc]AB[ca][da][cc][dc][ad]C[Black to move - what's the best he can do?]PL[B]\r\n(;B[bb]CR[bb]\r\n(;W[ab]CR[ab]\r\n(;B[cd]CR[cd]\r\n;W[ba]CR[ba]\r\n;B[db]CR[db]\r\n;W[bd]CR[bd]\r\n;B[bb]CR[bb]C[...and Black wins! RIGHT])\r\n(;B[db]CR[db]\r\n;W[cd]CR[cd]\r\n(;B[dd]CR[dd]\r\n;W[bd]CR[bd]C[Seki & Jigo (1 prisoner each)!])\r\n(;B[ba]CR[ba]\r\n;W[bd]CR[bd]C[Seki & Jigo (1 prisoner each)!]))\r\n(;B[bd]CR[bd]\r\n;W[cd]CR[cd]\r\n(;B[bd]CR[bd]\r\n;W[ba]CR[ba]C[White wins])\r\n(;B[db]CR[db]\r\n;W[ba]CR[ba]\r\n;B[bd]CR[bd]\r\n;W[cb]CR[cb]C[White wins])))\r\n(;W[cd]CR[cd]\r\n(;B[db]CR[db]\r\n;W[ab]CR[ab]\r\n(;B[ba]CR[ba]\r\n;W[bd]CR[bd]C[Seki & Jigo (1 prisoner each) - B D3 was a mistake!])\r\n(;B[dd]CR[dd]\r\n;W[bd]CR[bd]C[Seki & Jigo (1 prisoner each) - B D3 was a mistake!]))\r\n(;B[ba]CR[ba]C[Black wins!]))\r\n(;W[bd]CR[bd]\r\n;B[cd]CR[cd]\r\n;W[ab]CR[ab]\r\n;B[db]CR[db]C[...and Black wins.]))\r\n(;B[cd]CR[cd]\r\n;W[bb]CR[bb]\r\n;B[db]CR[db]\r\n;W[bd]CR[bd]C[White wins!]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 235,
+    "failed": 1833,
+    "tries": 2068,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-21T13:22:42+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

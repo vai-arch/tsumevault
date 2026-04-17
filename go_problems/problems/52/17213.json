@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17213,
+  "elo": 1074.1719077082,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "David Ormerod (the author) says: Black can paralyze white with a single blow to the vital point.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nSO[http://gogameguru.com/]AW[qk][no][ip][nq]AB[qm][pn][lp][pp][oq]C[Black to play.\r\n\r\nHow can black connect his all stones?\r\n\r\nhttp://gogameguru.com/]\r\n(;B[mq]\r\n(;W[np]\r\n;B[nr]C[RIGHT])\r\n(;W[nr]\r\n;B[np]C[RIGHT]))\r\n(;B[np]\r\n;W[mp]\r\n;B[op]\r\n;W[mo]\r\n;B[mq]\r\n;W[lq]\r\n(;B[nr]\r\n;W[mr])\r\n(;B[mr]\r\n;W[lr]\r\n(;B[nr]\r\n;W[kp]C[This is a kind of net, not really a ladder.]\r\n;B[lo]C[If black tries to escape...]\r\n;W[ln]\r\n;B[ko]\r\n;W[jn]\r\n(;B[jp]\r\n;W[jo]\r\n;B[kq]\r\n;W[kn]\r\n;B[kp]\r\n;W[kr])\r\n(;B[jo]\r\n;W[io]\r\n;B[jp]\r\n;W[jq]\r\n;B[kq]\r\n;W[kn]))\r\n(;B[kp]\r\n;W[nr])))\r\n(;B[nr]\r\n;W[mq])\r\n(;B[ln]C[Black can attack on a large scale too.]\r\n;W[lq]\r\n;B[kq]\r\n;W[kp]C[White can manage the situation lightly like this. Other moves are possible too.])\r\n(;B[ko]\r\n;W[mr]LB[nm:A][kq:B]C[A and B are miai for white next.]))",
+  "author": {
+    "id": 35564,
+    "name": "pmurk",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-25",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 1685,
+    "failed": 2678,
+    "tries": 4363,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-04-01T01:53:31+00:00",
+  "source": "http://gogameguru.com/weekly-go-problems-week-81/",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

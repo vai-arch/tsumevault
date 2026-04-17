@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20197,
+  "elo": 1710.7890171254,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "There is a story behind the problem, but telling it here would be a hint. Maybe you want to take a look at the problem source. Comments are welcome.\r\n\r\n",
+  "rating": {
+    "stars": 5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ca]AB[cb]AB[cc]AB[cd]AB[be]AB[ad]AW[ae]AW[af]AW[bg]AW[ce]AW[cf]AW[ba]AW[dd]AW[dc]AW[db]AW[fb]AW[ch]LB[fd:D]LB[ff:K]LB[fh:L]C[What is the status of the black group? Is it dead (D)? Or can black make a ko for life (K)? Or can black live without ko (L)?FORCE]AP[goproblems]\r\n(;B[fh];W[hh]C[Please show how black can live without ko.]\r\n(;B[bb]C[];W[bd]\r\n(;B[bc]\r\n(;W[bf]\r\n(;B[aa]C[Good!RIGHT])\r\n(;B[bd];W[ab]C[Ko!])\r\n(;B[ab];W[bd]C[Ko!]))\r\n(;W[ab]C[];B[ac]C[(Note that this is not a ko.)RIGHT]))\r\n(;B[ac];W[aa])\r\n(;B[aa];W[ac])\r\n(;B[ab];W[bf]))\r\n(;B[ab];W[bc]\r\n(;B[bd];W[bb]C[Black is dead. It is not seki, because white could force black to fill A17 by filling the outside liberties.])\r\n(;B[bb];W[bd];B[ac];W[bd]))\r\n(;B[bd];W[bb];B[ab];W[bc]C[Black is dead. It is not seki, because white could force black to fill A17 by filling the outside liberties.])\r\n(;B[bc];W[ab])\r\n(;B[aa];W[bb])\r\n(;B[ac];W[bb]))\r\n(;B[ff];W[hf]C[Sorry. Look again!])\r\n(;B[fd];W[hd]C[Sorry. Look again!]))",
+  "author": {
+    "id": 52760,
+    "name": "wurfmaul",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-21",
+    "rank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1018.78
+  },
+  "avgSolveTimeSeconds": 109,
+  "attempts": {
+    "solved": 101,
+    "failed": 286,
+    "tries": 387,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-08-20T19:00:14+00:00",
+  "source": "slightly modified from the second KGS 4d game T800 vs jeandoute, today",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

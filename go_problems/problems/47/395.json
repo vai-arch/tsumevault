@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 395,
+  "elo": 908.07488432623,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.5,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[3]\nRU[Japanese]SZ[19]HA[0]KM[5.5]\nPW[White]\nPB[Black]\nGN[White (W) vs. Black (B)]\nDT[1999-07-28]\nSY[Cgoban 1.9.2]TM[30:00(5x1:00)]AW[qp][rp][nq][oq][pq]\nAB[pn][qo][ro][mp][np][op][pp][lq][qq][lr]LB[qq:1]\nC[black plays 1. can white capture, or must sacrifice?\n]\n(;W[rq];B[qr]\n(;W[rr]C[RIGHT\nwhite captures\n])\n\n(;W[pr];B[rr]\n(;W[sr];B[sp])\n\n(;W[qs];B[sq])\n)\n\n(;W[qs];B[rr])\n)\n\n(;W[qr];B[rq];W[rr];B[sp]C[white can do better\n])\n\n(;W[rr];B[rq]\n(;W[sq];B[sp])\n\n(;W[qr];B[sp])\n)\n\n(;W[pr];B[rq])\n\n(;W[sp];B[rq])\n\n(;W[or];B[rq])\n\n)",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 22845,
+    "failed": 16599,
+    "tries": 39444,
+    "speedSolved": 22,
+    "speedPlay": 42
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-02-09T16:51:04+00:00",
+  "source": "game vs. sherman",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

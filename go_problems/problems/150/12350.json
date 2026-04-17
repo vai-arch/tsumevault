@@ -1,0 +1,142 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12350,
+  "elo": 1266.5268540548,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Play the endgame for black that is most profitable.",
+  "rating": {
+    "stars": 3,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rn]AB[rm]AB[qm]AB[ql]AB[rk]AB[rj]AW[rl]AW[qk]AW[pk]AW[pl]AW[pm]AW[qn]AW[ro]AW[po]AB[or]AB[nr]AB[mr]AB[lq]AB[kq]AW[lp]AW[mp]AW[mq]AW[nq]AW[oq]AW[pr]AW[kp]C[What is black's best endgame?]AB[qj]AB[kr]AW[pj]AW[jp]AW[ll]AB[jq]AB[qi]AW[pi]AP[goproblems]\n(;B[qp];W[qo]\n(;B[qr]\n(;W[ps]\n(;B[pq]C[Correct! Navigate solution to see what white's response should have been.RIGHT])\n(;B[qq];W[pq]\n(;B[sp];W[so]C[Black is dead.])\n(;B[rp];W[sn]C[Black is dead in gote.])))\n(;W[qq]C[Either of these variations is better for white.];B[ps];W[pq]\n(;B[rr]C[])\n(;B[rq];W[rr];B[rs]C[Ko.]))\n(;W[pq]C[Either of these variations is better for white.];B[ps];W[qq]\n(;B[rr]C[])\n(;B[rq];W[rr];B[rs]C[Ko.])))\n(;B[pq];W[qr]\n(;B[rp];W[sn])\n(;B[rq];W[qq]))\n(;B[rp];W[sn];B[pq];W[qr]\n(;B[rr];W[qq];B[pp];W[rq])\n(;B[qq];W[rr])\n(;B[rq];W[rr])\n(;B[sq]C[Some interesting variations here, but they are all worse than the correct line for black.])))\n(;B[qr]\n(;W[ps]\n(;B[qp];W[qo]\n(;B[pq]C[Correct! Navigate solution to see what white's response should have been.RIGHT])\n(;B[qq];W[pq]))\n(;B[pq];W[qq]\n(;B[qp];W[pp])\n(;B[qs];W[pp])\n(;B[pp];W[qp]))\n(;B[qq];W[pq];B[qp];W[qo]\n(;B[sp];W[so]C[Black is dead.])\n(;B[rp];W[sn]C[Black is dead in gote.])))\n(;W[qq]C[Either of these variations is better for white.];B[ps];W[pq]\n(;B[rr])\n(;B[rq];W[rr];B[rs]C[Ko.]))\n(;W[pq]C[Either of these variations is better for white.];B[ps];W[qq]\n(;B[rr])\n(;B[rq];W[rr];B[rs]C[Ko.])))\n(;B[qq];W[pq];B[qp];W[qo];B[qr];W[ps]\n(;B[sp];W[so]C[Black is dead.])\n(;B[rp];W[sn]C[Black is dead in gote.]))\n(;B[rp];W[sn]\n(;B[sl];W[pq];B[qp];W[qo]C[Black is dead.])\n(;B[qr];W[ps]\n(;B[qq];W[pq]C[Black is dead.])\n(;B[qp];W[pq];B[qo];W[sm])))\n(;B[pq];W[qr]\n(;B[rp];W[sn]\n(;B[sl];W[qp])\n(;B[qp];W[rq])\n(;B[qq];W[rr]C[White wins the semeai.]))\n(;B[qp];W[qo]\n(;B[rp];W[sn]\n(;B[rr];W[qq];B[pp];W[rq])\n(;B[qq];W[rr])\n(;B[rq];W[rr])\n(;B[sq]C[Some interesting variations here, but they are all worse than the correct line for black.]))\n(;B[rq];W[qq])))\n(;B[ps];W[qr]C[Black can do better.])\n(;B[so];W[sp]\n(;B[sn];W[sm]C[Oops!])\n(;B[rp];W[sn])\n(;B[sl];W[sn])))",
+  "author": {
+    "id": 28193,
+    "name": "smeghead",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-02-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 1292,
+    "failed": 2164,
+    "tries": 3456,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-01-29T21:15:32+00:00",
+  "source": "Some random KGS game (I forget which)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 32,
+      "name": "Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

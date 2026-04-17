@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20597,
+  "elo": 758.08963561122,
+  "problemLevel": 2,
+  "rank": {
+    "value": 28,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -2,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 1.6,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;TR[es]TR[er]TR[dr]TR[dq]TR[cq]TR[cp]TR[bp]TR[bo]TR[ao]AB[as]C[A small board problem.FORCE]AP[goproblems]\n(;B[ap]TR[es]TR[er]TR[dr]TR[dq]TR[cq]TR[cp]TR[bp]TR[bo]TR[ao]LB[aq:a]LB[ar:b]LB[br:c]C[Then three ways... White captures on a, black c, white C1, both seki and jigo white wins. If white b or c, which way the black stones will be dead from losing the chanse to make eyes.])\n(;B[aq]TR[es]TR[er]TR[dr]TR[dq]TR[cq]TR[cp]TR[bp]TR[bo]TR[ao]LB[br:a]C[Then two ways... White a, black C1, white B1 or A2 and black saves, both seki with no points.])\n(;B[ar]TR[es]TR[er]TR[dr]TR[dq]TR[cq]TR[cp]TR[bp]TR[bo]TR[ao]LB[br:a]C[Then two ways... White a, Black C1, White B1 or A3 and black saves, which way, both seki with no points.])\n(;B[bq]TR[es]TR[er]TR[dr]TR[dq]TR[cq]TR[cp]TR[bp]TR[bo]TR[ao]LB[br:a]C[White a, black dies.])\n(;B[br]TR[es]TR[er]TR[dr]TR[dq]TR[cq]TR[cp]TR[bp]TR[bo]TR[ao]LB[aq:a]LB[cs:b]C[This can't be seki because black has two points to make eyes.RIGHT])\n(;B[bs]TR[es]TR[er]TR[dr]TR[dq]TR[cq]TR[cp]TR[bp]TR[bo]TR[ao]LB[br:a]C[Then two ways... White a, black A3, White C1 or A2 and black saves some stones, which way, both seki with no points.])\n(;B[cr]TR[es]TR[er]TR[dr]TR[dq]TR[cq]TR[cp]TR[bp]TR[bo]TR[ao]LB[br:a]C[White a, black dies.])\n(;B[cs]TR[es]TR[er]TR[dr]TR[dq]TR[cq]TR[cp]TR[bp]TR[bo]TR[ao]LB[br:a]C[Then two ways... White a, black A3, white B1 or A2 and black saves, which way, both seki with no points.])\n(;B[ds]TR[es]TR[er]TR[dr]TR[dq]TR[cq]TR[cp]TR[bp]TR[bo]TR[ao]LB[br:a]LB[bs:b]LB[cs:c]C[Then three ways... White captures on c, black a, white A3, both seki and jigo white wins. If white a or b, which way the black stones will be dead from losing the chanse to make eyes.]))",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 12,
+  "attempts": {
+    "solved": 1908,
+    "failed": 418,
+    "tries": 2326,
+    "speedSolved": 3,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-10-18T07:08:22+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 189,
+      "name": "Irregular board",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

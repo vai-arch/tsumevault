@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6880,
+  "elo": 1273.3515512703,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.1,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[aq]AW[ap]AW[bp]AW[bn]AW[cr]AW[cq]AW[co]AW[ds]AW[dq]AW[eq]AW[fq]AW[gq]AW[hq]AW[ir]AW[iq]AB[bs]AB[br]AB[bq]AB[cs]AB[cp]AB[dr]AB[dp]AB[er]AB[ep]AB[fr]AB[fp]AB[gr]AB[hr]AB[ho]AB[is]AB[jr]AB[jq]AB[jp]C[Problem VI.9 in The Game of Go by Arthur Smith.]FF[1]GM[1]AP[Jago:Version 4.6]GN[vi.9]\n(;W[hs];B[gs]\n(;W[es];B[fs]\n(;W[ds];B[es];W[ar]C[RIGHT])\n(;W[ar];B[ds]))\n(;W[ar];B[es];W[as];B[ds]))\n(;W[ar];B[es]\n(;W[as];B[ds];W[hs];B[gs])\n(;W[hs];B[gs];W[as];B[ds]))\n(;W[es];B[hs]\n(;W[fs];B[gs]\n(;W[ds]C[Black can tenuki.])\n(;W[ar]C[Black tenuki.]))\n(;W[ar];B[fs];W[as];B[ds])))",
+  "author": {
+    "id": 10537,
+    "name": "tristesse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-12-12",
+    "rank": {
+      "value": 2,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1573.86
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 4069,
+    "failed": 6414,
+    "tries": 10483,
+    "speedSolved": 1,
+    "speedPlay": 12
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-07-10T10:45:24+00:00",
+  "source": "The Game of Go by Arthur Smith",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

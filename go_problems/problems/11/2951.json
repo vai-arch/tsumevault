@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2951,
+  "elo": 1933.637935131,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "No komi, no prisoners yet. Only one side can win by 3 points, if first to play. Pick the winner and secure a 3-point victory.",
+  "rating": {
+    "stars": 2.4,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[dc]AB[ec]AB[fc]AB[gc]AB[hc]AB[ic]AB[hd]AB[ae]AB[he]AB[af]AB[bf]AB[hf]AB[ag]AB[ig]AB[ch]AB[dh]AB[eh]AB[fh]AB[ih]AB[ai]AB[bi]AB[ci]AB[ei]AB[gi]AB[hi]AB[ii]AW[cb]AW[cc]AW[ad]AW[bd]AW[cd]AW[dd]AW[gd]AW[be]AW[ce]AW[de]AW[ee]AW[fe]AW[ge]AW[cf]AW[ef]AW[gf]AW[bg]AW[cg]AW[dg]AW[eg]AW[fg]AW[gg]AW[hg]AW[bh]AW[gh]AW[hh]LB[ed:W]C[If Black can win by three points by going first, just play an endgame move. If White can win by three points by going first, play at 'W'.FORCE]\n(;B[db];W[ah];B[ca];W[ba];B[da];W[bb]C[A win, but only by 1.])\n(;B[ah];W[fa];B[fb];W[ea]\n(;B[ga];W[db];B[eb];W[da]C[A win, but only by 1.])\n(;B[db];W[da];B[ga]C[You won by 2, only 2nd best.]))\n(;B[ed]AB[cb]AB[cc]AB[ad]AB[bd]AB[cd]AB[dd]AB[gd]AB[be]AB[ce]AB[de]AB[ee]AB[fe]AB[ge]AB[cf]AB[ef]AB[gf]AB[bg]AB[cg]AB[dg]AB[eg]AB[fg]AB[gg]AB[hg]AB[bh]AB[gh]AB[hh]AW[dc]AW[ec]AW[fc]AW[gc]AW[hc]AW[ic]AW[hd]AW[ae]AW[he]AW[af]AW[bf]AW[hf]AW[ag]AW[ig]AW[ch]AW[dh]AW[eh]AW[fh]AW[ih]AW[ai]AW[bi]AW[ci]AW[ei]AW[gi]AW[hi]AW[ii];W[fd]\n(;B[ah];W[db];B[da];W[ea];B[ca]C[You won by 2, only 2nd best.])\n(;B[fa];W[fb]\n(;B[ea];W[ah]\n(;B[ga];W[ha];B[hb];W[gb];B[ia];W[ib];B[db];W[eb];B[da];W[ha]C[A win, but only by 1.])\n(;B[ha];W[db];B[da];W[gb];B[ga]C[You won by 3, the best result.RIGHT]))\n(;B[da];W[ah]\n(;B[ha];W[gb];B[ga];W[db];B[ea]C[You won by 3, the best result.RIGHT])\n(;B[ga];W[ha];B[hb]\n(;W[gb]\n(;B[ia];W[ib];B[db];W[ha];B[ea]C[A win, but only by 1.CHOICE])\n(;B[ea];W[ib];B[db]C[A win, but only by 1.]))\n(;W[ib];B[ia];W[gb];B[ea];W[ha];B[db]C[A win, but only by 1.CHOICE]))))\n(;B[ea];W[ah];B[ga];W[db];B[da];W[ha]\n(;B[hb];W[gb];B[ia];W[ib];B[fa];W[ha]C[Only jigo.])\n(;B[fa];W[gb]C[Only jigo.]))))",
+  "author": {
+    "id": 4191,
+    "name": "WTD",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-05-21",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1412.25
+  },
+  "avgSolveTimeSeconds": 76,
+  "attempts": {
+    "solved": 149,
+    "failed": 1862,
+    "tries": 2011,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-09-09T09:41:21+00:00",
+  "source": "wtd",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 11,
+      "name": "Black or White",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 122,
+      "name": "Monkey Jump",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

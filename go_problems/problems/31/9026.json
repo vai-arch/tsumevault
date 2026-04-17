@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9026,
+  "elo": 1254.7621183569,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Just for reference the shape marked above is the reason for this problem :).  How to punish white's play at 'O', the play it self is not wrong.  Just if white goes greedy how to answer it.  This problem also has info on if white plays proper, then what to do.",
+  "rating": {
+    "stars": 2,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[jo]AB[ho]AB[hp]AB[hq]AB[in]AW[io]AW[ip]AW[jq]AW[hn]C[Please play 'A'.]LB[kq:A]TR[jc]TR[je]LB[ip:1]LB[hp:2]LB[io:3]LB[in:4]LB[hn:5]AB[he]AB[je]AB[jc]TR[he]AW[hc]TR[hc]LB[id:O]AP[goproblems];B[kq]\n(;W[jr]C[White should have played at the marked location and went for a equal trade.  Instead of being greedy with #7, show white the error of in his ways.CHOICE]LB[ip:1]LB[hp:2]LB[in:4]LB[io:3]LB[hn:5]LB[kq:6]LB[jr:7]TR[jn]\n(;B[jp];W[iq];B[kr];W[hr]\n(;B[js];W[ir];B[gr]C[W00T! Death waits for all who want more then what they deserve .. well in the world of Go any ways ;-)  Navigate back to seee what white should have done.RIGHT])\n(;B[gr];W[gq]\n(;B[hs];W[is]C[KO! No no no, your doing it all wrong.  Given this is not a easy ko to win, why give white a ko at all?])\n(;B[js];W[fr];B[ir];W[gs]C[Black caught some stones and stayed connected, but giving white a Ponnuki, can't be good.])\n(;B[gn];W[hm];B[fq];W[jn];B[im];W[kp];B[ko];W[kn];B[lo];W[il]C[Ladder, I think white will ignore any ladder breaker.  But still why let white escape.])))\n(;B[kr];W[jn];B[im];W[ko]C[Opps, White escapes, and successed in his plan to keep everything divided :(.]))\n(;W[jn]C[The proper cut!];B[im];W[ko];B[jm];W[kn];B[jr]C[A fair trade, white gets to live, black gets to stay linked.  Good for both is good for everyone right ;-)RIGHT]))",
+  "author": {
+    "id": 3566,
+    "name": "EvilBuu",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-02-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 62,
+  "attempts": {
+    "solved": 1614,
+    "failed": 2729,
+    "tries": 4343,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-08-14T11:31:37+00:00",
+  "source": "Shape Up! on GoBase.org",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

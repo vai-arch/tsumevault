@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2172,
+  "elo": 2059.1554962054,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "The problem got a bit long so I've split it into 3 problems which continue where the previous one left off. White needs to save the M3 and Q6 groups. Part 1 ends when white's M3 group is saved from immediate danger (without harming the Q6 group). Favourable ko's are OK.",
+  "rating": {
+    "stars": 3.1,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AB[or]AB[oq]AB[pq]AB[rq]AB[sr]AB[rs]AB[rn]AB[rm]AB[np]AB[oo]AB[mn]AB[pl]AB[ql]AB[rk]AB[om]AB[nl]AB[lm]AB[ln]AB[pj]AB[qk]AB[os]AB[jr]AB[ir]AB[qq]AB[nm]AB[pi]AB[hq]AB[gq]AB[io]AB[in]AB[jm]AB[kl]AB[hm]AB[gn]AB[fo]AB[ep]AB[eq]AB[ll]AB[nk]AB[ph]AB[fq]AB[kj]AB[lj]AB[em]AB[gl]AB[gk]AB[fj]AB[ek]AB[dl]AB[hj]AB[hi]AB[fi]AB[ei]AB[ck]AB[bl]AB[dn]AB[do]AB[am]AB[bn]AB[dp]AB[bp]AB[ap]AB[ar]AB[cr]AB[bs]AB[gr]AB[hs]AB[js]AB[mr]AB[ms]AB[jj]AB[nh]AB[nf]AB[ld]AB[gs]AB[qi]AB[rh]AB[sk]AB[qh]AB[pf]AB[qf]AB[qg]AB[qe]AB[pd]AB[oe]AB[mp]AB[lp]AB[oc]AB[kp]AB[mc]AB[jp]AB[ob]AB[mh]AB[bh]AB[de]AB[gc]AB[hc]AB[ec]AB[eb]AB[fc]AB[cg]AB[dc]AB[ef]AB[ib]AB[gd]AB[df]AB[ig]AB[ce]AB[an]AW[lq]AW[mq]AW[nq]AW[nr]AW[op]AW[pp]AW[qp]AW[ro]AW[sp]AW[qn]AW[pn]AW[po]AW[qm]AW[ol]AW[kq]AW[pm]AW[ok]AW[mm]AW[ml]AW[pk]AW[jq]AW[kr]AW[ns]AW[oj]AW[iq]AW[hp]AW[gp]AW[hn]AW[im]AW[jl]AW[fp]AW[hl]AW[hk]AW[mk]AW[oi]AW[km]AW[eo]AW[dm]AW[fk]AW[gj]AW[jk]AW[gi]AW[ij]AW[ii]AW[fh]AW[gg]AW[ej]AW[eh]AW[cj]AW[en]AW[cm]AW[cn]AW[co]AW[cp]AW[dr]AW[dq]AW[cs]AW[er]AW[fr]AW[ch]AW[bj]AW[kh]AW[mg]AW[me]AW[kc]AW[mi]AW[mj]AW[fs]AW[pb]AW[qd]AW[rf]AW[ri]AW[qj]AW[rj]AW[sl]AW[rg]AW[sh]AW[re]AW[qc]AW[no]AW[mo]AW[ge]AW[jb]AW[ko]AW[nd]AW[lb]AW[ni]AW[li]AW[lo]AW[qa]AW[sf]AW[rd]AW[mf]AW[lg]AW[hd]AW[bc]AW[fd]AW[ab]AW[ba]AW[bf]AW[be]AW[bd]AW[ea]AW[da]AW[ai]AW[cf]AW[af]AW[fb]AW[ji]AW[hf]AW[eg]AW[ic]AW[cc]AW[cb]AW[ak]AW[ee]C[White must save the N3 and Q6 groups.]FF[4]GM[1]AP[SGFC:1.13b]GN[temp]\n(;W[ip];B[jo]\n(;W[jn];B[ho];W[go];B[hn];W[fn];B[gm]\n(;W[fl];B[gh]\n(;W[gj];B[gi];W[fm];B[gj]\n(;W[di];B[hh]\n(;W[ih];B[hg];W[jg];B[if];W[ie];B[jf];W[kf];B[je];W[jd];B[ke]\n(;W[le];B[kd]LB[lc:a]LB[md:b]C[Is 'a' or 'b' better shape?]\n(;W[md];B[lc];W[nc];B[mb];W[nb];B[ma]LB[la:a]C[please play at 'a'];W[la];B[dj];W[na];B[ej]\n(;W[el];B[dk]LB[bk:a]LB[cl:b]LB[kn:c]LB[nn:d]LB[on:e]C[Choose from 'c', 'd' and 'e' if you think white is already safe on the lower side or pick the better of the moves 'a' and 'b' otherwise.]\n(;W[bk];B[cl]LB[bm:a]C[please play at 'a'];W[bm];B[al];W[bo];B[ao]\n(;W[bq];B[aq]LB[cq:a]LB[ds:b]LB[ff:c]LB[kn:d]LB[nn:e]LB[on:f]C[If you think white is safe at the bottom choose from 'd', 'e' and 'f' otherwise play 'a', 'b' or 'c'.]\n(;W[kn]\n(;B[ds];W[cq];B[br]LB[fg:a]LB[ff:b]LB[gf:c]LB[nn:d]LB[on:e]LB[ks:f]C[Please choose from a-f.]\n(;W[ff];B[ks];W[ls]C[The white group at the bottom is safe for now. RIGHT])\n(;W[fg];B[ja];W[kb];B[ff];W[gf];B[ia]C[White is caught short of liberties.])\n(;W[gf];B[ja];W[kb];B[ff];W[fg];B[ia]C[White is caught short of liberties.])\n(;W[nn];B[ff]C[White must protect the double peep.])\n(;W[on];B[ff]C[White must protect the double peep.])\n(;W[ks];B[ff]C[White must protect the double peep. L1 only allows white to get the black G11 stones when they have no other escape route.]))\n(;B[ff];W[cq]\n(;B[fg];W[br];B[gf];W[on])\n(;B[ds];W[br])))\n(;W[cq];B[kn]\n(;W[br];B[nn]\n(;W[rp];B[si])\n(;W[si];B[rp])\n(;W[sn];B[rl]\n(;W[so];B[si])\n(;W[rp];B[si])\n(;W[si];B[rp]))\n(;W[so];B[si]))\n(;W[on];B[nn]\n(;W[br];B[oo]\n(;W[no];B[si])\n(;W[rp];B[si])\n(;W[si];B[rp];W[no];B[sq]\n(;W[so];B[sn])\n(;W[sn];B[rl];W[sg];B[sm])\n(;W[sg];B[so]))\n(;W[sn];B[rl]\n(;W[rp];B[si])\n(;W[si];B[rp];W[no];B[sq];W[sg];B[sm])))\n(;W[oo];B[rp])\n(;W[rp];B[oo]\n(;W[br];B[si])\n(;W[si];B[ds];W[br];B[cs]))\n(;W[si];B[oo]\n(;W[rp];B[ds];W[br];B[cs])\n(;W[br];B[rp];W[no];B[sq]\n(;W[so];B[sn])\n(;W[sn];B[rl];W[sg];B[sm])\n(;W[sg];B[so]))\n(;W[no];B[ds]))\n(;W[sn];B[oo]\n(;W[no];B[ds])\n(;W[rp];B[ds])\n(;W[si];B[ds])\n(;W[sm];B[ds])\n(;W[br];B[rp];W[no];B[rl];W[si];B[sq];W[sg];B[sm])))\n(;W[rp];B[si]\n(;W[on];B[nn])\n(;W[br];B[nn]))\n(;W[si];B[rp]\n(;W[br];B[nn])\n(;W[on];B[nn];W[br];B[oo];W[no];B[sq]\n(;W[so];B[sn])\n(;W[sn];B[rl];W[sg];B[sm])\n(;W[sg];B[so])))\n(;W[sn];B[rl]\n(;W[so];B[si])\n(;W[si];B[rp];W[on];B[nn]\n(;W[sg];B[oo];W[no];B[ds])\n(;W[so];B[sq]))\n(;W[rp];B[si])))\n(;W[ds];B[kn]\n(;W[on];B[nn]\n(;W[oo];B[rp])\n(;W[rp];B[si])\n(;W[si];B[rp]\n(;W[sn];B[rl]\n(;W[so];B[sq])\n(;W[sg];B[oo];W[no];B[sm]C[ko, black takes first (black has large threats at L1, B2, M2 or L1, C3, C3, M2)];W[sj];B[so]C[ko, black takes first]))\n(;W[sg];B[oo];W[no];B[sm]\n(;W[sj];B[rl];W[sn];B[so]C[ko, black takes first])\n(;W[sn];B[rl];W[sj];B[so]C[ko, black takes first])\n(;W[so];B[sq])))\n(;W[sn];B[rl]\n(;W[oo];B[rp])\n(;W[rp];B[si])\n(;W[si];B[rp]\n(;W[so];B[sq])\n(;W[sg];B[oo];W[no];B[sm]C[ko, black takes first];W[sj];B[so]C[ko, black takes first]))\n(;W[so];B[si])))\n(;W[rp];B[si])\n(;W[si];B[rp]\n(;W[on];B[nn]\n(;W[sn];B[rl]\n(;W[so];B[sq])\n(;W[sg];B[oo];W[no];B[sm]C[ko, black takes first];W[sj];B[so]C[ko, black takes first]))\n(;W[sg];B[oo];W[no];B[sm]\n(;W[sn];B[rl]C[ko, black takes first];W[sj];B[so]C[ko, black takes first])\n(;W[sj];B[rl]\n(;W[sn]C[ko, black takes first];B[so]C[ko, black takes first])\n(;W[so];B[sq]))\n(;W[so];B[sq])))\n(;W[sn];B[on])\n(;W[sg];B[on]))\n(;W[sn];B[rl]\n(;W[rp];B[si])\n(;W[on];B[nn]\n(;W[oo];B[rp])\n(;W[rp];B[si])\n(;W[si];B[rp]\n(;W[so];B[sq])\n(;W[sg];B[oo];W[no];B[sm]C[ko, black takes first];W[sj];B[so]C[ko, black takes first]))\n(;W[so];B[si]))\n(;W[si];B[rp]\n(;W[sg];B[on])\n(;W[on];B[nn]\n(;W[sg];B[oo];W[no];B[sm]C[ko, black takes first];W[sj];B[so]C[ko, black takes first])\n(;W[so];B[sq])))))\n(;W[ff];B[kn]\n(;W[ds];B[si])\n(;W[cq];B[nn]\n(;W[br];B[si])\n(;W[ds];B[si])\n(;W[si];B[ds])\n(;W[rp];B[ds])\n(;W[sn];B[ds]))\n(;W[on];B[nn]\n(;W[oo];B[rp])\n(;W[rp];B[si])\n(;W[si];B[ds])\n(;W[sn];B[si];W[sm];B[ds]))\n(;W[rp];B[ds])\n(;W[sn];B[ds])\n(;W[si];B[ds]))\n(;W[nn];B[kn]\n(;W[on];B[ds];W[cq];B[br]\n(;W[jm];B[ff]C[black catches some stones and the lower group dies])\n(;W[ff];B[jm]))\n(;W[ds];B[on]\n(;W[rp];B[si])\n(;W[si];B[rp])\n(;W[sn];B[rp]))\n(;W[cq];B[on]\n(;W[br];B[si])\n(;W[ds];B[si])\n(;W[rp];B[si])\n(;W[sn];B[rp])\n(;W[si];B[rp])))\n(;W[on];B[ds];W[cq];B[br]\n(;W[ff];B[kn];W[jm];B[nn];W[oo];B[rp])\n(;W[nn];B[ff]C[black catches some stones])\n(;W[kn];B[ff]C[black catches some stones and kills the lower group])))\n(;W[cq];B[kn]\n(;W[br];B[si])\n(;W[bq];B[nn]\n(;W[rp];B[si])\n(;W[si];B[rp])\n(;W[sn];B[rl];W[si];B[rp]))\n(;W[on];B[nn]\n(;W[oo];B[rp])\n(;W[rp];B[si])\n(;W[sn];B[oo]\n(;W[no];B[ds])\n(;W[br];B[rp];W[no];B[rl]\n(;W[si];B[sq];W[sg];B[sm])\n(;W[so];B[si]))\n(;W[bq];B[rp];W[no];B[rl]\n(;W[so];B[si])\n(;W[si];B[sq];W[sg];B[sm])))\n(;W[si];B[oo]\n(;W[sn];B[ds])\n(;W[no];B[ds])\n(;W[rp];B[ds])\n(;W[br];B[rp];W[no];B[sq]\n(;W[so];B[sn])\n(;W[sg];B[so])\n(;W[sn];B[rl];W[sg];B[sm]))\n(;W[bq];B[rp];W[no];B[sq]\n(;W[so];B[sn])\n(;W[sn];B[rl];W[sg];B[sm])\n(;W[sg];B[so]))))\n(;W[rp];B[si])\n(;W[sn];B[nn]\n(;W[sm];B[ds])\n(;W[br];B[rl]\n(;W[rp];B[si])\n(;W[si];B[rp]))\n(;W[bq];B[rl]\n(;W[rp];B[si])\n(;W[si];B[rp])))\n(;W[si];B[nn]\n(;W[br];B[rp])\n(;W[bq];B[rp])\n(;W[rp];B[ds])\n(;W[sn];B[ds])\n(;W[sg];B[ds])))\n(;W[ds];B[cq])\n(;W[kn];B[cq]))\n(;W[cl];B[bk];W[bm];B[al];W[bo];B[ao];W[bq];B[aq]LB[ff:a]LB[bi:b]C[Close but white will not have time to protect against both black 'a' and 'b'. Compare with part 3 for how black can do better than ko after 'b' now.])\n(;W[kn];B[bq]C[black isn't fooled into playing C3])\n(;W[nn];B[bq]C[black doesn't fall into the trap at C3])\n(;W[on];B[bq]C[black sees the danger of playing C3]))\n(;W[cl];B[kn]\n(;W[el];B[nn]\n(;W[rp];B[si])\n(;W[si];B[rp])\n(;W[sn];B[rl]\n(;W[si];B[rp])\n(;W[rp];B[si])))\n(;W[rp];B[nn]\n(;W[el];B[si])\n(;W[sn];B[el])\n(;W[si];B[el]))\n(;W[sn];B[nn]\n(;W[sm];B[el])\n(;W[el];B[rl]\n(;W[rp];B[si])\n(;W[si];B[rp]))\n(;W[si];B[el])\n(;W[rp];B[el]))\n(;W[si];B[nn]\n(;W[rp];B[el])\n(;W[sn];B[el])\n(;W[sg];B[el])\n(;W[el];B[rp]))\n(;W[on];B[nn]\n(;W[oo];B[rp])\n(;W[rp];B[oo]\n(;W[sn];B[el])\n(;W[si];B[el])\n(;W[el];B[si]))\n(;W[el];B[oo]\n(;W[rp];B[si])\n(;W[sn];B[rp];W[no];B[rl];W[si];B[sq];W[sg];B[sm])\n(;W[si];B[rp];W[no];B[sq]\n(;W[so];B[sn])\n(;W[sn];B[rl];W[sg];B[sm])\n(;W[sg];B[so]))\n(;W[no];B[si]))\n(;W[sn];B[oo]\n(;W[rp];B[el])\n(;W[sm];B[el])\n(;W[si];B[el])\n(;W[no];B[el])\n(;W[el];B[rp];W[no];B[rl];W[si];B[sq];W[sg];B[sm]))\n(;W[si];B[oo]\n(;W[rp];B[el])\n(;W[sn];B[el])\n(;W[sg];B[el])\n(;W[el];B[rp];W[no];B[sq]\n(;W[so];B[sn])\n(;W[sn];B[rl];W[sg];B[sm])\n(;W[sg];B[so]))))))\n(;W[lc];B[md];W[nc];B[mb];W[nb];B[ma]LB[la:a]C[please play at 'a'];W[la];B[dj];W[na];B[ej];W[el];B[dk]\n(;W[bk];B[cl]LB[bm:a]C[please play at 'a'];W[bm];B[al];W[bo];B[ao];W[bq];B[aq]LB[ne:a]LB[kn:b]C[Close but white will need to protect at both 'a' and 'b'. See part 2 to see why more clearly.])\n(;W[cl];B[bk];W[bm];B[al];W[bo];B[ao];W[bq];B[aq]LB[aj:a]LB[ff:b]LB[kn:c]LB[ne:d]C[white has left too many weaknesses behind.])))\n(;W[kd];B[le]LB[el:a]LB[on:b]C[black has the squeeze at 'a' or wins the capturing race at 'b']))\n(;W[hg];B[ih]\n(;W[kn];B[el];W[fo];B[ks])\n(;W[el];B[on]\n(;W[kn];B[rp])\n(;W[nj];B[nn]C[this only adds another 4 stones to the prisoner pile])\n(;W[sn];B[rp])\n(;W[si];B[rp])\n(;W[rp];B[sn]\n(;W[kn];B[sq]\n(;W[rl];B[sm]C[black wins here];W[sl];B[rl];W[si];B[so])\n(;W[si];B[so])\n(;W[nj];B[nn];W[jm];B[so]))\n(;W[rl];B[sm]\n(;W[sl];B[sq];W[si];B[rl];W[sg];B[so])\n(;W[rl];B[sq];W[si];B[sl];W[sg];B[so])\n(;W[si];B[sq]C[black wins]))\n(;W[si];B[sq]C[black wins here])\n(;W[if];B[kn]C[black wins here])))))\n(;W[hh];B[di]\n(;W[dj];B[el];W[fo];B[ks])\n(;W[dh];B[el];W[fo];B[ks])\n(;W[ci];B[el];W[fo];B[ks])\n(;W[el];B[on]\n(;W[kn];B[rp])\n(;W[si];B[rp])\n(;W[sn];B[rp])\n(;W[rp];B[sn]\n(;W[kn];B[sq]C[black wins])\n(;W[rl];B[sm]\n(;W[sl];B[sq];W[si];B[rl];W[sg];B[so])\n(;W[rl];B[sq];W[si];B[sl];W[sg];B[so])\n(;W[si];B[sq]C[black wins]))\n(;W[si];B[sq]C[black will win]))\n(;W[nj];B[nn]C[4 extra prisoners for black]))\n(;W[kn];B[el];W[fo];B[ks])))\n(;W[fm];B[gj]\n(;W[kn];B[el];W[fo];B[ks])\n(;W[el];B[on]\n(;W[kn];B[rp])\n(;W[sn];B[rp])\n(;W[si];B[rp])\n(;W[nj];B[nn]C[4 extra prisoners for black])\n(;W[rp];B[sn]\n(;W[kn];B[sq]C[black wins])\n(;W[rl];B[sm]C[black will win])\n(;W[si];B[sq]C[black wins])))))\n(;W[fm];B[fl];W[el];B[gh]\n(;W[gj];B[gi]C[this exchange doesn't help white])\n(;W[kn];B[bq]\n(;W[cl];B[bk];W[dk];B[dj])\n(;W[cq];B[ds]\n(;W[cl];B[bk];W[dk];B[dj])\n(;W[bm];B[bk]))\n(;W[bm];B[bk]))\n(;W[em];B[bq]\n(;W[cl];B[bk];W[dk];B[dj])\n(;W[bm];B[bk])\n(;W[cq];B[ds]\n(;W[cl];B[bk];W[dk];B[dj])\n(;W[bm];B[bk])))\n(;W[bq];B[on]C[black wins the capturing race and kills the right side unconditionally, he could also have fought the ko at E7.])\n(;W[cl];B[on]C[black wins the capturing race against the Q6 stones])\n(;W[cq];B[on]C[black wins the capturing race aginst the Q6 stones])\n(;W[ds];B[on]C[black wins the capturing race against the Q6 stones])))\n(;W[ho];B[il])\n(;W[gm];B[kn]\n(;W[on];B[nn]\n(;W[oo];B[rp])\n(;W[rp];B[oo]\n(;W[ho];B[si])\n(;W[go];B[si])\n(;W[sn];B[ho])\n(;W[si];B[ho]))\n(;W[sn];B[oo]\n(;W[ho];B[rp];W[no];B[rl];W[si];B[sq];W[sg];B[sm])\n(;W[go];B[rp];W[no];B[rl];W[si];B[sq];W[sg];B[sm]))\n(;W[si];B[oo]\n(;W[ho];B[rp];W[no];B[sq]\n(;W[so];B[sn])\n(;W[sn];B[rl];W[sg];B[sm])\n(;W[sg];B[so]))\n(;W[go];B[rp];W[no];B[sq]\n(;W[so];B[sn])\n(;W[sn];B[rl];W[sg];B[sm])\n(;W[sg];B[so]))\n(;W[sn];B[ho])\n(;W[rp];B[ho])\n(;W[sg];B[ho]))\n(;W[go];B[si]\n(;W[sn];B[rl]\n(;W[oo];B[rp])\n(;W[rp];B[oo]))\n(;W[oo];B[rp])\n(;W[rp];B[oo]))\n(;W[ho];B[oo]\n(;W[rp];B[si])\n(;W[no];B[si])\n(;W[sn];B[rp];W[no];B[rl];W[si];B[sq];W[sg];B[sm])\n(;W[si];B[rp];W[no];B[sq]\n(;W[so];B[sn])\n(;W[sn];B[rl];W[sg];B[sm])\n(;W[sg];B[so]))))\n(;W[nn];B[on]LB[ho:a]LB[rp:b]C[white can't defend 'a' and 'b'])\n(;W[rp];B[nn]\n(;W[ho];B[si])\n(;W[go];B[si])\n(;W[si];B[ho]))\n(;W[sn];B[nn]\n(;W[ho];B[rl]\n(;W[rp];B[si])\n(;W[si];B[rp]))\n(;W[go];B[rl]\n(;W[rp];B[si])\n(;W[si];B[rp]))\n(;W[sm];B[ho]))\n(;W[si];B[nn]\n(;W[rp];B[ho])\n(;W[sn];B[ho])\n(;W[ho];B[rp])\n(;W[go];B[rp]))\n(;W[ho];B[nn]\n(;W[rp];B[si])\n(;W[si];B[rp])\n(;W[sn];B[rl]\n(;W[rp];B[si])\n(;W[si];B[rp])))\n(;W[go];B[si]\n(;W[sn];B[rl]\n(;W[on];B[nn];W[oo];B[rp])\n(;W[rp];B[nn]))\n(;W[rp];B[nn])\n(;W[on];B[nn]\n(;W[sn];B[rl]\n(;W[oo];B[rp])\n(;W[rp];B[oo]))\n(;W[oo];B[rp])\n(;W[rp];B[oo])))))\n(;W[jo];B[ip]\n(;W[ho];B[il])\n(;W[jn];B[ho]))\n(;W[ho];B[il])\n(;W[jn];B[ip]\n(;W[jo];B[ho])\n(;W[ho];B[go])\n(;W[gm];B[ho]))\n(;W[gm];B[ip])\n(;W[on];B[il])\n(;W[nn];B[il]))",
+  "author": {
+    "id": 830,
+    "name": "Spica",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 202,
+  "attempts": {
+    "solved": 23,
+    "failed": 1715,
+    "tries": 1738,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-04-27T15:57:25+00:00",
+  "source": "Spica",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 48,
+      "name": "Giant",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 55,
+      "name": "No Man's Land",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

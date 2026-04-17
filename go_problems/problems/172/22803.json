@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22803,
+  "elo": 1917.5806217087,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Life on the second and third lines series #3. Other problem(s) in the series: 22639, 22664, 22829, 22339.",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(\n;\nAB [lr][mr][nr][oq][pr][qr]\nAW [jq][kq][lq][mq][nq][np][pp][qq][rq][rs]\n\nC [What can white get here? (K = kill; KW = ko, advantageous for whtie; KB = ko, advantageous for black; S = seki; N = nothing)][FORCE]\nLB [io:K][jo:KW][ko:KB][lo:S][mo:N]\n\n(; W [lo]; B [mo] C [Sente seki (SS) or gote seki (GS)?][FORCE] LB [ln:SS][mn:GS] (; W [mn]; B [ln] C [Demonstrate.] (; W [pq]; B [kr] (; W [jr]; B [ks] (; W [ms]; B [or] (; W [ns]; B [qs]; W [os] C [RIGHT][Well done!])(; W [qs]; B [ns]; W [ps]; B [rr]; W [sr]; B [os]))(; W [or]; B [os])(; W [os]; B [or])(; W [qs]; B [ms]; W [os]; B [or]; W [ps]; B [rr]; W [sr]; B [ns])(; W [rr]; B [ms]; W [os]; B [or]))(; W [js] C [NOTTHIS RIGHT]))(; W [kr]; B [os] TR [ls][ms] SQ [qs][pq] C [Miai to live.])(; W [qs]; B [pq]; W [os]; B [ns] TR [ls][kr] SQ [ps][rr] C [Miai to live.])(; W [os]; B [ns] C [Miai to live.] TR[ls][kr] SQ [ps][qs] MA [or][pq]))(; W [ln]; B [mn](; W [pq]; B [kr] (; W [jr]; B [ks] (; W [ms]; B [or] (; W [ns]; B [qs]; W [os] C [Gote seki.])(; W [qs]; B [ns]; W [ps]; B [rr]; W [sr]; B [os]))(; W [or]; B [os])(; W [os]; B [or])(; W [qs]; B [ms]; W [os]; B [or]; W [ps]; B [rr]; W [sr]; B [ns])(; W [rr]; B [ms]; W [os]; B [or]))(; W [js] C [NOTTHIS]))(; W [kr]; B [os] TR [ls][ms] SQ [qs][pq] C [Miai to live.])(; W [qs]; B [pq]; W [os]; B [ns] TR [ls][kr] SQ [ps][rr] C [Miai to live.])(; W [os]; B [ns] C [Miai to live.] TR[ls][kr] SQ [ps][qs] MA [or][pq])))\n(; W [io]; B [mo] C [Demonstrate.] (; W [pq]; B [kr] (; W [jr]; B [ks] (; W [ms]; B [or] (; W [ns]; B [qs]; W [os] C [Seki.])(; W [qs]; B [ns]; W [ps]; B [rr]; W [sr]; B [os]))(; W [or]; B [os])(; W [os]; B [or])(; W [qs]; B [ms]; W [os]; B [or]; W [ps]; B [rr]; W [sr]; B [ns])(; W [rr]; B [ms]; W [os]; B [or]))(; W [js] C [NOTTHIS]))(; W [kr]; B [os] TR [ls][ms] SQ [qs][pq] C [Miai to live.])(; W [qs]; B [pq]; W [os]; B [ns] TR [ls][kr] SQ [ps][rr] C [Miai to live.])(; W [os]; B [ns] C [Miai to live.] TR[ls][kr] SQ [ps][qs] MA [or][pq]))\n(; W [jo]; B [mo] (; W [pq]; B [kr] (; W [jr]; B [ks] (; W [ms]; B [or] (; W [ns]; B [qs]; W [os] C [Seki.])(; W [qs]; B [ns]; W [ps]; B [rr]; W [sr]; B [os]))(; W [or]; B [os])(; W [os]; B [or])(; W [qs]; B [ms]; W [os]; B [or]; W [ps]; B [rr]; W [sr]; B [ns])(; W [rr]; B [ms]; W [os]; B [or]))(; W [js] C [NOTTHIS]))(; W [kr]; B [os] TR [ls][ms] SQ [qs][pq] C [Miai to live.])(; W [qs]; B [pq]; W [os]; B [ns] TR [ls][kr] SQ [ps][rr] C [Miai to live.])(; W [os]; B [ns] C [Miai to live.] TR[ls][kr] SQ [ps][qs] MA [or][pq]))\n(; W [ko]; B [mo] (; W [pq]; B [kr] (; W [jr]; B [ks] (; W [ms]; B [or] (; W [ns]; B [qs]; W [os] C [Seki.])(; W [qs]; B [ns]; W [ps]; B [rr]; W [sr]; B [os]))(; W [or]; B [os])(; W [os]; B [or])(; W [qs]; B [ms]; W [os]; B [or]; W [ps]; B [rr]; W [sr]; B [ns])(; W [rr]; B [ms]; W [os]; B [or]))(; W [js] C [NOTTHIS]))(; W [kr]; B [os] TR [ls][ms] SQ [qs][pq] C [Miai to live.])(; W [qs]; B [pq]; W [os]; B [ns] TR [ls][kr] SQ [ps][rr] C [Miai to live.])(; W [os]; B [ns] C [Miai to live.] TR[ls][kr] SQ [ps][qs] MA [or][pq]))\n(; W [mo]; B [pq] C [Nope, you could have gotten something. But not anymore.])\n\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 14,
+  "attempts": {
+    "solved": 2,
+    "failed": 56,
+    "tries": 58,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-08-11T03:09:40+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

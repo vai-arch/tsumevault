@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7284,
+  "elo": 849.76381916931,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": -1,
+    "flagSum": 9
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "In a similar situation black lost the game by a few points, find the best way to gain a few extra points.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[oa]AW[pa]AW[mh]AW[ob]AW[mc]AW[oc]AW[nd]AW[ne]AW[nf]AW[ng]AW[oh]AW[rh]AW[oi]AW[ri]AW[oj]AW[pj]AW[qj]AW[mk]AW[nk]AW[ok]AW[rk]AW[rl]AW[ro]AW[pp]AW[qp]AW[rp]AW[oq]AW[qq]AW[or]AW[pr]AW[qr]AB[qa]AB[pb]AB[rb]AB[pc]AB[od]AB[oe]AB[of]AB[og]AB[pg]AB[qg]AB[rg]AB[qh]AB[pi]AB[qi]AB[rj]AB[pk]AB[qk]AB[ml]AB[nl]AB[ol]AB[ql]AB[qm]AB[rm]AB[pn]AB[rn]AB[oo]AB[po]AB[qo]AB[mp]AB[op]AB[nq]AB[nr]AB[os]AB[qd]C[Black to get the most points possible assuming the left of the board is already decided.]\n(;B[sj]C[RIGHT]C[Now white can't kill black since white can not push.RIGHT])\n(;B[sh];W[sj]C[You can do better.])\n(;B[sl];W[sj]C[You can do better.])\n(;B[sk];W[sj]C[This is giving white a point.])\n(;B[si];W[sj]C[This is giving white a point.])\n(;B[ps]C[1 point, potentially gote reduction is the best you can do?])\n(;B[sg];W[sj]C[You can do better than this.])\n(;B[sm]C[You can do better than this.];W[sj]C[You can do better than this.]))",
+  "author": {
+    "id": 12040,
+    "name": "jocund",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-12-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 23,
+  "attempts": {
+    "solved": 19984,
+    "failed": 9794,
+    "tries": 29778,
+    "speedSolved": 2,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-09-30T20:19:26+00:00",
+  "source": "KGS game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 255,
+      "name": "Golden Chicken Standing on One Leg",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

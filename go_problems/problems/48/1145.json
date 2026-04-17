@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1145,
+  "elo": 1269.4662272685,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "The game below has black winning by 0.5 points. Can you find an extra point for white?",
+  "rating": {
+    "stars": 3.8,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]SZ[19]AP[Jago:Version 4.18]AB[ab][bb][bc][ea][fa][ga][ha][ia][fb][hb][ec][fc][gc][dd][ed][fd][hd][de][fe][ff][gf][gg][gh][hh][hi][ih][jh][kg][kd][jd][ie][jc][jb][ae][af][bf][bg][cg][bh][bi][ai][ci][cj][bk][cl][cm][bm][bn][bo][an][ej][ek][el][fl][gl][gm][gn][hk][ik][jk][jl][km][fo][fp][fq][fr][fs][gr][er][es][ds][cs][le][me][nd][oc][od][pd][pe][qe][qc][qb][pf][of][nf][og][ng][nh][lh][lg][mg][pi][pj][qj][rk][sl][sn][rn][ro][rm][ql][pl][ol][om][on][ok][nk][mk][nj][ln][lo][lp][jo][io][kp][kq][kr][lr][ls][ms][mj][or][oq][pp][po][lk]AW[so][sp][sq][rp][rr][pm][pn][qn][qo][qp][qq][pr][ns][nr][mr][lq][mq][nq][mp][np][op][oo][mo][mn][nn][nm][nl][ml][ll][kl][lm][ko][jp][ji][kh][ki][li][mi][mh][ni][oi][oj][oh][ph][pg][qf][rg][qi][ri][rj][si][sj][sk][re][rd][qd][pc][pb][ob][nc][mc][md][lc][kc][kb][ka][ja][gd][hg][ij][hj][gj][gk][fk][fj][gi][fh][fg][eg][ef][ee][ei][di][dh][ch][dg][df][cf][ce][be][ad][bd][cd][cc][dc][db][eb][da][cb][ba][ah][aj][dj][dk][ck][dl][dm][em][fm][fn][dn][cn][co][do][eo][dp][dq][eq][cq][dr][cr][br][bs][ar][aq][ap][ao][bp]LB[sa:a]GN[endgame02]C[White to play. If you think the game is finished play at 'a', (T19). Otherwise try to find an extra point.](;W[sa]C[Black can still be made to fill in.])(;W[kk];B[jj](;W[ii];B[kj](;W[lj];B[jm]C[Black must fill in RIGHT])(;W[jm];B[kn](;W[lj];B[hl]C[Black must fill RIGHT])(;W[hl];B[lj]C[Black connects.])))(;W[kj];B[ii](;W[fi];B[jm]C[Black wins since white also filled in.])(;W[jm];B[fi]C[Black accepts the gift]))(;W[jm];B[ii](;W[fi];B[kn](;W[kj];B[hl]C[Both players have filled in, black wins.])(;W[hl];B[im];W[kj];B[il];W[in];B[hm]C[Black wins as both players have filled in a point.]))(;W[kn];B[fi]C[Black wins.]))(;W[hl];B[ii];W[fi];B[jm]C[Black wins.]))(;W[jm];B[kn];W[kk];B[jj](;W[ii];B[kj];W[lj];B[hl]C[Black must fill in RIGHT])(;W[kj];B[ii];W[fi];B[hl]C[Both fill in, black wins.])(;W[hl];B[ii];W[fi];B[im];W[kj];B[il];W[in];B[hm]C[Both have filled in, black wins.])(;W[il];B[hl]C[Black wins.])))",
+  "author": {
+    "id": 830,
+    "name": "Spica",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 83,
+  "attempts": {
+    "solved": 2212,
+    "failed": 4275,
+    "tries": 6487,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-11-02T19:34:26+00:00",
+  "source": "GTL game (variation)",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 48,
+      "name": "Giant",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

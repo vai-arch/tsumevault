@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5895,
+  "elo": 1408.4199057377,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "White can live, but needs to play carefully.",
+  "rating": {
+    "stars": 4.4,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dc]AW[de]AB[ee]AW[dd]AB[fc]AW[cc]AB[ec]AB[df]AB[cf]AW[bd]AW[db]AB[be]AB[bb]AB[eb]AW[cb]AB[ff]AW[cd]AB[eg]AW[ea]AB[gb]AB[bg]AP[goproblems]\n(;W[ab];B[ba]\n(;W[ad];B[bc]\n(;W[da]C[RIGHT]C[White can live in seki by playing A17, and if black plays there, he leaves a living shape for white to capture.RIGHT])\n(;W[ca]C[This is not a seki, because white's main group is not connected to the liberty at A19.])\n(;W[ac];B[da]))\n(;W[da];B[ad])\n(;W[bc];B[ad])\n(;W[ca];B[bc];W[ad]C[This is not a seki, because white's main group is not connected to the liberty at A19.])\n(;W[ac];B[da]C[Not enough room for two eyes]))\n(;W[ba];B[ab]\n(;W[da];B[ad])\n(;W[ac];B[da])\n(;W[ad];B[da])\n(;W[ae];B[da]))\n(;W[da];B[ba]\n(;W[ac];B[ab]C[Black kills by making an 'eye in the stomach'])\n(;W[ab];B[ac]\n(;W[ad];B[aa]\n(;W[bc];B[ab])\n(;W[ca];B[ab]))\n(;W[bc];B[aa]\n(;W[ca];B[ab])\n(;W[ad];B[ab]))\n(;W[ca];B[aa]\n(;W[ad];B[ab])\n(;W[bc];B[ab])))\n(;W[bc];B[ab]C[Black kills by making an 'eye in the stomach'])\n(;W[ad];B[ab]C[Black kills by making an 'eye in the stomach']))\n(;W[ac];B[ba];W[da];B[ab])\n(;W[ad];B[ab]\n(;W[da];B[ba]C[Black kills by making an 'eye in the stomach'])\n(;W[ba];B[da])))",
+  "author": {
+    "id": 97,
+    "name": "Andre Engels",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-04-08",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1419.89
+  },
+  "avgSolveTimeSeconds": 68,
+  "attempts": {
+    "solved": 925,
+    "failed": 2620,
+    "tries": 3545,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-02-01T14:13:15+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 69,
+      "name": "L-Group",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

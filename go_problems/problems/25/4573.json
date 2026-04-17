@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4573,
+  "elo": 1514.5885287877,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "In Finnish (or in Tampere, at least) the black shape is called \"kahelin kahdeksikko\", which roughly translates as \"the fool's eight\". This is white's strongest play against it.\r\n",
+  "rating": {
+    "stars": 2.8,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[aq]AB[bq]AB[cq]AB[dq]AB[eq]AB[er]AB[es]AW[ap]AW[bp]AW[cp]AW[dp]AW[ep]AW[fp]AW[fq]AW[fr]AW[fs]AW[cr]LB[cn:N]LB[en:H]C[N=normal, H=hardFORCE]AP[goproblems]\n(;B[cn];W[en]C[ok, go ahead. Black must avoid ko.]\n(;B[bs];W[br]\n(;B[cs];W[ar];B[ds]C[RIGHT])\n(;B[ar];W[cs]C[1000-year ko.]))\n(;B[ar];W[bs];B[ds];W[br];B[cs]C[RIGHT])\n(;B[br];W[bs]\n(;B[dr];W[cs]C[white will later start a ko with A2.])\n(;B[ds];W[ar]C[Two step ko.]))\n(;B[cs];W[bs];B[br];W[ds]C[white can later start a ko with A2.])\n(;B[ds]\n(;W[ar]\n(;B[br];W[bs]C[ko.])\n(;B[cs];W[bs]C[black dies.])\n(;B[bs];W[br];B[cs]C[RIGHT]))\n(;W[cs];B[br];W[bs];B[ar]C[RIGHT])))\n(;B[en];W[cn]C[Ok, we all know the usual answer. Let's try something else :-)]\n(;B[bs]C[NOTTHIS])\n(;B[ar]\n(;W[cs];B[br];W[bs];B[ds]C[RIGHT])\n(;W[br];B[cs]C[RIGHT])\n(;W[bs];B[ds]C[RIGHT])\n(;W[ds]C[this is a mistake by white.];B[bs];W[br]C[RIGHT]))\n(;B[ds]\n(;W[bs]\n(;B[ar]C[RIGHT])\n(;B[br];W[ar]C[two step ko.])\n(;B[cs];W[ar]C[oops.]))\n(;W[br];B[cs]C[RIGHT])\n(;W[cs];B[br];W[bs];B[ar]C[RIGHT])\n(;W[ar];B[bs]C[RIGHT]))\n(;B[br];W[bs]\n(;B[ds];W[ar]C[two step ko.])\n(;B[dr];W[cs]))\n(;B[cs];W[bs]\n(;B[ds];W[ar])\n(;B[br];W[ds]))))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 45,
+  "attempts": {
+    "solved": 1067,
+    "failed": 3467,
+    "tries": 4534,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-06-02T07:45:55+00:00",
+  "source": "rec.games.go",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 25,
+      "name": "Choose your Difficulty",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

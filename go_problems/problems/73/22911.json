@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22911,
+  "elo": 1960.3030388371,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 5,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[besogo:0.0.2-alpha]SZ[19]ST[0]\r\nAB[bb][ce][cg][db][dc][dd][dg][ec][ef][eg][fa][fb]AW[bc][be][cc][cf][de][df][ed][ee][fc][fd][ff][fg][ga][gb]\r\nC[B to move]\r\n(;B[cb]\r\n(;W[da]\r\n(;B[ac]\r\n;W[ab]\r\n(;B[aa]\r\n;W[ad]\r\n(;B[cd]\r\n;W[ab]\r\n(;B[bd]\r\n;W[ba]\r\n(;B[bf]LB[ac:4][af:1][ag:6][bc:5][bg:2][eb:3]\r\nC[nice! B is safe! (W cannot force a real ko) RIGHT])\r\n(;B[ac]\r\n;W[bc]\r\n(;B[bf]LB[af:1][ag:4][bg:2][eb:3]\r\nC[nice! B is safe! (W cannot force a real ko) RIGHT])\r\n(;B[ca]LB[bf:2][ea:1]\r\nC[nice! B is safe! (W cannot force a real ko) RIGHT])\r\n(;B[eb]\r\n;W[bf]))\r\n(;B[ca]\r\n;W[eb]))\r\n(;B[ca]\r\n;W[ea]\r\n;B[bd]\r\nC[nice! B is safe! (W cannot force a real ko) RIGHT])\r\n(;B[bf]\r\n;W[bd]\r\nC[ko!]))\r\n(;B[ab]\r\n(;W[eb]\r\n(;B[ca]\r\n;W[ea]LB[ba:4][bd:2][bf:3][cd:1])\r\n(;B[cd]\r\n;W[ca]LB[bd:1][bg:2]))\r\n(;W[ca]LB[ba:1][bd:6][bf:7][cd:5][da:4][ea:2][eb:3]\r\nC[W doesn't play this instead as B at 1 would live]))\r\n(;B[ca]\r\n;W[ea]\r\n(;B[eb]\r\n;W[ab]\r\nC[ko!])\r\n(;B[cd]\r\n;W[bd]\r\nC[ko!])\r\n(;B[ab]\r\n;W[eb]LB[ba:4][bd:2][bf:3][cd:1]))\r\n(;B[eb]\r\n;W[cd]\r\nC[ko!]))\r\n(;B[ca]\r\n;W[ea]\r\n(;B[aa]\r\n;W[ad]\r\nC[ko!])\r\n(;B[bd]\r\n;W[ad]LB[aa:3][bf:2][cd:1]\r\nC[ko!])\r\n(;B[eb]\r\n;W[ad]))\r\n(;B[bd]\r\n;W[ad]LB[aa:5][bf:2][ca:3][cd:1][ea:4]\r\nC[ko!])\r\n(;B[ad]\r\n;W[bd]\r\n(;B[aa]\r\n;W[ca])\r\n(;B[ca]\r\n;W[ea]TR[aa][eb])))\r\n(;B[ca]\r\n;W[ea]\r\n(;B[ac]\r\n;W[ab]\r\n(;B[aa]\r\n;W[ad]\r\nC[ko!])\r\n(;B[bd]\r\n;W[ad]LB[aa:3][bf:2][cd:1]\r\nC[ko!])\r\n(;B[eb]\r\n;W[ad])\r\n(;B[ad]\r\n;W[bd]TR[aa][eb]))\r\n(;B[cd]\r\n;W[bd]TR[ab][eb])\r\n(;B[ab]\r\n;W[eb])\r\n(;B[eb]\r\n;W[ab]))\r\n(;B[ab]\r\n;W[eb]))\r\n(;W[ea]\r\n(;B[ac]\r\n(;W[eb]\r\n;B[bd]\r\nC[RIGHT])\r\n(;W[bd]\r\n(;B[eb]LB[ac:A][bd:B]\r\nC[Good! The trick was to realize A is sente - If W doesn't answer, B captures with snapback! RIGHT])\r\n(;B[da]\r\n;W[eb]TR[ab][ba])\r\n(;B[ab]\r\n;W[eb]TR[ba][da])\r\n(;B[ba]\r\n;W[eb]TR[ab][da])))\r\n(;B[eb]\r\n;W[ab]TR[ba][da])\r\n(;B[da]\r\n;W[eb]TR[ab][ba])\r\n(;B[ab]\r\n;W[eb]TR[ba][da])\r\n(;B[ba]\r\n;W[eb]TR[ab][da])\r\n(;B[cd]\r\n;W[bd]\r\n(;B[eb]\r\n;W[ab]TR[ba][da])\r\n(;B[da]\r\n;W[eb]TR[ab][ba])\r\n(;B[ab]\r\n;W[eb]TR[ba][da])\r\n(;B[ba]\r\n;W[eb]TR[ab][da]))\r\n(;B[bd]\r\n;W[cd]\r\n(;B[eb]\r\n;W[ab]TR[ba][da])\r\n(;B[da]\r\n;W[eb]TR[ab][ba])\r\n(;B[ab]\r\n;W[eb]TR[ba][da])\r\n(;B[ba]\r\n;W[eb]TR[ab][da])))\r\n(;W[ab]\r\n;B[ea]\r\nC[RIGHT]))\r\n(;B[ea]\r\n;W[cb])\r\n(;B[cd]\r\n;W[bd]\r\n;B[cb]\r\n;W[ea]\r\n(;B[eb]\r\n;W[ab]TR[ba][da])\r\n(;B[da]\r\n;W[eb]TR[ab][ba])\r\n(;B[ab]\r\n;W[eb]TR[ba][da])\r\n(;B[ba]\r\n;W[eb]TR[ab][da])))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 9,
+    "failed": 92,
+    "tries": 101,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-11-27T11:49:02+00:00",
+  "source": "blyx and cae on a var of https://online-go.com/game/28653163",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 26,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

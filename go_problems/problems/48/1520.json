@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1520,
+  "elo": 1292.1021995925,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.1,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(\n\n;\n\nFF[4]\n\nGM[1]\n\nSZ[19]\n\nAP[Jago:Version 4.35]\n\nAW[cd][cc][dc][de][cg][dq][po][pn][qn][qj][oj]\n\nAB[qh][qd][oc][ce][dd][ed][do][nq][pq][qp][qo]\n\nC[Is it possible to capture the white stone in a ladder at A? If not, please play at B.]\n\nLB[df:A][jd:B]\n\nTR[de]\n\nGN[goproblem1520]\n\n(\n\n;\n\nB[jd]\n\nC[RIGHT\n\nThe ladder does not work.]\n\n)\n\n(\n\n;\n\nB[df]\n\n;\n\nW[ee]\n\n;\n\nB[fe]\n\n;\n\nW[ef]\n\n;\n\nB[eg]\n\n;\n\nW[ff]\n\n;\n\nB[gf]\n\n;\n\nW[fg]\n\n;\n\nB[fh]\n\n;\n\nW[gg]\n\n;\n\nB[hg]\n\n;\n\nW[gh]\n\n;\n\nB[gi]\n\n;\n\nW[hh]\n\n;\n\nB[ih]\n\n;\n\nW[hi]\n\n;\n\nB[hj]\n\n;\n\nW[ii]\n\n;\n\nB[ji]\n\n;\n\nW[ij]\n\n;\n\nB[ik]\n\n;\n\nW[jj]\n\n;\n\nB[kj]\n\n;\n\nW[jk]\n\n;\n\nB[jl]\n\n;\n\nW[kk]\n\n;\n\nB[lk]\n\n;\n\nW[kl]\n\n;\n\nB[km]\n\n;\n\nW[ll]\n\n;\n\nB[ml]\n\n;\n\nW[lm]\n\n;\n\nB[ln]\n\n;\n\nW[mm]\n\n;\n\nB[nm]\n\n;\n\nW[mn]\n\n;\n\nB[mo]\n\n;\n\nW[nn]\n\n;\n\nB[on]\n\n;\n\nW[no]\n\n(\n\n;\n\nB[oo]\n\n;\n\nW[np]\n\n(\n\n;\n\nB[mp]\n\n;\n\nW[op]\n\nC[The ladder fails.]\n\n)\n\n(\n\n;\n\nB[op]\n\n;\n\nW[mp]\n\nC[The ladder fails.]\n\n)\n\n)\n\n(\n\n;\n\nB[np]\n\n;\n\nW[oo]\n\nC[The ladder fails.]\n\n)\n\n)\n\n)",
+  "author": {
+    "id": 288,
+    "name": "unkx80",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-01-08",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1846.73
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 10637,
+    "failed": 10614,
+    "tries": 21251,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-05-26T06:17:55+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 48,
+      "name": "Giant",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 21,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

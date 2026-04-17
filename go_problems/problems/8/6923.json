@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6923,
+  "elo": 1244.2623847613,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "jigo = failure.",
+  "rating": {
+    "stars": 3,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[5]KM[0.00]\r\nPW[White]PB[Black]AW[bb][bd][cd][be]AB[dc][dd][ce][de]\r\n(;B[cc]CR[cc]\r\n;W[bc]CR[bc]\r\n(;B[ca]CR[ca]\r\n;W[cb]CR[cb]\r\n;B[db]CR[db]\r\n;W[ba]CR[ba]\r\n;B[da]CR[da])\r\n(;B[cb]CR[cb]\r\n;W[ca]CR[ca]\r\n;B[da]CR[da]\r\n;W[ba]CR[ba]C[RIGHT]))\r\n(;B[ca]CR[ca]\r\n;W[cb]CR[cb]\r\n;B[db]CR[db]\r\n;W[ba]CR[ba]\r\n;B[cc]CR[cc]\r\n;W[bc]CR[bc]\r\n;B[da]CR[da])\r\n(;B[cb]CR[cb]\r\n;W[cc]CR[cc]\r\n;B[ca]CR[ca]\r\n;W[ba]CR[ba]\r\n;B[db]CR[db]))",
+  "author": {
+    "id": 10284,
+    "name": "Zwom",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-07-05",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1517.95
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 2851,
+    "failed": 4758,
+    "tries": 7609,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-07-17T21:56:08+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 8,
+      "name": "5x5 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

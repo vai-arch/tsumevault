@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15623,
+  "elo": 1183.7748096268,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is a life and death problem. Can White kill Black or should White tenuki?",
+  "rating": {
+    "stars": 1.8,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sq]AB[rq]AB[rr]AB[ps]AB[ss]AB[qs]AW[ns]AW[nq]AW[nr]AW[oo]AW[po]AW[qo]AW[ro]AW[so]AW[op]AW[np]LB[lr:Tenuki?]AP[goproblems]\r\n(;W[qr];B[pq]\r\n(;W[qq];B[qp];W[pr];B[or])\r\n(;W[pr];B[or];W[qq];B[qp]))\r\n(;W[pq];B[qr])\r\n(;W[qq];B[qr])\r\n(;W[pr];B[qr])\r\n(;W[lr]C[RIGHT]))",
+  "author": {
+    "id": 51295,
+    "name": "krt",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-15",
+    "rank": {
+      "value": 9,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 9,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 2011.74
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 1973,
+    "failed": 3086,
+    "tries": 5059,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-01-01T18:20:29+00:00",
+  "source": "ï¿½~",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

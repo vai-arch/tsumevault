@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1911,
+  "elo": 1613.688021149,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.1,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nAW[dd][ed][fd][de][fe][cf][ff][hf][jf][lg][gh][hh][lh][ii][jj][bk][ck][ek][gk][ik][dl][jl][jm]\r\nAB[kd][ee][ef][kf][lf][eg][kg][ch][ih][kh][di][fi][gi][hi][fk][il][cm][dm][em][gm][im][fn]\r\nLB[hh:A][ih:B][hi:B][ii:A][fk:C]\r\nC[Black after being cut at AABB attempted a countercut at C. What is white's best answer.]\r\n\r\n(;W[fj];B[fl]\r\n   (;W[ei];B[gj]\r\n      (;W[ej];B[fh];W[eh];B[fg]\r\n         (;W[dh];B[dg];W[cg] \r\n           LB[hg:A][hk:B]\r\n           TR[ee][ef][dg][eg][fg][fh][fi][gi][hi][gj]\r\n           C[RIGHT Black A or B saves the marked stones, but white's gain on the edge is good enough.]\r\n         )\r\n         (;W[dg] \r\n           LB[hg:A][hk:B]\r\n           TR[ee][ef][eg][fg][fh][fi][gi][hi][gj]\r\n           C[RIGHT Black A or B saves the marked stones, but white's gain on the edge is good enough.]\r\n         )\r\n         (;W[gg];B[dg] TR[ch]\r\n           C[No. Black saves the marked stone, and White has to struggle to make a living for the surrounded group.]\r\n         )\r\n      )\r\n      (;W[fh];B[ej];W[eh];B[dj]\r\n         TR[bk][ck][ek][dl]\r\n         C[No. White cannot save the marked stones.]\r\n      )\r\n   )\r\n   (;W[ej];B[gj];W[ei];B[fh];W[eh];B[fg]\r\n      (;W[dh];B[dg];W[cg] \r\n        LB[hg:A][hk:B]\r\n        TR[ee][ef][dg][eg][fg][fh][fi][gi][hi][gj]\r\n        C[RIGHT Black A or B saves the marked stones, but white's gain on the edge is good enough.]\r\n      )\r\n      (;W[dg]\r\n        LB[hg:A][hk:B]\r\n        TR[ee][ef][eg][fg][fh][fi][gi][hi][gj]\r\n        C[RIGHT Black A or B saves the marked stones, but white's gain on the edge is good enough.]\r\n      ) \r\n      (;W[gg];B[dg] TR[ch]\r\n        C[No. Black saves the marked stone, and White has to struggle to make a living for the surrounded group.]\r\n      )\r\n   )\r\n   (;W[gj];B[ej]\r\n      (;W[dj];B[ei]\r\n        C[No. White is deadder than black.]\r\n       ;W[ci];B[bi];W[cj];B[cg]\r\n        C[No. White is deadder than black.]\r\n      )\r\n      (;W[fh];B[eh];W[dj];B[ei];W[ci];B[bi]\r\n        C[No. White is deadder than black.]\r\n       ;W[cj];B[cg]\r\n        C[No. White is deadder than black.]\r\n      )\r\n   )\r\n   (;W[gl];B[ej];W[gj];B[dj]\r\n     TR[bk][ck][ek][dl]\r\n     C[No. White is deadder than black.]\r\n   )\r\n)\r\n(;W[fl];B[fj]\r\n   (;W[gl];B[el];W[ej];B[ei]\r\n     C[No. White is deadder than black.]\r\n    ;W[dj];B[cj]\r\n     C[No. White is deadder than black.]\r\n   )\r\n   (;W[el];B[gl]\r\n      (;W[ej];B[hk]\r\n        TR[ej][bk][ck][ek][dl][el][fl]\r\n        C[No. White looses the marked group.]\r\n       ;W[fh];B[ei];W[eh];B[dg];W[dh];B[bi]\r\n        TR[ej][bk][ck][ek][dl][el][fl]\r\n        C[No. White looses the marked group.]\r\n      )\r\n      (;W[hk];B[bg]\r\n        C[No. White is deadder than black.]\r\n      )\r\n   )\r\n)\r\n(;W[ej];B[fj];W[ei];B[eh];W[fh];B[el]\r\n  LB[cj:A]\r\n  C[Right or wrong? I don't know. Add a comment! White has to be careful about the snapback-set-up at A.]\r\n)\r\n(;W[jh];B[fj];W[fl];B[gl] LB[el:A][hk:B] TR[bk][ck][ek][dl]\r\n C[No. Black can escape with either A or B while white's stones are in deep trouble.]\r\n)\r\n)",
+  "author": {
+    "id": 3244,
+    "name": "DaMaMa",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2005-09-28",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 1029,
+    "failed": 3427,
+    "tries": 4456,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-02-09T16:14:50+00:00",
+  "source": "net game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

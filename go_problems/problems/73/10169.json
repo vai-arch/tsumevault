@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10169,
+  "elo": 1092.308695587,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "black to kill",
+  "rating": {
+    "stars": 4.1,
+    "votes": 31,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dp]AB[cq]AB[dr]AB[eo]AB[fo]AB[go]AB[ho]AB[io]AB[jp]AB[jq]AB[jr]AB[js]AW[eq]AW[er]AW[es]AW[fq]AW[gp]AW[fp]AW[hp]AW[iq]AW[ir]AW[is]AB[gq]AB[fr]AB[fs]AB[hr]AP[goproblems]\n(;B[gs];W[hs]\n(;B[gr];W[hq];B[gr]C[CHOICERIGHT])\n(;B[ip];W[gr])\n(;B[hq];W[gr]))\n(;B[hs];W[hq];B[gr];W[gs]C[White has a living shape. (White does not have to capture immediately of course)])\n(;B[gr];W[gs]\n(;B[hs];W[hq]C[White can capture and get a living shape (White does not have to play H3 immediately of course)])\n(;B[ip];W[hq]C[White can capture Black and get a living shape. ( White does not have to play H3 immediately, of course.)]))\n(;B[ip];W[hq]\n(;B[gs];W[hs])\n(;B[gr];W[hs]))\n(;B[hq];W[ip]\n(;B[gs];W[hs])\n(;B[gr];W[hs])))",
+  "author": {
+    "id": 17833,
+    "name": "balmung",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-06-23",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 3885,
+    "failed": 4820,
+    "tries": 8705,
+    "speedSolved": 25,
+    "speedPlay": 36
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-07-17T19:37:25+00:00",
+  "source": "graded go problems for beginners",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

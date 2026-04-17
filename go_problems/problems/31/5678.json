@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5678,
+  "elo": 1179.2399214899,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -2,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "No prisoners, no komi:  white is leading by two points.\r\nHow can black win the game?",
+  "rating": {
+    "stars": 3.4,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[fa]AW[cb]AW[eb]AW[fb]AW[dc]AW[ec]AW[bd]AW[cd]AW[fd]AW[ae]AW[ce]AW[de]AW[fe]AW[he]AW[af]AW[bf]AW[ef]AW[eg]AW[fg]AW[gg]AW[hg]AW[hh]AW[fi]AW[gi]AB[ga]AB[gb]AB[bc]AB[cc]AB[fc]AB[gc]AB[gd]AB[hd]AB[ge]AB[cf]AB[df]AB[ff]AB[gf]AB[hf]AB[if]AB[ag]AB[bg]AB[cg]AB[dg]AB[ig]AB[bh]AB[ch]AB[eh]AB[fh]AB[ih]AB[ci]AB[ei]C[Black to win, using the fewest number of moves.]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\r\n(;B[hi]C[];W[ii]\r\n(;B[gh];W[ee]\r\n(;B[hi]C[Black wins. :)RIGHT])\r\n(;B[ad];W[ac]C[Bad style.]))\r\n(;B[hi]C[NOTTHIS])\r\n(;B[ad];W[ac]C[Unnecessary - you do not need to fight this ko.])\r\n(;B[ed]C[Unnecessary - you do not need to fight this ko.])\r\n(;B[ee]C[Unnecessary - you do not need to fight this ko.]))\r\n(;B[gh];W[hi]C[You lost your chance.])\r\n(;B[ii];W[gh]C[You lost your chance.])\r\n(;B[ai]C[You just lost a point!])\r\n(;B[ed];W[ee]C[This fixes white's weakness.])\r\n(;B[bb]C[Doesn't help.])\r\n(;B[ac]C[Doesn't help.])\r\n(;B[ad];W[ac]C[Bad style.])\r\n(;B[ee];W[ed]C[Unnecessary move.]))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 6195,
+    "failed": 7993,
+    "tries": 14188,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-12-11T00:48:14+00:00",
+  "source": "igowin",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

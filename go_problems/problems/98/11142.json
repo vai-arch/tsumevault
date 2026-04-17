@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11142,
+  "elo": 920.58144228918,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": -8,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Easy",
+  "rating": {
+    "stars": 2.4,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[jr]AB[js]AB[iq]AB[hq]AB[gq]AB[gr]AB[gs]AB[fq]AB[eq]AB[er]AB[ds]AB[dr]AW[cs]AW[cr]AW[dq]AW[ep]AW[cp]AW[fp]AW[gp]AW[hp]AW[ip]AW[jq]AW[kp]AW[kr]AW[ks]LB[dp:Y]LB[jp:N]C[White to play. Can white kill Black? Play Y if you think he can and N if you dont.FORCE]AP[goproblems]\n(;W[dp];B[jp]C[Now kill it.]\n(;W[ir];B[fs]C[Wrong! Black loses a few stones but lives.CHOICE])\n(;W[fs];B[ir]C[Wrong! Black lives with all his stones.CHOICE]))\n(;W[jp]C[Right! White needs to play both of the marked areas to kill black so if white plays one, black plays the other and lives. J2 would be best in this siduation as it allows white to capture a few stones.RIGHT]MA[fs]MA[ir]))",
+  "author": {
+    "id": 22895,
+    "name": "GWG",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-12-25",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 6205,
+    "failed": 5778,
+    "tries": 11983,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-03-29T16:54:53+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

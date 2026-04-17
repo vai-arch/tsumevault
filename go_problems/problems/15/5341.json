@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5341,
+  "elo": 1232.6858309122,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": -2,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "w to win",
+  "rating": {
+    "stars": 4.2,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[da]AW[ea]AW[ga]AW[cb]AW[db]AW[fb]AW[hb]AW[dc]AW[ec]AW[fc]AW[gc]AW[hc]AW[dd]AW[ed]AW[gd]AW[id]AW[he]AW[ie]AW[af]AW[ag]AW[bg]AW[cg]AW[eg]AW[gg]AW[bh]AW[dh]AW[eh]AW[ci]AW[di]AB[ba]AB[ca]AB[ha]AB[bb]AB[ib]AB[cc]AB[cd]AB[fd]AB[ae]AB[de]AB[ee]AB[fe]AB[ge]AB[bf]AB[cf]AB[df]AB[ef]AB[ff]AB[gf]AB[hf]AB[if]AB[dg]AB[fg]AB[fh]AB[ei]AB[fi]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.50]TM[300]OT[2x30 byo-yomi]PW[Weasel]PB[capahab]WR[6k]BR[7k]DT[2004-10-25]\n(;W[bd]\n(;B[ac]\n(;W[bc];B[ce]\n(;W[ab]C[RIGHT])\n(;W[ad];B[be]))\n(;W[ad];B[be])\n(;W[be];B[ad]))\n(;B[be];W[bc];B[ce];W[ab])\n(;B[bc];W[be];B[ce];W[ad];B[ac];W[ae]))\n(;W[be];B[ad]\n(;W[bd];B[ac])\n(;W[ac];B[bd])\n(;W[bc];B[bd]))\n(;W[ad];B[be];W[bc];B[bd])\n(;W[bc];B[bd])\n(;W[hh];B[bd]C[White would need 5 consecutive black tenuki to do something useful in the lower right.])\n(;W[ac];B[bd]\n(;W[bc];B[ad])\n(;W[ad];B[be])\n(;W[be];B[ad])))",
+  "author": {
+    "id": 2818,
+    "name": "Florian",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2021-12-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 81,
+  "attempts": {
+    "solved": 2198,
+    "failed": 4368,
+    "tries": 6566,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-10-25T16:13:19+00:00",
+  "source": "one of my games",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

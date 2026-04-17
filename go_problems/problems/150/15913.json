@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15913,
+  "elo": 1089.1509726772,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is my first problem, comments welcome since i'm only 20k at the time i submit it. In the game i lost by 2.5 moku because i failed this corner (A stone) right in the fuseki and let it this way the whole game. Then in yose i came back to it with no success. So i studied it and here come this problem.",
+  "rating": {
+    "stars": 3,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bb]AB[db]AB[cc]AB[cd]AB[be]AB[bf]AB[af]AW[eb]AW[fb]AW[dc]AW[dd]AW[ce]AW[cf]AW[ag]AW[bg]AW[df]AW[bd]TR[af]TR[bf]TR[be]C[Black missed the opportunity to protect at A, so white cut and triangle stones are almost dead. But can you help black who has sente to survive in the corner anyway ?]LB[bd:A]AP[goproblems]\n(;B[bc];W[ae]C[]\n(;B[da]\n(;W[ba]C[CHOICE]\n(;B[ca]C[Black is safe because he can A19 anytime (for example if white plays E19) and then A18 and A17 are miai for life.RIGHT])\n(;B[ac];W[ea]\n(;B[cb];W[aa])\n(;B[aa];W[ab]))\n(;B[aa];W[ab];B[ac];W[ad]C[A19 corner becomes a ko fight, black can do better and live unconditionnally.])\n(;B[cb];W[ea]C[Black has reduced his eye potential in C18. Now A17 leaves him with bent 4, and A18 is even worse. The only chance would be A19 but this is met by simple retake in A18.]))\n(;W[ea]\n(;B[ca]C[A17 and A18 are miai for life, white cannot kill black anymore.RIGHT])\n(;B[ba]C[A17 and A18 are miai for life, white cannot kill black anymore.RIGHT])\n(;B[ab];W[ba]))\n(;W[ac];B[ab];W[ba];B[ca];W[ea];B[aa]C[RIGHT]))\n(;B[ac];W[da]\n(;B[ca];W[cb]\n(;B[ad];W[ba];B[be];W[af])\n(;B[ba];W[db];B[ad];W[be])\n(;B[aa];W[db]C[B19 is false eye.]))\n(;B[cb];W[ca]\n(;B[ba];W[ad])\n(;B[ad];W[be];B[ba];W[ea]))\n(;B[aa];W[cb]))\n(;B[ca];W[ac]C[CHOICE]\n(;B[da];W[ab]\n(;B[aa];W[ba])\n(;B[ba];W[ea];B[aa];W[ad]))\n(;B[ab]C[White cannot kill black anymore, and because he has to protect A17, black can even grab a point in E19.RIGHT])\n(;B[ba];W[ab];B[aa];W[ad])\n(;B[cb];W[ab])\n(;B[aa]C[White cannot take D19, and A18 is met by A16, so black is safe.RIGHT]))\n(;B[ba];W[da]\n(;B[cb];W[ac];B[ab];W[ad])\n(;B[ca];W[cb];B[ac];W[db];B[ad];W[be]))\n(;B[ad];W[ac]\n(;B[da];W[ab]C[Only 1 eye.])\n(;B[ab];W[da]\n(;B[cb];W[ca])\n(;B[ca];W[cb];B[ad];W[ba];B[be];W[af];B[aa];W[ca])\n(;B[ad];W[be]\n(;B[cb];W[ac];B[ca];W[ad];B[ea];W[fa]C[D19 is false eye.])\n(;B[ca];W[cb];B[ba];W[db]C[A17 is false eye.]))))\n(;B[aa];W[da];B[cb];W[ca])\n(;B[ab];W[da];B[cb];W[ca]))\n(;B[ca];W[bc]\n(;B[ab];W[cb];B[cc];W[cd];B[cb];W[ae])\n(;B[cb];W[ab])\n(;B[ac];W[cb];B[cc];W[cd]\n(;B[da];W[cb])\n(;B[cb];W[ad]C[Black can eventually force a ko fight by playing A19. But you can do better, try to live unconditionnally.])))\n(;B[da];W[bc]\n(;B[cb];W[ab])\n(;B[ca];W[cb])\n(;B[ac];W[cb])\n(;B[ab];W[cb])\n(;B[ba];W[cb]))\n(;B[ad];W[ae]\n(;B[bc];W[ac]\n(;B[da];W[ab]C[Only 1 eye.])\n(;B[ab];W[da]\n(;B[cb];W[ca])\n(;B[ca];W[cb];B[ad];W[ba];B[be];W[af];B[aa];W[ca])\n(;B[ad];W[be]\n(;B[cb];W[ac];B[ca];W[ad];B[ea];W[fa]C[D19 is false eye.])\n(;B[ca];W[cb];B[ba];W[db]C[A17 is false eye.]))))\n(;B[ac];W[da]C[]\n(;B[cb];W[ca]\n(;B[ba];W[ea];B[bc];W[be])\n(;B[bc];W[be];B[ba];W[ea])\n(;B[aa];W[be]))\n(;B[bc];W[be]\n(;B[cb];W[ca];B[ba];W[ea])\n(;B[ca];W[cb];B[ba];W[db])\n(;B[ba];W[cb];B[ca];W[db]))\n(;B[ca];W[cb]\n(;B[ba];W[bc])\n(;B[bc];W[ba];B[be];W[af])\n(;B[be];W[bc];B[af];W[ba])))\n(;B[ab];W[bc]C[]\n(;B[cb];W[ac];B[da];W[ba])\n(;B[ca];W[cb];B[cc];W[ac];B[da];W[cd];B[cb];W[ea]))\n(;B[ca];W[bc];B[cb];W[ac])\n(;B[da];W[bc];B[cb];W[ac];B[ab];W[ba])\n(;B[cb];W[ac];B[ab];W[da])\n(;B[ba];W[bc];B[cb];W[da])\n(;B[be]C[White simply B14.NOTTHIS]))\n(;B[ab];W[bc]\n(;B[cb];W[da];B[ac];W[ae];B[ad];W[be])\n(;B[ca];W[cb];B[cc];W[cd];B[cb];W[ae]))\n(;B[ac];W[da]\n(;B[cb];W[ca]\n(;B[ba];W[ea];B[ad];W[ae];B[bc];W[be])\n(;B[bc];W[ae]\n(;B[ba];W[ad])\n(;B[ad];W[be];B[ba];W[ea]))\n(;B[ad];W[ae]\n(;B[ba];W[ea];B[bc];W[be])\n(;B[bc])\n(;B[aa];W[be])))\n(;B[ca];W[cb]\n(;B[ba];W[bc])\n(;B[aa];W[bc])\n(;B[bc];W[ae];B[db];W[ea]C[Black needs C18 and A19, he cannot do both at the same time.]))\n(;B[ae]C[This move looks silly but in fact it allows later a cut at B15 for black, white has to be careful and is forced to take B15 first (anyway, the line is not good ultimately for black).];W[ad]\n(;B[bc];W[be];B[cb];W[ca])\n(;B[cb]C[White cannot push in B17 because of the cut at B15.];W[be]\n(;B[ca];W[aa])\n(;B[aa];W[ca]))))\n(;B[ae];W[bc];B[cb];W[ad]C[Black has no life potential (he needs D19, B19 and A18, white won't let him...).]))",
+  "author": {
+    "id": 50402,
+    "name": "zwim",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2021-07-14",
+    "rank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1307.55
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 2874,
+    "failed": 4104,
+    "tries": 6978,
+    "speedSolved": 7,
+    "speedPlay": 31
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-03-14T19:55:01+00:00",
+  "source": "Amateur game : foetus vs zwim (KGS ~20k)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 41,
+      "name": "How to enclose the corner?",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 162,
+      "name": "Classic Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

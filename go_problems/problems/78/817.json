@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 817,
+  "elo": 1814.5319580678,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "",
+  "rating": {
+    "stars": 2.6,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]\r\nFF[4]\r\nAP[Hibiscus:2.1]\r\nSZ[19]\r\nST[3]\r\nC[Black has played an irregular \r\nenclosure at the top. If he is allowed to \r\nplay at A, it will almost be a fortress. \r\nHow to prevent this from happening?]\r\nPL[W]\r\nLB[yy:1][oe:A][pd:B][qc:C]AB[oc][pp][qe]\r\nAW[dd][dp]\r\n(;W[pd]\r\nMN[1]\r\n;B[oe]\r\n(;W[od]\r\n;B[nd]\r\n;W[pe]\r\n;B[pf]\r\n;W[qc]\r\n;B[of]\r\n;W[nc]\r\n;B[mc]\r\n;W[nb]\r\n;B[md]\r\n;W[ob]\r\nC[RIGHT]\r\n)(;W[pe]\r\n;B[pf]\r\n;W[od]\r\n;B[nd]\r\n;W[qc]\r\n;B[of]\r\n;W[nc]\r\n;B[mc]\r\n;W[nb]\r\n;B[md]\r\n;W[ob]\r\nC[RIGHT]\r\n))(;W[oe]\r\n;B[pd]\r\nC[White achieves nothing]\r\n)(;W[qc]\r\n;B[pd]\r\nC[You might be able to make live here \r\nbut it will surely be profitable for Black.]\r\n))",
+  "author": {
+    "id": 6,
+    "name": "Spirit",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-28",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1819.71
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 366,
+    "failed": 5928,
+    "tries": 6294,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-07-03T00:50:01+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 78,
+      "name": "3-5 (mokuhadzushi) Joseki",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

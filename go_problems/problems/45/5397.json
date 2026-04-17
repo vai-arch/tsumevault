@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5397,
+  "elo": 1550.9219353325,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "Encouraged by the comments in the previous reverse engineering problem, here is a more difficult one.\r\n\r\nThe position on the right is the result of a well-known joseki. You have to recognize the final shape, and play the same joseki in the lower left corner. The final board position will be symmetrical across the line drawn with triangles.",
+  "rating": {
+    "stars": 2.8,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pq]AW[po]AB[qo]AW[pp]AB[qp]AW[qq]AB[pr]AW[rq]AB[or]AB[nq]AW[qn]AB[op]AW[oo]AB[no]AW[on]AB[mp]AW[pm]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl]C[Black to play. Mirror this joseki in the other corner.]AP[goproblems]\n(;B[dq]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];W[do]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];B[co]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];W[dp]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];B[cp]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];W[eq]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl]\n(;B[dn]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];W[cq]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];B[dr]TR[js]TR[jq]TR[jr]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];W[bq]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];B[er]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl]\n(;W[fp]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl]C[If the ladder is not good for white, this is white's only move. Navigate solution for details.];B[fq]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];W[cn]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];B[ep]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];W[eo]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];B[fo]TR[js]TR[jr]TR[jq]TR[jp]TR[jn]TR[jo]TR[jm]TR[jl];W[en]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];B[gp]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl];W[dm]TR[js]TR[jr]TR[jq]TR[jp]TR[jo]TR[jn]TR[jm]TR[jl]C[This is the basic variation of the ko-nadare (small avalanche) joseki. This is locally slightly better for white, so black plays this way only when the bottom side is very important.RIGHT])\n(;W[fq]C[Reference variation: white cannot play this move if the ladder works for black.];B[fr]\n(;W[cn];B[eo];W[ep];B[gq];W[fp];B[fo];W[gp];B[hp]C[this is the ladder mentioned in the previous comments.])\n(;W[gq]C[This move defends against the ladder. This is also very bad for white, black gets an extra stone at F2, which can be utilized very effectively..];B[cm]C[The white stones in the corner are dead, and the cut at C6 is gone.]TR[bq]TR[cq])))\n(;B[cn]C[This starts the o-nadare (large avalanche) joseki.])\n(;B[cq]C[This is the simplest variation.])\n(;B[er]C[This is also a valid variation, but not the one wanted here.])\n(;B[dr]C[This is a peaceful variation, not the one on the right hand side.]))\n(;B[cp]C[NOTTHIS]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 53,
+  "attempts": {
+    "solved": 935,
+    "failed": 4363,
+    "tries": 5298,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-11-03T05:09:15+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 137,
+      "name": "Reverse engineering",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

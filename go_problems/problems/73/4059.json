@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4059,
+  "elo": 1087.7550648511,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 11,
+    "negativeFlagSum": -2,
+    "flagSum": 9
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "W has made an overplay, so please punish W",
+  "rating": {
+    "stars": 4.7,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[rb]AW[rd]AW[qf]AW[qi]AB[qc]AB[nd]AB[pd]LB[rc:A]C[The normal play by W in this situation is 'A', the marked stone is an overplay - punish W]MA[rb]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[re];W[rc];B[qe];W[pb]\n(;B[qb];W[qd];B[pc];W[pe];B[pf];W[oe];B[rf];W[qg];B[rg];W[rh])\n(;B[qd];W[qb];B[ob];W[sa]))\n(;B[rc];W[sc]\n(;B[re];W[qe];B[qd];W[sd]\n(;B[sb];W[sa];B[se]C[W dies in the corner.RIGHT])\n(;B[se];W[sb];B[qb];W[rf];B[ra];W[sf]C[Doh (nearly!)]))\n(;B[qd];W[re];B[qb]C[You'll have to do better than this])\n(;B[qb];W[qd]C[You'll have to better than this])))",
+  "author": {
+    "id": 1139,
+    "name": "Chrisg",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 31,
+  "attempts": {
+    "solved": 5018,
+    "failed": 7744,
+    "tries": 12762,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-11T06:44:53+00:00",
+  "source": "Random Thought",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

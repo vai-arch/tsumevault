@@ -1,0 +1,108 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 26196,
+  "elo": 1585.5371215293,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "White to approach the top right corner. In this full-board position, KataGo recommends something slightly unusual.",
+  "rating": null,
+  "sgf": "(;SZ[19]GM[1]FF[1]CA[UTF-8]AB[pd][cc][qn][nq][qq][qp][pr][qr][pm][ol][qm][nm][ok][nk][cn][cq][dq][er][fq][gr][fs][ip]AW[pp][dp][ic][oo][pq][mp][or][oq][om][pn][nl][on][mm][ml][eo][cp][eq][ep][dr][cr]GN[2024-01-12-OGS-Tymekeeper-eccles43](;W[re];B[qd](;W[rd]C[RIGHT\nThis is one of several equally good options. See solution for other submarine invasions.])(;W[qg]C[RIGHT\nThis is one of several equally good options. See solution for other submarine invasions.])(;W[qh]C[RIGHT\nThis is one of several equally good options. See solution for other submarine invasions.]))(;W[rd];B[qd](;W[re]C[RIGHT\nThis is one of several equally good options. See solution for other submarine invasions.])(;W[rc];B[qf]TR[nk]TR[ok]TR[ol]TR[pm]TR[qm]C[Good start, but your second move is in the wrong direction!]))(;W[nc];B[nd];W[md];B[ne]TR[ne][nd]LB[re:A]C[Black's right side moyo gets big. Next, KataGo says white should invade at A, but invading before black plays the marked stones would have been more effective.])(;W[qf];B[qe];W[pf];B[nd]TR[pf][qf]C[White's stones are heavy.])(;W[qc];B[qd];W[pc];B[od]TR[qm][ol][ok][nk][pm]C[No, 3-3 invasions are fashionable nowadays, but it doesn't work well with all the marked stones already in place. KataGo rates this as 2 points worse than the recommended move.])(;W[qd];B[qe](;W[re];B[pe];W[rd];B[qg]C[Right general idea, but you can do a little bit better.])(;W[qc];B[re];W[pc];B[od]C[Black's moyo is getting big!]))(;W[pc];B[qd]TR[nk][ok][ol][pm][qm]C[With the marked stones below, black can play this way. It works out the same as a 3-3 invasion. (Black could also play A instead for some more complicated variations!) White can do better.])(;W[pe];B[qe];W[qf];B[qd];W[pf];B[nd](;W[qi]C[Almost but not quite. You reduced black's moyo, but gave away too much territory at the top. You can do better.])(;W[pi]C[Almost but not quite. You reduced black's moyo, but gave away too much territory at the top. You can do better.])))",
+  "author": {
+    "id": 6390,
+    "name": "xela",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-09-01",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1672.63
+  },
+  "avgSolveTimeSeconds": 0,
+  "attempts": {
+    "solved": 0,
+    "failed": 6,
+    "tries": 6,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2024-02-11T04:22:16+00:00",
+  "source": "Amateur game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 247,
+      "name": "Learn from KataGo",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

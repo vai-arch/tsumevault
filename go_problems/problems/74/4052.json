@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4052,
+  "elo": 1143.9840609554,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Thanks to Henry for the correction.",
+  "rating": {
+    "stars": 4,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[js]AB[jr]AB[iq]AB[hq]AB[gq]AW[jq]AW[kq]AB[kr]AW[lr]AW[ls]LB[ho:1]LB[io:2]LB[jo:3]LB[ko:4]C[Endgame. A 1 point ko somewhere on the board. How many ko threat does white have here? (Both white and black are 'big groups' - Aren't in need of eyes and are alive unconditionally.)FORCE]AB[fq]LB[go:0]AW[mq]LB[lo:5]AW[lq]AP[goproblems]\n(;W[jo]C[];B[io]C[Play the 1st ko threat.FORCE]\n(;W[ir];B[hr]C[Play the 2nd ko threat.FORCE]\n(;W[ks];B[is]C[Play the 3nd ko threat.];W[hs];B[gs]C[Well done! ^^RIGHT])\n(;W[is];B[hs]C[Only 2 this way! :(])\n(;W[hs];B[gs]C[Play the 3rd ko threat.FORCE]\n(;W[ks];B[is]C[Well done! ^^RIGHT])\n(;W[fs];B[go]C[Black wins the ko. Since it's the endgame and white can't do anything with the little triangle within, F1 isn't a ko-threat.. :(]AW[gr]LB[gr:A])\n(;W[gr];B[go]C[Black wins the ko. Since it's the endgame and white can't do anything with the little triangle within, G2 isn't a ko-threat.. :(]AW[fs]LB[fs:A])))\n(;W[hr];B[ir]C[Only 1 this way! :(])\n(;W[is];B[ir]C[Only 1 this way! :(])\n(;W[ks];B[ir]C[Only 1 this way! :(])\n(;W[hs];B[ir]C[Only 1 this way! :(]))\n(;W[go]C[Wrong. The correct anwser is 3. Please do checkout 'Navigate Solution' under 'Show Solution' following the correct, green path to see for yourself.])\n(;W[ho]C[Wrong. The correct anwser is 3. Please do checkout 'Navigate Solution' under 'Show Solution' following the correct, green path to see for yourself.])\n(;W[io]C[Wrong. The correct anwser is 3. Please do checkout 'Navigate Solution' under 'Show Solution' following the correct, green path to see for yourself.])\n(;W[ko]C[Wrong. The correct anwser is 3. Please do checkout 'Navigate Solution' under 'Show Solution' following the correct, green path to see for yourself.])\n(;W[lo]C[Wrong. The correct anwser is 3. Please do checkout 'Navigate Solution' under 'Show Solution' following the correct, green path to see for yourself.]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 62,
+  "attempts": {
+    "solved": 2876,
+    "failed": 4097,
+    "tries": 6973,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-09T05:43:00+00:00",
+  "source": "2 6ds fighting a 1 point ko. :)",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

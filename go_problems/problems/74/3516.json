@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3516,
+  "elo": 1018.8179032546,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "My first problem.  Let me know what you think.",
+  "rating": {
+    "stars": 4.1,
+    "votes": 35,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[dc]AW[he]AB[ie]AB[gc]AB[gb]AB[if]AB[jg]AB[gd]AB[hd]AW[hf]AB[hg]AW[id]AW[jd]AW[kd]AW[fe]AW[ib]AW[ic]AW[ld]AW[df]AW[gh]AW[ce]C[Can black save his G17 group?]AP[goproblems]\n(;B[ff]\n(;W[ge]C[]\n(;B[ee]\n(;W[fd]\n(;B[ed]\n(;W[fc];B[ec]\n(;W[fb]\n(;B[eb];W[ga]\n(;B[gf];W[fa]C[CHOICE]\n(;B[ea];W[ha]C[white connected == black disconnected])\n(;B[ha];W[hb];B[ea]C[White can't win that race.RIGHT]))\n(;B[fa];W[ea]\n(;B[da];W[hb]C[Too slow, you're captured.])\n(;B[ha];W[hb]C[There are better results than ko.]LB[fa:ko])\n(;B[gf];W[fa]\n(;B[ha];W[da];B[db]C[This strange route works, but the sacrifice is unnecessary.RIGHT])\n(;B[da];W[ha]C[Look what you've gotten yourself into!])))\n(;B[ha];W[hb]\n(;B[fa];W[hc]\n(;B[gf]C[White can't win that race.RIGHT])\n(;B[ga]C[White can't escape now, but you will probably need to connect or capture sooner or later.RIGHT]))\n(;B[gf];W[hc]C[Too slow, black is captured.]))\n(;B[ea];W[hb]C[Much too slow -- you're captured!]))\n(;B[fa];W[eb]\n(;B[db];W[cb]C[White's escaped!])\n(;B[ea];W[db]C[white connected == black disconnected])))\n(;W[eb];B[fb]C[White's trappedRIGHT]))\n(;W[ec]C[];B[fc]C[White can't connect out.RIGHT]))\n(;B[ec];W[ed];B[dd];W[cd]C[Black's in a bad way.]))\n(;W[gg]C[];B[gf]C[White's wrapped up!RIGHT])\n(;W[gf];B[gg]C[White's wrapped up!RIGHT]))\n(;B[gf];W[ee]C[white connected == black disconnected])\n(;B[fd];W[ee]C[white connected == black disconnected]))\n(;W[gf]\n(;B[gg];W[ge];B[ee]C[White can't escape that way.RIGHT])\n(;B[ge];W[gg]\n(;B[ee];W[fg]\n(;B[fd];W[ef]C[Black's fate is sealed.])\n(;B[ef];W[eg]C[Black's fate is sealed.]))\n(;B[fd];W[ee]C[Black's group is completely cut off.])\n(;B[ef];W[ee]C[Black's group is completely cut off.])\n(;B[eg];W[ef]C[Black's cut off.])\n(;B[fg];W[ee]C[Black's cut off.]))))\n(;B[ge];W[gf]\n(;B[gg];W[ff]C[white connected == black disconnected])\n(;B[ff];W[gg]\n(;B[ee];W[fg]\n(;B[eg];W[ef]C[Black's got no way out.])\n(;B[ef];W[eg]C[Black's sealed in.])\n(;B[fd];W[ef]C[Black remains trapped.]))\n(;B[fg];W[ee]C[Black's still cut.])))\n(;B[ef];W[ee];B[ge];W[gf]\n(;B[gg];W[ff]C[black connected == white disconnected])\n(;B[ff];W[gg]C[black connected == white disconnected]))\n(;B[gf];W[ge]\n(;B[ee];W[ff]\n(;B[gg];W[ef]C[black connected == white disconnected])\n(;B[ef];W[eg]C[black connected == white disconnected])\n(;B[fg];W[ef]C[black connected == white disconnected]))\n(;B[ef];W[ee]C[black connected == white disconnected])\n(;B[ff];W[ee]C[white connected == black disconnected]))\n(;B[ee];W[ff]C[]\n(;B[ef];W[fg]\n(;B[ed];W[eg]\n(;B[ec];W[cc]C[Your trapped group has a nice connection to....  Another trapped group.  There's a better way.])\n(;B[fd];W[cc]C[You've connected to your trapped group, but you're still trapped.  There's a better way out.]))\n(;B[eg];W[ed]\n(;B[fd];W[eh]C[Now you've got three weak groups in a big messy fight.  There's a simpler solution!])\n(;B[fh];W[eh]C[Now you've got three weak groups in a big messy fight.  There's a simpler solution!]))\n(;B[fd];W[eg]C[white connected == black disconnected]))\n(;B[fd];W[ef]C[white connected == black disconnected])\n(;B[ed];W[ef]C[white connected == black disconnected])\n(;B[gf];W[ge]C[white connected == black disconnected]\n(;B[gg];W[ef]C[black connected == white disconnected])\n(;B[ef];W[eg]C[black connected == white disconnected])\n(;B[fg];W[ef]C[black connected == white disconnected]))\n(;B[ge];W[gf]C[white connected == black disconnected]))\n(;B[gg];W[ff]C[white connected == black disconnected]))",
+  "author": {
+    "id": 5566,
+    "name": "fwiffo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 739.424
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 8476,
+    "failed": 10235,
+    "tries": 18711,
+    "speedSolved": 8,
+    "speedPlay": 10
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-12-10T22:27:06+00:00",
+  "source": "Inspired by a game I watched on KGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 31,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

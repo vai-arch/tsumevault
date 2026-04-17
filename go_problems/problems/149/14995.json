@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14995,
+  "elo": 1260.0272615971,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "I made this problem to illustrate an endgame principle. Hope you enjoy! Please comment if you think I should cover certain lines or if something is wrong.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[ea]AB[eb]AB[ec]AW[da]AW[db]AW[dc]AB[dd]AB[cd]AB[cc]AB[cb]AB[ba]AB[ab]AB[de]AB[ee]AB[ef]AB[dg]AB[cg]AB[ch]AW[dh]AW[di]AB[eh]AB[ei]AW[eg]AW[fg]AW[fh]AW[gf]AW[fd]AW[ed]AW[fc]AW[fb]AW[ga]AW[hb]AW[gc]C[No komi, no prisoners. Japanese Rules. Black to win.]AW[ge]AB[fe]AW[ff]AP[goproblems]\n(;B[ci]\n(;W[fa]C[CHOICE]\n(;B[fi]\n(;W[hh]C[CHOICE]\n(;B[hi];W[gh];B[gi];W[ih]C[Black wins by 1!RIGHT])\n(;B[gi];W[hi];B[gh];W[gg]C[Only Jigo!])\n(;B[gh];W[gg]\n(;B[gi];W[hi]C[Only Jigo!])\n(;B[hi];W[gi]C[Black has no ko threat])))\n(;W[gh];B[gi];W[hh];B[hi];W[ih]C[Black wins by 1!RIGHT])\n(;W[gi];B[gh]C[RIGHT])\n(;W[hi];B[hh]C[RIGHT]))\n(;B[gi];W[fi]C[oops]))\n(;W[fi];B[ca]C[Black wins by 7!RIGHT]))\n(;B[ca];W[fi];B[ci]C[White wins by 1!])\n(;B[fi];W[gi]C[oops]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 1570,
+    "failed": 2715,
+    "tries": 4285,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-07-19T08:54:47+00:00",
+  "source": "Self",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

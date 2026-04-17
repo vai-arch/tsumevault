@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11951,
+  "elo": 1332.0297062115,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Very random problem which I thought of. Please read the \"comments/instructions\" given.\r\n\r\nEveryone seems to hate this problem. Lighten up people! It's still a go problem! I'm just adding a little bit of fun to an otherwise boring problem :P",
+  "rating": {
+    "stars": 2.7,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[or]AB[oq]AB[np]AB[mq]AW[nq]AW[nr]AW[op]AW[pq]AW[pp]AB[mp]AB[kq]AW[jq]AW[jr]AW[jp]AW[no]AB[kp]AW[ln]AW[kn]AW[jo]AB[lo]AB[mo]AW[mn]AW[nn]AW[qr]AW[kr]AB[ks]C[Please play at A.]LB[os:A]AP[goproblems];W[os]AB[os]C[];B[pm]C[Oh no! You realize that you accidentally played a black stone! However, you also realize that there is still a way for white to kill unconditionally, provided that black lets you play the next move, so you do not ask for an undo (just to show off). Please show your opponent how.]\r\n(;W[mr];B[lr]\r\n(;W[lq];B[ms]\r\n(;W[ls]C[Ko. You could have done better.])\r\n(;W[ko];B[ns]\r\n(;W[lp];B[nr])\r\n(;W[nr];B[lp])))\r\n(;W[ls];B[ms];W[lq];B[ns])\r\n(;W[ms];B[ls]))\r\n(;W[ms];B[mr]\r\n(;W[lq];B[lr])\r\n(;W[lr];B[lq]\r\n(;W[ko];B[ns])\r\n(;W[ls];B[ns])\r\n(;W[ns];B[ls]))\r\n(;W[ns];B[ls])\r\n(;W[ls];B[lr];W[js];B[ns])\r\n(;W[pr];B[ns])\r\n(;W[ps];B[ns]))\r\n(;W[ns];B[mr]\r\n(;W[lq];B[lr])\r\n(;W[lr];B[lq])\r\n(;W[ls];B[lr];W[js];B[ms])\r\n(;W[ms];B[ls]))\r\n(;W[lr];B[mr];W[lq]C[Good.RIGHT])\r\n(;W[lq];B[lr]\r\n(;W[mr];B[ms]\r\n(;W[ls]C[Ko. You could've done better.])\r\n(;W[ko];B[ns]\r\n(;W[lp];B[nr])\r\n(;W[nr];B[lp])))\r\n(;W[ko];B[ns];W[lp];B[mr];W[ls]C[Good.RIGHT]))\r\n(;W[ls];B[mr]\r\n(;W[lr];B[lq])\r\n(;W[lq];B[lr])\r\n(;W[ms];B[ns]))\r\n(;W[pr];B[mr])\r\n(;W[ps];B[mr])\r\n(;W[lp];B[lq]\r\n(;W[lr];B[mr])\r\n(;W[mr];B[lr])\r\n(;W[ms];B[mr])\r\n(;W[ls];B[mr]))\r\n(;W[ko];B[lq]\r\n(;W[mr];B[lr])\r\n(;W[lr];B[mr])\r\n(;W[ms];B[mr])\r\n(;W[ls];B[mr]))\r\n(;W[js];B[mr]))",
+  "author": {
+    "id": 26426,
+    "name": "DarkSycthe",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-27",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1739.63
+  },
+  "avgSolveTimeSeconds": 69,
+  "attempts": {
+    "solved": 819,
+    "failed": 1458,
+    "tries": 2277,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-11-09T08:33:29+00:00",
+  "source": "Own creation",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

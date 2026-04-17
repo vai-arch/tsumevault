@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16934,
+  "elo": 1173.8983408911,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Weekly Go problems Week 53-Easy Go problem",
+  "rating": {
+    "stars": 4.5,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dq]AB[eq]AB[cr]AB[ck]AB[rp]AB[qn]AW[pp]AW[np]AW[iq]AW[ep]AW[dp]AW[co]AW[cq]AW[bq]AB[gp]LB[ep:A]LB[gr:a]LB[fp:b]LB[gq:c]LB[hq:d]LB[fq:e]C[Imagine white's just played A. What's the best shape to defend your group?FORCE]AP[goproblems]\n(;B[gr]LB[fq:A]LB[fp:B]LB[fr:C]LB[er:D]C[Correct. This is the best shape. because it gives black the best potential for making eyes later. A and B are miai for black now. If white tries to play A-C, black D captures white's stones.RIGHT])\n(;B[fp]C[]LB[ep:A];W[gr]LB[fr:a]LB[fq:C]LB[ep:A]LB[gr:B]C[White plays on the vital point and black's group becomes weak. Notice the relationship between A and B-the point at C can only ever become a false eye now.]\n(;B[fr];W[gq])\n(;B[fq]))\n(;B[gq];W[fr]LB[gr:a]LB[fq:b]C[Later on there's still a vital point here...];B[gr];W[fq]LB[fp:a]LB[er:b]LB[es:c]\n(;B[fp];W[dr])\n(;B[er];W[es];B[dr];W[fp])\n(;B[es];W[fs]LB[fp:a]LB[er:b]\n(;B[fp];W[dr])\n(;B[er];W[fp])))\n(;B[hq];W[ip]LB[gr:A]LB[fq:B]C[Making this exchange helps white. In addition,black still has weaknesses at A and B,so black hasn't developed a good shape and still has to play another move here. In some situations white might choose to play at A or B immediately after black kicks with the diagonal attachment.]\n(;B[gr])\n(;B[fq]))\n(;B[fq];W[gr]C[Later on white can play here and black doesn't have much eyespace, so the group will be weak.]))",
+  "author": {
+    "id": 59161,
+    "name": "1234boys",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-10-13",
+    "rank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1373.95
+  },
+  "avgSolveTimeSeconds": 32,
+  "attempts": {
+    "solved": 1525,
+    "failed": 2674,
+    "tries": 4199,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-12-30T19:14:04+00:00",
+  "source": "Weekly Go problems Week 53",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16643,
+  "elo": 1293.9691294121,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[bb]AW[cb]AW[db]AW[fc]AW[ec]AW[dd]AW[de]AW[ef]AW[ac]AB[bc]AB[cc]AB[dc]AB[bd]AB[be]AB[cf]AB[ed]AB[fd]AB[gd]AB[hc]C[kill]AP[goproblems]\n(;B[gb];W[fb]\n(;B[fa];W[ea];B[ga];W[ab];B[gc];W[eb])\n(;B[ea];W[fa]))\n(;B[fb]\n(;W[eb]C[CHOICE];B[gb]\n(;W[ea]C[CHOICE]\n(;B[ab];W[aa];B[ca]C[RIGHT])\n(;B[ca]C[RIGHT]))\n(;W[ab]C[CHOICE]\n(;B[ea]C[RIGHT])\n(;B[ba]C[RIGHT])))\n(;W[gb]C[CHOICE];B[eb];W[gc]\n(;B[hb]C[RIGHT])\n(;B[ga]C[RIGHT])))\n(;B[ea];W[gb];B[ga];W[hb];B[fb];W[gc];B[ib]\n(;W[ha];B[eb];W[fa])\n(;W[eb];B[ha];W[da]))\n(;B[ga];W[ea];B[fb];W[eb];B[ab];W[aa];B[ca];W[gb];B[hb];W[gc];B[ha];W[fa])\n(;B[fa];W[ea];B[gb];W[ab];B[fb];W[eb])\n(;B[eb];W[fb];B[fa];W[ea];B[ga];W[gb];B[ha];W[hb];B[ia]))",
+  "author": {
+    "id": 53598,
+    "name": "magrock",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-08-18",
+    "rank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1386.03
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 1108,
+    "failed": 1759,
+    "tries": 2867,
+    "speedSolved": 7,
+    "speedPlay": 25
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-11-10T14:09:03+00:00",
+  "source": "encyclopaedis of life and death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

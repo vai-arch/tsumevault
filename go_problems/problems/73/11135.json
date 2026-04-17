@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11135,
+  "elo": 1172.1249980595,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -1,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Please comment if there is a mistake or anything missing.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qr]AB[qq]AB[rq]AB[rp]AW[pq]AW[pr]AW[nq]AW[nr]AW[qp]AW[qo]AW[qn]AW[rm]AB[pp]AB[op]C[Black to live. Assume that the rest of the board is empty. Avoid seki.]AB[oo]AW[po]AW[rl]AP[goproblems]\n(;B[ro]\n(;W[sr]\n(;B[sq];W[so];B[rn];W[sn];B[qm];W[pn];B[pm];W[on];B[nn];W[om];B[ol]C[Ladder.RIGHT])\n(;B[rn];W[qm]\n(;B[sq];W[sn];B[so];W[rs];B[qs];W[ps]C[RIGHT])\n(;B[sn];W[rs];B[qs];W[sq];B[sp];W[ps]\n(;B[rr];W[sm];B[ss]C[RIGHT]))\n(;B[rs];W[sn];B[so];W[sq]))\n(;B[so];W[sq];B[rn];W[qm]))\n(;W[rn]\n(;B[sq];W[so];B[rs];W[sr])\n(;B[rs];W[sr]\n(;B[sq];W[so])\n(;B[so];W[sq]))\n(;B[sr]\n(;W[rs];B[qs];W[so];B[sp]C[RIGHT])\n(;W[so]\n(;B[rs]C[RIGHT])\n(;B[sp];W[rs];B[qs]C[RIGHT])))))\n(;B[sr];W[rs]\n(;B[ro];W[qs]\n(;B[rn];W[qm];B[sn]C[Black needs to play both S2 and T4 to live....])\n(;B[sp]TR[rr]TR[sn]C[Even if White tenuki, she has miai to kill.]))\n(;B[qs];W[sp];B[ro];W[so];B[rn];W[sn];B[qm]C[RIGHT]))\n(;B[rs];W[sr];B[ro];W[rn]\n(;B[sq];W[so])\n(;B[so];W[sq]))\n(;B[sp];W[sr])\n(;B[rr];W[ro]\n(;B[ss];W[qs])\n(;B[sp];W[sr];B[ss];W[rs];B[qs];W[ss];B[sq];W[ss]))\n(;B[so];W[ro];B[sr];W[rs];B[qs];W[sp]))",
+  "author": {
+    "id": 13781,
+    "name": "zafris",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-13",
+    "rank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1348.33
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 1996,
+    "failed": 2314,
+    "tries": 4310,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-03-28T20:08:41+00:00",
+  "source": "Modified from a game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

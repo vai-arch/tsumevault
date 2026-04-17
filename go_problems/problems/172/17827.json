@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17827,
+  "elo": 976.79151506775,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -5,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;LB[hd:6]LB[jd:7]LB[ld:8]C[how many stones in a row on the second line is needed to live no matter what? The group cannot be on two sides: for example: the group can't include A2, B1, S1, T2, S19, T18, B19, or A18.]AP[goproblems]\n(;B[hd]C[Let's see... I pass and you are still dead.]AB[fr]AB[gr]AB[hr]AB[ir]AB[jr]AB[kr]AW[er]AW[eq]AW[fq]AW[gq]AW[hq]AW[iq]AW[jq]AW[kq]AW[lq]AW[lr]AW[cr]AW[nr];W[ss]\n(;B[fs];W[ks];B[js];W[hs])\n(;B[ks];W[fs];B[gs];W[is])\n(;B[hs];W[fs])\n(;B[is];W[ks]))\n(;B[jd]AB[jr]AB[ir]AB[kr]AB[lr]AB[hr]AB[gr]AB[mr]AW[fq]AW[fr]AW[gq]AW[hq]AW[dr]AW[iq]AW[jq]AW[kq]AW[lq]AW[mq]AW[nr]AW[pr]AW[nq];W[ms];B[ls];W[gs];B[hs];W[js]C[dead])\n(;B[ld]AB[jr]AB[kr]AB[lr]AB[mr]AB[ir]AB[hr]AB[gr]AB[fr]AW[er]AW[fq]AW[eq]AW[gq]AW[hq]AW[iq]AW[cr]AW[kq]AW[jq]AW[lq]AW[mq]AW[nr]AW[nq];W[fs]\n(;B[gs]\n(;W[ms];B[ls]C[straight four: alive!RIGHT])\n(;W[is];B[ms]C[RIGHT]))\n(;B[ms]\n(;W[ks]\n(;B[gs]C[RIGHT])\n(;B[js]C[RIGHT]))\n(;W[gs];B[hs]C[RIGHT]))\n(;B[js];W[ms];B[ls];W[gs];B[hs]C[RIGHT])\n(;B[is];W[gs])))",
+  "author": {
+    "id": 63094,
+    "name": "wukong1",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2016-04-30",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1611.98
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 1199,
+    "failed": 1609,
+    "tries": 2808,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-08-05T18:10:35+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

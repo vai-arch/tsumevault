@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4438,
+  "elo": 849.35538288394,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 36,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ca]AW[cb]AW[db]AW[eb]AW[gb]AW[ga]AW[hb]AW[hc]AB[ba]AB[bb]AB[cc]AB[dc]AB[bd]AB[ec]AB[gc]AB[gd]AB[fd]AB[fb]TR[fb]C[Black played the triangle stone. Connect white in the best way possible.]AP[goproblems]\n(;W[ea]LB[fc:K]LB[fa:D]C[Black can't play D; K is a ko threat.RIGHT])\n(;W[fa];B[ea]\n(;W[fc]C[Ko])\n(;W[da];B[ea]))\n(;W[da];B[ea]))",
+  "author": {
+    "id": 5912,
+    "name": "ellbur",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-05-28",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 16,
+  "attempts": {
+    "solved": 21711,
+    "failed": 13827,
+    "tries": 35538,
+    "speedSolved": 46,
+    "speedPlay": 92
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-05-09T11:05:19+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

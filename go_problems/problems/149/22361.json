@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22361,
+  "elo": 1891.8114830363,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Inspired by sing216's problem 3416. Please flag and/or comment if there is a mistake. Thank you to BartTM for a correction!",
+  "rating": {
+    "stars": 4,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nAB [bc][dc][be][de]\r\nAW [cd]\r\n\r\nC [White to play. Does white have anything here? (Y = yes: life or ko for life; N = no: unconditionally dead)][FORCE]\r\nLB [gg:Y][hh:N]\r\n\r\n(; W [gg]; B [gg] C [Prove it. (Play on the marked spaces for now.)][FORCE] TR [ce]; W [ce]; B [cf] C [FORCE] TR [dd]; W [dd]; B [ed] C [FORCE] TR [ee]; W [ee]; B [df] C [FORCE] TR [ec]; W [ec]; B [fd] C [FORCE] TR [cc]; W [cc]; B [cb] C [Almost there ...][FORCE] TR [db]; W [db]; B [bd] C [FORCE] TR [dc]; W [dc]; B [fc] C [FORCE] TR [fb]; W [fb]; B [gb] C [You're on your own now.]; W [bb]; B [ea] (; W [ca]; B [fa] C [Miai!] SQ [da][ab])(; W [fa]; B [ga])(; W [ab]; B [da]))\r\n\r\n(; W [hh]; B [ce] AB [cd] AW [bc][dc][be][de] C [The colors have swapped. Show how you can kill unconditionally.]; W [cf]; B [dd]; W [ed]; B [ee]; W [df]; B [ec]; W [fd]; B [cc]; W [cb]; B [db] (; W [bd]; B [dc]; W [fc]; B [fb] (; W [da]; B [eb]; W [gb]; B [bb]; W [ca]; B [ba]; W [ab]; B [ea]; W [ca]; B [hb] C [Black escapes.] TR [ga][gc])(; W [gb]; B [bb] (; W [fa]; B [ea] C [Ko.])(; W [ab]; B [ca]; W [fa]; B [ea] C [Ko.])(; W [ea]; B [fa]; W [ga]; B [ca]; W [eb]; B [da]; W [ab]; B [ac] (; W [ad]; B [aa] C [Ko.] LB [ac:1][bf:2])(; W [aa]; B [fb]; W [fa]; B [ba]; W [ab] C [Well done!][RIGHT]))))(; W [fc]; B [bb]; W [bd]; B [ca]))\r\n\r\n\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 8,
+    "failed": 119,
+    "tries": 127,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-04-26T19:11:00+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

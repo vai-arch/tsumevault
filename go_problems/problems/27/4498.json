@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4498,
+  "elo": 1082.6764054744,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "black to connect marked stone",
+  "rating": {
+    "stars": 4.3,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pd]AB[qc]AB[pc]AB[oc]AB[nc]AB[lc]AB[jd]AB[pg]AB[qg]AW[qd]AW[pe]AW[pf]AW[md]AW[nd]AW[od]AW[ke]AW[nf]AW[nh]AW[oi]AW[qi]TR[pg]TR[qg]\n(;B[re]\n(;W[rf];B[qf]\n(;W[rd];B[qe]C[RIGHT])\n(;W[qe];B[rd]C[RIGHT]))\n(;W[qe];B[rd];W[rf];B[qf]C[RIGHT]))\n(;B[qe];W[qf];B[rd];W[rf])\n(;B[rd];W[re]\n(;B[qe];W[qf];B[rf]\n(;W[rg];B[se];W[rh])\n(;W[se]C[ko]))\n(;B[rf];W[se];B[qe];W[qf]C[ko]))\n(;B[rf];W[re];B[rd];W[se];B[qe];W[qf]C[ko]))",
+  "author": {
+    "id": 7079,
+    "name": "huhss",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-22",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1262.69
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 6834,
+    "failed": 8240,
+    "tries": 15074,
+    "speedSolved": 8,
+    "speedPlay": 8
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-05-22T19:50:16+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

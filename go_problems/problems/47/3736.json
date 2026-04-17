@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3736,
+  "elo": 1262.1325096932,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Late in the endgame white plays \"A\". Best response for black?",
+  "rating": {
+    "stars": 4.1,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[hm]AB[hn]AB[ho]AW[gn]AW[go]AW[io]AW[in]AW[im]AB[gl]AB[fl]AW[fm]AW[em]AW[el]AB[ek]AB[ej]AB[fj]AB[gj]AW[dk]AW[dj]AW[di]AW[ei]AW[fi]AW[gi]AW[hi]AW[hj]AB[hk]AB[il]AW[kj]AB[ik]AB[ij]AW[ii]AB[ji]AB[ki]AB[li]AB[jl]AW[jm]AW[kl]AB[km]AB[lm]AB[mm]AW[lk]AB[mj]AB[nk]AB[nl]AW[ip]AW[hp]AW[gm]LB[gm:A]AW[ll]AP[goproblems]\n(;B[hl];W[gk]\n(;B[fk];W[jj]\n(;B[lj]C[white cannot atari.RIGHT])\n(;B[jk];W[kk]C[oops.])\n(;B[kk];W[jk]C[oops.]))\n(;B[jj];W[fk]C[no need to sacrifice.]))\n(;B[jj];W[hl]C[no need to give those stones away.])\n(;B[gk];W[hl]C[no need to sacrifice like this.]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 3242,
+    "failed": 6510,
+    "tries": 9752,
+    "speedSolved": 3,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-13T10:11:21+00:00",
+  "source": "my game at the EGC",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

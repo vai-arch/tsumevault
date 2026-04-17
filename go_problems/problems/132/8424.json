@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8424,
+  "elo": 1702.62199608,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.2,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[jc]AB[lc]AB[oc]AB[ob]AB[pd]AB[pf]AB[pe]AB[ne]AW[oa]AW[pb]AW[pc]AW[qd]AW[qe]AW[qg]AW[qf]TR[oa]C[White has just haned with the marked stone. How should Black respond ? Black want to avoid ko]AP[goproblems]\n(;B[qc];W[qb]C[White has no other choice but to play here]\n(;B[pa]\n(;W[qa]\n(;B[nb]C[]\n(;W[na]C[White shouldn't push here];B[ma]\n(;W[rc];B[pa];W[oa]C[Even worse for white])\n(;W[pa];B[rc];W[mb];B[rb];W[la];B[ra];W[ma];B[mc]\n(;W[ja];B[ka];W[kb];B[lb];W[ka];B[hb])\n(;W[kb];B[lb];W[ka];B[jb]C[White can't escape])))\n(;W[rc]C[];B[na]C[That's the best you can do. See variation to understand why White can't push at O19CHOICERIGHT]))\n(;B[na];W[nb]C[I say no ko]))\n(;W[na]C[Crawling here is unreasonable...];B[nb];W[ma];B[la];W[qa];B[mb]C[White can't connect because Black would simply play at a]LB[rc:a]))\n(;B[rc];W[rb]\n(;B[na];W[pa];B[nb]C[Worse than the correct answer])\n(;B[pa]\n(;W[qa];B[nb]C[That's the best you can do. See variation to understand why White can't push at O19RIGHT]\n(;W[sc]C[White have to play here before pushing at O19];B[na]C[RIGHT])\n(;W[na];B[ma];W[sc];B[pa];W[oa]))\n(;W[na];B[nb];W[ma];B[la];W[mb];B[mc];W[qa];B[lb]C[White collapseRIGHT]))))\n(;B[na];W[pa]\n(;B[mb]C[Too bad, White gets one and a half points more than in the correct answer])\n(;B[nb]C[Too bad, White gets one and a half points more than in the correct answer])))",
+  "author": {
+    "id": 5621,
+    "name": "severin333",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-03-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 236,
+    "failed": 1370,
+    "tries": 1606,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-04-16T10:52:00+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

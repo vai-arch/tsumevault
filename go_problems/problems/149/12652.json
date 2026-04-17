@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12652,
+  "elo": 1585.4603429607,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Every point counts here.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[sb]AW[rb]AW[qc]AW[qd]AW[qe]AW[qf]AW[qg]AW[rg]AW[sg]AB[qb]AB[ra]AB[pb]AB[pc]AB[pd]AB[pe]AB[pg]AB[pf]AB[qh]AB[rh]AB[sh]AB[ph]AB[sd]C[A 4d black tries this. I believe he does know it does not work and he is just trying some hopeless magic. Defend in the best way possible.]AP[goproblems]\n(;W[rd];B[se]\n(;W[re];B[qa]C[How to finish the position?]\n(;W[sf]C[Good. Seven pointsRIGHT])\n(;W[sc];B[sa];W[sf]TR[sc]C[The marked stone was not needed - one point behind optimal result.]))\n(;W[sf];B[qa]C[How to finish the position?];W[re]C[RIGHT]))\n(;W[re];B[rc];W[rd];B[qa];W[sc];B[sa];W[se]C[The 4d tricked you - you have only six points now (two prisoners)])\n(;W[rc];B[se]C[Seki!])\n(;W[sc]\n(;B[re];W[rd];B[sf]C[Black can play this many step ko. Not optimal.])\n(;B[qa];W[se];B[sa];W[rd]C[You have only six points now, not optimal.]))\n(;W[se];B[re];W[rd];B[sf]\n(;W[sc];B[qa];W[se]C[This step ko for the life of the white group is not very good.]))\n(;W[sf];B[rd]\n(;W[re];B[rc]C[Ouch!])\n(;W[rc];B[re];W[se]C[Seki]))\n(;W[qa]C[NOTTHIS]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 295,
+    "failed": 608,
+    "tries": 903,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-05-07T03:05:55+00:00",
+  "source": "KGS observed game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

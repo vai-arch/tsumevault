@@ -1,0 +1,108 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 51210,
+  "elo": 1449.3536985332,
+  "problemLevel": 26,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Try to get a good result by saving the marked stones!\n\n (Big mistakes that somehow manage to save the stones may be marked wrong!)",
+  "rating": null,
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[oq][op][pn][pm][no][po][mo][rn][pl][pk]AW[nq][np][on][oo][pp][qp][om][mm][ol]TR[op]TR[oq](;B[mp];W[or])(;B[mq];W[or])(;B[nr];W[or])(;B[pq](;W[or];B[pr];W[nr];B[rq];W[kq])(;W[qq]C[CHOICE](;B[nr]C[Black will capture something.RIGHT])(;B[qr];W[nr](;B[pr];W[rr];B[rs];W[rq])(;B[or];W[os])))(;W[nr];B[qq])(;W[lp];B[qq]))(;B[pr];W[nr](;B[qr];W[rq];B[rr];W[or];B[pq];W[sr](;B[rs]C[White is dead in the corner.RIGHT])(;B[qo];W[rp](;B[rs]C[At worst, the corner is seki. But white needs to save the outside stones first, so white will probably die in the corner.RIGHT])(;B[sq];W[rs]C[We can do better than ko!])(;B[ro];W[rs]))(;B[rp];W[ro](;B[qo];W[sp];B[qq];W[rp](;B[sn]C[RIGHT])(;B[rs];W[sn]C[Why ko?]))(;B[qq];W[sp](;B[qo];W[rp])(;B[sn]C[RIGHT])))(;B[ro];W[rp](;B[rs]C[RIGHT])(;B[sp];W[rs]C[Black can make a ko or a gote seki (by playing Q1). This technically saves the black stones but is not a good result!]))(;B[sp];W[rp](;B[so];W[rs];B[sq];W[ps]C[Why ko?])(;B[rs];W[so]C[So why did you play T4 exactly? Corner is not a clean kill (might be seki, for example).])))(;B[or];W[qr])(;B[rr];W[qr](;B[qq];W[pq])(;B[qs];W[or])(;B[or];W[pq];B[qs];W[qq]))(;B[rq];W[qr]))(;B[or];W[nr];B[qr];W[qq];B[pr];W[rr];B[rs];W[rq]C[This is a reasonable shape that might be good in similar situations. However, the corner will be ko (so you didn't really save the marked stones) and the original move P5 loses ~5 points compared to the best moves. \n\nBased on that, I'm marking this as wrong.])(;B[qq];W[pq];B[or];W[nr]))",
+  "author": {
+    "id": 113656,
+    "name": "seito1",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-07",
+    "rank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1302.51
+  },
+  "avgSolveTimeSeconds": 6,
+  "attempts": {
+    "solved": 1,
+    "failed": 3,
+    "tries": 4,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-10-05T22:37:36+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1400
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1984,
+  "elo": 2089.8058973846,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Spicas nice problem (1983) reminded me of a silly problem I did some months ago.... hope it is correct!",
+  "rating": {
+    "stars": 4.6,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.50]\r\nAW[rj][sj][bl][rl][cm][rm][sm][an][bn][sn][ao][ro][bp][ip][jp][kp][rp][dq][eq][fq][iq][nq][pq][er][gr][hr][jr][lr][nr][or][gs][ls][ms][os]AB[si][ak][bk][qk][sl][bm][qm][cn][in][kn][qn][rn][co][ho][lo][so][ap][ep][fp][hp][mp][np][gq][hq][lq][mq][oq][qq][dr][fr][ir][kr][mr][ds][is][js]TR[ir][is][js]C[White to play - can he capture the marked stones?]PL[W]\r\n;W[kq]CR[kq]\r\n;B[jq]CR[jq]\r\n(;W[kf]CR[kf]\r\n(;B[hs]CR[hs]\r\n;W[fs]CR[fs]\r\n;B[es]CR[es]\r\n;W[fr]CR[fr]\r\n;B[cq]CR[cq]\r\n;W[dp]CR[dp]\r\n(;B[cp]CR[cp]\r\n;W[do]CR[do]\r\n;B[dn]CR[dn]\r\n;W[eo]CR[eo]\r\n;B[fo]CR[fo]\r\n;W[en]CR[en]\r\n;B[em]CR[em]\r\n;W[fn]CR[fn]\r\n;B[gn]CR[gn]\r\n;W[fm]CR[fm]\r\n;B[fl]CR[fl]\r\n;W[gm]CR[gm]\r\n;B[hm]CR[hm]\r\n;W[gl]CR[gl]\r\n;B[gk]CR[gk]\r\n;W[hl]CR[hl]\r\n;B[il]CR[il]\r\n;W[hk]CR[hk]\r\n;B[hj]CR[hj]\r\n;W[ik]CR[ik]\r\n;B[jk]CR[jk]\r\n;W[ij]CR[ij]\r\n;B[ii]CR[ii]\r\n;W[jj]CR[jj]\r\n;B[kj]CR[kj]\r\n;W[ji]CR[ji]\r\n;B[jh]CR[jh]\r\n;W[ki]CR[ki]\r\n;B[li]CR[li]\r\n;W[kh]CR[kh]\r\n;B[kg]CR[kg]\r\n;W[lh]CR[lh]\r\n;B[mh]CR[mh]\r\n;W[lg]LB[id:b][md:b][he:b][ie:w][je:w][le:w][me:w][ne:b][gf:b][hf:w][if:w][jf:b][lf:b][mf:w][nf:w][of:b][fg:b][gg:w][hg:w][ig:b][mg:b][ng:w][og:w][pg:b][eh:b][fh:w][gh:w][hh:b][nh:b][oh:w][ph:w][qh:b][di:b][ei:w][fi:w][gi:b][mi:b][oi:b][pi:w][qi:w][cj:b][dj:w][ej:w][fj:b][lj:w][mj:w][nj:b][pj:b][qj:w][ck:w][dk:w][ek:b][lk:b][mk:w][nk:w][ok:b][cl:w][dl:b][ml:b][nl:w][ol:w][pl:b][nm:b][om:w][pm:w]CR[lg]C[L14 breaks this ladder as well as the other three ladders Black can start! RIGHT CHOICE])\r\n(;B[do]CR[do]\r\n;W[cp]CR[cp]\r\n;B[bq]CR[bq]\r\n;W[aq]CR[aq]\r\n;B[bo]CR[bo]\r\n;W[ap]CR[ap]\r\n;B[ar]CR[ar]\r\n;W[am]CR[am]\r\n;B[al]CR[al]\r\n;W[bm]CR[bm]\r\n;B[dm]CR[dm]\r\n;W[cl]CR[cl]\r\n;B[dl]CR[dl]\r\n;W[ck]CR[ck]\r\n;B[cj]CR[cj]\r\n;W[dk]CR[dk]\r\n;B[ek]CR[ek]\r\n;W[dj]CR[dj]\r\n;B[di]CR[di]\r\n;W[ej]CR[ej]\r\n;B[fj]CR[fj]\r\n;W[ei]CR[ei]\r\n;B[eh]CR[eh]\r\n;W[fi]CR[fi]\r\n;B[gi]CR[gi]\r\n;W[fh]CR[fh]\r\n;B[fg]CR[fg]\r\n;W[gh]CR[gh]\r\n;B[hh]CR[hh]\r\n;W[gg]CR[gg]\r\n;B[gf]CR[gf]\r\n;W[hg]CR[hg]\r\n;B[ig]CR[ig]\r\n;W[hf]CR[hf]\r\n;B[he]CR[he]\r\n;W[if]CR[if]\r\n;B[jf]CR[jf]\r\n;W[ie]CR[ie]\r\n;B[id]CR[id]\r\n;W[je]LB[md:b][le:w][me:w][ne:b][lf:b][mf:w][nf:w][of:b][kg:b][lg:w][mg:b][ng:w][og:w][pg:b][jh:b][kh:w][lh:w][mh:b][nh:b][oh:w][ph:w][qh:b][ii:b][ji:w][ki:w][li:b][oi:b][pi:w][qi:w][hj:b][ij:w][jj:w][kj:b][mj:w][nj:b][gk:b][hk:w][ik:w][jk:b][lk:b][mk:w][nk:w][ok:b][fl:b][gl:w][hl:w][il:b][ml:b][nl:w][ol:w][pl:b][em:b][fm:w][gm:w][hm:b][nm:b][om:w][fn:w][gn:b][on:b][fo:b]CR[je]C[L14 breaks this ladder as well al the other three ladders Black can start! RIGHT CHOICE]))\r\n(;B[ks]CR[ks]\r\n;W[ns]CR[ns]\r\n;B[pr]CR[pr]\r\n;W[op]CR[op]\r\n;B[ps]CR[ps]\r\n;W[oq]CR[oq]\r\n;B[oo]CR[oo]\r\n;W[pp]CR[pp]\r\n;B[qp]CR[qp]\r\n;W[po]CR[po]\r\n(;B[qo]CR[qo]\r\n;W[pn]CR[pn]\r\n;B[on]CR[on]\r\n;W[pm]CR[pm]\r\n;B[pl]CR[pl]\r\n;W[om]CR[om]\r\n;B[nm]CR[nm]\r\n;W[ol]CR[ol]\r\n;B[ok]CR[ok]\r\n;W[nl]CR[nl]\r\n;B[ml]CR[ml]\r\n;W[nk]CR[nk]\r\n;B[nj]CR[nj]\r\n;W[mk]CR[mk]\r\n;B[lk]CR[lk]\r\n;W[mj]CR[mj]\r\n;B[mi]CR[mi]\r\n;W[lj]CR[lj]\r\n;B[kj]CR[kj]\r\n;W[li]CR[li]\r\n;B[lh]CR[lh]\r\n;W[ki]CR[ki]\r\n;B[ji]CR[ji]\r\n;W[kh]CR[kh]\r\n;B[kg]CR[kg]\r\n;W[jh]CR[jh]\r\n;B[ih]CR[ih]\r\n;W[jg]LB[id:b][md:b][he:b][ie:w][je:w][le:w][me:w][ne:b][gf:b][hf:w][if:w][jf:b][lf:b][mf:w][nf:w][of:b][fg:b][gg:w][hg:w][ig:b][mg:b][ng:w][og:w][pg:b][eh:b][fh:w][gh:w][hh:b][nh:b][oh:w][ph:w][qh:b][di:b][ei:w][fi:w][gi:b][oi:b][pi:w][cj:b][dj:w][ej:w][fj:b][hj:b][ij:w][pj:b][ek:b][gk:b][hk:w][ik:w][jk:b][dl:b][fl:b][gl:w][hl:w][il:b][em:b][fm:w][gm:w][hm:b][en:w][fn:w][gn:b][fo:b]CR[jg]C[L14 breaks this ladder as well as the other three ladders Black can start! RIGHT CHOICE])\r\n(;B[pn]CR[pn]\r\n;W[qo]CR[qo]\r\n;B[rq]CR[rq]\r\n;W[sp]CR[sp]\r\n;B[sq]CR[sq]\r\n;W[so]CR[so]\r\n;B[rk]CR[rk]\r\n;W[sk]CR[sk]\r\n;B[ql]CR[ql]\r\n;W[sl]CR[sl]\r\n;B[ri]CR[ri]\r\n;W[qj]CR[qj]\r\n;B[pj]CR[pj]\r\n;W[qi]CR[qi]\r\n;B[qh]CR[qh]\r\n;W[pi]CR[pi]\r\n;B[oi]CR[oi]\r\n;W[ph]CR[ph]\r\n;B[pg]CR[pg]\r\n;W[oh]CR[oh]\r\n;B[nh]CR[nh]\r\n;W[og]CR[og]\r\n;B[of]CR[of]\r\n;W[ng]CR[ng]\r\n;B[mg]CR[mg]\r\n;W[nf]CR[nf]\r\n;B[ne]CR[ne]\r\n;W[mf]CR[mf]\r\n;B[lf]CR[lf]\r\n;W[me]CR[me]\r\n;B[md]CR[md]\r\n;W[le]LB[id:b][he:b][ie:w][je:w][gf:b][hf:w][if:w][jf:b][fg:b][gg:w][hg:w][ig:b][eh:b][fh:w][gh:w][hh:b][kh:w][lh:b][di:b][ei:w][fi:w][gi:b][ji:b][ki:w][li:w][mi:b][ej:w][fj:b][hj:b][kj:b][lj:w][mj:w][nj:b][ek:b][gk:b][hk:w][ik:w][lk:b][mk:w][nk:w][ok:b][fl:b][gl:w][hl:w][il:b][ml:b][nl:w][ol:w][em:b][fm:w][gm:w][hm:b][nm:b][fn:w][gn:b][fo:b]CR[le]C[L14 breaks this ladder as well as the three other ladders Black can start! RIGHT CHOICE]))\r\n(;B[jr]CR[jr]\r\n;W[op]CR[op]\r\n(;B[lp]CR[lp]\r\n;W[ns]CR[ns]\r\n;B[ko]CR[ko]\r\n;W[ks]CR[ks])\r\n(;B[es]CR[es]\r\n;W[cr]CR[cr])\r\n(;B[cq]CR[cq]\r\n;W[fs]CR[fs]\r\n;B[es]CR[es]\r\n;W[cr]CR[cr])))\r\n(;W[fs]CR[fs]\r\n;B[ks]CR[ks]\r\n;W[ns]CR[ns]\r\n;B[pr]CR[pr]\r\n;W[op]CR[op]\r\n;B[ps]CR[ps]\r\n;W[oq]CR[oq]\r\n;B[oo]CR[oo]\r\n;W[pp]CR[pp]\r\n;B[qp]CR[qp]\r\n;W[po]CR[po]\r\n;B[qo]CR[qo]\r\n;W[pn]CR[pn]\r\n;B[on]CR[on]\r\n;W[pm]CR[pm]\r\n;B[pl]CR[pl]C[The ladder works for black....])\r\n(;W[ns]CR[ns]\r\n;B[hs]CR[hs]\r\n;W[fs]CR[fs]\r\n;B[es]CR[es]\r\n;W[fr]CR[fr]\r\n;B[cq]CR[cq]\r\n;W[dp]CR[dp]\r\n;B[cp]CR[cp]\r\n;W[do]CR[do]\r\n;B[dn]CR[dn]C[The ladder works for black...]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 85,
+  "attempts": {
+    "solved": 39,
+    "failed": 1972,
+    "tries": 2011,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-03-04T04:32:18+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

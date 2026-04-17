@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8730,
+  "elo": 1278.101418754,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.4,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ob]AW[nb]AW[nc]AW[nd]AW[md]AB[ld]AB[lc]AB[mc]AB[mb]AB[ma]AB[oc]AB[pb]AB[od]AB[pc]AW[le]AW[lf]AW[mf]AW[nf]AW[oe]AB[ke]AB[kf]AB[lg]AB[kh]AB[mg]AB[ng]AB[og]AB[of]AW[pe]AW[pf]AW[pg]AW[pd]AB[qb]AW[qa]AW[ra]AB[rb]AW[qc]AW[qd]AB[rc]AB[sc]AW[rd]AW[sd]LB[mi:A]LB[oi:D]LB[qi:K]C[Assuming black has the next move locally, is black (A)live, (D)ead, or (K)o for life?]AP[goproblems]\n(;B[mi];W[mj]C[Prove it.]\n(;B[pa];W[sa]\n(;B[oa];W[na];B[sb]\n(;W[ra];B[ne]C[Excellent job!RIGHT])\n(;W[ne];B[ra]C[Great work!RIGHT]))\n(;B[na];W[oa];B[sb]\n(;W[ra];B[ne]C[Excellent job!RIGHT])\n(;W[ne];B[ra]C[Great work!RIGHT]))\n(;B[sb]\n(;W[ra]\n(;B[oa];W[na];B[ne]C[Excellent job!RIGHT])\n(;B[na];W[oa];B[ne]C[Excellent work!RIGHT])\n(;B[ne];W[me]\n(;B[na]C[Good job!RIGHT])\n(;B[oa]C[Good job!RIGHT])))\n(;W[ne];B[ra]C[Great job!RIGHT]))\n(;B[ne];W[me]\n(;B[oa]C[Very nice.RIGHT])\n(;B[na]C[Very nice.RIGHT])))\n(;B[ne];W[pa])\n(;B[oa];W[na]\n(;B[ne];W[pa]\n(;B[me];W[sb])\n(;B[sa];W[sb]))\n(;B[sa];W[sb]C[This is only ko.]))\n(;B[na];W[pa];B[ne];W[sb])\n(;B[sa];W[sb]C[This is only ko.]))\n(;B[oi];W[oj]C[Sorry, black is alive.])\n(;B[qi];W[qj]C[Sorry.  Black is alive.])\n(;B[pa]C[NOTTHIS])\n(;B[sa]C[NOTTHIS])\n(;B[oa]C[NOTTHIS])\n(;B[ne]C[NOTTHIS])\n(;B[me]C[NOTTHIS])\n(;B[na]C[NOTTHIS])\n(;B[sb]C[NOTTHIS]))",
+  "author": {
+    "id": 6281,
+    "name": "munisai79",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1421.12
+  },
+  "avgSolveTimeSeconds": 83,
+  "attempts": {
+    "solved": 1469,
+    "failed": 2901,
+    "tries": 4370,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-06-19T17:06:44+00:00",
+  "source": "A personal game on KGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 90,
+      "name": "Dual Threat Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

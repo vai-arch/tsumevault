@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17868,
+  "elo": 916.98613753848,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Very easy and simple problem to teach new players about dead shapes.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[aq]AB[ar]AB[bq]AB[cq]AB[dq]AB[dr]AB[er]AW[br]AW[cr]AW[cs]AW[bp]AW[cp]AW[dp]AW[eq]AW[fq]AW[fr]AW[fs]AW[bn]C[Save black's stones!]AP[goproblems]\n(;B[bs];W[as]\n(;B[ds]C[Correct! If there had been white stones at A and B, this process would not work, but because you have liberties, white cannot connect to make a bulky-five killing shape.RIGHT]LB[ap:A]LB[es:B])\n(;B[es];W[bs]C[Bulky-five is dead.  Capture to see why.];B[ds];W[bs]LB[bs:A]C[Stone 'A' is the vital point to kill a bulky-five.])\n(;B[ap];W[bs]C[Bulky-five is dead. Capture at A to see why.]LB[ds:A];B[ds];W[bs]LB[bs:A]C[A is the vital point to kill bulky-five.]))\n(;B[as];W[bs]C[A 2x2 square is dead. Capture to see why.];B[ds];W[cr]C[Black has no way of making two eyes.])\n(;B[ds];W[bs]C[A 2x2 square is a killing shape. Capture to see why.];B[as];W[cr]C[Black has no way of making two eyes.])\n(;B[es];W[bs]C[A 2x2 square is a killing shape. For the purposes of teaching, please play at A.]LB[ds:A];B[ds];W[ap]LB[as:A];B[as];W[cr]C[Black has no way of making two eyes, therefore, 2x2 square is dead.])\n(;B[ap];W[bs]C[Pushing does not accomplish anything.]))",
+  "author": {
+    "id": 73376,
+    "name": "Bigfatsnoozy",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 2274,
+    "failed": 2096,
+    "tries": 4370,
+    "speedSolved": 50,
+    "speedPlay": 61
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-09-03T18:22:46+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 162,
+      "name": "Classic Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

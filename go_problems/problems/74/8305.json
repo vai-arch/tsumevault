@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8305,
+  "elo": 1267.2994487298,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[js]AB[jr]AB[jq]AB[kq]AB[ls]AB[ms]AB[mr]AB[iq]AW[kr]AW[mq]AW[nr]AW[ns]AW[kp]AW[np]AW[jp]AW[ip]AW[hq]AW[gq]AW[gr]C[There is a big ko somewhere else on the board. How many ko threats does Black have here (play A if Black can just save this group with his next move, eg. not a threat but directly alive)?FORCE]LB[gn:A]LB[hn:0]LB[in:1]LB[jn:2]LB[kn:3]AB[hs]AW[lq]AW[fr]AW[fs]AP[goproblems]\n(;B[gn]C[];W[hn]C[Show me how Black can live, then.]LB[gn:A]\n(;B[hr];W[lr])\n(;B[lr];W[hr]))\n(;B[hn]C[]AB[fs]AB[fr]AB[gr]AB[gq]AB[hq]AB[ip]AB[jp]AB[kp]AB[kr]AB[lq]AB[mq]AB[np]AB[nr]AB[ns]AW[ms]AW[mr]AW[ls]AW[hs]AW[js]AW[jr]AW[jq]AW[iq]AW[kq]AW[hn];W[lr]LB[hn:0]C[You chose 0, there were no threats. If we swap color and White plays at M2, is that a threat of bluff? Play at K6 to win the ko if you think M2 is no valid threat.]LB[jn:KO]\n(;B[jn];W[hr]\n(;B[ks];W[lr]TR[kr]TR[ks]C[White lives, the threat was real.])\n(;B[ir];W[ks])\n(;B[is];W[ks])\n(;B[gs];W[ks]))\n(;B[ks];W[jn]C[White takes back the ko... it was a valid threat.])\n(;B[ir];W[jn]C[White takes back the ko... it was a valid threat.])\n(;B[hr];W[jn]C[White takes back the ko... it was a valid threat.])\n(;B[is];W[jn]C[White takes back the ko... it was a valid threat.])\n(;B[gs];W[jn]C[White takes back the ko... it was a valid threat.]))\n(;B[in];W[io]C[White has taken the ko somewhere else on the board. Please play the Ko threat.]LB[in:1]\n(;B[hr]\n(;W[jo]C[White chooses to win the Ko.CHOICE]\n(;B[ir]C[Come on, this is serious. The lives of 10 stones are at stake!])\n(;B[is]C[Yes, very funny.])\n(;B[ks];W[lr]C[White says: 'Thank you'.])\n(;B[lr];W[ks];B[lr];W[ls];B[ms];W[ls];B[ks]C[];W[mr];B[ls]C[Nice work.RIGHT]))\n(;W[lr]C[Should White want to answer the threat this is how. Black has no further threats.RIGHT]))\n(;B[ir]C[];W[jn]C[White ignores the threat. Now live!]\n(;B[hr];W[lr])\n(;B[lr];W[hr]))\n(;B[is]C[];W[jn]C[White ignores the threat. Now live!]\n(;B[hr];W[lr])\n(;B[lr];W[hr]))\n(;B[ks]C[];W[jn]C[White ignores the threat. Now live!]\n(;B[lr];W[hr])\n(;B[hr];W[lr]))\n(;B[lr]\n(;W[jo]C[White chooses to win the Ko.CHOICE]\n(;B[hr];W[ks];B[lr];W[ls];B[ms];W[ls];B[ks]C[];W[mr];B[ls]C[Nice work.RIGHT])\n(;B[ir];W[hr]C[...and black group gets squashed.])\n(;B[is];W[hr]C[Please tell me this was a missclick.])\n(;B[ks];W[hr]C[White both won the Ko and kept the black group dead.]))\n(;W[hr]C[If White decides to respond to M2 he should play here. It kills the black group and leaves no more ko threats.RIGHT]))\n(;B[oq];W[jn]C[White ignores the threat. Now live!]\n(;B[nq];W[lr]\n(;B[or];W[ks])\n(;B[os];W[ks])\n(;B[ks];W[is]\n(;B[ir];W[hr])\n(;B[or];W[ir])\n(;B[os];W[ir])\n(;B[hr];W[ir])\n(;B[mp];W[ir])\n(;B[lp];W[ir]))\n(;B[lp];W[ks])\n(;B[mp];W[ks]))\n(;B[lr];W[ks]\n(;B[lr];W[hr])\n(;B[hr];W[lr]))\n(;B[hr];W[lr])))\n(;B[jn]C[];W[jo]C[White takes the ko. Play the first of your threats.]LB[jn:2]\n(;B[oq];W[kn]C[White ignores your threat... now what?]\n(;B[lr];W[ks];B[lr];W[hr])\n(;B[hr];W[lr]))\n(;B[lr];W[hr]C[White answers. You don't have a second threat, Black is dead.])\n(;B[hr];W[lr]C[White answers the first threat. You doin't have a second threat, Black is dead.]))\n(;B[kn]C[Not that many, sorry. Try again.]))",
+  "author": {
+    "id": 6913,
+    "name": "cusp",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-04-26",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 77,
+  "attempts": {
+    "solved": 2062,
+    "failed": 3156,
+    "tries": 5218,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-03-19T02:57:56+00:00",
+  "source": "Variation on a well known tesuji",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 27,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

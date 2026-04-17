@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11251,
+  "elo": 2101.9341321811,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Hello, today I had my last statistics lesson. Well I hope it was the last one (if I dont pass my statistics exams I will have to do the course again). It was about indexes, there were two types of them and by mutliplying you can get some third one. As usual I was bored and was thinking about some go and goproblems and suddenly found this position. Finding the solution took me about one hour so I think this problem is quite comlicated - there are several tesujis available and it is hard to pick the one which will serve you best (at least if you want to be really precise).\r\n\r\nThe comments with score I wrote for some moves are without komi, just points on the board plus prisoners.\r\n\r\nAfter I came to my room and run MutliGo to check my solutions, I found that if you play optimally, you will win by 0,5 points if white had 6,5 komi and if there were no prisoners at the beginning.\r\n\r\nSo..\r\n\r\n6,5 KOMI, 0 PRISONERS EACH, BLACK TO PLAY AND WIN !!",
+  "rating": {
+    "stars": 3.8,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[fh]AW[gf]AW[gd]AW[gc]AB[fb]AB[fc]AB[fd]AB[ec]AB[dd]AB[ce]AB[be]AB[af]AB[bf]AB[ee]AB[ef]AB[eg]AB[eh]AW[eb]AW[db]AW[dc]AW[cd]AW[bd]AW[ad]AW[ae]AW[cc]AW[bb]C[Black needs to find really good continuation to win this game.]AP[goproblems]\n(;B[gg];W[hg]\n(;B[hf];W[he];B[hh];W[if]\n(;B[fg];W[gb]\n(;B[ga];W[ha];B[fa];W[hb]\n(;B[ih];W[fe]\n(;B[ff];W[ge]\n(;B[ea];W[da];B[ed];W[ig]C[White 16, black 23 - you won even with the 6,5 komi, good!RIGHT])\n(;B[ig];W[ea];B[ed];W[hf]C[White 16, black 23 - you won even with the 6,5 komi, good!RIGHT])\n(;B[ed];W[ig];B[ea];W[da]C[White 16, black 23 - you won even with the 6,5 komi, good!RIGHT]))\n(;B[ea];W[da];B[ed];W[ff];B[ig];W[hf]C[White 16, black 23 - you won even with the 6,5 komi, good!RIGHT])\n(;B[ig];W[ea];B[ed];W[hf];B[ff];W[ge]C[White 16, black 23 - you won even with the 6,5 komi, good!RIGHT])\n(;B[ed];W[ea]\n(;B[ff];W[ge];B[ig];W[hf]C[White 16, black 23 - you won even with the 6,5 komi, good!RIGHT])\n(;B[ig];W[hf];B[ff];W[ge]C[White 16, black 23 - you won even with the 6,5 komi, good!RIGHT])))\n(;B[fe];W[ih];B[ge];W[hi];B[gh];W[ea];B[gi];W[hf];B[ii];W[ig]\n(;B[hi];W[hd]C[White 15, black 21.. one point behind the solution!])\n(;B[id];W[ic];B[hd];W[hc]C[...])\n(;B[ic];W[id])\n(;B[ib];W[id]))\n(;B[ea];W[ih]\n(;B[da];W[ca];B[fe];W[hi];B[gh];W[ge];B[gi];W[ig];B[ii];W[ff];B[hi]C[White 15, black 21 - one point behind the solution!])\n(;B[fe];W[hi];B[gh];W[ge];B[da];W[ca];B[gi];W[ig];B[ii];W[ff];B[hi]C[White 15, black 21 - one point behind the solution!])))\n(;B[ih];W[fa]C[You should play this four points sente first.]))\n(;B[gh];W[gb];B[ga];W[ha];B[fa];W[ib];B[ih];W[ff]\n(;B[fg];W[fe];B[ig];W[ea];B[ed];W[hf]C[White 17, black 22.])\n(;B[ig];W[fg];B[hf];W[fi];B[ie];W[id]C[White is ok.])))\n(;B[fg];W[hh];B[hb];W[gh];B[hc];W[hd];B[gb];W[ei]\n(;B[di];W[fi]\n(;B[dh];W[ic];B[ib];W[id]C[Black could do better!])\n(;B[id];W[dh];B[ie];W[hf]C[Too bad.]))\n(;B[id];W[dh]C[You could do better.]))\n(;B[hh];W[gh];B[fg];W[hi]\n(;B[hf];W[ih];B[ge];W[he];B[ff];W[if];B[hb];W[ei];B[di];W[fi];B[dh];W[gb];B[ga];W[hd];B[gf];W[ie];B[ic];W[ea];B[fa];W[hc];B[ha];W[ib];B[ia]C[The score on the board is 12 white - 17 black. You could do better.])\n(;B[ih];W[ig];B[hf];W[ii];B[ge];W[he];B[ff];W[if]\n(;B[hd];W[gf];B[hc];W[fe];B[gb];W[ge]\n(;B[fi];W[id];B[ib];W[fa];B[ga];W[ea];B[ic];W[ie];B[ei];W[gi]C[White 15, black 20. You could  do better!])\n(;B[id];W[hb];B[ha];W[ei];B[di];W[fi];B[dh];W[fa];B[ib];W[ie]C[White 16, black 19.]))\n(;B[hb];W[fi]\n(;B[ei];W[gb];B[ga];W[hd];B[gf];W[ea];B[fa]C[A bit worse than the solution.])\n(;B[hd];W[gf];B[hc];W[fe];B[ei];W[ge];B[gb];W[fa];B[ga];W[ea];B[id];W[ie]C[White 16, black 21.]))))\n(;B[gh];W[hh];B[ff];W[ge];B[hb];W[gi];B[fg];W[gb];B[ga];W[hc]\n(;B[fi];W[ib];B[ha];W[ea];B[fa];W[hi];B[fe]C[White 17, black 19.])\n(;B[ha];W[fi];B[ei];W[hi];B[ic];W[id];B[ib];W[ea];B[fa];W[ie]C[White 15, black 17.]))\n(;B[hb];W[fg]TR[gg]TR[hg]C[The marked exchange was clearly bad.])\n(;B[ff];W[ge]\n(;B[gh];W[hh];B[hb];W[gi];B[fg];W[gb];B[ga];W[hc]\n(;B[fi];W[ib];B[ha];W[ea];B[fa];W[hi];B[fe]C[White 17, black 19.])\n(;B[ha];W[fi];B[ei];W[hi];B[ic];W[id];B[ib];W[ea];B[fa];W[ie]C[White 15, black 17.]))\n(;B[hh];W[gh];B[hi];W[fg];B[fi];W[gb];B[ga];W[ha];B[fa];W[hb]C[You could do better.])))\n(;B[hb];W[gg]\n(;B[gb];W[ic];B[hc];W[hd];B[ib];W[id];B[fi];W[gi];B[ei];W[ge];B[ea];W[da];B[fa];W[gh]C[White 17, black 19])\n(;B[hc];W[hd];B[id];W[ie];B[ic];W[hf];B[fi];W[gi];B[ei];W[gb];B[ga];W[ge];B[fg];W[ea];B[fa];W[gh]C[White 16, black 19.])\n(;B[he];W[ge]\n(;B[hc];W[hd];B[id];W[gb];B[ga];W[ic];B[ib];W[ha];B[fa];W[hf]C[You could do better.])\n(;B[id];W[ic];B[hc];W[hd];B[ib];W[gb];B[ga];W[ha];B[fa];W[hf]C[You could do better.])\n(;B[ic];W[id];B[hd];W[hc];B[ie];W[hf];B[gb];W[if]C[You could do better.])\n(;B[hd];W[hc];B[ic];W[gb];B[ga];W[id];B[ie];W[hf];B[ha];W[if]C[You could do better.])))\n(;B[he];W[ge]C[This move does not help you.])\n(;B[gh];W[hh];B[gg];W[hg];B[ff];W[ge];B[hb];W[gi];B[fg];W[gb];B[ga];W[hc]\n(;B[fi];W[ib];B[ha];W[ea];B[fa];W[hi];B[fe]C[White 17, black 19.])\n(;B[ha];W[fi];B[ei];W[hi];B[ic];W[id];B[ib];W[ea];B[fa];W[ie]C[White 15, black 17.]))\n(;B[fg];W[gg];B[gh];W[hh];B[fi];W[gb];B[ga];W[ha];B[fa];W[hb];B[hi];W[ih]C[You could do better!]))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 66,
+  "attempts": {
+    "solved": 16,
+    "failed": 282,
+    "tries": 298,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-05-06T06:43:13+00:00",
+  "source": "My last statistics lesson!",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 30,
+      "name": "Stories",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

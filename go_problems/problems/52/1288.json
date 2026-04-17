@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1288,
+  "elo": 1953.5352887279,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nFF[4]\r\nGM[1]\r\nSZ[19]\r\nAP[Jago:Version 4.28]\r\nAB[bd][bc][cc][ec][eb]\r\nAW[be][cf][cd][dd][fd][fb][fc][hb]\r\nGN[temp]\r\n(\r\n;\r\nW[ea]\r\n;\r\nB[da]\r\n(\r\n;\r\nW[ba]\r\n;\r\nB[dc]\r\n;\r\nW[fa]\r\n;\r\nB[ad]\r\n(\r\n;\r\nW[db]\r\n;\r\nB[cb]\r\n;\r\nW[ca]\r\nC[RIGHT Ko]\r\n)\r\n(\r\n;\r\nW[ca]\r\n;\r\nB[db]\r\n;\r\nW[ab]\r\n;\r\nB[bb]\r\nC[Seki]\r\n)\r\n)\r\n(\r\n;\r\nW[dc]\r\n;\r\nB[db]\r\n;\r\nW[ba]\r\n;\r\nB[bb]\r\n;\r\nW[ed]\r\n;\r\nB[fa]\r\n;\r\nW[ca]\r\n;\r\nB[aa]\r\n;\r\nW[ab]\r\n;\r\nB[ac]\r\nC[B lives]\r\n)\r\n(\r\n;\r\nW[db]\r\n;\r\nB[dc]\r\n;\r\nW[ca]\r\n;\r\nB[ba]\r\n;\r\nW[bb]\r\n;\r\nB[cb]\r\n;\r\nW[aa]\r\n;\r\nB[da]\r\nC[RIGHT this ko will usually be worse than We19, Bd19, Wb19 ... because B ends the ko by capturing at a]\r\nLB[fa:a]\r\n)\r\n)\r\n(\r\n;\r\nW[ba]\r\nC[This move was suggested by Daniel. I can't find a refutation, so I added the variation.]\r\n(\r\n;\r\nB[ca]\r\n;\r\nW[bb]\r\n;\r\nB[ea]\r\n;\r\nW[dc]\r\n;\r\nB[db]\r\n;\r\nW[cb]\r\n;\r\nB[ab]\r\n;\r\nW[da]\r\nC[RIGHT Ko]\r\n)\r\n(\r\n;\r\nB[dc]\r\nC[This returns to the 'official' variation with a and b switched.]\r\nLB[ba:a][ea:b]\r\n;\r\nW[ea]\r\n;\r\nB[da]\r\n;\r\nW[fa]\r\n;\r\nB[ad]\r\n;\r\nW[db]\r\n;\r\nB[cb]\r\n;\r\nW[ca]\r\nC[RIGHT Ko]\r\n)\r\n)\r\n)",
+  "author": {
+    "id": 1039,
+    "name": "gecko",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-01-13",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 335,
+    "failed": 2015,
+    "tries": 2350,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-01-28T17:52:20+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

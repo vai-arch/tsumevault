@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8684,
+  "elo": 1278.8168379065,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 2.8,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AW[nc]AW[nd]AW[ne]AB[lb]AW[kb]AB[jb]AB[jc]AB[jd]AW[ja]AW[ib]AW[ic]AW[id]AW[hd]AW[gd]AB[ie]AB[jf]AB[he]AB[ge]AB[fd]AB[fc]AB[fb]AB[me]AB[le]AW[nf]AW[ng]AB[pb]AB[pc]AB[pd]AB[qe]AW[qg]AW[qj]AB[gb]AB[je]C[W try to connect stones](;W[mb](;B[la]C[B makes a mistake];W[lc];B[kc];W[ma]C[Unconditional connection due to B mistake (ko is best when B plays optimally)CHOICERIGHT])(;B[kc];W[la]C[Ko - best resultCHOICERIGHT]))(;W[lc];B[kc](;W[ka];B[la](;W[ia];B[mc])(;W[mb];B[ia])(;W[mc];B[ia]))(;W[la];B[mb](;W[mc];B[ma])(;W[nb];B[ma])(;W[ma];B[na])(;W[ka];B[ma])))(;W[kc];B[lc])(;W[la];B[mb]))",
+  "author": {
+    "id": 5722,
+    "name": "tjl",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 2390,
+    "failed": 4368,
+    "tries": 6758,
+    "speedSolved": 4,
+    "speedPlay": 15
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-06-11T11:31:30+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

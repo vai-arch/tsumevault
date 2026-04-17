@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8257,
+  "elo": 1344.9860243745,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[aq]AB[ap]AB[cp]AB[cq]AB[cr]AW[dr]AW[dn]AW[do]AW[dp]AW[dq]AW[ds]AB[cs]AW[bn]AW[cn]C[What can White do? :)]AP[goproblems]\n(;W[bo]\n(;B[br]\n(;W[bp]\n(;B[as];W[bq]C[Well done! :)RIGHT])\n(;B[bq];W[as]C[RIGHT]))\n(;W[as];B[bp]C[:(]))\n(;B[bp];W[br]C[RIGHT])\n(;B[ar];W[bs]TR[br]TR[bp]C[RIGHT])\n(;B[bs];W[bp]TR[bq]TR[ar]C[RIGHT]))\n(;W[br];B[bo]\n(;W[bq];B[co]C[Because White can't play at A5, black is connected, leaving A2 and B1 miai... Seki! :(]TR[ar]TR[bs])\n(;W[co];B[bq]C[:(])\n(;W[an];B[bq]C[:(]))\n(;W[ar];B[br]C[:(]TR[bp]TR[as])\n(;W[bs];B[br]TR[bp]C[:(]TR[as])\n(;W[bp];B[bo]TR[br]TR[bq]C[Black is guaranteed to get 2 eyes! :(])\n(;W[co];B[bo]TR[br]TR[bq]C[:(])\n(;W[ao];B[bo]C[:(]TR[bq]TR[br])\n(;W[bq];B[br]C[:(])\n(;W[an];B[bo]C[:(]TR[bq]TR[br]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 1104,
+    "failed": 2877,
+    "tries": 3981,
+    "speedSolved": 2,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-03-11T01:05:54+00:00",
+  "source": "Problem 8255.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

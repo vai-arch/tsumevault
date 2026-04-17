@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20198,
+  "elo": 564.54532904601,
+  "problemLevel": 0,
+  "rank": {
+    "value": 30,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 2.5,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[br]AB[dr]AW[as]AW[cs]AW[es]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[A small board problem.FORCE]AP[goproblems]\r\n(;B[ar]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[White can't miss the only point to win.FORCE];W[cr]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[The worst result.])\r\n(;B[bs]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[Nice! Even if white plays on the marked point A, black just captures 2 stones.RIGHT]LB[cr:A])\r\n(;B[cr]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[White's best is playing on B1 or D1.FORCE]\r\n(;W[bs]TR[fs]TR[fr]TR[fq]TR[dq]TR[eq]TR[cq]TR[bq]TR[aq]C[Black doesn't hope seki so he must do something.FORCE]\r\n(;B[ar]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[aq]TR[bq]C[Nice!RIGHT])\r\n(;B[ds]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[Nice!RIGHT])\r\n(;B[er]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[Nice!RIGHT]))\r\n(;W[ds]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[Black doesn't hope seki so he must do something.FORCE]\r\n(;B[ar]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[Nice!RIGHT])\r\n(;B[bs]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[Nice!RIGHT])\r\n(;B[er]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[Nice!RIGHT])))\r\n(;B[ds]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]LB[cr:A]C[Nice! Even if white plays on the marked point A, black just captures 2 stones.RIGHT])\r\n(;B[er]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[White can't miss the only point to win.FORCE];W[cr]TR[fs]TR[fr]TR[fq]TR[eq]TR[dq]TR[cq]TR[bq]TR[aq]C[The worst result.]))",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 21,
+  "attempts": {
+    "solved": 1383,
+    "failed": 203,
+    "tries": 1586,
+    "speedSolved": 2,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-08-23T14:33:21+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 189,
+      "name": "Irregular board",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

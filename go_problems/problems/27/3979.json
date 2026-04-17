@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3979,
+  "elo": 1243.8709968284,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 13,
+    "negativeFlagSum": 0,
+    "flagSum": 13
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Be careful not to hit the secret triangle intersection.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 41,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[sc]AB[rc]AB[qc]AB[qd]AB[pd]AB[od]AB[oe]AB[nf]AB[og]AB[oh]AB[nc]AB[nb]AB[ob]AB[mc]AB[lc]AB[kd]AB[jd]AW[oc]AW[pc]AW[pb]AW[qb]AW[rb]AW[sb]AW[ld]AW[md]AW[nd]AW[ke]AW[kf]AW[lg]AW[mf]AW[of]AW[pf]AW[qf]AW[qe]AW[re]AW[rd]TR[oe]TR[od]TR[pd]TR[qd]TR[qc]TR[rc]TR[sc]C[Save the marked stones.](;B[le](;W[me](;B[mg]C[Nice job.RIGHT])(;B[ng];W[ne]C[Not quite.])(;B[ne];W[ng]))(;W[ng](;B[me]C[Nice job.RIGHT])(;B[ne];W[me])(;B[nh];W[ne])))(;B[me];W[le](;B[ne];W[ng]C[Now what, genius?])(;B[ng];W[ne]C[Congratulations, you just lost some stones.]))(;B[ne];W[ng]C[That's great. For white, I mean.])(;B[lf];W[le]C[Playing inside a tiger's mouth is not the best move in this case.])(;B[pa];W[ne]C[Black loses the capturing race.])(;B[qa]C[This really doesn't help you very much.])(;B[ra]C[You don't really want to play there, do you?])(;B[sa]MA[dp]MA[do]MA[dn]MA[dm]MA[fo]MA[en]MA[gp]MA[go]MA[gn]MA[gm]MA[in]MA[io]MA[jp]MA[ko]MA[kn]MA[jm]MA[mm]MA[mn]MA[mp]C[NO!])(;B[oa]C[Wrong])(;B[kc]TR[jb]TR[jc]TR[id]TR[je]TR[jf]TR[kg]TR[lh]TR[mg]TR[ng]TR[nh]TR[oi]TR[ph]TR[pg]TR[qg]TR[rf]TR[se]TR[sd]TR[kb]TR[mb]TR[lb]TR[na]TR[oa]TR[pa]TR[qa]TR[ra]TR[sa]C[You are now surrounded by triangles! You lose.])(;B[sd]C[Please try something else.])(;B[mg];W[ne](;B[le];W[ng])(;B[ng];W[le]))(;B[ng];W[ne](;B[mg];W[le])(;B[le];W[me];B[mg];W[lf])(;B[me];W[le])))",
+  "author": {
+    "id": 6262,
+    "name": "caleb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-06-23",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 86,
+  "attempts": {
+    "solved": 2995,
+    "failed": 5523,
+    "tries": 8518,
+    "speedSolved": 9,
+    "speedPlay": 22
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-02-22T19:01:42+00:00",
+  "source": "Graded Go Problems For Beginners volume 4",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

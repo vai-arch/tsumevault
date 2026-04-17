@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5628,
+  "elo": 1541.105364122,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This endgame occured in a 7x7 game on DGS.\r\n(japanese rules)",
+  "rating": {
+    "stars": 2.8,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]\r\nAW[da][ea][eb][fc][de][ee][cf]AB[ca][bb][db][dc][bd][dd][ce][bf]C[No komi, no prisoners - White to play and win!]PL[W]\r\n(;W[cg]CR[cg]\r\n;B[ec]CR[ec]\r\n(;W[fb]CR[fb]\r\n;B[ed]CR[ed]\r\n;W[fd]CR[fd]\r\n;B[bg]CR[bg]\r\n(;W[df]CR[df]C[White wins by one point! RIGHT])\r\n(;W[ef]CR[ef]C[NOTTHIS])\r\n(;W[eg]CR[eg]C[NOTTHIS]))\r\n(;W[gb]CR[gb]C[NOTTHIS])\r\n(;W[fa]CR[fa]\r\n;B[fd]CR[fd]))\r\n(;W[df]CR[df]\r\n;B[ec]CR[ec]\r\n;W[fb]CR[fb]\r\n;B[ed]CR[ed]\r\n;W[fd]CR[fd]\r\n;B[cg]CR[cg]\r\n;W[dg]CR[dg]\r\n;B[bg]CR[bg]C[This is only a draw.])\r\n(;W[dg]CR[dg]\r\n;B[ec]CR[ec]\r\n;W[fb]CR[fb]\r\n;B[ed]CR[ed]\r\n;W[fd]CR[fd]\r\n;B[bg]CR[bg]\r\n(;W[cg]CR[cg]\r\n;B[eg]CR[eg]\r\n;W[df]CR[df]\r\n;B[fe]CR[fe]C[Black wins!])\r\n(;W[fe]CR[fe]\r\n;B[cg]CR[cg]\r\n;W[df]CR[df]C[Black wins by one point!])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 45,
+  "attempts": {
+    "solved": 1243,
+    "failed": 3056,
+    "tries": 4299,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-11-23T14:05:01+00:00",
+  "source": "DGS",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

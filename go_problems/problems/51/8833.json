@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8833,
+  "elo": 1705.7961279341,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bb]AB[bc]AB[cc]AB[dc]AB[db]AB[fb]AB[fc]AB[ed]AW[ac]AW[bd]AW[cd]AW[dd]AW[df]AW[ff]AW[fd]AW[gd]AW[gc]AW[gb]AW[ga]AP[goproblems]\n(;W[ca]LB[ba:1]LB[ab:2]LB[ec:3]LB[fa:4]\n(;B[ba]C[CHOICE]\n(;W[fa];B[ea];W[da];B[cb];W[da]\n(;B[ec]C[CHOICE];W[eb]C[KoRIGHT])\n(;B[ca]C[CHOICE];W[ec]C[RIGHT]))\n(;W[ab];B[ec];W[ea];B[fa];W[da]C[Seki])\n(;W[ec];B[ab]))\n(;B[ab]C[CHOICE]\n(;W[fa];B[ea]\n(;W[da];B[ec]C[]LB[bf:T];W[eb]C[KoRIGHT])\n(;W[ba];B[ec];W[da];B[aa];W[eb]C[KoRIGHT]))\n(;W[ba];B[fa];W[ec];B[eb];W[da]C[Seki]))\n(;B[ec]C[CHOICE]\n(;W[fa];B[ea];W[da];B[ba];W[eb]C[KoRIGHT])\n(;W[ab];B[ba];W[ea];B[fa];W[da]C[Seki]))\n(;B[fa]C[CHOICE]\n(;W[ab];B[ba];W[ec]C[RIGHT])\n(;W[ec];B[ab];W[ba];B[eb];W[da]C[Seki])))\n(;W[ab];B[ca])\n(;W[fa];B[ca])\n(;W[ec]\n(;B[eb];W[ca];B[ab];W[ba];B[fa];W[da])\n(;B[ca];W[ee];B[eb])))",
+  "author": {
+    "id": 9803,
+    "name": "kennabee",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-09-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1552.91
+  },
+  "avgSolveTimeSeconds": 74,
+  "attempts": {
+    "solved": 172,
+    "failed": 1035,
+    "tries": 1207,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-07-02T13:44:02+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 51,
+      "name": "Xuan Xuan Qijing",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

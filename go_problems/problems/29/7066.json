@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7066,
+  "elo": 962.87949355525,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.2,
+    "votes": 39,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[hi]AB[ii]AB[ji]AB[ki]AB[gj]AB[gk]AB[hl]AB[il]AW[hj]AW[ik]AW[jl]AW[im]AW[gi]AW[fi]AW[fj]AW[gg]AW[ig]AW[jm]C[How can white keep black separated?]AP[goproblems]\n(;W[jk]\n(;B[hk]C[CHOICE];W[ij]C[RIGHT])\n(;B[ij]C[CHOICE];W[hk]C[RIGHT]))\n(;W[ij];B[jk]\n(;W[kk];B[jj])\n(;W[jj];B[kk];W[kj];B[lj]))\n(;W[hk];B[jk]\n(;W[jj];B[ij])\n(;W[kk];B[ij])\n(;W[gl];B[ij])\n(;W[fk];B[ij])\n(;W[hm];B[ij]))\n(;W[jj];B[ij]\n(;W[hk];B[jk])\n(;W[jk];B[hk]))\n(;W[kk];B[ij]\n(;W[hk];B[jk])\n(;W[jk];B[hk]))\n(;W[gl];B[hk]\n(;W[hm];B[ij])\n(;W[ij];B[jk])\n(;W[fk];B[ij]))\n(;W[hm];B[ij]\n(;W[gl];B[hk])\n(;W[jk];B[hk])\n(;W[hk];B[jk])\n(;W[fk];B[jk];W[gl];B[hk]))\n(;W[fk];B[ij]\n(;W[gl];B[hk])\n(;W[hk];B[jk])\n(;W[jk];B[hk])\n(;W[hm];B[jk];W[gl];B[hk])))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 22,
+  "attempts": {
+    "solved": 12363,
+    "failed": 10004,
+    "tries": 22367,
+    "speedSolved": 18,
+    "speedPlay": 62
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-08-12T08:29:11+00:00",
+  "source": "a game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 40,
+      "name": "Prevent the Connection",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

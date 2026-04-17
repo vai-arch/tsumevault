@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6599,
+  "elo": 926.1296291459,
+  "problemLevel": 8,
+  "rank": {
+    "value": 22,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 15,
+    "negativeFlagSum": 0,
+    "flagSum": 15
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 4.3,
+    "votes": 35,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AB[gb]AB[gc]AB[fe]AB[gd]AB[de]AB[be]AW[fc]AW[ed]AW[fd]AW[ad]AW[ec]AW[dd]AW[cd]AW[bd]LB[da:A]C[In the endgame, you can make a large reduction in White's territory here.  Begin by making the monkey jump at A.FORCE]GM[1]FF[4]AP[glGo:1.2-Beta2]ST[1]KM[6.5]PW[White]PB[Black]DT[2005-05-31];B[da];W[db]C[Now save your stone!]\n(;B[ea];W[ca]\n(;B[fb];W[cb]C[Now White is reduced to just eight points and had to make the last move to defend her corner.RIGHT])\n(;B[eb];W[fb]\n(;B[fa];W[ga])\n(;B[ga];W[fa]))\n(;B[fa];W[cb]LB[fa:B]LB[fb:A]C[Now White is reduced to just eight points and had to make the last move to defend her corner.  In general, playing 'A' instead of 'B' gives Black an extra point of territory, but I'll let you off with a warning this time.RIGHT])\n(;B[cb];W[fa]C[First things first.  Now you cannot connect to the outside and it seems unlikely that you will be able to survive on the inside.  I'll add variations as quickly as I see people making them, but I'm 98% certain that it's a lost cause. :)]\n(;B[fb];W[eb])\n(;B[ba];W[eb]\n(;B[ca];W[fb])\n(;B[fb];W[ca])\n(;B[bc];W[ab]\n(;B[fb];W[ca])\n(;B[ca];W[fb]))\n(;B[ga];W[fb]))))\n(;B[ca];W[ea]MA[ec]C[There are times when the extra push allows you a further reduction.  However, when the marked stone exists, it is unreasonable.]\n(;B[eb];W[fb]C[])\n(;B[fa];W[eb]C[]))\n(;B[eb];W[fb]\n(;B[ea];W[ca];B[fa];W[ga])\n(;B[cb];W[ea]C[The Black stones are cut off and cannot hope to survive.])\n(;B[fa];W[ea]C[Now it's ko.  Even if you win and connect to the outside, you'll be no better off than in the correct solution, and White will have profited somewhere else with the ko threat that you ignored.]))\n(;B[fa];W[ca];B[ea];W[cb]C[You reduced White's corner in sente.  Investigate other lines of play to find even better ways of playing out this tesuji.RIGHT])\n(;B[fb];W[ea]\n(;B[eb];W[ca]C[The correct line of play is at least two points better than this.])\n(;B[fa];W[ca]C[The correct line of play is at least two points better than this.]))\n(;B[cb];W[eb]C[Connecting your stone with the outside should be your first priority.  Black's two stones are now split and hope of living in the corner is very dim.]\n(;B[fa];W[ea])\n(;B[fb];W[ea])\n(;B[ea];W[fa]\n(;B[fb];W[ca])\n(;B[ca];W[fb]))\n(;B[bb];W[ab])))",
+  "author": {
+    "id": 10604,
+    "name": "Tirian",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2005-09-16",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 12681,
+    "failed": 9228,
+    "tries": 21909,
+    "speedSolved": 4,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-05-31T08:27:06+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 122,
+      "name": "Monkey Jump",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

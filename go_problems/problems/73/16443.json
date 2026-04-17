@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 16443,
+  "elo": 1524.1016160102,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ab]AB[bc]AB[cc]AB[bd]AB[be]AW[cd]AW[ce]AW[cf]AW[bf]AW[ec]AW[dc]AW[cb]AB[eb]AW[da]C[make two eyes]AP[goproblems]\n(;B[bb];W[ba];B[db];W[fb];B[ca]C[no need for ko])\n(;B[db];W[ba];B[fb];W[bb];B[ea];W[ae];B[ca])\n(;B[ba]\n(;W[db];B[bb]C[RIGHT])\n(;W[bb];B[db];W[fb];B[ca]C[RIGHT])\n(;W[ae]C[CHOICE]\n(;B[bb]\n(;W[ad];B[db];W[fb];B[ca]C[RIGHT])\n(;W[db]C[CHOICE];B[ad]C[RIGHT]))\n(;B[ad];W[bb];B[af];W[db]C[now black has tu run with no eyes])\n(;B[db];W[fb]\n(;B[ad]C[RIGHT])\n(;B[ca]C[RIGHT])\n(;B[bb]C[RIGHT]))))\n(;B[ae];W[ba]))",
+  "author": {
+    "id": 53598,
+    "name": "magrock",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-08-18",
+    "rank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1386.03
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 507,
+    "failed": 1113,
+    "tries": 1620,
+    "speedSolved": 3,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-09-07T14:43:23+00:00",
+  "source": "Encyclopedia of Life and death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 18445,
+  "elo": 1094.8464728438,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[ab]AW[bc]AW[bd]AW[ad]AW[cc]AW[dc]AW[ea]AW[eb]AW[da]AB[fa]AB[fb]AB[fc]AB[ec]AB[dd]AB[cd]AB[be]AB[cf](;B[ba];W[bb];B[ca];W[db]C[CHOICE])(;B[ca];W[db](;B[bb];W[cb];B[ba]C[RIGHT])(;B[ba];W[bb];B[ae];W[ee](;B[ac];W[aa];B[ab];W[fe];B[cb];W[aa];B[ba];W[ca])(;B[aa]C[seki, Black can kill the white group]))(;B[cb];W[bb])(;B[ac];W[ba])(;B[ae];W[ba]))(;B[bb];W[cb];B[ba];W[ac];B[ae]C[CHOICE])(;B[cb];W[bb](;B[ba];W[db]C[CHOICE])(;B[ca](;W[ba];B[db])(;W[db]C[CHOICE];B[ae];W[ba]))))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 1453,
+    "failed": 1789,
+    "tries": 3242,
+    "speedSolved": 6,
+    "speedPlay": 16
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-12-04T20:09:51+00:00",
+  "source": "encyclopedia of life and death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 179,
+      "name": "Encyclopedia of Life and Death - Easy",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

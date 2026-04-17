@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15240,
+  "elo": 1276.8245448753,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[br]AB[bs]AB[bp]AB[bo]AB[bn]AB[an]AW[am]AW[bm]AW[cn]AW[dm]AW[co]AW[cp]AW[dq]AW[cr]AW[cs]C[In how many ways can B live here unconditionally?FORCE]LB[fn:0]LB[fo:1]LB[fp:2]LB[fq:3]LB[fr:4]AP[goproblems]\n(;B[fq]C[];W[fo]C[Of course B3 is the best way to live both point-wise and leaving no threats for W. Please demonstrate another way.]\n(;B[ar];W[bq]\n(;B[ap]C[nice and simple :)RIGHT])\n(;B[aq];W[ap]C[ko!]))\n(;B[ap];W[bq]\n(;B[ar]C[nice and simple :)RIGHT])\n(;B[aq];W[ar]C[ko!]))\n(;B[aq];W[bq]C[ko!])\n(;B[bq]C[You don't read instructions, do you? >_>RIGHT]))\n(;B[fn]C[the correct answer is 3, use 'Show Solution'->'Navigate Solution' after it to see the variations.])\n(;B[fo]C[the correct answer is 3, use 'Show Solution'->'Navigate Solution' after it to see the variations.])\n(;B[fp]C[the correct answer is 3, use 'Show Solution'->'Navigate Solution' after it to see the variations.])\n(;B[fr]C[the correct answer is 3, use 'Show Solution'->'Navigate Solution' after it to see the variations.]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 60,
+  "attempts": {
+    "solved": 953,
+    "failed": 1023,
+    "tries": 1976,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-09-01T04:59:59+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

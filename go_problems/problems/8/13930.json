@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13930,
+  "elo": 1650.4990351883,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[5]AB[eb]AB[ec]AB[ed]AB[dd]AB[de]AB[ab]AW[ba]AW[bb]AW[cc]AW[dc]AW[ae]AW[be]AW[ce]C[5x5 endgame problem. Japanese rules, no komi. Black to do better than jigo.]AP[goproblems]\n(;B[bc];W[cd]\n(;B[db];W[cb]\n(;B[da];W[ad]C[White has to play here to make a seki, please answer at A.FORCE]LB[ac:A];B[ac]C[...Black: 2, White: 0, nice.RIGHT])\n(;B[ad];W[da]C[Big eye beats small eye. Please play at A.FORCE]LB[ac:A];B[ac];W[ca]C[Please play at A.FORCE]LB[bd:A];B[bd];W[aa]C[Please play at A.FORCE]LB[ac:A];B[ac];W[ea]C[Black dies first and it's not even close.]))\n(;B[ad];W[db]C[No good, Black dies.])\n(;B[cb];W[db])\n(;B[ac];W[db]C[Black dies.]))\n(;B[cd];W[bd]\n(;B[db];W[ac];B[cb];W[bc];B[ca]C[Black loses by 1 point.])\n(;B[ac];W[bc]\n(;B[db];W[da]C[Big eye beats small eye, confirm for yourself that Black dies first.])\n(;B[da];W[db];B[ca]C[];W[cb]C[Black loses the semeai. Play it to the end to see how.]\n(;B[aa];W[ea];B[da];W[ad];B[ab];W[ca];B[aa];W[ea]C[Black dies.])\n(;B[ad];W[aa];B[ac];W[ea];B[da];W[ca];B[ab];W[ea]C[Black dies.])))\n(;B[da];W[ac]\n(;B[db];W[cb]C[Black loses by 3 points.])\n(;B[cb];W[bc];B[db]C[Black loses by 2 points.])))\n(;B[db];W[ac]\n(;B[cd];W[bd];B[cb];W[bc];B[ca]C[Black loses by 1 point.])\n(;B[cb];W[cd];B[ca]C[Black loses by 3 points.])\n(;B[bd];W[cd]C[Black loses.]))\n(;B[da];W[ac];B[cd];W[bd]\n(;B[db];W[cb]C[Black loses by 3 points.])\n(;B[cb];W[bc];B[db]C[Black loses by 2 points.]))\n(;B[ac];W[bc]\n(;B[cd];W[bd]\n(;B[db];W[da]C[Big eye beats small eye, confirm for yourself that Black dies first.])\n(;B[da];W[db];B[ca]C[];W[cb]C[Black loses the semeai. Play it to the end to see how.]\n(;B[aa];W[ea];B[da];W[ad];B[ab];W[ca];B[aa];W[ea]C[Black dies.])\n(;B[ad];W[aa];B[ac];W[ea];B[da];W[ca];B[ab];W[ea]C[Black dies.])))\n(;B[db];W[cd]\n(;B[da];W[ad]C[White wins by 4 points.])\n(;B[ad];W[da]C[Black dies first.]))\n(;B[ad];W[db]C[Black just dies this way.]))\n(;B[cb];W[db];B[bc];W[bd];B[ac];W[cd]C[Black dies.])\n(;B[bd];W[cd]C[Black loses.]))",
+  "author": {
+    "id": 2883,
+    "name": "pepi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-10-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 88,
+  "attempts": {
+    "solved": 182,
+    "failed": 469,
+    "tries": 651,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-08-28T05:05:16+00:00",
+  "source": "5x5 yose problems by Fukui Masaaki",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 8,
+      "name": "5x5 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

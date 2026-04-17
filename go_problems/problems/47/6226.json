@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6226,
+  "elo": 1174.3764170805,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[qa]AW[rb]AW[rc]AW[rd]AW[re]AW[pb]AW[qc]AB[qe]AB[qd]AB[pd]AB[pc]AB[ob]AB[nc]AB[nd]AB[mb]AB[ma]AW[lb]AW[mc]AW[md]AW[ld]AW[me]AW[ne]AW[mf]AW[mg]AB[nf]AB[oe]AB[of]AB[ng]AW[mh]AW[nh]AW[oh]AW[og]AW[ph]AW[qf]C[If you think black is unconditionally alive, play at T. If you think white can kill, then kill black.]LB[rh:T]AP[goproblems]\n(;W[pf]\n(;B[oa]\n(;W[od]\n(;B[oc]C[CHOICE];W[pe]C[RIGHT])\n(;B[pe]C[CHOICE];W[oc]C[RIGHT]))\n(;W[pe];B[od])\n(;W[la];B[pe]))\n(;B[pe];W[oa]C[RIGHT]))\n(;W[oa];B[pf])\n(;W[rh]C[Black can be killed.])\n(;W[na];B[oa])\n(;W[oc];B[oa])\n(;W[od];B[pf]))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 5130,
+    "failed": 6808,
+    "tries": 11938,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-03-28T00:59:19+00:00",
+  "source": "a game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

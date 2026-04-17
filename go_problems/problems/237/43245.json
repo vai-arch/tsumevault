@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 43245,
+  "elo": 1166.3319084443,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;TR[eb]LB[db:a]LB[fc:b]AB[bb][cb][cc][cf][dd][ec][ed][fe][ge]AW[bc][cd][ce][ch][dc][de][eb][ee][fd][gd]C[FORCE]AP[goproblems autoextractor]PW[crazyboy]PB[mtmtmtmtmt]PC[The KGS Go Server at http://www.gokgs.com/]DT[2010-02-13]PL[B]GPKEY[local choice]DIFF[9k]HSL[-----------++++++++++++++++++]\n(;B[fc]TR[bb]TR[cb]TR[cc]SQ[dd]SQ[ec]SQ[ed]LB[he:B]C[Playing here is worth about 16 points over playing away in an empty corner. The stones marked with a triangle are stronger. The stones marked with a square are alive. White would have played at the same place if you played away. White would likely play at B next. ]\n(;W[gc]C[CHOICE]\n(;B[fb]C[RIGHT])\n(;B[db];W[fb]C[Your mistake at D18 lost approximately 16 points]))\n(;W[fb]C[CHOICE]\n(;B[gc]C[RIGHT])\n(;B[db];W[gc]C[Your mistake at D18 lost approximately 19 points])))\n(;B[db];W[fc]C[This loses about 7 points. ]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 14,
+  "attempts": {
+    "solved": 7,
+    "failed": 5,
+    "tries": 12,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-02-11T03:20:04+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1288
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12708,
+  "elo": 624.88845284877,
+  "problemLevel": 0,
+  "rank": {
+    "value": 30,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": 0,
+    "flagSum": 10
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "How does Black play so as to capture eight white stones?",
+  "rating": {
+    "stars": 3.5,
+    "votes": 39,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[eq]AW[dq]AW[ep]AB[fp]AW[gp]AW[gq]AW[hp]AW[ho]AW[io]AW[in]AW[jn]AW[jm]AB[jl]AB[im]AB[hn]AB[go]AB[ip]AB[jo]AB[kn]AB[km]AB[hq]AP[goproblems]\n(;B[gr]LB[gr:1]C[If Black plays 1, the eight white stones can be captured on the next move.RIGHT])\n(;B[fq];W[gr]LB[fq:1]LB[gr:2]C[Giving atari with 1 here fails. White extends to 2, leaving Black with too many defects in his position to defend properly.]))",
+  "author": {
+    "id": 30125,
+    "name": "Acorn",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-01-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 14,
+  "attempts": {
+    "solved": 13352,
+    "failed": 2685,
+    "tries": 16037,
+    "speedSolved": 202,
+    "speedPlay": 281
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-05-25T17:57:23+00:00",
+  "source": "Graded Go Problems for Beginners: Volume Two",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4336,
+  "elo": 1207.7364347864,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -2,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This cropped up in a handicap club game, but the colours have been reversed because I got confused when I was putting the SGF file together.\r\n\r\nThe rest of the board is essentially settled -- I have omitted it because I cannot remember how it was.  M8 and friends are definitely alive (2 real eyes), and there is a living black group (possibly the same one) out towards K6.\r\n\r\nI do not want to synthesise the position on the rest of the board, because I would end up creating something stupid that would detract from the original problem.",
+  "rating": {
+    "stars": 2.2,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[nl][ol][mm][om][on][qn][po][lp][qp][lq][mq][nq][oq][pq][qq]AB[mk][ll][ml][nm][ln][nn][oo][mp][np][op][pp]LB[ql:T]TR[mm]C[White has just played into your mouth shape with 1. You can tenuki for 8 points in gote (play at T).  Choose the best play!]PL[B]\r\n(;B[mn]LB[mo:A]CR[mn]C[Close: Your stones are safe, but white still has a 10-point ko threat at A.  You can do better.])\r\n(;B[lm]CR[lm]\r\n;W[mo]CR[mo]\r\n(;B[mn]CR[mn]\r\n;W[no]CR[no]C[Lose 10 points but keep sente.  White comes out ahead.])\r\n(;B[no]CR[no]\r\n;W[mn]CR[mn]C[Are you insane!?!?!? Seriously, don't do that unless you really, really need a 16-point ko threat.]))\r\n(;B[ql]CR[ql]\r\n;W[mo]CR[mo]\r\n(;B[mn]CR[mn]\r\n;W[no]CR[no]C[Lose 10 points but keep sente.  White comes out ahead.])\r\n(;B[no]CR[no]\r\n;W[mn]CR[mn]C[Are you insane!?!?!? Seriously, don't do that unless you really, really need a 16-point ko threat.])\r\n(;B[lm]CR[lm]\r\n;W[mn]CR[mn]C[Lose 14 points but keep sente, white has come out ahead]))\r\n(;B[mo]CR[mo]C[RIGHT\r\nYou saved all your stones, and the biggest ko threat white has is (N6) 4 points.])\r\n(;B[lo]CR[lo]\r\n;W[mo]CR[mo]\r\n;B[mn]CR[mn]\r\n;W[no]CR[no]C[Lose 10 points but keep sente.  White comes out ahead.]))",
+  "author": {
+    "id": 6625,
+    "name": "WillerZ",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-02-09",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 3191,
+    "failed": 5139,
+    "tries": 8330,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-04-24T14:39:43+00:00",
+  "source": "Amateur club game at Winchester Go Club (UK)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

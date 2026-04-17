@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8828,
+  "elo": 1389.3930707933,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.8,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[nq]AB[qp]AB[qq]AB[qr]AB[qs]AB[mq]AB[kq]AW[or]AW[op]AW[oo]AW[pn]AW[qo]AW[rn]AW[rp]AW[rq]AW[rr]AW[rs]AP[goproblems]\n(;B[nr]\n(;W[pr]\n(;B[os]\n(;W[ps];B[oq];W[ns]\n(;B[pq]C[RIGHT])\n(;B[pp]C[RIGHT]))\n(;W[pq]\n(;B[ps]C[RIGHT])\n(;B[oq];W[pp]))\n(;W[pp];B[ps]))\n(;B[ps];W[os]C[];B[oq];W[pq]C[])\n(;B[oq];W[pq];B[os];W[pp]))\n(;W[oq];B[os]C[RIGHT]))\n(;B[oq];W[pq]C[(removed comments that had an unhealthy dose of sarcasm).]\n(;B[pp];W[pr]C[Count the liberties... White wins the capturing race])\n(;B[pr];W[pp]C[])\n(;B[nr];W[pp];B[os];W[pr]))\n(;B[pq];W[oq]C[])\n(;B[os];W[nr]\n(;B[ms];W[pq]\n(;B[ps];W[ns]C[Black has two liberties.  White has three.])\n(;B[ns];W[ps];B[pr];W[pp];B[ps];W[mr];B[ls];W[lr]C[Okay . . . how exactly are you expecting to escape?])\n(;B[mr];W[ps];B[pr];W[pp]C[]))\n(;B[mr]C[I didn't see this line when I made the problem for some reason.  Actually, the problem just kinda sucks now, since the whole point was supposed to be that the empty triangle was the right move for b.RIGHT]))\n(;B[pr];W[oq]C[This is not going anywhere you're going to like . . .]\n(;B[nr];W[os])\n(;B[os];W[nr])))",
+  "author": {
+    "id": 110,
+    "name": "traveller",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-07",
+    "rank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1332.23
+  },
+  "avgSolveTimeSeconds": 77,
+  "attempts": {
+    "solved": 1423,
+    "failed": 2729,
+    "tries": 4152,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-06-30T01:18:18+00:00",
+  "source": "Art of Connecting Stones",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 346,
+      "name": "side",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

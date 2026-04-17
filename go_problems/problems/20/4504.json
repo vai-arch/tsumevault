@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4504,
+  "elo": 1272.327720353,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 2.6,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[oa]AW[ob]AW[rb]AW[oc]AW[qc]AW[nd]AW[pd]AW[pe]AW[qe]AW[re]AW[se]AB[pa]AB[qa]AB[ra]AB[pb]AB[sb]AB[pc]AB[sc]AB[qd]AB[rd]AB[sd]LB[ka:0]LB[la:4]LB[kb:1]LB[lb:5]LB[kc:2]LB[lc:6]LB[kd:3]LB[ld:7]C[Using Japanese rules, how many points has Black ?FORCE]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[Blanc]PB[Noir]PL[B]\n(;B[ka]LB[ka:0]LB[la:4]LB[kb:1]LB[lb:5]LB[kc:2]LB[lc:6]LB[kd:3]LB[ld:7]C[Right, none. Both the White and Black stones are alive in seki, so the area they share is dame. All stones of a group with unremovable dame and any remaining liberties of that group are in seki. So T19 is part of the seki and pointless (in a sense).RIGHT])\n(;B[kb]LB[ka:0]LB[la:4]LB[kb:1]LB[lb:5]LB[kc:2]LB[lc:6]LB[kd:3]LB[ld:7]C[Sorry, but no. All stones of a group that has unremovable dame are said to be part of the seki, and so are any remaining liberties of that group. As T19 is adjacent to stones in seki, it is part of the seki and pointless (in a sense).])\n(;B[kc]LB[ka:0]LB[la:4]LB[kb:1]LB[lb:5]LB[kc:2]LB[lc:6]LB[kd:3]LB[ld:7])\n(;B[kd]LB[ka:0]LB[la:4]LB[kb:1]LB[lb:5]LB[kc:2]LB[lc:6]LB[kd:3]LB[ld:7])\n(;B[la]LB[ka:0]LB[la:4]LB[kb:1]LB[lb:5]LB[kc:2]LB[lc:6]LB[kd:3]LB[ld:7])\n(;B[lb]LB[ka:0]LB[la:4]LB[kb:1]LB[lb:5]LB[kc:2]LB[lc:6]LB[kd:3]LB[ld:7])\n(;B[lc]LB[ka:0]LB[la:4]LB[kb:1]LB[lb:5]LB[kc:2]LB[lc:6]LB[kd:3]LB[ld:7])\n(;B[ld]LB[ka:0]LB[la:4]LB[kb:1]LB[lb:5]LB[kc:2]LB[lc:6]LB[kd:3]LB[ld:7]C[No. It would be if you could capture the White stones, but you can't.])\n(;B[sa];W[rc];B[qb];W[rc]C[Can't play in a seki...])\n(;B[rc];W[sa])\n(;B[qb];W[sa]))",
+  "author": {
+    "id": 3145,
+    "name": "karmaGfa",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 23,
+  "attempts": {
+    "solved": 5449,
+    "failed": 6356,
+    "tries": 11805,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-05-23T11:13:11+00:00",
+  "source": "My mind",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 20,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

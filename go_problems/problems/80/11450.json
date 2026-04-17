@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11450,
+  "elo": 1498.2211568292,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -6,
+    "flagSum": -6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "",
+  "rating": {
+    "stars": 2.5,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qc]C[3-3 Joseki. Please begin at the triangle.FORCE]TR[pd]AP[goproblems];W[pd];B[qd]C[FORCE]\n(;W[pe]\n(;B[pc]C[FORCE]\n(;W[nd];B[oc]C[FORCE]\n(;W[mf]\n(;B[qf]C[FORCE];W[nc]C[CHOICERIGHT])\n(;B[mc]C[FORCE];W[qe]C[CHOICERIGHT]))\n(;W[nc];B[od];W[oe];B[ne]C[This looks difficult for white.CHOICE]))\n(;W[oc];B[nc]C[This is bad for white. Instead pf P17, White should have played O16. The triangles are miai for black]\n(;W[od];B[ob]C[No good. White is heavy, and black has a good position on the top side.CHOICE])\n(;W[ob];B[od]\n(;W[nb];B[mc];W[nd];B[oe];W[md]C[White can only play here if the ladder to lower left is favourable for her (at the triangle), otherwise, black will extend at A, and white will be in big trouble. Even if black makes the Q14-M17 exchange in the even of a favourable ladder for white, his position is still better.CHOICE]TR[of]LB[lc:A])\n(;W[nd];B[oe];W[mc];B[ne];W[md];B[pf]C[This is obviously very bad for white.CHOICE])))\n(;W[qe]C[Bad for white.];B[od];W[oe];B[nd]\n(;W[qi];B[jc]C[Black is better off.CHOICE])\n(;W[pi];B[jc]C[Black is better off.CHOICE])))\n(;B[ob]C[FORCE]\n(;W[md];B[rf];W[ph]C[CHOICERIGHT])\n(;W[qe];B[nd]\n(;W[qi]C[CHOICERIGHT]))))\n(;W[pf]\n(;B[od]C[FORCE];W[oe]\n(;B[oc]C[Black will play here for sente as opposed to the usual continuation at Q17];W[me]C[RIGHT])\n(;B[pc]C[FORCE];W[nd];B[pe]TR[ne]C[The marked points are symmetrical, so please only play on the right side.CHOICEFORCE]MA[qe]MA[oc]TR[of]\n(;W[qe]C[BAD move for white.];B[ne];W[pd];B[oc];W[md];B[nf];W[of]C[CHOICE];B[le];W[kc];B[nh]C[This looks difficult for white.CHOICE])\n(;W[of];B[nc]C[FORCE];W[md];B[mc]C[FORCE];W[ld]C[CHOICERIGHT])\n(;W[nf];B[qf]C[FORCE];W[pg]\n(;B[qg]C[FORCE];W[ph]C[CHOICERIGHT])\n(;B[me]C[FORCE];W[oc];B[ob]C[FORCE];W[pd];B[qe]C[CHOICERIGHT]))))\n(;B[pe]C[FORCE];W[oe];B[qe]C[FORCE]\n(;W[mf];B[nc]C[RIGHT])\n(;W[of]\n(;B[qg]C[FORCE];W[nc]C[RIGHT])\n(;B[nc]C[FORCE];W[qf]C[RIGHT])))))",
+  "author": {
+    "id": 24774,
+    "name": "randomly_anonymous",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-15",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1434.15
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 619,
+    "failed": 1280,
+    "tries": 1899,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-07-12T07:35:01+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 80,
+      "name": "3-3 (san-san) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

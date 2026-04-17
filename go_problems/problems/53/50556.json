@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 50556,
+  "elo": 1750.0415193877,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Does A capture the cutting stone? If yes, play A. Otherwise, play B.",
+  "rating": {
+    "stars": 5,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[pd][pj][qj][re][oi][qd][oc]AW[qe][pi][rd][qc][mi][rb][sc][lf]LB[qf:A]LB[rf:B](;B[qf];W[pe];B[oe];W[pf];B[pg];W[of];B[nf];W[og];B[ng];W[oh];B[nh];W[ph](;B[rf];W[qg];B[qi];W[qh];B[rh]C[Well done!RIGHT])(;B[qh];W[qg](;B[rf];W[qi];B[rh];W[ri](;B[rg];W[rj];B[rk];W[oj])(;B[sh];W[rj];B[rk];W[oj]))(;B[qi];W[rf]))(;B[qi];W[qg];B[rf];W[qh];B[rh]C[RIGHT])(;B[rg];W[qg];B[rf];W[rh](;B[qi];W[qh];B[ri];W[sg])(;B[ri];W[sh]))(;B[qg];W[ne];B[od];W[ni];B[oj];W[rf]C[Could have killed the cutting stones!]))(;B[rf]C[The ladder is better! (though I wouldn't blame you for choosing this move in a game)]))",
+  "author": {
+    "id": 113656,
+    "name": "seito1",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-07",
+    "rank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1302.51
+  },
+  "avgSolveTimeSeconds": 0,
+  "attempts": {
+    "solved": 0,
+    "failed": 8,
+    "tries": 8,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-09-09T22:06:06+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1540
+}

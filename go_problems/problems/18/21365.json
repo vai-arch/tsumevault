@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21365,
+  "elo": 1586.8738818401,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Please comment if there are any moves I missed.",
+  "rating": {
+    "stars": 4.8,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cr]AB[dr]AB[dq]AB[eq]AB[ep]AB[eo]AB[gp]AB[gq]AB[jp]AB[jq]AB[jr]AW[br]AW[cq]AW[bp]AW[co]AW[dn]AW[en]AW[fn]AW[gn]AW[hn]AW[ho]AW[iq]AW[hq]AW[hr]AW[gr]C[White to play.]AB[jn]AP[goproblems]\n(;W[fp]\n(;B[fq]\n(;W[hp]TR[fo]TR[fr]C[The marked points are miai. Black is dead!RIGHT])\n(;W[io]C[The marked points are miai. Black is dead!RIGHT]TR[fo]TR[fr])\n(;W[ip]C[Works but not the best move for connection.RIGHT])\n(;W[fr];B[hp];W[ip];B[io]C[White is captured.]\n(;W[fo];B[ir]C[White is captured.])\n(;W[er];B[ir]))\n(;W[fo];B[hp];W[ip];B[io];W[fr];B[ir]C[White is captured.]))\n(;B[fo];W[fr];B[hp]\n(;W[ip];B[io]\n(;W[go];B[fq]C[White will be captured first.])\n(;W[fq]C[CHOICE];B[go]\n(;W[cs]C[White wins the capturing race!RIGHT])\n(;W[dp]C[White wins the capturing race!RIGHT])\n(;W[do]C[White wins the capturing race!RIGHT])\n(;W[er]C[White wins the capturing race!RIGHT])\n(;W[ds]C[White wins the capturing race!RIGHT])))\n(;W[fq];B[ip];W[go];B[ir]C[White is captured.]))\n(;B[fr];W[fo]\n(;B[hp];W[ip];B[io];W[fq]C[RIGHT])\n(;B[fq]\n(;W[hp]C[Black is dead.RIGHT])\n(;W[io]C[Black is dead.RIGHT])\n(;W[ip]C[Black is dead.RIGHT])))\n(;B[hp];W[ip];B[io];W[fq]C[RIGHT]))\n(;W[fq];B[fp];W[fr];B[hp];W[ip];B[io]C[White will be captured first.])\n(;W[fr];B[hp];W[ip];B[io]\n(;W[fp];B[fq]\n(;W[fo];B[ir]C[White is captured.])\n(;W[er];B[ir]))\n(;W[fq];B[fp]C[White is captured.])\n(;W[er];B[ir]C[White is captured.])\n(;W[fo];B[ir]C[White is captured.]))\n(;W[fo];B[hp];W[ip];B[io]\n(;W[fq];B[fp];W[fr];B[ir]C[White is captured.])\n(;W[fr];B[ir]C[White is captured.])\n(;W[fp];B[fq];W[fr];B[ir]C[White is captured.]))\n(;W[hp];B[fr]C[Black is alive.])\n(;W[io];B[fr]C[Black is alive.])\n(;W[ip];B[fr]C[Black is alive.])\n(;W[cs];B[hp];W[ip];B[io];W[fr];B[er]C[White is captured.])\n(;W[es];B[hp];W[ip];B[io];W[fr];B[ir]))",
+  "author": {
+    "id": 24774,
+    "name": "randomly_anonymous",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-15",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1434.15
+  },
+  "avgSolveTimeSeconds": 73,
+  "attempts": {
+    "solved": 99,
+    "failed": 314,
+    "tries": 413,
+    "speedSolved": 2,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2017-01-06T12:22:00+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

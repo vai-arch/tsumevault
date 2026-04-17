@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23406,
+  "elo": 1777.7542272693,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "After making a classic kyu mistake in the bottom left, you get a chance to punish the same mistake yourself.",
+  "rating": {
+    "stars": 3.7,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dp]AW[pp]AB[co]AB[cj]AB[cq]AB[cr]AB[fq]AB[eq]AB[er]AB[ds]AW[cn]AW[dn]AW[do]AW[ep]AW[fp]AW[gq]AW[fr]AW[gp]AB[cp]AB[qn]AB[pn]AW[qo]AW[qj]LB[qn:1]LB[qo:2]LB[pn:3]LB[qj:4]C[Black to play the joseki from the bottom left.]AP[goproblems]\r\n(;B[op]\r\n(;W[oq]C[CHOICE]\r\n(;B[np];W[nq]\r\n(;B[pq];W[qq];B[pr];W[qr];B[po];W[qp];B[mq];W[or];B[nr];W[ps];B[mp]C[White cries in the face of your influence after looking at their totally enclosed cornerRIGHT])\r\n(;B[mq];W[qq]TR[po]C[This leaves a flaw in Black's shape])\r\n(;B[po];W[qp]TR[mq]C[Black can no longer enclose White]))\r\n(;B[nq]C[Also good for Black, but different variation than bottom left])\r\n(;B[pq];W[oo]C[This allows White to avoid getting enclosed])\r\n(;B[po];W[np];B[qp];W[oo];B[qq]C[White is fine with this]))\r\n(;W[po]C[White may try this];B[oo];W[on];B[pq];W[ro];B[qq];W[pm];B[qm];W[pl];B[nn];W[om];B[mo]C[RIGHT])\r\n(;W[pq]C[Variations I've seen desperate people try];B[po]\r\n(;W[oq];B[np];W[nq];B[mp]C[RIGHT])\r\n(;W[ro];B[oq];W[or];B[nr];W[pr];B[mq]C[RIGHT])))\r\n(;B[po]C[Also good for Black, but different variation than bottom left]))",
+  "author": {
+    "id": 52754,
+    "name": "nimbim",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-30",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1429.6
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 14,
+    "failed": 86,
+    "tries": 100,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-05-25T17:09:12+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 137,
+      "name": "Reverse engineering",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4900,
+  "elo": 1223.7044784122,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ba]AB[bb]AB[cb]AB[dc]AB[ec]AB[fc]AB[gb]AB[ga]AW[ab]AW[bc]AW[cc]AW[dd]AW[fd]AW[ed]AW[gc]AW[hc]AW[hb]C[W to kill.]AP[goproblems]\n(;W[ea]\n(;B[eb]\n(;W[da];B[fa];W[ha]C[Yup! Just as in the bulky 5, the center in the bulky 7 is the key point! (Note that it works only because black isn't solidly connected, were the marked stones black, he'd be unconditionally alive. See comments for further info.)RIGHT]TR[gc]TR[cc])\n(;W[ha];B[da]C[:(])\n(;W[fa];B[da]C[:(]))\n(;B[da];W[fb]C[RIGHT])\n(;B[db];W[da]C[RIGHT]))\n(;W[da];B[ea]\n(;W[eb];B[fb];W[fa]MA[ea]C[Unconditional kill's possible..])\n(;W[db];B[eb]C[:(]))\n(;W[db];B[da]C[:(])\n(;W[eb];B[ea]\n(;W[da];B[fb];W[fa]C[Unconditional kill's possible..]MA[ea])\n(;W[db];B[fb]C[:(])\n(;W[fb];B[db]C[:(]))\n(;W[ca];B[da]C[:(])\n(;W[fa];B[ea]C[:(])\n(;W[fb];B[eb]C[:(]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 3788,
+    "failed": 7523,
+    "tries": 11311,
+    "speedSolved": 5,
+    "speedPlay": 14
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-08-04T13:30:00+00:00",
+  "source": "http://senseis.xmp.net/?BulkySeven",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

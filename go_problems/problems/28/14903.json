@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14903,
+  "elo": 1304.2125758728,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -2,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Black to play.  Black to cut White so he can connect his two groups.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qp]AB[op]AB[nq]AB[qk]AB[pk]AB[ok]AB[nl]AB[nj]AB[mj]AW[pj]AW[oj]AW[ni]AW[qm]AW[om]AW[lm]AW[mn]AW[lp]C[Black to play.  Cut White to connect your two groups.]AP[goproblems]\n(;B[pn]\n(;W[pm]C[White resists....CHOICE];B[nm];W[nn];B[on]C[White is punished for trying to save his stone.RIGHT])\n(;W[on];B[pm]C[White comprimises.  Black catches a stone and connects his two groups.RIGHT]))\n(;B[nm]C[];W[nn]C[]\n(;B[on];W[oo];B[pn];W[po];B[pm];W[qn];B[pl];W[qo]C[This cut does not work since this is an awful result for Black.  When white pushes through with wQ5 Black's stones in the corner are severely weakened.]TR[po])\n(;B[pn];W[on];B[pm]C[RIGHT]))\n(;B[nn];W[nm]TR[lm]TR[mn]TR[om]C[White's kosumi keima is very strong.  This cut does not work.])\n(;B[pm];W[pn]C[Black has no good follow up. This cut does not work.])\n(;B[on]\n(;W[oo]C[White has a stronger response than this,. at Q6.]\n(;B[nm];W[nn]C[This is the other variation if Black cut the keima first.];B[pn];W[po];B[pm];W[qn];B[pl];W[qo]C[This cut does not work since this is an awful result for Black.  When white pushes through with wQ5 Black's stones in the corner are severely weakened.]TR[po])\n(;B[nn];W[nm];B[pm];W[pn])\n(;B[pm];W[pn]C[This cut does not work ...]\n(;B[nn];W[nm])\n(;B[nm];W[nn])\n(;B[pl];W[nn])\n(;B[qn];W[pl])\n(;B[po];W[nn]))\n(;B[pn]\n(;W[nn]C[This is the wrong response by white, because ...];B[po];W[nm];B[pm]C[Black gets a good result.])\n(;W[nm]C[];B[pm];W[no];B[po]C[This is very similar to the simpler comprimise variation, where Black plays Q6 first, but this is bad play by white.  White could actually live in the corner.]TR[pn])\n(;W[po]C[This White response has some unfavorable variations for White so White should not play this way as this becomes complicated.]\n(;B[nn];W[nm];B[pm];W[no];B[qo];W[qn];B[pl];W[pp];B[pq])\n(;B[qn];W[nm];B[pm];W[no];B[qo];W[pp];B[pq])))\n(;B[po];W[pn];B[nn];W[nm]))\n(;W[nn]C[This response by White gives Black too good a result.];B[pn];W[nm];B[pm])\n(;W[nm]C[This response by White seems a bit too good for Black as Black ends in sente.];B[pm];W[pn];B[pl];W[oo];B[po];W[nn];B[qn];W[on])\n(;W[pn]C[A strong response by White.  Thanks to kaf.CHOICE];B[nm]C[]\n(;W[nn];B[oo])\n(;W[oo]C[CHOICE];B[nn];W[pp];B[pq];W[po];B[no];W[qq]C[White lives inside black's territory.  Thanks to kaf for this variation.]))))",
+  "author": {
+    "id": 48596,
+    "name": "dbosst",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-04-07",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 933,
+    "failed": 1700,
+    "tries": 2633,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-06-14T12:18:53+00:00",
+  "source": "Tesuji - James Davies (ch.7 prb.6)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

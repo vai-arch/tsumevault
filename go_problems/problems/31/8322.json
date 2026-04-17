@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8322,
+  "elo": 1355.0221006863,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -12,
+    "flagSum": -9
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 31,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dp]AB[ep]AB[co]AB[pp]AB[op]AB[qo]AW[do]AW[po]AW[od]TR[do]TR[po]C[Exercise in ladders and ladder breakers: out of the two triangled stones, how many can be killed by Black?]LB[hq:0]LB[jq:1]LB[lq:2]AW[ee]AP[goproblems]\r\n(;B[hq]C[Actually, one of the stones can be killed :). Navigate for the solution.])\r\n(;B[jq]C[Correct, Black can take one of the stones. Navigate the solution if your answer was a lucky guess :)RIGHT])\r\n(;B[lq]C[It's impossible to kill both of them. As soon as Black threatens one of them White can escape with the other.])\r\n(;B[dn]C[This line of play shows what happens when White tries to save both stones.];W[eo];B[pn];W[oo];B[no];W[on];B[fo];W[en];B[em];W[fn];B[om];W[nn];B[mn];W[nm];B[gn];W[fm];B[fl];W[gm];B[nl];W[mm];B[lm];W[ml];B[hm];W[gl];B[gk];W[hl];B[mk];W[ll];B[kl];W[lk];B[il];W[hk];B[hj];W[ik];B[lj];W[kk];B[jk]C[Double atariRIGHT])\r\n(;B[jk]C[Double ladder maker. K10 would also work (see comments).RIGHT]))",
+  "author": {
+    "id": 6913,
+    "name": "cusp",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-04-26",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 32,
+  "attempts": {
+    "solved": 2553,
+    "failed": 2771,
+    "tries": 5324,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-03-23T09:11:23+00:00",
+  "source": "An idea straight out of my little mind.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 24,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

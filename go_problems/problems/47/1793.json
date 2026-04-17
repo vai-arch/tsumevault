@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1793,
+  "elo": 1606.9896899664,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -2,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "In this tournament game, played between a 3d and a 1k with a komi of 2 points, white made a careless mistake and wasn't able to win. Can you do better?",
+  "rating": {
+    "stars": 3,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[9]KM[2.00]TM[]\r\nAW[fb][gb][ec][ed][de][ee][he][df][eg][fg][gg][gh]AB[fa][db][eb][dc][dd][ce][cf][gf][cg][dg][dh][eh][fh]LB[dh:A]C[Black just played at A. Can white win after this?]PL[W]\r\n(;W[fi]CR[fi]\r\n;B[ga]CR[ga]\r\n(;W[ha]CR[ha]\r\n;B[ea]CR[ea]\r\n(;W[hb]CR[hb]\r\n;B[ei]CR[ei]\r\n;W[gi]CR[gi]C[White wins by one point! RIGHT])\r\n(;W[hc]CR[hc]\r\n;B[ei]CR[ei]\r\n;W[gi]CR[gi]C[White wins by one point! RIGHT])\r\n(;W[ib]CR[ib]\r\n;B[ei]CR[ei]\r\n;W[gi]CR[gi]C[White wins by one point! RIGHT]))\r\n(;W[hb]CR[hb]\r\n;B[ha]CR[ha])\r\n(;W[ei]CR[ei]\r\n;B[hb]CR[hb]))\r\n(;W[ga]CR[ga]\r\n;B[gi]CR[gi]\r\n(;W[hi]CR[hi]\r\n;B[fi]CR[fi]\r\n(;W[hh]CR[hh]\r\n;B[ea]CR[ea]C[Jigo! This is not whites best, but the game ended this way...])\r\n(;W[ih]CR[ih]\r\n;B[ea]CR[ea]C[Jigo! This is the game])\r\n(;W[hg]CR[hg]\r\n;B[ea]CR[ea]C[Jigo! This is the game]))\r\n(;W[ea]CR[ea]\r\n;B[hh]CR[hh]\r\n;W[da]CR[da]\r\n;B[ca]LB[hg:A]CR[ca]C[ B A is good, too.]\r\n;W[fa]CR[fa]\r\n;B[cb]CR[cb]\r\n;W[hg]CR[hg]\r\n;B[hi]CR[hi]C[Black wins by one point!])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 1549,
+    "failed": 3828,
+    "tries": 5377,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-12-05T05:27:43+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

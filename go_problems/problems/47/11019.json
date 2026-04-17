@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11019,
+  "elo": 1325.3295231071,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[qr]AB[qq]AB[pq]AB[oq]AB[op]AB[lp]AB[lq]AB[lr]AB[ls]AW[ks]AW[kr]AW[kq]AW[kp]AW[ko]AW[lo]AW[mo]AW[no]AW[oo]AW[pp]AW[qp]AW[rq]AW[rr]AW[ro]AW[nq]C[Black to live.](;B[nr];W[mq](;B[mr](;W[ps]C[CHOICE](;B[qs];W[ns](;B[or];W[os]C[Seki.RIGHT])(;B[os];W[or];B[pr];W[os]))(;B[os];W[qs]))(;W[qs]C[Wrong white move. Black is alive with points.];B[ps](;W[or];B[os])(;W[rs];B[or])(;W[ns];B[or])))(;B[os];W[mr](;B[pr];W[qs])(;B[qs];W[pr]))(;B[ps];W[mr](;B[or];W[ns])(;B[ns];W[or])))(;B[np]C[Pushing at O4 reduces black liberties. In some situations this is a bad idea...];W[mp](;B[nr];W[mq];B[mr];W[qs];B[ps];W[or](;B[pr];W[os])(;B[rs];W[ns])(;B[ns];W[pr]))(;B[mq];W[nr]TR[ls]TR[lr]TR[lq]TR[lp]TR[mq]C[The tirangle stones are captured.]))(;B[or];W[nr];B[np];W[mp](;B[mq];W[ms])(;B[ns];W[mq]))(;B[mq];W[nr];B[np];W[mp])(;B[os];W[nr];B[np];W[mp];B[mq];W[ms])(;B[mp];W[np])(;B[mr];W[nr])(;B[ps];W[nr]))",
+  "author": {
+    "id": 6276,
+    "name": "Lok",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-03-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 1673,
+  "attempts": {
+    "solved": 954,
+    "failed": 1691,
+    "tries": 2645,
+    "speedSolved": 2,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-03-05T02:51:13+00:00",
+  "source": "Problem 11015",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12850,
+  "elo": 1067.6327356018,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cc]AB[bd]AB[ad]AB[bb]AB[ba]AB[cb]AW[ae]AW[be]AW[cd]AW[dc]AW[dd]C[Kill black.]AW[fb]AP[goproblems]\n(;W[ab]\n(;B[aa]C[E18 also works for black--see navigation.]\n(;W[ac];B[bc]\n(;W[ca];B[db];W[da];B[eb];W[ea];B[fa])\n(;W[da];B[db]\n(;W[eb]C[RIGHT])\n(;W[ea];B[eb]C[RIGHT]))\n(;W[eb];B[db]\n(;W[ea];B[da])\n(;W[da]C[RIGHT]))\n(;W[ea];B[db]\n(;W[da];B[eb]C[RIGHT])\n(;W[eb];B[da]))\n(;W[db]C[RIGHT]))\n(;W[bc];B[ac]))\n(;B[eb]\n(;W[db];B[da]\n(;W[ec]C[RIGHT])\n(;W[fc]C[RIGHT])\n(;W[ea]C[This sacrifice is unnecessary];B[fa]C[This sacrifice was unnecessary]))\n(;W[ec];B[db])\n(;W[ea];B[da]\n(;W[fa];B[db])\n(;W[db];B[fa]C[This sacrifice was unnecessary]))\n(;W[da];B[db];W[ea];B[ec])\n(;W[ca];B[db])\n(;W[fa];B[db])\n(;W[fc];B[db])\n(;W[bc]\n(;B[db]C[RIGHT])\n(;B[ac];W[bc]C[RIGHT]))))\n(;W[aa];B[ab])\n(;W[bc];B[ac])\n(;W[ac];B[bc]\n(;W[ab];B[db]\n(;W[da];B[eb];W[ea];B[ec])\n(;W[eb];B[da])\n(;W[ca];B[da])\n(;W[ea];B[da]))\n(;W[aa];B[ab]))\n(;W[db]C[CHOICE];B[ac])\n(;W[ca]C[CHOICE];B[db])\n(;W[da]C[CHOICE];B[ac])\n(;W[eb];B[ac])\n(;W[ea];B[ac]))",
+  "author": {
+    "id": 31689,
+    "name": "Cei",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2017-11-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 39,
+  "attempts": {
+    "solved": 3189,
+    "failed": 4580,
+    "tries": 7769,
+    "speedSolved": 16,
+    "speedPlay": 21
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-06-29T09:16:45+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

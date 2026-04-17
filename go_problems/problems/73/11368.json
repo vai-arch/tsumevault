@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11368,
+  "elo": 1307.5527978643,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sa]AB[ra]AB[qb]AB[qc]AB[rc]AB[qd]AB[re]AB[qf]AB[rf]AB[sf]AW[sg]AW[rg]AW[qg]AW[pg]AW[pe]AW[qe]AW[pf]AW[pd]AW[pb]AW[pa]AW[qa]AW[pc]C[Assume white is fighting a ko slightly smaller than this group. How many threats does white have here?]LB[na:0]LB[nb:1]LB[nc:2]LB[nd:3]LB[ne:4]LB[nf:5]LB[ng:6]AP[goproblems]\n(;W[ne];B[nd]C[Play them.]\n(;W[sd];B[sc]\n(;W[rd];B[se]\n(;W[rd];B[sd]\n(;W[rb];B[sb]C[Good job.RIGHT])\n(;W[sb];B[rb]C[Good job.RIGHT]))\n(;W[sd];B[rd]\n(;W[rb];B[sb]C[Good job.RIGHT])\n(;W[sb];B[rb]C[Good job.RIGHT]))\n(;W[rb];B[sb]\n(;W[rd];B[sd]C[Good job.RIGHT])\n(;W[sd];B[rd]C[Good job.RIGHT]))\n(;W[sb];B[rb]\n(;W[rd];B[sd]C[Good job.RIGHT])\n(;W[sd];B[rd]C[Good job.RIGHT])))\n(;W[rb];B[sb]\n(;W[rd];B[se]\n(;W[rd];B[sd]C[Good job.RIGHT])\n(;W[sd];B[rd]C[Good job.RIGHT]))\n(;W[se];B[rd]))\n(;W[sb];B[rb]\n(;W[rd];B[se]\n(;W[rd];B[sd]C[Good job.RIGHT])\n(;W[sd];B[rd]C[Good job.RIGHT]))\n(;W[se];B[rd]))\n(;W[se];B[rd]\n(;W[rb];B[sb]C[3])\n(;W[sb];B[rb]C[3])))\n(;W[sc];B[sd]\n(;W[rb];B[sb]C[2])\n(;W[sb];B[rb]C[2]))\n(;W[sb];B[sd];W[rb];B[sc]C[2])\n(;W[rb];B[sd]\n(;W[sb];B[sc]C[2])\n(;W[sc];B[sb]C[2]))\n(;W[rd];B[sd]\n(;W[rb];B[sb])\n(;W[sb];B[rb]C[2]))\n(;W[se];B[sd]\n(;W[rb];B[sb])\n(;W[sb];B[rb]C[2])))\n(;W[na]C[Did you even look?])\n(;W[nb]C[No.])\n(;W[nc]C[Look a little closer])\n(;W[nd]C[Not quite.])\n(;W[nf]C[A bit off.])\n(;W[ng]C[In japanese rules the 'move stones around' tesuji is forbidden, reducing the number of ko threats here.]))",
+  "author": {
+    "id": 15623,
+    "name": "MeleeNewb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1962.53
+  },
+  "avgSolveTimeSeconds": 80,
+  "attempts": {
+    "solved": 570,
+    "failed": 818,
+    "tries": 1388,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-06-11T20:12:15+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 100,
+      "name": "Timing",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

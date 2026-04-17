@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8687,
+  "elo": 1309.1348707177,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "One-stone difference to problem 8684.",
+  "rating": {
+    "stars": 3.9,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pb]AB[pc]AB[pd]AB[qe]AW[qg]AW[qj]AW[ng]AW[nd]AW[nc]AW[ne]AW[nf]AB[lb]AW[mb]AW[kb]AB[md]AB[me]AB[le]AB[jb]AB[jc]AB[jd]AW[ic]AW[id]AW[ib]AW[hd]AW[gd]AB[fb]AB[fc]AB[fd]AB[ge]AB[he]AB[ie]AB[jf]C[W thinks that the same tesuji as in the previous problem works here. Teach him.]AW[ja]AB[gb]LB[mb:1]AP[goproblems]\n(;B[lc];W[la]C[Connected])\n(;B[kc];W[la]\n(;B[ka]C[B can cut unconditionally])\n(;B[mc];W[lc]))\n(;B[la];W[lc]\n(;B[mc]\n(;W[nb];B[kc];W[ma];B[ld]C[CHOICERIGHT])\n(;W[ma];B[nb];W[ka]\n(;B[ob]C[CHOICERIGHT])\n(;B[oc]C[CHOICERIGHT])\n(;B[oa]C[CHOICERIGHT]))\n(;W[na];B[kc]C[CHOICE];W[ma];B[ld]C[CHOICERIGHT]))\n(;B[kc];W[ma]))\n(;B[je])\n(;B[mc];W[nb]\n(;B[kc];W[la]C[Ko :(])\n(;B[lc];W[la])\n(;B[la];W[lc];B[kc];W[ma];B[ld]C[CHOICERIGHT])))",
+  "author": {
+    "id": 5722,
+    "name": "tjl",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 62,
+  "attempts": {
+    "solved": 1613,
+    "failed": 3175,
+    "tries": 4788,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-06-11T11:40:51+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2240,
+  "elo": 1283.1517482235,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Please find Whites best result!\r\nKomi is 3½ points to Black (Japanese rules)",
+  "rating": {
+    "stars": 3.2,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[4]AW[bb]AB[aa]AB[ba]AB[ca]AB[da]AB[cc]AB[ad]C[White to play - what's the best he can do?]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[WeiÃ’Å¸]PB[Schwarz]PL[W]\n(;W[cb]\n(;B[db]\n(;W[dc];B[dd]\n(;W[ab]\n(;B[bc]C[Black D2 would be even worse!];W[dc];B[db]\n(;W[ca]\n(;B[ba]C[The only move]\n(;W[ac];B[bd]C[Seki! White wins by four points - 6 prisoners against 2. RIGHT])\n(;W[aa];B[ac]C[This is not best for White because he will have to sacrifice a stone at B1 or C1, winning by only 3 points.])\n(;W[da];B[dc]\n(;W[bd];B[cd]C[Seki, 6 prisoners for White, 3 for Black so just 3 points difference. You lost by the komi.])\n(;W[ac];B[aa])\n(;W[cd]C[Seki, 6 prisoners for White, 3 for Black so just 3 points difference. You lost by the komi.])))\n(;B[ac];W[da]\n(;B[dc];W[cd]C[Black will not play like this...RIGHT])\n(;B[ba];W[dc]C[Nor this. Black has no threats, the board is not that big after all :)RIGHT]))\n(;B[dc];W[ac]C[Nah.RIGHT]))\n(;W[ac]\n(;B[bd];W[ca];B[ba]C[Seki! White wins by four points - 6 prisoners against 2.  CHOICERIGHT])\n(;B[ca];W[bd];B[ba]C[Seki! White wins by four points - 6 prisoners against 2.  CHOICERIGHT])))\n(;B[dc];W[bc]C[Black is dead! RIGHT]))\n(;W[bc];B[bd]C[White is lost]))\n(;W[ab];B[dc]\n(;W[bc];B[bd]C[White is one liberty short])\n(;W[bd];B[bc]C[White is dead]))\n(;W[bc];B[bd]C[White is lost]))\n(;B[ab]\n(;W[bc]\n(;B[ac]LB[db:A]LB[bd:A]C[This is symmetric, so both any A will kill Black :) RIGHT])\n(;B[db];W[cd];B[dc];W[bd]C[White wins!]))\n(;W[db];B[bc];W[ac];B[ab]\n(;W[ba];B[dc];W[cd];B[ac];W[bd];B[dd]C[Seki, White wins by two points - 5 prisoners against 3. This is not Whites best option!])\n(;W[dc];B[cd];W[ba];B[ca];W[da]C[Seki! White wins by 5 points (6 prisoners against 1), but both players made mistakes up to here]))))\n(;W[bc];B[cb]C[White is lost])\n(;W[ab];B[cb]C[White is lost]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 1817,
+    "failed": 3572,
+    "tries": 5389,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-05-16T12:22:03+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

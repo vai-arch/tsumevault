@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 7752,
+  "elo": 1626.4837986956,
+  "problemLevel": 33,
+  "rank": {
+    "value": 4,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Black to play - please find the best result :)\r\n(japanese rules)",
+  "rating": {
+    "stars": 3.6,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[4]AW[ba]AW[da]AW[bb]AW[dc]AW[dd]AB[aa]AB[ab]AB[cc]AB[ad]AB[cd]C[No komi, no prisoners - Black to play! What's the best he can do?]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]\n(;B[cb];W[bc]\n(;B[bd]\n(;W[ca];B[db];W[ac]\n(;B[ab]C[Black wins :) RIGHT])\n(;B[aa]C[Black wins :) RIGHT]))\n(;W[ac];B[db]C[Black wins :)]))\n(;B[ca];W[ac];B[db];W[bd]C[A jigo is not good enough :(])\n(;B[db];W[bd];B[ca];W[ac]C[A jigo is not good enough :(]))\n(;B[bc];W[cb];B[db];W[ac]\n(;B[dc];W[ab]C[Seki and jigo, Black can do better :(])\n(;B[ab];W[dc]C[Seki and jigo, Black can do better :(])\n(;B[ca];W[dc]\n(;B[ab];W[da]C[Seki and jigo - Black can do better :(])\n(;B[dd];W[bd]C[White wins!! :(])))\n(;B[db];W[bc]\n(;B[cb];W[bd];B[ca]C[Jigo and seki - Black can do better :(];W[ac]C[A jigo is not good enough :(])\n(;B[bd];W[cb]C[White wins!]))\n(;B[ac];W[bc];B[cb];W[ca]C[White wins!]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 911,
+    "failed": 2285,
+    "tries": 3196,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-12-06T13:52:02+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19091,
+  "elo": 1298.6727829131,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "From the;  Dictionary of Basic Tesuji.  Voume 2: Tesuji For Defending by Fujisawa Shuko.  Problem 1 - Angle Wedge",
+  "rating": {
+    "stars": 4.2,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[rb]AB[rc]AB[rd]AB[qd]AB[pb]AB[pc]AB[oc]AB[nc]AB[md]AB[me]AB[mg]AB[mi]AB[qg]AB[qh]AB[qj]AW[qb]AW[qc]AW[re]AW[qe]AW[qf]AW[pd]AW[od]AW[nd]AW[mc]AW[lc]AW[nb]AW[kd]AW[ke]AW[kf]AW[pg]AW[ph]AW[of]AB[jd]AB[jc]AB[je]AB[ih]AW[mf]C[When your stones cannot connect on their own, you should look for ways to connect by exploiting a weakness of your opponent's.  In this case, White's weakness is a shortage of liberties.](;B[lf];W[nf];B[lg];W[le]LB[lf:1]LB[nf:2]LB[lg:3]LB[le:4]C[When you are cut by a wedge, there are usually various possibilities to sacrifice your outermost stones.  In this case, however, B1 and B3 are terrible.  If this is the best you can do, it would be better to play elsewhere, saving these moves as ko threats.  Playing out moves that have no hope of success just makes your opponent's task easier.CHOICE])(;B[nf];W[lf](;B[ne];W[ng];B[nh];W[og](;B[oe];W[pe];B[pi];W[lg];B[mh];W[ld]LB[oh:A]LB[nf:1]LB[lf:2]LB[ne:3]LB[ng:4]LB[nh:5]LB[og:6]LB[oe:7]LB[pe:8]LB[pi:9]LB[lg:10]LB[mh:11]LB[ld:12]C[Black can first make the sacrifice larger with B1 and B3, then squeeze with B5 through B9. By pushing once with B7 Black ensures that black A will be forcing later.  Before coming back to defend, first giving atari with W10 is the correct order.  Black need not necessarily feel dissatisfied with this result, but there is a way to save the two stones.RIGHT])(;B[pi];W[oe]))(;B[pe];W[oe];B[og]LB[ne:A]LB[ng:B]LB[nf:1]LB[lf:2]LB[pe:3]LB[oe:4]LB[og:5]LB[pf:C]C[After B1, throwing in a cut with B3 is a tesuji that is a bit difficult to find.  If W4, Black connects with the diagonal wedge at B5 without the exchange of B3 and W4 first, White could play an atari at A. Instead of W4, White can play White B, Black at W4, giving up the three stones in order to connect outside, but after capturing the three stones Black will have a cut at C.B3 and B5 are tesuji.RIGHT])(;B[og];W[ne])(;B[ng];W[ne])))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 65,
+  "attempts": {
+    "solved": 578,
+    "failed": 561,
+    "tries": 1139,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-02-15T12:15:58+00:00",
+  "source": "Dictionary_of_Basic_Tesuji_Voume_II",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

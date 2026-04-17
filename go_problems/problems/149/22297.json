@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22297,
+  "elo": 838.05879917554,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -1,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Please flag and / or comment if there is a mistake.",
+  "rating": {
+    "stars": 3,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\nAB[gi][hi][ii][ki][li][mi][gj][mj][gk][hk][ik][kk][lk][mk]\r\nAW[fh][gh][hh][ih][jh][kh][lh][mh][nh][fi][ni][fj][nj][fk][nk][fl][gl][hl][il][jl][kl][ll][ml][nl]\r\n\r\nC[Black needs a move to live. Black can live by playing at any of the 5 marked intersections. Which way is the best in terms of points and ko threats? White will play ko threats after your first move.][FORCE]\r\nLB[jj:A][ji:B][kj:C]\r\nTR[ij][jk]\r\n\r\n(; B[jj]; W[jk] (; B[ji] C[RIGHT][White has one ko threat; Black lives with 4 points.])(; B[kj]; W[ji]; B[ij] C[Oops ... Lives with only 2 points.])(; B[ij]; W[ji]; B[kj] C[Oops ... Lives with only 2 points.]))\r\n\r\n(; B[ji]; W[ig] C[Note that White can play at K9 as a ko threat, and Black will live with 4 points by responding at K11 ... Play at L13 to continue.][FORCE] TR[kg]; B[kg]; W[jj](; B[jk]; W[kj]; B[ij] C[... But White can instead choose to squeeze 2 ko threats out of this position if it benefits him/her. Therefore, this is slightly inferior to the K10 solution.])(; B[ij]; W[jk]; B[kj] C[Black lives with only 2 points and gives White 2 ko threats.])(; B[kj]; W[jk]; B[ij] C[Black lives with only 2 points and gives White 2 ko threats.]))\r\n\r\n(; B[kj]; W[jj] (; B[ij]; W[jk]; B[ji] C[The worst solution. Lives with only 2 points and gives White 2 ko threats.])(; B[jk]; W[ji]; B[ij] C[The worst solution. Lives with only 2 points and gives White 2 ko threats.])(; B[ji]; W[jk]; B[ij] C[The worst solution. Lives with only 2 points and gives White 2 ko threats.]))\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 299,
+    "failed": 306,
+    "tries": 605,
+    "speedSolved": 3,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-02-13T23:42:32+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

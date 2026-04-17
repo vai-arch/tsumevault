@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11200,
+  "elo": 1485.7729524557,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ds]AB[dr]AB[dq]AB[cq]AB[bq]AW[es]AW[er]AW[eq]AW[dp]AW[cp]AW[bp]AW[ap]AB[ep]AB[eo]AB[dn]AB[cn]AB[bn]AW[fp]AW[gq]AB[fn]AW[cr]C[Black to do well.]AP[goproblems]\n(;B[ar];W[bs]\n(;B[aq]C[Correct. Black has 6 liberties, white has 4 only four. Black winsRIGHT])\n(;B[ao];W[aq]\n(;B[br];W[cs];B[as];W[cs]C[Black is one liberty behind.])\n(;B[cs];W[br]C[Oups])\n(;B[bo];W[br]))\n(;B[bo]C[NOTTHIS])\n(;B[co]C[NOTTHIS])\n(;B[do]C[NOTTHIS])\n(;B[br];W[cs]\n(;B[as];W[cs]C[Black is one liberty behind.])\n(;B[ao];W[aq];B[as];W[cs]C[Black is one liberty behind.]))\n(;B[cs];W[br];B[as];W[br]))\n(;B[aq];W[ar]\n(;B[br];W[bs]\n(;B[cs];W[cr]C[Oups])\n(;B[as]C[Ko, black can do better]))\n(;B[bs];W[br])\n(;B[cs];W[br]))\n(;B[br];W[ar]\n(;B[aq];W[bs]\n(;B[cs];W[cr]C[Oups])\n(;B[as]C[Ko, black can do better]))\n(;B[bs];W[aq])\n(;B[cs];W[aq]C[Black is one liberty behind.]))\n(;B[ao];W[br]\n(;B[aq];W[ar]C[The black stones are already in atari :(])\n(;B[ar];W[aq]C[The black stones are captured.])\n(;B[bs];W[aq]C[The black stones are captured.])\n(;B[cs];W[aq]C[The black stones are captured.]))\n(;B[bs];W[ar]\n(;B[br];W[aq])\n(;B[aq];W[br]))\n(;B[bo]C[NOTTHIS])\n(;B[co]C[NOTTHIS])\n(;B[do]C[NOTTHIS]))",
+  "author": {
+    "id": 6276,
+    "name": "Lok",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-03-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 611,
+    "failed": 1413,
+    "tries": 2024,
+    "speedSolved": 0,
+    "speedPlay": 7
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-04-17T12:17:00+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

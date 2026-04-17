@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1910,
+  "elo": 1101.6144128455,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": -1,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This is a basic shape which often appears in real games and which surprises most beginners the first time they have to deal with it.",
+  "rating": {
+    "stars": 3.9,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[ho]AW[hp]AW[ip]AW[iq]AW[ir]AW[hs]AB[go]AB[gp]AB[hq]AB[hr]TR[hs]C[White has just played at the marked stone. What is the correct response? (Think late endgame/yose--Black is trying to seal off the lower left side.)]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[6.50]TM[]PW[White]PB[Black]\n(;B[gr];W[gs]\n(;B[fs];W[is]\n(;B[fr]C[RIGHT])\n(;B[er]LB[fq:B]LB[fr:A]C[Good, but playing at A might be slightly better (there might be some bad aji left at B).RIGHT])\n(;B[fq]LB[er:B]LB[fr:A]LB[es:C]C[It's ok, but the last stone is usually played at A or B (as it removes bad aji from C).RIGHT]))\n(;B[fr]C[No need to push further.]))\n(;B[gs];W[gr]\n(;B[is];W[gq]C[This is rather catastrophical for black. You could have avoided this.])\n(;B[gq];W[fs]C[You could have avoided this.])\n(;B[fs];W[fr]))\n(;B[fr];W[fs]C[You can do better than this.]))",
+  "author": {
+    "id": 5247,
+    "name": "Warp",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-05",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 22,
+  "attempts": {
+    "solved": 8806,
+    "failed": 12193,
+    "tries": 20999,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-02-07T17:23:05+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

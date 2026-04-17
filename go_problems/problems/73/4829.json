@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4829,
+  "elo": 2000.9843092992,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -6,
+    "flagSum": -6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Well there aren't a whole lot of these on goproblems.com, So I decided to add one. (Maybe should make it's own group? It could be a nice addition.)\r\n\r\nThis is a ONE-COLOR go problem! Follow the square to play out the setup. Then after a few moves you have to decide where to play next :). The problem is based off one I posted recently, but hopefully that won't spoil it.\r\n\r\nI apologize for the lack of variations, but it's quite hard to determine what I really need for this type of problem.\r\n\r\nHope you enjoy... and try not to cheat :)",
+  "rating": {
+    "stars": 2.4,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[Just follow along for the first few moves.]MA[dp]AP[goproblems];B[dp];W[ep]MA[eq]AB[ep];B[eq];W[dq]MA[do]AB[dq];B[do];W[fp]MA[er]AB[fp];B[er];W[dr]MA[bo]AB[dr];B[bo];W[bp]MA[dl]AB[bp];B[dl];W[gq]C[Ok now... your turn. Take the corner in the best way.]AB[gq]\r\n(;B[cq];W[cr]AB[cr]\r\n(;B[br];W[bq]AB[bq]\r\n(;B[cp];W[bs]AB[bs]\r\n(;B[ar]AW[bs]AW[cr]AW[dr]AW[dq]AW[bq]AW[bp]AW[ep]AW[fp]AW[gq]TR[aq]TR[as]C[White can't approach and you take the corner.RIGHT])\r\n(;B[cs];W[ar]AW[bs]AW[cr]AW[dr]AW[dq]AW[ep]AW[fp]AW[gq]AW[bp]AW[bq]C[White takes the corner...]))\r\n(;B[ds]AW[bq]AW[bp]AW[cr]AW[dr]AW[dq]AW[ep]AW[fp]AW[gq];W[cp]AW[cr]AW[dr]AW[dq]AW[ep]AW[fp]AW[gq]AW[bp]AW[bq]C[White will take the corner or the left side.])\r\n(;B[cs]AW[bq]AW[bp]AW[cr]AW[dr]AW[dq]AW[ep]AW[fp]AW[gq];W[cp]C[White will make a nice group on the left side or live in the corner.]))\r\n(;B[bq];W[br]AW[cr]AW[dr]AW[dq]AW[ep]AW[fp]AW[gq]AW[bp]))\r\n(;B[cr];W[cq]AW[dq]AW[dr]AW[ep]AW[fp]AW[gq]AW[bp]C[White will win.])\r\n(;B[br];W[fr]AW[dr]AW[dq]AW[ep]AW[fp]AW[gq]AW[bp]C[Nope.])\r\n(;B[ds];W[cr]AW[dr]AW[dq]AW[ep]AW[fp]AW[bp]AW[gq]C[That won't be good enough...])\r\n(;B[bq];W[fr]AW[dr]AW[dq]AW[ep]AW[fp]AW[gq]AW[bp]C[Although white plays cautiously in response, you can do better than B3.])\r\n(;B[cp];W[br]AW[bp]AW[dq]AW[dr]AW[ep]AW[fp]AW[gq]C[Nope.]))",
+  "author": {
+    "id": 5469,
+    "name": "transcend",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2012-04-26",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 170,
+    "failed": 1606,
+    "tries": 1776,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-07-15T20:01:58+00:00",
+  "source": "Recent problem I posted.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 18,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

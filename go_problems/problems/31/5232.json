@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5232,
+  "elo": 911.35995605926,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 10,
+    "negativeFlagSum": -1,
+    "flagSum": 9
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Can white save the marked stones? Play N if you think she can't.",
+  "rating": {
+    "stars": 3.3,
+    "votes": 30,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[ed]AW[pn]AW[po]AW[dp]AW[qp]AW[nq]AW[qq]AW[pr]AB[pd]AB[jj]AB[qm]AB[on]AB[qn]AB[oo]AB[qo]AB[pp]AB[pq]LB[jp:N]TR[po]TR[pn]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[6.50]\n(;W[pm]AB[pl]AW[om]AB[nm]AW[ol]AB[ok]AW[nl]AB[ml]AW[nk]AB[nj]AW[mk]AB[lk]AW[mj];B[mi];W[lj];B[kj];W[li];B[lh];W[ki]AB[ji]AW[kh]AB[kg]AW[jh]AB[ih]AW[jg]AB[jf]AW[ig]AB[hg]AW[if]AB[ie]AW[hf]AB[gf]AW[he]AB[hd]AW[ge];B[fe];W[gd];B[fd];W[gc]C[Black collapses.RIGHT])\n(;W[jp]C[White can escape];B[pm]C[Black captures 2 White stones. Pulling them out and splitting Black in two would have been severe.]))",
+  "author": {
+    "id": 6660,
+    "name": "peto.franek",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2008-11-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 14569,
+    "failed": 8672,
+    "tries": 23241,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-10-10T14:19:44+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 21,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

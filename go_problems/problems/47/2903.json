@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2903,
+  "elo": 1208.5745819772,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 2.4,
+    "votes": 19,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]SZ[19]AW[ag][bg][cg][dg][ah][dh][qh][rh][di][qi][si][dj][qj][rj][bk][dk][qk][bl][dl][ql][cm][dm][rm][dn][qn][rn][do][eo][fo][qo][fp][op][pp][qp][rp][sp][bq][dq][eq][fq][qq][sq][ar][br][dr][qr][bs][cs][ds]AB[pg][qg][rg][sg][bh][ch][ph][sh][ai][ci][pi][bj][cj][pj][ck][pk][rk][cl][pl][rl][bm][pm][qm][bn][cn][pn][co][no][oo][po][ap][bp][cp][dp][ep][np][aq][cq][nq][oq][pq][rq][cr][pr][rr][sr][ps][qs][rs]LB[jo:T]RU[Japanese]PW[White]PB[Black]C[does white have any way to attack on the left, such as getting a ko or reducing points? play there if you think yes, otherwise tenuki at T](;W[al]CR[al];B[am]CR[am](;W[aj]CR[aj];B[ak]CR[ak])(;W[ak]CR[ak];B[aj]CR[aj]))(;W[ak]CR[ak];B[am]CR[am](;W[aj]CR[aj];B[al]CR[al])(;W[ao]CR[ao];B[al]CR[al]))(;W[jo]CR[jo];B[sk]CR[sk](;W[sj]CR[sj];B[ri]CR[ri])(;W[sm]CR[sm];B[so]CR[so];W[sl]CR[sl]C[RIGHT\nwhite avoids seki])(;W[sl]CR[sl];B[sm]CR[sm];W[sn]CR[sn];B[so]CR[so])(;W[sn]CR[sn];B[so]CR[so])(;W[so]CR[so];B[sm]CR[sm]C[seki])))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 81,
+  "attempts": {
+    "solved": 2510,
+    "failed": 4266,
+    "tries": 6776,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-09-05T02:20:04+00:00",
+  "source": "IGS: kiheiji vs adum",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 11,
+      "name": "Black or White",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

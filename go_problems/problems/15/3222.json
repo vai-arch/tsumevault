@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3222,
+  "elo": 1715.7775805014,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This shouldn't be too hard; nevertheless, think twice before playing.",
+  "rating": {
+    "stars": 2.3,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[db]AW[eb]AW[gb]AW[hb]AW[ac]AW[bc]AW[cc]AW[dc]AW[hc]AW[ad]AW[dd]AW[ed]AW[hd]AW[ae]AW[ce]AW[de]AW[ee]AW[he]AW[af]AW[ef]AW[hf]AW[dg]AW[fg]AB[ec]AB[fc]AB[gc]AB[bd]AB[cd]AB[fd]AB[gd]AB[be]AB[bf]AB[cf]AB[df]AB[ff]AB[gf]AB[ag]AB[eg]AB[hg]AB[bh]AB[eh]AB[fh]C[No komi, no prisoners, black to play and win.]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\n(;B[if];W[ch]\n(;B[dh];W[bi]\n(;B[cg];W[ah]\n(;B[ci];W[bg]\n(;B[ai];W[ag]\n(;B[fb];W[fa]LB[gg:A]C[Play at A.FORCE];B[gg]C[];W[ie];B[ig];W[bi]C[White wins.])\n(;B[bi];W[fb]LB[gg:A]C[Play at A.FORCE];B[gg]C[];W[ie];B[ig]C[Jigo.]TW[aa]TW[ba]TW[ca]TW[da]TW[ea]TW[fa]TW[ga]TW[ha]TW[ia]TW[ab]TW[bb]TW[cb]TW[ib]TW[ic]TW[id]TB[dg]TB[fg]TB[ch]TB[gh]TB[hh]TB[ih]TB[di]TB[ei]TB[fi]TB[gi]TB[hi]TB[ii])\n(;B[ie];W[id];B[ig];W[fb]LB[gg:A]C[Play at A.FORCE];B[gg]C[];W[bi]C[White wins.]))\n(;B[ch];W[ag]C[White wins.]))\n(;B[ai];W[fb]LB[gg:A]C[Play at A.FORCE];B[gg]C[];W[ah];B[ci];W[bg];B[ai];W[ag]\n(;B[bi];W[ie];B[ig]C[Jigo.]TW[aa]TW[ba]TW[ca]TW[da]TW[ea]TW[fa]TW[ga]TW[ha]TW[ia]TW[ab]TW[bb]TW[cb]TW[ib]TW[ic]TW[id]TB[dg]TB[fg]TB[ch]TB[gh]TB[hh]TB[ih]TB[di]TB[ei]TB[fi]TB[gi]TB[hi]TB[ii])\n(;B[ie];W[id];B[ig];W[bi]C[White wins.]TW[aa]TW[ba]TW[ca]TW[da]TW[ea]TW[fa]TW[ga]TW[ha]TW[ia]TW[ab]TW[bb]TW[cb]TW[ib]TW[ic]TB[dg]TB[fg]TB[gh]TB[hh]TB[ih]TB[di]TB[ei]TB[fi]TB[gi]TB[hi]TB[ii])))\n(;B[bg];W[ah];B[ai];W[fb]\n(;B[gg];W[ah]C[White wins.])\n(;B[ci];W[ge]C[White wins.])))\n(;B[bg];W[bi];B[dh];W[ah];B[ai];W[fb]\n(;B[gg];W[ah]C[White wins.])\n(;B[ci];W[ge]C[White wins.])))\n(;B[dh];W[ig]\n(;B[ih];W[if]LB[hh:A]C[Play at A.FORCE];B[hh]C[];W[fb]LB[gg:A]C[Play at A.FORCE];B[gg]C[Well done! Black wins by 2 points.FORCERIGHT]TW[aa]TW[ba]TW[ca]TW[da]TW[ea]TW[fa]TW[ga]TW[ha]TW[ia]TW[ab]TW[bb]TW[cb]TW[ib]TW[ic]TW[id]TW[ie]TB[bg]TB[cg]TB[dg]TB[fg]TB[ah]TB[ch]TB[gh]TB[ai]TB[bi]TB[ci]TB[di]TB[ei]TB[fi]TB[gi]TB[hi]TB[ii])\n(;B[hh];W[fb]LB[gg:A]C[Play at A.FORCE];B[gg]C[];W[ih];B[hi]C[Jigo.]TW[aa]TW[ba]TW[ca]TW[da]TW[ea]TW[fa]TW[ga]TW[ha]TW[ia]TW[ab]TW[bb]TW[cb]TW[ib]TW[ic]TW[id]TW[ie]TB[bg]TB[cg]TB[dg]TB[fg]TB[ah]TB[ch]TB[gh]TB[ai]TB[bi]TB[ci]TB[di]TB[ei]TB[fi]TB[gi]))\n(;B[fb];W[fa]LB[gg:A]C[Start with G3 to see why this is wrong.])\n(;B[ch];W[ig]\n(;B[ih];W[if]LB[hh:A]C[Play at A.FORCE];B[hh]C[];W[fb]LB[gg:A]C[Play at A.FORCE];B[gg]C[Well done! Black wins by 2 pointsRIGHT]TW[aa]TW[ba]TW[ca]TW[da]TW[ea]TW[fa]TW[ga]TW[ha]TW[ia]TW[ab]TW[bb]TW[cb]TW[ib]TW[ic]TW[id]TW[ie]TB[bg]TB[cg]TB[dg]TB[fg]TB[ah]TB[dh]TB[gh]TB[ai]TB[bi]TB[ci]TB[di]TB[ei]TB[fi]TB[gi]TB[hi]TB[ii])\n(;B[hh];W[fb]LB[gg:A]C[Play at A.FORCE];B[gg]C[];W[ih];B[hi]C[Jigo.]TW[aa]TW[ba]TW[ca]TW[da]TW[ea]TW[fa]TW[ga]TW[ha]TW[ia]TW[ab]TW[bb]TW[cb]TW[ib]TW[ic]TW[id]TW[ie]TB[bg]TB[cg]TB[dg]TB[fg]TB[ah]TB[dh]TB[gh]TB[ai]TB[bi]TB[ci]TB[di]TB[ei]TB[fi]TB[gi]))\n(;B[cg];W[ig]\n(;B[ih];W[if]LB[hh:A]C[Play at A.FORCE];B[hh]C[];W[fb]LB[gg:A]C[Play at A.FORCE];B[gg]C[Well done! Black wins by 2 points.FORCERIGHT]TW[aa]TW[ba]TW[ca]TW[da]TW[ea]TW[fa]TW[ga]TW[ha]TW[ia]TW[ab]TW[bb]TW[cb]TW[ib]TW[ic]TW[id]TW[ie]TB[bg]TB[dg]TB[fg]TB[ah]TB[ch]TB[dh]TB[gh]TB[ai]TB[bi]TB[ci]TB[di]TB[ei]TB[fi]TB[gi]TB[hi]TB[ii])\n(;B[hh];W[fb]LB[gg:A]C[Play at A.FORCE];B[gg]C[];W[ih];B[hi]C[Jigo.]))\n(;B[bg];W[ig]\n(;B[ih];W[if]LB[hh:A]C[Play at A.FORCE];B[hh]C[];W[fb]LB[gg:A]C[Play at A.FORCE];B[gg]C[Well done! Black wins by 2 points.RIGHT]TW[aa]TW[ba]TW[ca]TW[da]TW[ea]TW[fa]TW[ga]TW[ha]TW[ia]TW[ab]TW[bb]TW[cb]TW[ib]TW[ic]TW[id]TW[ie]TB[cg]TB[dg]TB[fg]TB[ah]TB[ch]TB[dh]TB[gh]TB[ai]TB[bi]TB[ci]TB[di]TB[ei]TB[fi]TB[gi]TB[hi]TB[ii])\n(;B[hh];W[fb]LB[gg:A]C[Play at A.FORCE];B[gg]C[];W[ih];B[hi]C[Jigo.]TW[aa]TW[ba]TW[ca]TW[da]TW[ea]TW[fa]TW[ga]TW[ha]TW[ia]TW[ab]TW[bb]TW[cb]TW[ib]TW[ic]TW[id]TW[ie]TB[cg]TB[dg]TB[fg]TB[ah]TB[ch]TB[dh]TB[gh]TB[ai]TB[bi]TB[ci]TB[di]TB[ei]TB[fi]TB[gi]))\n(;B[ah]C[Yes, this also works. Navigate solution at D2.RIGHT])\n(;B[ai]C[I actually planned to mark F8, J4 and A1 with letters and ask 'A, B or C' :-)RIGHT])\n(;B[bi]C[yes, this works too.RIGHT])\n(;B[ci]C[yes, also correct.RIGHT])\n(;B[di]C[yes, should work.RIGHT])\n(;B[gg]C[Nice idea, but white still has enough ko threats to play at C2];W[ch]LB[dh:A]C[Nice idea, but white still has the necessary threats. play at A.FORCE];B[dh]C[];W[bi]LB[cg:A]C[FORCE];B[cg]C[];W[ah]LB[ai:A]C[FORCE];B[ai]C[];W[ig]LB[ih:A]C[FORCE];B[ih]C[];W[ah]LB[ci:A]C[FORCE];B[ci]C[];W[bg]LB[ai:A]C[FORCE];B[ai]C[];W[ag]LB[if:A]C[FORCE];B[if]C[];W[bi]LB[fb:A]C[FORCE];B[fb]C[];W[fa]LB[ai:A]C[FORCE];B[ai];W[ge]LB[fe:A]C[FORCE];B[fe]C[];W[bi]LB[ga:A]C[FORCE];B[ga]C[];W[ea]LB[ai:A]C[FORCE];B[ai]C[];W[ie]LB[bi:A]C[FORCE];B[bi]C[];W[ig]LB[hh:A]C[FORCE];B[hh]C[];W[if]C[White wins.]TW[aa]TW[ba]TW[ca]TW[da]TW[ga]TW[ha]TW[ia]TW[ab]TW[bb]TW[cb]TW[ib]TW[ic]TW[id]TB[dg]TB[fg]TB[ch]TB[gh]TB[di]TB[ei]TB[fi]TB[gi]TB[hi]TB[ii])\n(;B[ig]C[J4 is locally better.]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 52,
+  "attempts": {
+    "solved": 548,
+    "failed": 2663,
+    "tries": 3211,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-10-31T09:55:20+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

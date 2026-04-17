@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12086,
+  "elo": 1596.3758660421,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -2,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem looks so simple at first glance...",
+  "rating": {
+    "stars": 3.8,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[bn]AW[cp]AW[co]AW[bq]AW[br]AB[cr]AB[cq]AB[dp]AB[do]AB[cn]AB[cm]AB[fp]AB[gq]AB[bm]AW[bo]AB[bk]C[Can black kill white unconditionally? Y for Yes, N for No.FORCE]LB[em:Y]LB[fm:N]AP[goproblems]\n(;B[em];W[fm]C[Prove it. (Warning: I have not provided any variations for pointless forcing moves.)]\n(;B[ap];W[aq]\n(;B[bs];W[dq];B[dr];W[eq];B[er];W[cs]\n(;B[as];W[ar];B[bs]C[Good job!RIGHT])\n(;B[ds];W[as]\n(;B[ar]C[Ko.])\n(;B[fq];W[cs]C[Ko.])\n(;B[cs];W[fr]C[Ko.])))\n(;B[an]C[NOTTHISRIGHT]))\n(;B[bs];W[ap]\n(;B[an];W[ar])\n(;B[ar];W[an]))\n(;B[an];W[ap];B[bs];W[ar]))\n(;B[fm]C[There is a way.]))",
+  "author": {
+    "id": 15623,
+    "name": "MeleeNewb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1962.53
+  },
+  "avgSolveTimeSeconds": 83,
+  "attempts": {
+    "solved": 210,
+    "failed": 398,
+    "tries": 608,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-12-20T23:53:46+00:00",
+  "source": "Shape from 14k kgs game.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

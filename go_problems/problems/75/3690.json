@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3690,
+  "elo": 1535.0577287749,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -2,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "originated from looking at problem 3687, but turned into a terrible endgame problem.  I'm trying to create a potition where W should start with B17, rather than starting a ko with A16.",
+  "rating": {
+    "stars": 3.1,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ea]AB[eb]AB[db]AB[ec]AB[ed]AB[dc]AB[ee]AB[ef]AB[eg]AB[eh]AB[di]AB[df]AB[de]AB[ce]AB[cj]AW[dd]AW[cd]AW[cc]AW[cb]AW[ca]AW[da]AW[be]AB[bd]AW[dg]AW[cg]AW[cf]AW[dh]AW[ci]AW[bh]AW[bl]AW[bn]AW[an]AB[cp]AB[co]AB[cn]AB[cq]AB[bq]AB[aq]AW[fl]AW[gl]AW[hl]AW[gs]AB[gm]AB[im]AB[hm]AB[jm]AB[km]AB[nm]AB[lm]AB[mm]AB[om]AB[pm]AB[qm]AB[rm]AB[rl]AB[rk]AW[jl]AW[il]AW[kl]AW[hs]AW[is]AW[js]AW[ks]AW[fr]AW[fq]AW[fp]AW[fo]AW[fm]AW[fn]AB[gp]AB[gq]AB[gr]AB[np]AB[nr]AB[pr]AB[pq]AB[pp]AB[qp]AB[qq]AB[qr]AB[rr]AB[rq]AB[rp]AW[pn]AW[qn]AB[pl]AB[qk]AW[qj]AW[pb]AW[pc]AW[pd]AW[pe]AW[qe]AW[qd]AW[qc]AW[qb]AW[rb]AW[rc]AW[rd]AW[re]AW[sg]AW[qg]AW[rg]AW[pg]AW[og]AB[pa]AB[qa]AB[ra]AB[sa]AB[oa]AB[ja]AB[fa]AB[ga]AB[ha]AB[ia]AB[ka]AB[la]AB[na]AB[ma]AW[lc]AW[md]AW[ld]AW[mc]AW[lb]AW[mb]AW[nb]AW[nc]AW[nd]AB[if]AB[fb]AB[fg]AW[kg]AW[lg]AW[ng]AW[mg]AW[ds]AW[dr]AB[cr]AB[ar]AB[cs]AW[dq]AW[dp]AB[en]AB[em]AB[el]AB[ek]AB[fk]AB[gh]AB[hh]AB[ih]AB[ji]AB[jh]AB[jk]AB[jj]AB[hk]AB[ik]AB[gk]AB[dj]AW[kk]AW[mk]AW[kj]AW[ki]AW[kh]AW[lh]AW[mh]AW[nh]AW[oh]AW[ph]AW[qh]AW[ri]AW[rh]AB[ej]AB[ei]AW[lj]AW[mj]AW[mi]AW[li]AW[ni]AW[nj]AW[oj]AW[oi]AW[pi]AW[pj]AB[dn]AW[eq]AW[es]AW[fs]AW[do]AW[eo]AB[bs]AB[as]AB[ap]AB[ao]AB[bo]AW[cm]AW[bk]AW[ck]AW[dk]AW[dl]AW[dm]AB[bj]AW[aj]AW[bi]AB[pk]C[it's a close game w has to defend his points to win.  Japanese counting, no prisoners yet.  No komi.]AB[ij]AB[ii]AB[go]AW[ne]AB[gb]AB[gg]AB[hg]AB[ig]AW[oe]AW[od]AW[oc]AW[ob]AB[op]AB[oq]AB[or]AB[lr]AB[lq]AB[nq]AW[sj]AW[rj]AW[sh]AW[lf]AW[le]AW[ss]AB[lp]AB[lo]AW[kn]AB[sk]AB[sm]AW[ok]AW[nk]AB[no]AB[oo]AB[po]AB[qo]AB[ro]AW[rs]AW[ps]AW[ns]AW[ls]AW[ms]AW[os]AW[qs]AW[ml]AW[ll]AW[lk]AW[nl]AW[ol]AB[ho]AB[hp]AB[hq]AB[hr]AB[ir]AB[iq]AB[io]AB[ip]AB[jo]AB[jp]AB[jq]AB[jr]AW[in]AW[jn]AB[ic]AB[ib]AB[hb]AB[hc]AB[id]AB[ie]AB[jg]AB[jf]AB[je]AB[jd]AB[jc]AB[jb]AW[kb]AW[kc]AW[kd]AW[kf]AW[ke]AW[mf]AW[nf]AW[of]AW[pf]AW[qf]AW[rf]AW[sf]AW[se]AW[sd]AW[sc]AW[sb]AW[me]AB[fi]AB[gj]AB[gi]AB[kr]AB[kq]AB[kp]AB[ko]AW[mr]AW[mq]AW[mp]AW[mo]AW[mn]AW[ln]AW[on]AW[nn]AB[so]AB[sp]AB[sr]AB[sq]AW[ep]AW[er]AB[bp]AB[br]AB[hi]AB[fh]AB[ff]AB[fe]AB[gd]AB[fd]AB[fc]AB[gc]AW[al]AW[bm]AP[goproblems]\n(;W[ad]\n(;B[bf]C[CHOICE]\n(;W[af];B[ae]\n(;W[sf]\n(;B[se];W[be];B[sn]\n(;W[so];B[ae];W[ac];B[be])\n(;W[bc];B[so]))\n(;B[be];W[se];B[bg]\n(;W[ch];B[ah])\n(;W[ai];B[ch])))\n(;W[mn];B[ln];W[be];B[bc];W[bb];B[ae];W[hn];B[ag];W[gn];B[bg])\n(;W[hn];B[gn];W[be];B[bc]\n(;W[bb];B[ae]\n(;W[rn];B[sn];W[be];B[ai]\n(;W[bg]C[RIGHT])\n(;W[ac]C[yes!RIGHT])\n(;W[ak];B[ae])\n(;W[ag];B[ae])\n(;W[ab];B[ae])\n(;W[ah];B[ae]C[oops]))\n(;W[sn]C[NOTTHIS]))\n(;W[ac];B[ae];W[rn];B[sn];W[be];B[bb]))\n(;W[rn]C[NOTTHIS])\n(;W[sn]C[NOTTHIS])\n(;W[gn]C[NOTTHIS])\n(;W[ag];B[ac]C[lose corner]))\n(;W[bc]C[Right, but I've put all the variations of this in if you pay B17 first.];B[bg];W[ch];B[ah]))\n(;B[bc];W[bb];B[bf];W[af];B[ae];W[hn];B[gn];W[be]))\n(;W[bc];B[bf]\n(;W[ad];B[bg];W[ch];B[ah])\n(;W[ae];B[bg]\n(;W[ag];B[ch]\n(;W[cg]\n(;B[dh];W[af];B[cf]C[])\n(;B[cf]\n(;W[af];B[dg]C[])\n(;W[dh];B[af]\n(;W[ai];B[ad])\n(;W[ad];B[dg]\n(;W[ai];B[ch])\n(;W[ch];B[ai])\n(;W[ah];B[ch])))))\n(;W[af];B[cg]C[]))\n(;W[ch];B[ah])\n(;W[af];B[ch]\n(;W[ag];B[cg]C[])\n(;W[ah];B[ag])\n(;W[cg];B[ag];W[ad];B[ai]\n(;W[ah];B[ai])\n(;W[dh];B[cf];W[ah];B[dg]\n(;W[ch];B[ai])\n(;W[ak];B[ch];W[ai])\n(;W[ai];B[ch];W[ak]))\n(;W[dg];B[ah]))\n(;W[ai];B[ag];W[cg]\n(;B[ad])\n(;B[dh]\n(;W[ah])\n(;W[ad];B[cf];W[ak])))))\n(;W[af];B[ae]\n(;W[ab];B[ba])\n(;W[ad];B[ac];W[ab];B[ba];W[ad];B[be]))\n(;W[bg];B[ae]C[not enough.]))\n(;W[bf];B[bc]C[w loses now.]))",
+  "author": {
+    "id": 4785,
+    "name": "kochi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-14",
+    "rank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1340.69
+  },
+  "avgSolveTimeSeconds": 108,
+  "attempts": {
+    "solved": 202,
+    "failed": 426,
+    "tries": 628,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-04T20:36:19+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

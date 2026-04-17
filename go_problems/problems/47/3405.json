@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3405,
+  "elo": 2016.9638216499,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Same as problem 3383 but with a subtle difference - white has enough superior ko threats on the rest of the board to capture the whole corner.\r\nSpecial thanks to Timko - his variation deserved a separate problem, so here it is!",
+  "rating": {
+    "stars": 3.1,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qb]AB[qa]AB[qc]AB[se]AB[re]AB[qe]AB[pd]AB[od]AB[nd]AB[oc]AB[ob]AW[pb]AW[pa]AW[oa]AW[nb]AW[nc]AW[ne]AB[me]AB[oe]AW[nf]AW[of]AB[pf]AW[og]AW[pg]AB[qf]AW[qg]AW[rf]AW[sf]AW[sg]AW[rh]AW[md]AW[lc]AW[ld]AW[le]AB[la]AB[lb]AB[kb]AB[kc]AB[kd]AW[ke]AW[rb]AW[rc]AW[rd]C[Can white capture the whole corner?]AW[sh]AP[goproblems]\n(;W[qd];B[na]\n(;W[ma];B[pc]\n(;W[ra];B[na];W[oa];B[mb]C[CHOICE]\n(;W[mc];B[na]C[Ko for the corner. White plays out her superior ko threat at a. Black responds at b]LB[mh:A];W[mh]C[Black responds at BFORCE]LB[kh:B];B[kh]C[Now finish the job!FORCE]\n(;W[ma];B[sd]\n(;W[sc];B[na]\n(;W[pa];B[pb]\n(;W[oa];B[ma];W[pe]C[White captures the corner with the aid of superior ko threatsRIGHT])\n(;W[pa];B[oa]C[So close!]))\n(;W[pe];B[pa]C[So close!]))\n(;W[na];B[sc]))\n(;W[sd];B[pa]))\n(;W[sd];B[mc]))\n(;W[na];B[mc]C[Snapback. Ouch!])\n(;W[sd];B[mb]\n(;W[ra];B[na])\n(;W[mc];B[na])\n(;W[pe];B[na]))\n(;W[mb];B[na]\n(;W[mc];B[ra];W[sd];B[pe];W[sb];B[sa])\n(;W[oa];B[ra]\n(;W[sd];B[pe])\n(;W[sb];B[sd])\n(;W[sc];B[pe]))\n(;W[sd];B[mc])\n(;W[ra];B[mc]))\n(;W[mc];B[na];W[oa];B[ra]\n(;W[sd];B[pe]\n(;W[sb];B[sa])\n(;W[pa];B[sb])\n(;W[pb];B[sb]))\n(;W[sb];B[sd])\n(;W[sc];B[sa])))\n(;W[ra];B[pc])\n(;W[mb];B[ma]))\n(;W[ra];B[qd])\n(;W[pc];B[na])\n(;W[sb];B[qd])\n(;W[sd];B[qd])\n(;W[sc];B[qd])\n(;W[na];B[qd])\n(;W[sa];B[qd])\n(;W[ma];B[qd])\n(;W[mb];B[qd])\n(;W[mc];B[qd]))",
+  "author": {
+    "id": 4506,
+    "name": "chrise",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-12-27",
+    "rank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1205.71
+  },
+  "avgSolveTimeSeconds": 98,
+  "attempts": {
+    "solved": 73,
+    "failed": 1590,
+    "tries": 1663,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-11-26T05:00:07+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

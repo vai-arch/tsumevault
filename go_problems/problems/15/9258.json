@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9258,
+  "elo": 1731.1330723203,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This problem was inspired by BartTM's comments about problem 8906.\r\n\r\nNo prisoners, 0.5 komi, (Its Black 19: White 19.5). \r\nNo unnecessary moves please.  USE A4 TO PASS.\r\n",
+  "rating": {
+    "stars": 2.8,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AW[ca]AW[da]AW[ea]AW[bb]AW[db]AW[cc]AW[ad]AW[bd]AW[ag]AW[bg]AW[cg]AW[dg]AW[fg]AW[eh]AW[fh]AW[hh]AW[ih]AB[fa]AB[eb]AB[fb]AB[dc]AB[fc]AB[cd]AB[dd]AB[fd]AB[ae]AB[be]AB[ce]AB[fe]AB[ef]AB[gf]AB[hf]AB[eg]AB[hg]AB[ig]C[White just passed, can black win? P to pass and end the game]AB[df]AW[gg]AW[bi]AB[de]AB[ff]LB[af:P]GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]RU[Japanese]KM[0.00]PW[Blanc]PB[Noir]TW[aa]TW[ba]TW[ab]TW[cb]TW[ac]TW[bc]TB[ga]TB[ha]TB[ia]TB[gb]TB[hb]TB[ib]TB[ec]TB[gc]TB[hc]TB[ic]TB[gd]TB[hd]TB[id]TB[ge]TB[he]TB[ie]TB[if]\r\n(;B[ab]\r\n(;W[bc];B[ba];W[aa]\r\n(;B[af]\r\n(;W[ba]C[Good.  White had to fill at B9 to avoid the ko she couldn't win.  The score is now Black 19: White 18.5RIGHT])\r\n(;W[bf]C[RIGHT];B[ba]C[No ko threats];W[cf];B[cb]C[RIGHT]))\r\n(;B[gi];W[ba]C[Black can't kill, you wasted a point and lost by half a point.]\r\n(;B[dh];W[gh])\r\n(;B[gh];W[fi]\r\n(;B[dh];W[hi])\r\n(;B[ii];W[hi])\r\n(;B[hi];W[ii])))\r\n(;B[bf]\r\n(;W[ba]C[Good.  White had to fill at B9 to avoid the ko she couldn't win.  The score is now Black 19: White 18.5RIGHT])\r\n(;W[af];B[ba]C[No ko threats];W[cf];B[cb]C[RIGHT]))\r\n(;B[cf]\r\n(;W[ba]C[Good.  White had to fill at B9 to avoid the ko she couldn't win.  The score is now Black 19: White 18.5RIGHT])\r\n(;W[af];B[ba]C[No ko threats];W[bf];B[cb]C[RIGHT]))\r\n(;B[dh];W[ba]C[Black can't kill, you wasted a point and lost by half a point.])\r\n(;B[gh];W[ba];B[gi];W[fi]\r\n(;B[hi];W[ii])\r\n(;B[dh];W[hi]))\r\n(;B[bh]C[Black can't kill, you wasted a point and lost by half a point.]))\r\n(;W[af]\r\n(;B[bc];W[ac];B[bc]C[RIGHT])\r\n(;B[ba];W[aa])\r\n(;B[bf]C[RIGHT]))\r\n(;W[aa]\r\n(;B[ba]C[No ko threats];W[af]\r\n(;B[cb]C[RIGHT])\r\n(;B[ac]C[RIGHT])\r\n(;B[bc]C[RIGHT]))\r\n(;B[af])))\r\n(;B[ac];W[bc];B[ab];W[af]\r\n(;B[ba];W[aa])\r\n(;B[aa];W[ba]))\r\n(;B[bc];W[ac])\r\n(;B[aa];W[ab])\r\n(;B[ba];W[aa])\r\n(;B[dh];W[ab]C[You cant kill either group]\r\n(;B[gi];W[gh];B[ei];W[ch])\r\n(;B[ch];W[bh]))\r\n(;B[gi];W[ab]\r\n(;B[gh];W[fi];B[dh];W[hi])\r\n(;B[fi];W[ei];B[hi];W[af]\r\n(;B[ii];W[gh])\r\n(;B[gh];W[ii])\r\n(;B[dh];W[ch]\r\n(;B[di];W[ci])\r\n(;B[gh];W[ii]))))\r\n(;B[cf]C[This move is unnecessary, filling dame will not create a ko threat at D2 and besides, you don't need one.]TR[dh])\r\n(;B[bf]C[This move is unnecessary, filling dame will not create a ko threat at D2 and besides, you don't need one.]TR[dh])\r\n(;B[af]C[No need to pass, black can win])\r\n(;B[ai]AW[ia]C[This also used to be the pass button]TR[ia])\r\n(;B[ee]C[This used to be the pass button]))",
+  "author": {
+    "id": 14046,
+    "name": "ldan",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-07-24",
+    "rank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1162.66
+  },
+  "avgSolveTimeSeconds": 60,
+  "attempts": {
+    "solved": 356,
+    "failed": 1299,
+    "tries": 1655,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-10-08T13:25:11+00:00",
+  "source": "Problem 8906",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

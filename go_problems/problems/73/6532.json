@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6532,
+  "elo": 1930.5013497906,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.8,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[bb]AW[bc]AW[fc]AW[hc]AW[ed]AW[fd]AW[be]AW[ce]AW[de]AB[cb]AB[ac]AB[dc]AB[ec]AB[bd]AB[cd]C[W to kill b's entire group.]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]GN[Go Seigen Tesuji #9]US[YuJun]PL[W]\n(;W[ab];B[ad]C[A18 A16 of course. Then what?]\n(;W[dd]C[];B[ba]C[CHOICE];W[eb];B[db]\n(;W[ea]C[];B[fb]C[E19 is the follow-up tesuji. Finish the job.]\n(;W[gb];B[da]\n(;W[ae]LB[cc:A]C[B can't connect at A, so B's entire group is dead!RIGHT])\n(;W[fa];B[cc]C[B lives.]))\n(;W[ae];B[cc];W[da];B[aa]LB[bb:a]LB[gb:b]C[a and b are miai. B lives.]))\n(;W[fb];B[da];W[ae];B[cc]C[B lives.];W[ea];B[aa]C[B lives.]))\n(;W[db]C[];B[eb]C[Looks like a tesuji.];W[cc];B[da];W[dd];B[fb];W[gb];B[fa]C[Part of b's group is a live. W can do better.])\n(;W[eb];B[db]\n(;W[fb];B[ba]\n(;W[da];B[dd];W[ea];B[ca]C[Seki.])\n(;W[dd];B[da];W[ae];B[cc]C[B lives.];W[ea];B[aa]C[B lives.]))\n(;W[ea];B[fb]\n(;W[gb];B[da];W[dd];B[cc];W[fa];B[ba]C[B lives.])\n(;W[dd];B[cc];W[gb];B[da];W[fa];B[ba]C[B lives.]))))\n(;W[eb];B[db];W[fb];B[ba];W[ab];B[ad]\n(;W[dd];B[da];W[ae];B[cc];W[ea];B[aa]C[B lives.])\n(;W[da];B[dd];W[ea];B[ca]C[Seki.]))\n(;W[ba];B[eb]C[B lives.])\n(;W[db];B[eb];W[cc];B[da];W[dd];B[fb];W[gb];B[fa]C[Part of b's group is alive. W can do better.])\n(;W[da];B[eb];W[ca];B[cc];W[ab];B[ad];W[fb];B[ea];W[ae];B[aa];W[ba];B[db]C[B lives.])\n(;W[dd];B[ab];W[ba];B[cc];W[eb];B[db];W[fb];B[da];W[ae];B[ad]C[Seki.])\n(;W[ca];B[da];W[ea];B[ba];W[ab];B[ad]C[B's alive.]))",
+  "author": {
+    "id": 10563,
+    "name": "kvzrock",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-08-02",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 88,
+    "failed": 1128,
+    "tries": 1216,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-05-14T23:53:58+00:00",
+  "source": "www.flygo.net",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

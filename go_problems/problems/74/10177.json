@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10177,
+  "elo": 1352.3203733397,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This was originally a problem with b to capture something, until adum showed me it didn't work. \r\n\r\nThanks for the correction. W to defeat b's attempt at a capture.",
+  "rating": {
+    "stars": 3.8,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ah]AW[ag]AW[bg]AW[bf]AW[bi]AW[ci]AW[dj]AW[ei]AW[fi]AW[fh]AW[fg]AW[ef]AW[df]AW[de]AW[ce]AB[ff]AB[eg]AB[fe]AB[ee]AB[ed]AB[dd]AB[cd]AB[be]AB[bd]AB[ae]AB[af]AB[cj]AB[bj]AB[aj]AB[ai]AB[bk]AB[bl]AW[dk]AW[ck]C[Thanks to adum for showing me this variation... W to defeat b's ploy with the marked stone.]AB[ch]TR[ch]AP[goproblems]\n(;W[bh];B[cf]\n(;W[dg]C[Poor b thought something could be captured.RIGHT])\n(;W[cg];B[dg]C[You just gave b what he was hoping for!]))\n(;W[dh];B[dg];W[cf];B[cg])\n(;W[cg];B[dg])\n(;W[dg];B[bh];W[di];B[cg])\n(;W[cf];B[bh];W[di];B[dg])\n(;W[eh];B[dg];W[cf];B[bh]))",
+  "author": {
+    "id": 13750,
+    "name": "meh",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-10-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 68,
+  "attempts": {
+    "solved": 681,
+    "failed": 1773,
+    "tries": 2454,
+    "speedSolved": 4,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-07-19T21:10:14+00:00",
+  "source": "Adapted from a game.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 144,
+      "name": "Lack of Liberties (Damezumari)",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

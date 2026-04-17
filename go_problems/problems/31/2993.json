@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2993,
+  "elo": 1367.6224593927,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 2.5,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[ap][cp][dp][ep][fp][bq][fq][fr][fs]AB[cq][dq][eq][ar][br][ds][es]LB[an:0][bn:1][cn:2][dn:3][en:4][fn:5]C[FORCE\r\nhow many different first moves kill this group? click on the number]PL[W]\r\n(;W[dn]CR[dn]\r\n;B[dm]CR[dm]C[RIGHT\r\nnow you can play with the options]\r\n(;W[er]CR[er]\r\n;B[dr]CR[dr]\r\n(;W[bs]CR[bs]C[RIGHT])\r\n(;W[cs]CR[cs]\r\n;B[cr]CR[cr]\r\n;W[bs]CR[bs]C[RIGHT\r\n]))\r\n(;W[cs]CR[cs]\r\n;B[bs]CR[bs]\r\n(;W[dr]CR[dr]C[RIGHT])\r\n(;W[er]CR[er]\r\n;B[dr]CR[dr]\r\n;W[cr]CR[cr]C[RIGHT])\r\n(;W[cr]CR[cr]\r\n;B[dr]CR[dr]))\r\n(;W[bs]CR[bs]\r\n;B[cs]CR[cs]\r\n(;W[er]CR[er]C[RIGHT])\r\n(;W[dr]CR[dr]\r\n;B[er]CR[er]\r\n;W[cr]CR[cr]C[RIGHT])\r\n(;W[cr]CR[cr]\r\n;B[dr]CR[dr]))\r\n(;W[cr]CR[cr]\r\n;B[dr]CR[dr])\r\n(;W[as]CR[as]\r\n;B[bs]CR[bs])\r\n(;W[dr]CR[dr]\r\n;B[er]CR[er]\r\n(;W[cs]CR[cs]\r\n;B[cr]CR[cr])\r\n(;W[cr]CR[cr]\r\n;B[cs]CR[cs]))\r\n(;W[aq]CR[aq]\r\n;B[cs]CR[cs]))\r\n(;W[an]CR[an]C[wrong. after getting the correct answer, you can explore options])\r\n(;W[bn]CR[bn]C[wrong. after getting the correct answer, you can explore options])\r\n(;W[cn]CR[cn]C[wrong. after getting the correct answer, you can explore options])\r\n(;W[en]CR[en]C[wrong. after getting the correct answer, you can explore options])\r\n(;W[fn]CR[fn]C[wrong. after getting the correct answer, you can explore options]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 79,
+  "attempts": {
+    "solved": 1227,
+    "failed": 2371,
+    "tries": 3598,
+    "speedSolved": 1,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-09-21T19:27:39+00:00",
+  "source": "made question more clear",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 13,
+      "name": "How Many Ways",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

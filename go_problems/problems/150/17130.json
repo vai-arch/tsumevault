@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17130,
+  "elo": 1439.0969331908,
+  "problemLevel": 26,
+  "rank": {
+    "value": 4,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Slightly modified from a game. Comments welcome.",
+  "rating": {
+    "stars": 4.7,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bc]AB[cc]AW[cd]AW[ce]AW[cf]AW[cg]AB[ci]AB[dd]AB[de]AB[df]AB[dg]AB[ec]AB[fc]AW[db]AW[dc]AW[fb]AW[eb]AW[gc]AB[fe]AW[eh]AW[dh]AW[eg]AW[gg]AB[bg]AB[ch]AW[bf]AB[bh]AB[bd]AW[af]AB[jh]C[White to win the capturing race.]AP[goproblems]\n(;W[ee];B[ef]\n(;W[ff];B[ed]\n(;W[gd]\n(;B[gf]\n(;W[fg];B[ge]\n(;W[fd];B[ee]\n(;W[hf];B[he];W[ie];B[hd]\n(;W[hc]C[Good!RIGHT])\n(;W[ic];B[if];W[hg];B[id];W[je];B[jd];W[kd];B[ke];W[jf];B[jc];W[kc];B[jb]C[White has 3 liberties, black has 4 liberties. White has lost.])\n(;W[id];B[hc];W[gb];B[if];W[hg];B[ic];W[jc];B[jd];W[je];B[jb]\n(;W[kc];B[ib]C[White has 3 liberties, black has 4 liberties. White has lost.])\n(;W[kd];B[ib]C[White has 3 liberties, black has 4 liberties. White has lost.])))\n(;W[he];B[hf]C[This ladder is broken :(]TR[jh])\n(;W[if];B[he]\n(;W[ie];B[hd];W[hc];B[id];W[jd];B[ic];W[jc];B[ib]C[White has 3 liberties, black has 4 liberties. White has lost.])\n(;W[hf];B[hc]\n(;W[ie];B[hd];W[gb];B[be]C[White has 2 liberties, black has 3 liberties. White has lost.])\n(;W[hd];B[ie];W[je];B[id];W[gb];B[ic]C[White has 3 liberties, black has 4 liberties. White has lost.]))))\n(;W[he];B[hf]C[The ladder doesn't work, black escapes.])\n(;W[hf];B[he]C[Why easy, when you can do it complicated?]\n(;W[fd];B[ee];W[ie];B[hd]\n(;W[hc]C[Good!RIGHT])\n(;W[ic];B[if];W[hg];B[id];W[je];B[jd];W[kd];B[ke];W[jf];B[jc];W[kc];B[jb]C[White has 3 liberties, black has 4 liberties. White has lost.])\n(;W[id];B[hc];W[gb];B[if];W[hg];B[ic];W[jc];B[jd];W[je];B[jb]\n(;W[kc];B[ib]C[White has 3 liberties, black has 4 liberties. White has lost.])\n(;W[kd];B[ib]C[White has 3 liberties, black has 4 liberties. White has lost.])))\n(;W[ie];B[hd]\n(;W[fd];B[ee]\n(;W[hc]C[Good!RIGHT])\n(;W[ic];B[if];W[hg];B[id];W[je];B[jd];W[kd];B[ke];W[jf];B[jc];W[kc];B[jb]C[White has 3 liberties, black has 4 liberties. White has lost.])\n(;W[id];B[hc];W[gb];B[if];W[hg];B[ic];W[jc];B[jd];W[je];B[jb]\n(;W[kc];B[ib]C[White has 3 liberties, black has 4 liberties. White has lost.])\n(;W[kd];B[ib]C[White has 3 liberties, black has 4 liberties. White has lost.])))\n(;W[hc];B[id]\n(;W[fd]C[Good!RIGHT])\n(;W[jd];B[ic]\n(;W[fd]C[Good!RIGHT])\n(;W[ib];B[jc]\n(;W[fd]C[Good!RIGHT])\n(;W[kc];B[jb]\n(;W[fd]C[Good!RIGHT])\n(;W[kb];B[hb];W[gb];B[ia]C[White needs to fix these cutting points. But then, black will win the capturing race.]TR[je]TR[if]))))))))\n(;W[ge];B[fg]\n(;W[hf];B[be]LB[fd:1]LB[ee:2]LB[ff:3]C[White has 2 liberties, black has 3 liberties. White has lost.]LB[ae:1]LB[ag:2])\n(;W[fh];B[be]C[White has 2 liberties, black has 3 liberties. White has lost.]LB[ae:1]LB[ag:2]LB[fd:1]LB[ee:2]LB[ff:3]))\n(;W[hf];B[fg]\n(;W[fh];B[be]LB[ae:1]LB[ag:2]LB[fd:1]LB[ee:2]LB[ff:3]C[White has 2 liberties, black has 3 liberties. White has lost.])\n(;W[ge];B[be]LB[fd:1]LB[ee:2]LB[ff:3]C[White has 2 liberties, black has 3 liberties. White has lost.]LB[ae:1]LB[ag:2]))\n(;W[fd];B[fg];W[fh];B[ff];W[hf];B[hg];W[gh];B[he];W[if];B[ge]\n(;W[hd];B[ie];W[je];B[id];W[ic];B[jd];W[kd];B[jf])\n(;W[id]C[];B[be]C[White has 2 liberties, black has 3 liberties. White has lost.])\n(;W[ie];B[hd];W[hc];B[id];W[jd];B[ic];W[ib];B[jc];W[kc];B[hb];W[gb];B[jb];W[ha];B[kd];W[je];B[lc])))\n(;B[ge]\n(;W[fd];B[ee];W[he]C[Good!RIGHT])\n(;W[he];B[gf]\n(;W[fg];B[hf]C[The ladder doesn't work, black escapes.])\n(;W[fd];B[fg]\n(;W[fh];B[hf]C[Black escapes.])\n(;W[hf];B[fh]C[Black escapes.])))))\n(;W[ge];B[ae];W[gd];B[ag];W[fd];B[be]C[This sad thing happened in the game.]))\n(;W[ed];B[fd]C[:(])\n(;W[fd];B[ed]\n(;W[gd];B[ff]LB[ae:1]LB[be:2]LB[ag:3]LB[ee:1]LB[ge:2]LB[gf:3]LB[fg:4]C[White has 3 liberties, black has 4 liberties. White has lost.])\n(;W[ff];B[gd];W[hd];B[he]C[Black has two eyes and escapes.])\n(;W[ge];B[gd];W[hd];B[gf]C[Black escapes.]))\n(;W[ge];B[ff]LB[ae:1]LB[be:2]LB[ag:3]LB[ed:1]LB[fd:2]LB[gf:3]LB[fg:4]C[White has 3 liberties, black has 4 liberties (black can sacrifice e17 and f17). White has lost.])\n(;W[gd];B[ff]LB[ae:1]LB[be:2]LB[ag:3]LB[ed:1]LB[fd:2]LB[ge:3]LB[gf:4]LB[fg:5]C[White has 3 liberties, black has 5 liberties (black can sacrifice e17 and f17). White has lost.]))\n(;W[ef];B[ee]C[White has 3 liberties, black has 4 liberties (black can sacrifice e17 and f17). White has lost.]LB[ae:1]LB[be:2]LB[ag:3]LB[ed:1]LB[fd:2]LB[ge:3]LB[ff:4])\n(;W[ff];B[ee]LB[ae:1]LB[be:2]LB[ag:3]LB[ed:1]LB[fd:2]LB[ge:3]LB[ef:4]C[White has 3 liberties, black has 4 liberties (black can sacrifice e17 and f17). White has lost.])\n(;W[ge];B[ee]LB[ae:1]LB[be:2]LB[ag:3]LB[ed:1]LB[fd:2]LB[ef:3]LB[ff:4]C[White has 3 liberties, black has 4 liberties (black can sacrifice e17 and f17). White has lost.])\n(;W[fd];B[ee]LB[ae:1]LB[be:2]LB[ag:3]LB[ed:1]LB[ge:2]LB[ef:3]LB[ff:4]C[White has 3 liberties, black has 4 liberties (black can sacrifice e17 and f17). White has lost.])\n(;W[ed]\n(;B[ee]LB[ae:1]LB[be:2]LB[ag:3]LB[fd:1]LB[ge:2]LB[ef:3]LB[ff:4]C[White has 3 liberties, black has 4 liberties (black can sacrifice e17 and f17). White has lost. Black could also play f16 instead of e15, but this way it's easier to count.])\n(;B[fd]))\n(;W[lc]C[This variation is here to enlarge the visible area.]))",
+  "author": {
+    "id": 52760,
+    "name": "wurfmaul",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-21",
+    "rank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1018.78
+  },
+  "avgSolveTimeSeconds": 96,
+  "attempts": {
+    "solved": 749,
+    "failed": 1473,
+    "tries": 2222,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-02-02T14:13:03+00:00",
+  "source": "KGS game Dana vs. wurfmaul",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

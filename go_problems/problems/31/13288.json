@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13288,
+  "elo": 1084.600678854,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -2,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.5,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[qc]AW[pb]AW[ob]AW[oc]AW[qi]AW[qo]AB[pq]AB[op]AB[jq]AB[eq]AW[dq]AW[cp]AW[co]AB[cn]AB[cm]AB[cl]AB[dl]AW[dm]AW[dn]AB[ch]AW[ce]AW[dc]AB[pc]AB[qe]AB[nc]AB[md]AB[od]AW[nd]AB[oe]TR[nd]C[Can the marked stone be saved from the emerging ladder? If you think not, tenuki at 'T'. Otherwise save the marked stone.]LB[jj:T]AP[goproblems]\r\n(;W[ne]C[Let's see...];B[nf];W[me];B[le];W[mf];B[mg];W[lf];B[kf];W[lg];B[lh];W[kg];B[jg];W[kh];B[ki];W[jh];B[ih];W[ji];B[jj];W[ii];B[hi];W[ij];B[ik];W[hj];B[gj];W[hk];B[hl];W[gk];B[fk];W[gl];B[gm];W[fl];B[el];W[fm];B[fn];W[em];B[do]\r\n(;W[en];B[eo]C[Nope. The ladder didn't work for white.CHOICE])\r\n(;W[eo];B[en]C[Nope. The ladder didn't work for white.]))\r\n(;W[jj]C[Yep. The ladder would have caught white.RIGHT]))",
+  "author": {
+    "id": 2964,
+    "name": "thavdog",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-10",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 954.589
+  },
+  "avgSolveTimeSeconds": 53,
+  "attempts": {
+    "solved": 2776,
+    "failed": 3432,
+    "tries": 6208,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-12-07T13:56:50+00:00",
+  "source": "Kageyama: Lessons in the fundamentals of go",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

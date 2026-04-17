@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5923,
+  "elo": 1743.7624660879,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.5,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[gr]AB[ir]AB[iq]AB[jq]AB[jo]AB[kp]AB[lp]AB[no]AB[mo]AB[np]AB[nq]AB[pp]AB[qp]AB[qq]AB[rq]AB[sr]AW[or]AW[nr]AW[mq]AW[mp]AW[lq]AW[kq]AW[lr]AW[jr]AB[kr]LB[kr:1]LB[lr:2]C[What's the best Black can do?]AP[goproblems]\n(;B[ms];W[ks]\n(;B[is]\n(;W[ns]\n(;B[js];W[pr]\n(;B[kr]C[Well done! A very hard ko for White - Black has 5 local threats! (Each of the odd numbers is a threat and the following even one is the anwser)RIGHT]LB[ps:1]LB[qr:2]LB[rr:4]LB[os:6]LB[sq:7]LB[ss:8]LB[rs:5,9]LB[qs:3,10]MA[jr])\n(;B[ps];W[qr]C[Only wasting a ko threat! :(]TR[ps])\n(;B[qr];W[ps]C[Throwing away 5 local ko threats before the ko can't be good... o_O]TR[qr]))\n(;B[pr];W[js]C[:(]))\n(;W[js];B[ls]C[RIGHT])\n(;W[pr];B[ns]\n(;W[qr];B[qs];W[rr];B[rs]C[RIGHT])\n(;W[os];B[js];W[qr];B[qs]C[RIGHT])\n(;W[qs];B[qr]TR[ls]TR[js]C[RIGHT])))\n(;B[pr];W[ls]LB[os:1]LB[mr:2]C[:(])\n(;B[ls];W[ns]\n(;B[is];W[pr]LB[ps:1]LB[qr:2]LB[qs:3]LB[rr:4]LB[rs:5]LB[os:6]AB[ps]AW[qr]AB[qs]AW[rr]AB[rs]AW[os]C[:(])\n(;B[pr];W[js]C[:(])))\n(;B[js];W[ms]\n(;B[ls];W[ks]MA[ls]C[P1 isn't really a ko threat now! :(]TR[os])\n(;B[pr];W[os];B[ls];W[ks]MA[ls]C[:(])\n(;B[os];W[pr]\n(;B[ls];W[ks]MA[ls]C[Q1 isn't really a ko threat now! :(]TR[ps])\n(;B[ps];W[qr]\n(;B[ls];W[ks]MA[ls]C[R1 isn't really a ko threat now! :(]TR[qs])\n(;B[qs];W[rr]\n(;B[ls];W[ks]MA[ls]C[S1 isn't really a ko threat now! :(])\n(;B[rs];W[ns]\n(;B[sq];W[ss];B[ls];W[ks]C[Istead of 5 local ko threats for Black, White has 1! :(]MA[ls])\n(;B[ss];W[sq]C[:(])\n(;B[ls];W[ks]C[:(]MA[ls]))\n(;B[ss];W[rs];B[ls];W[ks]MA[ls]C[Istead of 5 local ko threat for Black, White has 1! :(]))\n(;B[rs];W[qs];B[ls];W[ks]MA[ls]C[:(]))\n(;B[qs];W[ps];B[ls];W[ks]C[:(]MA[ls]))\n(;B[ps];W[os];B[ls];W[ks]C[:(]MA[ls]))\n(;B[ls];W[ks]C[:(])\n(;B[ks];W[ls];B[js];W[ms]C[:(])\n(;B[pr];W[ks]C[:(])\n(;B[is];W[ms]C[:(]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1598.71
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 186,
+    "failed": 1549,
+    "tries": 1735,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-02-09T11:57:53+00:00",
+  "source": "Remaking 4804",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

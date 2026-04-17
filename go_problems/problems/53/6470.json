@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6470,
+  "elo": 1401.7728544437,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Thanks to Sverre and Andre Engels.",
+  "rating": {
+    "stars": 3.9,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ep]AB[dq]AB[cp]AB[co]AW[dp]AB[jh]AW[ji]AB[jj]AW[jk]AB[jl]AW[jm]AW[kl]AB[km]AW[kj]AB[ki]AW[kh]AB[ll]AB[lk]C[Play at A if white can escape the ladder. Play at T if you think he can't.]LB[do:A]LB[dd:T]AP[goproblems]\n(;W[do];B[dn];W[eo];B[fo];W[en];B[em];W[fn];B[gn];W[fm];B[fl];W[gm];B[hm];W[gl];B[gk];W[hl];B[il];W[hk];B[hj];W[ik]C[];B[kk];W[ij];B[ii]C[Nope. W can't escape because of shortage of liberties.])\n(;W[dd]C[RIGHT];B[cc]C[Good! W can't escape this! If you want you can now see the ladder...];W[do];B[dn];W[eo];B[fo];W[en];B[em];W[fn];B[gn];W[fm];B[fl];W[gm];B[hm];W[gl];B[gk];W[hl];B[il];W[hk];B[hj];W[ik];B[kk];W[ij];B[ii];W[jj];B[lj]C[Yep!RIGHT]))",
+  "author": {
+    "id": 10590,
+    "name": "Schizoid",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 2721,
+    "failed": 3306,
+    "tries": 6027,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-05-07T00:38:27+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 16,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

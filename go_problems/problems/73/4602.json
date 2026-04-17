@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4602,
+  "elo": 1488.1492082741,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -2,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Updated version of 4601 - removed due to a largish blunder :-) - thanks to all those who commented on 4601 (chrise I've now added your variation (also suggested by Grebble)).\r\n\r\nFrom one of my games - B tenukied thinking the W couldn't do anything. Show him the error of his ways.\r\n\r\n\r\nThere were two paths in this problem (depending on how B played). The harder path has been split into problem 4606.\r\n\r\nKo threats are not an issue - problem is to get most points out of the situation\r\n\r\nThanks also to BartTM, edegroot, Kansas and aditsu for more corrections",
+  "rating": {
+    "stars": 2.1,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dd]AW[fc]AB[cf]AW[ch]AB[cc]AW[db]AW[cb]AB[eb]AB[ec]AB[fb]AW[gc]AW[gb]AB[fd]AW[gd]AB[fe]AW[ge]AB[ce]AW[bd]AW[be]AW[bf]AB[bc]AB[bb]AW[cg]AB[dg]AB[eg]AW[dh]AW[eh]AW[gg]AB[fg]AW[gf]AW[fh]AB[ad]AW[ag]AB[ae]AB[ab]AW[af]AB[ac]AW[cd]TR[cd]C[W has just played the marked stone and B tenukied thinking that there was nothing that W could do]AP[goproblems]\r\n(;W[de];B[dc]C[B can play this way - in fact it looks like B's best play to me.CHOICE]\r\n(;W[ee];B[ed];W[ff]C[Although you capture 5 stones, you do loose sente :-(, but I'll let you have this oneRIGHT])\r\n(;W[ff];B[ed]\r\n(;W[ef]C[Sorry I'm not letting you have this, you could have done a little better])\r\n(;W[ee]C[RIGHT])))\r\n(;W[dc];B[da];W[de];B[ed];W[ff];B[ef];W[df]C[];B[ee]C[W only catches 2  stones])\r\n(;W[ff];B[de]\r\n(;W[ef];B[df]\r\n(;W[ee];B[dc];W[ed]C[Only two stones - you can do better])\r\n(;W[ed];B[dc];W[ee]C[And W catches 2 stones, W can do much better, so I've marked this as wrong]))\r\n(;W[ee]\r\n(;B[ed];W[ef];B[dc];W[df]C[Only 3 stones - can do better])\r\n(;B[df];W[ed];B[dc]C[two stones in sente - could be better]))\r\n(;W[ed];B[ee];W[ef];B[dc];W[df]C[Three stones - can do better])\r\n(;W[dc];B[da]\r\n(;W[ed];B[ee];W[ef];B[ca];W[df]C[Three stones - can do better])\r\n(;W[ef];B[ee];W[df];B[ca]C[Three stones - can do better]))))",
+  "author": {
+    "id": 1139,
+    "name": "Chrisg",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 1275,
+    "failed": 2742,
+    "tries": 4017,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-06-08T06:02:04+00:00",
+  "source": "One of my games",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 37,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

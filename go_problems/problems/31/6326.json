@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6326,
+  "elo": 1234.6728480291,
+  "problemLevel": 19,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 1.6,
+    "votes": 61,
+    "currentUserVote": null
+  },
+  "sgf": "(;LB[br:0]LB[cr:1]C[Please choose a number:  0 or 1.FORCE]AB[ao]AB[bo]AB[co]AB[do]AB[eo]AB[go]AB[fo]AB[ho]AB[hp]AB[hq]AB[hr]AB[hs]AP[goproblems]\n(;B[br]C[]AB[ar]AB[cr]AB[dr]AB[gq]AB[gp]AW[aq]AW[bq]AW[cq]AW[dq]AW[er]AW[fs]AW[gs]AW[gr]AW[fq]AW[fp]AW[ep]AB[dp]AB[cp]AW[bp];W[ds]C[White has no ko threats.  How should you play?]\n(;B[bs]C[Only seki.  You could have killed white.])\n(;B[cs];W[bs]\n(;B[as];W[bs]C[:O])\n(;B[es]C[White has no ko threats - you win.RIGHT]MA[ds];W[eq];B[fr]C[RIGHT]))\n(;B[as];W[cs]C[:(])\n(;B[ap]C[NOTTHIS];W[eq]\n(;B[bs]C[Only seki.  You could have killed white.])\n(;B[cs];W[bs];B[es]MA[ds]C[White has no ko threats - you win.RIGHT];W[in]C[(Ko fight:  please play at K)FORCE]LB[io:K];B[io];W[ds]MA[es]C[Playing at A4 first forced white to use a big ko threat ... but it's a ko fight nonetheless.])))\n(;B[cr]AB[ar]AB[br]AB[dr]AB[gq]AB[gp]AB[cp]AB[dp]AW[gs]AW[gr]AW[fs]AW[er]AW[fq]AW[fp]AW[ep]AW[dq]AW[cq]AW[bq]AW[aq]AW[bp];W[ds]C[White has one good ko threat.  How should you play?]\n(;B[cs];W[bs]\n(;B[as];W[bs]C[:O])\n(;B[es];W[in]LB[io:K]C[(Ko fight:  please play at K)FORCE];B[io];W[ds]MA[es]C[:(]))\n(;B[as];W[cs]C[:(])\n(;B[bs]C[Seki.  You live in the corner, and have a ko threat at A4.RIGHT])\n(;B[ap];W[eq]\n(;B[cs];W[bs];B[es];W[in]C[(Ko fight:  please play at K)FORCE]LB[io:K];B[io];W[ds]MA[es]C[Playing at A4 first forced white to use a big ko threat ... but it's a ko fight nonetheless.])\n(;B[bs]C[Seki ... but you wasted a ko threat at A4.]))))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 7496,
+    "failed": 7050,
+    "tries": 14546,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-04-15T17:46:11+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 24,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

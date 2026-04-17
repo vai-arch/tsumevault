@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12730,
+  "elo": 1331.2382638284,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This happened in a game I played on KGS. I killed a large group on the right, but later black managed to complicate things.\r\n\r\nThis is the first problem I submit on this site. Please comment if there are any mistakes or if you feel a certain variation should be added.",
+  "rating": {
+    "stars": 4.3,
+    "votes": 23,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[rb]AW[rc]AW[rd]AW[qd]AW[sd]AW[se]AW[sf]AW[sg]AB[qc]AB[qb]AW[pc]AW[pb]AW[oc]AB[nc]AB[nd]AB[od]AB[pd]AB[lc]AB[je]AB[jf]AW[oe]AW[pe]AW[ne]AW[nf]AB[qe]AB[re]AB[rf]AB[rg]AB[of]AB[pf]AB[pg]AB[qg]AB[rh]AB[sh]AB[si]AB[rj]AB[rk]AW[oh]AW[oi]AW[og]AW[pj]AW[qj]AW[qi]AW[ri]AW[ql]AW[qn]AB[mg]AB[ng]AB[nh]AW[lf]AW[kf]AB[kg]AW[jg]AW[kh]AB[jd]TR[mg]C[Black has just played the marked stone. White's square stones are vital to kill black's group on the left, but can he save them? Play at A if you think the white stones are lost.]LB[lg:A]MA[nf]MA[ne]MA[oe]MA[pe]AP[goproblems]\n(;W[lg];B[mf]C[Black captures his stones and saves his group on the right side. White can do better than this.])\n(;W[mf];B[lg]\n(;W[ni]\n(;B[jh]\n(;W[ig];B[lh]\n(;W[ki];B[li];W[lj];B[kj];W[ji];B[mj]\n(;W[lk];B[mi];W[mk]C[RIGHT];B[nj]\n(;W[nk]C[Excellent, black can not escape!RIGHT])\n(;W[oj];B[nk];W[nl];B[ok];W[ol];B[pk];W[qk]C[Excellent, black can not escape!RIGHT]))\n(;W[mi];B[lk]))\n(;W[li];B[ki]))\n(;W[lh];B[ig]C[Not good. Black is out, and white will be captured.];W[mh];B[jg]))\n(;B[le];W[lh]C[RIGHT]))\n(;W[mi];B[le]C[Black is one liberty ahead.])\n(;W[lh];B[ni]\n(;W[nj];B[mi];W[lj];B[le]C[Black is one liberty ahead.])\n(;W[mj];B[nj];W[nk];B[le]C[Black wins by one liberty.])))\n(;W[le];B[lg];W[ni];B[me];W[mf];B[ld];W[md];B[ke]C[Black wins a capture race easily. The bamboo joint lacks liberties.]))",
+  "author": {
+    "id": 23269,
+    "name": "kuikentje",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-02-14",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 710.567
+  },
+  "avgSolveTimeSeconds": 103,
+  "attempts": {
+    "solved": 1030,
+    "failed": 1622,
+    "tries": 2652,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-06-01T04:42:38+00:00",
+  "source": "KGS: kuikentje [1d] vs davidlim [1k]",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

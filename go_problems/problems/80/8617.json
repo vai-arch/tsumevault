@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8617,
+  "elo": 961.54643528733,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -5,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "joseki",
+  "specificGenre": "joseki",
+  "description": "Practice Joseki variations.",
+  "rating": {
+    "stars": 2.4,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dd]AB[jd]AB[pd]AB[pj]AB[dj]AB[jj]AB[dp]AB[jp]AB[pp]AB[qd]AW[qc]AW[pc]AB[oc]AW[ob]AB[nb]AW[nc]AW[mb]AB[od]AP[goproblems]\n(;B[nd]\n(;W[na]C[CHOICE];B[mc];W[nb]\n(;B[md]C[RIGHT])\n(;B[lc]C[In the joseki without the handicap stones, the solid connection at N16 is usually better. In this position M17 is playable.RIGHT]))\n(;W[mc]C[This is a mistake by white.CHOICE]\n(;B[pb];W[na];B[qb];W[rc];B[rb];W[rd];B[re]TR[pc]TR[qc]TR[rc]TR[rd]C[White loses all of the corner. Compare this to the correct variations where white has a base to expand from. White will have to make more moves in this area for his other stones  to live.RIGHT])\n(;B[md];W[rc]C[bN16 allowed white to live in the corner.])))\n(;B[pb];W[na]\n(;B[qb]C[RIGHT]\n(;W[rc];B[rb]\n(;W[rd];B[re]TR[pc]TR[qc]TR[rc]TR[rd]C[Q17 group is dead. The wS16 bS15 exchange is bad for white. It gives black a good stone (can expand from it) for a dead stone.RIGHT])\n(;W[me]C[RIGHT])\n(;W[kc]C[RIGHT]))\n(;W[kc]C[RIGHT])\n(;W[me]C[RIGHT]))\n(;B[pa];W[rb]\n(;B[rd];W[qb])\n(;B[oa];W[nb];B[rd];W[rc]C[White can live in the corner.];B[sc];W[sb]))\n(;B[rb];W[qb]C[White gets an eye in the 4x4 corner with chances to expand later.])\n(;B[rc];W[qb];B[rb];W[pa]C[White has the two marked eyes. White has chances to expand later.]TR[oa]TR[pb]))\n(;B[mc];W[nd];B[ne]\n(;W[md]C[CHOICE];B[pb];W[na]C[This gives white more chances for later expansion.])\n(;W[na]C[Shape with bO16 is better than current shape with bO15.CHOICE]))\n(;B[rc]\n(;W[pb]C[White has good chances to get the corner or expand later.])\n(;W[qb]C[CHOICE];B[nd];W[mc]C[White is alive with chances to expand later.]))\n(;B[na];W[pb]C[White lives in the corner with chances for later expansion. bO19 wQ18 exchange gives white better chances for life. Black gets a possible sente move of bO16.];B[nd];W[mc]))",
+  "author": {
+    "id": 9226,
+    "name": "LCZLAPINSKI",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-01-02",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1036.36
+  },
+  "avgSolveTimeSeconds": 21,
+  "attempts": {
+    "solved": 11505,
+    "failed": 9940,
+    "tries": 21445,
+    "speedSolved": 3,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-05-29T12:39:12+00:00",
+  "source": "7283",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 80,
+      "name": "3-3 (san-san) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

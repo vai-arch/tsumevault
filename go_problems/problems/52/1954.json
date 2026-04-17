@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1954,
+  "elo": 1330.6962678172,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "There is more than one way to skin a ko.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 15,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ab]AW[bb]AW[bc]AW[bh]AW[cc]AW[ce]AW[cf]AW[cg]AW[ci]AW[dd]AW[ed]AW[fb]AW[fc]AB[ac]AB[bd]AB[be]AB[bf]AB[bg]AB[cb]AB[cd]AB[db]AB[dc]C[White to live without ko.]\n(;W[ae];B[af]\n(;W[ad];B[ac]\n(;W[ad];B[ba]\n(;W[ah]C[White wins!CHOICERIGHT])\n(;W[eb];B[ca];W[ec]C[White wins with damezumari!CHOICERIGHT])\n(;W[ec]\n(;B[ca];W[eb]C[White wins with damezumari!CHOICERIGHT])\n(;B[eb];W[ea]C[White wins with damezumari!CHOICERIGHT]))\n(;W[ca]C[RIGHT])\n(;W[da]C[RIGHT])\n(;W[ag];B[ah]\n(;W[ai];B[ca]C[Ko])\n(;W[eb];B[bi]C[Black escapes.])))\n(;W[ah];B[ba];W[ad]C[RIGHT])\n(;W[ba];B[ad]))\n(;W[ah];B[ba];W[ad];B[ac];W[ad]C[White wins!CHOICERIGHT])\n(;W[ba];B[ad]))\n(;W[ad];B[ae]C[Ko.])\n(;W[ah];B[ad]C[Black wins.])\n(;W[ba];B[ad]C[Black wins.])\n(;W[aa];B[ba]C[Oops!])\n(;W[ag];B[ae]C[Black takes vital point and makes ko.])\n(;W[ca];B[ba];W[ad];B[ae]C[Ko.])\n(;W[af]\n(;B[ae]\n(;W[ad];B[ag];W[ah];B[ac]C[Best ko for White, but she can do better.CHOICE])\n(;W[ag];B[ah];W[ag];B[ba]C[Ko.CHOICE]))\n(;B[ag]\n(;W[ah]\n(;B[ba];W[ad]C[White wins, but Black can play better.CHOICE])\n(;B[ae]C[Best ko for White, but she can play better.CHOICE]))\n(;W[ae];B[ad]C[Black wins.CHOICE]))))",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 53,
+  "attempts": {
+    "solved": 1399,
+    "failed": 4279,
+    "tries": 5678,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-02-20T11:43:11+00:00",
+  "source": "Many Faces of Go",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

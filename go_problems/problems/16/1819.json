@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1819,
+  "elo": 987.33956183744,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": -4,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This problem shows another basic idea which occurs regulary during endgame ko fights. It is an easy problem, too, but don't worry - there will be more difficult ones soon!",
+  "rating": {
+    "stars": 4,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.50]TM[]\r\nAW[ba][da][bb][cb][cc][cd][be][ce][de][ee][cf][dg]AB[ea][db][eb][dc][dd][ed][fd][fe][df][ef][gf][fg]C[No komi, no prisoners - black to play and win!]\r\n(;B[eg]CR[eg]\r\n;W[cg]CR[cg]\r\n;B[ca]TR[cg][eg]CR[ca]C[Thanks to the exchange of the marked stones there is no white ko threat left, so black can connect the ko  and wins by 1 point. RIGHT])\r\n(;B[ca]CR[ca]\r\n;W[cg]CR[cg]\r\n(;B[eg]CR[eg]\r\n;W[da]CR[da]C[If black takes the ko at once there remains a white ko threat at the bottom, white can recapture the ko and a jigo results.])\r\n(;B[da]CR[da]\r\n;W[eg]CR[eg]\r\n;B[ff]CR[ff]C[Ignoring the white ko threat gives black not more than a jigo.])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 20825,
+    "failed": 12542,
+    "tries": 33367,
+    "speedSolved": 2,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-12-25T16:06:02+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

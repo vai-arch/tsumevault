@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6209,
+  "elo": 1204.9900076163,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -3,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.6,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rs]AB[qr]AB[pq]AB[or]AB[ps]AW[nr]AW[oq]AW[op]AW[mq]AW[po]AW[qo]AW[qq]AW[sq]AW[sp]AW[rp]AW[qp]AB[ro]AB[so]AB[qn]AB[rm]AB[pn]AB[on]AB[oo]AW[no]AW[nn]C[White to play the best move.]AP[goproblems]\n(;W[sr]C[Black is dead.RIGHT])\n(;W[rr];B[sr]C[White can play Q3 or T1. In both cases black is unconditionally dead, but he has an infinite number of ko-threats that threaten a ko for life.])\n(;W[rq];B[sr]\n(;W[rr];B[pp])\n(;W[pp];B[rr]C[ko]))\n(;W[ss];B[sr]\n(;W[pp];B[pr];W[rr];B[rq]C[ko])\n(;W[rq];B[rr]C[black lives])\n(;W[rr];B[rq];W[pp];B[pr]C[ko]))\n(;W[pp];B[sr]\n(;W[rr]C[double ko. Black is unconditionally dead, but he has an infinite number of ko-threats that threaten a ko for life.])\n(;W[rq];B[rr]C[ko])\n(;W[pr]C[Black is unconditionally dead, but he has an infinite number of ko-threats that threaten a ko for life.])))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 3971,
+    "failed": 6732,
+    "tries": 10703,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-03-26T04:31:29+00:00",
+  "source": "a game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

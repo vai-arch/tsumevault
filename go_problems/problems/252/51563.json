@@ -1,0 +1,126 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 51563,
+  "elo": 1266.5713064042,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": null,
+  "sgf": "(;AP[goproblems autoextractor]AB[ag][bh][cd][ce][cf][cg][ci][eb][ee][ef][fc][fd][hd]AW[bc][bi][cc][ch][dc][dd][dg][dh][ed][eg][fe][ff]TR[ag]LB[ai:a]LB[bj:b]LB[cj:c]LB[di:d]LB[he:e]PW[sbng]PB[minorin]PC[The KGS Go Server at http://www.gokgs.com/]DT[2010-02-20]C[FORCE](;W[cj]TR[bc]TR[cc]TR[dd]TR[dc]TR[ed]SQ[fc]SQ[fd]LB[bj:A]LB[bj:B]C[Playing here is worth about 19 points over playing away in an empty corner. The stones marked with a triangle are stronger. The stones marked with a square are dead. Black would have played at A if you played away. Black would likely play at B next. ](;B[bj]C[CHOICE](;W[di]C[RIGHT])(;W[ai];B[di]C[Your mistake at A11 lost approximately 19 points]))(;B[di]C[CHOICE](;W[ei]C[Note: the Black move at D11 lost about 3 pointsRIGHT])(;W[bj];B[fg]C[Your mistake at B10 lost approximately 25 points])))(;W[ai];B[cj]TR[bc]TR[cc]TR[dd]TR[dc]TR[ed]C[This loses about 27 points. The stones marked with a triangle are weaker. ])(;W[bj];B[fg]TR[dg]TR[ch]TR[eg]TR[dh]C[This loses about 9 points. The stones marked with a triangle are stronger but this is not sufficient. ])(;W[di];B[cj]TR[bc]TR[cc]TR[dd]TR[dc]TR[ed]SQ[dg]SQ[ch]SQ[eg]SQ[dh]CR[fc]CR[fd]C[This loses about 21 points. The stones marked with a triangle are weaker. The stones marked with a square are stronger but this is not sufficient. The stones marked with a circle are alive. ])(;W[he];B[cj]TR[bc]TR[cc]TR[dd]TR[dc]TR[ed]SQ[dg]SQ[ch]SQ[eg]SQ[dh]C[This loses about 18 points. The stones marked with a triangle are weaker. The stones marked with a square are stronger but this is not sufficient. ]))",
+  "author": {
+    "id": 102753,
+    "name": "Mithirii",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1315_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1315_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1315_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 1315
+    },
+    "lastOnlineAt": "2026-04-14",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1535.67
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 5,
+    "failed": 3,
+    "tries": 8,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-10-14T17:30:36+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1372
+}

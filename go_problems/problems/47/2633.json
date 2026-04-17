@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2633,
+  "elo": 982.97238679882,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[fc][dd][ed][fd][id][ce][fe][ff][bg][cg][dg][di]AB[bc][dc][ec][cd][be][de][ef][fg][gg][gi]LB[de:1]C[black cuts at 1. please connect the two white groups]PL[W]\r\n(;W[df]CR[df]\r\n;B[cf]CR[cf]\r\n(;W[eg]CR[eg]C[RIGHT])\r\n(;W[ee]CR[ee]\r\n;B[eg]CR[eg]C[ko])\r\n(;W[bf]CR[bf]\r\n;B[eg]CR[eg]))\r\n(;W[eg]CR[eg]\r\n;B[cf]CR[cf]\r\n;W[df]CR[df]C[RIGHT])\r\n(;W[cf]CR[cf]\r\n;B[eg]CR[eg])\r\n(;W[ee]CR[ee]\r\n;B[df]CR[df]\r\n(;W[cf]CR[cf]\r\n;B[eg]CR[eg])\r\n(;W[eg]CR[eg]\r\n;B[cf]CR[cf])))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 26,
+  "attempts": {
+    "solved": 12049,
+    "failed": 10751,
+    "tries": 22800,
+    "speedSolved": 7,
+    "speedPlay": 46
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-25T11:56:36+00:00",
+  "source": "game vs bill",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

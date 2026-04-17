@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21361,
+  "elo": 1773.5312260063,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.2,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[jc]AB[kc]AB[ld]AB[md]AB[nd]AB[nc]AB[od]AB[pd]AB[qd]AW[kb]AW[lc]AW[mc]AW[nb]AW[oc]AW[pc]C[Black's stones are strong while white's group has some obvious weaknesses. What is the best way to attack this white group?]AB[hc]AB[qf]AP[goproblems]\n(;B[pb]\n(;W[ob]\n(;B[qb]C[];W[jb];B[ib]C[Nice! The white group cannot live.CHOICERIGHT])\n(;B[qc];W[qb];B[rb];W[pa]))\n(;W[mb]\n(;B[ob];W[la]C[Black captures the corner in sente (compare with variations).CHOICERIGHT])\n(;B[qb];W[la];B[ob]C[Gote for black.])))\n(;B[ob];W[pb];B[mb];W[oa];B[lb];W[qc]C[Black captures two stones but white is alive with points.])\n(;B[mb];W[lb];B[ob];W[ma];B[pb]C[Black captures the corner but white is alive and has sente.])\n(;B[qc];W[pb]C[White keeps all his stones!])\n(;B[qb];W[pb]\n(;B[pa];W[oa]\n(;B[qa];W[ma]C[White is alive and well.])\n(;B[mb];W[qa]\n(;B[lb];W[qc])\n(;B[qc];W[lb]))\n(;B[ma];W[mb]\n(;B[qa];W[la])\n(;B[la];W[qa])))\n(;B[qc];W[oa]))\n(;B[jb];W[qc];B[rc];W[rb];B[mb];W[ob])\n(;B[lb];W[mb])\n(;B[na];W[ob])\n(;B[ma];W[mb]\n(;B[pb];W[qb])\n(;B[qb];W[pb];B[pa];W[oa]\n(;B[qa];W[la])\n(;B[la];W[qa]))))",
+  "author": {
+    "id": 24774,
+    "name": "randomly_anonymous",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-15",
+    "rank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1434.15
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 71,
+    "failed": 241,
+    "tries": 312,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2017-01-06T08:43:01+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 177,
+      "name": "Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

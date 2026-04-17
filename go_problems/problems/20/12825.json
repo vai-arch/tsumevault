@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12825,
+  "elo": 2116.00170437,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "As the title says this is the solution of the go game on a 7x7 board. You will have to play black optimally. If you did not try my first problem on a 6x6 I suggest to do it before. This is based on a study involving a professional and strong amateurs. It reveals a black win by 9 points without komi (In fact this heigh win is due to the existance of the tengen). I included all the correct path I have found on the net and tried to block all symetries, I also included some wrong path that are not trivially wrong. I will look at your try or request to add some other. There is an update date in the title. PLEASE this problem can become huge so let strong players discuss first you can email me at thomas.cabaret@gmail.com.",
+  "rating": {
+    "stars": 3,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[7]C[Black to play optimally, white will answer optimally. (Problem updated on March 22th 2011)]AP[goproblems]\n(;B[dd];W[dc]C[E4 result depends on the rule set. For now on I disabled this move.]\n(;B[ec]\n(;W[cd]C[CHOICE]\n(;B[de]\n(;W[eb]C[CHOICE]\n(;B[cc];W[db]\n(;B[bd];W[ed]\n(;B[ee];W[fc];B[cb];W[fe];B[ff];W[gf]\n(;B[fg];W[ca];B[ba];W[da]\n(;B[bb];W[ge]\n(;B[ef]C[This is an optimal path for both. Black wins by 9 without komi. This is one of my two favorite playing styles for both.RIGHT])\n(;B[df]C[NOTTHIS])\n(;B[dg]C[You lost an easy point. :(]))\n(;B[bc]C[NOTTHIS])\n(;B[ab]C[NOTTHIS]))\n(;B[ef];W[ca];B[ba];W[da]\n(;B[ab]C[NOTTHIS])\n(;B[bc]C[NOTTHIS])\n(;B[bb];W[fg];B[eg];W[ge];B[gg];W[ce];B[cf];W[fg];B[fd];W[gd];B[gg];W[be];B[bf];W[fg];B[gc];W[gb];B[gg];W[dg];B[ae];W[fg])))\n(;B[cb];W[ee]C[C6 was a mistake you lost too much. You forgot to put atari before.]))\n(;B[ce];W[bd]\n(;B[bc];W[bb]C[A4 has the same effect than B3, I disabled A4.]\n(;B[be];W[ed];B[fd];W[fc];B[fe];W[cb];B[ad];W[ee];B[ef];W[ec];B[ab];W[gd]\n(;B[gf];W[ba];B[ge];W[gc];B[ac]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[ge];W[ff]))\n(;B[ad]C[NOTTHIS]))\n(;B[fc];W[be];B[bf]\n(;W[bb]C[CHOICE];B[fb];W[af];B[ea];W[cb]\n(;B[bg];W[da];B[fa];W[ae]\n(;B[cf]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[df]C[NOTTHIS])\n(;B[cg]C[NOTTHIS])\n(;B[dg]C[NOTTHIS]))\n(;B[cf];W[da];B[fa];W[bg];B[cg];W[ae];B[ag];W[ed];B[ee];W[bg];B[bc];W[ac];B[ag]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT]))\n(;W[bc]C[CHOICE];B[fb]\n(;W[bb]C[CHOICE];B[af];W[fa];B[gb];W[ae];B[ga];W[ea]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;W[af]C[CHOICE];B[ea];W[cb];B[bg];W[da];B[fa];W[ae]\n(;B[cf]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[cg]C[NOTTHIS])\n(;B[df]C[NOTTHIS])\n(;B[dg]C[NOTTHIS]))))\n(;B[be];W[bc]C[B3 was a mistake you lost 2 points. Follow the marked move to see a possible conclusion. (PERSONAL CONCLUSION TO BE CONFIRMED)]TR[fc];B[fc];W[fb]TR[gb];B[gb];W[ae]TR[af];B[af];W[ad]TR[bf];B[bf];W[fa]TR[gc];B[gc]C[This is 2 points worst than the optimal path. (PERSONAL CONCLUSION TO BE CONFIRMED)]))\n(;B[cb];W[ed];B[fc];W[fb];B[ce];W[bd];B[bc];W[ee];B[ef];W[fd];B[ff];W[be];B[bf];W[cf];B[df];W[af];B[cg];W[ca];B[ab];W[ba];B[ge];W[gc];B[fe];W[bb];B[ac];W[da]\n(;B[ae];W[aa];B[ad]C[This is an optimal path for both. Black wins by 9 without komi. This is one of my two favorite playing styles for both.RIGHT])\n(;B[ad]C[NOTTHIS]))\n(;B[fc];W[bc];B[ce];W[bd]\n(;B[fb]\n(;W[be]C[CHOICE];B[ea];W[cb];B[bf];W[af]\n(;B[bg];W[da];B[fa];W[ae]\n(;B[cf]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[cg]C[NOTTHIS])\n(;B[df]C[NOTTHIS])\n(;B[dg]C[NOTTHIS]))\n(;B[ae];W[cf];B[ag];W[ad]\n(;B[df];W[af];B[cg];W[bg];B[cf];W[fa];B[ga];W[da];B[fa];W[bb];B[ag];W[ed];B[fd];W[bg];B[ee];W[ae];B[ag]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[cg]C[NOTTHIS])))\n(;W[bf]C[CHOICE]\n(;B[be];W[ae];B[ea];W[cb];B[cf];W[da];B[fa];W[af];B[bg];W[ad];B[cg]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[ea];W[cb];B[be];W[ae];B[cf];W[da];B[fa];W[af];B[bg];W[ad];B[cg]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])))\n(;B[be];W[fb]C[B3 was a mistake you lost 2 points. Follow the marked move to see a possible conclusion. (PERSONAL CONCLUSION TO BE CONFIRMED)]TR[gb];B[gb];W[ae]TR[af];B[af];W[ad]TR[bf];B[bf];W[fa]TR[gc];B[gc]C[This is 2 points worst than the optimal path. (PERSONAL CONCLUSION TO BE CONFIRMED)])))\n(;B[db];W[cc]C[D6 was a mistake you lost too much. Follow the marked move to see a possible conclusion.]TR[fb];B[fb];W[ce]TR[df];B[df];W[cf]C[The shape is painful for black in the yose. Black is suboptimal.]))\n(;W[cb]C[CHOICE]\n(;B[db];W[cc]\n(;B[eb];W[ce];B[cf];W[bf];B[df];W[bg];B[ca];W[ba];B[da];W[cg]\n(;B[dg];W[ab]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[bb];W[ab];B[aa];W[ed]\n(;B[fd];W[ba]\n(;B[dg];W[bc]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[bc];W[bd]C[B5 was a mistake you lost 2 points. You should have end the ko :p. Follow the marked move to see a possible conclusion.]TR[aa];B[aa];W[dg]TR[ad];B[ad];W[be]TR[ac];B[ac];W[ef]TR[ee];B[ee];W[fe]TR[ed];B[ed];W[gf]TR[ae];B[ae];W[af]TR[gd];B[gd];W[ge]C[This is 2 points worst than the optimal path.]))\n(;B[be];W[bd]C[B3 was a mistake you lost 4 points. Follow the marked move to see a possible conclusion.]TR[ad];B[ad];W[ae]TR[bc];B[bc];W[be]TR[fd];B[fd];W[dg]TR[ac];B[ac];W[ef]TR[ee];B[ee];W[fe]TR[ed];B[ed];W[gf]TR[gd];B[gd];W[ge]C[This is 4 points worst than the optimal path.])))\n(;B[ce];W[eb];B[fb];W[da]\n(;B[fc];W[be];B[bf];W[bd];B[af];W[fa]\n(;B[ae];W[gb];B[ad];W[ac];B[fe];W[ea];B[gc];W[ga]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[gb];W[ae];B[ga];W[ea]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT]))\n(;B[fa]C[];W[be]C[F7 seems good but it is suboptimal. White have a secret ko :p. Follow the marked move to see a possible conclusion.]TR[bf];B[bf];W[af]TR[bd];B[bd];W[ad]TR[ae];B[ae];W[fc]TR[ed];B[ed];W[be]TR[bg];B[bg];W[bc]TR[fd];B[fd];W[ea]TR[cf];B[cf];W[ae]C[This is 1 point worst than the optimal path.])))\n(;B[ce];W[eb]C[C3 was a mistake you lost 1 point. White is too good shape. Follow the marked move to see a possible conclusion. (PERSONAL CONCLUSION TO BE CONFIRMED)]TR[fc];B[fc];W[bd]TR[fb];B[fb];W[fa]TR[be];B[be];W[ae]TR[af];B[af];W[ad]TR[bf];B[bf];W[gb]TR[gc];B[gc];W[ea]TR[ga];B[ga];W[ed]TR[fd];B[fd];W[gb]TR[cc];B[cc];W[bc]TR[ga];B[ga];W[ee]TR[fe];B[fe];W[gb]TR[db];B[db];W[da]TR[ga];B[ga];W[ef]TR[ff];B[ff];W[gb]TR[ca];B[ca];W[ba]TR[ga];B[ga];W[df]TR[cf];B[cf];W[gb]C[This is 1 point worst than the optimal path. White won the 1 point ko. (PERSONAL CONCLUSION TO BE CONFIRMED)])\n(;B[eb]C[];W[ce]C[E6 is not present in the study but it seems optimal as well.]\n(;B[db];W[cc];B[cf];W[bf];B[df];W[bg];B[ca];W[ba];B[da];W[cg]\n(;B[dg];W[ab]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[bb];W[ab];B[aa];W[ed]\n(;B[fd];W[ba]\n(;B[dg];W[bc]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[bc];W[bd]C[B5 was a mistake you lost 2 points. You should have end the ko :p. Follow the marked move to see a possible conclusion.]TR[aa];B[aa];W[dg]TR[ad];B[ad];W[be]TR[ac];B[ac];W[ef]TR[ee];B[ee];W[fe]TR[ed];B[ed];W[gf]TR[ae];B[ae];W[af]TR[gd];B[gd];W[ge]C[This is 2 points worst than the optimal path.]))\n(;B[be];W[bd]C[B3 was a mistake you lost 4 points. Follow the marked move to see a possible conclusion.]TR[ad];B[ad];W[ae]TR[bc];B[bc];W[be]TR[fd];B[fd];W[dg]TR[ac];B[ac];W[ef]TR[ee];B[ee];W[fe]TR[ed];B[ed];W[gf]TR[gd];B[gd];W[ge]C[This is 4 points worst than the optimal path.])))\n(;B[cf];W[bf];B[df];W[bg];B[db];W[cc];B[ca];W[ba];B[da];W[cg]\n(;B[dg];W[ab]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[bb];W[ab];B[aa];W[ed]\n(;B[fd];W[ba]\n(;B[dg];W[bc]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[bc];W[bd]C[B5 was a mistake you lost 2 points. You should have end the ko :p. Follow the marked move to see a possible conclusion.]TR[aa];B[aa];W[dg]TR[ad];B[ad];W[be]TR[ac];B[ac];W[ef]TR[ee];B[ee];W[fe]TR[ed];B[ed];W[gf]TR[ae];B[ae];W[af]TR[gd];B[gd];W[ge]C[This is 2 points worst than the optimal path.]))\n(;B[be];W[bd]C[B3 was a mistake you lost 4 points. Follow the marked move to see a possible conclusion.]TR[ad];B[ad];W[ae]TR[bc];B[bc];W[be]TR[fd];B[fd];W[dg]TR[ac];B[ac];W[ef]TR[ee];B[ee];W[fe]TR[ed];B[ed];W[gf]TR[gd];B[gd];W[ge]C[This is 4 points worst than the optimal path.]))))))\n(;B[cc];W[de]C[C5 was a mistake you lost 2 points. Follow the marked move to see a possible conclusion.]TR[db];B[db];W[ed]TR[dc];B[dc];W[ce]TR[fe];B[fe];W[ef]TR[ff];B[ff];W[ee]TR[fd];B[fd];W[bc]TR[bb];B[bb];W[ad]TR[eg];B[eg];W[dg]TR[fg];B[fg];W[ab]TR[ba];B[ba];W[ac]TR[aa];B[aa];W[be]C[This is 2 points worst than the optimal path.])\n(;B[ce];W[cc]C[C3 was a mistake you lost points. Follow the marked move to see a possible conclusion.]TR[ee];B[ee];W[eb]TR[fc];B[fc];W[be]TR[cf];B[cf];W[bf]C[Black C3 was a mistake. It is not possible for black anymore to win by 9 like in an optimal path.]))\n(;W[ed]C[CHOICE]\n(;B[de];W[eb];B[fc];W[cc]C[F6 depends on the rule set. The move is disabled.]\n(;B[bd];W[fb];B[fd];W[bc]\n(;B[be];W[gb];B[gc];W[cd];B[ce];W[ad];B[ae];W[ac]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[cd];W[ad];B[ae];W[ac]\n(;B[be];W[gc];B[gd];W[gb]C[This is an optimal path for both. Black wins by 9 without komi.RIGHT])\n(;B[bf]C[NOTTHIS])\n(;B[ce]C[NOTTHIS])))\n(;B[fb]C[NOTTHIS])\n(;B[fd];W[be]C[F4 was a mistake you lost too much. (PERSONAL CONCLUSION TO BE CONFIRMED) Tell me if you disagree.])\n(;B[fe];W[fb]C[F3 is an obvious bad move, here you you need another move again.]))\n(;B[cd]C[NOTTHIS])\n(;B[eb]C[NOTTHIS])\n(;B[fc];W[cd]C[F5 was a mistake you lost 3 points. Follow the marked move to see a possible conclusion.]TR[de];B[de];W[ce]TR[cc];B[cc];W[df]TR[ee];B[ee];W[bc]TR[db];B[db];W[bb]TR[ef];B[ef];W[cf]TR[dg];B[dg];W[cg]TR[eg];B[eg];W[cb]TR[da];B[da];W[ca]TR[dc];B[dc]C[This is 3 points worst than the optimal path.])\n(;B[cc];W[de]C[C5 was a mistake you lost 2 points. Follow the marked move to see a possible conclusion.]TR[db];B[db];W[cd]TR[dc];B[dc];W[ce]TR[fe];B[fe];W[ef]TR[ff];B[ff];W[ee]TR[fd];B[fd];W[bc]TR[bb];B[bb];W[ad]TR[eg];B[eg];W[dg]TR[fg];B[fg];W[ab]TR[ba];B[ba];W[ac]TR[aa];B[aa];W[be]C[This is 2 points worst than the optimal path.])\n(;B[ee]C[NOTTHIS])))\n(;B[cc]C[NOTTHIS])\n(;B[ed]C[NOTTHIS])\n(;B[cd]C[NOTTHIS]))\n(;B[ec]C[Suboptimal. Variations coming soon asap.])\n(;B[dc]C[Suboptimal. Variations coming soon asap.])\n(;B[ed]C[NOTTHIS])\n(;B[ee]C[NOTTHIS])\n(;B[de]C[NOTTHIS])\n(;B[ce]C[NOTTHIS])\n(;B[cd]C[NOTTHIS])\n(;B[cc]C[NOTTHIS]))",
+  "author": {
+    "id": 27777,
+    "name": "Clydevil",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-26",
+    "rank": {
+      "value": 11,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 11,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1234.34
+  },
+  "avgSolveTimeSeconds": 55,
+  "attempts": {
+    "solved": 12,
+    "failed": 199,
+    "tries": 211,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-06-22T11:29:30+00:00",
+  "source": "Professional go study. James Davies.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

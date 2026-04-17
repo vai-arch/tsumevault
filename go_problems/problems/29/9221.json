@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9221,
+  "elo": 1074.2019141151,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 34,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pb]AB[ob]AB[qc]AB[rc]AB[rd]AB[qe]AB[qf]AB[rf]AB[pf]AB[of]AB[mf]AB[nf]AB[mb]AB[lb]AB[mc]AW[qb]AW[rb]AW[sb]AW[re]AW[qd]AW[pc]AW[pd]AW[pe]AW[ne]AW[md]AW[le]AW[kb]AW[kc]AW[lc]C[Capture the marked stones]TR[pd]TR[pc]TR[pe]TR[qd]AP[goproblems]\n(;B[nd]C[]\n(;W[nc]\n(;B[od];W[oe]\n(;B[me];W[oc]\n(;B[nd];W[od];B[nb]C[Thats itRIGHT])\n(;B[nb];W[nd]))\n(;B[oc];W[me])\n(;B[nb];W[oc]\n(;B[nd];W[me])\n(;B[me];W[nd])))\n(;B[oe];W[od];B[oc];W[nd])\n(;B[oc];W[od];B[oe];W[nd])\n(;B[me];W[od]\n(;B[oe];W[nd])\n(;B[oc];W[nd])))\n(;W[me]C[White should play here in sente];B[oe]C[White will tenuki leaving P16 as a threat];W[od]LB[kg:Ko]\n(;B[kg];W[nc])\n(;B[oc])))\n(;B[od];W[oe]\n(;B[nd];W[me])\n(;B[me];W[nd]))\n(;B[me];W[nd]TR[od]TR[oe])\n(;B[oe];W[od]\n(;B[me];W[nd])\n(;B[oc];W[nd])\n(;B[nc];W[nd])\n(;B[nd];W[nc];B[oc];W[nd]))\n(;B[oc];W[nd])\n(;B[nc];W[nd]))",
+  "author": {
+    "id": 14046,
+    "name": "ldan",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-07-24",
+    "rank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1162.66
+  },
+  "avgSolveTimeSeconds": 67,
+  "attempts": {
+    "solved": 4263,
+    "failed": 5813,
+    "tries": 10076,
+    "speedSolved": 11,
+    "speedPlay": 7
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-09-30T08:31:30+00:00",
+  "source": "Kageyama: Lessons in the Fundamentals of Go, p205",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 61,
+      "name": "Snapback",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

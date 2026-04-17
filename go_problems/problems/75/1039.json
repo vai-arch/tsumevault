@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1039,
+  "elo": 2037.8269963377,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "Six (similar?) joseki, Part 6.",
+  "rating": {
+    "stars": 1,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dd]AB[de]AB[dh]AB[do]AB[dq]AB[gd]AB[kp]AB[qp]AW[bf]AW[cc]AW[cd]AW[eb]AW[oq]AW[pc]AW[po]AW[qe]LB[yy:0]SZ[19]TR[po]C[FORCE]PL[B]GM[1]FF[4]AP[Hibiscus:2.1]ST[3]\r\n(;B[pp]MN[1];W[op];B[oo];W[pn]TR[no]TR[on]C[FORCE]\r\n(;B[on];W[pm];B[om]TR[pl]TR[ro]C[FORCE]\r\n(;W[pl]C[RIGHT];B[pq];W[pr];B[qr];W[or];B[rq];W[ro];B[rp];W[no];B[ol]\r\n(;W[ok];B[ml];W[lo];B[lp];W[mp];B[mn];W[mo];B[pk]\r\n(;W[qk];B[pj];W[qj];B[pi]C[This is the right joseki for Black.RIGHT])\r\n(;W[pj];B[qk];W[qj];B[rl];W[rj];B[rm];W[rn];B[qo];W[qn];B[sm]C[White is captured.]))\r\n(;W[pk];B[lm]C[And White will be in trouble.RIGHT]))\r\n(;W[ro];B[pq];W[mp];B[pl];W[ql];B[qk];W[rp];B[or];W[nr];B[qr];W[os];B[pr]\r\n(;W[rq];B[qm]\r\n(;W[qn];B[rl];W[rr];B[nq];W[np];B[mq]C[White has lost the fight.])\r\n(;W[qo];B[nq];W[np];B[mq];W[lq];B[mr];W[lr];B[ns];W[lp];B[pk]C[White is probably not very happy with this result.]))\r\n(;W[mq];B[rq]C[White can resign.])))\r\n(;B[no];W[qr];B[rn]LB[rn:7]LB[lo:A]LB[mp:A]C[Not totaly unplayable but Black can certainly do better than this. Please not that Black is handicapped by the weaknesses around A.]))\r\n(;B[qo];W[pn]\r\n(;B[qm];W[qq]C[White will be ale to settle himself with this move, so this result is not very interesting for Black.])\r\n(;B[qn];W[pm]C[There's no reason for Black to paly like this.])))",
+  "author": {
+    "id": 6,
+    "name": "Spirit",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-28",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1819.71
+  },
+  "avgSolveTimeSeconds": 47,
+  "attempts": {
+    "solved": 74,
+    "failed": 4349,
+    "tries": 4423,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-08-26T11:00:56+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 77,
+      "name": "3-4 (komoku) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

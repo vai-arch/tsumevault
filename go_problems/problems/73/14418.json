@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14418,
+  "elo": 1098.0560383856,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "I like this problem because a common connect-tesuji is part of the solution.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 33,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bb]AB[bc]AB[bd]AB[be]AB[cf]AW[cb]AW[cc]AW[cd]AW[dd]AB[db]AB[dc]AB[ed]AB[ee]AB[fe]AB[ge]AB[he]AB[id]AB[ic]AB[ib]AB[ia]AB[ha]AW[eb]AW[fb]AW[fc]AW[fd]AW[gd]AW[gc]AW[hc]AW[hd]AW[hb]AW[ga]C[]AP[goproblems]\n(;B[ea];W[ec]\n(;B[ca]C[Nice!];W[da]C[Nice!]\n(;B[db]C[];W[dc]\n(;B[da];W[fa];B[ba]C[Well done!RIGHT])\n(;B[ba];W[da]C[Almost! Now it has turned into a ko fight. This was not necessary...]))\n(;B[ba];W[db]))\n(;B[da];W[ca]C[])\n(;B[fa];W[da]C[])\n(;B[ba];W[ca]C[])\n(;B[de];W[ca]C[])\n(;B[ce];W[ca]C[]))\n(;B[ec];W[ea]C[White lives... (with most of his stones)])\n(;B[da];W[ea]C[White lives... (with most of his stones)])\n(;B[ca];W[ea]C[White lives... (with most of his stones)])\n(;B[fa];W[ea]C[])\n(;B[de];W[ec]C[])\n(;B[ba];W[ec]C[])\n(;B[ce];W[ec]C[]))",
+  "author": {
+    "id": 12035,
+    "name": "whendrik",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2014-02-01",
+    "rank": {
+      "value": 28,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 717.007
+  },
+  "avgSolveTimeSeconds": 68,
+  "attempts": {
+    "solved": 2580,
+    "failed": 3615,
+    "tries": 6195,
+    "speedSolved": 3,
+    "speedPlay": 19
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-01-06T10:37:26+00:00",
+  "source": "Cho Chikun’s Encyclopedia of life and death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 148,
+      "name": "False Fake Eyes",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

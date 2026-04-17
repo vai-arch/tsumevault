@@ -1,0 +1,114 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23918,
+  "elo": 1538.8725520934,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": null,
+  "sgf": "(;CA[gb2312]AB[hl][bm][il][gk][jl][cl][dl]AW[kk][ml][lk][hk][ik][jk][ck][ej][bl]\r\n[cj][dj][fj][gj][el][bi]C[**Fewest** move to get alive]AP[MultiGo:4.4.4]SZ[13]AB[gl]\r\nMULTIGOGM[0]\r\n\r\n(;B[fl];W[em]\r\n(;B[fm];W[fk]\r\n(;B[dm];W[ek];B[bk]C[RIGHT])\r\n(;B[bk];W[al];B[dm]C[RIGHT]))\r\n(;B[ek];W[fk];B[fm];W[dk];B[hm];W[jm];B[kl];W[km];B[ll];W[lm]))\r\n(;B[ek];W[fk];B[fl];W[em]\r\n(;B[fm];W[dk];B[hm];W[jm];B[kl];W[km];B[ll];W[lm])\r\n(;B[bk];W[al];B[ak];W[dm]))\r\n(;B[em];W[fl])\r\n(;B[bk];W[al]\r\n(;B[ak];W[dm];B[ek];W[fk];B[fl];W[em];B[fm];W[dk];B[hm];W[jm];B[kl];W[km];B[ll]\r\n;W[lm])\r\n(;B[fl];W[em];B[fm];W[ek];B[hm];W[jm];B[kl]C[RIGHT]))\r\n(;B[dm];W[bk]))",
+  "author": {
+    "id": 109345,
+    "name": "moego",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-22",
+    "rank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1799.38
+  },
+  "avgSolveTimeSeconds": 78,
+  "attempts": {
+    "solved": 3,
+    "failed": 40,
+    "tries": 43,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2023-09-01T11:16:27+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

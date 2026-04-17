@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13709,
+  "elo": 1189.5407513621,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Problem adapted from a game in the Balkan Championship 2010.",
+  "rating": {
+    "stars": 4,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[mq]AB[js]AB[is]AB[ir]AB[hr]AB[hq]AW[ks]AW[jr]AW[jq]AW[nr]AW[nq]AW[or]AW[pq]AW[pp]AW[qq]AB[oq]AB[op]AB[np]AW[mp]AW[lp]C[W ignored the marked stone, can B punish?]TR[is]LB[io:T]AW[jp]AW[po]AB[no]AB[nn]AW[qn]AW[kn]AP[goproblems]\n(;B[kr]C[W ignored the marked stone, can B punish?];W[ls]\n(;B[lr];W[ms]\n(;B[mr];W[ns];B[pr]C[In the game, W protected.RIGHT])\n(;B[ns];W[mr])\n(;B[pr];W[mr]))\n(;B[ms];W[lr]\n(;B[mr];W[lq])\n(;B[lq];W[mr]))\n(;B[mr];W[lr]\n(;B[ms];W[lq])\n(;B[lq];W[kq])\n(;B[pr];W[qr]))\n(;B[kq];W[lr]))\n(;B[pr];W[mr]\n(;B[qr];W[rr];B[kr];W[ls];B[lr];W[ms])\n(;B[kr];W[ls];B[lr];W[ms]))\n(;B[lr];W[kr])\n(;B[ls];W[kr])\n(;B[mr];W[lr])\n(;B[lq];W[kq])\n(;B[io];W[kr]C[There was something there.]))",
+  "author": {
+    "id": 23911,
+    "name": "Narek",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-11-23",
+    "rank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1216.83
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 2080,
+    "failed": 3074,
+    "tries": 5154,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-05-20T03:38:01+00:00",
+  "source": "Game Catalin Tanaru vs Lucian Corlan",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

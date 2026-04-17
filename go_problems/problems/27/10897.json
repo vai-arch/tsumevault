@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10897,
+  "elo": 1304.1066427228,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Black first to connect marked stones",
+  "rating": {
+    "stars": 4,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ic]AB[fc]AB[dc]AB[cc]AB[cd]AB[ce]AB[fe]AB[bf]AB[ff]AB[eg]AB[fg]AB[bh]AB[ch]AB[dh]AB[ci]AB[bj]AW[cj]AW[bk]AW[ck]AW[gi]AW[ek]AW[dd]AW[de]AW[cf]AW[df]AW[gf]AW[bg]AW[dg]AW[eh]AW[di]AW[ei]AW[aj]TR[bh]TR[ch]TR[dh]TR[ci]AP[goproblems]\n(;B[ah]\n(;W[af];B[be];W[bi]\n(;B[ag]C[RIGHT])\n(;B[ae]C[RIGHT])\n(;B[cg];W[ai];B[ag];W[bg]))\n(;W[cg];B[ag];W[be];B[af]C[RIGHT]))\n(;B[ag];W[ah]\n(;B[ai];W[bi]\n(;B[cg];W[ah]C[ko])\n(;B[ah];W[cg]C[ko]))\n(;B[cg];W[bi]C[ko]))\n(;B[cg];W[ah];B[ag];W[bi]C[ko])\n(;B[af];W[ah];B[ag];W[ai];B[cg];W[bi]MA[bg]MA[be]))",
+  "author": {
+    "id": 7079,
+    "name": "huhss",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-07-22",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1262.69
+  },
+  "avgSolveTimeSeconds": 62,
+  "attempts": {
+    "solved": 1084,
+    "failed": 2154,
+    "tries": 3238,
+    "speedSolved": 1,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-02-12T02:08:10+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

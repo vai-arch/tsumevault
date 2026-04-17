@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14747,
+  "elo": 1879.8642809944,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Warning: if your opponent responds with a mistake, which will allow you to get very good result, then responding weak and getting good result only will lead to *wrong* - even though you still get better result than the \"optimal for both\" way.",
+  "rating": {
+    "stars": 5,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[eb]AW[fc]AW[fd]AB[ec]AB[ed]AB[db]AB[cc]AB[ee]AW[fe]AB[ef]AB[cf]AB[df]AB[bf]AB[af]AW[ag]AW[bg]AW[cg]AW[ff]AW[fg]AW[fh]AW[dg]AB[ei]AB[di]AB[dj]AB[ej]AW[fk]AW[ek]AW[dk]AW[ck]AB[eg]AW[cj]AW[ci]AW[ch]AW[gg]AW[hg]AW[ig]AW[jg]AW[kf]AW[lf]AW[me]AW[md]AW[mc]AW[mb]AW[ma]AW[mf]AW[kg]AB[jb]AB[jc]AB[kc]AW[id]AW[lb]AB[fj]AW[gk]AW[gj]AW[gi]AW[fi]C[Black to play the endgame. The rest of the board is finished and there are no ko threats in there (to make the problem simplier).]AB[lc]AB[ld]AB[le]AW[ke]AP[goproblems]\n(;B[fb];W[gb];B[ea];W[eh]\n(;B[ga];W[ha]C[As there are no ko threats on the board white can play this. If black has good threats then white would have to play H18 instead.]\n(;B[hb];W[fa];B[gc];W[eb])\n(;B[fa];W[hb]C[Compare with the solution.]))\n(;B[gc];W[hc];B[ga];W[hb];B[ha];W[ia];B[fa];W[ib]C[Sorry, a few points worse than the optimal solution (five if I count correctly)]))\n(;B[eh];W[ea];B[da];W[fb]C[You could do better!])\n(;B[ea]\n(;W[eh]\n(;B[ha]C[Black is good now.RIGHT]))\n(;W[fb]C[CHOICE];B[fa];W[ga];B[da]\n(;W[eh];B[gb]\n(;W[hb]\n(;B[ha]\n(;W[ia]\n(;B[hc];W[ga]\n(;B[gc]C[Nice!CHOICERIGHT])\n(;B[ib];W[gc]))\n(;B[ga];W[ib];B[gc];W[hd]C[You could do better after white tried H18]))\n(;W[gc];B[ga]C[RIGHT]))\n(;B[gc];W[hc];B[ha];W[ia];B[ga];W[ib];B[gd];W[hd];B[ge];W[he];B[gf];W[hf]TR[gc]C[Sorry, but the marked stone was mistake - you could save the six stones which would be much better!]))\n(;W[ib];B[hb]C[RIGHT]))\n(;W[gb];B[eh]C[Good! The best for both!RIGHT])))\n(;B[da];W[eh];B[fa];W[fb];B[ea];W[hb];B[ha];W[ia];B[ga];W[ib];B[gb];W[gc]C[A few points (six if I count correct) worse than the optimal play.])\n(;B[fa];W[hb]\n(;B[fb];W[eh]\n(;B[ha];W[gb];B[ga];W[ia];B[ea];W[ib])\n(;B[gb];W[hc]\n(;B[ha];W[ia];B[ga];W[gc];B[ea];W[ib]C[This is one point behind the optimal solution. But I am very nice and will mark it solved for you :)RIGHT])\n(;B[gc];W[gd];B[ha];W[ia];B[ea];W[ga]C[G17 was a mistake when there are no ko threats on the board. Whtie will connect at H19 with the next move.])))\n(;B[gb];W[fb];B[ea];W[eh]\n(;B[ha];W[ia];B[ga];W[gc];B[da];W[ib])\n(;B[gc];W[hc];B[gd];W[ge]\n(;B[hd];W[he];B[ga];W[ha];B[da];W[ic])\n(;B[ha];W[ia];B[ga];W[hd];B[da];W[ib])))\n(;B[ea];W[eh])\n(;B[eh];W[fb];B[ea];W[ga];B[da]C[Good :)RIGHT])))",
+  "author": {
+    "id": 11528,
+    "name": "Field Mouse",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-11-08",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1718.02
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 77,
+    "failed": 305,
+    "tries": 382,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-04-20T08:25:44+00:00",
+  "source": "Field Mouse",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

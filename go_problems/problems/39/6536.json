@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6536,
+  "elo": 2029.4630334285,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -1,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Updated with some variations and explanations. 05/17/05",
+  "rating": {
+    "stars": 4,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[9]KM[0.00]\r\nPW[White]PB[Black]AW[ha][eb][fb][gb][ib][ec][gc][hc][gd][be][ce][de][ge][he][bf][df][ef][bg][ah][bh][ch][dh][bi][di][fi]AB[da][ga][bb][cb][db][bc][fc][ad][bd][cd][dd][ed][ee][fe][ff][hf][if][eg][fg][hg][eh][fh][hh][ih][ei][hi]C[White to play and win. No komi, no prisoners.]PL[W]\r\n(;W[gf]CR[gf]\r\n;B[ie]CR[ie]C[CHOICE]\r\n(;W[gg]CR[gg]\r\n;B[ea]CR[ea]\r\n(;W[gh]CR[gh]\r\n;B[gi]CR[gi]LB[fa:C][fd:B][id:A]C[A, B and C are miai. Please play at A.]\r\n(;W[id]CR[id]C[FORCE]\r\n(;B[fd]CR[fd]C[CHOICE]\r\n;W[fa]CR[fa]\r\n(;B[ae]CR[ae]C[CHOICE]\r\n;W[dg]CR[dg]\r\n(;B[af]CR[af]C[CHOICE]\r\n;W[dc]CR[dc]C[RIGHT White wins by one point. Good job.])\r\n(;B[dc]CR[dc]C[CHOICE]\r\n;W[af]CR[af]C[RIGHT White wins by one point. Good job.]))\r\n(;B[dg]CR[dg]C[CHOICE]\r\n;W[ae]CR[ae]\r\n(;B[cg]CR[cg]C[CHOICE]\r\n;W[dc]CR[dc]C[RIGHT White wins by one point. Good job.])\r\n(;B[dc]CR[dc]C[CHOICE]\r\n;W[cg]CR[cg]C[RIGHT White wins by one point. Good job.])))\r\n(;B[fa]CR[fa]C[CHOICE]\r\n;W[fd]CR[fd]\r\n(;B[ae]CR[ae]C[CHOICE]\r\n;W[dg]CR[dg]\r\n(;B[af]CR[af]\r\n;W[dc]CR[dc]C[RIGHT White wins by one point. Good job.])\r\n(;B[dc]CR[dc]\r\n;W[af]CR[af]C[RIGHT White wins by one point. Good job.]))\r\n(;B[dg]CR[dg]C[CHOICE]\r\n;W[ae]CR[ae]\r\n(;B[cg]CR[cg]C[CHOICE]\r\n;W[dc]CR[dc]C[RIGHT White wins by one point. Good job.])\r\n(;B[dc]CR[dc]C[CHOICE]\r\n;W[cg]CR[cg]C[RIGHT White wins by one point. Good job.]))))\r\n(;W[fd]CR[fd]C[NOTTHIS])\r\n(;W[fa]CR[fa]C[NOTTHIS]))\r\n(;W[fa]CR[fa]\r\n;B[gh]CR[gh]LB[id:A]C[Your last move was a mistake.  You should attack corridors ending in two point gote before blocking any such corridors.  From here on best you can do is a jigo.  Please play at A.]\r\n;W[id]CR[id]\r\n;B[fd]CR[fd]LB[ae:A]C[Please play at A.]\r\n;W[ae]CR[ae]\r\n;B[dg]CR[dg]LB[cg:A]C[Please play at A.]\r\n;W[cg]CR[cg]\r\n;B[dc]CR[dc]C[Jigo])\r\n(;W[id]CR[id]\r\n;B[gh]CR[gh]LB[fa:A]C[Your last move was a mistake.  You should attack corridors ending in two point gote before blocking any such corridors.  From here on best you can do is a jigo.  Please play at A.]\r\n;W[fa]CR[fa]\r\n;B[fd]CR[fd]LB[ae:A]C[Please play at A.]\r\n;W[ae]CR[ae]\r\n;B[dg]CR[dg]LB[cg:A]C[Please play at A.]\r\n;W[cg]CR[cg]\r\n;B[dc]CR[dc]C[Jigo])\r\n(;W[fd]CR[fd]\r\n;B[gh]CR[gh]LB[id:A]C[Your last move was a mistake.  You should always attack corridors ending in two point gote before playing a two point gote. From here on best you can do is a jigo.  Please play at A.]\r\n;W[id]CR[id]\r\n;B[fa]CR[fa]LB[ae:A]C[Please play at A.]\r\n;W[ae]CR[ae]\r\n;B[dg]CR[dg]LB[cg:A]C[Please play at A.]\r\n;W[cg]CR[cg]\r\n;B[dc]CR[dc]C[Jigo]))\r\n(;W[id]CR[id]\r\n;B[ea]CR[ea]LB[gg:A]C[Your last move was a mistake.  You should always attack corridors ending in two point gote before playing a two point gote. From here on best you can do is a jigo.  Please play at A.]\r\n;W[gg]CR[gg]\r\n;B[gh]CR[gh]LB[fa:A]C[Please play at A.]\r\n;W[fa]CR[fa]\r\n;B[fd]CR[fd]LB[ae:A]C[Please play at A.]\r\n;W[ae]CR[ae]\r\n;B[dg]CR[dg]LB[cg:A]C[Please play at A.]\r\n;W[cg]CR[cg]\r\n;B[dc]CR[dc]C[Jigo])\r\n(;W[fd]CR[fd]\r\n;B[ea]CR[ea]LB[gg:A]C[Your last move was a mistake.  You should always attack corridors ending in two point gote before playing a two point gote. From here on best you can do is a jigo.  Please play at A.]\r\n;W[gg]CR[gg]\r\n;B[gh]CR[gh]LB[id:A]C[Please play at A.]\r\n;W[id]CR[id]\r\n;B[fa]CR[fa]LB[ae:A]C[Please play at A.]\r\n;W[ae]CR[ae]\r\n;B[dg]CR[dg]LB[cg:A]C[Please play at A.]\r\n;W[cg]CR[cg]\r\n;B[dc]CR[dc]C[Jigo])\r\n(;W[ea]CR[ea]\r\n;B[gg]CR[gg]LB[id:A]C[Your last move was a mistake.  You should attack corridors ending in two point gote before blocking any such corridors.  From here on best you can do is a jigo.  Please play at A.]\r\n;W[id]CR[id]\r\n;B[fd]CR[fd]LB[ae:A]C[Please play at A.]\r\n;W[ae]CR[ae]\r\n;B[dg]CR[dg]LB[cg:A]C[Please play at A.]\r\n;W[cg]CR[cg]\r\n;B[dc]CR[dc]C[Jigo])\r\n(;W[ae]CR[ae]LB[ea:A][fd:B][id:C][gg:D]TR[dc][dg]C[Your last move was a mistake.  Best you can do now is a jigo.  This move, as well as moves labeled with a triangle, or any similar empty corridors are called numbers. One should always play on hotter plays first, such as A-D, before playing on numbers.])\r\n(;W[dg]CR[dg]LB[ea:A][fd:B][id:C][gg:D]TR[dc][ae]C[Your last move was a mistake.  Best you can do now is a jigo.  This move, as well as moves labeled with a triangle, or any similar empty corridors are called numbers. One should always play on hotter plays first, such as A-D, before playing on numbers.])\r\n(;W[dc]CR[dc]LB[ea:A][fd:B][id:C][gg:D]TR[ae][dg]C[Your last move was a mistake.  Best you can do now is a jigo.  This move, as well as moves labeled with a triangle, or any similar empty corridors are called numbers. One should always play on hotter plays first, such as A-D, before playing on numbers.]))\r\n(;W[ie]CR[ie]\r\n;B[ea]CR[ea]LB[gf:A]C[Your last move was a mistake.  You should attack corridors ending in two point gote before blocking any such corridors.  From here on best you can do is a jigo.  Please play at A.]\r\n;W[gf]CR[gf]\r\n;B[gg]CR[gg]LB[fa:A]C[Please play at A.]\r\n;W[fa]CR[fa]\r\n;B[fd]CR[fd]LB[dg:A]C[Please play at A.]\r\n;W[dg]CR[dg]\r\n;B[ae]CR[ae]LB[af:A]C[Please play at A.]\r\n;W[af]CR[af]\r\n;B[dc]CR[dc]C[Jigo])\r\n(;W[ea]CR[ea]\r\n;B[ie]CR[ie]LB[gf:A]C[Your last move was a mistake.  You should attack corridors ending in two point gote before blocking any such corridors.  From here on best you can do is a jigo.  Please play at A.]\r\n;W[gf]CR[gf]\r\n;B[gg]CR[gg]LB[id:A]C[Please play at A.]\r\n;W[id]CR[id]\r\n;B[fd]CR[fd]LB[ae:A]C[Please play at A.]\r\n;W[ae]CR[ae]\r\n;B[dg]CR[dg]LB[cg:A]C[Please play at A.]\r\n;W[cg]CR[cg]\r\n;B[dc]CR[dc]C[Jigo])\r\n(;W[fd]CR[fd]\r\n;B[ie]CR[ie]LB[gf:A]C[Your last move was a mistake. You should attack corridors ending in two point gote before playing two point gote.  From here on best you can do is a jigo.  Please play at A.]\r\n;W[gf]CR[gf]\r\n;B[ea]CR[ea]LB[gg:A]C[Please play at A.]\r\n;W[gg]CR[gg]\r\n;B[gh]CR[gh]LB[id:A]C[Please play at A.]\r\n;W[id]CR[id]\r\n;B[fa]CR[fa]LB[ae:A]C[Please play at A.]\r\n;W[ae]CR[ae]\r\n;B[dg]CR[dg]LB[cg:A]C[Please play at A.]\r\n;W[cg]CR[cg]\r\n;B[dc]CR[dc]C[Jigo])\r\n(;W[ae]CR[ae]LB[ea:A][fd:B][ie:C][gf:D]TR[dc][dg]C[Your last move was a mistake.  Best you can do now is a jigo.  This move, as well as moves labeled with a triangle, or any similar empty corridors are called numbers. One should always play on hotter plays first, such as A-D, before playing on numbers.])\r\n(;W[dg]CR[dg]LB[ea:A][fd:B][ie:C][gf:D]TR[dc][ae]C[Your last move was a mistake.  Best you can do now is a jigo.  This move, as well as moves labeled with a triangle, or any similar empty corridors are called numbers. One should always play on hotter plays first, such as A-D, before playing on numbers.])\r\n(;W[dc]CR[dc]LB[ea:A][fd:B][ie:C][gf:D]TR[ae][dg]C[Your last move was a mistake.  Best you can do now is a jigo.  This move, as well as moves labeled with a triangle, or any similar empty corridors are called numbers. One should always play on hotter plays first, such as A-D, before playing on numbers.]))",
+  "author": {
+    "id": 10745,
+    "name": "Trucid",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 68,
+  "attempts": {
+    "solved": 113,
+    "failed": 1294,
+    "tries": 1407,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-05-16T17:11:29+00:00",
+  "source": "Mathematical Go",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 39,
+      "name": "CGT",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

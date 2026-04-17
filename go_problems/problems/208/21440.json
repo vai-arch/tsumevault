@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21440,
+  "elo": 865.71917031509,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 1.8,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[rs]AB[qs]AB[pr]AB[or]AB[os]AB[rq]AW[ns]AW[nr]AW[oq]AW[np]AW[pp]AW[qp]AW[rp]AW[sp]AB[rr]C[White can't kill Black but to get the best endgame result. Assume that all other territories and kos are settled. Ruleset: Chinese rules.](;W[qq];B[qr];W[sq];B[sr]LB[or:1]LB[pr:2]LB[qr:3]LB[rr:4]LB[sr:5]LB[os:6]LB[ps:7]LB[qs:8]LB[rs:9]LB[ss:10]LB[rq:11]LB[pq:1]LB[qq:2]LB[sq:3]C[RIGHT])(;W[sq]C[Technically, White R3 is better than T3](;B[sr]C[Technically, R3 is better than T2 for Black];W[qq];B[qr]LB[or:1]LB[pr:2]LB[qr:3]LB[rr:4]LB[sr:5]LB[os:6]LB[ps:7]LB[qs:8]LB[rs:9]LB[ss:10]LB[rq:11]LB[pq:1]LB[qq:2]LB[sq:3]C[RIGHT])(;B[qq](;W[sr](;B[pq]LB[or:1]LB[pr:2]LB[qr:3]LB[rr:4]LB[os:5]LB[ps:6]LB[qs:7]LB[rs:8]LB[pq:9]LB[qq:10]LB[rq:11]LB[sq:1]LB[sr:2]LB[ss:3]C[RIGHT])(;B[ss]LB[or:1]LB[pr:2]LB[qr:3]LB[rr:4]LB[os:5]LB[ps:6]LB[qs:7]LB[rs:8]LB[ss:9]LB[qq:10]LB[rq:11]LB[pq:1]LB[sq:2]LB[sr:3]C[RIGHT]))(;W[ss];B[sr]LB[or:1]LB[pr:2]LB[qr:3]LB[rr:4]LB[sr:5]LB[os:6]LB[ps:7]LB[qs:8]LB[rs:9]LB[ss:10]LB[qq:11]LB[rq:12]LB[pq:1]LB[sq:2])))(;W[pq];B[sq];W[qq];B[qr]LB[or:1]LB[pr:2]LB[qr:3]LB[rr:4]LB[sr:5]LB[os:6]LB[ps:7]LB[qs:8]LB[rs:9]LB[ss:10]LB[rq:11]LB[sq:12]LB[pq:1]LB[qq:2]))",
+  "author": {
+    "id": 78146,
+    "name": "KTX-CRH",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-11",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1540.8
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 1280,
+    "failed": 467,
+    "tries": 1747,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2017-07-21T10:14:48+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 208,
+      "name": "Best move with letting enemy live",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

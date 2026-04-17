@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12810,
+  "elo": 2098.0265247687,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "As the title says this is the solution of the go game on a 6x6 board. You will have to play black optimally. This is based on a study involving a go program. It reveals a black win by 3 points without komi. I included all the correct path and tried to block all symetries, I also included some wrong path that are not trivially wrong. I will look at your try or request to add some other. There is an update date in the title.",
+  "rating": {
+    "stars": 4,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[6]C[Play black optimally, white will answer optimally.    (Problem updated on March 16th 2011).]AP[goproblems]\n(;B[dc];W[cd]\n(;B[dd];W[cc]\n(;B[cb];W[bb]\n(;B[ce];W[be]\n(;B[bc];W[bd];B[ba];W[de]\n(;B[ee];W[ac]\n(;B[db];W[cf];B[ef];W[df]\n(;B[ca];W[ab]C[This is an optimal path for both. Black win by 3 without komi.RIGHT])\n(;B[aa]C[NOTTHIS]))\n(;B[eb];W[cf];B[ef];W[df]\n(;B[ca];W[ab]C[This is an optimal path for both. Black win by 3 without komi.RIGHT])\n(;B[aa]C[NOTTHIS]))\n(;B[df];W[db]C[D1 was a mistake you lost 2 points. Follow the marked move to see a possible conclusion.]TR[eb];B[eb];W[ca]TR[ea];B[ea];W[bf]TR[da];B[da];W[cb]TR[cf];B[cf]C[This is 2 points worst than the optimal path.]))\n(;B[ab];W[ee]C[A5 was a mistake you lost 2 points. Follow the marked move to see a possible conclusion.]TR[fd];B[fd];W[ed]TR[ec];B[ec];W[fe]TR[fc];B[fc];W[ad]TR[ac];B[ac]C[This is 2 points worst than the optimal path.]))\n(;B[bd]C[NOTTHIS])\n(;B[de]C[NOTTHIS])\n(;B[db];W[de]C[D5 was a mistake you lost 2 points. Follow the marked move to see a possible conclusion.]TR[ee];B[ee];W[cf]TR[ba];B[ba];W[ef]TR[bc];B[bc];W[bd]TR[ab];B[ab];W[ed]TR[ec];B[ec];W[fe]TR[fc];B[fc];W[fd]TR[ad];B[ad];W[ae]TR[ac];B[ac]C[This is 2 points worst than the optimal path.]))\n(;B[db];W[de]C[D5 was a mistake you lost 2 points. Follow the marked move to see a possible conclusion.]TR[ee];B[ee];W[ce]TR[ba];B[ba];W[ef]TR[bc];B[bc];W[bd]TR[ab];B[ab];W[ed]TR[ec];B[ec];W[fe]TR[fc];B[fc];W[fd]TR[ad];B[ad];W[ae]TR[ac];B[ac]C[This is 2 points worst than the optimal path.])\n(;B[de];W[db]C[D2 was a mistake you lost 2 points. Follow the marked move to see a possible conclusion.]TR[eb];B[eb];W[ca]TR[be];B[be];W[ce]TR[cf];B[cf];W[ea]TR[bd];B[bd];W[bc]TR[fb];B[fb];W[ad]TR[bf];B[bf];W[ae]TR[df];B[df];W[da]TR[fd];B[fd];W[ac]TR[ed];B[ed]TR[ed]TR[fd]TR[cb]C[This is 2 points worst than the optimal path. Black had to add two moves inside his territory to avoid death and seki. C5 sacrifice made white good shape that is why.])\n(;B[ca]C[];W[ba]C[The C6 bad shape was a mistake you lost 3 points. Follow the marked move to see a possible conclusion.]TR[db];B[db];W[de]TR[ee];B[ee];W[df]TR[ef];B[ef];W[ce]C[This is 3 points worst than the optimal path.])\n(;B[da];W[de]C[The D6 bad shape was a mistake you lost 2 points. Follow the marked move to see a possible conclusion.]TR[ee];B[ee];W[ce]TR[ba];B[ba];W[ef]TR[bc];B[bc];W[bd]TR[ab];B[ab];W[ed]TR[ec];B[ec];W[fe]TR[fc];B[fc];W[fd]TR[ad];B[ad];W[ae]TR[ac];B[ac]C[This is 2 points worst than the optimal path.]))\n(;B[db]C[I thought this move was ok, but it appears it is not. (Thanks to smartaleck) See the continuation...];W[de];B[ee];W[ce]\n(;B[bb];W[cb]C[];B[ca];W[ef]\n(;B[fe];W[ba];B[aa];W[bc];B[be];W[ac];B[da];W[ae];B[bf];W[bd]\n(;B[ec];W[cf]\n(;B[fb];W[ab];B[ba];W[df];B[ff];W[af]C[This is 1 point worst than the optimal path.])\n(;B[fc]C[NOTTHIS])\n(;B[fd]C[NOTTHIS]))\n(;B[ed]C[NOTTHIS])\n(;B[fc]C[NOTTHIS]))\n(;B[bc];W[ed];B[ec];W[fe];B[bd];W[be];B[ae];W[ad];B[ac];W[ba];B[aa];W[ea];B[da];W[fb];B[fc];W[fd];B[ba];W[bf];B[eb];W[af];B[fa];W[ad]C[This is 2 points worst than the optimal path.]))\n(;B[cb];W[bb]C[C5 was a mistake you lost 2 points. Follow the marked move to see a possible conclusion.]TR[ba];B[ba];W[ef]TR[bc];B[bc];W[bd]TR[ab];B[ab];W[ed]TR[ec];B[ec];W[fe]TR[fc];B[fc];W[fd]TR[ad];B[ad];W[ae]TR[ac];B[ac]C[This is 2 points worst than the optimal path.]))\n(;B[ce]C[NOTTHIS])\n(;B[de]C[NOTTHIS]))\n(;B[cc]C[NOTTHIS])\n(;B[bc]C[NOTTHIS])\n(;B[de];W[dd]C[D2 was a mistake you lost 3 points. Follow the marked move to see a possible conclusion.]TR[ed];B[ed];W[ec]TR[eb];B[eb];W[cc]TR[fc];B[fc];W[db]TR[ec];B[ec];W[cb]TR[ce];B[ce];W[be]TR[bf];B[bf];W[ae]TR[ee];B[ee];W[da]TR[ea];B[ea];W[ac]TR[cf];B[cf]C[This is 3 points worst than the optimal path.]))\n(;B[eb]C[:(];W[dc]C[Of crouse the dubious move at E5 is not optimal, you lost 3 points. Follow the marked move to see a possible conclusion.]TR[cd];B[cd];W[cc]TR[dd];B[dd];W[ec]TR[ed];B[ed];W[fd]TR[bc];B[bc];W[bb]TR[bd];B[bd];W[ab]TR[fe];B[fe];W[fc]TR[ac];B[ac];W[ee]TR[ef];B[ef];W[ff]TR[cb];B[cb];W[db]TR[fe];B[fe];W[de]TR[ce];B[ce];W[ff]TR[ca];B[ca];W[da]TR[fe];B[fe]C[This is 3 points worst than the optimal path. But black did win the last ko.])\n(;B[cc]C[NOTTHIS])\n(;B[cd]C[NOTTHIS])\n(;B[dd]C[NOTTHIS])\n(;B[ed]C[NOTTHIS])\n(;B[cb]C[NOTTHIS])\n(;B[bb]C[NOTTHIS])\n(;B[bc]C[NOTTHIS])\n(;B[bd]C[NOTTHIS])\n(;B[be]C[NOTTHIS])\n(;B[ce]C[NOTTHIS])\n(;B[de]C[NOTTHIS])\n(;B[ee]C[NOTTHIS])\n(;B[ec]C[NOTTHIS])\n(;B[db];W[cd]C[Of crouse the dubious move at D5 is not optimal, you lost 1 point. Follow the marked move to see a possible conclusion.]TR[cc];B[cc];W[dd]TR[bc];B[bc];W[bd]TR[ec];B[ec];W[ed]TR[ad];B[ad];W[ae]TR[ac];B[ac];W[dc]TR[eb];B[eb];W[bf]TR[fd];B[fd];W[fe]TR[fc];B[fc];W[ee]C[This is 1 point worst than the optimal path.]))",
+  "author": {
+    "id": 27777,
+    "name": "Clydevil",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-05-26",
+    "rank": {
+      "value": 11,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 11,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1234.34
+  },
+  "avgSolveTimeSeconds": 50,
+  "attempts": {
+    "solved": 18,
+    "failed": 206,
+    "tries": 224,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-06-21T05:05:13+00:00",
+  "source": "gohome program.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 20,
+      "name": "Counting Points",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

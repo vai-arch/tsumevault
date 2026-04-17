@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15353,
+  "elo": 1920.2898628866,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Kill the corner! Can you find the right path? I am curious what difficulty rating this problem will get.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 2,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[13]AP[goproblems]AB[bb]AB[dc]AB[fb]AB[da]AB[ed]AW[gb]AW[gc]AW[gd]AW[fe]AW[ee]AW[de]AW[ce]AW[bf]AW[bd]C[Can you find a way to kill Black in the corner?](;W[eb];B[fc](;W[cb];B[cc];W[db];B[ea](;W[bc];B[ab];W[ca];B[fa](;W[ba];B[ec];W[ac];B[aa];W[cb]C[Congratulations! You found a way! Tricky no?RIGHT])(;W[ac];B[ec];W[ba];B[aa];W[cb]C[Congratulations you did it! Easy?RIGHT]))(;W[ca];B[fa]C[NOTTHIS])(;W[ab];B[bc];W[ac];B[ba]C[NOTTHIS]))(;W[fa];B[ea];W[cb];B[cc];W[db];B[ga](;W[ca];B[bc]C[NOTTHIS])(;W[bc];B[ab];W[ca];B[fa];W[ba];B[jb]C[So close... but... black gets away!NOTTHIS])))(;W[bc];B[cb]C[NOTTHIS])(;W[ab];B[eb];W[cb];B[cc];W[bc];B[ba]C[This was my attempt too, but... no dice!NOTTHIS])(;W[cb];B[cc](;W[eb];B[db]C[NOTTHIS])(;W[bc];B[ab]C[NOTTHIS])(;W[fc];B[eb];W[bc];B[ab]C[NOTTHIS])(;W[fa];B[eb]C[NOTTHIS];W[bc];B[ab]C[NOTTHIS]))(;W[fc];B[eb](;W[fa]C[NOTTHIS];B[bc]C[NOTTHIS])(;W[cb];B[cc];W[ab];B[fa]C[NOTTHIS])(;W[ab];B[cb]C[NOTTHIS])(;W[cc];B[cb]C[NOTTHIS]))(;W[cc];B[cb](;W[fc];B[ec]C[NOTTHIS])(;W[fa];B[eb]C[NOTTHIS])(;W[eb];B[fc]C[NOTTHIS]))(;W[fa];B[eb](;W[bc];B[cb]C[NOTTHIS])(;W[ab];B[cb]C[NOTTHIS])(;W[cb];B[cc];W[bc];B[ab]C[NOTTHIS])))",
+  "author": {
+    "id": 18037,
+    "name": "aphelionx",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-06-14",
+    "rank": {
+      "value": 22,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 22,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 951.998
+  },
+  "avgSolveTimeSeconds": 76,
+  "attempts": {
+    "solved": 28,
+    "failed": 158,
+    "tries": 186,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2011-10-14T11:40:59+00:00",
+  "source": "Igowin Life Level 142",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 51,
+      "name": "Xuan Xuan Qijing",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

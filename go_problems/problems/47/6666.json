@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6666,
+  "elo": 1252.2219778909,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 3.7,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ra]AW[rb]AB[qa]AB[qb]AW[qc]AW[qd]AW[re]AW[qe]AW[rf]AW[rg]AB[pc]AB[ob]AB[pd]AB[pe]AB[qf]AB[qg]AB[qh]AB[rh]AB[sg]AB[se]C[What's the best endgame for white?]AB[rj]AP[goproblems]\n(;W[sd]\n(;B[sh];W[sf]C[RIGHT])\n(;B[sf];W[sh]C[RIGHT])\n(;B[rd];W[sf]C[RIGHT])\n(;B[rc];W[sc]\n(;B[sf];W[sh]C[RIGHT])\n(;B[sh];W[sf];B[sb];W[rd]C[RIGHT])\n(;B[sb];W[rd]\n(;B[sf];W[sh]C[RIGHT])\n(;B[sh];W[sf]C[RIGHT])))\n(;B[sc];W[rd]\n(;B[sf];W[sh]C[RIGHT])\n(;B[sh];W[sf]C[RIGHT])\n(;B[rc];W[sb];B[sh];W[sf]C[RIGHT]))\n(;B[sb];W[rc]\n(;B[sc];W[sf]C[RIGHT])\n(;B[sh];W[sf]C[RIGHT])))\n(;W[sc];B[sf];W[sd];B[sh]C[White can do better.])\n(;W[rd];B[sf];W[sd];B[sh]\n(;W[sb]C[White can do better.])\n(;W[sc]C[White can do better.]))\n(;W[rc];B[sf];W[sd];B[sh]C[White can do better.])\n(;W[sb];B[sd]\n(;W[rd];B[sf])\n(;W[rc];B[sf])\n(;W[sc];B[sf])\n(;W[sf];B[rc]C[White is dead.]))\n(;W[sh]C[NOTTHIS])\n(;W[sf];B[rc]\n(;W[rd];B[sd])\n(;W[sh];B[sb])\n(;W[sd];B[sb])\n(;W[sc];B[rd])\n(;W[sb];B[rd])))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 22,
+  "attempts": {
+    "solved": 10625,
+    "failed": 8537,
+    "tries": 19162,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-06-10T02:38:55+00:00",
+  "source": "a game",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

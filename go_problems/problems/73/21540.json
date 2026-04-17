@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21540,
+  "elo": 1486.4906086342,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "black to kill white and take the corner without ko.",
+  "rating": {
+    "stars": 4.6,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;\r\nAW [ba][cb][bc][cc][dc][ed][gd][ee][fe][bf][cf][df]\r\nAB [ca][da][bb][db][fb][ec][fc][gc][bd][dd][fd][be][de]\r\nC [black to kill white and take the corner.]\r\n     (;B[ab] ;W[ac]\r\n          (;B[cd] ;W[aa]\r\n               (;B[bb] ;W[ae] ;B[ab] C[RIGHT black wins.])\r\n               (;B[ab]; W[ae] ;B[bb] C[RIGHT black wins.])\r\n          )\r\n          (;B[ad] ;W[aa]\r\n               (;B[cd] ;W[ce] C[white wins.])\r\n               (;B[bb] ;W[ce] C[white wins.])\r\n          )\r\n          (;B[ae] ;W[af] C[white wins.])\r\n          (;B[aa] ;W[ba] C[white wins.])\r\n     )\r\n\r\n     (;B[cd] ;W[ab] C[oops!])\r\n     (;B[ac] ;W[ab]\r\n          (;B[ae] ;W[af]\r\n               (;B[cd] ;W[ad] C[ko. black can do better.])\r\n               (;B[ad] ;W[gf] C[white tenuki. white wins.])\r\n               (;B[ce] ;W[gf] C[white tenuki. white wins.])\r\n          )\r\n          (;B[ad] ;W[ce] C[white wins.])\r\n          (;B[cd] ;W[ad] C[white wins.])\r\n     )\r\n     (;B[aa] ;W[ac]\r\n          (;B[cd] ;W[ae] C[white wins.])\r\n          (;B[ae] ;W[af] C[white wins.])\r\n          (;B[ad] ;W[ce] C[white wins.])\r\n     )\r\n     (;B[ae] ;W[ac]\r\n          (;B[aa] ;W[gf] C[white tenuki. white wins.])\r\n          (;B[ab]\r\n               (;W[af] C[CHOICE]\r\n                    (;B[cd] ;W[aa] ;B[bb] ;W[ab] C[white wins.])\r\n                    (;B[aa] ;W[ba] C[white wins.])\r\n               )\r\n               (;W[aa] C[CHOICE]\r\n                    (;B[cd] ;W[af] ;B[bb] ;W[ab] C[white wins.])\r\n                    (;B[bb] ;W[ab] C[white wins.])\r\n                    (;B[af] ;W[bg] C[white wins.])\r\n               )\r\n          )\r\n          (;B[cd] ;W[ab] C[oops!])\r\n     )\r\n     (;B[ad] ;W[ac] ;B[ab] ;W[aa] ;B[bb] ;W[ce] C[white wins.])\r\n\r\n)",
+  "author": {
+    "id": 2183,
+    "name": "Karen B",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-11",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 70,
+  "attempts": {
+    "solved": 256,
+    "failed": 604,
+    "tries": 860,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2017-11-04T01:52:31+00:00",
+  "source": "player redreoicy on KGS.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

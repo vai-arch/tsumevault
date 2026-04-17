@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 21215,
+  "elo": 1502.9859605693,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is a problem that occurred in one of my games.",
+  "rating": {
+    "stars": 4.2,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nPW[White]PB[Black]AW[am][an][bo][do][ap][cp][dp][cq][br]AB[ck][bl][bn][cn][dn][en][co][eo][ep][eq][dr][er]C[Black to get the best result.]\r\n(;B[bs]\r\n(;W[cs]\r\n;B[cr]\r\n(;W[as]\r\n(;B[bq]\r\n;W[aq]\r\n;B[ds]\r\n;W[bp]\r\n;B[bs]C[Black gets a ko for the life of White's group. White can get a better ko in other variations (see branching paths). RIGHT])\r\n(;B[aq]\r\n;W[bq])\r\n(;B[ds]\r\n;W[bq]))\r\n(;W[bq]\r\n;B[ar]\r\n;W[as]C[Black gets a ko for the life of White's group. White starts the ko. RIGHT]))\r\n(;W[bq]\r\n;B[ar]\r\n;W[cs]\r\n;B[cr]\r\n;W[as]C[Black gets a ko for the life of White's group. White starts the ko. RIGHT]))\r\n(;B[aq]\r\n;W[cr]\r\n(;B[cs]\r\n;W[bs])\r\n(;B[ar]\r\n;W[cs])\r\n(;B[bq]\r\n;W[cs]))\r\n(;B[bq]\r\n;W[cr]\r\n(;B[aq]\r\n;W[cs])\r\n(;B[cs]\r\n;W[bs]))\r\n(;B[cr]\r\n;W[bs]\r\n(;B[bq]\r\n;W[aq])\r\n(;B[aq]\r\n;W[bq])))",
+  "author": {
+    "id": 86019,
+    "name": "ibuprofen",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2018-09-27",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 83,
+  "attempts": {
+    "solved": 255,
+    "failed": 575,
+    "tries": 830,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2016-07-03T01:36:33+00:00",
+  "source": "self",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 150,
+      "name": "Game based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

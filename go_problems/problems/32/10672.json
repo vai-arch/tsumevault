@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10672,
+  "elo": 1387.8684312384,
+  "problemLevel": 24,
+  "rank": {
+    "value": 6,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.1,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[aa]AB[ac]AB[bc]AB[cc]AB[dc]AB[eb]AB[ea]AW[fb]AW[ec]AW[ed]AW[gc]AW[dd]AW[cd]AW[bd]AW[ad]LB[fe:Yes]LB[ff:No]C[Can black safely tenuki?FORCE]AP[goproblems]\n(;B[ff];W[fe]AW[aa]AW[ac]AW[bc]AW[cc]AW[dc]AW[eb]AW[ea]AB[ad]AB[bd]AB[cd]AB[dd]AB[ed]AB[ec]AB[fb]AB[gc]C[Why?]\n(;B[ca];W[cb]\n(;B[ba];W[bb];B[ab]C[Correct, a ko for life.RIGHT])\n(;B[fa];W[ba])\n(;B[bb];W[da]\n(;B[fa];W[ba])\n(;B[ba];W[ab]))\n(;B[da];W[ba]))\n(;B[ba];W[ca]\n(;B[ab];W[bb])\n(;B[bb];W[cb])\n(;B[cb];W[bb])\n(;B[db];W[bb])\n(;B[da];W[db])\n(;B[fa];W[bb]))\n(;B[ab]C[Very funny])\n(;B[bb];W[ca]\n(;B[ba];W[cb])\n(;B[ab];W[cb])\n(;B[cb];W[db])\n(;B[db];W[cb])\n(;B[fa];W[cb])\n(;B[da]C[Very funny];W[cb]))\n(;B[cb];W[ca]\n(;B[bb];W[db])\n(;B[db];W[bb])\n(;B[fa];W[bb])\n(;B[ba]C[];W[bb])\n(;B[ab]C[Very funny])\n(;B[da]C[Very funny];W[db]))\n(;B[db];W[cb]\n(;B[ca];W[ba])\n(;B[fa];W[da]))\n(;B[da];W[ca]\n(;B[db];W[cb])\n(;B[cb];W[db])\n(;B[ba];W[db])\n(;B[bb];W[cb])\n(;B[ab]C[Very funny])))\n(;B[fe];W[ca]C[Let's test that theory]\n(;B[cb];W[ba]\n(;B[bb];W[ab]C[Well, partial credit for getting the ko at least.])\n(;B[da];W[ab]C[Black can't push]))\n(;B[bb];W[db];B[cb];W[fa])\n(;B[db];W[bb]\n(;B[cb];W[ba])\n(;B[ba];W[ab]))\n(;B[ab]C[Very funny])\n(;B[ba];W[bb]\n(;B[cb];W[ab];B[ba];W[db])\n(;B[ab];W[cb]))\n(;B[da];W[fa];B[db];W[bb])))",
+  "author": {
+    "id": 15623,
+    "name": "MeleeNewb",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-07-27",
+    "rank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 8,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1962.53
+  },
+  "avgSolveTimeSeconds": 61,
+  "attempts": {
+    "solved": 409,
+    "failed": 1182,
+    "tries": 1591,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-12-04T10:42:19+00:00",
+  "source": "Self",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 32,
+      "name": "Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

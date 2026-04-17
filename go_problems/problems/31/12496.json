@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12496,
+  "elo": 1256.6372468558,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": -17,
+    "flagSum": -10
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Which jump is impossible to cut in the middle of an empty board?\r\n\r\nO - One-space jump\r\nK - Knight's move (small)\r\nT - Two-space jump\r\nL - Large knight's move",
+  "rating": {
+    "stars": 2.1,
+    "votes": 36,
+    "currentUserVote": null
+  },
+  "sgf": "(;LB[gg:O]LB[ig:K]LB[kg:T]LB[mg:L]AP[goproblems]\n(;B[gg];W[as]LB[gi:J]C[Jump!FORCE];B[gi];W[gh]C[Stay connected]\n(;B[hh];W[fh]\n(;B[hi];W[hg];B[sa])\n(;B[hg];W[hi])\n(;B[fi];W[eh]\n(;B[hi];W[hg])\n(;B[hg];W[hi]))\n(;B[fg];W[eh]\n(;B[hg];W[hi])\n(;B[hi];W[hg])))\n(;B[fh];W[hh]\n(;B[fg];W[fi])\n(;B[fi];W[fg])\n(;B[hg];W[ih]\n(;B[fg];W[fi])\n(;B[fi];W[fg]))\n(;B[hi];W[ih]\n(;B[fi];W[fg])\n(;B[fg];W[fi]))\n(;B[eh];W[fg];B[ff];W[eg];B[dg];W[fi]C[Horrible for white, but still cut.])))\n(;B[ig];W[as]LB[ji:J]C[Jump!FORCE];B[ji];W[jh]C[Stay connected]\n(;B[ih];W[ii];B[kh];W[jg];B[jf]C[Yup! The keima is the only jump that can stay connected.RIGHT])\n(;B[ii];W[ih];B[hh];W[jg]\n(;B[if];W[hi])\n(;B[hg];W[hi])\n(;B[hi];W[hg])\n(;B[jf];W[lg]\n(;B[hg];W[hi])\n(;B[hi];W[hg]))))\n(;B[kg];W[as]LB[kj:J]C[Jump!FORCE];B[kj];W[kh]C[Stay connected]\n(;B[lh];W[jh]\n(;B[li];W[lg])\n(;B[lg];W[li]\n(;B[lj];W[mi])\n(;B[ki];W[mi])))\n(;B[jh];W[lh]\n(;B[jg];W[ji]\n(;B[ki];W[ii])\n(;B[jj];W[ii]))\n(;B[ji];W[jg])))\n(;B[mg];W[as]LB[lj:J]C[Jump!FORCE];B[lj];W[mh]C[Stay connected]\n(;B[lh];W[lg]\n(;B[kh];W[lf];B[ng];W[mi];B[nj];W[oh]AB[ss]AB[sa]AB[aa])\n(;B[ng];W[mi];B[kh];W[lf];B[nj];W[oh]AB[ss]AB[sa]AB[aa])\n(;B[mi];W[nh]\n(;B[kh];W[mf])\n(;B[ng];W[oh])\n(;B[ni];W[oh]))\n(;B[mf];W[kg])\n(;B[lf];W[kg]\n(;B[mi];W[nh])\n(;B[nh];W[mi])))\n(;B[lg];W[lh])\n(;B[mi];W[lh];B[nh];W[ng])))",
+  "author": {
+    "id": 29217,
+    "name": "dischord",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-10-08",
+    "rank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1627.09
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 1191,
+    "failed": 1926,
+    "tries": 3117,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-03-25T23:05:03+00:00",
+  "source": "The night",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1616,
+  "elo": 368.44575799117,
+  "problemLevel": 0,
+  "rank": {
+    "value": 30,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "fuseki",
+  "specificGenre": "fuseki",
+  "description": "Etiquette question: How to place the handicap stones?",
+  "rating": {
+    "stars": 2.2,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;PL[B]C[Please place a 9-stone handicap.FORCE]\n(;B[pd];W[tt]C[FORCE];B[dp];W[tt]C[FORCE];B[pp];W[tt]C[FORCE];B[dd];W[tt]C[FORCE]\n(;B[pj];W[tt]C[FORCE];B[dj];W[tt]C[FORCE]\n(;B[jd];W[tt]C[FORCE];B[jp];W[tt]C[FORCE];B[jj]C[Correct.RIGHT])\n(;B[jj]C[RIGHT]))\n(;B[jj]C[RIGHT])))\n\n\n(;SZ[4]C[Black to put 4 handicap on this 4x4 board.]\n(;B[cb];W[tt]C[FORCE];B[bc];W[tt]C[FORCE];B[cc];W[tt]C[FORCE];B[bb]C[RIGHT])(;B[bc])(;B[cc])(;B[bb])(;B[da])(;B[ad])(;B[dd])(;B[aa])(;B[ab])(;B[db])(;B[ac])(;B[dc])(;B[ba])(;B[ca])(;B[bd])(;B[cd]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 34,
+  "attempts": {
+    "solved": 4659,
+    "failed": 5182,
+    "tries": 9841,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-09-13T01:01:27+00:00",
+  "source": "",
+  "playerColor": null,
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 127,
+      "name": "Etiquette",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 22,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

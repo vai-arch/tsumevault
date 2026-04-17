@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8834,
+  "elo": 917.5854320042,
+  "problemLevel": 7,
+  "rank": {
+    "value": 23,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Assume that this position happens in the opening of your game.  Which is the best response?",
+  "rating": {
+    "stars": 4,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[pp]AW[po]AB[pn]AB[qo]AB[qp]AB[pq]AB[pr]AB[or]AB[nr]AB[mq]AW[nq]AW[oq]AW[qq]AW[rq]AW[no]C[There are three ways to capture two white stones.  Which one is best?FORCE]LB[oo:A]LB[np:B]LB[op:C]AW[qn]AP[goproblems]\n(;B[oo];W[np];B[op]C[You've split the white stones.  Well done!RIGHT])\n(;B[np];W[oo];B[op];W[ro]C[White sacrifices two stones, but she keeps her stones together and captures two of your stones.  White does well.])\n(;B[op];W[oo];B[np];W[ro]C[White sacrifices two stones, but she keeps her stones together and captures two of your stones.  White does well.]))",
+  "author": {
+    "id": 4929,
+    "name": "chipuni",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-10-30",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 10349,
+    "failed": 8213,
+    "tries": 18562,
+    "speedSolved": 1,
+    "speedPlay": 11
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-07-02T15:19:49+00:00",
+  "source": "Opening Theory Made Easy, by Otake Hideo, Chapter 20",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2574,
+  "elo": 1618.475747875,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Please find the best result for White!\r\n(japanese rules)",
+  "rating": {
+    "stars": 3.3,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[4]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AB[aa][ba][dc][ad][dd]C[White to play - what's the best he can do?]PL[W]\r\n(;W[cb]CR[cb]\r\n;B[bc]CR[bc]\r\n(;W[cc]CR[cc]\r\n(;B[bb]CR[bb]\r\n;W[cd]CR[cd]\r\n;B[ca]CR[ca]\r\n;W[db]CR[db]\r\n;B[bd]CR[bd]C[Seki, White wins by two points (2 prisoners against 0) RIGHT CHOICE ])\r\n(;B[cd]CR[cd]\r\n(;W[bb]CR[bb]\r\n;B[ab]CR[ab]\r\n(;W[db]CR[db]\r\n;B[ca]CR[ca]\r\n;W[bd]CR[bd]\r\n;B[cd]CR[cd]C[Seki, White wins by 2 points (3 prisoners against 1) RIGHT CHOICE])\r\n(;W[ca]CR[ca]\r\n;B[db]CR[db]\r\n;W[ac]CR[ac]\r\n;B[ab]CR[ab]C[Seki, White wins by two points (3 prisoners against 1) RIGHT CHOICE]))\r\n(;W[db]CR[db]\r\n;B[bb]CR[bb]\r\n;W[bd]CR[bd]\r\n;B[cd]CR[cd]\r\n(;W[ca]CR[ca]\r\n;B[dc]CR[dc]\r\n;W[dd]CR[dd]\r\n;B[bd]CR[bd]\r\n(;W[ac]CR[ac]\r\n;B[dc]CR[dc]C[Black wins])\r\n(;W[ab]CR[ab]\r\n;B[dc]CR[dc]C[Black wins]))\r\n(;W[ac]CR[ac]\r\n;B[bd]CR[bd]\r\n;W[ca]CR[ca]\r\n;B[ab]CR[ab]C[White wins by one point (3 prisoners against 2). Not bad, but 1 point worse than the correct solution!]))))\r\n(;W[bb]CR[bb]\r\n(;B[cc]CR[cc]\r\n;W[ab]CR[ab]\r\n;B[db]CR[db]\r\n;W[ca]CR[ca]\r\n;B[ac]CR[ac])\r\n(;B[ab]CR[ab]\r\n(;W[cc]CR[cc]\r\n;B[cd]CR[cd]\r\n(;W[db]CR[db]\r\n;B[ca]CR[ca]\r\n;W[bd]CR[bd]\r\n;B[cd]CR[cd]C[Seki, White wins by two points (3 prisoners against 1) RIGHT CHOICE])\r\n(;W[ca]CR[ca]\r\n;B[db]CR[db]\r\n;W[ac]CR[ac]\r\n;B[ab]CR[ab]C[Seki, White wins by two points (3 prisoners against 1) RIGHT CHOICE]))\r\n(;W[ca]CR[ca]\r\n;B[cc]CR[cc]\r\n;W[ac]CR[ac]\r\n;B[ab]CR[ab]\r\n(;W[bd]CR[bd]\r\n;B[ac]CR[ac]\r\n;W[db]CR[db]\r\n;B[cd]CR[cd]C[Seki, White wins by one point (3 prisoners against 2). Not bad, but one point worse than the correct solution!])\r\n(;W[db]CR[db]\r\n;B[ba]CR[ba]\r\n;W[aa]CR[aa]\r\n;B[ac]CR[ac]\r\n(;W[bd]CR[bd]\r\n;B[ba]CR[ba]C[Black wins])\r\n(;W[cd]CR[cd]\r\n;B[ba]CR[ba]C[Black wins]))))))\r\n(;W[bc]CR[bc]\r\n;B[cb]LB[ac:A][bd:B]CR[cb]C[If you want to play A or B now, please choose A.]\r\n;W[ac]CR[ac]\r\n(;B[cc]CR[cc]\r\n;W[bd]CR[bd]\r\n;B[bb]CR[bb]\r\n;W[da]CR[da]\r\n;B[ab]CR[ab]\r\n(;W[ca]CR[ca]\r\n;B[db]CR[db]\r\n(;W[ca]CR[ca]\r\n;B[da]CR[da]C[Seki, Black wins by 2 points (3 prisoners against 1)])\r\n(;W[da]CR[da]\r\n;B[ca]CR[ca]C[Seki, Black wins by 2 points (3 prisoners against 1)]))\r\n(;W[db]CR[db]\r\n;B[ca]CR[ca]\r\n(;W[da]CR[da]\r\n;B[db]CR[db]C[Seki, Black wins by 2 points (3 prisoners against 1)])\r\n(;W[db]CR[db]\r\n;B[da]CR[da]C[Seki, Black wins by 2 points (3 prisoners against 1)])))\r\n(;B[bd]CR[bd]\r\n(;W[cd]CR[cd]\r\n;B[cc]CR[cc]\r\n;W[bd]CR[bd]\r\n;B[bb]CR[bb]C[Black wins! But B B1 was a mistake, and only succeeded because White answered with a mistake on his own (W C1 instead of W C2).])\r\n(;W[cc]CR[cc]\r\n;B[db]CR[db]\r\n;W[cd]CR[cd]\r\n;B[bb]CR[bb]C[Seki, White wins by two points (2 prisoners against 1). B B1 was a mistake, and if White answers correctly with W c2 instead of W C1, he can win.]))))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 34,
+  "attempts": {
+    "solved": 866,
+    "failed": 2100,
+    "tries": 2966,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-11T14:20:27+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

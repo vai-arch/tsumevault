@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 15986,
+  "elo": 1141.2971089226,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Spotted this funny little problem in the ad for \"Tsumego Master\",",
+  "rating": {
+    "stars": 4.5,
+    "votes": 40,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pa]AW[qa]AW[rb]AW[sc]AB[pb]AB[qb]AB[rc]AB[rd]AB[sd]AB[qd]AW[oa]AW[ob]AW[oc]AW[od]AW[pe]AW[qe]AW[re]AW[se]AP[goproblems]\n(;W[qc];B[pc];W[pd]C[RIGHT])\n(;W[sa];B[sb]LB[mb:A]C[A is your ko threatFORCE];W[mb];B[mc]C[FORCE];W[sc];B[ra]C[White cannot win both kos at once, so black is alive.])\n(;W[sb];B[ra])\n(;W[ra];B[sb])\n(;W[pc];B[ra]))",
+  "author": {
+    "id": 264,
+    "name": "Bass",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1537.69
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 2785,
+    "failed": 4066,
+    "tries": 6851,
+    "speedSolved": 6,
+    "speedPlay": 25
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2012-04-19T23:48:42+00:00",
+  "source": "Tsumego Master ad",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 143,
+      "name": "Squeeze Tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22806,
+  "elo": 1770.3914411241,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Please do me a quick favor. Go to your user settings at http://goproblems.com/user/usersettings.php and make sure \"Public Attempts\" is on. This allows problem creators to see which variations you have played, which makes it easier to tell if there are any paths that should be added. Thank you!",
+  "rating": {
+    "stars": 4.6,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\nAB [ar][as][br][bs][cq][dq][eq][fr][fs][gr][gs]\r\nAW [an][aq][bn][bq][co][cp][dp][ep][fq][gq][hq][hr][hs]\r\n\r\nC [Black to live or get a ko. Play 'T' if it is impossible.]\r\nLB [fp:T]\r\n\r\n(; B [dr]; W [ds]; B [bp]; W [er]; B [ap]; W [bq]; B [aq]; W [cs]; B [cr]; W [es]; B [fr] C [RIGHT])\r\n(; B [bp]; W [er] (; B [dr]; W [ds]; B [ap]; W [bq]; B [aq]; W [cs]; B [cr]; W [es]; B [fr] C [RIGHT])(; B [ds]; W [dr])(; B [ap]; W [dr]))\r\n(; B [ds]; W [cr] (; B [cs]; W [er])(; B [dr]; W [er] (; B [bp]; W [cs])(; B [es]; W [cs])(; B [cs]; W [es])))\r\n(; B [cr]; W [ds])\r\n(; B [cs]; W [ds])\r\n(; B [er]; W [cr])\r\n(; B [es]; W [cr])\r\n(; B [fp] C [Why give up so quickly?])\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 55,
+  "attempts": {
+    "solved": 11,
+    "failed": 90,
+    "tries": 101,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-08-17T23:56:46+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 33,
+      "name": "Under the Stones",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

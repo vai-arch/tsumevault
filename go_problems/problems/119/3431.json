@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3431,
+  "elo": 1096.7952956544,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": -6,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.2,
+    "votes": 32,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[eb]AB[fb]AB[gb]AB[hb]AW[ib]AW[jb]AB[kb]AB[lb]AB[ic]AB[jc]AW[hc]AW[gc]AW[fc]AW[ec]AW[kc]AW[lc]AW[je]AW[mb]AW[mc]AB[db]AB[cb]AB[bb]AB[ab]AW[dc]AW[cc]AW[bc]AW[ac]LB[ia:A]LB[ja:B]AW[ma]AW[hd]AW[ie]AW[kd]C[Best move for B.]AP[goproblems]\r\n(;B[ja];W[la]C[K19 is wrong because now if B ignores this ko threat, the k19 stone will be on the wrong place.  After W L19, B's stone would be better on J19.  So J19 lowers the value of M19 as a ko threat.])\r\n(;B[ia]C[Ok.  If you had done k19, W's m19 ko threat is bigger.RIGHT]))",
+  "author": {
+    "id": 4785,
+    "name": "kochi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-14",
+    "rank": {
+      "value": 8,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1340.69
+  },
+  "avgSolveTimeSeconds": 22,
+  "attempts": {
+    "solved": 10259,
+    "failed": 9358,
+    "tries": 19617,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-11-27T14:09:33+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 29,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22611,
+  "elo": 865.02694382306,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 1,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ji]AB[ki]AB[kk]AB[jk]C[Assumed this board has no edge. If we do games on such a board, it's endless, so we need new rules for the board. I mean the rules represent 'If a player makes an eye or some eyes of his or her alive stones, then he or she wins, and another player can't keep playing anymore.'. These 4 Black stones are handicaps, and Good luck!]AP[goproblems]\r\n(;B[ij];W[lj]\r\n(;B[kj]C[RIGHT])\r\n(;B[jj]))\r\n(;B[lj];W[ij]\r\n(;B[jj]C[RIGHT])\r\n(;B[kj]))\r\n(;B[jj];W[lj])\r\n(;B[kj];W[ij])\r\n(;B[ii]\r\n(;W[ij]\r\n(;B[jj];W[lj])\r\n(;B[lj];W[jj]))\r\n(;W[lj]\r\n(;B[ij];W[kj])\r\n(;B[kj];W[ij])))\r\n(;B[li]\r\n(;W[ij]\r\n(;B[jj];W[lj])\r\n(;B[lj];W[jj]))\r\n(;W[lj]\r\n(;B[ij];W[kj])\r\n(;B[kj];W[ij])))\r\n(;B[ik]\r\n(;W[ij]\r\n(;B[jj];W[lj])\r\n(;B[lj];W[jj]))\r\n(;W[lj]\r\n(;B[ij];W[kj])\r\n(;B[kj];W[ij])))\r\n(;B[lk]\r\n(;W[ij]\r\n(;B[jj];W[lj])\r\n(;B[lj];W[jj]))\r\n(;W[lj]\r\n(;B[ij];W[kj])\r\n(;B[kj];W[ij]))))",
+  "author": {
+    "id": 97489,
+    "name": "Irregular go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-09-16",
+    "rank": {
+      "value": 24,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 24,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 878.05
+  },
+  "avgSolveTimeSeconds": 40,
+  "attempts": {
+    "solved": 257,
+    "failed": 119,
+    "tries": 376,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-06-15T05:13:19+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 155,
+      "name": "cool",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 189,
+      "name": "Irregular board",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

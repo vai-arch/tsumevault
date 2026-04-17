@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4992,
+  "elo": 1481.9050993889,
+  "problemLevel": 27,
+  "rank": {
+    "value": 3,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "This is a problem I invented based upon what might happen if black didn't defend his three cutting stones in the Taisha.",
+  "rating": {
+    "stars": 1.5,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[mb][of][qc][oe][pc][pd][pf][oc]AW[qd][od][pe][qe][nd][qf][ld][qh]C[Normally in this position of the Taisha, black will do something to protect his stones such as play at C, but black has ADD and has played elsewhere.  If you think white can capture black by playing at A, play there.  Otherwise, play B.]\nLB[ng:A][sa:B][oh:C]AP[MultiGo:3.9.4]SZ[19]\n\n(;W[ng]\n(;B[me]\n(;W[md]\n(;B[ne]\n(;W[le];B[mf]\n(;W[mg];B[lf];W[kf];B[lg];W[lh];B[kg]C[You think this is a ladder?  Okay. \\:-)]\n;W[jg];B[kh];W[ki];B[li];W[mh];B[ji];W[kj];B[jf];W[ke];B[ig]C[ This is not a ladder.  At any time black can break out with a series of ataris.  If black really wanted to be mean, he'd just continue playing at A and wait for you to figure this out.CHOICE]\nLB[jh:A])\n(;W[lg];B[mg];W[mh];B[oh]C[Black escapes.]))\n(;W[lf];B[ph];W[pg];B[og];W[oh];B[nh];W[oi];B[mg]C[CHOICE]))\n(;B[mf]C[CHOICE Black escapes.]))\n(;W[ne];B[nf]\n(;W[md];B[lf];W[mg];B[mf]C[CHOICE])\n(;W[mf];B[md];W[nc];B[nb];W[mc];B[lc]C[CHOICE]))\n(;W[mf];B[ne];W[md];B[le];W[ke];B[lf]C[ Not a ladder here.  Black can escape.CHOICE])\n(;W[le];B[md]\n(;W[mf];B[ne])\n(;W[ne];B[nf])\n(;W[nc];B[mc])\n(;W[mc];B[nc])))\n(;B[ph]\n(;W[pg];B[og];W[oh];B[qg]\n(;W[pi];B[pg]\n(;W[rg];B[oi];W[nh];B[qi]\n(;W[rh];B[pj]C[CHOICE])\n(;W[pj];B[rh]))\n(;W[ni];B[rf];W[re];B[rd];W[se];B[sd]C[CHOICE]))\n(;W[rg];B[oi];W[nh];B[pi];W[pg];B[mf];W[nf];B[qg];W[ne];B[pg]C[CHOICE])\n(;W[nf];B[oi];W[nh];B[qi]C[White has more problems than black.]))\n(;W[pi];B[oh]C[ Black escapes through white's weak diagonal shape.CHOICE])\n(;W[oh];B[pg];W[pi];B[qg];W[rg];B[rh]\n(;W[ne];B[qi];W[nf];B[qj]C[CHOICE])\n(;W[qi];B[rf];W[sg];B[rd]))))\n(;W[sa]C[ - Because of white's defects at A and B, it is very hard (maybe impossible) for white to simply net black.   See 'Navigate Solution' for a couple of ways for black to break out.  I'm not saying white can tenuki, becaues white can start a good attack on the three black stones, it's just that they are hard to capture directly.RIGHT]\nLB[md:A][qg:B])\n(;W[oh];B[mf]C[Black gets out, no doubt about it.]))",
+  "author": {
+    "id": 2630,
+    "name": "klapaucius",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2016-08-15",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 1075,
+    "failed": 4122,
+    "tries": 5197,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-09-02T18:29:41+00:00",
+  "source": "Taisha",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 36,
+      "name": "Geta (net)",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

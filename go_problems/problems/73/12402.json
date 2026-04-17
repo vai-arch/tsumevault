@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12402,
+  "elo": 1980.5355114011,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "An interesting problem. In many of blacks wrong variations, the correct killing sequence for white is often elusive. \r\nEnjoy.",
+  "rating": {
+    "stars": 4,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pb]AB[pd]AB[qd]AB[rd]AW[re]AW[qe]AW[pe]AW[od]AW[ob]AW[ne]AW[nb]C[black first. Do the best you can!]AP[goproblems]\n(;B[rb];W[pa]\n(;B[ra]\n(;W[qb]C[CHOICE]\n(;B[pc];W[sd];B[sc];W[qa]\n(;B[qc];W[oa];B[se]C[RIGHT])\n(;B[oa];W[na];B[qc]C[RIGHT]))\n(;B[sc];W[qc])\n(;B[sb];W[pc])\n(;B[sd];W[pc]C[RIGHT]\n(;B[qc];W[se]\n(;B[sb]C[RIGHT])\n(;B[sc]C[RIGHT]))\n(;B[sb];W[se]\n(;B[qc]C[RIGHT])\n(;B[rc]C[RIGHT])))\n(;B[qc]C[RIGHT]))\n(;W[pc]C[CHOICE];B[qc]\n(;W[qb]\n(;B[sd];W[se]\n(;B[sc]C[RIGHT])\n(;B[sb]C[RIGHT]))\n(;B[sc];W[se];B[sd]C[RIGHT]))\n(;W[sc]C[CHOICE]\n(;B[sb];W[sd]\n(;B[oc];W[nc];B[qa]C[RIGHT])\n(;B[qa]C[fail];W[qb]C[fail]))\n(;B[sd];W[sb]\n(;B[oc];W[nc];B[qa];W[oa];B[pc]C[RIGHT])\n(;B[qa];W[qb]C[fail]))\n(;B[oc]C[NOTTHIS])\n(;B[qa];W[qb]C[fail]))))\n(;B[qa];W[pc];B[qc];W[qb]C[ko. fail.])\n(;B[pc];W[ra])\n(;B[qb];W[pc];B[qc];W[sc]\n(;B[sb];W[sd])\n(;B[sd];W[qa]))\n(;B[sc];W[ra])\n(;B[qc];W[qa])\n(;B[sb];W[ra])\n(;B[rc];W[ra]))\n(;B[qb];W[pa]\n(;B[ra];W[sb];B[sc];W[pc])\n(;B[qa];W[pc]\n(;B[sb];W[ra])\n(;B[qc];W[sd]))\n(;B[pc];W[rb]\n(;B[ra];W[rc];B[sb];W[sc];B[sd];W[sa])\n(;B[qa];W[rc];B[sd];W[sb])\n(;B[sb]\n(;W[rc];B[sc];W[qa];B[ra];W[sa])\n(;W[qa];B[ra];W[sa]))))\n(;B[pa];W[sb]\n(;B[sc];W[rc];B[sd];W[qb])\n(;B[rc];W[pc]\n(;B[qb];W[ra])\n(;B[qc];W[rb]LB[oc:A];B[oc];W[nc]\n(;B[pc];W[ra])\n(;B[ra];W[sd]))\n(;B[rb];W[qc];B[qb];W[ra];B[oc];W[pc]))\n(;B[sd];W[rb]\n(;B[pc];W[ra])\n(;B[ra];W[qb]\n(;B[qc];W[rc])\n(;B[pc];W[qa])))\n(;B[rb];W[sd]))\n(;B[sd];W[pc]\n(;B[rb];W[qc])\n(;B[qb];W[pa]\n(;B[qc];W[rb])\n(;B[sb];W[ra])\n(;B[ra];W[sb])\n(;B[qa];W[sb]))\n(;B[qc];W[pa]\n(;B[qb];W[rb])\n(;B[oc];W[nc]\n(;B[qa];W[rb]\n(;B[sb];W[ra])\n(;B[oa];W[sb]))\n(;B[rb];W[ra])\n(;B[ra];W[rb]))))\n(;B[sb];W[pa]\n(;B[qb];W[ra]LB[qa:A]LB[pc:B])\n(;B[ra];W[qb]\n(;B[pc];W[qa];B[rb];W[sd])\n(;B[rb];W[sd];B[pc];W[qa])))\n(;B[qc];W[rb])\n(;B[rc];W[pa];B[qb];W[pc])\n(;B[pc];W[rb]C[this is a ko, w first. See Carpenter's Square for clarification.])\n(;B[qa];W[sd]\n(;B[sc];W[rc]\n(;B[sb];W[pc])\n(;B[se];W[sb]\n(;B[rb];W[qc];B[pc];W[sd])\n(;B[sd];W[qb])))\n(;B[rc];W[rb])\n(;B[rb];W[sb])\n(;B[sb];W[rc]\n(;B[sc];W[pc])\n(;B[rb];W[pc])))\n(;B[ra];W[sb]\n(;B[sd];W[pc]\n(;B[rb];W[qc])\n(;B[qc];W[rb];B[pa];W[qb];B[oc];W[nc]\n(;B[pc];W[qa])\n(;B[qa];W[rc])))\n(;B[sc];W[rb];B[qb];W[pc])\n(;B[rc];W[pc]\n(;B[qb];W[pa])\n(;B[pa];W[sd])))\n(;B[sc];W[qb]\n(;B[qc];W[rb];B[pa];W[sb])\n(;B[pa];W[rb]\n(;B[ra];W[pc])\n(;B[pc];W[sb]\n(;B[ra];W[rc])\n(;B[rc];W[ra])))))",
+  "author": {
+    "id": 15489,
+    "name": "rainysky",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-01-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 57,
+  "attempts": {
+    "solved": 23,
+    "failed": 163,
+    "tries": 186,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-02-17T21:10:27+00:00",
+  "source": "Showed by YinKuo 3p on KGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

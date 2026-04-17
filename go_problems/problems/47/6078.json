@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6078,
+  "elo": 1503.5602935771,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -1,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.2,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[nb]AW[nc]AW[oa]AW[nd]AW[oc]AW[pc]AW[qd]AW[qe]AW[pe]AB[pd]AB[od]AB[oe]AB[ne]AB[md]AB[mc]AB[mb]AB[ma]AB[na]AB[qc]LB[qc:1]C[Black cut at 1. How shoud white respond?]AB[pf]AB[pg]AW[qg]AW[qf]AB[mf]AP[goproblems]\n(;W[pb];B[qb]\n(;W[rb]\n(;B[rc]C[CHOICE];W[qa]C[Black should have played at Q19 in stead of R17.RIGHT])\n(;B[qa]C[CHOICE];W[rc]C[Black should have played at Q19 in stead of R17.RIGHT]))\n(;W[qa];B[ra])\n(;W[rc];B[rb]\n(;W[rd];B[pa];W[qa];B[ra])\n(;W[sd];B[pa];W[qa];B[ra])))\n(;W[qb];B[pa]\n(;W[ob];B[pb])\n(;W[pb];B[ob]C[White can do better.])\n(;W[qa];B[ob]))\n(;W[rc];B[qb];W[pb];B[rb]\n(;W[rd];B[pa];W[qa];B[ra])\n(;W[sd];B[pa];W[qa];B[ra])))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 1094,
+    "failed": 3266,
+    "tries": 4360,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-02-26T02:48:43+00:00",
+  "source": "a game.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

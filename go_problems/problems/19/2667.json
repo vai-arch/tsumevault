@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2667,
+  "elo": 1830.5845833744,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -3,
+    "flagSum": -3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[pb]AW[kd]AW[qf]AB[nd]AB[pd]LB[pb:A]C[What A is hamete.  How should black respond?]GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]RU[Japanese]KM[0.00]PW[White]PB[Black]\r\n(;B[qc];W[mc];B[nb];W[nc];B[ob];W[oc];B[pc];W[mb];B[qb];W[od]C[This position is unacceptable for Black])\r\n(;B[oc];W[rd];B[qc];W[mc]C[Black.  So very many stones doing so very little])\r\n(;B[nb];W[qd];B[qc];W[pc];B[qb];W[rd]\r\n(;B[rc];W[pe];B[od];W[ra]LB[ra:A]C[After White A black loses the corner])\r\n(;B[oc];W[pe];B[od];W[rb];B[ob];W[rc]LB[pa:A]C[Black plays A and lives, however Black has lost the corner and the Black stones are overly concentrated.]))\r\n(;B[pc]\r\n(;W[qb]C[CHOICE];B[ob];W[rd]LB[re:A]C[Please play 'A'.  This is another tesuji to separate the White stones into two groups.];B[re]\r\n(;W[qe]C[CHOICE];B[rc];W[qd];B[qc]C[ After this exchange, Black is left with a very secure corner, and White is left with very little for the hamete investment.RIGHT])\r\n(;W[qd];B[qe]\r\n(;W[pe]C[CHOICE];B[rf];W[qc];B[qg]C[ This is a position that is poor for white.  Saving the outside White stones doesn't help much and the White corner group is not alive yet.  White can live in the corner with goteRIGHT])\r\n(;W[rf];B[pe];W[se];B[qc];W[rc];B[rb];W[sb];B[ra]C[ white has very little to show for all his effortsRIGHT])))\r\n(;W[ob]LB[mc:A]C[Please play A.  White can safely live in the corner, but there are bigger things then the corner.];B[mc];W[qc];B[qd];W[rc];B[rd];W[rb];B[qh]C[ Black has a very strong positionRIGHT]))\r\n(;B[pf];W[pg];B[qe];W[of];B[pe];W[mc];B[qg]C[RIGHT]))",
+  "author": {
+    "id": 1811,
+    "name": "cheyenne",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-04-28",
+    "rank": {
+      "value": 16,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1104.23
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 149,
+    "failed": 1672,
+    "tries": 1821,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-29T11:02:02+00:00",
+  "source": "rec.games.go archive",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 19,
+      "name": "Hamete",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

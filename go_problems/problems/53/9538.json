@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9538,
+  "elo": 975.71874969944,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 38,
+    "negativeFlagSum": 0,
+    "flagSum": 38
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3.8,
+    "votes": 43,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dq]AB[cp]AB[eq]AB[jg]AW[dp]AW[ji]AB[ii]AB[ij]AW[ik]AW[jk]AB[ki]AB[kj]AB[kk]AW[jj]AW[qp]AW[oq]AB[dd]AW[pd]LB[do:A]AW[cq]LB[co:T]C[Play A if you think White can be caught or at T if you think White will escape.]AP[goproblems]\r\n(;B[do];W[ep];B[fp];W[eo]AB[en]AW[fo]AB[go]AW[fn]AB[fm]AW[gn]AB[hn]AW[gm]AB[gl]AW[hm]AB[im]AW[hl]\r\n(;B[hk];W[il]\r\n(;B[jl];W[jh]\r\n(;B[ih];W[kh];B[lh];W[kg]AB[kf]AW[lg]AB[mg]AW[lf]AB[le]AW[mf]AB[nf]AW[me]AB[md]AW[ne]AB[oe]AW[nd]AB[nc]AW[od]C[White has escaped.])\r\n(;B[kh];W[ih];B[hh];W[ig]AB[if]AW[hg]AB[gg]AW[hf]AB[he]AW[gf]AB[ff]AW[ge]AB[gd]AW[fe]AB[ee]AW[fd]\r\n(;B[fc]C[White is caught :)RIGHT])\r\n(;B[ed];W[fc]C[White has escaped.])))\r\n(;B[jh];W[jl]\r\n(;B[kl];W[jm]C[White will escape now.]\r\n(;B[jn];W[in];B[km];W[ho])\r\n(;B[km];W[in];B[jn];W[ho]))\r\n(;B[jm];W[kl]\r\n(;B[ll];W[km]AB[kn]AW[lm]AB[mm]AW[ln]AB[lo]AW[mn]AB[nn]AW[mo]AB[mp]AW[no]AB[oo]AW[np]AB[nq]AW[op]C[White has escaped.])\r\n(;B[km];W[ll]C[White has escaped.]))\r\n(;B[km];W[fl]C[White has escaped now.])))\r\n(;B[il];W[hk]C[White has escaped.]))\r\n(;B[co]C[Wrong - White can be caught in the ladder. Navigate the solution to find out how.]))",
+  "author": {
+    "id": 16859,
+    "name": "MatheusB",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2010-02-23",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 7453,
+    "failed": 4853,
+    "tries": 12306,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-12-03T08:05:56+00:00",
+  "source": "My mind.",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 48,
+      "name": "Giant",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

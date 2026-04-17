@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14260,
+  "elo": 1313.9066921597,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "This is a problem from a book.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sr]AB[rr]AB[sq]AB[qq]AB[rp]AB[qp]AB[pp]AB[ro]AB[so]AB[oo]AB[on]AB[pn]AB[np]AB[nq]AB[nr]AW[rs]AW[qr]AW[pr]AW[or]AW[oq]AW[op]AW[po]AW[qo]AW[qn]AW[rn]AW[pm]AW[ql]AW[mp]AW[no]AB[lq]AB[ll]TR[oo]TR[on]TR[pn]C[White to capture the marked stones]AP[goproblems]\n(;W[mm]\n(;B[nn];W[mo];B[mn];W[ln];B[nm];W[nl]C[RIGHT])\n(;B[nm]\n(;W[nl];B[mo])\n(;W[nn];B[om];W[nl];B[ol];W[ok];B[pl];W[pk]C[Correct, black is capturedRIGHT])\n(;W[om];B[nn]\n(;W[nl];B[mo]C[Black escapes])\n(;W[mo];B[nl]C[Black escapes])))\n(;B[nl]C[CHOICE]\n(;W[nm];B[om]\n(;W[ol]C[Black is capturedRIGHT])\n(;W[nn];B[ol]C[Black escapes])\n(;W[ml];B[ol]C[Black escapes]))\n(;W[om];B[nn]\n(;W[mo];B[nm]C[Black escapes])\n(;W[nm];B[mo]C[Black escapes])\n(;W[mn];B[mo]C[Black escapes]))\n(;W[nn];B[om]C[Black escapes])\n(;W[mn];B[nm]C[Black escapes])\n(;W[ol];B[nm]C[Black escapes]))\n(;B[om];W[ol];B[nm]\n(;W[nl];B[nn];W[mn]C[RIGHT])\n(;W[nn];B[nl];W[nk];B[ml]C[No, the ladder doesn't work])))\n(;W[nm];B[nn]\n(;W[mo];B[mn]\n(;W[ln];B[mm]C[Black escapes])\n(;W[mm];B[ln]C[Black escapes])\n(;W[lm];B[ln]C[Black escapes])\n(;W[km];B[lm]C[Black escapes]))\n(;W[mn];B[mo]C[Black escapes])\n(;W[om];B[mo]C[Black escapes]))\n(;W[om];B[nn]\n(;W[mn];B[mo]C[Black escapes])\n(;W[mo];B[mm]C[Black escapes]))\n(;W[nn];B[om]\n(;W[ol];B[nm]\n(;W[mm];B[nl];W[nk];B[ml]C[No, the ladder doesn't work])\n(;W[nl];B[mm]C[Black escapes])\n(;W[ml];B[mm];W[lm];B[mo]TR[no]TR[nn]C[Black kills the marked stones and lives]))\n(;W[ok];B[nl]C[Black escapes])\n(;W[nm];B[ol]C[Black escapes])\n(;W[nl];B[pl]\n(;W[ol];B[qm]\n(;W[nm];B[pm]C[CHOICE]\n(;W[pk];B[rm]TR[po]TR[qo]TR[qn]TR[rn]C[Black kills the marked stones and lives])\n(;W[rm];B[pk]C[Black escapes]))\n(;W[rm];B[pk]C[Just ko.]))\n(;W[qm];B[ol]\n(;W[ok];B[pk]C[Black escapes, black's stones can't be caught in a ladder because they are not in atari])\n(;W[pk];B[ok]C[Black escapes, black's stones can't be caught in a ladder because they are not in atari.])\n(;W[pj];B[ok]C[Black escapes]))))\n(;W[nl];B[om];W[ol];B[nn]\n(;W[mo];B[mm]C[Black escapes])\n(;W[mn];B[mo]C[Black escapes])\n(;W[mm];B[mo]C[Black escapes])))",
+  "author": {
+    "id": 46952,
+    "name": "Tomsk",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-01-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 1287,
+    "failed": 2347,
+    "tries": 3634,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-12-17T05:19:18+00:00",
+  "source": "Elementary Go Series Vol 3, Tesuji",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 330,
+      "name": "Tesuji by James Davies (WIP)",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

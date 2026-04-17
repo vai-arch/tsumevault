@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1420,
+  "elo": 722.79658441205,
+  "problemLevel": 2,
+  "rank": {
+    "value": 28,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This is probably a simple one for good players but I managed to turn a 9x9 game from a certain loss to victory by fooling black with this...",
+  "rating": {
+    "stars": 3.6,
+    "votes": 26,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[ha]AB[gb]AB[gc]AB[fc]AB[hc]AB[gd]AB[he]AB[ie]AW[ga]AW[fa]AW[fb]AW[eb]AW[ec]AW[ed]AW[fd]AW[fe]AW[ge]AW[hf]AW[if]AW[gf]AW[ib]C[Black to play and save the corner]FF[4]GM[1]AP[Jago:Version 4.33]GN[prob1]\n(;B[ic]C[RIGHT])\n(;B[hb]C[]\n(;W[ic]))\n(;B[hd]C[];W[ic])\n(;B[ia]C[];W[hb])\n(;B[id]C[];W[ic]))",
+  "author": {
+    "id": 27560,
+    "name": "limbo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2009-01-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 15,
+  "attempts": {
+    "solved": 68908,
+    "failed": 20035,
+    "tries": 88943,
+    "speedSolved": 61,
+    "speedPlay": 139
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-03-29T17:59:19+00:00",
+  "source": "Own game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 20,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

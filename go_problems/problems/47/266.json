@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 266,
+  "elo": 1488.8525246175,
+  "problemLevel": 28,
+  "rank": {
+    "value": 2,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": 0,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 31,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[3]\r\nSZ[19]KM[0.5]\r\nPW[pakpakpak]\r\nWR[4k*]\r\nPB[adum]\r\nBR[5k*]\r\nDT[2000-10-31]\r\nSY[Cgoban 1.9.8]AW[eb][cc][dc][ec][fc][jc][ad][bd][fd]\r\nAB[ba][ca][ea][ga][bb][cb][db][ac][bc][hc][id]PL[2]\r\nC[white should try to cut black\r\n]\r\n(;W[fa];B[fb]\r\n(;W[gb];B[hb]\r\n(;W[fa]C[RIGHT\r\nwhite takes first in the ko\r\n])\r\n\r\n(;W[gc];B[fa])\r\n)\r\n\r\n(;W[hb];B[gb];W[gc];B[ib]\r\n(;W[ic];B[hd])\r\n\r\n(;W[ha];B[ia])\r\n)\r\n\r\n(;W[ha];B[hb])\r\n)\r\n\r\n(;W[gb];B[hb]\r\n(;W[fa];B[fb]C[black took first; she has an advantage\r\n])\r\n\r\n(;W[fb];B[fa])\r\n\r\n(;W[ha];B[ia])\r\n)\r\n\r\n(;W[hb];B[gb]\r\n(;W[gc];B[ib])\r\n\r\n(;W[fa];B[fb];W[gc];B[ib])\r\n\r\n(;W[fb];B[fa];W[gc];B[ib]\r\n(;W[hd];B[ic])\r\n\r\n(;W[ic];B[hd])\r\n)\r\n)\r\n\r\n(;W[ha];B[gb])\r\n\r\n(;W[fb];B[fa]C[and the cut is where?\r\n]\r\n(;W[gb];B[hb])\r\n\r\n(;W[hb];B[gb];W[gc];B[ib];W[ic];B[hd])\r\n\r\n(;W[ic];B[hd]\r\n(;W[gb];B[hb])\r\n\r\n(;W[hb];B[gb];W[gc];B[ib])\r\n)\r\n)\r\n\r\n(;W[gc];B[hb]\r\n(;W[gb];B[fa])\r\n\r\n(;W[fb];B[fa])\r\n)\r\n\r\n(;W[ib];B[gb])\r\n\r\n)",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 25,
+  "attempts": {
+    "solved": 6272,
+    "failed": 9775,
+    "tries": 16047,
+    "speedSolved": 2,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2000-11-06T20:15:32+00:00",
+  "source": "game of Igor's",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

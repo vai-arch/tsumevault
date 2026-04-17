@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4165,
+  "elo": 1091.7257493667,
+  "problemLevel": 13,
+  "rank": {
+    "value": 17,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -1,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "3 key moves for white to win (no komi/prisoners yet).",
+  "rating": {
+    "stars": 3.4,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[da]AW[db]AW[bd]AW[cd]AW[ce]AW[cf]AW[ag]AW[dd]AB[ba]AB[ca]AB[ab]AB[ac]AB[bc]AB[bd]AB[gc]AB[ed]AB[fd]AB[de]AB[fe]AB[ef]AB[ff]AB[dg]C[3 key moves for white to win (no komi).]SZ[7]\r\n(;W[cb];B[be]\r\n(;W[bf];B[ae];W[bb]C[RIGHT]C[Correct! C6 stopped his tsumego and allows you to connect the groups at any time. RIGHT])\r\n(;W[cc]LB[bf:A];B[bf]C[(Wrong)]LB[cg:A];W[cg];B[bg]C[Black has formed 2 eyes, you're dead])\r\n(;W[bb];B[bf]C[(Wrong)]LB[af:A]LB[bg:B]LB[cg:C]\r\n(;W[cg];B[bg]LB[ae:A]LB[af:B]\r\n(;W[af];B[ae]C[Black was able to form a safe and you're dead])\r\n(;W[ae];B[af]C[Black was able to form a safe and you're dead]))\r\n(;W[bg];B[cg]LB[af:A]LB[df:B]\r\n(;W[df];B[af]C[Black was able to form a safe and you're dead])\r\n(;W[af];B[ae]C[Black was able to form a safe and you're dead]))\r\n(;W[af];B[ae]LB[bg:A]LB[cg:B]\r\n(;W[bg];B[cg]C[Black was able to form a safe and you're dead])\r\n(;W[cg];B[bg]C[Black was able to form a safe and you're dead])))\r\n(;W[ae];B[bf]C[(Wrong)]LB[bg:A];W[bg];B[cg]LB[af:A];W[af];B[ad]LB[af:A]\r\n(;W[af];B[bb])\r\n(;W[bb]LB[af:A];B[af]LB[bg:A];W[bg];B[eg]))\r\n(;W[af];B[bf]C[(Wrong)]LB[bg:A];W[bg];B[cg]LB[ae:A];W[ae];B[ad]LB[af:A];W[af];B[ag]LB[bg:A];W[bg];B[bb])\r\n(;W[dc];B[bb]C[(Wrong)]LB[ec:A];W[ec];B[fc]LB[fb:A];W[fb];B[gb]LB[bf:A];W[bf];B[cg])\r\n(;W[df];B[bf]C[(Wrong)]LB[fg:A];W[fg];B[eg]LB[gf:A];W[gf];B[ge]LB[fc:A];W[fc];B[gg])\r\n(;W[fb];B[gb]C[(Wrong)]LB[ec:A];W[ec];B[fc]LB[cc:A];W[cc];B[fa]LB[eb:A];W[eb];B[bf]LB[bg:A];W[bg];B[cg]LB[af:A];W[af];B[ae]LB[ag:A];W[ag];B[eg]))\r\n(;W[eg]C[];B[cb]C[(Wrong)]LB[dc:A];W[dc];B[be]LB[ec:A];W[ec];B[fc]LB[fb:A];W[fb];B[gb]LB[bf:A];W[bf];B[cg])\r\n(;W[ea];B[cb]C[(Wrong)])\r\n(;W[fb];B[cb]C[(Wrong)])\r\n(;W[fc];B[cb]C[(Wrong)])\r\n(;W[ec];B[cb]C[(Wrong)])\r\n(;W[dc];B[cb]C[(Wrong)]LB[be:A]LB[fb:B]\r\n(;W[be];B[cg]LB[fb:A];W[fb];B[gb]LB[ec:A];W[ec];B[bf]LB[af:A]LB[bg:B]\r\n(;W[bg];B[af])\r\n(;W[af];B[bg]))\r\n(;W[fb];B[gb]LB[ec:A];W[ec];B[be]C[Impossible to form 2 true eyes.]))\r\n(;W[df];B[cb]C[(Wrong)])\r\n(;W[cc];B[cb]C[(Wrong)]LB[be:A]LB[cg:B]\r\n(;W[be];B[cg]LB[ae:A]\r\n(;W[bg];B[ae]LB[ec:A]LB[fb:B]\r\n(;W[fb];B[gb]LB[ec:A];W[ec];B[fc])\r\n(;W[ec];B[fc]LB[fb:A];W[fb];B[gb]))\r\n(;W[ae];B[bg]LB[ec:A]LB[fb:B]\r\n(;W[ec];B[fc]LB[fb:A];W[fb];B[gb])\r\n(;W[fb];B[gb]LB[ec:A];W[ec];B[fc])))\r\n(;W[cg];B[ec]LB[be:A];W[be];B[ae]LB[af:A];W[af];B[ad]LB[dc:A]\r\n(;W[fb];B[eb])\r\n(;W[dc];B[eb])))\r\n(;W[cg];B[cb]C[(Wrong)]LB[dc:A];W[dc];B[be]LB[bf:A];W[bf];B[ec]LB[eb:A];W[eb];B[fb])\r\n(;W[bf];B[cb]C[(Wrong)]LB[cg:A];W[cg];B[dc]LB[ec:A];W[ec];B[cc]LB[fb:A];W[fb];B[fc]LB[eb:A];W[eb];B[gb]LB[df:A];W[df];B[eg]LB[ee:A];W[ee];B[be]LB[af:A];W[af];B[ae]LB[fa:A];W[fa];B[de]LB[gf:A];W[gf];B[ge]LB[ee:A];W[ee];B[ga]LB[gg:A];W[gg];B[ea]LB[ec:A];W[ec];B[de]LB[fa:A];W[fa];B[bg])\r\n(;W[be]C[];B[cb]C[(Wrong) Black has miai to stop you from forming 2 eyes.]LB[ae:A];W[ae];B[cg]LB[dc:A];W[dc];B[ec]LB[eb:A];W[eb];B[fb])\r\n(;W[ae];B[cb]C[(Wrong) Black has miai to stop you from forming 2 eyes.]LB[cg:A];W[cg];B[be]LB[bf:A];W[bf];B[dc]LB[ec:A];W[ec];B[cc]LB[fb:A];W[fb];B[fc]LB[eb:A];W[eb];B[gb]LB[fa:A];W[fa];B[ga]LB[af:A];W[af])\r\n(;W[bb];B[cb]C[(Wrong)]LB[be:A];W[be]C[Black has miai to stop you from forming 2 eyes.];B[dc]LB[cc:A];W[cc];B[ec]LB[ae:A];W[ae];B[cg]LB[bg:A];W[bg];B[eb]))",
+  "author": {
+    "id": 6518,
+    "name": "cen2y",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-07-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 5523,
+    "failed": 7128,
+    "tries": 12651,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-28T01:59:27+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 13,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

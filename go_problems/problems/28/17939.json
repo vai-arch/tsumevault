@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17939,
+  "elo": 1172.3302043695,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Adapted from a game of mine. I read correctly and won the game at the end.",
+  "rating": {
+    "stars": 3.8,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dq]AB[eq]AB[er]AB[cp]AB[co]AB[cn]AW[dp]AW[do]AW[dn]AW[cm]AW[ep]AW[fp]AW[fq]AW[fr]AB[fs]AW[gs]AB[hr]AW[gq]AW[hq]AW[iq]AW[jr]AW[jq]AW[js]AB[bm]AB[bl]AB[bk]AW[cl]AW[ck]AW[em]AB[es]TR[gn]C[If black can afford to cut at G2 play the triangle at G6, if black needs to protect the cut at C3 first, play the square at J6. Try to read it out to end, it's not that hard, just long.FORCE]MA[in]AP[goproblems]\n(;B[gn];W[gp]C[White wants to see how you manage the cut. Play at G2 now and defend your stones.FORCE];B[gr];W[ir]\n(;B[hs];W[is];B[gs];W[cq]\n(;B[cr];W[bq]\n(;B[br];W[ds];B[dr];W[bp]\n(;B[bo];W[ao];B[bn];W[ar]\n(;B[aq];W[ap]\n(;B[an]C[Correct, that's the variant I read out and played in my game.RIGHT])\n(;B[bs]C[RIGHT]))\n(;B[bs]C[Correct, white can't approach.RIGHT])\n(;B[ap];W[aq]\n(;B[bs]C[Correct, white can't approachRIGHT])\n(;B[an];W[bs]C[White captures your stones])))\n(;B[bn];W[ar]\n(;B[bs];W[aq]\n(;B[bo]C[Yes, that works, white can't approach.RIGHT])\n(;B[ap]C[RIGHT]))\n(;B[bo];W[bs]C[White captures your stones.])\n(;B[cs];W[bs]C[Ko, you can do better]))\n(;B[an];W[ao]\n(;B[bn];W[ar]\n(;B[bs];W[aq];B[bo]C[Correct, no ko here, white can't approach.RIGHT])\n(;B[cs];W[bs]C[Ko, you can do better])\n(;B[aq];W[bs]C[Ko, you can do better])\n(;B[bo];W[bs]C[White captures your stones]))\n(;B[ar];W[bn]C[The corner lives but white captured some of your stones]))\n(;B[ao]C[RIGHT]))\n(;B[bp];W[ds]C[White captures your stones :-(];B[dr];W[br];B[cs];W[bs]))\n(;B[bq];W[cr]C[White captured half your corner :-(]))\n(;B[cq];W[hs]C[You were supposed to defend the stones.]))\n(;B[in]C[Nope, black can cut.]))",
+  "author": {
+    "id": 69857,
+    "name": "querana",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-26",
+    "rank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 14,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1150.62
+  },
+  "avgSolveTimeSeconds": 113,
+  "attempts": {
+    "solved": 818,
+    "failed": 737,
+    "tries": 1555,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-10-24T16:46:21+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

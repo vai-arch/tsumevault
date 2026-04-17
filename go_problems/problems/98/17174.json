@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17174,
+  "elo": 842.46557316248,
+  "problemLevel": 5,
+  "rank": {
+    "value": 25,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Weekly Go problems : Week 76-Easy Go problem",
+  "rating": {
+    "stars": 3.4,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[7]AB[cf]AB[df]AB[cd]AB[dd]AB[ed]AB[ee]AW[be]AW[ce]AW[de]AW[fe]AW[fd]AW[gf]AW[fg]AW[ef]LB[bf:a]LB[bd:b]LB[ae:c]C[http:gogameguru.com]AP[goproblems]\r\n(;B[bf];W[bd];B[bc]C[Well done! White only has two liberties and all of black's groups have more than that. No matter what white does next, black can atari.RIGHT])\r\n(;B[bd];W[bf];B[bg];W[dg]LB[cg:a]LB[ae:b]LB[af:c]\r\n(;B[cg])\r\n(;B[ae];W[cg])\r\n(;B[af]))\r\n(;B[ae];W[bd];B[bc];W[bf];B[bg];W[dg]LB[cc:A]C[This variation is even worse for black than the previous one because white's stones are safe and black still has to worry about white cutting at A.]))",
+  "author": {
+    "id": 59161,
+    "name": "1234boys",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-10-13",
+    "rank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1373.95
+  },
+  "avgSolveTimeSeconds": 28,
+  "attempts": {
+    "solved": 4752,
+    "failed": 3650,
+    "tries": 8402,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2013-02-24T02:20:26+00:00",
+  "source": "Weekly Go problems Week 76",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

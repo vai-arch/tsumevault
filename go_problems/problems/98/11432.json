@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11432,
+  "elo": 1308.3350665949,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 8,
+    "negativeFlagSum": 0,
+    "flagSum": 8
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Please comment on incorrect/missing elements.",
+  "rating": {
+    "stars": 4.1,
+    "votes": 18,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qq]AB[qr]AB[qp]AB[rp]AW[ro]AW[qo]AW[po]AW[pp]AW[pq]AW[pr]AW[nr]AW[rm]AW[rq]C[A proverb say that the L-Group is dead. However, White did not know this and hastefully plays the marked stone without thinking. What does Black have in the corner now?FORCE]TR[rq]LB[ks:Nothing]LB[kq:Ko Threats]LB[ko:Ko]LB[km:Seki]LB[kk:Life]AP[goproblems](;B[kk];W[jk]C[Restore life to the Black group!](;B[rr](;W[sq];B[sr];W[qs];B[rs]C[Right! More stones isn't always better!RIGHT])(;W[qs];B[rs];W[sq];B[sr]C[Right! More stones isnt always better!RIGHT])(;W[rs];B[qs];W[sq](;B[sr]C[Right! More stones isnt always better.RIGHT])(;B[sp]C[Right! More stones isnt always better!RIGHT])))(;B[rs](;W[sq];B[sr];W[sp])(;W[sr];B[rr];W[sq]))(;B[sr];W[rs](;B[rr];W[qs])(;B[qs];W[rr]))(;B[sq](;W[rr];B[rs];W[sr];B[ss];W[rr])(;W[rs](;B[rr];W[qs])(;B[qs];W[rr]))))(;B[km];W[jm]C[Okay, please show me the seki.];B[sr];W[rs];B[qs];W[rr];B[sp]C[Not a seki, once White fills the outside liberties, the Black group is in atari and a connect-and-die situation.]AW[ps]AW[so]TR[ps]TR[so])(;B[ko];W[jo]C[No... its not a ko.])(;B[kq];W[jq]C[Well... it's not just ko threats.])(;B[ks];W[js]C[Are you sure? Even if you think that Black cannot live, there is at least some ko threats. Please reconsider carefully.]))",
+  "author": {
+    "id": 13781,
+    "name": "zafris",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-13",
+    "rank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1348.33
+  },
+  "avgSolveTimeSeconds": 72,
+  "attempts": {
+    "solved": 1097,
+    "failed": 1849,
+    "tries": 2946,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-07-06T17:20:43+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 69,
+      "name": "L-Group",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

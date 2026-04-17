@@ -1,0 +1,126 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23524,
+  "elo": 1526.0910294161,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": null,
+  "sgf": "(;\r\nAB[ra][qa][ma][lb][lc][mc][nd][me][le][od][pd][qd][pc][qc][rc][sd]AW[rb][qb][pb][oa][oc][nc][nb][mb][rd][re][pe][qe][rf][kb][jd][kf][mf][nf][ne][jc]C[White just played the marked stone. Does black need to play here again to kill the white group?\r\n\r\nIt yes, then do so.\r\nIf not, then tenuki by playing at the marked location (Q11).\r\nFORCE]CR[oa]LB[pi:tenuki]AP[Sabaki:0.52.0]CA[UTF-8](;B[sb];W[pa]LB[pi:Tenuki]C[If black can tenuki now, play on the location marked tenuki.](;B[sc];W[sa](;B[ra]C[This also works, but black missed an opportunity to tenuki.])(;B[la]C[This also works, but black missed an opportunity to tenuki.]))(;B[pi];W[sa];B[ra]C[Good job! RIGHT])(;B[sa];W[sc]C[White is alive.])(;B[la];W[sa](;B[ra]C[This also works, but black missed an opportunity to tenuki.])(;B[na];W[sc]C[Now it's a ko for white to save part of their group. You can do better.])))(;B[ka];W[sb]C[White lives because black cannot approach at the marked location.]TR[na])(;B[la];W[sb](;B[na];W[sc];B[ob];W[se]C[Not bad, you captured part of the white group, but some survived.\r\nYou can do better...])(;B[sc];W[na]C[White is alive.]))(;B[sc];W[sb](;B[la];W[na]C[White is alive.])(;B[na];W[la]C[White is alive and connected.]))(;B[sa];W[sb](;B[sc];W[na]C[White is alive.])(;B[la];W[na]C[White is alive.]))(;B[na];W[la]C[White lives by connecting.])(;B[pa](;W[sb]C[White lives because black cannot approach the marked location.]TR[na];B[la];W[sa];B[na];W[ob]LB[qa:A][sc:B]C[A and B are miai])(;W[sa]C[White lives because black cannot approach the marked location.];B[sb];W[ra]))(;B[md];W[sb]C[White lives because black cannot approach the marked location.]TR[na])(;B[pi];W[sb]C[White is alive after your tenuki, because black cannot approach at the marked location.]TR[na]))",
+  "author": {
+    "id": 59252,
+    "name": "DK2",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-04-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 96,
+  "attempts": {
+    "solved": 62,
+    "failed": 188,
+    "tries": 250,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-11-01T14:11:40+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 178,
+      "name": "Tenuki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

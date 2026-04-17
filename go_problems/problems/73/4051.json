@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4051,
+  "elo": 1273.3083737702,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Strangely enough the book (first edition) says: 'Black to play'... White to play and save the corner.",
+  "rating": {
+    "stars": 4.7,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ar]AB[bq]AB[bo]AB[cp]AB[do]AB[fo]AB[fp]AB[hp]AB[hq]AB[hr]AB[jr]AW[br]AW[bs]AB[cr]AW[cq]AW[dq]AW[eq]AW[gq]AW[gr]AP[goproblems]\n(;W[ds]\n(;B[gs]C[CHOICE]\n(;W[fs];B[fr]\n(;W[fq];B[es];W[er]C[RIGHT])\n(;W[hs];B[fq])\n(;W[er];B[fq])\n(;W[es];B[fq]))\n(;W[dr];B[fq])\n(;W[fr];B[fs]\n(;W[es];B[hs]TR[dr]TR[fq]C[White is dead.])\n(;W[dr];B[fq])\n(;W[fq];B[es]))\n(;W[fq];B[fs])\n(;W[hs];B[fs])\n(;W[er];B[fs]))\n(;B[fr]C[CHOICE]\n(;W[fq];B[gs]\n(;W[fs];B[es]\n(;W[er]C[RIGHT])\n(;W[dr];B[hs]))\n(;W[er];B[fs])\n(;W[cs];B[fs])\n(;W[es];B[fs])\n(;W[dr];B[fs]))\n(;W[dr];B[fq])\n(;W[er];B[fq])\n(;W[gs];B[fq])\n(;W[fs];B[fq])))\n(;W[dr];B[fr]\n(;W[fq];B[gs]\n(;W[er];B[fs];W[es];B[cs]C[If White captures the triangled stones Black captures the corner stones; White has only one eye.]TR[fs]TR[fr]TR[gs])\n(;W[es];B[cs]LB[ds:A]LB[fs:B]C[If White A then Black B; if White B then Black C. White has only one eye.]LB[as:C])\n(;W[fs];B[es])\n(;W[cs];B[es])\n(;W[ds];B[fs]))\n(;W[er];B[fq])\n(;W[es];B[fq]LB[er:B]LB[cs:A]C[White now needs both A and B to live.])\n(;W[fs];B[fq]C[Dead as a dodo.])\n(;W[cs];B[fq]C[A and B are miai. C doesn't even have to be answered.]LB[es:A]LB[er:B]LB[fs:C])\n(;W[gs];B[fq]\n(;W[es]MA[er]MA[cs]C[Dead as it stands; White needs both marked points to live...])\n(;W[fs]C[White has only one eye.])\n(;W[cs]MA[es]MA[er]C[Dead, as White needs both marked points to live.])\n(;W[ds]C[Just one eye!])\n(;W[er]MA[cs]MA[es]C[Dead, as White needs both marked points to live.]))\n(;W[ds];B[fq]))\n(;W[es];B[cs])\n(;W[fq];B[cs])\n(;W[cs];B[fq]\n(;W[fr];B[dr]\n(;W[er];B[gs]\n(;W[fs];B[ds])\n(;W[ds];B[fs]))\n(;W[gs];B[ds])\n(;W[es];B[gs])\n(;W[ds];B[gs];W[fs];B[er]))\n(;W[dr];B[fr]C[A and B are miai.]LB[er:A]LB[es:B])\n(;W[er];B[fr]C[Just one eye.])\n(;W[es];B[fr]C[Just one eye.]))\n(;W[ap];B[cs]C[White cannot save the corner stones, and throwing in fails because of damezumari.])\n(;W[er];B[cs])\n(;W[fr];B[cs])\n(;W[fs];B[cs])\n(;W[gs];B[cs])\n(;W[aq];B[ap]C[Even if White proceeds to live this exchange has wasted a ko threat for no gain at all])\n(;W[bp];B[ap]C[White can still live, but this exchange just wastes a ko threat for no gain.])\n(;W[ep];B[cs]C[White may cut Black, but cannot escape, nor live, nor catch Black's surrounding group(s).])\n(;W[en];B[cs]C[White may cut Black, but cannot escape, nor live, nor catch Black's surrounding group(s).])\n(;W[ho];B[cs]C[White may cut Black, but cannot escape, nor live, nor catch Black's surrounding group(s).])\n(;W[co];B[cn]C[Although White can still live, this exchange only strengthened Black's outer position for no gain.])\n(;W[ao];B[cs])\n(;W[dp];B[cs])\n(;W[eo];B[cs])\n(;W[gp];B[go]C[];W[ds];B[gs];W[fs];B[er]\n(;W[dr];B[fq])\n(;W[fr];B[dr])))",
+  "author": {
+    "id": 3759,
+    "name": "BartTM",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-02-14",
+    "rank": {
+      "value": 3,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1476.63
+  },
+  "avgSolveTimeSeconds": 49,
+  "attempts": {
+    "solved": 2209,
+    "failed": 4393,
+    "tries": 6602,
+    "speedSolved": 6,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-03-09T04:50:34+00:00",
+  "source": "Graded go problems for beginners vol.4",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

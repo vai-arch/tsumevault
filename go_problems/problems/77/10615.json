@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10615,
+  "elo": 1593.4330069066,
+  "problemLevel": 31,
+  "rank": {
+    "value": 2,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -3,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Following the joseki, White should play O7 first, making black play P8, before playing N6. What happens if White immediately plays N6?\r\n\r\nReworked with variations from FieldMouse. I'm still not sure if all the variations are correct, so any corrections are welcome.",
+  "rating": {
+    "stars": 2.8,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[pq]AW[qn]AW[qq]AB[pk]AB[qp]AW[pp]AB[po]AW[op]AB[rq]AW[qr]AB[qo]AW[rr]AB[mp]AW[oo]AB[pn]AW[on]AB[om]AW[mn]C[What can black do here?]AP[goproblems]\n(;B[nn]\n(;W[nm]\n(;B[oq];W[pm]\n(;B[qm];W[ol]\n(;B[rn];W[nq])\n(;B[nq];W[rn])\n(;B[np];W[rn]))\n(;B[ol];W[ro]))\n(;B[no];W[pm];B[qm];W[ol];B[oq];W[rn]))\n(;W[mo];B[no];W[np]\n(;B[nq];W[nm];B[oq];W[pm];B[qm];W[ol];B[rn];W[mq])\n(;B[nm];W[lp];B[mq];W[oq];B[lq]C[OK for black?])))\n(;B[oq];W[nm]\n(;B[nq];W[pm];B[qm];W[ol]\n(;B[rn]C[Best for black?RIGHT])\n(;B[rp]\n(;W[ql];B[rn];W[rm];B[pl]C[Big ko. Ok for black?RIGHT])\n(;W[rm];B[rn];W[ql];B[pl]C[Big ko. Ok for black?RIGHT])))\n(;B[ol];W[nq]C[Nothing gained, compared to the normal joseki])\n(;B[np];W[pm];B[qm];W[ol]\n(;B[rn]C[RIGHT])\n(;B[ql];W[rn])\n(;B[rp]\n(;W[rm];B[rn];W[ql];B[pl]C[RIGHT])\n(;W[ql];B[rn];W[rm];B[pl]C[RIGHT]))))\n(;B[nq];W[oq]C[Black has a better play])\n(;B[pr];W[oq]))",
+  "author": {
+    "id": 8916,
+    "name": "perroe2",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-03-04",
+    "rank": {
+      "value": 6,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1392.7
+  },
+  "avgSolveTimeSeconds": 51,
+  "attempts": {
+    "solved": 268,
+    "failed": 1024,
+    "tries": 1292,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-11-14T01:27:21+00:00",
+  "source": "Game on DGS",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 77,
+      "name": "3-4 (komoku) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

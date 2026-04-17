@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12294,
+  "elo": 1544.7599207648,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "White to kill Black's corner",
+  "rating": {
+    "stars": 4,
+    "votes": 11,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bc]AB[bd]AB[cb]AB[dc]AB[eb]AB[fb]AW[be]AW[ce]AW[cd]AW[cc]AW[dd]AW[ed]AW[gb]AW[ga]AW[gc]AW[fd]AP[goproblems]\n(;W[bb];B[ab];W[ba];B[ca]\n(;W[ad];B[aa]\n(;W[db]\n(;B[ec]\n(;W[ea];B[da];W[fa]C[RIGHT])\n(;W[fa];B[ea]))\n(;B[da];W[fa]C[RIGHT]))\n(;W[bb]C[NOTTHIS])\n(;W[ea];B[fa]))\n(;W[db];B[da]\n(;W[fa];B[ad])\n(;W[ad];B[aa]\n(;W[fa]C[RIGHT])\n(;W[ec];B[fa])\n(;W[bb]C[NOTTHIS])))\n(;W[ea];B[aa];W[ad];B[fa]))\n(;W[da];B[ba])\n(;W[ab];B[bb])\n(;W[ba];B[bb];W[db];B[da];W[fa]C[RIGHT])\n(;W[ad];B[bb]\n(;W[ac];B[ab]\n(;W[db];B[da])\n(;W[fa];B[ea]))\n(;W[db];B[da])))",
+  "author": {
+    "id": 8309,
+    "name": "lang2",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2014-07-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 72,
+  "attempts": {
+    "solved": 445,
+    "failed": 765,
+    "tries": 1210,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-01-20T14:30:54+00:00",
+  "source": "youku.com",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 50,
+      "name": "GuanZiPu",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

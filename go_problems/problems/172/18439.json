@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 18439,
+  "elo": 1412.886,
+  "problemLevel": 25,
+  "rank": {
+    "value": 5,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Simple problem with short paths. Endgame.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[13]AB[ab]AB[ac]AB[bc]AB[ad]AB[be]AB[bf]AB[cf]AB[dg]AB[cg]AB[eh]AB[dh]AB[ch]AB[bi]AB[ai]AB[ah]AB[ak]AB[bl]AB[bm]AB[cm]AB[dm]AB[fm]AB[fl]AB[gl]AB[gk]AB[gj]AB[hj]AB[hi]AB[hh]AB[hk]AB[fh]AB[gh]AB[fe]AB[ha]AB[hb]AB[hc]AB[hd]AB[id]AB[jd]AB[kc]AB[je]AB[if]AB[ig]AB[jg]AB[kg]AB[lg]AB[mg]AB[ml]AB[ll]AB[lk]AB[kk]AB[jl]AB[jm]AB[km]AW[bb]AW[cb]AW[ca]AW[cc]AW[cd]AW[bd]AW[ce]AW[df]AW[ee]AW[eg]AW[fg]AW[gg]AW[hg]AW[hf]AW[he]AW[ie]AW[gd]AW[gc]AW[gb]AW[ga]AW[af]AW[ag]AW[aj]AW[bj]AW[cj]AW[dj]AW[di]AB[ci]AW[fi]AW[gi]AW[ei]AW[fj]AW[fk]AW[el]AW[dl]AW[cl]AW[ck]AW[gm]AW[hm]AW[hl]AW[il]AW[im]AW[ik]AW[jk]AW[ij]AW[ii]AW[ih]AW[jh]AW[kh]AW[lh]AW[mh]AW[mj]AW[lj]AW[kj]AW[ki]C[Black's winning move(s)? (6.5 komi, no prisoners yet)]AP[goproblems]\n(;B[em]\n(;W[ek]C[Hello neighbour. That's it ;-)RIGHT]\n(;B[bk]C[RIGHT])\n(;B[bg]C[Why do you play into own territory?]))\n(;W[bk]\n(;B[ek]C[Best for black. (W B3 was bad.)RIGHT])\n(;B[al];W[ek]C[RIGHT])))\n(;B[ek];W[em]C[You join my eyes. I cut your group...]\n(;B[bg];W[mk]C[Tenuki.];B[bk];W[al]C[You alive, me alive. I win.])\n(;B[dk];W[al]\n(;B[bg];W[bk]C[You alive, me alive. I win.])\n(;B[am];W[bg]C[Whole black's left side is dead. (No seki.)]))\n(;B[ej];W[al]\n(;B[am];W[bg]C[Whole black's left side is dead. (No seki.)])\n(;B[bg];W[bk]C[You alive, me alive. I win.]))\n(;B[bk];W[al];B[bg]C[You alive, me alive. I win.]))\n(;B[bg];W[em]C[Very cautious but what now?]\n(;B[ek];W[mk]C[Tenuki.];B[dk];W[al]C[You alive, me alive. I win.])\n(;B[bk];W[mk]C[Tenuki.];B[ek];W[al]C[You alive, me alive. I win.])))",
+  "author": {
+    "id": 64162,
+    "name": "chuspita",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2021-01-16",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 121,
+  "attempts": {
+    "solved": 389,
+    "failed": 714,
+    "tries": 1103,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-12-03T21:44:53+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 75,
+      "name": "Whole Board Positions",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

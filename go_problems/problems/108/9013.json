@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9013,
+  "elo": 1110.0030731793,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 5,
+    "negativeFlagSum": -1,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem is a tougher version of problem 8989(my first problem submitted). I have switched the player to white because it requires more thought that way. I also went back two moves so it requires deeper reading. Hope you like! (Thanks to BartTM for ideas and help)",
+  "rating": {
+    "stars": 4.5,
+    "votes": 33,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[ao]AB[an]AB[bn]AB[bm]AB[cm]AB[dm]AB[dn]AB[en]AB[eo]AB[fn]AB[cs]AB[br]AW[do]AW[co]AW[bo]AW[cn]AW[ap]AW[bp]AW[cp]AB[dp]AW[ep]AW[fp]AW[fo]AW[eq]AW[er]AB[dq]C[Black just escaped at D3. Can white live?  Requires reading.]LB[gr:NO]TR[dq]MA[cp]MA[bp]MA[ap]MA[bo]MA[co]MA[do]MA[cn]AP[goproblems]\n(;W[cq];B[dr];W[cr];B[ds]\n(;W[bs];B[as]C[];W[es];B[bs];W[aq]C[Good playing! Both live in seki! This is the only way both groups will be happy.RIGHT])\n(;W[ar];B[bq]LB[aq:1]LB[bs:2]LB[es:3]C[Black has 3 liberties while white has only one. No good.])\n(;W[es];B[bs]C[survival is now impossible; black has three liberties while white has two.])\n(;W[as];B[bs]C[Black has more liberties! White loses.]))\n(;W[gr]C[Sorry! try reading further. There is an outcome good for both sides.FORCE])\n(;W[cr];B[cq]\n(;W[bq];B[aq]C[No, Sorry! try agin.])\n(;W[dr];B[bq]C[Nope! Now white is dead.]TR[ap]TR[bp]TR[cp]TR[co]TR[bo]TR[cn]TR[do])))",
+  "author": {
+    "id": 15450,
+    "name": "sylverone",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-05-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 64,
+  "attempts": {
+    "solved": 3863,
+    "failed": 4551,
+    "tries": 8414,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-08-09T13:17:54+00:00",
+  "source": "problem 8989 (my first problem)",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 108,
+      "name": "0 What Group?",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

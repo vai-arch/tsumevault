@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11029,
+  "elo": 931.83282396899,
+  "problemLevel": 8,
+  "rank": {
+    "value": 22,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": 0,
+    "flagSum": 7
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This occurred in a private game.  Black did not see the way to solve and white lived.  There are several paths to ko, but only one correct first move.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 36,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[fq]AB[fp]AW[eq]AW[ep]AB[dq]AB[dr]AB[er]AW[dp]AW[co]AW[cn]AW[cm]AB[bp]AB[cp]AW[bq]AW[cq]AW[cr]AW[bs]AW[ds]AB[fs]AB[gs]AW[eo]AW[en]C[Black to do what he can.  Please don't play useless moves.]AB[bo]AB[bn]AW[bm]AB[ar]AP[goproblems]\n(;B[aq]C[]\n(;W[as]\n(;B[ap];W[an];B[es]C[];W[am];B[cs]C[Ko, white must find the first threat.RIGHT])\n(;B[es]C[]\n(;W[an]\n(;B[cs]C[Ko, white must find the first threat.RIGHT])\n(;B[ap];W[am];B[cs]C[Ko, white must find the first threat.RIGHT]))\n(;W[ap]\n(;B[ao];W[am];B[cs]C[Ko, White must find the first threat.RIGHT])\n(;B[cs];W[br];B[aq];W[ds];B[ao];W[am]\n(;B[cs]C[Ko, white must find the first threat.RIGHT])\n(;B[ar]C[];W[ap];B[aq];W[an]))))\n(;B[an];W[ap]\n(;B[ao];W[am]C[White is alive.  White may also tenuki and leave a ko threat for black.])\n(;B[es];W[am]))\n(;B[ao];W[am];B[es];W[an]C[White is alive.  White may also tenuki and leave a ko threat for black.]))\n(;W[ap]\n(;B[ao]\n(;W[as];B[es];W[am];B[cs]C[Ko, white must find the first threat.RIGHT])\n(;W[am]C[If White tries to approach from the top...];B[br];W[cs];B[es]C[Black wins outright. White cannot play like this.RIGHT]))\n(;B[es];W[an]TR[bn]TR[bo]TR[bp]TR[cp]C[Whtie is alive.]))\n(;W[an];B[br];W[cs];B[es]C[RIGHT])\n(;W[br];B[ap];W[an];B[es];W[am];B[cs]C[RIGHT]))\n(;B[es];W[ap]\n(;B[aq];W[an]TR[bn]TR[bo]TR[bp]TR[cp]C[Whtie is alive.])\n(;B[cs];W[an]C[White is alive.]TR[bn]TR[bo]TR[bp]TR[cp])\n(;B[br];W[cs]C[White is alive, black cannot push.])\n(;B[as];W[aq];B[cs];W[br]C[White is alive, black cannot push.]TR[bn]TR[bo]TR[bp]TR[cp])\n(;B[an];W[cs]\n(;B[aq];W[am]C[White is alive.])\n(;B[br];W[am]C[White is alive.  White may also tenuki and leave a ko threat for black.])))\n(;B[ao];W[am]C[];B[aq];W[an];B[ap];W[as]C[White is alive.  White may also tenuki and leave a ko threat for black.])\n(;B[an];W[am]C[White is alive.]TR[an]TR[bn]TR[bo]TR[bp]TR[cp])\n(;B[ap];W[aq];B[br];W[as]C[White is alive.])\n(;B[br];W[ap];B[es];W[cs]C[White is alive, black cannot push.])\n(;B[as];W[ap]C[White is alive.]TR[bn]TR[bo]TR[bp]TR[cp]))",
+  "author": {
+    "id": 21642,
+    "name": "Silowyi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-08",
+    "rank": {
+      "value": 11,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1236.99
+  },
+  "avgSolveTimeSeconds": 58,
+  "attempts": {
+    "solved": 6384,
+    "failed": 5712,
+    "tries": 12096,
+    "speedSolved": 3,
+    "speedPlay": 6
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-03-08T03:29:36+00:00",
+  "source": "Private game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6271,
+  "elo": 942.64226607781,
+  "problemLevel": 8,
+  "rank": {
+    "value": 22,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": 0,
+    "flagSum": 9
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This situation occurred in a game I played recently, and should be pretty easy. Please let me know if I've messed anything up!",
+  "rating": {
+    "stars": 3.4,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ro][so][pp][qp][nq][oq][pr][os]AB[rp][sp][pq][qq][qr][rr][qs]C[Best play for White?](;W[sr];B[ss](;W[rs]C[RIGHTIt's a ko for life. White captures first, so Black must find the first threat.])(;W[sq];B[rq])(;W[rq];B[sq])(;W[ps];B[sq])(;W[or];B[sq]))(;W[sq];B[rq]LB[sr:A][ss:B]C[Black is alive. Next, if White plays A, Black can make two eyes at B, and vice versa.])(;W[rq];B[sq])(;W[rs];B[ss])(;W[ss];B[sr])(;W[ps];B[sr]))",
+  "author": {
+    "id": 9862,
+    "name": "MechanicalPoet",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-01-20",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 12266,
+    "failed": 9382,
+    "tries": 21648,
+    "speedSolved": 17,
+    "speedPlay": 23
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-04-04T01:11:47+00:00",
+  "source": "A game on KGS",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 21,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

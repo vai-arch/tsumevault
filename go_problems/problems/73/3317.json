@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3317,
+  "elo": 968.00940816157,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "",
+  "rating": {
+    "stars": 2.7,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[cd]AB[dd]AW[ed]AW[fe]AW[dc]AW[cc]AB[gc]AB[df]AB[ge]AW[ff]AB[fd]LB[ge:1]LB[ff:2]LB[fd:3]C[how to respond to this black sequence?]AP[goproblems]\n(;W[fc];B[gd]\n(;W[ee]C[];B[fb]\n(;W[ec]C[This stays connected though white is not completely alive in the corner.RIGHT])\n(;W[de]C[RIGHT]))\n(;W[ec];B[ee]TR[fc]TR[gd]C[The marked exchange is very bad.])\n(;W[fb];B[ee])\n(;W[de]C[RIGHT])\n(;W[ef]C[RIGHT]))\n(;W[ec];B[ee]C[]\n(;W[bd];B[be];W[bc];B[dh]C[If White can attack one of the black groups this is playable.RIGHT])\n(;W[dg];B[bc]\n(;W[cf];B[be]\n(;W[bb];B[ab];W[ba];B[cg]C[];W[ef];B[de];W[dh];B[bg];W[gb];B[hb];W[fb];B[hc]C[White needs another move to prevent ko so this is good for Black.])\n(;W[bf];B[cb];W[db];B[ca]C[Good for Black]))\n(;W[bb];B[bd]\n(;W[ab];B[cg]C[]LB[ef:A];W[ef];B[de];W[dh];B[ch];W[di];B[ci];W[dj];B[ck]C[Playable but black has some sente moves around G18.RIGHT])\n(;W[cf];B[ab];W[ba];B[cg]C[White is in trouble];W[ef];B[de];W[dh];B[bf];W[ch];B[bg];W[gb];B[hb];W[fb];B[hc]C[White needs another move to prevent ko so this is good for Black.])\n(;W[cg];B[ab];W[ba];B[fb];W[de];B[ce];W[ef];B[de];W[eb];B[fc]\n(;W[bf];B[cb];W[db];B[ea];W[ca];B[fa];W[da];B[ac])\n(;W[cf];B[cb];W[db];B[ea];W[ca];B[fa];W[da];B[ac])\n(;W[ac];B[bf];W[bg];B[cb]\n(;W[ca])\n(;W[db];B[ea];W[ca];B[fa];W[da]C[The corner is seki so this is playable.RIGHT]))))))\n(;W[ee];B[ec]C[cut])\n(;W[gf];B[ec]C[cut])\n(;W[de];B[ec];W[ee];B[ce]C[cut]))",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 5371,
+    "failed": 6280,
+    "tries": 11651,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-11-14T14:48:01+00:00",
+  "source": "joseki mistake",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 77,
+      "name": "3-4 (komoku) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 26,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

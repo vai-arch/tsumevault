@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3144,
+  "elo": 1024.0864922853,
+  "problemLevel": 11,
+  "rank": {
+    "value": 19,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -3,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.8,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\nRU[Japanese]SZ[19]KM[0.00]\nPW[White]PB[Black]AW[pc][qd][qe][co][fq]AB[pd][dp][eq]LB[nc:B][od:A]C[Does A work? If yes, play it, else play B.]PL[W]\n(;W[nc]CR[nc]C[RIGHT\nCorrect. The ladder doesn't work.])\n(;W[od]CR[od]\n;B[pe]CR[pe]\n;W[pf]CR[pf]\n;B[oe]CR[oe]\n;W[ne]CR[ne]\n;B[of]CR[of]\n;W[og]CR[og]\n;B[nf]CR[nf]\n;W[mf]CR[mf]\n;B[ng]CR[ng]\n;W[nh]CR[nh]\n;B[mg]CR[mg]\n;W[lg]CR[lg]\n;B[mh]CR[mh]\n;W[mi]CR[mi]\n;B[lh]CR[lh]\n;W[kh]CR[kh]\n;B[li]CR[li]\n;W[lj]CR[lj]\n;B[ki]CR[ki]\n;W[ji]CR[ji]\n;B[kj]CR[kj]\n;W[kk]CR[kk]\n;B[jj]CR[jj]\n;W[ij]CR[ij]\n;B[jk]CR[jk]\n;W[jl]CR[jl]\n;B[ik]CR[ik]\n;W[hk]CR[hk]\n;B[il]CR[il]\n;W[im]CR[im]\n;B[hl]CR[hl]\n;W[gl]CR[gl]\n;B[hm]CR[hm]\n;W[hn]CR[hn]\n;B[gm]CR[gm]\n;W[fm]CR[fm]\n;B[gn]CR[gn]\n;W[go]CR[go]\n;B[fn]CR[fn]\n;W[en]CR[en]\n;B[fo]CR[fo]\n(;W[fp]CR[fp]\n;B[eo]CR[eo]\n(;W[do]CR[do]\n;B[ep]CR[ep]C[Black has three liberties = Failure])\n(;W[ep]CR[ep]\n;B[do]CR[do]C[Black has three liberties = Failure]))\n(;W[eo]CR[eo]\n;B[fp]CR[fp]\n(;W[gp]CR[gp]\n;B[ep]CR[ep]C[Black has four liberties = Failure])\n(;W[ep]CR[ep]\n;B[gp]CR[gp]\n;W[hp]CR[hp]\n;B[ho]CR[ho]\n;W[gq]CR[gq]\n;B[in]CR[in]))))",
+  "author": {
+    "id": 5247,
+    "name": "Warp",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-05",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 7676,
+    "failed": 8565,
+    "tries": 16241,
+    "speedSolved": 0,
+    "speedPlay": 4
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-10-22T20:45:14+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

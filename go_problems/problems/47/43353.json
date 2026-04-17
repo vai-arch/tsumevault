@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 43353,
+  "elo": 1154.6130564086,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;TR[pk]LB[oe:a]LB[pf:b]LB[rh:c]LB[ri:d]AB[nd][pd][pg][pi][pj][pk][pn][pp][qc][qh][qk][qq]AW[mf][nq][of][pr][qf][qi][qj][ql][rd][rk]C[FORCE]AP[goproblems autoextractor]PW[VuV]PB[DrH0use]PC[The KGS Go Server at http://www.gokgs.com/]DT[2010-02-14]PL[W]GPKEY[local choice]DIFF[20k]HSL[+++++++++++++++++++++++++++++]\n(;W[rh]TR[qi]TR[qj]LB[pf:B]C[Playing here is worth about 10 points over playing away in an empty corner. The stones marked with a triangle are alive. Black would have played at the same place if you played away. Black would likely play at B next. ]\n(;B[rg]C[CHOICE]\n(;W[qg]C[Note: the Black move at S13 lost about 4 pointsRIGHT])\n(;W[ri];B[qg]C[Your mistake at S11 lost approximately 9 points]))\n(;B[rj]C[CHOICE];W[ri]C[Note: the Black move at S10 lost about 2 pointsRIGHT])\n(;B[ri]C[CHOICE];W[rj]C[Note: the Black move at S11 lost about 5 pointsRIGHT]))\n(;W[oe];B[rh]TR[qi]TR[qj]C[This loses about 7 points. The stones marked with a triangle are dead. ])\n(;W[pf];B[rh]TR[qi]TR[qj]C[This loses about 9 points. The stones marked with a triangle are dead. ])\n(;W[ri];B[rh]C[This loses about 11 points. ]))",
+  "author": {
+    "id": 109623,
+    "name": "Andjey44",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/157_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/157_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/157_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 157
+    },
+    "lastOnlineAt": "2026-04-15",
+    "rank": {
+      "value": 5,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1726.83
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 7,
+    "failed": 6,
+    "tries": 13,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-02-13T15:34:30+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 0,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 980
+}

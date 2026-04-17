@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9973,
+  "elo": 1362.148505814,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "tips: find the vital point",
+  "rating": {
+    "stars": 3.3,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[19]AW[mb]AW[nb]AW[qb]AW[rb]AW[nc]AW[oc]AW[nd]AB[lc]AB[mc]AB[rc]AB[md]AB[od]AB[pd]AB[qd]AB[ne]AB[mf]C[Black to kill]AB[lb]GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]RU[Japanese]KM[0.00]PW[Branco]PB[Negro]\n(;B[sb]C[already dead];W[oa]\n(;B[pb];W[pc]\n(;B[ma];W[pa];B[ra]C[RIGHT])\n(;B[pa];W[ma])\n(;B[qc];W[ra];B[pa];W[ma];B[la]C[RIGHT])\n(;B[ra];W[qc]))\n(;B[ra];W[pb]\n(;B[qa];W[ma])\n(;B[ma];W[qa])))\n(;B[oa];W[pc];B[sb];W[pa];B[ra];W[ob])\n(;B[pb];W[pc]\n(;B[sb];W[pa];B[oa];W[ob])\n(;B[pa];W[oa];B[ma];W[sb])\n(;B[oa];W[sb];B[qa];W[ra]\n(;B[qc];W[ob])\n(;B[ob];W[na])))\n(;B[pc];W[pb];B[sb];W[oa])\n(;B[ma]\n(;W[sb]\n(;B[pc];W[pb]\n(;B[na];W[ob]\n(;B[ra];W[oa];B[qa]C[RIGHT])\n(;B[oa];W[pa]MA[la]MA[ra]))\n(;B[oa];W[pa]MA[na]MA[ra]))\n(;B[na];W[oa]\n(;B[pc];W[pb]\n(;B[ob];W[pa];B[ra]C[RIGHT])\n(;B[ra];W[la])\n(;B[la];W[ra]))\n(;B[pb];W[pc])\n(;B[ra];W[pb]))\n(;B[oa];W[pa]\n(;B[pb];W[pc]\n(;B[qa];W[ob]\n(;B[na];W[pa])\n(;B[pa];W[ra]))\n(;B[na];W[ob]))\n(;B[na];W[ob]MA[ra]MA[la]))\n(;B[pb];W[pc]\n(;B[oa];W[ob])\n(;B[na];W[oa]))\n(;B[pa];W[oa])\n(;B[ra];W[pb]))\n(;W[pb];B[oa]MA[na]MA[sb]C[RIGHT])\n(;W[oa];B[pb];W[pc];B[sb];W[pa];B[ra]C[RIGHT])\n(;W[pc];B[sb]C[RIGHT]\n(;W[oa];B[pb];W[pa];B[ra]C[RIGHT])\n(;W[pa];B[ra]MA[ob]MA[na]C[RIGHT]))))",
+  "author": {
+    "id": 15730,
+    "name": "Drai",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-10-04",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 682.427
+  },
+  "avgSolveTimeSeconds": 54,
+  "attempts": {
+    "solved": 818,
+    "failed": 1854,
+    "tries": 2672,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-04-14T19:11:47+00:00",
+  "source": "Toshiro Kageyama - Lessonsin the Fundamentals of Go",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

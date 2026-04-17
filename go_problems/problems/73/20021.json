@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20021,
+  "elo": 1982.3068180944,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3,
+    "votes": 4,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]\r\nAW[po][qo][ro][so][pp][qq][pr][qr][qs]AB[rk][ml][pl][ql][sl][lm][nm][om][rm][mn][on][pn][qn][rn][sn][mo][oo][mp][op][mq][oq][pq][kr][mr][or][ms][os][ps]LB[nn:a][no:b][np:c][nq:d][nr:e][ns:f]C[What is the status of the corner? (Make no assumptions about the rest of the board.)\r\n\r\n(a) White is dead (tenuki) \r\n(b) Black can kill \r\n(c) Black can force a ko for life \r\n(d) Black can force white to live in seki (avoiding ko fight)\r\n(e) White is living with two eyes (tenuki) \r\n(f) None of the above \r\nFORCE]\r\n(;B[nn])\r\n(;B[no]\r\n;W[np]C[Kill the white group!]\r\nAB[np]\r\n(;B[rq]\r\n;W[rp]\r\n(;B[rr]\r\n;W[rs]\r\n(;B[sr]\r\n;W[sp]C[White lives in seki.])\r\n(;B[sq]\r\n;W[ss]C[White lives in seki.]))\r\n(;B[sq]\r\n;W[rr]\r\n;B[sr]\r\n;W[rs]C[White lives in seki.])\r\n(;B[sr]\r\n;W[rr]\r\n;B[sq]\r\n;W[rs]C[White lives in seki.]))\r\n(;B[rp]\r\n;W[rq]\r\n(;B[sp]\r\n;W[qp])\r\n(;B[sq]\r\n;W[sr])))\r\n(;B[np]\r\n;W[no]C[Start a ko for life!]\r\nAB[no]\r\n(;B[rq]\r\n;W[rp]\r\n(;B[rr]\r\n;W[rs]\r\n(;B[sr]\r\n;W[sp]C[White lives in seki.])\r\n(;B[sq]\r\n;W[ss]C[White lives in seki.]))\r\n(;B[sq]\r\n;W[rr]\r\n;B[sr]\r\n;W[rs]C[White lives in seki.])\r\n(;B[sr]\r\n;W[rr]\r\n;B[sq]\r\n;W[rs]C[White lives in seki.]))\r\n(;B[rp]\r\n;W[rq]\r\n(;B[sp]\r\n;W[qp])\r\n(;B[sq]\r\n;W[sr])))\r\n(;B[nq]\r\n;W[nr]C[Correct, white can live in seki for sure. But if white has much better ko threats than black, then white can start a ko and get some territory in the corner.\r\n\r\nClick 'N' (O4) to switch colors!\r\nFORCE]\r\nAB[nr]LB[np:N]\r\n;B[np]\r\nAW[rk][ml][pl][ql][sl][lm][nm][om][rm][mn][on][pn][qn][rn][sn][mo][oo][mp][np][op][mq][nq][oq][pq][kr][mr][nr][or][ms][os][ps]AB[po][qo][ro][so][pp][qq][pr][qr][qs]\r\n;W[rq]C[Now black does not settle with seki but wants the whole corner. \r\n\r\nFind the best ko!]\r\n(;B[rp]\r\n;W[rr]\r\n(;B[rs]\r\n;W[sr]\r\n;B[sq]C[RIGHT])\r\n(;B[sq]\r\n;W[rs]))\r\n(;B[rr]\r\n;W[sp]\r\n;B[qp]\r\n;W[sr]\r\n;B[ss]C[Two stage ko. Black can do better!])\r\n(;B[sq]\r\n;W[sr]\r\n(;B[rp]\r\n;W[sp]C[Disadv. ko, but white has an internal ko threat at S2. Black can do better!])\r\n(;B[sp]\r\n;W[qp])\r\n(;B[qp]\r\n;W[sp]\r\n(;B[rp]\r\n;W[sq])\r\n(;B[rr]\r\n;W[ss]C[Seki.]))\r\n(;B[rr]\r\n;W[sp]\r\n;B[qp]\r\n;W[ss]C[Seki.]))\r\n(;B[sp]\r\n;W[sq]\r\n;B[qp]\r\n;W[rr])\r\n(;B[qp]\r\n;W[sp]\r\n(;B[rr]\r\n;W[sr]\r\n;B[ss]C[Two stage ko. Black can do better!])\r\n(;B[rp]\r\n;W[rr]\r\n;B[sq]\r\n;W[rs])\r\n(;B[sr]\r\n;W[rr]\r\n;B[rs]C[Seki.]))\r\n(;B[sr]\r\n;W[rr]\r\n(;B[rs]\r\n;W[sp]\r\n;B[qp]C[Seki.])\r\n(;B[rp]\r\n;W[rs])\r\n(;B[sq]\r\n;W[rs])))\r\n(;B[nr]\r\n;W[nq]C[Click 'N' (O5) to switch colors.\r\nFORCE]\r\nAB[nq]LB[no:N]\r\n;B[no]\r\nAW[rk][ml][pl][ql][sl][lm][nm][om][rm][mn][on][pn][qn][rn][sn][mo][no][oo][mp][op][mq][nq][oq][pq][kr][mr][nr][or][ms][os][ps]AB[po][qo][ro][so][pp][qq][pr][qr][qs]\r\n;W[rq]C[Try to live with two eyes!]\r\n(;B[rp]\r\n;W[rr]\r\n(;B[rs]\r\n;W[sr]\r\n;B[sp]C[The corner lives in seki.])\r\n(;B[sq]\r\n;W[sr]\r\n;B[rs]\r\n;W[sp]C[Ko.]))\r\n(;B[qp]\r\n;W[rr])\r\n(;B[rr]\r\n;W[sp]\r\n;B[qp]\r\n;W[sr]\r\n;B[rs]C[The corner lives in seki.])\r\n(;B[sq]\r\n;W[sr]\r\n(;B[rp]\r\n;W[sp])\r\n(;B[rr]\r\n;W[sp]\r\n;B[qp]\r\n;W[rs]C[Ko.])))\r\n(;B[ns]\r\n;W[nr]C[Correct! White can live in seki for sure. But if white has good enough ko threats, it can also start a ko and get some territory in the corner.\r\n\r\nClick 'N' (O4) to switch colors!\r\nFORCE]\r\nAB[nr]LB[np:N]\r\n;B[np]\r\nAW[rk][ml][pl][ql][sl][lm][nm][om][rm][mn][on][pn][qn][rn][sn][mo][oo][mp][np][op][mq][oq][pq][kr][mr][nr][or][ms][ns][os][ps]AB[po][qo][ro][so][pp][qq][pr][qr][qs]\r\n;W[rq]C[Now show how to live in seki!]\r\n(;B[rp]\r\n;W[rr]\r\n(;B[rs]\r\n;W[sr]\r\n;B[sp]C[RIGHT])\r\n(;B[sq]\r\n;W[sr]\r\n(;B[rs]\r\n;W[sp]C[Ko.])\r\n(;B[ss]\r\n;W[sp]C[Ko.])\r\n(;B[qp]\r\n;W[sp]C[Ko.])))\r\n(;B[rr]\r\n;W[sp]\r\n;B[qp]\r\n;W[sr]\r\n;B[rs]C[RIGHT])\r\n(;B[sq]\r\n;W[rr]\r\n(;B[sr]\r\n;W[rs]\r\n;B[qp]\r\n;W[sp])\r\n(;B[rp]\r\n;W[sr]\r\n;B[rs]\r\n;W[sp]C[Ko.])\r\n(;B[sp]\r\n;W[rs]\r\n;B[qp]\r\n;W[rp])\r\n(;B[rs]\r\n;W[sr]\r\n;B[rp]\r\n;W[sp]C[Ko.]))\r\n(;B[sp]\r\n;W[sq]\r\n;B[qp]\r\n;W[rr])\r\n(;B[qp]\r\n;W[sp]\r\n(;B[rr]\r\n;W[sr]\r\n;B[rs]C[RIGHT])\r\n(;B[rp]\r\n;W[rr]\r\n;B[sq]\r\n;W[rs])\r\n(;B[sr]\r\n;W[rr]\r\n;B[rs]C[RIGHT]))\r\n(;B[sr]\r\n;W[rr]\r\n(;B[rs]\r\n;W[sq]\r\n;B[rp]\r\n;W[ss]C[Ko.])\r\n(;B[rp]\r\n;W[rs])\r\n(;B[sq]\r\n;W[rs]))))",
+  "author": {
+    "id": 78080,
+    "name": "tamingo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-28",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 91,
+  "attempts": {
+    "solved": 8,
+    "failed": 118,
+    "tries": 126,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-05-30T14:10:18+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

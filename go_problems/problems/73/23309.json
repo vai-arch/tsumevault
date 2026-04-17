@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 23309,
+  "elo": 1821.6561486199,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Some incorrect variations (marked with 'To be continued ...') have not been added yet.",
+  "rating": {
+    "stars": 5,
+    "votes": 3,
+    "currentUserVote": null
+  },
+  "sgf": "(\r\n;\r\n\r\nAB [cp][cq]\r\nAW [cn][co][dp][dq][fq]\r\n\r\nC [Can white tenuki and still kill the black stones unconditionally? Y=yes; N=no][FORCE]\r\nLB [fn:Y][gn:N]\r\n\r\n\r\n\r\n(\r\n\r\n; W [fn]; B [br] C [Prove it.]\r\n\r\n(\r\n; W [dr]; B [bo]; W [bn]; B [ap]\r\n(; W [an]; B [bs] (; W [ar]; B [aq]; W [bp]; B [bq]; W [ao]\r\n\r\n\r\n\r\n\r\nAB [cc][cd]\r\nAW [cf][ce][dd][dc][fc]\r\n\r\n; B [be] C [You thought this was over, didn't you? Well, now you have to refute this move!]\r\n\r\n(; W [bf]; B [bc] C [Warning: Since you must go for an unconditional kill, variations where white takes the B15 stone in ko are not included.] (; W [da]; B [ba] (; W [ab]; B [ae] (; W [ac]; B [ad]; W [af] C [RIGHT][I was making this problem a few months ago, but halfway through, I thought that black could get a ko. After B5 B6 B3, I found the move D1 for white but mistakenly believed that black B1 could force a ko. Only after seeing santa c's problem 4810 did I see that white can still kill unconditionally.])(; W [af]; B [ac])(; W [cb]; B [bb])(; W [bb]; B [cb]))(; W [cb]; B [bb] (; W [ae]; B [ad] LB [af:1][ab:2][bd:3] C [Ko.])(; W [ab]; B [ad])(; W [ad]; B [ae]))(; W [ae]; B [ad] (; W [af]; B [ab])(; W [cb]; B [bb] LB [af:1][ab:2][bd:3] C [Ko.])))(; W [db]; B [ad] (; W [cb]; B [bb])(; W [bb]; B [cb] LB [ca:1][ba:2][aa:3][ab:4] C [Ko.])(; W [ba]; B [bb] LB [ab:1][ca:2][cb:3][aa:4] C [Ko.])(; W [ab]; B [ba]))(; W [cb]; B [bb] TR [db][ad])(; W [ae]; B [ad] (; W [af]; B [db])(; W [db]; B [af])(; W [cb]; B [bb] TR [af][db]))(; W [ad]; B [ae] (; W [cb]; B [bb])(; W [db]; B [ba])(; W [da]; B [ba])))\r\n\r\n(; W [bc]; B [bb])\r\n(; W [cb]; B [bc] TR [bb][bf])\r\n(; W [bb]; B [bc] TR [cb][bf])\r\n\r\n)(; W [cr]; B [bp])(; W [ao]; B [bp])(; W [bp]; B [bq] LB [ao:1][ar:2][bp:3] C [Ko.])(; W [aq]; B [ar]))\r\n(; W [cr]; B [bq])\r\n(; W [bs]; B [bq] LB [ar:1][cs:2][cr:3][as:4] C [Ko.])\r\n(; W [bq]; B [cr] (; W [an]; B [aq])(; W [cs]; B [bs]))\r\n)\r\n(\r\n; W [bp]; B [bq]\r\n(; W [dr]; B [bo] (; W [ap] ; B [bn]; W [bm]; B [aq]; W [bs]; B [cs] (; W [as]; B [cr])(; W [cr]; B [as]))(; W [bn]; B [ap]))\r\n(; W [bn]; B [dr])\r\n(; W [bo]; B [dr])\r\n(; W [ao]; B [dr])\r\n)\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n)\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n(\r\n; W [gn] AB [cn][co][dp][dq][fq] AW [cp][cq]; B [fn] C [The colors have changed. Live or make a ko for life.]\r\n\r\n(; W [br]; B [dr] (; W [bo]; B [bn] (; W [ap]; B [an] (; W [cr]; B [cs] (; W [bs]; B [ar] (; W [aq]; B [bp])(; W [bp]; B [aq])(; W [ao]; B [aq]))(; W [ar]; B [bs]))(; W [aq]; B [cr]; W [bs]; B [bp])(; W [bs]; B [ar]; W [aq]; B [bp])(; W [ar]; B [bs] TR [cr][cs] SQ [ao][bq]))(; W [bq]; B [ao]; W [ap]; B [an])(; W [aq]; B [bp]; W [ao]; B [cr] TR [bq][bs]))(; W [bp]; B [aq] (; W [bo]; B [bn] (; W [cr]; B [ao]; W [ap]; B [cs])(; W [cs]; B [ao]; W [ap]; B [cr])(; W [ao]; B [cr] TR [bs][ar]))(; W [cr]; B [bo]; W [ap]; W [cs])(; W [cs]; B [bo]; W [ap]; W [cr]))(; W [aq]; B [bp]; W [bo]; B [bn]; W [ao]; B [cr] TR [bq][bs]))\r\n(; W [bo]; B [bn] (; W [dr]; B [br] C [To be continued ...])(; W [bq]; B [ds] C [To be continued ...])(; W [br]; B [dr] (; W [ap]; B [an] (; W [cr]; B [cs] (; W [bs]; B [ar] (; W [aq]; B [bp])(; W [bp]; B [aq])(; W [ao]; B [aq]))(; W [ar]; B [bs]))(; W [aq]; B [cr]; W [bs]; B [bp])(; W [bs]; B [ar]; W [aq]; B [bp])(; W [ar]; B [bs] TR [cr][cs] SQ [ao][bq]))(; W [bq]; B [ao]; W [ap]; B [an])(; W [aq]; B [bp]; W [ao]; B [cr] TR [bq][bs]))(; W [bp]; B [br]; W [cr]; B [dr]; W [cs]; B [ao]; W [ar]; B [bs]; W [ap]; B [bq])(; W [ap]; B [bq] (; W [br]; B [cr]; W [bp]; B [bs])(; W [cr]; B [bp]))(; W [cr]; B [bp]))\r\n(; W [bq]; B [bo]; W [dr]; B [er] (; W [cs]; B [br]; W [ar]; B [bs])(; W [br]; B [ds])(; W [bs]; B [ds])(; W [ar]; B [cr]))\r\n(; W [bp]; B [br]; W [cr]; B [dr]; W [cs]; B [bo]; W [ar]; B [bs]; W [ap]; B [bq] C [This is not a seki because A1 is not a liberty of the large group.])\r\n\r\n)\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 152,
+  "attempts": {
+    "solved": 9,
+    "failed": 62,
+    "tries": 71,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2021-05-15T01:54:46+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 172,
+      "name": "Life and Death",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

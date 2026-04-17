@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 3686,
+  "elo": 816.16829699842,
+  "problemLevel": 4,
+  "rank": {
+    "value": 26,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 12,
+    "negativeFlagSum": 0,
+    "flagSum": 12
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Elementary corner problem.  ",
+  "rating": {
+    "stars": 3.8,
+    "votes": 46,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[dc]AW[ca]AB[cb]AB[ea]AB[eb]AW[fa]AW[fb]AW[gc]AW[bd]AW[cd]AW[ec]AB[dd]AW[ed]AW[de]AB[cc]AB[bc]AW[be]AP[goproblems]\n(;B[ba];W[da]\n(;B[db];W[ab]\n(;B[ac]C[The corner is safeRIGHT])\n(;B[ad]C[];W[ac]C[Black dies])\n(;B[aa];W[ac]C[Black dies])\n(;B[bb];W[ac]C[Black dies]))\n(;B[bb];W[db]C[Black dies])\n(;B[ab];W[db]C[No need to lose those stones])\n(;B[ac];W[db]C[No need to lose those stones, and you have to play at a18 to save the whole group])\n(;B[aa];W[ab]C[Black dies]))\n(;B[db];W[ac]\n(;B[ab];W[ba]C[Black has one eye and dies.])\n(;B[ba];W[ab]))\n(;B[da];W[db]C[Oh dear])\n(;B[bb];W[db]C[Snapback. Oops!])\n(;B[aa];W[db]C[Snapback. Oops!])\n(;B[ac];W[ba]\n(;B[bb];W[db];B[da];W[db])\n(;B[da];W[db])\n(;B[db];W[bb]C[Black has one eye and dies.])\n(;B[ab];W[db];B[da];W[db]))\n(;B[ab];W[ba]\n(;B[da];W[db])\n(;B[bb];W[db];B[da];W[db])))",
+  "author": {
+    "id": 4506,
+    "name": "chrise",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2015-12-27",
+    "rank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 12,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1205.71
+  },
+  "avgSolveTimeSeconds": 22,
+  "attempts": {
+    "solved": 22983,
+    "failed": 12347,
+    "tries": 35330,
+    "speedSolved": 26,
+    "speedPlay": 32
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-01-04T13:12:40+00:00",
+  "source": "The comments by Warp on problem 3669 :-)",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

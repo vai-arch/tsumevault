@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 6096,
+  "elo": 1201.8661995147,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -4,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sd]AB[rd]AB[re]AB[qc]AB[qb]AB[qa]AB[pb]AB[oa]AB[sf]AW[na]AW[nb]AW[ob]AW[oc]AW[pc]AW[pd]AW[qd]AW[qe]AW[rf]AW[qf]AW[sg]AW[rg]C[Is black a(L)ive, (D)ead, or can white kill with (K)o?FORCE]LB[md:L]LB[ne:D]LB[of:K]AP[goproblems]\n(;W[md]C[True.RIGHT])\n(;W[ne]C[Untrue.  Please see the 'Ko' path for details.])\n(;W[of];B[nf]C[Ok, kill black!]\n(;W[pa]C[];B[sb]C[])\n(;W[se];B[sb]C[])\n(;W[rc];B[sb]C[])\n(;W[rb];B[sb])\n(;W[sc];B[sb])\n(;W[ra];B[sb])\n(;W[sb];B[rb]\n(;W[ra];B[sc])\n(;W[sa];B[sc])\n(;W[sc];B[sa];W[ra];B[rc])\n(;W[pa];B[sc])\n(;W[se];B[sa]C[Almost there ...]\n(;W[ra];B[sf]\n(;W[se]C[NOTTHIS])\n(;W[sa];B[sc])\n(;W[sc];B[rc])\n(;W[rc];B[sc])\n(;W[pa];B[sa]C[There's a bit of a problem, isn't there? ... ;)]MA[oa]MA[se]))\n(;W[pa];B[sc])\n(;W[rc];B[sc])\n(;W[sc];B[rc])))))",
+  "author": {
+    "id": 7921,
+    "name": "MrMoto",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-05-16",
+    "rank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 5,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1406.52
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 4901,
+    "failed": 5847,
+    "tries": 10748,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-03-02T23:34:45+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 117,
+      "name": "Double Ko",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 14,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

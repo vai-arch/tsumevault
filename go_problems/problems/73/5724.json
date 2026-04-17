@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5724,
+  "elo": 1234.0190787539,
+  "problemLevel": 19,
+  "rank": {
+    "value": 11,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.8,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sb]AB[qb]AB[pc]AB[oc]AB[qd]AB[rd]AB[sd]AB[re]AW[qe]AW[rf]AW[se]AW[pd]AW[od]AW[nd]AW[nc]AW[ob]AW[pb]C[White to kill.]AW[qg]AP[goproblems]\n(;W[ra];B[qa]\n(;W[rc]\n(;B[qc];W[rb]C[RIGHT])\n(;B[rb];W[qc]C[RIGHT]))\n(;W[qc];B[rc])\n(;W[rb];B[rc]))\n(;W[rc];B[qc]\n(;W[ra]\n(;B[qa];W[rb]C[RIGHT])\n(;B[pa]C[CHOICE]\n(;W[nb]\n(;B[qa];W[rb]C[RIGHT])\n(;B[rb];W[qa];B[sa];W[qa]C[RIGHT]))\n(;W[na];B[qa];W[rb]C[RIGHT])\n(;W[mb];B[qa];W[rb]C[RIGHT])\n(;W[oa];B[nb];W[qa];B[na];W[pa];B[rb])\n(;W[qa];B[nb];W[oa];B[na];W[pa];B[rb])\n(;W[rb];B[nb])))\n(;W[rb];B[ra])\n(;W[qa];B[ra]))\n(;W[qc];B[rc]\n(;W[qa];B[ra];W[rb]C[Ko])\n(;W[ra];B[qa]))\n(;W[qa];B[ra]\n(;W[qc];B[rc];W[rb]C[Ko.])\n(;W[rc];B[qc])\n(;W[pa];B[qc]))\n(;W[rb];B[rc]\n(;W[ra];B[qa])\n(;W[qa];B[ra];W[qc];B[pc])\n(;W[qc];B[pc]\n(;W[qa];B[ra])\n(;W[ra];B[qa])))\n(;W[pa];B[qa]\n(;W[rc];B[qc]\n(;W[rb];B[ra])\n(;W[ra];B[rb]))\n(;W[qc];B[rc])))",
+  "author": {
+    "id": 6800,
+    "name": "maba",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2011-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 42,
+  "attempts": {
+    "solved": 4310,
+    "failed": 7320,
+    "tries": 11630,
+    "speedSolved": 3,
+    "speedPlay": 9
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-12-23T08:01:04+00:00",
+  "source": "kwakam vs taila on IGS (slightly modified)",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 9,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

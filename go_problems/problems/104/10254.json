@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10254,
+  "elo": 1199.3390849326,
+  "problemLevel": 17,
+  "rank": {
+    "value": 13,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Any comments are welcome.",
+  "rating": {
+    "stars": 4.5,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[br]AB[bs]AB[eq]AB[ep]AB[eo]AB[en]AB[dn]AB[cn]AB[bn]AB[gq]AW[bo]AW[co]AW[do]AW[dq]AW[cq]AW[bq]AW[ar]C[B to kill(hint:connect the 2 marked stones)]TR[br]TR[bs]AP[goproblems]\r\n(;B[es]C[Let's see if it's connected...]\r\n(;W[cs]C[CHOICE];B[cr];W[dr];B[ds];W[er];B[fr]C[Good!RIGHT])\r\n(;W[dr]C[CHOICE]\r\n(;B[ds]\r\n(;W[cr]C[CHOICE];B[cs];W[er]\r\n(;B[fr]C[Good!RIGHT])\r\n(;B[fs];W[fr];B[gr]C[RIGHT]))\r\n(;W[er]C[CHOICE]\r\n(;B[fr];W[cr];B[cs]C[Good!RIGHT])\r\n(;B[fs];W[fr];B[gr]C[RIGHT])))\r\n(;B[er];W[ds])))\r\n(;B[er];W[ds]\r\n(;B[es];W[cs]C[;(])\r\n(;B[dr];W[cr]C[=(]))\r\n(;B[ds];W[er]\r\n(;B[dr];W[cr]\r\n(;B[cs];W[es]C[=(])\r\n(;B[fr];W[cs]C[=(]))\r\n(;B[fr];W[cr]\r\n(;B[dr];W[cs])\r\n(;B[es];W[cs])\r\n(;B[cs];W[es])))\r\n(;B[dr];W[cr];B[cs];W[er]\r\n(;B[ds];W[es]C[=(])\r\n(;B[es];W[fr]\r\n(;B[fs];W[gs]C[=(])\r\n(;B[gr];W[fs]C[=(]))))",
+  "author": {
+    "id": 12122,
+    "name": "llel",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2009-03-05",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 34,
+  "attempts": {
+    "solved": 2232,
+    "failed": 3948,
+    "tries": 6180,
+    "speedSolved": 16,
+    "speedPlay": 35
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-08-22T05:09:55+00:00",
+  "source": "Book",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 85,
+      "name": "1st Line Connection",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 104,
+      "name": "1st Line Tesuji",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 346,
+      "name": "side",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

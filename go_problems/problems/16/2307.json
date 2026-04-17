@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2307,
+  "elo": 1542.5956285087,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "An easy endgame, containing two elementary tesujis  useful to know.\r\n(japanese rules)",
+  "rating": {
+    "stars": 3.2,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[cc][bd][cd][dd][ae][ee][bf][ef][ff]AB[bb][cb][db][ac][bc][ad][ed][fd][fe][gf]C[No komi, no prisoners - White to play and draw!]PL[W]\r\n(;W[ec]CR[ec]\r\n(;B[fc]CR[fc]\r\n(;W[dc]CR[dc]\r\n;B[eb]CR[eb]\r\n(;W[ge]CR[ge]\r\n;B[gd]CR[gd]\r\n;W[fg]CR[fg]\r\n;B[fb]CR[fb]C[Jigo! RIGHT])\r\n(;W[fg]CR[fg]\r\n;B[ge]CR[ge]C[This is a one point loss for white....]))\r\n(;W[eb]CR[eb]\r\n;B[dc]CR[dc]\r\n;W[fb]CR[fb]\r\n;B[gb]CR[gb]C[W E6 doesn't work!]))\r\n(;B[dc]CR[dc]\r\n;W[fc]CR[fc]C[Of course,Black can't play this way.]))\r\n(;W[dc]CR[dc]\r\n;B[ec]CR[ec]\r\n;W[fg]CR[fg]C[This is  hopeless: Black wins by three points.])\r\n(;W[fg]CR[fg]\r\n;B[dc]CR[dc]C[This is worst: Black wins by four points!])\r\n(;W[ge]CR[ge]\r\n;B[dc]CR[dc]\r\n;W[gg]CR[gg]\r\n;B[gd]CR[gd]\r\n;W[gf]CR[gf]C[Not bad, but Black still wins by one point.]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 48,
+  "attempts": {
+    "solved": 1258,
+    "failed": 3754,
+    "tries": 5012,
+    "speedSolved": 1,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-05-31T01:21:55+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

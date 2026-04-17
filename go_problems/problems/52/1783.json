@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1783,
+  "elo": 1125.8864629985,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "In this 9x9 game, Black, playing with a three stone handicap, could have won on territory quite easily, but he surprised white by killing the white group on the left. How did he do this? ",
+  "rating": {
+    "stars": 4.5,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\nRU[Japanese]SZ[9]KM[0.00]TM[]\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[ab][bb][bc][ad][cd][ce][de][ee][cf][ff][hf][fg][eh]AB[ba][cb][db][cc][ec][gc][dd][ed][fe][ge][df][ef][bg][cg][dg][dh]C[Black to move and kill the white stones on the left]PL[B]\n(;B[af]CR[af]\n(;W[ae]CR[ae]\n;B[be]CR[be]C[Now white can't play b4, so he is dead RIGHT CHOICE])\n(;W[be]CR[be]\n;B[ae]CR[ae]C[b6 is a false eye, so white is dead RIGHT CHOICE]))\n(;B[bf]CR[bf]\n;W[be]CR[be]\n;B[af]CR[af]\n;W[ae]CR[ae])\n(;B[be]CR[be]\n;W[bf]CR[bf]\n;B[af]CR[af]\n;W[bd]CR[bd])\n(;B[ae]CR[ae]\n;W[af]CR[af]\n;B[bf]CR[bf]\n;W[be]CR[be]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 4604,
+    "failed": 9245,
+    "tries": 13849,
+    "speedSolved": 1,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2002-11-26T14:22:53+00:00",
+  "source": "amateur game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

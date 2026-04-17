@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12332,
+  "elo": 1226.5960794102,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.3,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[pd]AW[qf]AB[nc]AW[rd]AB[qh]AW[qc]AB[pc]AW[of]AB[qd]AW[rc]AW[pe]AB[rf]AW[pg]AB[re]AW[pb]AB[ob]AW[pa]C[And if white plays here? Thanks to kaf for the correction.](;B[ra];W[rb]C[CHOICE](;B[oa]C[Correct, white is dead!RIGHT])(;B[sd];W[qa](;B[sb];W[sa]C[Ko. Not good enough here.])(;B[oa];W[sa]C[Nope.])(;B[sc];W[sa]C[Nope.]))(;B[qb];W[qa];B[oa];W[sa]C[Nope.])(;B[sb];W[qa](;B[oa];W[sa]C[Ko. Not good enough here.])(;B[sd];W[sa]C[Ko. Not good enough here.]))(;B[qa](;W[sd]C[CHOICE](;B[oa];W[qb];B[sb];W[sa];B[ra]C[White is dead with bent 4 in the corner.RIGHT])(;B[sb];W[qb](;B[oa];W[sa];B[ra]C[Bent 4 in the corner.RIGHT])(;B[se];W[sa];B[ra]C[Bent 4 in the corner.RIGHT])(;B[sa];W[sc];B[ra];W[sa];B[sb];W[qa]))(;B[se];W[sb])(;B[sa];W[sb]))(;W[qb]C[CHOICE](;B[sd];W[sc];B[sa]C[RIGHT])(;B[sb];W[sc])(;B[oa];W[sa]))))(;B[sb];W[ra](;B[sd];W[sc])(;B[qb];W[rb])(;B[oa];W[rb]))(;B[rb];W[ra](;B[sb];W[qb])(;B[sd];W[sb]C[Nope.])(;B[qb];W[sb];B[sd];W[qa]C[Nope.])(;B[oa];W[sb]))(;B[sd];W[ra](;B[sb];W[sc])(;B[qb];W[rb]))(;B[oa];W[ra](;B[sd];W[sc])(;B[qb];W[qa](;B[sd];W[sc])(;B[sb];W[rb]C[Nope.]))(;B[rb];W[sb]C[Nope.])(;B[sb];W[rb]C[Nope.]))(;B[qb];W[rb](;B[ra];W[qa];B[oa];W[sa]C[Nope.])(;B[sd];W[qa])))",
+  "author": {
+    "id": 21648,
+    "name": "TheMyron",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-02-13",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 699.264
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 1829,
+    "failed": 2722,
+    "tries": 4551,
+    "speedSolved": 12,
+    "speedPlay": 44
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-01-23T14:20:51+00:00",
+  "source": "Messing around with Kogo's...",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 76,
+      "name": "4-4 (hoshi) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

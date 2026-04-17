@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13103,
+  "elo": 1328.6461898554,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -5,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This problem shows a cool difference between Japanese and Ing rule sets.  See also problem #13100.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 29,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[hi]AB[ii]AB[ih]AW[gi]AW[gh]AW[gg]AW[hg]AW[ig]AW[di]AW[dh]AW[dg]AW[df]AW[de]AW[dd]AW[ed]AW[fd]AW[gd]AW[hd]AW[id]AW[bh]AW[ah]AW[bi]AW[ci]AW[bg]AW[bf]AW[cf]AB[ei]AB[eh]AB[eg]AB[ef]AB[fg]AB[ee]AB[fe]AB[ge]AB[gf]AB[he]AB[ie]AB[ag]AB[af]AB[ae]AB[be]AB[ce]AB[cd]AB[cc]AB[dc]AB[ec]AB[fc]AW[hc]AW[hb]AW[ha]AW[ib]AB[gc]AB[gb]AB[ga]LB[da:Black]C[JAPANESE rules - who won? (0.5 komi)FORCE]SZ[9]LB[ba:White]AP[goproblems]\n(;W[ba];B[aa]C[Correct.  The status of the lower right determines this game.  Black can never play triangle, since it is suicide (prohibited by Japanese rules).  As for the other liberties, white can fill in three of them (black can, too, but he gains no advantage by doing so).  (Please play square.)FORCE]MA[if]TR[hh];W[if];B[ab]C[(Please play square again.)FORCE]MA[hf];W[hf];B[ac]MA[fh]C[(And again.)FORCE];W[fh];B[ad]C[Next, white plays triangle captures black's three stones in the corner, and black takes the vital point 'A', preventing white from making two eyes.  (Do this now.)FORCE]TR[hh]LB[ii:A];W[hh];B[ii]C[White can now play square, putting black into atari. (Do this now.)FORCE]MA[fi];W[fi];B[hi]C[If black makes another (futile) throw-in, white can capture.  Therefore, black is dead in the lower right, giving white a significant lead.RIGHT])\n(;W[da]C[Wrong, white wins.  See correct answer for explanation.]))",
+  "author": {
+    "id": 23449,
+    "name": "SilverHawk",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-04",
+    "rank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 27,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 804.867
+  },
+  "avgSolveTimeSeconds": 95,
+  "attempts": {
+    "solved": 709,
+    "failed": 800,
+    "tries": 1509,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-09-20T19:47:32+00:00",
+  "source": "US Go Congress",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 72,
+      "name": "Rule Set Dependent",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

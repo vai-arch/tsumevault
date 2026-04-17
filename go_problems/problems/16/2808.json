@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2808,
+  "elo": 1299.8898249814,
+  "problemLevel": 21,
+  "rank": {
+    "value": 9,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 13,
+    "negativeFlagSum": -1,
+    "flagSum": 12
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "This is the continuation of the previous problem...",
+  "rating": {
+    "stars": 4.3,
+    "votes": 27,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[7]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[da][fa][db][eb][fb][gb][ac][bc][bd][cd][be][de][bf][cf][cg]AB[bb][cb][cc][dc][ec][fc][gc][dd][fd][ee][fe][df][ef][gf][eg]TR[ee]C[No komi, no prisoners! Now try the white stones please :) Black just played the marked stone. How can White win now?]PL[W]\r\n(;W[ab]CR[ab]\r\n;B[ce]CR[ce]\r\n(;W[ca]CR[ca]\r\n;B[de]CR[de]\r\n;W[ba]CR[ba]C[A7 a point of white territory - who could have imagined :) White wins by one point! RIGHT])\r\n(;W[ba]CR[ba]\r\n;B[ca]CR[ca]\r\n;W[de]CR[de]\r\n;B[aa]CR[aa]C[White can't win both kos, so the result will be a jigo.]))\r\n(;W[ce]CR[ce]\r\n;B[ab]CR[ab]\r\n;W[ca]CR[ca]\r\n;B[ba]CR[ba]C[Jigo!])\r\n(;W[ca]CR[ca]\r\n;B[ab]CR[ab]\r\n(;W[ce]CR[ce]\r\n;B[ba]CR[ba]C[Jigo!])\r\n(;W[ba]CR[ba]\r\n;B[ce]CR[ce]C[& Black connects the ko: jigo!])))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 59,
+  "attempts": {
+    "solved": 2217,
+    "failed": 4343,
+    "tries": 6560,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-08-11T10:47:17+00:00",
+  "source": "ferdi",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 16,
+      "name": "7x7 Endgames",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

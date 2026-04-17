@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 359,
+  "elo": 1549.1978277478,
+  "problemLevel": 30,
+  "rank": {
+    "value": 1,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "If you fully understand the carpenter's square you are a strong dan-player! (This is one sub-problem to the carpenter's square)",
+  "rating": {
+    "stars": 3.8,
+    "votes": 8,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[pb]AW[qb]AW[oc]AW[pc]AW[pd]AW[qd]AW[rd]AW[qe]AB[nb]AB[ob]AB[rb]AB[nc]AB[nd]AB[od]AB[pe]AB[re]AB[pf]AB[qf]AB[rf]C[Black to kill the corner.]SZ[19]GM[1]FF[3]RU[Japanese]HA[0]KM[5.5]PW[White]PB[Black]GN[White (W) vs. Black (B)]DT[2001-01-22]SY[Cgoban 1.9.11]TM[-]\n(;B[rc];W[sd]\n(;B[pa];W[ra]\n(;B[sc];W[sb];B[sa]C[ko])\n(;B[sb];W[sc]C[seki];B[oa];W[qa]C[seki]))\n(;B[ra];W[sb]\n(;B[sc];W[qa];B[se];W[qc];B[pa]C[RIGHT])\n(;B[pa];W[qa]\n(;B[sc];W[oa];B[se];W[qc];B[pa]C[RIGHT])\n(;B[se];W[sc]C[seki])\n(;B[oa];W[sc]C[seki])))\n(;B[qa];W[pa]\n(;B[ra];W[sb]\n(;B[sc];W[qc])\n(;B[se];W[sc]C[seki]))\n(;B[sb];W[ra]C[alive]))\n(;B[sc];W[ra]\n(;B[pa];W[sb]C[ko];B[sa]C[ko])\n(;B[sb];W[pa])))\n(;B[sc];W[sd]\n(;B[ra];W[rc];B[pa];W[qa];B[se];W[sb])\n(;B[rc];W[ra];B[pa];W[sb]C[ko];B[sa]C[ko])\n(;B[pa];W[ra];B[rc];W[sb]C[ko];B[sa]C[ko]))\n(;B[sb];W[rc]\n(;B[ra];W[sc];B[pa];W[qa];B[se];W[sa])\n(;B[sd];W[sc];B[pa];W[qa]))\n(;B[ra];W[rc];B[pa];W[qa];B[sd];W[sc])\n(;B[pa];W[ra];B[rc];W[sc];B[sb];W[sd];B[oa];W[qa]C[seki])\n(;B[sd];W[sc]\n(;B[se];W[rc])\n(;B[rc];W[se]\n(;B[sb];W[ra]\n(;B[pa];W[sd]C[seki])\n(;B[sd]C[ko]))\n(;B[ra];W[sb]\n(;B[pa];W[qa]C[seki])\n(;B[sa];W[sd];B[pa];W[qa]C[alive])))\n(;B[sb];W[rc];B[pa];W[qa])\n(;B[pa];W[ra]\n(;B[rc];W[se];B[sb];W[sd]C[seki])\n(;B[sb];W[rc]))))",
+  "author": {
+    "id": 66,
+    "name": "kossa",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2003-07-15",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 699.683
+  },
+  "avgSolveTimeSeconds": 46,
+  "attempts": {
+    "solved": 797,
+    "failed": 3834,
+    "tries": 4631,
+    "speedSolved": 2,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-01-22T14:43:53+00:00",
+  "source": "life & death",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 14,
+      "name": "Carpenter's Square",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

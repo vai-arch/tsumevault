@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20219,
+  "elo": 1106.8672069218,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.5,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qq]AB[pq]AB[or]AB[nr]AB[qs]AB[rp]AB[sp]AB[sq]AB[ro]AB[qo]AB[pn]AW[ms]AW[mr]AW[mq]AW[nq]AW[oq]AW[op]AW[pp]AW[qp]AW[rq]AW[rr]AW[rs]AP[goproblems]\n(;B[pr]\n(;W[ns]\n(;B[sr];W[os];B[ss]C[RIGHT])\n(;B[ss]\n(;W[os];B[sr]C[RIGHT])\n(;W[sr]\n(;B[qr]C[RIGHT])\n(;B[os]))\n(;W[ps]\n(;B[sr]C[RIGHT])\n(;B[os];W[sr])))\n(;B[qr];W[os])\n(;B[os];W[qr]))\n(;W[os]\n(;B[sr];W[ns];B[ss]C[RIGHT])\n(;B[ss]\n(;W[ns];B[sr]C[RIGHT])\n(;W[sr];B[qr]C[RIGHT]))\n(;B[qr];W[ns]))\n(;W[ps]\n(;B[sr]\n(;W[ns]\n(;B[ss]C[RIGHT])\n(;B[os]C[RIGHT]))\n(;W[qr];B[ss]C[RIGHT]))\n(;B[ss]\n(;W[ns]\n(;B[sr]C[RIGHT])\n(;B[os];W[sr]))\n(;W[qr];B[sr]C[RIGHT]))\n(;B[qr];W[ns])\n(;B[os];W[qr]\n(;B[sr];W[ps])\n(;B[ss];W[ps])))\n(;W[qr]\n(;B[sr];W[ps];B[ss]C[RIGHT])\n(;B[ss];W[ps];B[sr]C[RIGHT])\n(;B[ps];W[ns])))\n(;B[qr];W[ps]\n(;B[pr];W[ns])\n(;B[sr];W[pr]))\n(;B[sr];W[pr])\n(;B[ss];W[pr])\n(;B[ps];W[qr]\n(;B[pr];W[ns])\n(;B[sr];W[pr])\n(;B[ss];W[pr])))",
+  "author": {
+    "id": 75593,
+    "name": "trineutron",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-09-13",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 53,
+  "attempts": {
+    "solved": 1098,
+    "failed": 1499,
+    "tries": 2597,
+    "speedSolved": 6,
+    "speedPlay": 27
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-08-28T22:35:32+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

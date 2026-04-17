@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8433,
+  "elo": 1041.6155125603,
+  "problemLevel": 12,
+  "rank": {
+    "value": 18,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 7,
+    "negativeFlagSum": -1,
+    "flagSum": 6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Looks like black is lacking liberties to win this capturing race ... or does he have a chance ?",
+  "rating": {
+    "stars": 4.6,
+    "votes": 24,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[qr]AB[qq]AB[qp]AB[rp]AB[sp]AB[so]AB[sn]AB[pp]AW[ro]AW[rn]AW[qo]AW[po]AW[pn]AW[qm]AB[oo]AW[op]AW[pq]AW[pr]AW[rq]AW[rr]AW[nq]AB[on]AB[pm]AB[nm]AB[qk]AW[sm]AB[qj]AW[rk]AB[rj]AB[pl]AB[ql]AW[rl]AB[sk]C[Black to play and win the capturing race]AP[goproblems]\n(;B[rs]C[Well done, white cannot atari black anymoreRIGHT])\n(;B[sj];W[qs];B[sl];W[sq])\n(;B[sl];W[sj])\n(;B[qs];W[rs]\n(;B[os];W[ps])\n(;B[ps];W[or]\n(;B[os];W[ns];B[sq];W[sr])\n(;B[sq];W[os]\n(;B[sr];W[ss])\n(;B[ss];W[sr]))))\n(;B[sq];W[qs]\n(;B[rs];W[sr])\n(;B[sr];W[ss]))\n(;B[sr];W[qs];B[sq];W[ss])\n(;B[ps];W[sq];B[qs];W[os];B[rs];W[ss]))",
+  "author": {
+    "id": 11377,
+    "name": "iPiou",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-02-03",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1279.22
+  },
+  "avgSolveTimeSeconds": 44,
+  "attempts": {
+    "solved": 6726,
+    "failed": 6974,
+    "tries": 13700,
+    "speedSolved": 0,
+    "speedPlay": 2
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-04-18T23:07:53+00:00",
+  "source": "A game at the weekly club meeting",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 18,
+      "name": "Semeai / Capturing Race",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 10,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

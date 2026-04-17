@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 17851,
+  "elo": 774.0986850464,
+  "problemLevel": 2,
+  "rank": {
+    "value": 28,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Hello! This is my first problem. I started very simple, so I hope you will be able to solve this problem. Please leave feedback and rate if you can or find any problems with this problem. Heh. Problems with this problem...",
+  "rating": {
+    "stars": 3.7,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;LB[qc:B]LB[nc:A]LB[qf:C]LB[oe:D]AB[kc]AB[pd]AB[qi]C[Choose the correct invasion.CHOICE]AP[goproblems]\n(;W[nc]C[Sorry, a typical 'knight's move' approach does not work here, as Black already has a 2 space pincer, and making a base will be difficult.])\n(;W[qf]C[Sorry, a typical 'knight's move' approach does not work here, as Black already has a 2 space pincer, and making a base will be difficult.])\n(;W[oe]C[Incorrect. You generally never want to play this move to invade the corner unless as a ladder breaker or Ko threat.])\n(;W[qc]C[Yes, this is the correct invasion. Generally if Black has a 'double-wing' formation as he does at L17 and R11, invading at 3*3 is the best.RIGHT]))",
+  "author": {
+    "id": 73376,
+    "name": "Bigfatsnoozy",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-08-31",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 16,
+  "attempts": {
+    "solved": 4064,
+    "failed": 1055,
+    "tries": 5119,
+    "speedSolved": 2,
+    "speedPlay": 5
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2014-08-22T14:47:18+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

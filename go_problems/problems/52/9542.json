@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9542,
+  "elo": 1618.5567005828,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 5,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[bb]AB[cb]AB[cc]AB[cd]AB[bd]AB[ad]AB[db]AB[da]AW[ea]AW[eb]AW[dc]AW[dd]AW[ce]AW[be]AW[ae]AW[ee]AW[fc]C[White to play]AP[goproblems]\n(;W[ba]\n(;B[ab]\n(;W[ca]C[Black is dead. After bA17 black is still dead, since black can't push at A19 or B17 and white could still atari with wB17.RIGHT])\n(;W[bc];B[ac]C[Seki])\n(;W[aa];B[bc];W[ac]C[Ko])\n(;W[ac];B[bc]C[Seki]))\n(;B[bc];W[ab]C[Black is dead])\n(;B[ac];W[ab]C[Black is dead])\n(;B[ca]\n(;W[ac]C[Black is dead])\n(;W[bc]C[Black is dead])\n(;W[ab]C[Black is dead])\n(;W[aa]\n(;B[bc];W[ac])\n(;B[ab];W[ac]C[Black is dead])))\n(;B[aa];W[bc];B[ac];W[ab]C[Black is dead]))\n(;W[ca];B[ba]\n(;W[ac];B[aa]C[Seki])\n(;W[ab];B[ac]C[Seki])\n(;W[bc];B[ab]C[Black lives])\n(;W[aa];B[ab]C[Black lives]))\n(;W[aa];B[ba]\n(;W[ca]C[];B[ab]\n(;W[ba];B[bc])\n(;W[bc];B[ba]C[Black lives])\n(;W[ac];B[ba]C[Ko]))\n(;W[ab];B[bc];W[ca]C[Ko])\n(;W[bc];B[ab]C[Black lives])\n(;W[ac];B[ab]C[Ko]))\n(;W[ab];B[ba]LB[df:T]C[T for tenuki]\n(;W[bc]C[Seki])\n(;W[ac]C[Seki])\n(;W[aa];B[bc];W[ca]C[Ko])\n(;W[df];B[bc]C[Seki]))\n(;W[bc];B[ba]\n(;W[aa];B[ab]C[Black lives])\n(;W[ab]C[Seki])\n(;W[ac];B[ab]))\n(;W[ac];B[ba]\n(;W[ab]C[Seki])\n(;W[bc];B[ab])\n(;W[aa];B[ab]C[Ko])))",
+  "author": {
+    "id": 5298,
+    "name": "Bildstein",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2007-03-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 27,
+  "attempts": {
+    "solved": 343,
+    "failed": 1363,
+    "tries": 1706,
+    "speedSolved": 2,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-12-04T18:09:41+00:00",
+  "source": "Igowin",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

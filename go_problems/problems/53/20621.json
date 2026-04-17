@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 20621,
+  "elo": 1680.3813697405,
+  "problemLevel": 34,
+  "rank": {
+    "value": 5,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": 0,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "can white catch black's marked stones in a ladder? play N if you think not. otherwise, ladder away.",
+  "rating": {
+    "stars": 2.3,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rs]AB[sr]AB[sq]AB[sp]AB[qr]AB[nh]AB[lj]AB[kj]AB[jj]AB[ij]AB[hj]AB[jh]AB[ih]AB[hh]AB[jl]AB[co]AB[bn]AB[ck]AB[dm]AW[rr]AW[rq]AW[so]AW[ps]AW[os]AW[ii]AW[ji]AW[ki]AW[ik]AW[jk]AW[kk]AW[in]AW[io]AW[cm]AW[am]AW[al]AW[dp]AW[dq]AW[mf]AW[me]AW[gg]AW[gf]TR[rq]TR[rr]LB[dd:N]C[FORCE]AP[goproblems]\r\n(;B[rp];W[qq];B[pq];W[qp];B[qo];W[ml]AW[pp]AW[po]AW[oo]AW[on]AW[nn]AW[nm]AW[mm]AB[op]AB[no]AB[mn]AB[lm]AB[nl]AB[om]AB[pn];B[mk];W[ll];B[kl];W[lk];B[il];W[fm]AW[hk]AW[hl]AW[gl]AW[gm]AB[gk]AB[fl]AB[hm]AB[gn];B[em];W[en]AW[fn]AB[fo];B[eo];W[cn]AW[dn]AB[do];B[bm];W[cl];B[bl];W[dl];B[el];W[fi]AW[dk]AW[ek]AW[ej]AW[fj]AB[dj]AB[ei]AB[fk]AB[gj];B[fh];W[hi]AW[gi]AB[gh];B[li];W[kh];B[kg];W[mh]AW[lh]AB[lg];B[mg];W[qm]AW[mi]AW[ni]AW[nj]AW[oj]AW[ok]AW[pk]AW[pl]AW[ql]AB[mj]AB[nk]AB[ol]AB[pm]AB[oi]AB[pj]AB[qk]AB[rl];B[qn];W[rm]\r\n(;B[rn];W[sm]\r\n(;B[sl];W[sn];B[ro]C[RIGHT])\r\n(;B[sn];W[ro]))\r\n(;B[sm];W[rn];B[ro];W[ss]))\r\n(;B[qq];W[rp])\r\n(;B[dd]))",
+  "author": {
+    "id": 80740,
+    "name": "kazuuun",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2022-03-05",
+    "rank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1527.15
+  },
+  "avgSolveTimeSeconds": 155,
+  "attempts": {
+    "solved": 76,
+    "failed": 155,
+    "tries": 231,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-10-23T23:46:52+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 53,
+      "name": "Ladder",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

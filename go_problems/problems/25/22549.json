@@ -1,0 +1,126 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 22549,
+  "elo": 1958.2811406079,
+  "problemLevel": 37,
+  "rank": {
+    "value": 8,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -1,
+    "flagSum": -1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Play on the 3 x 7 board on the TOP, win by the LARGEST number of points possible (Chinese rules). Thanks to BartTM for a correction!",
+  "rating": null,
+  "sgf": "(\r\n;\r\n\r\nSZ [7]\r\n\r\nAB [ad][bd][cd][dd][ed][fd][gd]\r\n\r\nTR [ad][bd][cd][dd][ed][fd][gd]\r\n\r\nC [Play on the 3 x 7 board on the TOP half, win by the largest number of points (Chinese rules). Please ignore the black stones on the 4th line; they are there to (1) mark the edge of the board and (2) complete captures (otherwise the liberty on row 4 will prevent some stones from being captured).][FORCE]\r\n\r\n(; B [db]; W [cb] (; B [eb]; W [bb] C [Please do NOT play on the top row (row 7) for this move.][FORCE] (; B [cc]; W [bc] (; B [ab]; W [ca] (; B [fb]; AW [cd] W [dc] AB [cd] (; B [da]; W [aa]; B [ba]; W [gb]; B [aa]; W [ec] (; B [fc]; W [fa]; B [cc]; AW [cd] W [dc] AB [cd]; B [ec]; W [ga]; B [cc]; W [ac]; B [aa]; AW [cd] W [dc] AB [cd] (; B [ab]; W [ge] C [White passes.]; B [cc] C [RIGHT][Correct! Black wins by 21 points (full-board victory)!])(; B [ba]; W [ge] C [White passes]; B [cc] C [RIGHT][Correct! Black wins by 21 points (full-board victory)!]))(; B [fa]; W [fc]))(; B [aa]; W [ec] (; B [da]; W [fc])(; B [fc]; W [gb]))(; B [ec]; W [aa] C [White lives.]))(; B [da]; W [fb])(; B [aa]; W [fb]))(; B [ba]; W [ca]; B [ab]; W [aa] C [White will live by playing A5 next; black could have killed.])(; B [ca]; W [ba]; B [ab]; W [fb]))(; B [dc]; W [ab] C [White lives, you could have killed for a full-board victory.])(; B [fb]; W [ab] C [White lives, you could have killed for a full-board victory.]))(; B [cc]; W [eb])(; B [ca]; W [eb])(; B [da]; W [eb] (; B [cc]; W [ea])(; B [dc]; W [cc] C [Black's group is in trouble.])(; B [ec]; W [ca]))(; B [dc]; W [eb] (; B [ca]; W [ec])(; B [da]; W [ca] C [Black's group is in trouble.])(; B [ea]; W [cc])))\r\n\r\n(; B [cb] C [NOTTHIS])\r\n\r\n(; B [eb] C [NOTTHIS][These two variations are restricted due to being similar to the main solution.])\r\n\r\n)",
+  "author": {
+    "id": 97849,
+    "name": ":go",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-05",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 4,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.65
+  },
+  "avgSolveTimeSeconds": 0,
+  "attempts": {
+    "solved": 0,
+    "failed": 44,
+    "tries": 44,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2020-06-08T18:03:49+00:00",
+  "source": "http://erikvanderwerf.tengen.nl/pubdown/SolvingGoICGA2009.pdf",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 25,
+      "name": "Choose your Difficulty",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 132,
+      "name": "Strange",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 189,
+      "name": "Irregular board",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

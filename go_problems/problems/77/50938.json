@@ -1,0 +1,114 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 50938,
+  "elo": 1267.4156094435,
+  "problemLevel": 20,
+  "rank": {
+    "value": 10,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "In a standard Joseki position arising from \"Shusaku diagonal\" (move order below), black played Q18 instead of the common move P16. \n\nAssuming the rest of the board is mostly empty, how should white punish black's mistake?\n\nFor anyone interested, move order:\nwR16 bP17\nwQ15 \nwM17\nwO16 bR17\nwS17 bS18\nwQ17\n",
+  "rating": null,
+  "sgf": "(;FF[4]GM[1]CA[UTF-8]AP[goproblems:0.1.0]SZ[19]ST[0]AB[qb][rb][pb][qc][oc]AW[rc][qd][pc][re][pe][nd][lc]CR[pb](;W[nb](;B[sc]C[CHOICE];W[rd];B[pd];W[od]C[RIGHT])(;B[od]C[CHOICE](;W[ob];B[oe];W[pd];B[of]C[Well done! The corner is dead.\n\nThis is the variation with the best moves for both sides (at least assuming most typical positions for the rest of the board board, which is mostly empty as per introduction).RIGHT])(;W[oe];B[ob];W[nc];B[sc]C[Black lives rather comfortably, considering how many more moves white started with. You could have killed part of the corner!]))(;B[pd]C[CHOICE];W[od];B[sc];W[rd];B[nc](;W[mc];B[ob];W[mb]C[Well done! Black is dead.\n\n(black should not have tried to live. Instead, black should have played forcing moves on the outside).RIGHT])(;W[mb]C[RIGHT])))(;W[pd];B[nc](;W[mc];B[sc]C[Black lives comfortably, considering how many more moves white started with. Your first move lost about 9 points.])(;W[md]SQ[mb]SQ[sc]C[Black can play N18 to live comfortably (especially considering how many more moves white started with),  or even tenuki. Best white can get is a ko where black has several local threats.\n\nYour first move lost about 9 points.]))(;W[nc];B[sc];W[rd];B[od];W[oe];B[nb];W[pd];B[ob];W[mb];B[na]C[Note: According to Katago, your first move lost about 4 points compared to O18.RIGHT])(;W[od];B[sc](;W[rd];B[nc](;W[mc];B[nb]C[Note: According to Katago, your first move lost about 4 points compared to O18RIGHT])(;W[mb];B[nb]C[Note: According to Katago, your first move lost about 4 points compared to O18RIGHT]))(;W[nc];B[rd]C[Note: According to Katago, your first move lost about 4 points compared to O18. Also, your second move O17 lost about 2 points over S16.RIGHT]))(;W[sb];B[nc]C[Black will live quite comfortably, considering how many more moves white started with. White's outside is too thin.]))",
+  "author": {
+    "id": 113656,
+    "name": "seito1",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-07",
+    "rank": {
+      "value": 9,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1302.51
+  },
+  "avgSolveTimeSeconds": 59,
+  "attempts": {
+    "solved": 4,
+    "failed": 5,
+    "tries": 9,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-09-24T16:44:10+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 77,
+      "name": "3-4 (komoku) Joseki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1428
+}

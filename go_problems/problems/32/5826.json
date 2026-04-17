@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5826,
+  "elo": 2019.5969439097,
+  "problemLevel": 38,
+  "rank": {
+    "value": 9,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": -5,
+    "flagSum": -5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 1.5,
+    "votes": 7,
+    "currentUserVote": null
+  },
+  "sgf": "(;C[Black to get good shape]AB[pd]AB[pc]AB[oe]AB[of]AW[pe]AW[qf]AW[qd]AW[qc]AW[nc]AB[jd]LB[od:A]LB[nd:B]LB[pb:C]LB[ob:D]AP[goproblems]\n(;B[pb]\n(;W[od]C[CHOICE];B[nd];W[oc];B[mc];W[md];B[nb];W[ne];B[ob];W[nd];B[lc]C[RIGHT])\n(;W[lc];B[nd];W[le];B[qg];W[rg];B[qh]C[RIGHT]))\n(;B[nd];W[pb]\n(;B[ob];W[oc];B[od];W[nb])\n(;B[oc];W[ob];B[od];W[mc]))\n(;B[od];W[pb];B[ob];W[qb];B[oc])\n(;B[ob];W[od];B[oc];W[nd];B[nb];W[lc]))",
+  "author": {
+    "id": 6567,
+    "name": "marwin",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2023-05-29",
+    "rank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 26,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 820.591
+  },
+  "avgSolveTimeSeconds": 19,
+  "attempts": {
+    "solved": 275,
+    "failed": 1834,
+    "tries": 2109,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-01-15T04:25:21+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 32,
+      "name": "Shape",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 8,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

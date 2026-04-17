@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 13402,
+  "elo": 947.84845373777,
+  "problemLevel": 8,
+  "rank": {
+    "value": 22,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "The following problem came up in natural game play. There are many wrong moves that black can make which will cause him to be devastated, but only one correct move to take the corner.",
+  "rating": {
+    "stars": 4.1,
+    "votes": 46,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[rr]AB[rq]AB[qq]AB[qp]AB[oq]AB[qo]AB[ro]AB[so]AB[sn]AB[mr]AB[or]AB[nr]AB[mq]AB[lq]AB[kq]AW[nm]AW[pq]AW[pr]AW[qr]AW[os]AW[rs]AW[sr]AW[sp]AW[jp]AW[kp]AW[jr]AW[lp]AW[mp]AW[np]AW[nq]AW[op]AW[po]AW[no]AW[nn]AW[mn]AW[on]AW[pn]AW[qn]AW[rn]AW[sm]AW[rl]C[Black to play and live.]SZ[19]AB[pp]CA[Windows-1252]AP[MultiGo:4.4.4]MULTIGOGM[1]\n(;B[qs];W[ps];B[ns]C[Correct! Black takes the corner.RIGHT])\n(;B[ps];W[qs];B[ns];W[sq]C[Wrong!])\n(;B[sq]C[Wrong!])\n(;B[rp]C[Wrong!])\n(;B[ns];W[sq]C[Wrong!]))",
+  "author": {
+    "id": 42772,
+    "name": "jdnabas",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-01-08",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 52,
+  "attempts": {
+    "solved": 5560,
+    "failed": 5174,
+    "tries": 10734,
+    "speedSolved": 18,
+    "speedPlay": 58
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-01-24T15:43:34+00:00",
+  "source": "Personal Game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 61,
+      "name": "Snapback",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 2,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 1122,
+  "elo": 1161.8317648507,
+  "problemLevel": 16,
+  "rank": {
+    "value": 14,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 6,
+    "negativeFlagSum": 0,
+    "flagSum": 6
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.1,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[19]KM[0.00]TM[]\r\nAW[ab][hb][bc][ec][gc][hc][bd][cd][ed][de]AB[bb][eb][fb][gb][cc][dc]C[Black to live (be careful not to get a ko).]\r\n(;B[da]CR[da]\r\n(;W[cb]C[CHOICE]\r\n;B[ba]LB[da:1]CR[ba]C[RIGHTBlack 1 is the vital point to get two eyes.])\r\n(;W[ba]C[CHOICE]\r\n;B[cb]LB[da:1]CR[cb]C[RIGHTBlack 1 is the vital point to get two eyes.]))\r\n(;B[ca]CR[ca]\r\n;W[ba]LB[ca:1]CR[ba]C[If Black 1, then White 2 results in a Ko.])\r\n(;B[ba]CR[ba]\r\n;W[da]CR[da]\r\n(;B[db]CR[db]\r\n;W[ca]CR[ca]\r\n(;B[ea]CR[ea]\r\n;W[ga]CR[ga])\r\n(;B[fa]CR[fa]\r\n;W[ha]CR[ha])\r\n(;B[ga]CR[ga]\r\n;W[ea]CR[ea]))\r\n(;B[ea]CR[ea]\r\n;W[ga]CR[ga]\r\n;B[db]CR[db]\r\n;W[ca]CR[ca]))\r\n(;B[cb]CR[cb]\r\n;W[da]CR[da]))",
+  "author": {
+    "id": 801,
+    "name": "BigMetalGuy",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-09-19",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 4845,
+    "failed": 8839,
+    "tries": 13684,
+    "speedSolved": 12,
+    "speedPlay": 28
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-10-30T14:18:19+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 355,
+      "name": "wrecking ball tesuji",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 3,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

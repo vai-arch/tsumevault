@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10299,
+  "elo": 1220.1322982576,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "Suppose this is the late endgame. What can Black get?",
+  "rating": {
+    "stars": 2.8,
+    "votes": 21,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sr]AW[rr]AW[qq]AW[pq]AW[qp]AW[pp]AW[or]AW[ps]AW[qs]AB[rq]AB[rp]AB[ro]AB[qo]AB[po]AB[oo]AB[op]AB[oq]AB[nr]AW[mr]AW[ns]AB[nq]AW[lq]AW[kq]AP[goproblems]\n(;B[qr];W[pr];B[rs];W[ss]C[ko RIGHT])\n(;B[pr];W[qr])\n(;B[ss];W[rs];B[sq])\n(;B[rs];W[qr])\n(;B[mq];W[lr];B[qr];W[pr];B[rs];W[ss]C[koRIGHT]))",
+  "author": {
+    "id": 13781,
+    "name": "zafris",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-13",
+    "rank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1348.33
+  },
+  "avgSolveTimeSeconds": 36,
+  "attempts": {
+    "solved": 1935,
+    "failed": 3034,
+    "tries": 4969,
+    "speedSolved": 0,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-09-03T19:03:55+00:00",
+  "source": "a game of mine",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

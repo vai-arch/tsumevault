@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 978,
+  "elo": 1348.3537108957,
+  "problemLevel": 23,
+  "rank": {
+    "value": 7,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": 0,
+    "flagSum": 3
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 4.1,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[3]\r\nRU[Japanese]SZ[19]HA[0]KM[5.5]\r\nPW[White]\r\nPB[Black]\r\nGN[White (W) vs. Black (B)]\r\nDT[1999-07-27]\r\nSY[Cgoban 1.9.2]TM[30:00(5x1:00)]AW[rp][qq][sq][pr][qr]\r\nAB[rm][qo][ro][qp][oq][pq][mr][or]LB[nn:A]\r\nC[can black do anything against the corner? play at A if not\r\n]\r\n(;B[rs];W[rr]\r\n(;B[so]\r\n(;W[sp];B[sr]C[RIGHT\r\nko\r\n])\r\n\r\n(;W[qs];B[sp];W[ss];B[rq]C[RIGHT\r\nko\r\n])\r\n)\r\n\r\n(;B[ps];W[qs]\r\n(;B[sr];W[ss])\r\n\r\n(;B[so];W[ss])\r\n\r\n(;B[ss];W[sp])\r\n)\r\n\r\n(;B[ss];W[sp]\r\n(;B[ps];W[qs])\r\n\r\n(;B[sr];W[qs])\r\n)\r\n)\r\n\r\n(;B[so];W[rs]\r\n(;B[sr];W[ps])\r\n\r\n(;B[rr];W[sr])\r\n)\r\n\r\n(;B[nn];W[rs]C[white lives\r\n])\r\n\r\n(;B[rr];W[rs]\r\n(;B[sr];W[ps])\r\n\r\n(;B[ps];W[sr])\r\n\r\n(;B[so];W[sr])\r\n)\r\n\r\n(;B[ps];W[rr]\r\n(;B[so];W[sp])\r\n\r\n(;B[rs];W[qs])\r\n\r\n(;B[qs];W[rs])\r\n)\r\n\r\n(;B[sr];W[rr]\r\n(;B[so];W[ss]\r\n(;B[sp];W[rq])\r\n\r\n(;B[ps];W[qs])\r\n)\r\n\r\n(;B[ps];W[ss])\r\n)\r\n\r\n(;B[qs];W[rs]\r\n(;B[rr];W[ps])\r\n\r\n(;B[ps];W[rr])\r\n)\r\n\r\n)",
+  "author": {
+    "id": 1,
+    "name": "adum",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/267_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 267
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 1,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1545.17
+  },
+  "avgSolveTimeSeconds": 35,
+  "attempts": {
+    "solved": 1752,
+    "failed": 5009,
+    "tries": 6761,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2001-08-06T11:11:13+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 136,
+      "name": "Tripod",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

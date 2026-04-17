@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4757,
+  "elo": 1513.0469862235,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "My second tripod group problem.\r\n\r\nThe marked exchange actually weakened black's group.  Punish his error.\r\n\r\nThanks to Timko for catching a mistake.",
+  "rating": {
+    "stars": 3.9,
+    "votes": 10,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[pq]AW[qo]AW[qp]AW[oq]AB[pr]AB[qq]AB[rq]AB[rp]AW[ro]TR[rp]TR[ro]AP[goproblems]\n(;W[or];B[qs]\n(;W[sr];B[rr]\n(;W[os];B[ps];W[rs]C[Ko - this is a good result, since before the marked exchange black was unconditionally alive.RIGHT]TR[rp]TR[ro])\n(;W[sp];B[sq]))\n(;W[os];B[sr]TR[sp]TR[rs]C[Miai for life.])\n(;W[rr];B[sr]TR[sp]TR[rs]C[Miai for life.])\n(;W[rs];B[rr]\n(;W[os];B[ss])\n(;W[sr];B[sq])\n(;W[sp];B[ss]TR[sq]TR[ps]C[Miai for life.]))\n(;W[sq];B[sr]TR[rs]TR[sp]C[Miai for life.])\n(;W[sp];B[rr]C[Black is alive.]))\n(;W[sp]\n(;B[rr]C[]\n(;W[sq];B[sr]\n(;W[qs];B[rs];W[ps];B[or])\n(;W[rs];B[qs])\n(;W[or];B[qs]))\n(;W[sr];B[sq]\n(;W[rs];B[so])\n(;W[qs];B[ss])\n(;W[or];B[qs]))\n(;W[or];B[qs])\n(;W[qs];B[rs]\n(;W[or];B[ps])\n(;W[ps];B[or]))\n(;W[rs]C[This works, but is not the best solution.  If black can escape by crawling out to P2, he can play T2 instead of S2 and live.]))\n(;B[rs]C[NOTTHIS]\n(;W[sr];B[sq])\n(;W[or];B[sr])\n(;W[sq];B[sr])))\n(;W[sr];B[rs]\n(;W[rr];B[qr])\n(;W[or];B[ps]))\n(;W[rs];B[qs])\n(;W[rr];B[sr]))",
+  "author": {
+    "id": 6186,
+    "name": "shaydwyrm",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2016-02-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 29,
+  "attempts": {
+    "solved": 1166,
+    "failed": 4175,
+    "tries": 5341,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-07-05T08:27:22+00:00",
+  "source": "",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 52,
+      "name": "Basic Shape",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 136,
+      "name": "Tripod",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 21,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

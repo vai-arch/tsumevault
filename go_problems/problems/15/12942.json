@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 12942,
+  "elo": 1437.6366616016,
+  "problemLevel": 26,
+  "rank": {
+    "value": 4,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4.3,
+    "votes": 16,
+    "currentUserVote": null
+  },
+  "sgf": "(;SZ[9]AB[ch]AB[cg]AB[cf]AB[ce]AB[bf]AB[af]AB[bh]AB[ci]AB[dh]AB[dd]AB[dc]AB[eb]AB[ed]AB[fc]AB[fe]AB[ge]AB[gg]AB[gf]AB[hf]AB[if]AB[hh]AB[ih]AB[hi]AB[ii]AB[gi]AW[ah]AW[ag]AW[bi]AW[dg]AW[df]AW[de]AW[ee]AW[ef]AW[ff]AW[eh]AW[fh]AW[fg]AW[gh]AW[ei]AW[di]AW[cd]AW[bd]AW[be]AW[cc]AW[cb]AW[db]AW[hg]TR[bi]C[White has just taken the ko at the marked point. Where is black's best move?]AP[goproblems]\r\n(;B[ec]C[RIGHT])\r\n(;B[fd]C[RIGHT])\r\n(;B[ai]C[NOTTHIS])\r\n(;B[bg];W[ae])\r\n(;B[ig];W[ae]\r\n(;B[ai];W[fd]\r\n(;B[bg];W[ec])\r\n(;B[gd];W[bi]\r\n(;B[fi];W[bg])\r\n(;B[da];W[bg]))\r\n(;B[ec];W[bi]\r\n(;B[fi];W[bg])\r\n(;B[da];W[bg])))\r\n(;B[fi];W[bg]))\r\n(;B[fi];W[ig]\r\n(;B[hh];W[ae];B[ai];W[fd]\r\n(;B[bg];W[ec])\r\n(;B[gd];W[bi]\r\n(;B[gi];W[bg])\r\n(;B[da];W[bg]))\r\n(;B[ec];W[bi]\r\n(;B[gi];W[bg])\r\n(;B[da];W[bg])))\r\n(;B[ai];W[hh]C[(In fact white E9 is even better than H2, but this is already a failure for black.)]))\r\n(;B[ae];W[ad];B[ai];W[fd]\r\n(;B[bg];W[ec])\r\n(;B[gd];W[bi]\r\n(;B[da];W[bg])\r\n(;B[ig];W[bg]))\r\n(;B[ec];W[bi]\r\n(;B[da];W[bg])\r\n(;B[ig];W[bg])))\r\n(;B[da];W[ae];B[ai];W[fd]\r\n(;B[bg];W[ec])\r\n(;B[gd];W[bi]\r\n(;B[ca];W[bg])\r\n(;B[ig];W[bg])))\r\n(;B[ea];W[ae];B[ai];W[fd]\r\n(;B[bg];W[ec])\r\n(;B[gd];W[bi]\r\n(;B[da];W[bg])\r\n(;B[ig];W[bg]))\r\n(;B[ec];W[bi]\r\n(;B[da];W[bg])\r\n(;B[ig];W[bg])))\r\n(;B[gd]C[RIGHT]))",
+  "author": {
+    "id": 19644,
+    "name": "ndkrempel",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-02-07",
+    "rank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 10,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1265.72
+  },
+  "avgSolveTimeSeconds": 63,
+  "attempts": {
+    "solved": 571,
+    "failed": 1151,
+    "tries": 1722,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2009-07-21T20:57:32+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 15,
+      "name": "9*9 games",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 149,
+      "name": "Self made",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

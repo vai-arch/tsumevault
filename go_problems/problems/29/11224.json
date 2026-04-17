@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 11224,
+  "elo": 1231.2440374275,
+  "problemLevel": 18,
+  "rank": {
+    "value": 12,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -7,
+    "flagSum": -6
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "tesuji",
+  "specificGenre": "tesuji",
+  "description": "Please comment if there is something wrong or if there is an essential variation missing. I left out some of the white variations that I didn't feel was necessary. Thanks to those who commented on missing variations.",
+  "rating": {
+    "stars": 2.6,
+    "votes": 22,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[if]AB[gg]AB[hg]AB[fg]AB[ih]AB[jh]AB[jg]AB[ji]AW[hh]AW[gh]AW[fh]AW[gi]AW[ei]AW[dh]AW[dg]AW[df]AW[de]AW[dd]AB[ch]AB[ci]AB[cj]AB[dj]AB[ej]AB[fj]AB[gj]AB[fl]AB[fi]AB[hj]AB[ij]AB[dk]AB[el]AB[fk]AW[gk]AW[gl]AW[gm]AW[fm]AW[em]AW[dm]AW[dl]AW[ck]AW[bk]AW[bj]AW[bi]AW[bh]AW[cg]AW[ik]AW[jj]AW[ki]AW[kh]AB[jd]AB[kd]AB[kc]AW[jc]AW[ic]AW[hd]AW[ng]AW[mf]AW[me]AB[md]AB[nd]AW[jk]TR[if]C[Black to capture the triangled white stone at J14 and keep all black stones that currently on the board alive.]AW[dc]AW[db]AP[goproblems]\n(;B[he]\n(;W[ie]C[CHOICE];B[id]\n(;W[hf]C[CHOICE];B[ge];W[gf];B[ff];W[fe];B[gd];W[hc];B[fd];W[ee]C[RIGHT])\n(;W[jf]C[CHOICE];B[kf];W[hf];B[ge];W[gf];B[ff];W[fe];B[gd];W[hc]\n(;B[fd];W[ee]C[RIGHT])\n(;B[je]C[RIGHT])\n(;B[ig]C[RIGHT])\n(;B[gc]C[RIGHT])\n(;B[fc]C[RIGHT])\n(;B[gb]C[RIGHT])\n(;B[fb]C[RIGHT])\n(;B[ec]C[RIGHT])\n(;B[ed]C[RIGHT])\n(;B[ee]C[RIGHT])))\n(;W[jf]C[CHOICE];B[kf];W[ke]\n(;B[le];W[hf];B[ge];W[gf];B[ff]C[RIGHT])\n(;B[kg]C[CHOICE];W[je];B[le];W[id];B[ie];W[hf];B[ge]C[RIGHT])\n(;B[je]C[RIGHT]))\n(;W[hf]C[CHOICE];B[ge]\n(;W[gf]C[CHOICE];B[ff];W[fe];B[ie]C[RIGHT])\n(;W[id]C[CHOICE];B[ie];W[jf];B[kf]C[RIGHT]))\n(;W[je]C[CHOICE];B[ke];W[ie];B[id];W[hf];B[ge];W[gf];B[ff];W[fe];B[gd];W[hc]C[RIGHT]))\n(;B[ie];W[hf];B[he];W[gf];B[ff];W[ge];B[gd];W[fe])\n(;B[jf];W[ie])\n(;B[hf];W[ie])\n(;B[ge];W[he])\n(;B[je];W[ie]))",
+  "author": {
+    "id": 13781,
+    "name": "zafris",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-13",
+    "rank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1348.33
+  },
+  "avgSolveTimeSeconds": 62,
+  "attempts": {
+    "solved": 1592,
+    "failed": 2268,
+    "tries": 3860,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2008-04-26T15:49:54+00:00",
+  "source": "game",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 23,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

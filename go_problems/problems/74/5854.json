@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 5854,
+  "elo": 1753.673,
+  "problemLevel": 35,
+  "rank": {
+    "value": 6,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -3,
+    "flagSum": -2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "endgame",
+  "specificGenre": "endgame",
+  "description": "",
+  "rating": {
+    "stars": 2,
+    "votes": 12,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[sm]AB[rm]AB[ql]AB[pl]AB[pj]AB[qj]AB[sg]AB[rg]AB[qg]AB[pg]AB[og]AB[ph]AW[qi]AW[pi]AW[oi]AW[oj]AW[ok]AW[ol]AW[om]AW[pm]AW[qm]AW[qn]AW[rn]AW[sn]AW[rh]C[What does Black have here? (AVOID KO)]AP[goproblems]\r\n(;B[si];W[sh]\r\n(;B[ri];W[qh]\r\n(;B[rk];W[pk];B[qk];W[sk]C[:(])\r\n(;B[pk];W[rk]C[:(]))\r\n(;B[qh];W[ri]C[:(])\r\n(;B[rk];W[pk]C[:(])\r\n(;B[pk];W[rk]C[:(]))\r\n(;B[rj];W[ri]C[:(]TR[rk]TR[pk])\r\n(;B[rk];W[rj]\r\n(;B[sj];W[si]\r\n(;B[ri]MA[rj]C[:(])\r\n(;B[sk];W[pk];B[ri]MA[rj]C[:(])\r\n(;B[pk];W[sk]C[:(]))\r\n(;B[sk];W[pk]C[:(])\r\n(;B[pk];W[sk]C[:(])\r\n(;B[sl];W[pk]C[:(])\r\n(;B[si];W[ri]TR[sk]TR[pk]C[:(])\r\n(;B[sh];W[ri]TR[pk]TR[sk]C[:(]))\r\n(;B[pk];W[rj]TR[rk]TR[sk]C[:(])\r\n(;B[ri];W[rj]\r\n(;B[si];W[sj]\r\n(;B[sh];W[qk]C[Exactly! A nice little sente reduction!RIGHT])\r\n(;B[rk];W[sh]C[:(]TR[pk]TR[sk]))\r\n(;B[rk];W[si]C[:(]TR[pk]TR[sk])\r\n(;B[pk];W[si]C[:(]TR[rk]TR[sk]))\r\n(;B[sj];W[ri]C[:(]TR[pk]TR[rk])\r\n(;B[qh];W[ri]C[:(])\r\n(;B[sh];W[si]C[]\r\n(;B[rj];W[ri]C[:(]TR[rk]TR[pk])\r\n(;B[sj];W[ri]C[:(]TR[rk]TR[pk])\r\n(;B[rk];W[ri]TR[pk]TR[sk]C[:(]))\r\n(;B[sk];W[rj]TR[rk]TR[pk]C[:(]))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 24,
+  "attempts": {
+    "solved": 565,
+    "failed": 2106,
+    "tries": 2671,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2005-01-19T13:26:40+00:00",
+  "source": "Problem 5853",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 74,
+      "name": "Side based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 17,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

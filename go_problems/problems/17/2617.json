@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 2617,
+  "elo": 1145.5152661334,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": -2,
+    "flagSum": 2
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Please find the best result for Black!\r\n(japanese rules)",
+  "rating": {
+    "stars": 2.4,
+    "votes": 17,
+    "currentUserVote": null
+  },
+  "sgf": "(;GM[1]FF[4]CA[UTF-8]AP[CGoban:2]ST[2]\r\nRU[Japanese]SZ[4]KM[0.00]\r\nPW[WeiÃƒÅ¸]PB[Schwarz]AW[ba][bb][ac][cc][ad][cd]AB[ca][ab][cb][dc][dd]C[Black to play - what's the best he can do?]\r\n;B[bc]CR[bc]\r\n(;W[db]CR[db]\r\n;B[aa]CR[aa]\r\n(;W[bd]CR[bd]\r\n(;B[bb]CR[bb]\r\n;W[dc]CR[dc]C[Seki & Jigo (2 prisoners each)! RIGHT])\r\n(;B[dc]CR[dc]\r\n;W[bb]CR[bb]C[Uh oh... White wins!])\r\n(;B[da]CR[da]\r\n;W[bb]CR[bb]C[Uh oh... White wins!]))\r\n(;W[bb]CR[bb]\r\n;B[bd]CR[bd]\r\n;W[ac]CR[ac]C[Nice try, but since there is no stone at D4, Black can capture at B4.]))\r\n(;W[bd]CR[bd]\r\n;B[bc]CR[bc]C[This was easy :)])\r\n(;W[aa]CR[aa]\r\n;B[ab]CR[ab]C[This was easy :)]))",
+  "author": {
+    "id": 2776,
+    "name": "ferdi",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2025-03-21",
+    "rank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 18,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1044.39
+  },
+  "avgSolveTimeSeconds": 37,
+  "attempts": {
+    "solved": 4456,
+    "failed": 6563,
+    "tries": 11019,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2003-06-22T13:16:53+00:00",
+  "source": "ferdi",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 17,
+      "name": "4x4 problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 45,
+      "name": "Fun",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 4,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

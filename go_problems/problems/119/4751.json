@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 4751,
+  "elo": 1123.4719160958,
+  "problemLevel": 15,
+  "rank": {
+    "value": 15,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": 0,
+    "flagSum": 2
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "Second attempt at making this work, perhaps a bit more artificial this time.\n\nWhite has played the marked stone in an attempt to get a ko - show him the error of his ways.\n\nThanks to Last Evolution for catching a mistake.",
+  "rating": {
+    "stars": 3.9,
+    "votes": 28,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[cs]AB[cr]AB[cq]AB[cp]AB[bp]AW[ar]AW[bo]AW[co]AW[do]AW[dp]AW[dq]AW[dr]AB[fr]AB[ep]AB[fp]AB[en]AB[dn]AB[cn]AB[bn]AB[br]AW[ap]AB[bl]AB[gr]AW[es]TR[ap]C[Black to live unconditionally.](;B[eq];W[ds];B[aq];W[bq]C[Ko.])(;B[aq];W[bq](;B[as]C[Double ko - white can't win.RIGHT])(;B[aq]C[NOTTHIS])(;B[an];W[ds])(;B[eo];W[aq])(;B[eq];W[aq])(;B[er];W[aq])(;B[bs];W[aq]))(;B[an];W[aq];B[ao];W[bs]C[An unfavorable ko for white, but black can do better than even this.])(;B[eo];W[ds];B[aq];W[bq]C[Ko.])(;B[as];W[aq])(;B[er];W[ds](;B[aq]C[Ko])(;B[as]C[Ko]))(;B[ds];W[bq]))",
+  "author": {
+    "id": 6186,
+    "name": "shaydwyrm",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2016-02-03",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 7224,
+    "failed": 7668,
+    "tries": 14892,
+    "speedSolved": 8,
+    "speedPlay": 40
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2004-07-04T02:10:13+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 19,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

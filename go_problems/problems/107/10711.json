@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10711,
+  "elo": 1002.8953987872,
+  "problemLevel": 10,
+  "rank": {
+    "value": 20,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 9,
+    "negativeFlagSum": -4,
+    "flagSum": 5
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "",
+  "rating": {
+    "stars": 3.4,
+    "votes": 34,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[ij]AW[ji]AW[ki]AW[ik]AW[lj]AW[lk]AW[kl]AW[jl]AW[km]AW[lm]AW[mm]AW[mk]AW[hh]AW[hi]AW[hj]AW[hg]AW[jh]AW[jg]AW[hf]AW[if]AW[jf]AB[ig]AB[ih]AW[nk]AW[nl]AW[nm]AB[ml]AB[li]AB[lh]AB[kh]AB[kg]AB[kf]AB[ke]AB[je]AB[ie]AB[ge]AB[he]AB[gf]AB[gg]AB[gi]AB[gj]AB[gh]AB[gk]AB[hk]AB[il]AB[im]AB[jm]AB[jn]AB[kn]AB[ln]AB[mn]AB[nn]AB[on]AB[om]AB[ol]AB[ok]AB[oj]AB[nj]AB[mj]AB[jk]C[Can Black gain anything? Yes(O13) or No(Q13).FORCE]LB[ng:Yes]LB[pg:No]AP[goproblems]\n(;B[ng];W[og]C[What can Black do?]\n(;B[kj];W[ii]LB[nf:Tenuki]C[White captures 2 stones, is there anything to do now? If not play Tenuki (O14).]\n(;B[ih]C[Seki! White can't capture the marked stones. White has just 4 points for the 2 stones in the eyes and the 2 stones White just captured a move ago. This is 7 points better for Black than letting White play first.RIGHT]TR[jk]TR[kj])\n(;B[ig]C[Seki! White can't capture the marked stones. White has just 4 points for the 2 stones in the eyes and the 2 stones White just captured a move ago. This is 7 points better for Black than letting White play first.RIGHT]TR[jk]TR[kj])\n(;B[nf];W[jj]C[White lives with points!])\n(;B[kk];W[jj]))\n(;B[kk];W[kj])\n(;B[jj];W[kj]))\n(;B[pg]C[];W[kj]C[White now is unconditionally alive and has 12 points locally (8 territory, 4 captured stones)]))",
+  "author": {
+    "id": 13781,
+    "name": "zafris",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-12-13",
+    "rank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1348.33
+  },
+  "avgSolveTimeSeconds": 38,
+  "attempts": {
+    "solved": 6209,
+    "failed": 5933,
+    "tries": 12142,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-12-20T12:57:18+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 29,
+      "name": "Middle based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 31,
+      "name": "Instruction Required",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 107,
+      "name": "Seki",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 15,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

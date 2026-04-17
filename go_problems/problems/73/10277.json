@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 10277,
+  "elo": 1537.2861897385,
+  "problemLevel": 29,
+  "rank": {
+    "value": 1,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "I feel this problem has a good amount of variations, and I also feel I probably missed a few of them, so any help would be appreciated.",
+  "rating": {
+    "stars": 3.5,
+    "votes": 14,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[mq]AB[nr]AB[oq]AB[pp]AB[qp]AW[or]AW[pr]AW[pq]AW[qq]AW[qm]LB[pr:1]AB[rr]LB[rr:2]C[White played 1, it would have been a deadly mistake had it not been for the R7 stone, black doesn't seem to think so, so politely show him his mistake. By the way, Q2 is a positional error, white should have played R4 for optimal play. All ladders to the rest of the board don't work {except to the edges in the local area}]AP[goproblems]\n(;W[rp];B[rq];W[op];B[nq];W[po];B[qo];W[ro];B[qn];W[pn]C[Yup, the ladder works because of R7 =DRIGHT])\n(;W[op]C[White played 1, it would have been a deadly mistake had it not been for the R7 stone, black doesn't seem to think so, so politely show him his mistake. By the way, Q2 is a positional error, white should have played R4 for optimal play. ladders to the rest of the board don't work {except to the edges in the local area}];B[nq];W[rp];B[ro];W[rq];B[qo]\n(;W[oo];B[pn];W[sr];B[pm]C[Not the most optimal play for you, although I'll accept it.])\n(;W[sr];B[rs]\n(;W[sp]C[GoodRIGHT])\n(;W[qs]C[RIGHT]))\n(;W[rs];B[qs];W[sr];B[ss]C[Ko...])\n(;W[qs]C[Good =DRIGHT]))\n(;W[rq];B[rp]\n(;W[sp];B[so];W[op];B[nq];W[sq];B[ro];W[rs];B[qs]\n(;W[qr];B[ss];W[sr];B[rs])\n(;W[sr];B[ss]C[Ko...]))\n(;W[qs];B[sq]\n(;W[sr];B[ss];W[rs];B[sr])\n(;W[rs];B[sr])))\n(;W[qs];B[rq]))",
+  "author": {
+    "id": 17060,
+    "name": "Bleedo",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2020-07-22",
+    "rank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 2,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1497.5
+  },
+  "avgSolveTimeSeconds": 60,
+  "attempts": {
+    "solved": 957,
+    "failed": 1826,
+    "tries": 2783,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2007-08-28T12:09:11+00:00",
+  "source": "Bleedo vs. Chraist",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

@@ -1,0 +1,124 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 19175,
+  "elo": 1483.1128075408,
+  "problemLevel": 27,
+  "rank": {
+    "value": 3,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 4,
+    "negativeFlagSum": 0,
+    "flagSum": 4
+  },
+  "isCanon": true,
+  "isStandard": true,
+  "genre": "life and death",
+  "specificGenre": "life and death",
+  "description": "This problem follows the basic principle of life-and-death: reduce the opponent's eye space, then play at the vital point.   Actually there are two solutions to this \r\nproblem, but that makes it no less instructive. \r\n",
+  "rating": {
+    "stars": 4,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AP[goproblems]AB[pp]AB[oo]AB[rp]AB[ro]AB[oq]AB[nq]AB[mq]AB[mr]AW[nr]AW[or]AW[pq]AW[qq]AW[rq]C[Black to play and kill White](;B[ns](;W[ps](;B[sq];W[sr];B[rs](;W[qs];B[ms];W[rr];B[pr]LB[ns:1]LB[ps:2]LB[sq:3]LB[sr:4]LB[rs:5]LB[qs:6]LB[ms:7]LB[rr:8]LB[pr:9]LB[qr:a]C[The hane of 1 is obvious. Black further reduces White's eye space with 3, then makes the placement at the vital point of 5. These two moves are a combination faithful to the principle mentioned above. If White tries to make two eyes with 6, Black is able to destroy the second eye with 7 and 9. This is another important technique in life-and-death problems. Even if White plays 6 at 8 or at 'a', Black still connects at 7. RIGHT];W[qr];B[os]C[RIGHT])(;W[rr];B[ms];W[qs];B[pr];W[qr];B[os]C[RIGHT])(;W[qr];B[ms];W[os];B[qs]C[RIGHT]))(;B[rs];W[sq];B[rr];W[qr];B[ms]LB[ns:1]LB[ps:2]LB[rs:3]LB[sq:4]LB[rr:5]LB[qr:6]LB[ms:7]C[Black can also kill White by making a placement at 3 immediately. If White 4, Black plays 5 and 7. However, the   previous sequence is more faithful to the basics and more efficient. RIGHT])(;B[qr];W[rr];B[sq];W[sr]LB[ns:1]LB[ps:2]LB[qr:3]LB[rr:4]LB[sq:5]LB[sr:6]C[Attacking White's eye shape prematurely with 3 is a crude move. This lets White live with 4 and 6. CHOICE])(;B[rr];W[sr];B[qr];W[rs]LB[ns:1]LB[ps:2]LB[rr:3]LB[sr:4]LB[qr:5]LB[rs:6]LB[pr:a]LB[os:b]C[The attachment at 2 is another crude move. White lives with 4 and 6. Note that if White plays 2 at 'a', Black kills him simply by crawling at'b'. CHOICE]))(;W[pr];B[os]C[RIGHT];W[rs];B[sr];W[sq];B[rr];W[ps];B[qr]C[RIGHT]))(;B[rs];W[rr])(;B[pr];W[qr];B[rs];W[ps];B[ns];W[rr])(;B[sq];W[sr](;B[rr];W[sp])(;B[pr];W[ps])(;B[ps];W[pr])))",
+  "author": {
+    "id": 74427,
+    "name": "vougalar",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2024-11-13",
+    "rank": {
+      "value": 21,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 19,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 971.933
+  },
+  "avgSolveTimeSeconds": 52,
+  "attempts": {
+    "solved": 200,
+    "failed": 322,
+    "tries": 522,
+    "speedSolved": 4,
+    "speedPlay": 3
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2015-03-07T19:38:20+00:00",
+  "source": "varius",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 70,
+      "name": "J-Group",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 183,
+      "name": "The Top Ten Life-and-Death Problems",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 281,
+      "name": "9x9 corner fights",
+      "core": false,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 7,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

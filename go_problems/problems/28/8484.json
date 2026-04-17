@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8484,
+  "elo": 1096.7618121167,
+  "problemLevel": 14,
+  "rank": {
+    "value": 16,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 3,
+    "negativeFlagSum": -2,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 3.8,
+    "votes": 20,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[bd]AW[be]AW[dc]AW[dd]AW[ed]AW[eb]AW[fb]AB[ec]AB[fc]AB[gc]AB[fd]AB[ee]AB[de]AB[ce]AB[bf]AB[cg]AW[ch]AW[dh]AW[ck]AW[jd]LB[fe:A]C[Can white cut at A? Play A if yes, otherwise tenuki at T.]LB[jj:T]AB[df]AP[goproblems]\n(;W[jj];B[gf]C[Wrong. W can cut.])\n(;W[fe];B[gf]\n(;W[ge];B[he]\n(;W[ff];B[fg]MA[gg]MA[hf]C[Yes. Ataris now work. At the very least, W gets the triangled stones.RIGHT]TR[ec]TR[fc]TR[gc]TR[fd])\n(;W[gd];B[hd];W[ff];B[fg];W[ef];B[eg])\n(;W[hd];B[gd];W[ff];B[fg];W[ef];B[eg])\n(;W[hf];B[ff]\n(;W[gd];B[hd])\n(;W[hd];B[gd])))\n(;W[ff]\n(;B[fg]\n(;W[ge];B[he]MA[gg]MA[hf]C[Yes. Ataris now work. At the very least, W gets the triangled stones.RIGHT]TR[ec]TR[fc]TR[gc]TR[fd])\n(;W[eg];B[ef];W[ge];B[he])\n(;W[ef];B[eg];W[ge];B[he]))\n(;B[df]))))",
+  "author": {
+    "id": 5722,
+    "name": "tjl",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2006-08-01",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 7619,
+    "failed": 7330,
+    "tries": 14949,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-04-30T23:55:45+00:00",
+  "source": "Modified game on KGS.",
+  "playerColor": "white",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 11,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

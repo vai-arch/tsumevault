@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 43411,
+  "elo": 1330.6265599363,
+  "problemLevel": 22,
+  "rank": {
+    "value": 8,
+    "unit": "kyu",
+    "exact": false,
+    "mark": true
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 4,
+    "votes": 1,
+    "currentUserVote": null
+  },
+  "sgf": "(;CA[utf-8]AP[goproblems autoextractor]AB[nq][om][or][pm][pq][qn][qr]AW[no][pl][po][qk][qm][qp][qq][rl]TR[rl]LB[pn:a][qo:b][rm:c]DT[2010-02-13]PC[The KGS Go Server at http\\://www.gokgs.com/]PB[math]PW[minimelcer]C[FORCE](;B[rm]LB[pn:A]C[This is the important move in separating the white stones, although it may lead to a ko. Playing here is worth about 5 points over playing away in an empty corner. White would have played at Q6 if you played away. White would likely play away next. ](;W[ql]C[CHOICE];B[pn]C[RIGHT])(;W[rn]C[CHOICE];B[ql]C[Note\\: the White move at S6 lost about 5 pointsRIGHT])(;W[pn]C[CHOICE];B[ql]C[Note\\: the White move at Q6 lost about 5 pointsRIGHT]))(;B[pn];W[rn]C[White gets connected, black Q6 was weak. This loses about 7 points. ])(;B[qo];W[rn]C[White gets connected. This loses about 8 points. ]))",
+  "author": {
+    "id": 44133,
+    "name": "seeker1987",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_64x64.png",
+          "size": 64
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_512x512.png",
+          "size": 512
+        },
+        {
+          "url": "https://d14j2ume0sa4nc.cloudfront.net/avatars/1331_1024x1024.png",
+          "size": 1024
+        }
+      ],
+      "id": 1331
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 7,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1843.52
+  },
+  "avgSolveTimeSeconds": 30,
+  "attempts": {
+    "solved": 7,
+    "failed": 9,
+    "tries": 16,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2025-02-21T04:41:54+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 98,
+      "name": "Multiple Choice",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 237,
+      "name": "Auto Generated",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 252,
+      "name": "Local Choice",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 1,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": 1400
+}

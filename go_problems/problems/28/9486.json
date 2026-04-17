@@ -1,0 +1,118 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 9486,
+  "elo": 962.53909069592,
+  "problemLevel": 9,
+  "rank": {
+    "value": 21,
+    "unit": "kyu",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 2,
+    "negativeFlagSum": -1,
+    "flagSum": 1
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.9,
+    "votes": 25,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bq]AB[cr]AB[ep]AB[eq]AB[fq]AB[gq]AB[gr]AB[hr]AB[fo]AB[fn]AB[en]AB[dn]AB[cn]AB[co]AW[ir]AW[iq]AW[hq]AW[hp]AW[gp]AW[fp]AW[cp]AW[dp]AW[do]AW[eo]AW[br]AW[dr]AW[bo]AW[bn]AW[bm]AW[bl]AW[bk]AW[cm]AW[dm]AW[dk]AW[dl]AB[em]AB[el]AB[ek]AB[gl]AB[fk]AB[fm]AB[gn]AB[hm]AB[hl]AW[go]AW[hn]AW[io]AW[in]AW[jp]LB[dr:A]C[White has just played A. Gain as much as you can from this error (it's easy).CHOICE]AP[goproblems]\r\n(;B[bp];W[cs]\r\n(;B[dq]C[Snapback does it. Notice that White cannot connect on the first line.RIGHT]TR[ap]TR[aq])\r\n(;B[cq]C[OK, but it's not the best move. White can play A and then connect on the first line reducing Black gain.RIGHT]LB[dq:A]LB[er:B]TR[ap]TR[aq])\r\n(;B[er];W[cq];B[dq];W[cr]C[White lives and Black dies])\r\n(;B[ar];W[cq];B[dq];W[cr];B[aq];W[ao]C[White lives and Black dies.])\r\n(;B[ds];W[cq];B[dq];W[cr]C[White lives and Black dies.])\r\n(;B[bs];W[cq];B[ar];W[cr]C[White lives and Black dies (there is no ko).]))\r\n(;B[dq];W[bp]C[White has escaped with the marked stones.]TR[cp]TR[dp]TR[do]TR[eo])\r\n(;B[cq];W[bp]C[White has escaped with the marked stones.]TR[cp]TR[dp]TR[do]TR[eo])\r\n(;B[ar];W[bp]C[White has escaped with the marked stones.]TR[cp]TR[dp]TR[do]TR[eo])\r\n(;B[bs]C[];W[bp]C[White has escaped with the marked stones.]TR[dp]TR[cp]TR[do]TR[eo])\r\n(;B[er];W[bp]C[White has escaped with the marked stones.]TR[do]TR[dp]TR[cp]TR[eo]))",
+  "author": {
+    "id": 16859,
+    "name": "MatheusB",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2010-02-23",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 43,
+  "attempts": {
+    "solved": 3537,
+    "failed": 4755,
+    "tries": 8292,
+    "speedSolved": 0,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-11-26T09:34:35+00:00",
+  "source": "Game on kurnik.pl, modified",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 28,
+      "name": "Cutting",
+      "core": true,
+      "privacy": "public"
+    },
+    {
+      "id": 47,
+      "name": "Amateur Game",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 12,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

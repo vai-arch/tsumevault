@@ -1,0 +1,130 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 8488,
+  "elo": 1906.8142431598,
+  "problemLevel": 36,
+  "rank": {
+    "value": 7,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": false,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 0,
+    "negativeFlagSum": 0,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "",
+  "rating": {
+    "stars": 2.6,
+    "votes": 6,
+    "currentUserVote": null
+  },
+  "sgf": "(;AB[bp]AB[cp]AB[dq]AB[dr]AB[ds]AW[bo]AW[co]AW[do]AW[eo]AW[ep]AW[eq]AW[er]AW[es]AW[bn]AW[an]AW[br]C[Black would love to live]AP[goproblems]\n(;B[ar];W[bq]\n(;B[aq];W[ap];B[ao]MA[ap];W[dp]\n(;B[bs];W[ap]MA[ao]C[Well done! A ko! :)RIGHT])\n(;B[cq];W[ap]C[White has an extra threat at B1 to which Black must anwser at C2.]MA[ao])\n(;B[cr];W[ap]C[White has an extra threat at B1 to which Black must anwser.]MA[ao])\n(;B[ap];W[bs]TR[cr]TR[cq]C[:(]))\n(;B[ap];W[bs]TR[aq]TR[dp]C[:(]))\n(;B[bq];W[ar]\n(;B[cr];W[ap];B[aq];W[dp]C[:(])\n(;B[ap];W[cr]TR[bs]TR[dp]C[:(])\n(;B[aq];W[cr]TR[dp]TR[bs]C[:(])\n(;B[bs];W[ap];B[aq];W[dp]C[:(])\n(;B[dp];W[cr]\n(;B[ap];W[bs]C[:(])\n(;B[aq];W[bs]C[:(])\n(;B[bs];W[ap];B[aq];W[cs]C[:(])\n(;B[cs];W[ap];B[aq];W[bs]C[:(])))\n(;B[ap];W[ar]\n(;B[bs];W[cr]TR[dp]TR[cs]C[:(])\n(;B[cr];W[bs]C[:(]TR[bq]TR[dp])\n(;B[bq];W[cr]TR[bs]TR[dp]C[:(])\n(;B[dp];W[bs]C[:(]TR[bq]TR[cr])\n(;B[cq];W[bs]C[:(]))\n(;B[aq];W[ar]\n(;B[dp];W[bq];B[ap];W[bs]C[:(])\n(;B[bq];W[cr]TR[dp]TR[bs]C[:(])\n(;B[cr];W[bq];B[ap];W[bs]C[:(])\n(;B[bs];W[cr]TR[dp]TR[cs]C[:(]))\n(;B[cr];W[bq]\n(;B[ap];W[bs]TR[ar]TR[dp]C[:(])\n(;B[aq];W[ar];B[ap];W[bs]C[:(]))\n(;B[dp];W[ar]TR[ap]TR[bs])\n(;B[bs];W[ar]\n(;B[ap];W[cr]TR[dp]TR[cs]C[:(])\n(;B[aq];W[cr]TR[dp]TR[cs]C[:(])\n(;B[bq];W[ap];B[aq];W[dp]C[:(])))",
+  "author": {
+    "id": 4285,
+    "name": "santa c",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2026-04-16",
+    "rank": {
+      "value": 3,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 6,
+      "unit": "dan",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 1601.61
+  },
+  "avgSolveTimeSeconds": 33,
+  "attempts": {
+    "solved": 292,
+    "failed": 1367,
+    "tries": 1659,
+    "speedSolved": 1,
+    "speedPlay": 1
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2006-05-02T14:27:02+00:00",
+  "source": "",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 14,
+      "name": "Carpenter's Square",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 73,
+      "name": "Corner based",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 119,
+      "name": "Ko / Ko Threats",
+      "core": false,
+      "privacy": "public"
+    },
+    {
+      "id": 141,
+      "name": "Corner Boxes",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 6,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}

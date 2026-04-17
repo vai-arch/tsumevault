@@ -1,0 +1,112 @@
+{
+  "solvedByCurrentUser": false,
+  "id": 14220,
+  "elo": 1613.8873537454,
+  "problemLevel": 32,
+  "rank": {
+    "value": 3,
+    "unit": "dan",
+    "exact": false,
+    "mark": false
+  },
+  "hasNegativeFlags": true,
+  "flagStats": {
+    "flags": [],
+    "userFlag": null,
+    "positiveFlagSum": 1,
+    "negativeFlagSum": -1,
+    "flagSum": 0
+  },
+  "isCanon": false,
+  "isStandard": false,
+  "genre": "best move",
+  "specificGenre": "best move",
+  "description": "Connect marked black groups in the best way.",
+  "rating": {
+    "stars": 3.4,
+    "votes": 9,
+    "currentUserVote": null
+  },
+  "sgf": "(;AW[cc]AW[cd]AW[dc]AW[ec]AW[fc]AB[gb]AB[gc]AB[gd]AB[fd]AB[hd]AW[hb]AW[ic]AW[jc]AW[kd]AW[ke]AW[lc]AW[mb]AB[ce]AB[be]AB[dd]AB[ee]AB[df]AB[ff]AB[jd]AB[je]AW[gf]AB[hf]AW[fg]AW[hg]AW[gh]AW[ih]AB[ig]AB[kf]AB[lf]AW[jf]AW[dg]AW[cf]AW[bg]AW[ch]AW[ci]TR[gd]TR[lf]AB[lh]AP[goproblems]\n(;B[jg];W[he]\n(;B[ie];W[if];B[hf];W[ge]\n(;B[id]C[RIGHT])\n(;B[if]C[CHOICE];W[id]C[CHOICE])\n(;B[fe];W[if];B[id];W[hf];B[jf]C[RIGHT]))\n(;B[if];W[id];B[ge];W[ie]C[CHOICE];B[gg]C[CHOICE]))\n(;B[if];W[jg];B[jh];W[he]\n(;B[kg];W[id]\n(;B[ge];W[ie];B[gg]C[CHOICE])\n(;B[ie];W[ge]C[CHOICE]))\n(;B[ie];W[id]C[CHOICE])\n(;B[id];W[ie]C[CHOICE]))\n(;B[he];W[jg]C[CHOICE])\n(;B[ie]C[CHOICE];W[jg]C[CHOICE])\n(;B[id];W[if]C[CHOICE])\n(;B[ge];W[if]C[CHOICE])\n(;B[jh];W[if]C[CHOICE]))",
+  "author": {
+    "id": 44865,
+    "name": "ProoM",
+    "avatar": {
+      "current": true,
+      "sources": [
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder64.jpeg",
+          "size": 64
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder512.jpeg",
+          "size": 512
+        },
+        {
+          "url": "https://goproblems.com/build/images/avatar_placeholder1024.jpeg",
+          "size": 1024
+        }
+      ],
+      "id": null
+    },
+    "lastOnlineAt": "2013-12-12",
+    "rank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "displayRank": {
+      "value": 29,
+      "unit": "kyu",
+      "exact": false,
+      "mark": false
+    },
+    "elo": 700
+  },
+  "avgSolveTimeSeconds": 86,
+  "attempts": {
+    "solved": 295,
+    "failed": 618,
+    "tries": 913,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "currentUserAttempts": {
+    "solved": 0,
+    "failed": 0,
+    "tries": 0,
+    "speedSolved": 0,
+    "speedPlay": 0
+  },
+  "isFavorited": false,
+  "canBeEdited": false,
+  "createdAt": "2010-11-28T05:13:21+00:00",
+  "source": "from game - white: Alexandre Dinerchstein 3p (aka breakfast) vs black: Ilya Shikshin 7d (aka roln111)   2010-11-27",
+  "playerColor": "black",
+  "collections": [
+    {
+      "id": 27,
+      "name": "Connect",
+      "core": true,
+      "privacy": "public"
+    }
+  ],
+  "commentsCount": 5,
+  "suggestionsOpenCount": 0,
+  "userData": {
+    "attempts": {
+      "solved": 0,
+      "failed": 0,
+      "tries": 0,
+      "speedSolved": 0,
+      "speedPlay": 0
+    },
+    "isFavorited": false,
+    "canBeEdited": false
+  },
+  "allowSuggestedDifficulty": false,
+  "alive": true,
+  "sandbox": false,
+  "suggestedElo": null
+}
