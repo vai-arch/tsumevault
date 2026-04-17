@@ -1,0 +1,49 @@
+(;GM[1]FF[4]CA[UTF-8]AP[CGoban:3]ST[2]
+RU[Japanese]SZ[19]KM[0.00]
+PW[WeiÃŸ]PB[Schwarz]AW[pa][pb][pc][pd][pe][pf][rf][pg][rg]AB[ra][rb][rc][rd][re]LB[rf:1]C[White playerd 1.
+How to answer?
+]
+(;B[se]LB[sb:A][sc:B]C[RIGHT])
+(;B[sb]LB[se:A]C[RIGHT])
+(;B[lc]
+;W[kc])
+(;B[sf]
+;W[se]
+;B[sd]
+;W[sb]LB[se:A]C[Dead! A is only a false eye.
+The proverb says there is death in the Hane.])
+(;B[qf]
+;W[se]
+;B[sd]
+;W[sb]
+;B[sf]LB[se:A]C[Dead! A is only a false eye.
+The proverb says there is death in the Hane])
+(;B[qe]
+;W[se]
+(;B[sf]
+(;W[sd]C[CHOICE]
+;B[sc]
+;W[se]
+;B[sd]LB[se:A]C[Dead! A is only a false eye.
+The proverb says there is death in the Hane.])
+(;W[sg]C[CHOICE]
+;B[sd]
+;W[sb]))
+(;B[sd]
+;W[sb]
+;B[sf]LB[se:A]C[Dead! A is only a false eye.
+The proverb says there is death in the Hane.]))
+(;B[nc]
+;W[se]C[But what if white plays here?]
+(;B[sd]
+;W[sb]LB[se:A]C[Black could not create an eye at A, it would be false.])
+(;B[sf]
+;W[sd]
+;B[sc]
+;W[se]LB[se:A]C[Killing the Stone A would create only a False eye Black is dead.]))
+(;B[sa]
+;W[se]C[Black could create only one eye.])
+(;B[sc]
+;W[se]C[black created just one eye she dies.])
+(;B[sd]
+;W[sb]C[black created only one eye, she dies]))

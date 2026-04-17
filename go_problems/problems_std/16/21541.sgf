@@ -1,0 +1,27 @@
+(;
+AW [ab][bb][dc][bd][dd][ae][be][ce][de]
+AB [aa][ba][ca][db][eb][ec][ed][ee][af][bf][cf][df][ef]
+C [black to kill.]
+     (;B[cc] ;W[cb]
+          (;B[bc] ;W[da]
+               (;B[ac] C[RIGHT])
+               (;B[ca] ;W[ac] C[white lives.])
+          )
+          (;B[da] ;W[bc] C[white lives.])
+          (;B[ac] ;W[bc] C[white lives.])
+     )
+
+
+     (;B[cb] ;W[cc] C[white lives.])
+     (;B[ac] ;W[cb] C[white lives.])
+     (;B[bc] ;W[cc] C[white lives.])
+     (;B[da] ;W[cb] C[white lives.])
+     (;B[cd] ;W[cb]
+          (;B[bc] ;W[da] C[white lives.])
+          (;B[da] ;W[gf] C[white is alive. white tenuki.])
+     )
+     (;B[ad] ;W[cb]
+          (;B[bc] ;W[da] C[white lives.])
+          (;B[da] ;W[gf] C[white is alive. white tenuki.])
+     )
+)
