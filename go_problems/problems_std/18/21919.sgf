@@ -1,0 +1,62 @@
+(;
+AW [da][ea][ga][eb][ib][jb][kb][ec][fc][gc][hc][fd]
+AB [ca][ka][la][db][lb][cc][dc][ic][jc][kc][lc][ed][gd][hd][id][ee][fe][cf]
+SZ[19]
+C[black to kill.]
+   (;B[hb]
+      (;W[ha] C[CHOICE]
+         (;B[ia] ;W[gb] ;B[ja] C[RIGHT])
+         (;B[gb] ;W[fb] C[oops.])
+         (;B[ja] ;W[ia] C[white lives.])
+      )
+      (;W[gb] C[CHOICE]
+         (;B[ia] ;W[ha] ;B[ja] C[RIGHT])
+         (;B[ja] ;W[ha] ;B[ia] C[RIGHT])
+      )
+      (;W[fb] C[CHOICE]
+         (;B[ia] C[RIGHT])
+         (;B[ha] C[RIGHT])
+         (;B[ja] ;W[ha] ;B[ia] C[RIGHT])
+      )
+      (;W[ia] C[CHOICE]
+         (;B[gb] ;W[ha] ;B[fb] ;W[fa] ;B[gb] C[RIGHT])
+         (;B[ja] ;W[ha] ;B[gb] ;W[fb] C[oops.])
+      )
+   )
+
+   (;B[ia] ;W[hb] C[blackâ€™s J19 was the move played in the game.]
+      (;B[ja] ;W[fb] C[white lives.])
+      (;B[fb] ;W[ja] C[white lives.])
+   )
+   (;B[gb] ;W[hb] C[white lives.])
+   (;B[ja] ;W[ia]
+      (;B[hb] ;W[ha] C[white lives.])
+      (;B[gb] ;W[hb] C[white lives.])
+      (;B[fb] ;W[hb] C[white lives.])
+      (;B[ha] ;W[hb] C[white lives.])
+      (;B[fa] ;W[hb] C[white lives.])
+   )
+   (;B[fb]
+      (;W[ia] C[CHOICE]
+         (;B[gb] ;W[hb] C[white lives.])
+         (;B[hb] ;W[gb] C[white lives.])
+         (;B[ja] ;W[hb] C[white lives.])
+      )
+      (;W[hb] C[CHOICE] ;B[ja] ;W[ia] C[white lives.])
+   )
+   (;B[ha]
+      (;W[hb] C[CHOICE] ;B[ja] ;W[ia] C[white lives. white could tenuki, also.])
+      (;W[ia] C[CHOICE]
+         (;B[gb] ;W[hb] C[white lives.])
+         (;B[ja] ;W[hb] C[white lives.])
+      )
+   )
+   (;B[fa] ;W[ia]
+      (;B[gb] ;W[fb] C[white lives.])
+      (;B[ja]
+         (;W[gb] C[CHOICE white lives.])
+         (;W[hb] C[CHOICE white lives.])
+         (;W[fb] C[CHOICE white lives.])
+      )
+   )
+)

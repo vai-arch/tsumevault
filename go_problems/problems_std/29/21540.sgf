@@ -1,0 +1,50 @@
+(;
+AW [ba][cb][bc][cc][dc][ed][gd][ee][fe][bf][cf][df]
+AB [ca][da][bb][db][fb][ec][fc][gc][bd][dd][fd][be][de]
+C [black to kill white and take the corner.]
+     (;B[ab] ;W[ac]
+          (;B[cd] ;W[aa]
+               (;B[bb] ;W[ae] ;B[ab] C[RIGHT])
+               (;B[ab]; W[ae] ;B[bb] C[RIGHT])
+          )
+          (;B[ad] ;W[aa]
+               (;B[cd] ;W[ce] C[white wins.])
+               (;B[bb] ;W[ce] C[white wins.])
+          )
+          (;B[ae] ;W[af] C[white wins.])
+          (;B[aa] ;W[ba] C[white wins.])
+     )
+
+     (;B[cd] ;W[ab] C[oops!])
+     (;B[ac] ;W[ab]
+          (;B[ae] ;W[af]
+               (;B[cd] ;W[ad] C[ko. black can do better.])
+               (;B[ad] ;W[gf] C[white tenuki. white wins.])
+               (;B[ce] ;W[gf] C[white tenuki. white wins.])
+          )
+          (;B[ad] ;W[ce] C[white wins.])
+          (;B[cd] ;W[ad] C[white wins.])
+     )
+     (;B[aa] ;W[ac]
+          (;B[cd] ;W[ae] C[white wins.])
+          (;B[ae] ;W[af] C[white wins.])
+          (;B[ad] ;W[ce] C[white wins.])
+     )
+     (;B[ae] ;W[ac]
+          (;B[aa] ;W[gf] C[white tenuki. white wins.])
+          (;B[ab]
+               (;W[af] C[CHOICE]
+                    (;B[cd] ;W[aa] ;B[bb] ;W[ab] C[white wins.])
+                    (;B[aa] ;W[ba] C[white wins.])
+               )
+               (;W[aa] C[CHOICE]
+                    (;B[cd] ;W[af] ;B[bb] ;W[ab] C[white wins.])
+                    (;B[bb] ;W[ab] C[white wins.])
+                    (;B[af] ;W[bg] C[white wins.])
+               )
+          )
+          (;B[cd] ;W[ab] C[oops!])
+     )
+     (;B[ad] ;W[ac] ;B[ab] ;W[aa] ;B[bb] ;W[ce] C[white wins.])
+
+)

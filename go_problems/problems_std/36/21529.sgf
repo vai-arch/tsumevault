@@ -1,0 +1,89 @@
+(;
+AW [ca][cb][bc][cd][ae][ce][bf]
+AB [ba][da][ab][db][dc][dd][de][cf][ag][bg][cg]
+C[black to kill all of the stones without ko.]
+     (;B[bb] ;W[cc]
+          (;B[af]
+               (;W[be] C[CHOICE]
+                    (;B[ac] C[RIGHT])
+                    (;B[ad] C[RIGHT])
+                    (;B[bd] ;W[ad] C[seki.])
+               )
+               (;W[ac] ;B[be] ;W[aa] ;B[bb] C[RIGHT])
+               (;W[bd] ;B[ac] C[RIGHT])
+               (;W[ad] ;B[be] C[RIGHT])
+          )
+          (;B[ac] ;W[ad]
+               (;B[be] ;W[aa]
+                    (;B[af] ;W[ab] C[white lives.])
+                    (;B[bb] ;W[af] C[white lives.])
+                    (;B[ab] ;W[bb] ;B[ba] ;W[ac] C[white lives.])
+               )
+               (;B[bd] ;W[be] ;B[af] ;W[aa] ;B[ab] ;W[ba] C[white lives.])
+          )
+          (;B[be] ;W[bd]
+               (;B[af] ;W[ac] ;B[be] ;W[aa] ;B[bb] ;W[bf] C[ko. black can do better.])
+               (;B[ac] ; W[af] C[seki.])
+          )
+     )
+
+
+     (;B[cc] ;W[bb]
+          (;B[bd] ;W[aa] C[ko. black can do better.])
+          (;B[aa] ;W[ac] C[white lives.])
+     )
+     (;B[bd] ;W[cc]
+          (;B[ac] ;W[ad] ;B[af] ;W[be] C[seki.])
+          (;B[af] ;W[be] ;B[ac] ;W[ad] C[seki.])
+          (;B[be] ;W[ad]
+               (;B[af] ;W[be] ;B[ac] C[seki.])
+               (;B[be] ;W[af]
+                    (;B[ac] ;W[bd] C[seki.])
+                    (;B[bb] C[white tenuki. seki.])
+               )
+          )
+          (;B[bb] ;W[ac]
+               (;B[af] ;W[aa] ;B[be] ;W[bb] C[white lives.])
+               (;B[be]
+                    (;W[ad] C[CHOICE]
+                         (;B[be] ;W[aa] C[white lives.])
+                         (;B[af] ;W[aa] C[white lives.])
+                    )
+                    (;W[aa] C[CHOICE]
+                         (;B[af] ;W[bb] C[white lives.])
+                         (;B[bb] ;W[ad] C[white lives.])
+                    )
+               )
+          )
+     )
+     (;B[af] ;W[bb]
+          (;B[ac] ;W[ad]
+               (;B[be] ;W[aa] C[white lives.])
+               (;B[bd] ;W[be] C[white lives.])
+          )
+          (;B[be] ;W[ac] C[white lives.])
+          (;B[aa] ;W[be] C[white lives.])
+     )     
+     (;B[be] ;W[bb] 
+          (;B[aa] ;W[ac]
+               (;B[aa] ;W[bd] C[white lives.])
+               (;B[af] ;W[aa] C[white lives.])
+          )
+          (;B[af] ;W[ac] C[white lives.])
+          (;B[cc] ;W[bd]
+               (;B[ac] ;W[ad] C[white lives.])
+               (;B[af] ;W[ac] C[white lives.])
+          )
+     )
+     (;B[ac] ;W[bb]
+          (;B[bd] ;W[aa] C[ko. black can do better.])
+          (;B[aa] ;W[ad] C[white lives.])
+          (;B[be] ;W[bd] ;B[af] ;W[ad] C[white lives.])
+          (;B[af] ;W[ad] ;B[be] ;W[aa] C[white lives.])
+     )
+     (;B[ad] ;W[bb]
+          (;B[bd] ;W[be] C[white lives.])
+          (;B[ac] ;W[bd] C[white lives.])
+          (;B[af] ;W[ac] C[white lives.])
+     )
+)

@@ -1,0 +1,38 @@
+(
+;AB [bc][bd][cb][dc][ea][eb][ec]
+AW [bb][be][cc][cd][ce][dd][ed][fa][fb][fc][fd]
+SZ [9]
+
+     (;B[ab]
+          (;W[ba]
+               (;B[da] ;W[ad] C[Black dies. White can tenuki instead of playing A6 as Blackâ€™s D9 killed Black in damezumari.])
+               (;B[ad]
+                    (;W[ae] C[CHOICE Black dies.])
+                    (;W[ca] C[CHOICE Black dies.])
+                    (;W[da] C[CHOICE Black dies.])
+               )
+               (;B[ca] C[CHOICE]
+                    (;W[da] ;B[aa] ;W[db] ;B[ad] C[RIGHT])
+                    (;W[ad] ;B[aa] ;W[bb] ;B[ba] C[RIGHT])
+               )
+          )
+          (;W[da] C[CHOICE]
+               (;B[ca] ;W[db] ;B[ba] C[RIGHT])
+               (;B[ba] ;W[db]
+                    (;B[ad] C[RIGHT])
+                    (;B[ca] C[RIGHT])
+               )
+          )
+     )
+
+     (;B[ba] ;W[ab] C[Black dies.])
+     (;B[da]
+          (;W[ac] C[CHOICE Black dies.])
+          (;W[ab] C[CHOICE Black dies.])
+          (;W[ba] C[CHOICE Black dies.])
+     )
+     (;B[ca]
+          (;W[ac] C[CHOICE Black dies.])
+          (;W[ab] C[CHOICE Black dies.])
+     )
+)

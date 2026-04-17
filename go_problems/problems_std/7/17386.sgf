@@ -1,0 +1,13 @@
+(;AW[pa]AW[pb]AW[rb]AW[sb]AW[pc]AW[rc]AB[oa]AB[ob]AB[oc]AB[od]AB[pd]AB[qd]AB[rd]AB[sd]C[Very easy problem. Kill white.CHOICE]
+(;B[ra]
+(;W[qa]C[CHOICE];B[qc]C[RIGHT])
+(;W[qc]C[CHOICE]
+(;B[qb];W[qa]C[WRONG])
+(;B[qa]C[RIGHT])))
+(;B[qc]
+(;W[qb]C[CHOICE];B[ra]C[RIGHT])
+(;W[ra]C[CHOICE];B[qb]C[RIGHT]))
+(;B[qb];W[qc]LB[qa:A]LB[ra:B]C[Nope. a and b are miai to get two eyes.])
+(;B[qa];W[ra]LB[qc:A]LB[qb:B]C[Nope. a and b are miai for a second eye.])
+(;B[sa];W[ra]C[Now that's just silly. You can't prevent a second eye.])
+(;B[sc];W[qc]LB[qa:A]LB[ra:B]C[Nope. a and b are miai to divide this space into two eyes.]))

@@ -1,0 +1,76 @@
+(;
+AW [ca][ab][cb][bd][cd][ae]
+AB [ba][db][dc][dd][ce][bf][df]
+C[black to kill.]
+     (;B[be]
+          (;W[cc] C[CHOICE]
+               (;B[bb] 
+                    (;W[bc] C[CHOICE]
+                         (;B[ad] C[RIGHT])
+                         (;B[af] ;W[ad] C[white lives.])
+                    )
+                    (;W[ad] C[CHOICE] ;B[bc] C[RIGHT])
+               )
+               (;B[ad]
+                    (;W[bb] ;B[ac] C[RIGHT])
+                    (;W[ac] ;B[bb] C[RIGHT])
+               )
+               (;B[bc] ;W[bb] C[white lives.])
+               (;B[af] ;W[ad] C[white lives.])
+          )
+          (;W[ad] C[CHOICE]
+               (;B[bc] ;W[cc] ;B[bb] C[RIGHT])
+               (;B[cc] ;W[bc] C[oops! white lives.])
+               (;B[bb] ;W[bc] C[white lives.])
+           )
+          (;W[bb] C[CHOICE]
+               (;B[cc] C[RIGHT])
+               (;B[ad] C[RIGHT])
+               (;B[af]
+                    (;W[cc] C[CHOICE white lives.])
+                    (;W[ad] C[CHOICE white lives.])
+               )
+          )
+          (;W[bc] C[CHOICE]
+               (;B[ad] C[RIGHT])
+               (;B[af] ;W[ad] C[white lives.])
+               (;B[cc] ;W[ad] C[white lives.])
+               (;B[af] ;W[ad] C[white lives.])
+          )
+     )
+
+
+     (;B[bc] ;W[cc]
+          (;B[be] ;W[bb] C[white lives.])
+          (;B[bb] ;W[be]
+               (;B[ac] ;W[ad] C[white lives.])
+               (;B[af] ;W[ac] C[white lives.])
+          )
+     )
+     (;B[bb] ;W[bc]
+          (;B[be] ;W[ad] C[white lives.])
+          (;B[ad] ;W[be] C[white lives.])
+          (;B[cc] ;W[aa] C[white lives.])
+     )
+     (;B[cc] ;W[bc]
+          (;B[be] ;W[ad] C[white lives.])
+          (;B[ad] ;W[be] C[white lives.])
+     )
+     (;B[ad] ;W[be]
+          (;B[cc] ;W[bc] C[white lives.])
+          (;B[bb] ;W[bc] C[white lives.])
+          (;B[bc] ;W[cc] C[white lives.])
+     )
+     (;B[ac] ;W[cc]
+          (;B[be] ;W[ad] ;B[bb] ;W[bc] C[white lives. white can also tenuki.])
+          (;B[bb] ;W[bc]
+               (;B[aa] ;W[ad] C[white lives.])
+               (;B[be] ;W[ad] C[white lives. white can also tenuki.])
+          )
+          (;B[bc] ;W[be]
+               (;B[af] ;W[bb] C[white lives.])
+               (;B[bb] ;W[ad] C[white lives.])
+          )
+          (;B[ad] ;W[be] ;B[bb] ;W[bc] C[white lives. white can also tenuki.])
+     )
+)

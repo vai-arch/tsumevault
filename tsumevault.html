@@ -427,6 +427,16 @@
       text-transform: uppercase;
     }
 
+    #board-hint.board-hint-black {
+      background: rgba(0, 0, 0, .75);
+      color: var(--text);
+    }
+
+    #board-hint.board-hint-white {
+      background: #f0ece0;
+      color: #1a1710;
+    }
+
     #comment-box {
       width: 100%;
       max-width: 560px;
@@ -834,6 +844,7 @@
         <option value="tsumego_hero">tsumego_hero</option>
         <option value="guo_juan">guo_juan</option>
         <option value="many_faces">many_faces</option>
+        <option value="go_problems">go_problems</option>
       </select>
       <div style="flex:1"></div>
       <span id="sync-status"
@@ -1172,7 +1183,6 @@
         importSnapshot(snap);
         if (!lightMode) {
           await saveDB();
-          precacheSgfs();
         }
         console.log('[DB] Snapshot descargado e importado');
         return true;
@@ -1628,7 +1638,6 @@
       }
 
       await saveDB();
-      precacheSgfs();
     }
 
     function setSyncStatus(state) {
@@ -2273,8 +2282,10 @@
       renderLabels(root);
 
       const playerC = getPlayerToMove(root);
-      document.getElementById('board-hint').textContent =
-        (playerC === 1 ? '● Black' : '○ White') + ' to play — click to answer';
+      const hintEl = document.getElementById('board-hint');
+      hintEl.textContent = (playerC === 1 ? '● Black' : '○ White') + ' to play — click to answer';
+      hintEl.classList.remove('board-hint-black', 'board-hint-white');
+      hintEl.classList.add(playerC === 1 ? 'board-hint-black' : 'board-hint-white');
 
       const cb = document.getElementById('comment-box');
       if (root.comment) { const clean = root.comment.replace(/^DONOTSWAP\s*/i, '').trim(); cb.textContent = clean; cb.style.display = clean ? 'block' : 'none'; }
