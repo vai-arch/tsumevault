@@ -1167,6 +1167,7 @@
         console.log('[DB] Cargada desde IndexedDB');
         // Asegurar columna uuid en runs (migración)
         try { dbExec("ALTER TABLE runs ADD COLUMN uuid TEXT"); } catch (e) { }
+        try { dbExec("ALTER TABLE runs ADD COLUMN paused_ms INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
         try { dbExec("ALTER TABLE chapters ADD COLUMN name TEXT"); } catch (e) { }
         try { dbExec("ALTER TABLE attempts ADD COLUMN uuid TEXT"); } catch (e) { }
         return true;
@@ -1195,6 +1196,7 @@
           const buf = await r2.arrayBuffer();
           db = new SQL.Database(new Uint8Array(buf));
           try { dbExec("ALTER TABLE runs ADD COLUMN uuid TEXT"); } catch (e) { }
+          try { dbExec("ALTER TABLE runs ADD COLUMN paused_ms INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
           await saveDB();
           console.log('[DB] Cargada desde DB estática de GitHub Pages');
           return true;
@@ -1240,7 +1242,7 @@
       set_id INTEGER, chapter_id INTEGER, vc_id INTEGER,
       type TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open',
       total INTEGER NOT NULL DEFAULT 0, done INTEGER NOT NULL DEFAULT 0,
-      started_at TEXT NOT NULL, closed_at TEXT, uuid TEXT
+      started_at TEXT NOT NULL, closed_at TEXT, uuid TEXT, paused_ms INTEGER NOT NULL DEFAULT 0
     );
     CREATE TABLE IF NOT EXISTS run_items (
       run_id INTEGER NOT NULL, source TEXT NOT NULL,
@@ -1296,14 +1298,14 @@
     function localGetLastRunStatsAll(source) {
       // Último run cerrado por set_id (colección completa)
       const colRuns = dbQuery(`
-    SELECT set_id, id FROM runs
+    SELECT set_id, id, started_at, closed_at, COALESCE(paused_ms,0) AS paused_ms FROM runs
     WHERE source=? AND status='closed' AND set_id IS NOT NULL AND chapter_id IS NULL
     GROUP BY set_id HAVING id=MAX(id)
   `, [source]);
 
       // Último run cerrado por chapter_id
       const chapRuns = dbQuery(`
-    SELECT chapter_id, set_id, id FROM runs
+    SELECT chapter_id, set_id, id, started_at, closed_at, COALESCE(paused_ms,0) AS paused_ms FROM runs
     WHERE source=? AND status='closed' AND chapter_id IS NOT NULL
     GROUP BY chapter_id HAVING id=MAX(id)
   `, [source]);
@@ -1316,8 +1318,10 @@
     `, [row.id]);
         const total = items?.total || 0, ok = items?.ok || 0;
         const pct = total > 0 ? Math.round(ok / total * 100) : null;
+        const duration_ms = row.started_at && row.closed_at
+          ? new Date(row.closed_at) - new Date(row.started_at) - row.paused_ms : null;
         if (!result[row.set_id]) result[row.set_id] = { collection: null, by_chapter: {} };
-        result[row.set_id].collection = { ok, total, pct };
+        result[row.set_id].collection = { ok, total, pct, duration_ms };
       }
       for (const row of chapRuns) {
         const items = dbQueryOne(`
@@ -1326,8 +1330,10 @@
     `, [row.id]);
         const total = items?.total || 0, ok = items?.ok || 0;
         const pct = total > 0 ? Math.round(ok / total * 100) : null;
+        const duration_ms = row.started_at && row.closed_at
+          ? new Date(row.closed_at) - new Date(row.started_at) - row.paused_ms : null;
         if (!result[row.set_id]) result[row.set_id] = { collection: null, by_chapter: {} };
-        result[row.set_id].by_chapter[row.chapter_id] = { ok, total, pct };
+        result[row.set_id].by_chapter[row.chapter_id] = { ok, total, pct, duration_ms };
       }
       return result;
     }
@@ -1352,13 +1358,13 @@
 
     function localGetLastRunStats(source, set_id) {
       const colRun = dbQueryOne(`
-    SELECT id FROM runs
+    SELECT id, started_at, closed_at, COALESCE(paused_ms,0) AS paused_ms FROM runs
     WHERE source=? AND set_id=? AND chapter_id IS NULL AND status='closed'
     ORDER BY closed_at DESC LIMIT 1
   `, [source, set_id]);
 
       const chapRuns = dbQuery(`
-    SELECT chapter_id, id FROM runs
+    SELECT chapter_id, id, started_at, closed_at, COALESCE(paused_ms,0) AS paused_ms FROM runs
     WHERE source=? AND set_id=? AND chapter_id IS NOT NULL AND status='closed'
     GROUP BY chapter_id HAVING id=MAX(id)
   `, [source, set_id]);
@@ -1370,17 +1376,21 @@
       FROM run_items WHERE run_id=?
     `, [row.id]);
         const total = items?.total || 0, ok = items?.ok || 0;
-        by_chapter[row.chapter_id] = { ok, total, pct: total > 0 ? Math.round(ok / total * 100) : null };
+        const duration_ms = row.started_at && row.closed_at
+          ? new Date(row.closed_at) - new Date(row.started_at) - row.paused_ms : null;
+        by_chapter[row.chapter_id] = { ok, total, pct: total > 0 ? Math.round(ok / total * 100) : null, duration_ms };
       }
 
-      let collection = { ok: 0, total: 0, pct: null };
+      let collection = { ok: 0, total: 0, pct: null, duration_ms: null };
       if (colRun) {
         const items = dbQueryOne(`
       SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
       FROM run_items WHERE run_id=?
     `, [colRun.id]);
         const total = items?.total || 0, ok = items?.ok || 0;
-        collection = { ok, total, pct: total > 0 ? Math.round(ok / total * 100) : null };
+        const duration_ms = colRun.started_at && colRun.closed_at
+          ? new Date(colRun.closed_at) - new Date(colRun.started_at) - colRun.paused_ms : null;
+        collection = { ok, total, pct: total > 0 ? Math.round(ok / total * 100) : null, duration_ms };
       }
       return { collection, by_chapter };
     }
@@ -1773,6 +1783,14 @@
     document.getElementById('cf-incomplete').addEventListener('change', applyCollectionFilters);
     document.getElementById('cf-perfect').addEventListener('change', applyCollectionFilters);
 
+    function fmtDuration(ms) {
+      if (ms == null || ms < 0) return '';
+      const s = Math.round(ms / 1000);
+      const m = Math.floor(s / 60), sec = s % 60;
+      if (m === 0) return `${sec}s`;
+      return `${m}m${sec > 0 ? ' ' + sec + 's' : ''}`;
+    }
+
     async function refreshCollectionStats() {
       try {
         lastRunStatsAll = localGetLastRunStatsAll(currentSource);
@@ -1782,7 +1800,8 @@
           const colPctEl = document.getElementById(`cpct-${setId}`);
           if (colPctEl && s && s.collection && s.collection.pct != null) {
             const pct = s.collection.pct;
-            colPctEl.textContent = pct + '%';
+            const dur = fmtDuration(s.collection.duration_ms);
+            colPctEl.textContent = pct + '%' + (dur ? ' · ' + dur : '');
             colPctEl.style.color = pct >= 80 ? 'var(--ok-bright)' : pct >= 50 ? 'var(--gold)' : 'var(--accent)';
           }
         });
@@ -1808,7 +1827,8 @@
         const colPctEl = document.getElementById(`cpct-${col.set_id}`);
         if (colPctEl && runStats && runStats.collection.pct != null) {
           const pct = runStats.collection.pct;
-          colPctEl.textContent = pct + '%';
+          const dur = fmtDuration(runStats.collection.duration_ms);
+          colPctEl.textContent = pct + '%' + (dur ? ' · ' + dur : '');
           colPctEl.style.color = pct >= 80 ? 'var(--ok-bright)' : pct >= 50 ? 'var(--gold)' : 'var(--accent)';
         } else if (colPctEl) {
           colPctEl.textContent = '';
@@ -1822,7 +1842,8 @@
             : (chap.diff_min != null ? `${diffLabel(chap.diff_min)}–${diffLabel(chap.diff_max)}` : '—');
 
           const cs = runStats && runStats.by_chapter[chap.id];
-          const chapPctStr = cs && cs.pct != null ? cs.pct + '%' : '';
+          const chapDur = cs ? fmtDuration(cs.duration_ms) : '';
+          const chapPctStr = cs && cs.pct != null ? cs.pct + '%' + (chapDur ? ' · ' + chapDur : '') : '';
           const chapPctColor = cs ? (cs.pct >= 80 ? 'var(--ok-bright)' : cs.pct >= 50 ? 'var(--gold)' : 'var(--accent)') : 'var(--dim2)';
 
           ci.innerHTML = `
@@ -2558,7 +2579,9 @@
         boardWrap.style.visibility = 'hidden';
         document.getElementById('btn-pause').textContent = '▶ Resume';
       } else {
-        totalPaused += Date.now() - pausedAt;
+        const segmentMs = Date.now() - pausedAt;
+        totalPaused += segmentMs;
+        if (activeRunId) dbExec(`UPDATE runs SET paused_ms = paused_ms + ? WHERE id=?`, [segmentMs, activeRunId]);
         overlay.style.display = 'none';
         boardWrap.style.visibility = 'visible';
         document.getElementById('btn-pause').textContent = '⏸ Pause';
