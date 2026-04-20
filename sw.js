@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'tsumevault-v11';
+const CACHE_VERSION = 'tsumevault-v14';
 
 const STATIC_ASSETS = [
   '/tsumevault/tsumevault.html',
@@ -8,8 +8,8 @@ const STATIC_ASSETS = [
   '/tsumevault/audio/stone.mp3',
   '/tsumevault/audio/right.mp3',
   '/tsumevault/audio/wrong.mp3',
-  '/tsumevault/icons/icon-192.png',
-  '/tsumevault/icons/icon-512.png',
+  '/tsumevault/img/icons/icon-192.png',
+  '/tsumevault/img/icons/icon-512.png',
 ];
 
 // Instalación: cachear assets estáticos

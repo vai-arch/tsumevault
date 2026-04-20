@@ -6,12 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0e0c08">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="img/icons/icon-192.png">
   <title>TsumeVault</title>
   <script src="wgo/wgo.min.js"></script>
   <script src="wgo/sgfparser.js"></script>
   <script src="wgo/kifu.js"></script>
-  <link rel="icon" href="icons/icon-192.png">
+  <link rel="icon" href="img/icons/icon-192.png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Serif+JP:wght@300;400&display=swap');
 
@@ -49,7 +49,6 @@
       overflow: hidden;
     }
 
-    /* ── LAYOUT ── */
     #app {
       height: 100vh;
       display: grid;
@@ -58,7 +57,6 @@
       grid-template-areas: "hdr hdr hdr" "left main side";
     }
 
-    /* ── HEADER ── */
     #hdr {
       grid-area: hdr;
       display: flex;
@@ -77,17 +75,22 @@
       text-transform: uppercase;
     }
 
-    #session-pill {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: .18em;
-      padding: 3px 11px;
-      border-radius: 99px;
+    #cfg-btn {
+      background: transparent;
       border: 1px solid var(--border2);
       color: var(--dim);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 3px 8px;
+      border-radius: 2px;
+      line-height: 1;
+      transition: all .18s;
+      flex-shrink: 0;
+    }
+
+    #cfg-btn:hover {
+      color: var(--gold);
+      border-color: var(--gold-dim);
     }
 
     .s-ok {
@@ -98,7 +101,6 @@
       color: var(--accent);
     }
 
-    /* ── LEFT PANEL ── */
     #left {
       grid-area: left;
       border-right: 1px solid var(--border);
@@ -150,7 +152,6 @@
       display: flex;
     }
 
-    /* Collections tree */
     .col-item {
       padding: 10px 14px;
       border-bottom: 1px solid rgba(255, 255, 255, .03);
@@ -285,7 +286,6 @@
       color: var(--gold);
     }
 
-    /* Runs list */
     .run-item {
       padding: 10px 14px;
       border-bottom: 1px solid rgba(255, 255, 255, .03);
@@ -333,7 +333,6 @@
       text-align: center;
     }
 
-    /* Free practice filters */
     .fp-section {
       padding: 10px 14px;
       border-bottom: 1px solid var(--border);
@@ -392,7 +391,6 @@
       background: rgba(212, 168, 74, .08);
     }
 
-    /* ── MAIN ── */
     #main {
       grid-area: main;
       display: flex;
@@ -532,7 +530,6 @@
       color: var(--gold);
     }
 
-    /* ── SIDEBAR ── */
     #sidebar {
       grid-area: side;
       border-left: 1px solid var(--border);
@@ -611,7 +608,6 @@
       text-transform: uppercase;
     }
 
-    /* run progress */
     #run-progress {
       padding: 10px 14px;
       border-bottom: 1px solid var(--border);
@@ -651,7 +647,6 @@
       gap: 10px;
     }
 
-    /* ── HAMBURGER BUTTON ── */
     #menu-btn {
       display: none;
       background: transparent;
@@ -669,8 +664,334 @@
       color: var(--gold);
     }
 
-    /* ── TABLET: 768px–1023px ── */
-    /* Board left, sidebar right, no left panel visible; ☰ opens overlay */
+    /* ══ CONFIG MODAL ══ */
+    #cfg-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      isolation: isolate;
+      z-index: 1300;
+      background: transparent;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #cfg-overlay.open {
+      display: flex;
+    }
+
+    #cfg-modal {
+      background: var(--panel);
+      border: 1px solid var(--border2);
+      border-radius: 3px;
+      width: min(560px, 94vw);
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .8);
+      position: relative;
+      z-index: 301;
+    }
+
+    #cfg-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    #cfg-modal-header span {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    #cfg-close {
+      background: transparent;
+      border: none;
+      color: var(--dim);
+      font-size: 18px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 2px 6px;
+      transition: color .15s;
+    }
+
+    #cfg-close:hover {
+      color: var(--text);
+    }
+
+    #cfg-modal-body {
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border2) transparent;
+      flex: 1;
+      padding: 0;
+    }
+
+    .cfg-section {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cfg-section:last-child {
+      border-bottom: none;
+    }
+
+    .cfg-section-title {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 12px;
+    }
+
+    /* cfg two-col layout for board+stones */
+    .cfg-visual-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .cfg-visual-col-title {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--dim2);
+      margin-bottom: 8px;
+    }
+
+    /* Board color pastillas */
+    #board-colors {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+
+    .board-pill {
+      cursor: pointer;
+      border-radius: 3px;
+      border: 2px solid transparent;
+      overflow: hidden;
+      transition: border-color .15s;
+    }
+
+    .board-pill:hover {
+      border-color: var(--gold-dim);
+    }
+
+    .board-pill.selected {
+      border-color: var(--gold);
+    }
+
+    .board-swatch {
+      width: 100%;
+      height: 22px;
+      display: block;
+    }
+
+    .board-pill-label {
+      font-family: var(--mono);
+      font-size: 7px;
+      color: var(--dim);
+      text-align: center;
+      padding: 2px 2px;
+      background: rgba(0, 0, 0, .4);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .board-pill.selected .board-pill-label {
+      color: var(--gold);
+    }
+
+    /* Board image navigator */
+    #board-img-nav {
+      display: none;
+    }
+
+    #board-img-nav.has-images {
+      display: block;
+    }
+
+    /* Stones navigator */
+    #stones-nav {
+      display: none;
+    }
+
+    #stones-nav.has-stones {
+      display: block;
+    }
+
+    /* Shared nav styles */
+    .cfg-nav-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .cfg-nav-btn {
+      background: transparent;
+      border: 1px solid var(--border2);
+      color: var(--dim);
+      font-size: 16px;
+      cursor: pointer;
+      padding: 0 8px;
+      height: 36px;
+      border-radius: 2px;
+      transition: all .15s;
+      flex-shrink: 0;
+    }
+
+    .cfg-nav-btn:hover {
+      border-color: var(--gold-dim);
+      color: var(--gold);
+    }
+
+    .cfg-nav-preview {
+      width: 72px;
+      flex: none;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 2px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: border-color .15s;
+      display: block;
+    }
+
+    .cfg-nav-preview.selected {
+      border-color: var(--gold);
+    }
+
+    .cfg-nav-preview:hover {
+      border-color: var(--gold-dim);
+    }
+
+    /* Stones preview: two images side by side */
+    .stones-preview-pair {
+      display: flex;
+      gap: 4px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 2px;
+      transition: border-color .15s;
+      padding: 2px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, .3);
+    }
+
+    .stones-preview-pair.selected {
+      border-color: var(--gold);
+    }
+
+    .stones-preview-pair:hover {
+      border-color: var(--gold-dim);
+    }
+
+    .stones-preview-pair img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .cfg-nav-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--dim);
+      margin-top: 4px;
+    }
+
+    .cfg-nav-label.selected {
+      color: var(--gold);
+    }
+
+    /* Sync section */
+    #cfg-sync-status {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--dim);
+      margin-bottom: 8px;
+      min-height: 16px;
+    }
+
+    .cfg-input-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    #cfg-sync-url {
+      flex: 1;
+      font-family: var(--mono);
+      font-size: 10px;
+      background: transparent;
+      border: 1px solid var(--border2);
+      color: var(--dim);
+      padding: 4px 8px;
+      border-radius: 2px;
+      outline: none;
+    }
+
+    #cfg-sync-url:focus {
+      border-color: var(--gold-dim);
+      color: var(--text);
+    }
+
+    #cfg-sync-btn {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      padding: 4px 14px;
+      background: transparent;
+      border: 1px solid var(--gold-dim);
+      color: var(--gold);
+      cursor: pointer;
+      border-radius: 2px;
+      white-space: nowrap;
+      transition: all .18s;
+      flex-shrink: 0;
+    }
+
+    #cfg-sync-btn:hover {
+      background: rgba(212, 168, 74, .08);
+    }
+
+    .cfg-pill {
+      display: flex;
+      gap: 14px;
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .cfg-pill .s-ok {
+      color: var(--ok-bright);
+    }
+
+    .cfg-pill .s-no {
+      color: var(--accent);
+    }
+
+    .cfg-pill .s-rem {
+      color: var(--dim);
+    }
+
+    .cfg-pill .s-tot {
+      color: var(--dim2);
+    }
+
+    /* TABLET */
     @media (min-width:768px) and (max-width:1023px) {
       #app {
         grid-template-columns: 1fr 260px;
@@ -714,7 +1035,7 @@
       }
     }
 
-    /* ── MOBILE PORTRAIT: < 768px ── */
+    /* MOBILE */
     @media (max-width:767px) {
 
       html,
@@ -729,7 +1050,6 @@
         height: 100dvh;
       }
 
-      /* The three panels share one grid cell; only one visible at a time */
       #left,
       #main,
       #sidebar {
@@ -746,7 +1066,6 @@
         overflow: hidden;
       }
 
-      /* Default: show left panel, hide main and sidebar */
       #app.mob-board #left {
         display: none;
       }
@@ -775,7 +1094,6 @@
         display: none;
       }
 
-      /* In board view, main+sidebar stack vertically */
       #app.mob-board {
         grid-template-columns: 100vw;
         grid-template-rows: 42px 1fr auto;
@@ -797,12 +1115,6 @@
         display: none;
       }
 
-      /* Sync UI: hide URL input on mobile, keep just the button */
-      #sync-url {
-        display: none;
-      }
-
-      /* Header compact */
       #hdr {
         gap: 8px;
         padding: 0 10px;
@@ -811,12 +1123,6 @@
       .logo {
         font-size: 10px;
         letter-spacing: .2em;
-      }
-
-      #session-pill {
-        font-size: 10px;
-        padding: 2px 8px;
-        gap: 6px;
       }
 
       #main {
@@ -831,7 +1137,7 @@
       }
 
       #app.mob-board #main {
-        display: flex
+        display: flex;
       }
 
       .ctrl-btn {
@@ -842,6 +1148,16 @@
       #board {
         margin: 0 auto;
       }
+
+      #cfg-modal {
+        width: 100vw;
+        max-height: 100vh;
+        border-radius: 0;
+      }
+
+      .cfg-visual-row {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -849,7 +1165,6 @@
 <body>
   <div id="app">
 
-    <!-- HEADER -->
     <header id="hdr">
       <button id="menu-btn" onclick="toggleMobilePanel()" title="Menu">☰</button>
       <select id="source-sel" class="fsel"
@@ -860,28 +1175,90 @@
         <option value="go_problems">go_problems</option>
       </select>
       <div style="flex:1"></div>
-      <span id="sync-status"
-        style="font-family:var(--mono);font-size:9px;margin-right:4px;position:absolute;left:50%;transform:translateX(-50%);"></span>
-      <input id="sync-url" type="text"
-        style="font-family:var(--mono);font-size:9px;background:transparent;border:1px solid var(--border2);color:var(--dim);padding:3px 8px;border-radius:2px;width:190px;margin-right:6px;"
-        placeholder="http://192.168.1.x:3002">
-      <button id="sync-btn"
-        style="font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:3px 12px;width:80px;background:transparent;border:1px solid var(--gold-dim);color:var(--gold);cursor:pointer;border-radius:2px;margin-right:10px;">
-        ↻ Sync
-      </button>
-      <div id="session-pill">
-        <span>Session</span>
-        <span class="s-ok" id="pill-ok">0✓</span>
-        <span class="s-no" id="pill-no">0✗</span>
-        <span id="pill-rem" style="color:var(--dim)">—</span>
-        <span id="pill-total" style="color:var(--dim2)"></span>
-      </div>
+      <button id="cfg-btn" onclick="openConfig()" title="Settings">⚙</button>
     </header>
 
-    <!-- MOBILE OVERLAY (backdrop for tablet sidebar) -->
+    <!-- CONFIG MODAL -->
+    <div id="cfg-overlay" onclick="onCfgOverlayClick(event)">
+      <div id="cfg-modal">
+        <div id="cfg-modal-header">
+          <span>Configuration</span>
+          <button id="cfg-close" onclick="closeConfig()">✕</button>
+        </div>
+        <div id="cfg-modal-body">
+
+          <!-- BOARD + STONES en dos columnas -->
+          <div class="cfg-section">
+            <div class="cfg-visual-row">
+
+              <!-- Columna izquierda: Board Background -->
+              <div>
+                <div class="cfg-visual-col-title">Board</div>
+                <div id="board-colors"></div>
+                <div id="board-img-nav">
+                  <div class="cfg-nav-row">
+                    <button class="cfg-nav-btn" id="board-nav-prev">&#8249;</button>
+                    <img class="cfg-nav-preview" id="board-nav-preview" src="" alt="">
+                    <button class="cfg-nav-btn" id="board-nav-next">&#8250;</button>
+                  </div>
+                  <div class="cfg-nav-label" id="board-nav-label"></div>
+                </div>
+              </div>
+
+              <!-- Columna derecha: Stones -->
+              <div>
+                <div class="cfg-visual-col-title">Stones</div>
+                <div id="stones-nav">
+                  <div class="cfg-nav-row">
+                    <button class="cfg-nav-btn" id="stones-nav-prev">&#8249;</button>
+                    <div class="stones-preview-pair" id="stones-preview-pair">
+                      <img id="stones-preview-black" src="" alt="●">
+                      <img id="stones-preview-white" src="" alt="○">
+                    </div>
+                    <button class="cfg-nav-btn" id="stones-nav-next">&#8250;</button>
+                  </div>
+                  <div class="cfg-nav-label" id="stones-nav-label"></div>
+                </div>
+                <div id="stones-nav-empty" style="font-family:var(--mono);font-size:9px;color:var(--dim2);display:none">
+                  No stones.json found
+                </div>
+                <div style="margin-top:10px">
+                  <select class="fsel" id="stones-theme-sel">
+                    <option value="">— Select theme —</option>
+                  </select>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SYNC -->
+          <div class="cfg-section">
+            <div class="cfg-section-title">Sync</div>
+            <div id="cfg-sync-status"></div>
+            <div class="cfg-input-row">
+              <select class="fsel" id="cfg-sync-presets" style="margin-bottom:0;flex:1">
+                <option value="">— Saved servers —</option>
+              </select>
+            </div>
+            <div class="cfg-input-row">
+              <input id="cfg-sync-url" type="text" placeholder="http://192.168.1.x:3002">
+              <button id="cfg-sync-btn">↻ Sync</button>
+            </div>
+            <div class="cfg-pill">
+              <span class="s-ok" id="cfg-pill-ok">0✓</span>
+              <span class="s-no" id="cfg-pill-no">0✗</span>
+              <span class="s-rem" id="cfg-pill-rem">—</span>
+              <span class="s-tot" id="cfg-pill-total"></span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
     <div id="mob-overlay" onclick="closeMobilePanel()"></div>
 
-    <!-- LEFT PANEL -->
     <div id="left">
       <div class="tab-bar">
         <div class="tab active" data-tab="collections">Collections</div>
@@ -889,9 +1266,7 @@
         <div class="tab" data-tab="free">Free</div>
       </div>
 
-      <!-- Collections tab -->
       <div class="tab-pane active" id="tab-collections">
-        <!-- Filtros de colecciones -->
         <div id="col-filters"
           style="padding:8px 14px;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:8px;flex-shrink:0;">
           <div>
@@ -918,14 +1293,12 @@
         </div>
       </div>
 
-      <!-- Runs tab -->
       <div class="tab-pane" id="tab-runs">
         <div id="runs-list">
           <div class="runs-empty">No runs yet</div>
         </div>
       </div>
 
-      <!-- Free practice tab -->
       <div class="tab-pane" id="tab-free">
         <div class="fp-section">
           <div class="fp-label">Collection</div>
@@ -978,7 +1351,6 @@
       </div>
     </div>
 
-    <!-- MAIN -->
     <div id="main">
       <div id="welcome">
         <div class="kanji">詰碁</div>
@@ -1004,7 +1376,6 @@
       </div>
     </div>
 
-    <!-- SIDEBAR -->
     <aside id="sidebar">
       <div id="stats-bar">
         <div class="stat"><span class="stat-n ok" id="st-ok">0</span><span class="stat-l">Correct</span></div>
@@ -1038,32 +1409,29 @@
       </div>
       <div
         style="padding:8px 14px;font-family:var(--mono);font-size:7px;color:var(--dim2);letter-spacing:.1em;position:sticky;bottom:0;background:var(--panel);">
-        v11</div>
+        v14</div>
     </aside>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/sql-wasm.js"></script>
   <script>
     // ══════════════════════════════════════════════════════════════
-    //  TSUMEVAULT.HTML
+    //  TSUMEVAULT  v13
     // ══════════════════════════════════════════════════════════════
 
-    // ── Config ──
     const IDB_NAME = 'tsumevault';
     const IDB_STORE = 'kv';
     const DB_KEY = 'tsumeVault_db';
     const SYNC_SERVER_KEY = 'sync_server_url';
+    const BOARD_BG_KEY = 'board_background';
+    const STONE_SET_KEY = 'stone_set_label';
 
-    // URL del servidor de sync (editable en UI, guardada en localStorage)
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'http://192.168.0.50:3002';
+    let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
+    let currentStoneSet = null; // {label, black:[], white:[]} or null = REALISTIC
 
-    // ── State ──
-    let SQL = null;       // sql.js module
-    let db = null;       // sql.js Database instance
-
-    let allCollections = [];
-    let chaptersCache = {};
-    let allProblems = [];
+    let SQL = null, db = null;
+    let allCollections = [], chaptersCache = {}, allProblems = [];
     let currentProblem = null;
     let wgoBoard = null, boardSize = 19;
     let waitingForNext = false;
@@ -1071,25 +1439,12 @@
     let lastRunStatsAll = {};
     let attemptsSinceLastSave = 0;
     let lightMode = false;
-
     let currentSource = 'tsumego_hero';
     const SGF_BASE = '/tsumevault/';
-
-    let pausedAt = 0;
-    let totalPaused = 0;
-    let isPaused = false;
-
-    // Run state
-    let activeRunId = null;
-    let runItems = [];
-    let runIdx = -1;
-    let runMode = false;
-    let problemStartTime = 0;
-
-    // Sync state
+    let pausedAt = 0, totalPaused = 0, isPaused = false;
+    let activeRunId = null, runItems = [], runIdx = -1, runMode = false, problemStartTime = 0;
     let syncInProgress = false;
 
-    // ── Sounds ──
     const SFX = {
       stone: new Audio('audio/stone.mp3'),
       right: new Audio('audio/right.mp3'),
@@ -1097,30 +1452,23 @@
     };
     function playSound(n) { try { SFX[n].currentTime = 0; SFX[n].play(); } catch (e) { } }
 
-    // ── Difficulty label ──
     function diffLabel(num) {
       if (num == null) return '—';
       if (num <= 2000) return (Math.round((2000 - num) / 100) + 1) + 'k';
       return Math.round((num - 2000) / 100) + 'd';
     }
-
-    // ── % aciertos → color ──
     function pctColor(pct) {
       if (pct == null) return 'var(--dim2)';
       if (pct >= 90) return 'var(--ok-bright)';
       if (pct >= 80) return 'var(--gold)';
       return 'var(--accent)';
     }
-
-    // ── UUID ──
     function makeUUID() {
       return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
     }
 
-    // ══════════════════════════════════════════════════════════════
-    //  INDEXEDDB persistence
-    // ══════════════════════════════════════════════════════════════
+    // ── IDB ──
     function idbOpen() {
       return new Promise((res, rej) => {
         const req = indexedDB.open(IDB_NAME, 1);
@@ -1129,7 +1477,6 @@
         req.onerror = e => rej(e.target.error);
       });
     }
-
     async function idbGet(key) {
       const idb = await idbOpen();
       return new Promise((res, rej) => {
@@ -1139,7 +1486,6 @@
         req.onerror = e => rej(e.target.error);
       });
     }
-
     async function idbSet(key, value) {
       const idb = await idbOpen();
       return new Promise((res, rej) => {
@@ -1150,13 +1496,8 @@
       });
     }
 
-    // ══════════════════════════════════════════════════════════════
-    //  SQL.JS DB layer
-    // ══════════════════════════════════════════════════════════════
-    function dbExec(sql, params) {
-      db.run(sql, params);
-    }
-
+    // ── DB ──
+    function dbExec(sql, params) { db.run(sql, params); }
     function dbQuery(sql, params) {
       const stmt = db.prepare(sql);
       if (params) stmt.bind(params);
@@ -1165,52 +1506,31 @@
       stmt.free();
       return rows;
     }
-
-    function dbQueryOne(sql, params) {
-      const rows = dbQuery(sql, params);
-      return rows.length ? rows[0] : null;
-    }
-
-    async function saveDB() {
-      const data = db.export();
-      await idbSet(DB_KEY, data);
-    }
+    function dbQueryOne(sql, params) { const rows = dbQuery(sql, params); return rows.length ? rows[0] : null; }
+    async function saveDB() { const data = db.export(); await idbSet(DB_KEY, data); }
 
     async function initDB() {
-      SQL = await initSqlJs({
-        locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${file}`
-      });
-
-      // Intentar cargar DB desde IndexedDB
+      SQL = await initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${file}` });
       const saved = await idbGet(DB_KEY);
       if (saved) {
         db = new SQL.Database(saved);
         console.log('[DB] Cargada desde IndexedDB');
-        // Asegurar columna uuid en runs (migración)
         try { dbExec("ALTER TABLE runs ADD COLUMN uuid TEXT"); } catch (e) { }
         try { dbExec("ALTER TABLE runs ADD COLUMN paused_ms INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
         try { dbExec("ALTER TABLE chapters ADD COLUMN name TEXT"); } catch (e) { }
         try { dbExec("ALTER TABLE attempts ADD COLUMN uuid TEXT"); } catch (e) { }
         return true;
       }
-
-      // No hay DB local — intentar descargar snapshot del servidor
-      console.log('[DB] Sin DB local, intentando snapshot del servidor…');
+      console.log('[DB] Sin DB local, intentando snapshot…');
       try {
         const r = await fetch(SYNC_SERVER + '/sync/snapshot', { signal: AbortSignal.timeout(5000) });
         if (!r.ok) throw new Error(r.status);
         const snap = await r.json();
-        db = new SQL.Database();
-        createSchema();
-        importSnapshot(snap);
-        if (!lightMode) {
-          await saveDB();
-        }
-        console.log('[DB] Snapshot descargado e importado');
+        db = new SQL.Database(); createSchema(); importSnapshot(snap);
+        if (!lightMode) await saveDB();
         return true;
       } catch (e) {
         console.warn('[DB] Servidor no disponible:', e.message);
-        // Fallback: intentar descargar DB binaria desde GitHub Pages
         try {
           const r2 = await fetch('/tsumevault/tsumeVault.db', { signal: AbortSignal.timeout(15000) });
           if (!r2.ok) throw new Error(r2.status);
@@ -1219,13 +1539,9 @@
           try { dbExec("ALTER TABLE runs ADD COLUMN uuid TEXT"); } catch (e) { }
           try { dbExec("ALTER TABLE runs ADD COLUMN paused_ms INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
           await saveDB();
-          console.log('[DB] Cargada desde DB estática de GitHub Pages');
           return true;
         } catch (e2) {
-          console.warn('[DB] DB estática no disponible:', e2.message);
-          db = new SQL.Database();
-          createSchema();
-          return false;
+          db = new SQL.Database(); createSchema(); return false;
         }
       }
     }
@@ -1236,22 +1552,19 @@
       source TEXT NOT NULL, set_id INTEGER NOT NULL, name TEXT NOT NULL,
       folder TEXT NOT NULL, difficulty_raw TEXT, difficulty_num INTEGER,
       num_problems INTEGER, on_disk INTEGER NOT NULL DEFAULT 0,
-      chapter_count INTEGER NOT NULL DEFAULT 0,
-      PRIMARY KEY (source, set_id)
+      chapter_count INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (source, set_id)
     );
     CREATE TABLE IF NOT EXISTS chapters (
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
       set_id INTEGER NOT NULL, chapter_num INTEGER NOT NULL,
-      diff_min INTEGER, diff_max INTEGER, diff_avg INTEGER,
-	  name TEXT,
+      diff_min INTEGER, diff_max INTEGER, diff_avg INTEGER, name TEXT,
       problem_count INTEGER NOT NULL DEFAULT 0
     );
     CREATE TABLE IF NOT EXISTS problems (
       source TEXT NOT NULL, problem_id TEXT NOT NULL, set_id INTEGER NOT NULL,
       chapter_id INTEGER, order_in_chapter INTEGER, sgf_path TEXT NOT NULL,
       sgf_exists INTEGER NOT NULL DEFAULT 0, difficulty_raw TEXT,
-      difficulty_num INTEGER, color_to_play TEXT,
-      PRIMARY KEY (source, problem_id)
+      difficulty_num INTEGER, color_to_play TEXT, PRIMARY KEY (source, problem_id)
     );
     CREATE TABLE IF NOT EXISTS attempts (
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
@@ -1267,8 +1580,7 @@
     );
     CREATE TABLE IF NOT EXISTS run_items (
       run_id INTEGER NOT NULL, source TEXT NOT NULL,
-      problem_id TEXT NOT NULL, order_in_run INTEGER NOT NULL,
-      result TEXT,
+      problem_id TEXT NOT NULL, order_in_run INTEGER NOT NULL, result TEXT,
       PRIMARY KEY (run_id, problem_id)
     );
     CREATE INDEX IF NOT EXISTS idx_problems_set  ON problems(source, set_id);
@@ -1293,194 +1605,102 @@
       ins('problems', ['source', 'problem_id', 'set_id', 'chapter_id', 'order_in_chapter', 'sgf_path', 'sgf_exists', 'difficulty_raw', 'difficulty_num', 'color_to_play'], snap.problems);
     }
 
-    // ══════════════════════════════════════════════════════════════
-    //  LOCAL DB queries (reemplazan las llamadas al servidor)
-    // ══════════════════════════════════════════════════════════════
-
+    // ── Local DB queries ──
     function localGetCollections(source) {
       return dbQuery(`
-    SELECT c.*,
-      COALESCE(s.total_attempts,0) AS total_attempts,
-      COALESCE(s.total_correct,0)  AS total_correct
+    SELECT c.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct
     FROM collections c
     LEFT JOIN (
-      SELECT p.source, p.set_id,
-        COUNT(a.id) AS total_attempts,
+      SELECT p.source, p.set_id, COUNT(a.id) AS total_attempts,
         SUM(CASE WHEN a.result='correct' THEN 1 ELSE 0 END) AS total_correct
-      FROM problems p
-      LEFT JOIN attempts a ON a.source=p.source AND a.problem_id=p.problem_id
+      FROM problems p LEFT JOIN attempts a ON a.source=p.source AND a.problem_id=p.problem_id
       GROUP BY p.source, p.set_id
     ) s ON c.source=s.source AND c.set_id=s.set_id
-    WHERE c.source=?
-    ORDER BY c.difficulty_num ASC, c.name ASC
+    WHERE c.source=? ORDER BY c.difficulty_num ASC, c.name ASC
   `, [source]);
     }
-
     function localGetLastRunStatsAll(source) {
-      // Último run cerrado por set_id (colección completa)
-      const colRuns = dbQuery(`
-    SELECT set_id, id, started_at, closed_at, COALESCE(paused_ms,0) AS paused_ms FROM runs
-    WHERE source=? AND status='closed' AND set_id IS NOT NULL AND chapter_id IS NULL
-    GROUP BY set_id HAVING id=MAX(id)
-  `, [source]);
-
-      // Último run cerrado por chapter_id
-      const chapRuns = dbQuery(`
-    SELECT chapter_id, set_id, id, started_at, closed_at, COALESCE(paused_ms,0) AS paused_ms FROM runs
-    WHERE source=? AND status='closed' AND chapter_id IS NOT NULL
-    GROUP BY chapter_id HAVING id=MAX(id)
-  `, [source]);
-
+      const colRuns = dbQuery(`SELECT set_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms FROM runs WHERE source=? AND status='closed' AND set_id IS NOT NULL AND chapter_id IS NULL GROUP BY set_id HAVING id=MAX(id)`, [source]);
+      const chapRuns = dbQuery(`SELECT chapter_id,set_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms FROM runs WHERE source=? AND status='closed' AND chapter_id IS NOT NULL GROUP BY chapter_id HAVING id=MAX(id)`, [source]);
       const result = {};
       for (const row of colRuns) {
-        const items = dbQueryOne(`
-      SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
-      FROM run_items WHERE run_id=?
-    `, [row.id]);
+        const items = dbQueryOne(`SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok FROM run_items WHERE run_id=?`, [row.id]);
         const total = items?.total || 0, ok = items?.ok || 0;
         const pct = total > 0 ? Math.round(ok / total * 100) : null;
-        const duration_ms = row.started_at && row.closed_at
-          ? new Date(row.closed_at) - new Date(row.started_at) - row.paused_ms : null;
+        const duration_ms = row.started_at && row.closed_at ? new Date(row.closed_at) - new Date(row.started_at) - row.paused_ms : null;
         if (!result[row.set_id]) result[row.set_id] = { collection: null, by_chapter: {} };
         result[row.set_id].collection = { ok, total, pct, duration_ms };
       }
       for (const row of chapRuns) {
-        const items = dbQueryOne(`
-      SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
-      FROM run_items WHERE run_id=?
-    `, [row.id]);
+        const items = dbQueryOne(`SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok FROM run_items WHERE run_id=?`, [row.id]);
         const total = items?.total || 0, ok = items?.ok || 0;
         const pct = total > 0 ? Math.round(ok / total * 100) : null;
-        const duration_ms = row.started_at && row.closed_at
-          ? new Date(row.closed_at) - new Date(row.started_at) - row.paused_ms : null;
+        const duration_ms = row.started_at && row.closed_at ? new Date(row.closed_at) - new Date(row.started_at) - row.paused_ms : null;
         if (!result[row.set_id]) result[row.set_id] = { collection: null, by_chapter: {} };
         result[row.set_id].by_chapter[row.chapter_id] = { ok, total, pct, duration_ms };
       }
-      // Añadir chap_total (total de capítulos por set_id) para col-pct
-      const chapCounts = dbQuery(`
-    SELECT set_id, COUNT(*) AS total FROM chapters WHERE source=? GROUP BY set_id
-  `, [source]);
+      const chapCounts = dbQuery(`SELECT set_id, COUNT(*) AS total FROM chapters WHERE source=? GROUP BY set_id`, [source]);
       for (const row of chapCounts) {
         if (!result[row.set_id]) result[row.set_id] = { collection: null, by_chapter: {} };
         result[row.set_id].chap_total = row.total;
       }
       return result;
     }
-
     function localGetChapters(source, set_id) {
       return dbQuery(`
-    SELECT ch.*,
-      COALESCE(s.total_attempts,0) AS total_attempts,
-      COALESCE(s.total_correct,0)  AS total_correct
+    SELECT ch.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct
     FROM chapters ch
     LEFT JOIN (
-      SELECT p.chapter_id,
-        COUNT(a.id) AS total_attempts,
+      SELECT p.chapter_id, COUNT(a.id) AS total_attempts,
         SUM(CASE WHEN a.result='correct' THEN 1 ELSE 0 END) AS total_correct
       FROM problems p LEFT JOIN attempts a ON a.source=p.source AND a.problem_id=p.problem_id
       GROUP BY p.chapter_id
     ) s ON ch.id=s.chapter_id
-    WHERE ch.source=? AND ch.set_id=?
-    ORDER BY ch.diff_avg ASC
+    WHERE ch.source=? AND ch.set_id=? ORDER BY ch.diff_avg ASC
   `, [source, set_id]);
     }
-
     function localGetLastRunStats(source, set_id) {
-      const colRun = dbQueryOne(`
-    SELECT id, started_at, closed_at, COALESCE(paused_ms,0) AS paused_ms FROM runs
-    WHERE source=? AND set_id=? AND chapter_id IS NULL AND status='closed'
-    ORDER BY closed_at DESC LIMIT 1
-  `, [source, set_id]);
-
-      const chapRuns = dbQuery(`
-    SELECT chapter_id, id, started_at, closed_at, COALESCE(paused_ms,0) AS paused_ms FROM runs
-    WHERE source=? AND set_id=? AND chapter_id IS NOT NULL AND status='closed'
-    GROUP BY chapter_id HAVING id=MAX(id)
-  `, [source, set_id]);
-
+      const colRun = dbQueryOne(`SELECT id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms FROM runs WHERE source=? AND set_id=? AND chapter_id IS NULL AND status='closed' ORDER BY closed_at DESC LIMIT 1`, [source, set_id]);
+      const chapRuns = dbQuery(`SELECT chapter_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms FROM runs WHERE source=? AND set_id=? AND chapter_id IS NOT NULL AND status='closed' GROUP BY chapter_id HAVING id=MAX(id)`, [source, set_id]);
       const by_chapter = {};
       for (const row of chapRuns) {
-        const items = dbQueryOne(`
-      SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
-      FROM run_items WHERE run_id=?
-    `, [row.id]);
+        const items = dbQueryOne(`SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok FROM run_items WHERE run_id=?`, [row.id]);
         const total = items?.total || 0, ok = items?.ok || 0;
-        const duration_ms = row.started_at && row.closed_at
-          ? new Date(row.closed_at) - new Date(row.started_at) - row.paused_ms : null;
+        const duration_ms = row.started_at && row.closed_at ? new Date(row.closed_at) - new Date(row.started_at) - row.paused_ms : null;
         by_chapter[row.chapter_id] = { ok, total, pct: total > 0 ? Math.round(ok / total * 100) : null, duration_ms };
       }
-
       let collection = { ok: 0, total: 0, pct: null, duration_ms: null };
       if (colRun) {
-        const items = dbQueryOne(`
-      SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
-      FROM run_items WHERE run_id=?
-    `, [colRun.id]);
+        const items = dbQueryOne(`SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok FROM run_items WHERE run_id=?`, [colRun.id]);
         const total = items?.total || 0, ok = items?.ok || 0;
-        const duration_ms = colRun.started_at && colRun.closed_at
-          ? new Date(colRun.closed_at) - new Date(colRun.started_at) - colRun.paused_ms : null;
+        const duration_ms = colRun.started_at && colRun.closed_at ? new Date(colRun.closed_at) - new Date(colRun.started_at) - colRun.paused_ms : null;
         collection = { ok, total, pct: total > 0 ? Math.round(ok / total * 100) : null, duration_ms };
       }
       return { collection, by_chapter };
     }
-
     function localGetProblems(source, { set_id, chapter_id } = {}) {
-      let sql = `
-    SELECT p.*,
-      COALESCE(s.total_attempts,0) AS total_attempts,
-      COALESCE(s.total_correct,0)  AS total_correct,
-      COALESCE(s.pct_correct,0)    AS pct_correct,
-      s.last_seen
-    FROM problems p
-    LEFT JOIN (
-      SELECT source, problem_id,
-        COUNT(*) AS total_attempts,
-        SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,
-        ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,
-        MAX(created_at) AS last_seen
-      FROM attempts GROUP BY source, problem_id
-    ) s ON p.source=s.source AND p.problem_id=s.problem_id
-    WHERE p.source=?`;
+      let sql = `SELECT p.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct, COALESCE(s.pct_correct,0) AS pct_correct, s.last_seen FROM problems p LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,MAX(created_at) AS last_seen FROM attempts GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id WHERE p.source=?`;
       const params = [source];
       if (chapter_id) { sql += ' AND p.chapter_id=?'; params.push(chapter_id); }
       else if (set_id) { sql += ' AND p.set_id=?'; params.push(set_id); }
       sql += ' ORDER BY p.order_in_chapter ASC';
       return dbQuery(sql, params);
     }
-
     function localGetProblem(source, problem_id) {
       return dbQueryOne(`
-    SELECT p.*,
-      c.name AS collection_name,
-      ch.chapter_num,
-      COALESCE(s.total_attempts,0) AS total_attempts,
-      COALESCE(s.total_correct,0)  AS total_correct,
-      COALESCE(s.pct_correct,0)    AS pct_correct,
-      COALESCE(s.avg_time_ms,0)    AS avg_time_ms,
-      s.last_seen
+    SELECT p.*, c.name AS collection_name, ch.chapter_num,
+      COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct,
+      COALESCE(s.pct_correct,0) AS pct_correct, COALESCE(s.avg_time_ms,0) AS avg_time_ms, s.last_seen
     FROM problems p
     LEFT JOIN collections c  ON c.source=p.source AND c.set_id=p.set_id
     LEFT JOIN chapters    ch ON ch.id=p.chapter_id
-    LEFT JOIN (
-      SELECT source, problem_id,
-        COUNT(*) AS total_attempts,
-        SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,
-        ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,
-        AVG(time_ms) AS avg_time_ms,
-        MAX(created_at) AS last_seen
-      FROM attempts GROUP BY source, problem_id
-    ) s ON p.source=s.source AND p.problem_id=s.problem_id
+    LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,AVG(time_ms) AS avg_time_ms,MAX(created_at) AS last_seen FROM attempts GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id
     WHERE p.source=? AND p.problem_id=?
   `, [source, problem_id]);
     }
-
     function localGetDifficultyRange(source) {
-      return dbQueryOne(`
-    SELECT MIN(difficulty_num) AS min, MAX(difficulty_num) AS max
-    FROM problems WHERE source=? AND difficulty_num IS NOT NULL
-  `, [source]);
+      return dbQueryOne(`SELECT MIN(difficulty_num) AS min, MAX(difficulty_num) AS max FROM problems WHERE source=? AND difficulty_num IS NOT NULL`, [source]);
     }
-
     function localGetStruggling(source, { set_id, chapter_id } = {}, n = 3) {
       let sql = 'SELECT problem_id FROM problems WHERE source=?';
       const params = [source];
@@ -1489,178 +1709,91 @@
       const probs = dbQuery(sql, params).map(r => r.problem_id);
       const struggling = [];
       for (const pid of probs) {
-        const rows = dbQuery(`
-      SELECT result FROM attempts WHERE source=? AND problem_id=?
-      ORDER BY created_at DESC LIMIT ?
-    `, [source, pid, n]);
+        const rows = dbQuery(`SELECT result FROM attempts WHERE source=? AND problem_id=? ORDER BY created_at DESC LIMIT ?`, [source, pid, n]);
         if (rows.length && rows.some(r => r.result === 'wrong')) struggling.push(pid);
       }
       return struggling;
     }
-
     function localGetRuns(source) {
       return dbQuery(`
-    SELECT r.*,
-      CASE
-        WHEN r.chapter_id IS NOT NULL THEN c.name || ' · ' || ch.name
-        WHEN r.set_id IS NOT NULL THEN c.name
-        ELSE 'Run #' || r.id
-      END AS label,
-      COALESCE(ri_stats.ok_count, 0) AS ok_count
+    SELECT r.*, CASE WHEN r.chapter_id IS NOT NULL THEN c.name || ' · ' || ch.name WHEN r.set_id IS NOT NULL THEN c.name ELSE 'Run #' || r.id END AS label,
+      COALESCE(ri_stats.ok_count,0) AS ok_count
     FROM runs r
     LEFT JOIN collections c  ON c.source=r.source AND c.set_id=r.set_id
     LEFT JOIN chapters    ch ON ch.id=r.chapter_id
-    LEFT JOIN (
-      SELECT run_id, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok_count
-      FROM run_items GROUP BY run_id
-    ) ri_stats ON ri_stats.run_id=r.id
-    WHERE r.source=?
-    ORDER BY r.started_at DESC
+    LEFT JOIN (SELECT run_id, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok_count FROM run_items GROUP BY run_id) ri_stats ON ri_stats.run_id=r.id
+    WHERE r.source=? ORDER BY r.started_at DESC
   `, [source]);
     }
-
     function localGetRunItems(run_id) {
-      return dbQuery(`
-    SELECT ri.*, p.sgf_path, p.difficulty_raw, p.difficulty_num, p.color_to_play
-    FROM run_items ri
-    JOIN problems p ON p.source=ri.source AND p.problem_id=ri.problem_id
-    WHERE ri.run_id=?
-    ORDER BY ri.order_in_run ASC
-  `, [run_id]);
+      return dbQuery(`SELECT ri.*, p.sgf_path, p.difficulty_raw, p.difficulty_num, p.color_to_play FROM run_items ri JOIN problems p ON p.source=ri.source AND p.problem_id=ri.problem_id WHERE ri.run_id=? ORDER BY ri.order_in_run ASC`, [run_id]);
     }
-
     function localInsertAttempt(source, problem_id, run_id, result, time_ms) {
       const created_at = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
       const uuid = makeUUID();
-      dbExec(`
-    INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at, uuid)
-    VALUES (?,?,?,?,?,?,?)
-    `, [source, problem_id, run_id ?? null, result, time_ms ?? null, created_at, uuid]);
+      dbExec(`INSERT INTO attempts (source,problem_id,run_id,result,time_ms,created_at,uuid) VALUES (?,?,?,?,?,?,?)`,
+        [source, problem_id, run_id ?? null, result, time_ms ?? null, created_at, uuid]);
       if (run_id) {
         dbExec(`UPDATE runs SET done=done+1 WHERE id=?`, [run_id]);
-        dbExec(`
-      UPDATE runs SET status='closed', closed_at=?
-      WHERE id=? AND done>=total AND status='open'
-    `, [created_at, run_id]);
-        dbExec(`UPDATE run_items SET result=? WHERE run_id=? AND problem_id=?`,
-          [result, run_id, problem_id]);
+        dbExec(`UPDATE runs SET status='closed', closed_at=? WHERE id=? AND done>=total AND status='open'`, [created_at, run_id]);
+        dbExec(`UPDATE run_items SET result=? WHERE run_id=? AND problem_id=?`, [result, run_id, problem_id]);
       }
     }
-
     function localInsertRun(source, type, { set_id, chapter_id } = {}) {
-      // Resolver set_id si hace falta
-      if (chapter_id && !set_id) {
-        const ch = dbQueryOne('SELECT set_id FROM chapters WHERE id=?', [chapter_id]);
-        if (ch) set_id = ch.set_id;
-      }
-      // Obtener problemas
+      if (chapter_id && !set_id) { const ch = dbQueryOne('SELECT set_id FROM chapters WHERE id=?', [chapter_id]); if (ch) set_id = ch.set_id; }
       let rows;
-      if (type === 'chapter' && chapter_id) {
-        rows = dbQuery(`SELECT source, problem_id FROM problems WHERE chapter_id=? ORDER BY order_in_chapter`, [chapter_id]);
-      } else if (type === 'collection' && set_id) {
-        rows = dbQuery(`SELECT source, problem_id FROM problems WHERE source=? AND set_id=? ORDER BY order_in_chapter`, [source, set_id]);
-      } else {
-        return null;
-      }
-      // Shuffle
-      for (let i = rows.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [rows[i], rows[j]] = [rows[j], rows[i]];
-      }
-      const total = rows.length;
-      const uuid = makeUUID();
+      if (type === 'chapter' && chapter_id) rows = dbQuery(`SELECT source,problem_id FROM problems WHERE chapter_id=? ORDER BY order_in_chapter`, [chapter_id]);
+      else if (type === 'collection' && set_id) rows = dbQuery(`SELECT source,problem_id FROM problems WHERE source=? AND set_id=? ORDER BY order_in_chapter`, [source, set_id]);
+      else return null;
+      for (let i = rows.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[rows[i], rows[j]] = [rows[j], rows[i]]; }
+      const total = rows.length, uuid = makeUUID();
       const started_at = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
-      dbExec(`
-    INSERT INTO runs (source, set_id, chapter_id, type, status, total, done, started_at, uuid)
-    VALUES (?,?,?,?,?,?,0,?,?)
-  `, [source, set_id ?? null, chapter_id ?? null, type, 'open', total, started_at, uuid]);
+      dbExec(`INSERT INTO runs (source,set_id,chapter_id,type,status,total,done,started_at,uuid) VALUES (?,?,?,?,?,?,0,?,?)`,
+        [source, set_id ?? null, chapter_id ?? null, type, 'open', total, started_at, uuid]);
       const run_id = dbQueryOne('SELECT last_insert_rowid() AS id', []).id;
       for (let order = 0; order < rows.length; order++) {
-        dbExec(`INSERT INTO run_items (run_id, source, problem_id, order_in_run) VALUES (?,?,?,?)`,
-          [run_id, rows[order].source, rows[order].problem_id, order + 1]);
+        dbExec(`INSERT INTO run_items (run_id,source,problem_id,order_in_run) VALUES (?,?,?,?)`, [run_id, rows[order].source, rows[order].problem_id, order + 1]);
       }
       return { run_id, total };
     }
-
     function localUpdateRunStatus(run_id, status) {
       const closed_at = status === 'closed' ? new Date().toISOString().replace(/\.\d+Z$/, 'Z') : null;
       dbExec(`UPDATE runs SET status=?, closed_at=? WHERE id=?`, [status, closed_at, run_id]);
     }
 
-    // ══════════════════════════════════════════════════════════════
-    //  SYNC
-    // ══════════════════════════════════════════════════════════════
+    // ══ SYNC ══
     async function tryAutoSync(silent = false) {
       if (syncInProgress) return;
       syncInProgress = true;
       if (!silent) setSyncStatus('syncing');
-      try {
-        await doSync(silent);
-        setSyncStatus('ok');
-      } catch (e) {
-        setSyncStatus('idle');
-      } finally {
-        syncInProgress = false;
-      }
+      try { await doSync(silent); setSyncStatus('ok'); }
+      catch (e) { setSyncStatus('idle'); }
+      finally { syncInProgress = false; }
     }
     async function doSync(lightMode = false) {
-      // 1. IDs máximos de lo que vino del servidor (uuid IS NULL = importado, no generado localmente)
       const maxServerAttemptId = dbQueryOne('SELECT MAX(id) AS m FROM attempts WHERE uuid IS NULL', [])?.m || 0;
       const maxServerRunId = dbQueryOne('SELECT MAX(id) AS m FROM runs WHERE uuid IS NULL', [])?.m || 0;
-
-      // 2. Pull: traer lo nuevo del servidor
-      const pullR = await fetch(`${SYNC_SERVER}/sync/pull?since_attempt_id=${maxServerAttemptId}&since_run_id=${maxServerRunId}`,
-        { signal: AbortSignal.timeout(8000) });
+      const pullR = await fetch(`${SYNC_SERVER}/sync/pull?since_attempt_id=${maxServerAttemptId}&since_run_id=${maxServerRunId}`, { signal: AbortSignal.timeout(8000) });
       if (!pullR.ok) throw new Error('pull failed');
       const pulled = await pullR.json();
-
-      // Insertar attempts del servidor que no tengamos
-      const stmtA = db.prepare(`
-    INSERT OR IGNORE INTO attempts (id, source, problem_id, run_id, result, time_ms, created_at, uuid)
-    VALUES (?,?,?,?,?,?,?,?)
-  `);
-      for (const a of pulled.attempts) {
-        stmtA.run([a.id, a.source, a.problem_id, a.run_id, a.result, a.time_ms, a.created_at, a.uuid ?? null]);
-      }
+      const stmtA = db.prepare(`INSERT OR IGNORE INTO attempts (id,source,problem_id,run_id,result,time_ms,created_at,uuid) VALUES (?,?,?,?,?,?,?,?)`);
+      for (const a of pulled.attempts) stmtA.run([a.id, a.source, a.problem_id, a.run_id, a.result, a.time_ms, a.created_at, a.uuid ?? null]);
       stmtA.free();
-
-      // Insertar runs del servidor que no tengamos (por uuid o id)
       for (const r of pulled.runs) {
-        const exists = r.uuid
-          ? dbQueryOne('SELECT id FROM runs WHERE uuid=?', [r.uuid])
-          : dbQueryOne('SELECT id FROM runs WHERE id=?', [r.id]);
+        const exists = r.uuid ? dbQueryOne('SELECT id FROM runs WHERE uuid=?', [r.uuid]) : dbQueryOne('SELECT id FROM runs WHERE id=?', [r.id]);
         if (!exists) {
-          dbExec(`INSERT OR IGNORE INTO runs (id,source,set_id,chapter_id,vc_id,type,status,total,done,started_at,closed_at,uuid)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
-            [r.id, r.source, r.set_id, r.chapter_id, r.vc_id, r.type, r.status,
-            r.total, r.done, r.started_at, r.closed_at, r.uuid ?? null]);
-          for (const ri of (pulled.run_items || []).filter(i => i.run_id === r.id)) {
-            dbExec(`INSERT OR IGNORE INTO run_items (run_id,source,problem_id,order_in_run,result) VALUES (?,?,?,?,?)`,
-              [ri.run_id, ri.source, ri.problem_id, ri.order_in_run, ri.result]);
-          }
+          dbExec(`INSERT OR IGNORE INTO runs (id,source,set_id,chapter_id,vc_id,type,status,total,done,started_at,closed_at,uuid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
+            [r.id, r.source, r.set_id, r.chapter_id, r.vc_id, r.type, r.status, r.total, r.done, r.started_at, r.closed_at, r.uuid ?? null]);
+          for (const ri of (pulled.run_items || []).filter(i => i.run_id === r.id))
+            dbExec(`INSERT OR IGNORE INTO run_items (run_id,source,problem_id,order_in_run,result) VALUES (?,?,?,?,?)`, [ri.run_id, ri.source, ri.problem_id, ri.order_in_run, ri.result]);
         }
       }
-
-      // 3. Push: solo lo generado localmente (uuid IS NOT NULL)
-      const newAttempts = dbQuery('SELECT * FROM attempts WHERE uuid IS NOT NULL', [])
-        .map(a => ({ ...a, client_id: a.id }));
-      const newRuns = dbQuery('SELECT * FROM runs WHERE uuid IS NOT NULL', [])
-        .map(r => ({
-          ...r,
-          run_items: dbQuery('SELECT * FROM run_items WHERE run_id=?', [r.id])
-        }));
-
+      const newAttempts = dbQuery('SELECT * FROM attempts WHERE uuid IS NOT NULL', []).map(a => ({ ...a, client_id: a.id }));
+      const newRuns = dbQuery('SELECT * FROM runs WHERE uuid IS NOT NULL', []).map(r => ({ ...r, run_items: dbQuery('SELECT * FROM run_items WHERE run_id=?', [r.id]) }));
       if (newAttempts.length || newRuns.length) {
-        const pushR = await fetch(`${SYNC_SERVER}/sync/push`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ attempts: newAttempts, runs: newRuns }),
-          signal: AbortSignal.timeout(8000)
-        });
+        const pushR = await fetch(`${SYNC_SERVER}/sync/push`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ attempts: newAttempts, runs: newRuns }), signal: AbortSignal.timeout(8000) });
         if (!pushR.ok) throw new Error('push failed');
       }
-
-      // 4. Refresh snapshot solo si cambió la versión estática
       if (!lightMode) {
         try {
           const vR = await fetch(`${SYNC_SERVER}/sync/static_version`, { signal: AbortSignal.timeout(5000) });
@@ -1669,291 +1802,394 @@
             const localVersion = parseInt(localStorage.getItem('static_version') || '0');
             if (version !== localVersion) {
               const snapR = await fetch(`${SYNC_SERVER}/sync/snapshot`, { signal: AbortSignal.timeout(120000) });
-              if (snapR.ok) {
-                const snap = await snapR.json();
-                importSnapshot(snap);
-                localStorage.setItem('static_version', String(version));
-              }
+              if (snapR.ok) { importSnapshot(await snapR.json()); localStorage.setItem('static_version', String(version)); }
             }
           }
-        } catch (e) {
-          console.warn('[sync] static_version check failed', e);
-        }
+        } catch (e) { console.warn('[sync] static_version check failed', e); }
       }
-
       await saveDB();
     }
-
     function setSyncStatus(state) {
-      const btn = document.getElementById('sync-btn');
+      const btn = document.getElementById('cfg-sync-btn');
+      const statusEl = document.getElementById('cfg-sync-status');
       if (!btn) return;
       if (state === 'syncing') {
-        btn.textContent = 'Syncin';
-        btn.style.color = 'var(--gold)';
-        btn.style.borderColor = 'var(--gold-dim)';
-        btn.disabled = true;
+        btn.textContent = 'Syncing…'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = true;
+        if (statusEl) statusEl.textContent = 'Syncing…';
       } else if (state === 'ok') {
-        btn.textContent = '✓ OK';
-        btn.style.color = 'var(--ok-bright)';
-        btn.style.borderColor = 'var(--ok-bright)';
-        btn.disabled = true;
-        setTimeout(() => {
-          btn.textContent = '↻ Sync';
-          btn.style.color = 'var(--gold)';
-          btn.style.borderColor = 'var(--gold)';
-          btn.disabled = false;
-        }, 3000);
+        btn.textContent = '✓ OK'; btn.style.color = 'var(--ok-bright)'; btn.style.borderColor = 'var(--ok-bright)'; btn.disabled = true;
+        if (statusEl) statusEl.textContent = 'Last sync: OK';
+        setTimeout(() => { btn.textContent = '↻ Sync'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = false; }, 3000);
       } else {
-        btn.textContent = '↻ Sync';
-        btn.style.color = 'var(--gold)';
-        btn.style.borderColor = 'var(--gold)';
-        btn.disabled = false;
+        btn.textContent = '↻ Sync'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = false;
+        if (statusEl && state === 'idle') statusEl.textContent = 'Last sync: error';
       }
     }
-    // ══════════════════════════════════════════════════════════════
-    //  COLLECTIONS TAB
-    // ══════════════════════════════════════════════════════════════
+
+    // ══ CONFIG MODAL ══
+
+    // ── Stone image cache ──
+    const imgCache = {};
+    function getImg(src) {
+      if (!imgCache[src]) { const img = new Image(); img.src = src; imgCache[src] = img; }
+      return imgCache[src];
+    }
+    function pickVariant(list, x, y) { return list[(x * 13 + y * 7) % list.length]; }
+
+    // ── Board background ──
+    const BOARD_COLOR_FALLBACKS = [
+      { label: 'Classic', value: '#c4943a' },
+      { label: 'Dark', value: '#5c3a1e' },
+      { label: 'Slate', value: '#6b7b6b' },
+      { label: 'Cream', value: '#e8dab0' },
+    ];
+    let boardImages = [], boardImgIdx = 0;
+    let stoneSets = [], stoneSetIdx = 0;
+    let visualConfigLoaded = false;
+
+    async function loadVisualConfig() {
+      // Board images
+      try {
+        const r = await fetch('img/boards/boards.json', { signal: AbortSignal.timeout(3000) });
+        if (r.ok) boardImages = (await r.json()).map(item => ({ label: item.label || item.file.replace(/\.[^.]+$/, ''), value: 'img/boards/' + item.file }));
+      } catch (e) { }
+      // Stone sets
+      try {
+        const r = await fetch('img/stones/stones.json', { signal: AbortSignal.timeout(3000) });
+        if (r.ok) {
+          const list = await r.json();
+          stoneSets = list.map(item => ({
+            label: item.label,
+            black: item.black.map(f => 'img/stones/' + f),
+            white: item.white.map(f => 'img/stones/' + f),
+          }));
+        }
+      } catch (e) { }
+      // Restore saved stone set
+      const savedLabel = localStorage.getItem(STONE_SET_KEY);
+      if (savedLabel) {
+        const idx = stoneSets.findIndex(s => s.label === savedLabel);
+        if (idx >= 0) { stoneSetIdx = idx; currentStoneSet = stoneSets[idx]; }
+      }
+      visualConfigLoaded = true;
+    }
+
+    function renderColorPills() {
+      const container = document.getElementById('board-colors');
+      container.innerHTML = '';
+      for (const col of BOARD_COLOR_FALLBACKS) {
+        const pill = document.createElement('div');
+        pill.className = 'board-pill' + (currentBoardBg === col.value ? ' selected' : '');
+        pill.title = col.label;
+        const swatch = document.createElement('div');
+        swatch.className = 'board-swatch'; swatch.style.background = col.value;
+        pill.appendChild(swatch);
+        const lbl = document.createElement('div');
+        lbl.className = 'board-pill-label'; lbl.textContent = col.label;
+        pill.appendChild(lbl);
+        pill.addEventListener('click', () => selectBoard(col.value));
+        container.appendChild(pill);
+      }
+    }
+
+    function renderBoardNav() {
+      const nav = document.getElementById('board-img-nav');
+      if (!boardImages.length) { nav.classList.remove('has-images'); return; }
+      nav.classList.add('has-images');
+      const selIdx = boardImages.findIndex(b => b.value === currentBoardBg);
+      if (selIdx >= 0) boardImgIdx = selIdx;
+      updateBoardNav();
+    }
+    function updateBoardNav() {
+      if (!boardImages.length) return;
+      const img = boardImages[boardImgIdx];
+      const preview = document.getElementById('board-nav-preview');
+      const label = document.getElementById('board-nav-label');
+      preview.src = img.value; preview.alt = img.label;
+      const sel = currentBoardBg === img.value;
+      preview.classList.toggle('selected', sel);
+      label.textContent = img.label + (sel ? ' ✓' : '');
+      label.classList.toggle('selected', sel);
+    }
+
+    function renderStonesNav() {
+      const nav = document.getElementById('stones-nav');
+      const empty = document.getElementById('stones-nav-empty');
+      if (!stoneSets.length) { nav.classList.remove('has-stones'); empty.style.display = 'block'; return; }
+      nav.classList.add('has-stones'); empty.style.display = 'none';
+      updateStonesNav();
+      renderThemeCombo();
+    }
+    function renderThemeCombo() {
+      const sel = document.getElementById('stones-theme-sel');
+      sel.innerHTML = '<option value="">— Select theme —</option>';
+      for (const set of stoneSets) {
+        const opt = document.createElement('option');
+        opt.value = set.label;
+        opt.textContent = set.label;
+        opt.selected = currentStoneSet && currentStoneSet.label === set.label;
+        sel.appendChild(opt);
+      }
+    }
+    document.getElementById('stones-theme-sel').addEventListener('change', e => {
+      const label = e.target.value;
+      if (!label) return;
+      const set = stoneSets.find(s => s.label === label);
+      if (set) selectStoneSet(set);
+      // Aplicar tablero si existe entrada con mismo label
+      const boardMatch = boardImages.find(b => b.label === label);
+      if (boardMatch) selectBoard(boardMatch.value);
+    });
+    function updateStonesNav() {
+      if (!stoneSets.length) return;
+      const set = stoneSets[stoneSetIdx];
+      const pair = document.getElementById('stones-preview-pair');
+      const label = document.getElementById('stones-nav-label');
+      document.getElementById('stones-preview-black').src = set.black[0];
+      document.getElementById('stones-preview-white').src = set.white[0];
+      const sel = currentStoneSet && currentStoneSet.label === set.label;
+      pair.classList.toggle('selected', sel);
+      label.textContent = set.label + (sel ? ' ✓' : '');
+      label.classList.toggle('selected', sel);
+    }
+
+    function selectBoard(value) {
+      currentBoardBg = value;
+      localStorage.setItem(BOARD_BG_KEY, value);
+      renderColorPills();
+      updateBoardNav();
+      applyBoardBackground();
+    }
+    function selectStoneSet(set) {
+      currentStoneSet = set;
+      localStorage.setItem(STONE_SET_KEY, set.label);
+      updateStonesNav();
+      applyBoardBackground();
+    }
+
+    function applyBoardBackground() {
+      if (!wgoBoard || !currentProblem) return;
+      wgoBoard._globalListenerSet = false;
+      wgoBoard = null;
+      initBoard(currentProblem.size || 19);
+      renderProblem(currentProblem);
+    }
+
+    async function loadSyncPresets() {
+      try {
+        const r = await fetch('conf/sync_servers.json', { signal: AbortSignal.timeout(2000) });
+        if (!r.ok) return;
+        const list = await r.json();
+        const sel = document.getElementById('cfg-sync-presets');
+        sel.innerHTML = '<option value="">— Saved servers —</option>';
+        for (const item of list) {
+          const opt = document.createElement('option');
+          opt.value = item.url;
+          opt.textContent = item.label;
+          opt.selected = item.url === SYNC_SERVER;
+          sel.appendChild(opt);
+        }
+      } catch (e) { }
+    }
+
+    document.getElementById('cfg-sync-presets').addEventListener('change', e => {
+      if (!e.target.value) return;
+      SYNC_SERVER = e.target.value;
+      localStorage.setItem(SYNC_SERVER_KEY, SYNC_SERVER);
+      document.getElementById('cfg-sync-url').value = SYNC_SERVER;
+    });
+
+    async function openConfig() {
+      document.getElementById('cfg-overlay').classList.add('open');
+      document.getElementById('cfg-sync-url').value = SYNC_SERVER;
+      if (!visualConfigLoaded) await loadVisualConfig();
+      renderColorPills();
+      renderBoardNav();
+      renderStonesNav();
+      loadSyncPresets();
+    }
+    function closeConfig() { document.getElementById('cfg-overlay').classList.remove('open'); }
+    function onCfgOverlayClick(e) { if (e.target === document.getElementById('cfg-overlay')) closeConfig(); }
+
+    document.getElementById('board-nav-prev').addEventListener('click', () => {
+      if (!boardImages.length) return;
+      boardImgIdx = (boardImgIdx - 1 + boardImages.length) % boardImages.length;
+      updateBoardNav();
+    });
+    document.getElementById('board-nav-next').addEventListener('click', () => {
+      if (!boardImages.length) return;
+      boardImgIdx = (boardImgIdx + 1) % boardImages.length;
+      updateBoardNav();
+    });
+    document.getElementById('board-nav-preview').addEventListener('click', () => {
+      if (!boardImages.length) return;
+      selectBoard(boardImages[boardImgIdx].value);
+    });
+    document.getElementById('stones-nav-prev').addEventListener('click', () => {
+      if (!stoneSets.length) return;
+      stoneSetIdx = (stoneSetIdx - 1 + stoneSets.length) % stoneSets.length;
+      updateStonesNav();
+    });
+    document.getElementById('stones-nav-next').addEventListener('click', () => {
+      if (!stoneSets.length) return;
+      stoneSetIdx = (stoneSetIdx + 1) % stoneSets.length;
+      updateStonesNav();
+    });
+    document.getElementById('stones-preview-pair').addEventListener('click', () => {
+      if (!stoneSets.length) return;
+      selectStoneSet(stoneSets[stoneSetIdx]);
+    });
+
+    document.getElementById('cfg-sync-url').addEventListener('change', e => {
+      SYNC_SERVER = e.target.value.trim().replace(/\/$/, '');
+      localStorage.setItem(SYNC_SERVER_KEY, SYNC_SERVER);
+    });
+    document.getElementById('cfg-sync-btn').addEventListener('click', async () => {
+      if (syncInProgress) return;
+      syncInProgress = true; setSyncStatus('syncing');
+      try {
+        await doSync(); setSyncStatus('ok'); loadCollections();
+        if (activeRunId) runItems = localGetRunItems(activeRunId);
+        if (document.querySelector('.tab[data-tab="runs"].active')) loadRuns();
+      } catch (e) { setSyncStatus('idle'); alert('Sync error: ' + e.message); }
+      finally { syncInProgress = false; }
+    });
+
+    // ══ STONE DRAW HANDLER ══
+    function buildStoneHandler(set) {
+      if (!set) return WGo.Board.drawHandlers.REALISTIC;
+      return {
+        stone: {
+          draw: function (a, board) {
+            const ctx = this;
+            const x = board.getX(a.x), y = board.getY(a.y), r = board.stoneRadius;
+            const isBlack = a.c === WGo.B;
+            const src = isBlack ? pickVariant(set.black, a.x, a.y) : pickVariant(set.white, a.x, a.y);
+            const img = getImg(src);
+            if (!img.complete || img.naturalWidth === 0) { img.onload = () => board.redraw(); return; }
+            ctx.drawImage(img, x - r, y - r, r * 2, r * 2);
+          }
+        }
+      };
+    }
+
+    // ══ COLLECTIONS ══
     async function loadCollections() {
       try {
         allCollections = localGetCollections(currentSource);
         lastRunStatsAll = localGetLastRunStatsAll(currentSource);
-        renderCollectionsList();
-        populateCollectionDiffFilter();
-        populateFreeFilters();
-        clearSidebar();
+        renderCollectionsList(); populateCollectionDiffFilter(); populateFreeFilters(); clearSidebar();
       } catch (e) {
-        document.getElementById('col-list').innerHTML =
-          `<div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--accent);text-align:center">Error cargando colecciones: ${e.message}</div>`;
+        document.getElementById('col-list').innerHTML = `<div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--accent);text-align:center">Error: ${e.message}</div>`;
       }
     }
-
     function renderCollectionsList() {
-      const list = document.getElementById('col-list');
-      list.innerHTML = '';
+      const list = document.getElementById('col-list'); list.innerHTML = '';
       for (const col of allCollections) {
         const item = document.createElement('div');
-        item.className = 'col-item';
-        item.dataset.setId = col.set_id;
-
+        item.className = 'col-item'; item.dataset.setId = col.set_id;
         const diffStr = col.difficulty_raw || diffLabel(col.difficulty_num) || '—';
         item.innerHTML = `
-      <div class="col-name">
-        <span class="col-arrow">▶</span>
-        <span>${col.name}</span>
-      </div>
-      <div class="col-stats">
-        <span>${col.num_problems} probs</span>
-        <span class="col-diff">${diffStr}</span>
-        <span class="col-pct" id="cpct-${col.set_id}">—</span>
-      </div>
+      <div class="col-name"><span class="col-arrow">▶</span><span>${col.name}</span></div>
+      <div class="col-stats"><span>${col.num_problems} probs</span><span class="col-diff">${diffStr}</span><span class="col-pct" id="cpct-${col.set_id}">—</span></div>
       <div class="col-chapters" id="chaps-${col.set_id}"></div>
       <button class="run-col-btn" id="runcol-${col.set_id}">▶ Run full collection</button>`;
-
         item.querySelector('.col-name').addEventListener('click', () => toggleCollection(col, item));
-        item.querySelector('.run-col-btn').addEventListener('click', e => {
-          e.stopPropagation();
-          startRun({ source: currentSource, type: 'collection', set_id: col.set_id, colName: col.name });
-        });
-        list.appendChild(item);
-        refreshColPct(col.set_id);
+        item.querySelector('.run-col-btn').addEventListener('click', e => { e.stopPropagation(); startRun({ source: currentSource, type: 'collection', set_id: col.set_id, colName: col.name }); });
+        list.appendChild(item); refreshColPct(col.set_id);
       }
     }
-
-    // ── Filtros de colecciones ──
     function populateCollectionDiffFilter() {
       const sel = document.getElementById('cf-diff');
       const nums = [...new Set(allCollections.map(c => c.difficulty_num).filter(n => n != null))].sort((a, b) => a - b);
       sel.innerHTML = '<option value="">All</option>';
-      for (const n of nums) {
-        const opt = document.createElement('option');
-        opt.value = n;
-        opt.textContent = diffLabel(n);
-        sel.appendChild(opt);
-      }
+      for (const n of nums) { const opt = document.createElement('option'); opt.value = n; opt.textContent = diffLabel(n); sel.appendChild(opt); }
     }
-
     function applyCollectionFilters() {
       const maxDiff = document.getElementById('cf-diff').value;
       const onlyIncomplete = document.getElementById('cf-incomplete').checked;
       const hidePerfect = document.getElementById('cf-perfect').checked;
-
       document.querySelectorAll('#col-list .col-item').forEach(item => {
         const setId = item.dataset.setId;
         const col = allCollections.find(c => String(c.set_id) === setId);
         if (!col) return;
-
         let hide = false;
-
-        // Filtro dificultad máxima
-        if (maxDiff !== '' && col.difficulty_num != null && col.difficulty_num > Number(maxDiff)) {
-          hide = true;
-        }
-
-        // Filtro "con intentos y < 100%" (basado en stats globales)
-        if (!hide && onlyIncomplete) {
-          const hasAttempts = (col.total_attempts || 0) > 0;
-          const pct = col.total_attempts > 0
-            ? Math.round((col.total_correct || 0) / col.total_attempts * 100)
-            : 0;
-          if (!hasAttempts || pct === 100) hide = true;
-        }
-
-        // Filtro "ocultar colecciones con último run perfecto en colección Y todos los capítulos"
-        if (!hide && hidePerfect) {
-          const s = lastRunStatsAll[parseInt(setId)];
-          if (s) {
-            const colPerfect = s.collection && s.collection.pct === 100;
-            const chapValues = Object.values(s.by_chapter || {});
-            const allChapsPerfect = chapValues.length > 0 && chapValues.every(c => c.pct === 100);
-            if (colPerfect && allChapsPerfect) hide = true;
-          }
-          // Si no hay runs (s === undefined), no ocultar
-        }
-
+        if (maxDiff !== '' && col.difficulty_num != null && col.difficulty_num > Number(maxDiff)) hide = true;
+        if (!hide && onlyIncomplete) { const hasAttempts = (col.total_attempts || 0) > 0; const pct = col.total_attempts > 0 ? Math.round((col.total_correct || 0) / col.total_attempts * 100) : 0; if (!hasAttempts || pct === 100) hide = true; }
+        if (!hide && hidePerfect) { const s = lastRunStatsAll[parseInt(setId)]; if (s) { const colPerfect = s.collection && s.collection.pct === 100; const chapValues = Object.values(s.by_chapter || {}); const allChapsPerfect = chapValues.length > 0 && chapValues.every(c => c.pct === 100); if (colPerfect && allChapsPerfect) hide = true; } }
         item.classList.toggle('hidden', hide);
       });
     }
-
     document.getElementById('cf-diff').addEventListener('change', applyCollectionFilters);
     document.getElementById('cf-incomplete').addEventListener('change', applyCollectionFilters);
     document.getElementById('cf-perfect').addEventListener('change', applyCollectionFilters);
 
     function fmtDuration(ms) {
       if (ms == null || ms < 0) return '';
-      const s = Math.round(ms / 1000);
-      const m = Math.floor(s / 60), sec = s % 60;
-      if (m === 0) return `${sec}s`;
-      return `${m}m${sec > 0 ? ' ' + sec + 's' : ''}`;
+      const s = Math.round(ms / 1000), m = Math.floor(s / 60), sec = s % 60;
+      if (m === 0) return `${sec}s`; return `${m}m${sec > 0 ? ' ' + sec + 's' : ''}`;
     }
-
     function refreshColPct(setId) {
-      const el = document.getElementById(`cpct-${setId}`);
-      if (!el) return;
+      const el = document.getElementById(`cpct-${setId}`); if (!el) return;
       const s = lastRunStatsAll[parseInt(setId)];
-
-      // Parte 1: run de colección completa
       let part1 = '';
-      if (s && s.collection && s.collection.pct != null) {
-        const pct = s.collection.pct;
-        const dur = fmtDuration(s.collection.duration_ms);
-        part1 = `<span style="color:${pctColor(pct)}">${pct}%</span>${dur ? ' · ' + dur : ''}`;
-      }
-
-      // Parte 2: runs de capítulos
-      const chapTotal = (s && s.chap_total) || 0;
-      let chapDone = 0, pctSum = 0, pctCount = 0;
-      if (s) {
-        for (const cs of Object.values(s.by_chapter)) {
-          if (cs.pct != null) { chapDone++; pctSum += cs.pct; pctCount++; }
-        }
-      }
+      if (s && s.collection && s.collection.pct != null) { const pct = s.collection.pct; const dur = fmtDuration(s.collection.duration_ms); part1 = `<span style="color:${pctColor(pct)}">${pct}%</span>${dur ? ' · ' + dur : ''}`; }
+      const chapTotal = (s && s.chap_total) || 0; let chapDone = 0, pctSum = 0, pctCount = 0;
+      if (s) { for (const cs of Object.values(s.by_chapter)) { if (cs.pct != null) { chapDone++; pctSum += cs.pct; pctCount++; } } }
       const avgPct = pctCount > 0 ? Math.round(pctSum / pctCount) : null;
-      const part2 = chapTotal > 0
-        ? `${chapDone}/${chapTotal} · <span style="color:${pctColor(avgPct)}">${avgPct != null ? avgPct + '%avg' : '—'}</span>`
-        : '';
-
+      const part2 = chapTotal > 0 ? `${chapDone}/${chapTotal} · <span style="color:${pctColor(avgPct)}">${avgPct != null ? avgPct + '%avg' : '—'}</span>` : '';
       if (!part1 && !part2) { el.textContent = ''; return; }
-      if (part1 && part2) el.innerHTML = `${part1} | ${part2}`;
-      else el.innerHTML = part1 || part2;
+      if (part1 && part2) el.innerHTML = `${part1} | ${part2}`; else el.innerHTML = part1 || part2;
     }
-
     async function refreshCollectionStats() {
-      try {
-        lastRunStatsAll = localGetLastRunStatsAll(currentSource);
-        document.querySelectorAll('.col-item').forEach(item => {
-          refreshColPct(parseInt(item.dataset.setId));
-        });
-        applyCollectionFilters();
-      } catch (e) { }
+      try { lastRunStatsAll = localGetLastRunStatsAll(currentSource); document.querySelectorAll('.col-item').forEach(item => refreshColPct(parseInt(item.dataset.setId))); applyCollectionFilters(); } catch (e) { }
     }
-
     async function toggleCollection(col, item) {
       const isOpen = item.classList.contains('expanded');
       document.querySelectorAll('.col-item.expanded').forEach(el => el.classList.remove('expanded'));
       if (isOpen) return;
-
       item.classList.add('expanded');
       const chapDiv = item.querySelector('.col-chapters');
       if (chapDiv.children.length > 0) return;
-
       chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--dim2)">Loading…</div>`;
       try {
         const chapters = localGetChapters(currentSource, col.set_id);
         const runStats = localGetLastRunStats(currentSource, col.set_id);
         chaptersCache[col.set_id] = chapters;
-
-        const colPctEl = document.getElementById(`cpct-${col.set_id}`);
         refreshColPct(col.set_id);
-
         chapDiv.innerHTML = '';
         for (const chap of chapters) {
-          const ci = document.createElement('div');
-          ci.className = 'chap-item';
-          const diffStr = chap.diff_avg != null ? diffLabel(chap.diff_avg)
-            : (chap.diff_min != null ? `${diffLabel(chap.diff_min)}–${diffLabel(chap.diff_max)}` : '—');
-
+          const ci = document.createElement('div'); ci.className = 'chap-item';
+          const diffStr = chap.diff_avg != null ? diffLabel(chap.diff_avg) : (chap.diff_min != null ? `${diffLabel(chap.diff_min)}–${diffLabel(chap.diff_max)}` : '—');
           const cs = runStats && runStats.by_chapter[chap.id];
           const chapDur = cs ? fmtDuration(cs.duration_ms) : '';
           const chapPctStr = cs && cs.pct != null ? cs.pct + '%' + (chapDur ? ' · ' + chapDur : '') : '';
           const chapPctColor = cs ? pctColor(cs.pct) : 'var(--dim2)';
-
-          ci.innerHTML = `
-		<span class="chap-name">${chap.name || `Ch ${chap.chapter_num}`} <span style="color:var(--dim2)">(${diffStr})</span></span>
+          ci.innerHTML = `<span class="chap-name">${chap.name || `Ch ${chap.chapter_num}`} <span style="color:var(--dim2)">(${diffStr})</span></span>
         <span class="chap-stats">${chap.problem_count}p <span class="chap-pct" style="color:${chapPctColor}">${chapPctStr}</span></span>
-        <button class="chap-btn" data-chapid="${chap.id}" data-chapnum="${chap.chapter_num}" data-colname="${col.name}">▶ Run</button>`;
-          ci.querySelector('.chap-btn').addEventListener('click', e => {
-            e.stopPropagation();
-            startRun({
-              source: currentSource, type: 'chapter', chapter_id: chap.id,
-              colName: col.name, chapName: chap.name, chapNum: chap.chapter_num
-            });
-          });
+        <button class="chap-btn" data-chapid="${chap.id}">▶ Run</button>`;
+          ci.querySelector('.chap-btn').addEventListener('click', e => { e.stopPropagation(); startRun({ source: currentSource, type: 'chapter', chapter_id: chap.id, colName: col.name, chapName: chap.name, chapNum: chap.chapter_num }); });
           chapDiv.appendChild(ci);
         }
-      } catch (e) {
-        chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--accent)">Error loading chapters</div>`;
-      }
+      } catch (e) { chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--accent)">Error loading chapters</div>`; }
     }
 
-    // ══════════════════════════════════════════════════════════════
-    //  RUNS
-    // ══════════════════════════════════════════════════════════════
+    // ══ RUNS ══
     async function startRun(opts) {
-      if (activeRunId) {
-        try { localUpdateRunStatus(activeRunId, 'closed'); await saveDB(); } catch (e) { }
-      }
-
+      if (activeRunId) { try { localUpdateRunStatus(activeRunId, 'closed'); await saveDB(); } catch (e) { } }
       try {
-        const result = localInsertRun(opts.source, opts.type, {
-          set_id: opts.set_id,
-          chapter_id: opts.chapter_id
-        });
+        const result = localInsertRun(opts.source, opts.type, { set_id: opts.set_id, chapter_id: opts.chapter_id });
         if (!result) throw new Error('No se pudo crear el run');
         activeRunId = result.run_id;
-        await saveDB();
-        tryAutoSync();
-
-        runItems = localGetRunItems(activeRunId);
-        runIdx = -1;
-        runMode = true;
-        sessionOk = 0; sessionNo = 0;
-
-        const label = opts.colName
-          ? (opts.chapNum ? `${opts.colName} · Ch ${opts.chapNum}` : opts.colName)
-          : 'Run';
+        await saveDB(); tryAutoSync();
+        runItems = localGetRunItems(activeRunId); runIdx = -1; runMode = true; sessionOk = 0; sessionNo = 0;
+        const label = opts.colName ? (opts.chapNum ? `${opts.colName} · Ch ${opts.chapNum}` : opts.colName) : 'Run';
         document.getElementById('rp-title').textContent = label;
         document.getElementById('run-progress').style.display = 'block';
-        document.getElementById('pill-total').textContent = '';
-
-        switchTab('runs');
-        await loadRuns();
-        updateSessionUI();
-        nextProblem();
-      } catch (e) {
-        alert('Failed to start run: ' + e.message);
-      }
+        document.getElementById('cfg-pill-total').textContent = '';
+        switchTab('runs'); await loadRuns(); updateSessionUI(); nextProblem();
+      } catch (e) { alert('Failed to start run: ' + e.message); }
     }
-
     async function loadRuns() {
       const list = document.getElementById('runs-list');
       list.innerHTML = `<div class="runs-empty">Loading…</div>`;
@@ -1965,303 +2201,151 @@
           const item = document.createElement('div');
           item.className = 'run-item' + (run.id === activeRunId ? ' active-run' : '');
           const statusCls = run.status === 'open' ? 'run-status-open' : 'run-status-closed';
-          const done = run.done || 0;
-          const total = run.total || 0;
-          const compPct = total > 0 ? Math.round(done / total * 100) : 0;
-          const okCount = run.ok_count || 0;
-          const accPct = done > 0 ? Math.round(okCount / done * 100) : null;
+          const done = run.done || 0, total = run.total || 0, compPct = total > 0 ? Math.round(done / total * 100) : 0;
+          const okCount = run.ok_count || 0, accPct = done > 0 ? Math.round(okCount / done * 100) : null;
           const date = (run.started_at || '').slice(0, 10);
-          const accStr = accPct != null
-            ? `<span style="color:${pctColor(accPct)}">${accPct}%✓</span>`
-            : '';
-          item.innerHTML = `
-        <div class="run-title">${run.label || `Run #${run.id}`}</div>
-        <div class="run-meta">
-          <span class="${statusCls}">${run.status}</span>
-          <span>${done}/${total} (${compPct}%) ${accStr}</span>
-          <span style="color:var(--dim2)">${date}</span>
-        </div>`;
+          const accStr = accPct != null ? `<span style="color:${pctColor(accPct)}">${accPct}%✓</span>` : '';
+          item.innerHTML = `<div class="run-title">${run.label || `Run #${run.id}`}</div><div class="run-meta"><span class="${statusCls}">${run.status}</span><span>${done}/${total} (${compPct}%) ${accStr}</span><span style="color:var(--dim2)">${date}</span></div>`;
           if (run.status === 'open') {
             item.addEventListener('click', () => resumeRun(run.id));
             const closeBtn = document.createElement('button');
-            closeBtn.className = 'chap-btn';
-            closeBtn.textContent = '✕ Close';
-            closeBtn.style.marginTop = '4px';
+            closeBtn.className = 'chap-btn'; closeBtn.textContent = '✕ Close'; closeBtn.style.marginTop = '4px';
             closeBtn.addEventListener('click', async e => {
-              e.stopPropagation();
-              localUpdateRunStatus(run.id, 'closed');
-              await saveDB();
-              if (activeRunId === run.id) {
-                activeRunId = null;
-                runMode = false;
-                runItems = [];
-                document.getElementById('run-progress').style.display = 'none';
-              }
+              e.stopPropagation(); localUpdateRunStatus(run.id, 'closed'); await saveDB();
+              if (activeRunId === run.id) { activeRunId = null; runMode = false; runItems = []; document.getElementById('run-progress').style.display = 'none'; }
               loadRuns();
             });
             item.appendChild(closeBtn);
           }
           list.appendChild(item);
         }
-      } catch (e) {
-        list.innerHTML = `<div class="runs-empty" style="color:var(--accent)">Error loading runs</div>`;
-      }
+      } catch (e) { list.innerHTML = `<div class="runs-empty" style="color:var(--accent)">Error loading runs</div>`; }
     }
-
     async function resumeRun(runId) {
       try {
-        activeRunId = runId;
-        runItems = localGetRunItems(runId);
+        activeRunId = runId; runItems = localGetRunItems(runId);
         sessionOk = runItems.filter(i => i.result === 'correct').length;
         sessionNo = runItems.filter(i => i.result === 'wrong').length;
         runIdx = runItems.findIndex(i => !i.result) - 1;
         if (runIdx < -1) runIdx = -1;
-        runMode = true;
-        document.getElementById('run-progress').style.display = 'block';
-        updateRunProgress();
-        nextProblem();
-      } catch (e) {
-        alert('Failed to resume run: ' + e.message);
-      }
+        runMode = true; document.getElementById('run-progress').style.display = 'block';
+        updateRunProgress(); nextProblem();
+      } catch (e) { alert('Failed to resume run: ' + e.message); }
     }
-
     function updateRunProgress() {
-      const done = runItems.filter(i => i.result).length;
-      const total = runItems.length;
+      const done = runItems.filter(i => i.result).length, total = runItems.length;
       const pct = total > 0 ? Math.round(done / total * 100) : 0;
       document.getElementById('rp-bar').style.width = pct + '%';
-      const ok = runItems.filter(i => i.result === 'correct').length;
-      const no = runItems.filter(i => i.result === 'wrong').length;
-      document.getElementById('rp-counts').innerHTML =
-        `<span style="color:var(--ok-bright)">${ok}✓</span><span style="color:var(--accent)">${no}✗</span><span>${done}/${total}</span>`;
-      document.getElementById('pill-rem').textContent = (total - done) + ' left';
+      const ok = runItems.filter(i => i.result === 'correct').length, no = runItems.filter(i => i.result === 'wrong').length;
+      document.getElementById('rp-counts').innerHTML = `<span style="color:var(--ok-bright)">${ok}✓</span><span style="color:var(--accent)">${no}✗</span><span>${done}/${total}</span>`;
+      document.getElementById('cfg-pill-rem').textContent = (total - done) + ' left';
     }
 
-    // ══════════════════════════════════════════════════════════════
-    //  FREE PRACTICE FILTERS
-    // ══════════════════════════════════════════════════════════════
+    // ══ FREE PRACTICE ══
     async function populateFreeFilters() {
       const sel = document.getElementById('fp-col');
       sel.innerHTML = '<option value="">All</option>';
-      for (const col of allCollections) {
-        const o = document.createElement('option');
-        o.value = col.set_id;
-        o.textContent = col.name;
-        sel.appendChild(o);
-      }
-
-      const minSel = document.getElementById('fp-diff');
-      const maxSel = document.getElementById('fp-diff-max');
-      minSel.innerHTML = '<option value="">Min: Any</option>';
-      maxSel.innerHTML = '<option value="">Max: Any</option>';
-
+      for (const col of allCollections) { const o = document.createElement('option'); o.value = col.set_id; o.textContent = col.name; sel.appendChild(o); }
+      const minSel = document.getElementById('fp-diff'), maxSel = document.getElementById('fp-diff-max');
+      minSel.innerHTML = '<option value="">Min: Any</option>'; maxSel.innerHTML = '<option value="">Max: Any</option>';
       try {
         const range = localGetDifficultyRange(currentSource);
         if (range && range.min != null && range.max != null) {
           for (let n = range.min; n <= range.max; n += 100) {
             const lbl = diffLabel(n);
-            [minSel, maxSel].forEach(s => {
-              const o = document.createElement('option');
-              o.value = n;
-              o.textContent = lbl;
-              s.appendChild(o);
-            });
+            [minSel, maxSel].forEach(s => { const o = document.createElement('option'); o.value = n; o.textContent = lbl; s.appendChild(o); });
           }
         }
       } catch (e) { }
-
       document.getElementById('fp-col').addEventListener('change', updateFreeChapters);
       document.getElementById('fp-start').addEventListener('click', startFreePractice);
     }
-
     async function updateFreeChapters() {
       const setId = document.getElementById('fp-col').value;
-      const sel = document.getElementById('fp-chap');
-      sel.innerHTML = '<option value="">All</option>';
+      const sel = document.getElementById('fp-chap'); sel.innerHTML = '<option value="">All</option>';
       if (!setId) return;
-      try {
-        const chapters = localGetChapters(currentSource, parseInt(setId));
-        chaptersCache[setId] = chapters;
-        for (const c of chapters) {
-          const o = document.createElement('option');
-          o.value = c.id;
-          o.textContent = c.name || `Ch ${c.chapter_num}`;
-          sel.appendChild(o);
-        }
-      } catch (e) { }
+      try { const chapters = localGetChapters(currentSource, parseInt(setId)); chaptersCache[setId] = chapters; for (const c of chapters) { const o = document.createElement('option'); o.value = c.id; o.textContent = c.name || `Ch ${c.chapter_num}`; sel.appendChild(o); } } catch (e) { }
     }
-
     async function startFreePractice() {
-      const setId = document.getElementById('fp-col').value;
-      const chapId = document.getElementById('fp-chap').value;
-      const diffMin = document.getElementById('fp-diff').value;
-      const diffMax = document.getElementById('fp-diff-max').value;
-      const color = document.getElementById('fp-color').value;
-      const status = document.getElementById('fp-status').value;
+      const setId = document.getElementById('fp-col').value, chapId = document.getElementById('fp-chap').value;
+      const diffMin = document.getElementById('fp-diff').value, diffMax = document.getElementById('fp-diff-max').value;
+      const color = document.getElementById('fp-color').value, status = document.getElementById('fp-status').value;
       const order = document.getElementById('fp-order').value;
-
       try {
-        let problems = localGetProblems(currentSource, {
-          set_id: setId ? parseInt(setId) : undefined,
-          chapter_id: chapId ? parseInt(chapId) : undefined
-        });
-
+        let problems = localGetProblems(currentSource, { set_id: setId ? parseInt(setId) : undefined, chapter_id: chapId ? parseInt(chapId) : undefined });
         if (diffMin) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num >= parseInt(diffMin));
         if (diffMax) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num <= parseInt(diffMax));
         if (color) problems = problems.filter(p => p.color_to_play === color);
-
         if (status.startsWith('struggling')) {
           const n = parseInt(status.split('-')[1]);
-          const strIds = new Set(localGetStruggling(currentSource, {
-            set_id: setId ? parseInt(setId) : undefined,
-            chapter_id: chapId ? parseInt(chapId) : undefined
-          }, n));
+          const strIds = new Set(localGetStruggling(currentSource, { set_id: setId ? parseInt(setId) : undefined, chapter_id: chapId ? parseInt(chapId) : undefined }, n));
           problems = problems.filter(p => strIds.has(p.problem_id));
         }
-
         if (!problems.length) {
-          document.getElementById('board-wrap').style.display = 'none';
-          document.getElementById('comment-box').style.display = 'none';
-          document.getElementById('result-flash').className = '';
-          document.getElementById('welcome').style.display = 'flex';
+          document.getElementById('board-wrap').style.display = 'none'; document.getElementById('comment-box').style.display = 'none';
+          document.getElementById('result-flash').className = ''; document.getElementById('welcome').style.display = 'flex';
           document.getElementById('welcome').querySelector('p').textContent = 'No problems match the selected filters';
           document.getElementById('welcome').style.pointerEvents = 'none';
-          document.getElementById('pill-total').textContent = '';
-          document.getElementById('pill-rem').textContent = '—';
-          document.getElementById('pill-ok').textContent = '0✓';
-          document.getElementById('pill-no').textContent = '0✗';
+          document.getElementById('cfg-pill-total').textContent = ''; document.getElementById('cfg-pill-rem').textContent = '—';
+          document.getElementById('cfg-pill-ok').textContent = '0✓'; document.getElementById('cfg-pill-no').textContent = '0✗';
           return;
         }
-
-        if (order === 'random') {
-          for (let i = problems.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [problems[i], problems[j]] = [problems[j], problems[i]];
-          }
-        }
-
-        activeRunId = null;
-        runMode = false;
-        runItems = [];
-        document.getElementById('run-progress').style.display = 'none';
-        allProblems = problems;
-        document.getElementById('pill-total').textContent = `/ ${problems.length}`;
-        runIdx = -1;
-        sessionOk = 0; sessionNo = 0;
-        updateSessionUI();
-        nextProblem();
-      } catch (e) {
-        alert('Failed to load problems: ' + e.message);
-      }
+        if (order === 'random') { for (let i = problems.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[problems[i], problems[j]] = [problems[j], problems[i]]; } }
+        activeRunId = null; runMode = false; runItems = []; document.getElementById('run-progress').style.display = 'none';
+        allProblems = problems; document.getElementById('cfg-pill-total').textContent = `/ ${problems.length}`;
+        runIdx = -1; sessionOk = 0; sessionNo = 0; updateSessionUI(); nextProblem();
+      } catch (e) { alert('Failed to load problems: ' + e.message); }
     }
 
-    // ══════════════════════════════════════════════════════════════
-    //  PROBLEM QUEUE / NAVIGATION
-    // ══════════════════════════════════════════════════════════════
+    // ══ PROBLEM NAV ══
     function nextProblem() {
       document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad');
       runIdx++;
-
       let probMeta;
-      if (runMode) {
-        if (runIdx >= runItems.length) { endRun(); return; }
-        probMeta = runItems[runIdx];
-      } else {
-        if (runIdx >= allProblems.length) { showSessionEnd(); return; }
-        probMeta = allProblems[runIdx];
-      }
-
+      if (runMode) { if (runIdx >= runItems.length) { endRun(); return; } probMeta = runItems[runIdx]; }
+      else { if (runIdx >= allProblems.length) { showSessionEnd(); return; } probMeta = allProblems[runIdx]; }
       loadAndRender(probMeta);
     }
-
     async function loadAndRender(probMeta) {
-      isPaused = false;
-      pausedAt = 0;
-      totalPaused = 0;
+      isPaused = false; pausedAt = 0; totalPaused = 0;
       document.getElementById('pause-overlay').style.display = 'none';
       document.getElementById('board-wrap').style.visibility = 'visible';
       document.getElementById('btn-pause').textContent = '⏸ Pause';
-
       try {
         const prob = localGetProblem(currentSource, probMeta.problem_id);
         if (!prob || !prob.sgf_path) { nextProblem(); return; }
-
         const sgfPath = SGF_BASE + prob.sgf_path.replace(/\\/g, '/');
-        const res = await fetch(sgfPath);
-        if (!res.ok) throw new Error('SGF not found');
+        const res = await fetch(sgfPath); if (!res.ok) throw new Error('SGF not found');
         const sgf = await res.text();
-
-        const tree = parseSgfTree(sgf);
-        if (!tree) {
-          console.log('parse failed, sgf=', sgf.substring(0, 100));
-          throw new Error('Parse failed');
-        }
+        const tree = parseSgfTree(sgf); if (!tree) { console.log('parse failed'); throw new Error('Parse failed'); }
         const size = parseInt((sgf.match(/SZ\[(\d+)\]/) || [, '19'])[1]);
-
-        currentProblem = { ...prob, tree, size };
-        problemStartTime = Date.now();
+        currentProblem = { ...prob, tree, size }; problemStartTime = Date.now();
         renderProblem(currentProblem);
-      } catch (e) {
-        console.warn('Skip problem', probMeta.problem_id, e.message);
-        nextProblem();
-      }
+      } catch (e) { console.warn('Skip problem', probMeta.problem_id, e.message); nextProblem(); }
     }
-
     function clearSidebar() {
-      document.getElementById('pi-id').textContent = '—';
-      document.getElementById('pi-col').textContent = '—';
-      document.getElementById('pi-chap').textContent = '—';
-      document.getElementById('pi-diff').textContent = '—';
-      document.getElementById('pi-color').textContent = '—';
-      document.getElementById('ps-seen').textContent = '—';
-      document.getElementById('ps-ok').textContent = '—';
-      document.getElementById('ps-no').textContent = '—';
-      document.getElementById('ps-pct').textContent = '—';
-      document.getElementById('ps-ms').textContent = '—';
+      ['pi-id', 'pi-col', 'pi-chap', 'pi-diff', 'pi-color', 'ps-seen', 'ps-ok', 'ps-no', 'ps-pct', 'ps-ms'].forEach(id => document.getElementById(id).textContent = '—');
     }
-
     async function endRun() {
-      if (activeRunId) {
-        try { localUpdateRunStatus(activeRunId, 'closed'); await saveDB(); tryAutoSync(); } catch (e) { }
-        activeRunId = null;
-      }
-      runMode = false;
-      document.getElementById('run-progress').style.display = 'none';
-      showSessionEnd();
-      loadRuns();
-      refreshCollectionStats();
+      if (activeRunId) { try { localUpdateRunStatus(activeRunId, 'closed'); await saveDB(); tryAutoSync(); } catch (e) { } activeRunId = null; }
+      runMode = false; document.getElementById('run-progress').style.display = 'none';
+      showSessionEnd(); loadRuns(); refreshCollectionStats();
     }
-
     function showSessionEnd() {
-      clearSidebar();
-      clearBoard();
-      wgoBoard = null;
+      clearSidebar(); clearBoard(); wgoBoard = null;
       document.getElementById('board-wrap').style.display = 'none';
       document.getElementById('comment-box').style.display = 'none';
       document.getElementById('result-flash').className = '';
       document.getElementById('welcome').style.display = 'flex';
-      document.getElementById('welcome').querySelector('p').textContent =
-        `Done — ${sessionOk}✓ ${sessionNo}✗`;
+      document.getElementById('welcome').querySelector('p').textContent = `Done — ${sessionOk}✓ ${sessionNo}✗`;
       document.getElementById('welcome').style.pointerEvents = 'none';
     }
 
-    // ══════════════════════════════════════════════════════════════
-    //  SGF / BOARD
-    // ══════════════════════════════════════════════════════════════
-    function parseSgfTree(sgf) {
-      try { return WGo.Kifu.fromSgf(sgf).root; }
-      catch (e) { console.log('WGo parse error:', e.message); return null; }
-    }
-
+    // ══ SGF / BOARD ══
+    function parseSgfTree(sgf) { try { return WGo.Kifu.fromSgf(sgf).root; } catch (e) { console.log('WGo parse error:', e.message); return null; } }
     function getSetupStones(node) {
       const black = [], white = [];
-      if (node.setup && node.setup.length) {
-        for (const s of node.setup) {
-          if (s.c === 1) black.push({ x: s.x, y: s.y, c: 1 });
-          else if (s.c === -1) white.push({ x: s.x, y: s.y, c: -1 });
-        }
-        return { black, white };
-      }
+      if (node.setup && node.setup.length) { for (const s of node.setup) { if (s.c === 1) black.push({ x: s.x, y: s.y, c: 1 }); else if (s.c === -1) white.push({ x: s.x, y: s.y, c: -1 }); } return { black, white }; }
       if (node.properties) {
         const toB = v => ({ x: v.charCodeAt(0) - 97, y: v.charCodeAt(1) - 97, c: 1 });
         const toW = v => ({ x: v.charCodeAt(0) - 97, y: v.charCodeAt(1) - 97, c: -1 });
@@ -2270,13 +2354,11 @@
       }
       return { black, white };
     }
-
     function getPlayerToMove(root) {
       if (root.properties && root.properties.PL) return root.properties.PL === 'W' ? -1 : 1;
       if (root.children && root.children.length) for (const c of root.children) if (c.move) return c.move.c;
       return 1;
     }
-
     function getMarkup(node) { return node.markup ? node.markup.map(m => ({ ...m })) : []; }
 
     function initBoard(size) {
@@ -2287,20 +2369,21 @@
       const avail = Math.min(availW, availH);
       const sz = Math.max(240, Math.min(avail, 620));
       document.getElementById('board').innerHTML = '';
-      wgoBoard = new WGo.Board(document.getElementById('board'), { size: boardSize, width: sz, background: '#c4943a', stoneHandler: WGo.Board.drawHandlers.REALISTIC });
+      wgoBoard = new WGo.Board(document.getElementById('board'), {
+        size: boardSize, width: sz, background: currentBoardBg,
+        stoneHandler: buildStoneHandler(currentStoneSet)
+      });
       wgoBoard.setSection(-0.5, -0.5, -0.5, -0.5);
       wgoBoard.addCustomObject(WGo.Board.coordinates);
       document.getElementById('board-wrap').style.display = 'block';
       document.getElementById('welcome').style.display = 'none';
       document.getElementById('comment-box').style.maxWidth = sz + 'px';
     }
-
     function clearBoard() {
       if (!wgoBoard) return;
-      for (let x = 0; x < wgoBoard.size; x++) { wgoBoard.obj_arr[x] = []; for (let y = 0; y < wgoBoard.size; y++) wgoBoard.obj_arr[x][y] = []; }
+      for (let x = 0; x < wgoBoard.size; x++) { wgoBoard.obj_arr[x] = []; for (let y = 0; y < wgoBoard.size; y++)wgoBoard.obj_arr[x][y] = []; }
       wgoBoard.redraw();
     }
-
     function renderSetup(root) {
       clearBoard();
       const { black, white } = getSetupStones(root);
@@ -2308,28 +2391,21 @@
       for (const s of white) wgoBoard.addObject({ x: s.x, y: s.y, c: -1 });
       renderMarkup(getMarkup(root), black, white);
     }
-
     function renderMarkup(markupList, black, white) {
       if (!markupList || !markupList.length) return;
-      const bSet = new Set(black.map(s => `${s.x},${s.y}`));
-      const wSet = new Set(white.map(s => `${s.x},${s.y}`));
+      const bSet = new Set(black.map(s => `${s.x},${s.y}`)), wSet = new Set(white.map(s => `${s.x},${s.y}`));
       for (const mk of markupList) {
-        const k = `${mk.x},${mk.y}`;
-        const stoneC = bSet.has(k) ? 1 : wSet.has(k) ? -1 : 0;
+        const k = `${mk.x},${mk.y}`, stoneC = bSet.has(k) ? 1 : wSet.has(k) ? -1 : 0;
         const obj = { x: mk.x, y: mk.y };
         if (mk.type === 'LB') {
           obj.type = WGo.Board.drawHandlers['LB']; obj.text = mk.text || '';
-          if (mk.text === ':)') obj.c = '#5cb868';
-          else if (mk.text === ':(') obj.c = '#d45030';
-          else obj.c = stoneC === 1 ? 'white' : stoneC === -1 ? 'black' : '#333';
+          if (mk.text === ':)') obj.c = '#5cb868'; else if (mk.text === ':(') obj.c = '#d45030'; else obj.c = stoneC === 1 ? 'white' : stoneC === -1 ? 'black' : '#333';
         } else if (WGo.Board.drawHandlers[mk.type]) {
-          obj.type = WGo.Board.drawHandlers[mk.type];
-          obj.c = stoneC === 1 ? 'white' : stoneC === -1 ? 'black' : '#333';
+          obj.type = WGo.Board.drawHandlers[mk.type]; obj.c = stoneC === 1 ? 'white' : stoneC === -1 ? 'black' : '#333';
         } else continue;
         wgoBoard.addObject(obj);
       }
     }
-
     function clearCrossMarks() {
       for (let x = 0; x < wgoBoard.size; x++) for (let y = 0; y < wgoBoard.size; y++) {
         if (!wgoBoard.obj_arr[x][y]) continue;
@@ -2337,7 +2413,6 @@
       }
       wgoBoard.redraw();
     }
-
     function renderLabels(node) {
       if (!node.markup) return;
       for (const mk of node.markup) {
@@ -2345,480 +2420,184 @@
         if (wgoBoard.obj_arr[mk.x][mk.y]) wgoBoard.obj_arr[mk.x][mk.y] = wgoBoard.obj_arr[mk.x][mk.y].filter(o => o.c === 1 || o.c === -1);
         wgoBoard.addObject({ x: mk.x, y: mk.y, type: 'LB', text: mk.text });
       }
-      const cb = document.getElementById('comment-box');
-      cb.style.display = 'block';
-      cb.textContent = node.comment || '';
+      const cb = document.getElementById('comment-box'); cb.style.display = 'block'; cb.textContent = node.comment || '';
     }
-
     function renderProblem(prob) {
-      currentProblem = prob;
-      waitingForNext = false;
-      const root = prob.tree;
-      const size = prob.size || 19;
+      currentProblem = prob; waitingForNext = false;
+      const root = prob.tree, size = prob.size || 19;
       if (!wgoBoard || boardSize !== size) initBoard(size);
-      renderSetup(root);
-      renderLabels(root);
-
+      renderSetup(root); renderLabels(root);
       const playerC = getPlayerToMove(root);
       const hintEl = document.getElementById('board-hint');
       hintEl.textContent = (playerC === 1 ? '● Black' : '○ White') + ' to play — click to answer';
       hintEl.classList.remove('board-hint-black', 'board-hint-white');
       hintEl.classList.add(playerC === 1 ? 'board-hint-black' : 'board-hint-white');
-
       const cb = document.getElementById('comment-box');
       if (root.comment) { const clean = root.comment.replace(/^DONOTSWAP\s*/i, '').trim(); cb.textContent = clean; cb.style.display = clean ? 'block' : 'none'; }
       else { cb.textContent = ''; cb.style.display = 'none'; }
-
       document.getElementById('result-flash').className = '';
-
       document.getElementById('pi-id').textContent = prob.problem_id;
       document.getElementById('pi-col').textContent = prob.collection_name || '—';
       document.getElementById('pi-chap').textContent = prob.chapter_num != null ? `Ch ${prob.chapter_num}` : '—';
       document.getElementById('pi-diff').textContent = diffLabel(prob.difficulty_num);
       document.getElementById('pi-color').textContent = prob.color_to_play === 'B' ? '● Black' : prob.color_to_play === 'W' ? '○ White' : '—';
-
       document.getElementById('ps-seen').textContent = prob.total_attempts || '—';
       document.getElementById('ps-ok').textContent = prob.total_correct || '—';
       document.getElementById('ps-no').textContent = prob.total_attempts != null ? (prob.total_attempts - prob.total_correct) || '0' : '—';
       document.getElementById('ps-pct').textContent = prob.total_attempts > 0 ? Math.round(prob.pct_correct) + '%' : '—';
       document.getElementById('ps-ms').textContent = prob.avg_time_ms > 0 ? (prob.avg_time_ms / 1000).toFixed(1) + 's' : '—';
-
       if (wgoBoard._studyListener) wgoBoard.removeEventListener('click', wgoBoard._studyListener);
       wgoBoard._studyListener = null;
       setupInteractiveMode(root, playerC);
-
-      if (runMode) updateRunProgress();
-      updateSessionUI();
-
+      if (runMode) updateRunProgress(); updateSessionUI();
       document.getElementById('btn-back').style.display = runMode ? 'none' : '';
       document.getElementById('btn-next').style.display = runMode ? 'none' : '';
       document.getElementById('btn-restart').style.display = runMode ? 'none' : '';
     }
-
     function setupInteractiveMode(root, playerC) {
-      let firstMoveDone = false;
-      let currentNode = root;
-      let attemptRecorded = false;
-      let answered = false;
-      let hadWrong = false;
-      const history = [];
-      let lastMoveMarker = null;
-
+      let firstMoveDone = false, currentNode = root, attemptRecorded = false, answered = false, hadWrong = false;
+      const history = []; let lastMoveMarker = null;
       const { black: setupB, white: setupW } = getSetupStones(root);
-      const game = new WGo.Game(boardSize);
-      game.allow_rewrite = true;
+      const game = new WGo.Game(boardSize); game.allow_rewrite = true;
       for (const s of setupB) game.setStone(s.x, s.y, WGo.B);
       for (const s of setupW) game.setStone(s.x, s.y, WGo.W);
-
-      function gameSnapshot() {
-        const pos = game.getPosition();
-        const snap = [];
-        for (let x = 0; x < boardSize; x++) for (let y = 0; y < boardSize; y++) {
-          const v = pos.get(x, y);
-          if (v) snap.push({ x, y, v });
-        }
-        return snap;
-      }
-
-      function restoreSnapshot(snap) {
-        game.allow_rewrite = true;
-        for (let x = 0; x < boardSize; x++) for (let y = 0; y < boardSize; y++) game.setStone(x, y, 0);
-        for (const { x, y, v } of snap) game.setStone(x, y, v);
-        redrawFromGame();
-      }
-
-      function redrawFromGame() {
-        clearBoard();
-        const pos = game.getPosition();
-        for (let x = 0; x < boardSize; x++) for (let y = 0; y < boardSize; y++) {
-          const v = pos.get(x, y);
-          if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 });
-          else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 });
-        }
-        if (lastMoveMarker) wgoBoard.addObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' });
-      }
-
-      function placeStone(x, y, c) {
-        game.play(x, y, c === 1 ? WGo.B : WGo.W);
-        redrawFromGame();
-      }
-
-      function drawLastMoveDot(x, y) {
-        if (lastMoveMarker) wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' });
-        wgoBoard.addObject({ x, y, type: 'CR' });
-        lastMoveMarker = { x, y };
-      }
-
+      function gameSnapshot() { const pos = game.getPosition(); const snap = []; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v) snap.push({ x, y, v }); } return snap; }
+      function restoreSnapshot(snap) { game.allow_rewrite = true; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++)game.setStone(x, y, 0); for (const { x, y, v } of snap) game.setStone(x, y, v); redrawFromGame(); }
+      function redrawFromGame() { clearBoard(); const pos = game.getPosition(); for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 }); else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 }); } if (lastMoveMarker) wgoBoard.addObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); }
+      function placeStone(x, y, c) { game.play(x, y, c === 1 ? WGo.B : WGo.W); redrawFromGame(); }
+      function drawLastMoveDot(x, y) { if (lastMoveMarker) wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); wgoBoard.addObject({ x, y, type: 'CR' }); lastMoveMarker = { x, y }; }
       function recordAttempt(result) {
-        if (attemptRecorded) return;
-        attemptRecorded = true;
-        if (!runMode) {
-          if (result === 'correct') sessionOk++;
-          else sessionNo++;
-        }
+        if (attemptRecorded) return; attemptRecorded = true;
+        if (!runMode) { if (result === 'correct') sessionOk++; else sessionNo++; }
         const time_ms = Date.now() - problemStartTime - totalPaused;
         localInsertAttempt(currentSource, currentProblem.problem_id, activeRunId || null, result, time_ms);
         attemptsSinceLastSave = (attemptsSinceLastSave || 0) + 1;
-        if (attemptsSinceLastSave >= 10) {
-          attemptsSinceLastSave = 0;
-          saveDB().then(() => tryAutoSync(true)).catch(() => { });
-        } else {
-          tryAutoSync(true).catch(() => { });
-        }
+        if (attemptsSinceLastSave >= 10) { attemptsSinceLastSave = 0; saveDB().then(() => tryAutoSync(true)).catch(() => { }); }
+        else { tryAutoSync(true).catch(() => { }); }
         if (runMode && runItems[runIdx]) runItems[runIdx].result = result;
       }
-
       function checkResult(node) {
         const comment = (node.comment || '').trim().toUpperCase();
-        if (comment.startsWith('RIGHT')) {
-          showResult(true, node.comment);
-          if (!hadWrong) { recordAttempt('correct'); }
-          updateSessionUI();
-          return true;
-        }
-        if (comment.startsWith('WRONG')) {
-          showResult(false, node.comment);
-          if (!hadWrong) { recordAttempt('wrong'); }
-          hadWrong = true;
-          updateSessionUI();
-          return true;
-        }
+        if (comment.startsWith('RIGHT')) { showResult(true, node.comment); if (!hadWrong) { recordAttempt('correct'); } updateSessionUI(); return true; }
+        if (comment.startsWith('WRONG')) { showResult(false, node.comment); if (!hadWrong) { recordAttempt('wrong'); } hadWrong = true; updateSessionUI(); return true; }
         return false;
       }
-
       function playOpponent(node) {
-        if (!node.children || !node.children.length) {
-          showResult(true, '');
-          if (!hadWrong) { recordAttempt('correct'); if (!runMode) sessionOk++; }
-          updateSessionUI();
-          return;
-        }
+        if (!node.children || !node.children.length) { showResult(true, ''); if (!hadWrong) { recordAttempt('correct'); if (!runMode) sessionOk++; } updateSessionUI(); return; }
         const oppNode = node.children[0];
-        setTimeout(() => {
-          if (oppNode.move && !oppNode.move.pass) {
-            const { x, y } = oppNode.move;
-            placeStone(x, y, oppNode.move.c);
-            drawLastMoveDot(x, y);
-            playSound('stone');
-          }
-          renderLabels(oppNode);
-          if (checkResult(oppNode)) return;
-          currentNode = oppNode;
-          answered = false;
-        }, 400);
+        setTimeout(() => { if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
       }
-
       function onBoardClick(x, y) {
-        clearGhost();  // ← añadir esta línea
-        if (answered || waitingForNext) return;
+        clearGhost(); if (answered || waitingForNext) return;
         if (wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => (o.c === 1 || o.c === -1) && o.type !== 'outline')) return;
-
         const children = currentNode.children || [];
         const match = children.find(c => c.move && !c.move.pass && c.move.x === x && c.move.y === y);
-
-        if (!match) {
-          checkResult({ comment: 'WRONG' });
-          hadWrong = true;
-          return;
-        }
-        history.push({ node: currentNode, snap: gameSnapshot() });
-        answered = true;
+        if (!match) { checkResult({ comment: 'WRONG' }); hadWrong = true; return; }
+        history.push({ node: currentNode, snap: gameSnapshot() }); answered = true;
         if (!firstMoveDone) { clearCrossMarks(); firstMoveDone = true; }
-        placeStone(x, y, playerC);
-        drawLastMoveDot(x, y);
-        renderLabels(match);
-        playSound('stone');
-        if (checkResult(match)) return;
-        playOpponent(match);
+        placeStone(x, y, playerC); drawLastMoveDot(x, y); renderLabels(match); playSound('stone');
+        if (checkResult(match)) return; playOpponent(match);
       }
-
-      function resetGame() {
-        game.allow_rewrite = true;
-        for (let x = 0; x < boardSize; x++) for (let y = 0; y < boardSize; y++) game.setStone(x, y, 0);
-        for (const s of setupB) game.setStone(s.x, s.y, WGo.B);
-        for (const s of setupW) game.setStone(s.x, s.y, WGo.W);
-        lastMoveMarker = null;
-      }
-
-      window._studyRestart = () => {
-        history.length = 0; currentNode = root; answered = false; hadWrong = false;
-        waitingForNext = false;
-        // NO resetear attemptRecorded — solo se graba un intento por problema
-        document.getElementById('comment-box').style.display = 'none';
-        document.getElementById('result-flash').className = '';
-        document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad');
-        resetGame();
-        renderSetup(root);
-        problemStartTime = Date.now();
-        updateSessionUI();
-      };
-      window._studyBack = () => {
-        if (!history.length) return;
-        const prev = history.pop();
-        currentNode = prev.node; answered = false; waitingForNext = false;
-        document.getElementById('comment-box').style.display = 'none';
-        document.getElementById('result-flash').className = '';
-        restoreSnapshot(prev.snap);
-      };
-
-      // ── Ghost stone cursor ──
-      let ghostPos = null;
-      const boardEl = wgoBoard.element;
-
-      function updateGhost(e) {
-        if (answered || waitingForNext) return;
-        const rect = boardEl.getBoundingClientRect();
-        const mx = (e.clientX - rect.left) * wgoBoard.pixelRatio;
-        const my = (e.clientY - rect.top) * wgoBoard.pixelRatio;
-        const x = Math.round((mx - wgoBoard.left) / wgoBoard.fieldWidth);
-        const y = Math.round((my - wgoBoard.top) / wgoBoard.fieldHeight);
-        if (x < 0 || y < 0 || x >= boardSize || y >= boardSize) { clearGhost(); return; }
-        if (ghostPos && ghostPos.x === x && ghostPos.y === y) return;
-        clearGhost();
-        if (wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1)) return;
-        ghostPos = { x, y };
-        wgoBoard.addObject({ x, y, c: playerC, type: 'outline' });
-      }
-      function clearGhost() {
-        if (ghostPos) { wgoBoard.removeObject({ x: ghostPos.x, y: ghostPos.y, type: 'outline' }); ghostPos = null; }
-      }
-      if (wgoBoard._ghostListener) {
-        wgoBoard.element.removeEventListener('mousemove', wgoBoard._ghostListener);
-        wgoBoard.element.removeEventListener('mouseleave', wgoBoard._clearGhost);
-      }
-      wgoBoard._ghostListener = updateGhost;
-      wgoBoard._clearGhost = clearGhost;
-      boardEl.addEventListener('mousemove', updateGhost);
-      boardEl.addEventListener('mouseleave', clearGhost);
-
+      function resetGame() { game.allow_rewrite = true; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++)game.setStone(x, y, 0); for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
+      window._studyRestart = () => { history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; document.getElementById('comment-box').style.display = 'none'; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
+      window._studyBack = () => { if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; document.getElementById('comment-box').style.display = 'none'; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
+      let ghostPos = null; const boardEl = wgoBoard.element;
+      function updateGhost(e) { if (answered || waitingForNext) return; const rect = boardEl.getBoundingClientRect(); const mx = (e.clientX - rect.left) * wgoBoard.pixelRatio; const my = (e.clientY - rect.top) * wgoBoard.pixelRatio; const x = Math.round((mx - wgoBoard.left) / wgoBoard.fieldWidth); const y = Math.round((my - wgoBoard.top) / wgoBoard.fieldHeight); if (x < 0 || y < 0 || x >= boardSize || y >= boardSize) { clearGhost(); return; } if (ghostPos && ghostPos.x === x && ghostPos.y === y) return; clearGhost(); if (wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1)) return; ghostPos = { x, y }; wgoBoard.addObject({ x, y, c: playerC, type: 'outline' }); }
+      function clearGhost() { if (ghostPos) { wgoBoard.removeObject({ x: ghostPos.x, y: ghostPos.y, type: 'outline' }); ghostPos = null; } }
+      if (wgoBoard._ghostListener) { wgoBoard.element.removeEventListener('mousemove', wgoBoard._ghostListener); wgoBoard.element.removeEventListener('mouseleave', wgoBoard._clearGhost); }
+      wgoBoard._ghostListener = updateGhost; wgoBoard._clearGhost = clearGhost;
+      boardEl.addEventListener('mousemove', updateGhost); boardEl.addEventListener('mouseleave', clearGhost);
       window._boardClickHandler = onBoardClick;
-      if (!wgoBoard._globalListenerSet) {
-        wgoBoard.addEventListener('click', (x, y) => {
-          if (window._boardClickHandler) window._boardClickHandler(x, y);
-        });
-        wgoBoard._globalListenerSet = true;
-      }
+      if (!wgoBoard._globalListenerSet) { wgoBoard.addEventListener('click', (x, y) => { if (window._boardClickHandler) window._boardClickHandler(x, y); }); wgoBoard._globalListenerSet = true; }
     }
-
-    // ── Result display ──
     function showResult(isRight, comment) {
-      waitingForNext = true;
-      playSound(isRight ? 'right' : 'wrong');
-
+      waitingForNext = true; playSound(isRight ? 'right' : 'wrong');
       const flash = document.getElementById('result-flash');
-      flash.textContent = isRight ? '✓' : '✗';
-      flash.style.color = isRight ? 'var(--ok-bright)' : 'var(--accent)';
-      flash.className = 'show';
-      setTimeout(() => { flash.className = 'hide'; }, 800);
-
+      flash.textContent = isRight ? '✓' : '✗'; flash.style.color = isRight ? 'var(--ok-bright)' : 'var(--accent)';
+      flash.className = 'show'; setTimeout(() => { flash.className = 'hide'; }, 800);
       const boardEl = document.querySelector('#board-wrap');
       if (boardEl) { boardEl.classList.remove('board-ok', 'board-bad'); boardEl.classList.add(isRight ? 'board-ok' : 'board-bad'); }
-
       const cb = document.getElementById('comment-box');
       const clean = (comment || '').replace(/^RIGHT\s*/i, '').replace(/^WRONG\s*/i, '').trim();
       if (clean) { cb.textContent = clean; cb.style.display = 'block'; }
-
-      if (runMode) {
-        setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000);
-      } else if (isRight) {
-        setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000);
-      }
+      if (runMode) { setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000); }
+      else if (isRight) { setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000); }
     }
-
     function togglePause() {
       if (!currentProblem || waitingForNext) return;
       isPaused = !isPaused;
-      const overlay = document.getElementById('pause-overlay');
-      const boardWrap = document.getElementById('board-wrap');
-      if (isPaused) {
-        pausedAt = Date.now();
-        overlay.style.display = 'flex';
-        boardWrap.style.visibility = 'hidden';
-        document.getElementById('btn-pause').textContent = '▶ Resume';
-      } else {
-        const segmentMs = Date.now() - pausedAt;
-        totalPaused += segmentMs;
-        if (activeRunId) dbExec(`UPDATE runs SET paused_ms = paused_ms + ? WHERE id=?`, [segmentMs, activeRunId]);
-        overlay.style.display = 'none';
-        boardWrap.style.visibility = 'visible';
-        document.getElementById('btn-pause').textContent = '⏸ Pause';
-      }
+      const overlay = document.getElementById('pause-overlay'), boardWrap = document.getElementById('board-wrap');
+      if (isPaused) { pausedAt = Date.now(); overlay.style.display = 'flex'; boardWrap.style.visibility = 'hidden'; document.getElementById('btn-pause').textContent = '▶ Resume'; }
+      else { const segmentMs = Date.now() - pausedAt; totalPaused += segmentMs; if (activeRunId) dbExec(`UPDATE runs SET paused_ms=paused_ms+? WHERE id=?`, [segmentMs, activeRunId]); overlay.style.display = 'none'; boardWrap.style.visibility = 'visible'; document.getElementById('btn-pause').textContent = '⏸ Pause'; }
     }
-
     document.getElementById('btn-pause').addEventListener('click', togglePause);
-    document.getElementById('pause-overlay').addEventListener('click', () => {
-      if (isPaused) togglePause();
-    });
-    // ── Session UI ──
+    document.getElementById('pause-overlay').addEventListener('click', () => { if (isPaused) togglePause(); });
     function updateSessionUI() {
       const ok = runMode ? runItems.filter(i => i.result === 'correct').length : sessionOk;
       const no = runMode ? runItems.filter(i => i.result === 'wrong').length : sessionNo;
-      const seen = ok + no;
-      const rem = runMode ? runItems.filter(i => !i.result).length : 0;
-      document.getElementById('pill-ok').textContent = ok + '✓';
-      document.getElementById('pill-no').textContent = no + '✗';
-      if (runMode) {
-        document.getElementById('pill-rem').textContent = rem + ' left';
-      } else {
-        const freeRem = allProblems.length > 0 ? allProblems.length - (sessionOk + sessionNo) : 0;
-        document.getElementById('pill-rem').textContent = allProblems.length > 0 ? freeRem + ' left' : '—';
-      }
+      const seen = ok + no, rem = runMode ? runItems.filter(i => !i.result).length : 0;
+      document.getElementById('cfg-pill-ok').textContent = ok + '✓';
+      document.getElementById('cfg-pill-no').textContent = no + '✗';
+      if (runMode) { document.getElementById('cfg-pill-rem').textContent = rem + ' left'; }
+      else { const freeRem = allProblems.length > 0 ? allProblems.length - (sessionOk + sessionNo) : 0; document.getElementById('cfg-pill-rem').textContent = allProblems.length > 0 ? freeRem + ' left' : '—'; }
       document.getElementById('st-ok').textContent = ok;
       document.getElementById('st-no').textContent = no;
       document.getElementById('st-seen').textContent = seen;
       document.getElementById('st-pct').textContent = seen > 0 ? Math.round(ok / seen * 100) + '%' : '—';
     }
-
-    // ── Controls ──
-    document.getElementById('btn-next').addEventListener('click', () => {
-      if (runMode) return;
-      nextProblem();
-    });
+    document.getElementById('btn-next').addEventListener('click', () => { if (runMode) return; nextProblem(); });
     document.getElementById('btn-restart').addEventListener('click', () => { if (window._studyRestart) window._studyRestart(); });
     document.getElementById('btn-back').addEventListener('click', () => { if (window._studyBack) window._studyBack(); });
-
     window.addEventListener('keydown', e => {
       if ((e.code === 'Enter' || e.code === 'Space') && waitingForNext && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.altKey && e.code === 'KeyN' && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.code === 'KeyP') { e.preventDefault(); togglePause(); }
+      if (e.code === 'Escape') { closeConfig(); }
     });
-
-    // ── Sync UI ──
-    document.getElementById('sync-url').value = SYNC_SERVER;
-    document.getElementById('sync-url').addEventListener('change', e => {
-      SYNC_SERVER = e.target.value.trim().replace(/\/$/, '');
-      localStorage.setItem(SYNC_SERVER_KEY, SYNC_SERVER);
-    });
-    document.getElementById('sync-btn').addEventListener('click', async () => {
-      if (syncInProgress) return;
-      syncInProgress = true;
-      setSyncStatus('syncing');
-      try {
-        await doSync();
-        setSyncStatus('ok');
-        loadCollections();
-        if (activeRunId) runItems = localGetRunItems(activeRunId);
-        if (document.querySelector('.tab[data-tab="runs"].active')) loadRuns();
-      } catch (e) {
-        setSyncStatus('idle');
-        alert('Sync error: ' + e.message);
-      } finally {
-        syncInProgress = false;
-      }
-    });
-
-    // ── Tabs ──
     function switchTab(name) {
       document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === `tab-${name}`));
     }
     document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
-      const name = t.dataset.tab;
-      switchTab(name);
-      if (name === 'runs') loadRuns();
-      if (name === 'collections') refreshCollectionStats();
+      const name = t.dataset.tab; switchTab(name);
+      if (name === 'runs') loadRuns(); if (name === 'collections') refreshCollectionStats();
     }));
 
-    // ══════════════════════════════════════════════════════════════
-    //  RESPONSIVE / MOBILE NAV
-    // ══════════════════════════════════════════════════════════════
+    // ══ RESPONSIVE ══
     function isMobilePortrait() { return window.innerWidth < 768; }
     function isTablet() { return window.innerWidth >= 768 && window.innerWidth < 1024; }
-
-    function switchToBoard() {
-      if (isMobilePortrait()) {
-        document.getElementById('app').classList.add('mob-board');
-      }
-    }
-    function switchToPanel() {
-      if (isMobilePortrait()) {
-        document.getElementById('app').classList.remove('mob-board');
-      }
-    }
+    function switchToBoard() { if (isMobilePortrait()) document.getElementById('app').classList.add('mob-board'); }
+    function switchToPanel() { if (isMobilePortrait()) document.getElementById('app').classList.remove('mob-board'); }
     function toggleMobilePanel() {
-      if (isMobilePortrait()) {
-        const inBoard = document.getElementById('app').classList.contains('mob-board');
-        if (inBoard) { switchToPanel(); }
-        else if (currentProblem) { switchToBoard(); }
-      } else if (isTablet()) {
-        const left = document.getElementById('left');
-        const ov = document.getElementById('mob-overlay');
-        const open = left.classList.toggle('mob-visible');
-        ov.classList.toggle('mob-visible', open);
-        document.getElementById('board-wrap').style.pointerEvents = open ? 'none' : '';
-        document.querySelectorAll('#board-wrap canvas').forEach(c => c.style.zIndex = open ? '1' : '');
-      }
+      if (isMobilePortrait()) { const inBoard = document.getElementById('app').classList.contains('mob-board'); if (inBoard) switchToPanel(); else if (currentProblem) switchToBoard(); }
+      else if (isTablet()) { const left = document.getElementById('left'), ov = document.getElementById('mob-overlay'); const open = left.classList.toggle('mob-visible'); ov.classList.toggle('mob-visible', open); document.getElementById('board-wrap').style.pointerEvents = open ? 'none' : ''; document.querySelectorAll('#board-wrap canvas').forEach(c => c.style.zIndex = open ? '1' : ''); }
     }
+    function closeMobilePanel() { document.getElementById('left').classList.remove('mob-visible'); document.getElementById('mob-overlay').classList.remove('mob-visible'); document.getElementById('board-wrap').style.pointerEvents = ''; document.querySelectorAll('#board-wrap canvas').forEach(c => c.style.zIndex = ''); }
 
-    function closeMobilePanel() {
-      document.getElementById('left').classList.remove('mob-visible');
-      document.getElementById('mob-overlay').classList.remove('mob-visible');
-      document.getElementById('board-wrap').style.pointerEvents = '';
-      document.querySelectorAll('#board-wrap canvas').forEach(c => c.style.zIndex = '');
-    }
-
-    // ── Patch: switch to board view when a problem loads on mobile ──
     const _origLoadAndRender = loadAndRender;
-    loadAndRender = async function (probMeta) {
-      await _origLoadAndRender(probMeta);
-      switchToBoard();
-    };
-
-    // ── Patch: switch back to panel on session end / no problems ──
+    loadAndRender = async function (probMeta) { await _origLoadAndRender(probMeta); switchToBoard(); };
     const _origShowSessionEnd = showSessionEnd;
-    showSessionEnd = function () {
-      _origShowSessionEnd();
-      switchToPanel();
-    };
-
-    // ── Patch: close panel when a chap/run is clicked on tablet ──
+    showSessionEnd = function () { _origShowSessionEnd(); switchToPanel(); };
     const _origStartRun = startRun;
-    startRun = async function (...args) {
-      closeMobilePanel();
-      return _origStartRun(...args);
-    };
-
+    startRun = async function (...args) { closeMobilePanel(); return _origStartRun(...args); };
     const _origStartFreePractice = startFreePractice;
-    startFreePractice = async function (...args) {
-      closeMobilePanel();
-      return _origStartFreePractice(...args);
-    };
-
+    startFreePractice = async function (...args) { closeMobilePanel(); return _origStartFreePractice(...args); };
 
     let rsTO;
     window.addEventListener('resize', () => { clearTimeout(rsTO); rsTO = setTimeout(() => { if (wgoBoard && currentProblem) { initBoard(currentProblem.size || 19); renderProblem(currentProblem); } }, 200); });
 
-    // ── Source selector ──
     document.getElementById('source-sel').addEventListener('change', async e => {
-      currentSource = e.target.value;
-      activeRunId = null;
-      runMode = false;
-      runItems = [];
-      allProblems = [];
-      chaptersCache = {};
-      document.getElementById('run-progress').style.display = 'none';
-      showSessionEnd();
-      switchTab('collections');
-      await loadCollections();
+      currentSource = e.target.value; activeRunId = null; runMode = false; runItems = []; allProblems = []; chaptersCache = {};
+      document.getElementById('run-progress').style.display = 'none'; showSessionEnd(); switchTab('collections'); await loadCollections();
     });
 
-    // ── Init ──
-    (async () => {
-      await initDB();
-      loadCollections();
-    })();
-    // ── Service Worker ──
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/tsumevault/sw.js')
-    }
+    (async () => { await initDB(); loadCollections(); })();
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('/tsumevault/sw.js');
 
     function precacheSgfs() {
       if (!('serviceWorker' in navigator)) return;
-      const urls = dbQuery('SELECT sgf_path FROM problems WHERE sgf_path IS NOT NULL', [])
-        .map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
-      navigator.serviceWorker.ready.then(reg => {
-        reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls });
-      });
+      const urls = dbQuery('SELECT sgf_path FROM problems WHERE sgf_path IS NOT NULL', []).map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
+      navigator.serviceWorker.ready.then(reg => { reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls }); });
     }
   </script>
 </body>
