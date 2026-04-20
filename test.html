@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>WGo Custom Stones</title>
+
+  <script src="wgo/wgo.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      background: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #board {
+      width: 600px;
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="board"></div>
+
+<script>
+/* =========================
+   IMAGE CACHE
+========================= */
+const imgCache = {};
+
+function getImg(src) {
+  if (!imgCache[src]) {
+    const img = new Image();
+    img.src = src;
+    imgCache[src] = img;
+  }
+  return imgCache[src];
+}
+
+/* =========================
+   VARIACIONES DE PIEDRAS
+========================= */
+const blackStones = [
+  "./black1.png",
+  "./black2.png",
+  "./black3.png"
+];
+
+const whiteStones = [
+  "./white1.png",
+  "./white2.png",
+  "./white3.png"
+];
+
+function pickVariant(list, x, y) {
+  const idx = (x * 13 + y * 7) % list.length;
+  return list[idx];
+}
+
+/* =========================
+   DRAW HANDLER CUSTOM
+========================= */
+WGo.Board.drawHandlers.IMAGES = {
+  stone: {
+    draw: function(a, board) {
+      const ctx = this;
+
+      const x = board.getX(a.x);
+      const y = board.getY(a.y);
+      const r = board.stoneRadius;
+
+      const isBlack = a.c === WGo.B;
+
+      const src = isBlack
+        ? pickVariant(blackStones, a.x, a.y)
+        : pickVariant(whiteStones, a.x, a.y);
+
+      const img = getImg(src);
+
+      // esperar carga
+      if (!img.complete || img.naturalWidth === 0) {
+        img.onload = () => board.redraw();
+        return;
+      }
+
+      ctx.drawImage(img, x - r, y - r, r * 2, r * 2);
+    }
+  }
+};
+
+/* =========================
+   INIT BOARD
+========================= */
+const board = new WGo.Board(document.getElementById("board"), {
+  size: 19,
+  width: 600,
+  background: "./wood_1024.jpg",
+  stoneHandler: WGo.Board.drawHandlers.IMAGES
+});
+
+/* =========================
+   TEST PIECES
+========================= */
+board.addObject({ x: 3, y: 3, c: WGo.B });
+board.addObject({ x: 4, y: 4, c: WGo.W });
+board.addObject({ x: 5, y: 5, c: WGo.B });
+board.addObject({ x: 6, y: 6, c: WGo.W });
+
+</script>
+
+</body>
+</html>
