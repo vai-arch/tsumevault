@@ -736,6 +736,16 @@
         grid-area: mob-view;
       }
 
+      #sidebar {
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      .sb-row {
+        max-width: 100%;
+        overflow: hidden;
+      }
+
       /* Default: show left panel, hide main and sidebar */
       #app.mob-board #left {
         display: none;
@@ -767,6 +777,7 @@
 
       /* In board view, main+sidebar stack vertically */
       #app.mob-board {
+        grid-template-columns: 100vw;
         grid-template-rows: 42px 1fr auto;
         grid-template-areas: "hdr" "mob-view" "mob-side";
       }
@@ -808,17 +819,15 @@
         gap: 6px;
       }
 
-      /* reemplaza la regla de línea 197 */
       #main {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-top: 0;
-        overflow: visible;
+        align-items: flex-start;
+        padding-left: 0;
       }
 
       #board-wrap {
-        margin: 6px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
       }
 
       #app.mob-board #main {
@@ -828,6 +837,10 @@
       .ctrl-btn {
         font-size: 10px;
         padding: 3px 8px;
+      }
+
+      #board {
+        margin: 0 auto;
       }
     }
   </style>
@@ -1025,7 +1038,7 @@
       </div>
       <div
         style="padding:8px 14px;font-family:var(--mono);font-size:7px;color:var(--dim2);letter-spacing:.1em;position:sticky;bottom:0;background:var(--panel);">
-        v9</div>
+        v11</div>
     </aside>
   </div>
 
@@ -1089,6 +1102,14 @@
       if (num == null) return '—';
       if (num <= 2000) return (Math.round((2000 - num) / 100) + 1) + 'k';
       return Math.round((num - 2000) / 100) + 'd';
+    }
+
+    // ── % aciertos → color ──
+    function pctColor(pct) {
+      if (pct == null) return 'var(--dim2)';
+      if (pct >= 90) return 'var(--ok-bright)';
+      if (pct >= 80) return 'var(--gold)';
+      return 'var(--accent)';
     }
 
     // ── UUID ──
@@ -1335,6 +1356,14 @@
         if (!result[row.set_id]) result[row.set_id] = { collection: null, by_chapter: {} };
         result[row.set_id].by_chapter[row.chapter_id] = { ok, total, pct, duration_ms };
       }
+      // Añadir chap_total (total de capítulos por set_id) para col-pct
+      const chapCounts = dbQuery(`
+    SELECT set_id, COUNT(*) AS total FROM chapters WHERE source=? GROUP BY set_id
+  `, [source]);
+      for (const row of chapCounts) {
+        if (!result[row.set_id]) result[row.set_id] = { collection: null, by_chapter: {} };
+        result[row.set_id].chap_total = row.total;
+      }
       return result;
     }
 
@@ -1352,7 +1381,7 @@
       GROUP BY p.chapter_id
     ) s ON ch.id=s.chapter_id
     WHERE ch.source=? AND ch.set_id=?
-    ORDER BY ch.chapter_num ASC
+    ORDER BY ch.diff_avg ASC
   `, [source, set_id]);
     }
 
@@ -1476,10 +1505,15 @@
         WHEN r.chapter_id IS NOT NULL THEN c.name || ' · ' || ch.name
         WHEN r.set_id IS NOT NULL THEN c.name
         ELSE 'Run #' || r.id
-      END AS label
+      END AS label,
+      COALESCE(ri_stats.ok_count, 0) AS ok_count
     FROM runs r
     LEFT JOIN collections c  ON c.source=r.source AND c.set_id=r.set_id
     LEFT JOIN chapters    ch ON ch.id=r.chapter_id
+    LEFT JOIN (
+      SELECT run_id, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok_count
+      FROM run_items GROUP BY run_id
+    ) ri_stats ON ri_stats.run_id=r.id
     WHERE r.source=?
     ORDER BY r.started_at DESC
   `, [source]);
@@ -1721,6 +1755,7 @@
           startRun({ source: currentSource, type: 'collection', set_id: col.set_id, colName: col.name });
         });
         list.appendChild(item);
+        refreshColPct(col.set_id);
       }
     }
 
@@ -1791,19 +1826,42 @@
       return `${m}m${sec > 0 ? ' ' + sec + 's' : ''}`;
     }
 
+    function refreshColPct(setId) {
+      const el = document.getElementById(`cpct-${setId}`);
+      if (!el) return;
+      const s = lastRunStatsAll[parseInt(setId)];
+
+      // Parte 1: run de colección completa
+      let part1 = '';
+      if (s && s.collection && s.collection.pct != null) {
+        const pct = s.collection.pct;
+        const dur = fmtDuration(s.collection.duration_ms);
+        part1 = `<span style="color:${pctColor(pct)}">${pct}%</span>${dur ? ' · ' + dur : ''}`;
+      }
+
+      // Parte 2: runs de capítulos
+      const chapTotal = (s && s.chap_total) || 0;
+      let chapDone = 0, pctSum = 0, pctCount = 0;
+      if (s) {
+        for (const cs of Object.values(s.by_chapter)) {
+          if (cs.pct != null) { chapDone++; pctSum += cs.pct; pctCount++; }
+        }
+      }
+      const avgPct = pctCount > 0 ? Math.round(pctSum / pctCount) : null;
+      const part2 = chapTotal > 0
+        ? `${chapDone}/${chapTotal} · <span style="color:${pctColor(avgPct)}">${avgPct != null ? avgPct + '%avg' : '—'}</span>`
+        : '';
+
+      if (!part1 && !part2) { el.textContent = ''; return; }
+      if (part1 && part2) el.innerHTML = `${part1} | ${part2}`;
+      else el.innerHTML = part1 || part2;
+    }
+
     async function refreshCollectionStats() {
       try {
         lastRunStatsAll = localGetLastRunStatsAll(currentSource);
-        document.querySelectorAll('.col-item.expanded').forEach(item => {
-          const setId = parseInt(item.dataset.setId);
-          const s = lastRunStatsAll[setId];
-          const colPctEl = document.getElementById(`cpct-${setId}`);
-          if (colPctEl && s && s.collection && s.collection.pct != null) {
-            const pct = s.collection.pct;
-            const dur = fmtDuration(s.collection.duration_ms);
-            colPctEl.textContent = pct + '%' + (dur ? ' · ' + dur : '');
-            colPctEl.style.color = pct >= 80 ? 'var(--ok-bright)' : pct >= 50 ? 'var(--gold)' : 'var(--accent)';
-          }
+        document.querySelectorAll('.col-item').forEach(item => {
+          refreshColPct(parseInt(item.dataset.setId));
         });
         applyCollectionFilters();
       } catch (e) { }
@@ -1825,14 +1883,7 @@
         chaptersCache[col.set_id] = chapters;
 
         const colPctEl = document.getElementById(`cpct-${col.set_id}`);
-        if (colPctEl && runStats && runStats.collection.pct != null) {
-          const pct = runStats.collection.pct;
-          const dur = fmtDuration(runStats.collection.duration_ms);
-          colPctEl.textContent = pct + '%' + (dur ? ' · ' + dur : '');
-          colPctEl.style.color = pct >= 80 ? 'var(--ok-bright)' : pct >= 50 ? 'var(--gold)' : 'var(--accent)';
-        } else if (colPctEl) {
-          colPctEl.textContent = '';
-        }
+        refreshColPct(col.set_id);
 
         chapDiv.innerHTML = '';
         for (const chap of chapters) {
@@ -1844,7 +1895,7 @@
           const cs = runStats && runStats.by_chapter[chap.id];
           const chapDur = cs ? fmtDuration(cs.duration_ms) : '';
           const chapPctStr = cs && cs.pct != null ? cs.pct + '%' + (chapDur ? ' · ' + chapDur : '') : '';
-          const chapPctColor = cs ? (cs.pct >= 80 ? 'var(--ok-bright)' : cs.pct >= 50 ? 'var(--gold)' : 'var(--accent)') : 'var(--dim2)';
+          const chapPctColor = cs ? pctColor(cs.pct) : 'var(--dim2)';
 
           ci.innerHTML = `
 		<span class="chap-name">${chap.name || `Ch ${chap.chapter_num}`} <span style="color:var(--dim2)">(${diffStr})</span></span>
@@ -1916,13 +1967,18 @@
           const statusCls = run.status === 'open' ? 'run-status-open' : 'run-status-closed';
           const done = run.done || 0;
           const total = run.total || 0;
-          const pct = total > 0 ? Math.round(done / total * 100) : 0;
+          const compPct = total > 0 ? Math.round(done / total * 100) : 0;
+          const okCount = run.ok_count || 0;
+          const accPct = done > 0 ? Math.round(okCount / done * 100) : null;
           const date = (run.started_at || '').slice(0, 10);
+          const accStr = accPct != null
+            ? `<span style="color:${pctColor(accPct)}">${accPct}%✓</span>`
+            : '';
           item.innerHTML = `
         <div class="run-title">${run.label || `Run #${run.id}`}</div>
         <div class="run-meta">
           <span class="${statusCls}">${run.status}</span>
-          <span>${done}/${total} (${pct}%)</span>
+          <span>${done}/${total} (${compPct}%) ${accStr}</span>
           <span style="color:var(--dim2)">${date}</span>
         </div>`;
           if (run.status === 'open') {
@@ -2226,7 +2282,7 @@
     function initBoard(size) {
       boardSize = size || 19;
       const margin = 24;
-      const availW = window.innerWidth - margin;
+      const availW = window.innerWidth - margin - (document.getElementById('board-wrap').offsetLeft || 0);
       const availH = window.innerHeight - 140;
       const avail = Math.min(availW, availH);
       const sz = Math.max(240, Math.min(avail, 620));
