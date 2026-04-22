@@ -5,5 +5,5 @@
 - MINOR: configurar darle doble click para poner una piedra o no
 - MINOR: configurar que al fallar en un run se pare y tengas que darle click para que siga
 
-- Hacer un informe de problemas para la evolucion semanal/mensual
+- Hacer un informe de problemas para la evolucion semanal/mensual. el informe se puede hacer en el ordenador con un script python y que permita copypaste
 - Meter tsumevault en tablet
