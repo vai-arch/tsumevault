@@ -60,6 +60,7 @@ CREATE TABLE IF NOT EXISTS chapters (
     diff_max        INTEGER,
     diff_avg        INTEGER,
     problem_count   INTEGER NOT NULL DEFAULT 0,
+    mostrar         INTEGER NOT NULL DEFAULT 0,
     UNIQUE (source, set_id, chapter_num),
     FOREIGN KEY (source, set_id) REFERENCES collections(source, set_id)
 );
@@ -460,6 +461,15 @@ def main():
     con.execute("PRAGMA foreign_keys=ON")
     con.executescript(SCHEMA)
     con.executescript(SCHEMA_VIEW)
+
+    # Migración: añadir columna mostrar a chapters si no existe
+    cols_ch = [r[1] for r in con.execute("PRAGMA table_info(chapters)").fetchall()]
+    if "mostrar" not in cols_ch:
+        con.execute(
+            "ALTER TABLE chapters ADD COLUMN mostrar INTEGER NOT NULL DEFAULT 0"
+        )
+        con.commit()
+        print("Migración: columna 'mostrar' añadida a chapters")
 
     # Migración: añadir columna name a chapters si no existe
     cols = [r[1] for r in con.execute("PRAGMA table_info(chapters)").fetchall()]
