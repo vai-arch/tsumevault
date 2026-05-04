@@ -70,6 +70,14 @@ def migrate_db():
             con.commit()
             print("[migrate] Columna uuid añadida a attempts.")
 
+        cols_ch = [r[1] for r in con.execute("PRAGMA table_info(chapters)").fetchall()]
+        if "mostrar" not in cols_ch:
+            con.execute(
+                "ALTER TABLE chapters ADD COLUMN mostrar INTEGER NOT NULL DEFAULT 0"
+            )
+            con.commit()
+            print("[migrate] Columna mostrar añadida a chapters.")
+
 
 # ── GET handlers ──────────────────────────────────────────────────────────────
 
@@ -712,6 +720,20 @@ def handle_sync_push(body):
     return {"ok": True, "attempts": inserted_attempts, "runs": inserted_runs}
 
 
+def handle_put_chapter_mostrar(body):
+    chapter_id = body.get("chapter_id")
+    mostrar = body.get("mostrar")
+    if chapter_id is None or mostrar is None:
+        return {"error": "chapter_id y mostrar son requeridos"}, 400
+    with db_connect() as con:
+        con.execute(
+            "UPDATE chapters SET mostrar=? WHERE id=?",
+            (int(bool(mostrar)), int(chapter_id)),
+        )
+        con.commit()
+    return {"ok": True}
+
+
 GET_ROUTES = {
     "/db/collections": handle_get_collections,
     "/db/chapters": handle_get_chapters,
@@ -788,6 +810,16 @@ class Handler(BaseHTTPRequestHandler):
                     self._respond(200, result)
             except Exception as e:
                 print(f"[ERROR PUT /db/run] {e}")
+                self._respond(500, {"error": str(e)})
+        elif parsed.path == "/db/chapter/mostrar":
+            try:
+                result = handle_put_chapter_mostrar(body)
+                if isinstance(result, tuple):
+                    self._respond(result[1], result[0])
+                else:
+                    self._respond(200, result)
+            except Exception as e:
+                print(f"[ERROR PUT /db/chapter/mostrar] {e}")
                 self._respond(500, {"error": str(e)})
         else:
             self._respond(404, {"error": "not found"})

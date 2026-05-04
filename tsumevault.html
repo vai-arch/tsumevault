@@ -1251,7 +1251,22 @@
               <span class="s-rem" id="cfg-pill-rem">—</span>
               <span class="s-tot" id="cfg-pill-total"></span>
             </div>
+            <!-- FILTRO MOSTRAR -->
+            <div class="cfg-section">
+              <div class="cfg-section-title">Visibilidad</div>
+              <label
+                style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--dim);">
+                <input type="checkbox" id="cfg-filter-mostrar" style="accent-color:var(--gold);cursor:pointer;">
+                Mostrar solo lecciones marcadas
+              </label>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:6px;line-height:1.6">
+                Oculta las lecciones sin "mostrar" activo.<br>
+                Las colecciones sin lecciones visibles también se ocultan.<br>
+                Run collection solo corre las lecciones marcadas.
+              </div>
+            </div>
           </div>
+
 
         </div>
       </div>
@@ -1425,10 +1440,12 @@
     const SYNC_SERVER_KEY = 'sync_server_url';
     const BOARD_BG_KEY = 'board_background';
     const STONE_SET_KEY = 'stone_set_label';
+    const FILTER_MOSTRAR_KEY = 'filter_mostrar';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'http://192.168.0.50:3002';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
     let currentStoneSet = null; // {label, black:[], white:[]} or null = REALISTIC
+    let filterMostrar = localStorage.getItem(FILTER_MOSTRAR_KEY) === 'true';
 
     let SQL = null, db = null;
     let allCollections = [], chaptersCache = {}, allProblems = [];
@@ -1519,6 +1536,7 @@
         try { dbExec("ALTER TABLE runs ADD COLUMN paused_ms INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
         try { dbExec("ALTER TABLE chapters ADD COLUMN name TEXT"); } catch (e) { }
         try { dbExec("ALTER TABLE attempts ADD COLUMN uuid TEXT"); } catch (e) { }
+        try { dbExec("ALTER TABLE chapters ADD COLUMN mostrar INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
         return true;
       }
       console.log('[DB] Sin DB local, intentando snapshot…');
@@ -1558,7 +1576,7 @@
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
       set_id INTEGER NOT NULL, chapter_num INTEGER NOT NULL,
       diff_min INTEGER, diff_max INTEGER, diff_avg INTEGER, name TEXT,
-      problem_count INTEGER NOT NULL DEFAULT 0
+      problem_count INTEGER NOT NULL DEFAULT 0, mostrar INTEGER NOT NULL DEFAULT 0
     );
     CREATE TABLE IF NOT EXISTS problems (
       source TEXT NOT NULL, problem_id TEXT NOT NULL, set_id INTEGER NOT NULL,
@@ -1603,6 +1621,23 @@
       ins('collections', ['source', 'set_id', 'name', 'folder', 'difficulty_raw', 'difficulty_num', 'num_problems', 'on_disk', 'chapter_count'], snap.collections);
       ins('chapters', ['id', 'source', 'set_id', 'chapter_num', 'name', 'diff_min', 'diff_max', 'diff_avg', 'problem_count'], snap.chapters);
       ins('problems', ['source', 'problem_id', 'set_id', 'chapter_id', 'order_in_chapter', 'sgf_path', 'sgf_exists', 'difficulty_raw', 'difficulty_num', 'color_to_play'], snap.problems);
+      if (snap.chapters && snap.chapters.length) {
+        const stmt = db.prepare(`
+        INSERT INTO chapters (id,source,set_id,chapter_num,name,diff_min,diff_max,diff_avg,problem_count,mostrar)
+        VALUES (?,?,?,?,?,?,?,?,?,?)
+        ON CONFLICT(id) DO UPDATE SET
+          source=excluded.source, set_id=excluded.set_id, chapter_num=excluded.chapter_num,
+          name=excluded.name, diff_min=excluded.diff_min, diff_max=excluded.diff_max,
+          diff_avg=excluded.diff_avg, problem_count=excluded.problem_count
+          -- mostrar NO se actualiza: se preserva el valor local
+      `);
+        for (const r of snap.chapters) {
+          stmt.run([r.id, r.source, r.set_id, r.chapter_num, r.name ?? null,
+          r.diff_min ?? null, r.diff_max ?? null, r.diff_avg ?? null,
+          r.problem_count ?? 0, r.mostrar ?? 0]);
+        }
+        stmt.free();
+      }
     }
 
     // ── Local DB queries ──
@@ -1743,8 +1778,13 @@
       if (chapter_id && !set_id) { const ch = dbQueryOne('SELECT set_id FROM chapters WHERE id=?', [chapter_id]); if (ch) set_id = ch.set_id; }
       let rows;
       if (type === 'chapter' && chapter_id) rows = dbQuery(`SELECT source,problem_id FROM problems WHERE chapter_id=? ORDER BY order_in_chapter`, [chapter_id]);
-      else if (type === 'collection' && set_id) rows = dbQuery(`SELECT source,problem_id FROM problems WHERE source=? AND set_id=? ORDER BY order_in_chapter`, [source, set_id]);
-      else return null;
+      else if (type === 'collection' && set_id) {
+        if (filterMostrar) {
+          rows = dbQuery(`SELECT p.source,p.problem_id FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE p.source=? AND p.set_id=? AND ch.mostrar=1 ORDER BY p.order_in_chapter`, [source, set_id]);
+        } else {
+          rows = dbQuery(`SELECT source,problem_id FROM problems WHERE source=? AND set_id=? ORDER BY order_in_chapter`, [source, set_id]);
+        }
+      } else return null;
       for (let i = rows.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[rows[i], rows[j]] = [rows[j], rows[i]]; }
       const total = rows.length, uuid = makeUUID();
       const started_at = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
@@ -2007,6 +2047,7 @@
       renderBoardNav();
       renderStonesNav();
       loadSyncPresets();
+      document.getElementById('cfg-filter-mostrar').checked = filterMostrar;
     }
     function closeConfig() { document.getElementById('cfg-overlay').classList.remove('open'); }
     function onCfgOverlayClick(e) { if (e.target === document.getElementById('cfg-overlay')) closeConfig(); }
@@ -2054,6 +2095,11 @@
       } catch (e) { setSyncStatus('idle'); alert('Sync error: ' + e.message); }
       finally { syncInProgress = false; }
     });
+    document.getElementById('cfg-filter-mostrar').addEventListener('change', e => {
+      filterMostrar = e.target.checked;
+      localStorage.setItem(FILTER_MOSTRAR_KEY, filterMostrar);
+      applyCollectionFilters();
+    });
 
     // ══ STONE DRAW HANDLER ══
     function buildStoneHandler(set) {
@@ -2098,6 +2144,7 @@
         item.querySelector('.run-col-btn').addEventListener('click', e => { e.stopPropagation(); startRun({ source: currentSource, type: 'collection', set_id: col.set_id, colName: col.name }); });
         list.appendChild(item); refreshColPct(col.set_id);
       }
+      applyCollectionFilters(); // ← añadir esta línea
     }
     function populateCollectionDiffFilter() {
       const sel = document.getElementById('cf-diff');
@@ -2106,6 +2153,7 @@
       for (const n of nums) { const opt = document.createElement('option'); opt.value = n; opt.textContent = diffLabel(n); sel.appendChild(opt); }
     }
     function applyCollectionFilters() {
+      console.log('[filtro] chaptersCache keys:', Object.keys(chaptersCache));
       const maxDiff = document.getElementById('cf-diff').value;
       const onlyIncomplete = document.getElementById('cf-incomplete').checked;
       const hidePerfect = document.getElementById('cf-perfect').checked;
@@ -2117,9 +2165,35 @@
         if (maxDiff !== '' && col.difficulty_num != null && col.difficulty_num > Number(maxDiff)) hide = true;
         if (!hide && onlyIncomplete) { const hasAttempts = (col.total_attempts || 0) > 0; const pct = col.total_attempts > 0 ? Math.round((col.total_correct || 0) / col.total_attempts * 100) : 0; if (!hasAttempts || pct === 100) hide = true; }
         if (!hide && hidePerfect) { const s = lastRunStatsAll[parseInt(setId)]; if (s) { const colPerfect = s.collection && s.collection.pct === 100; const chapValues = Object.values(s.by_chapter || {}); const allChapsPerfect = chapValues.length > 0 && chapValues.every(c => c.pct === 100); if (colPerfect && allChapsPerfect) hide = true; } }
+        // Filtro mostrar: ocultar colección si ningún chapter tiene mostrar=1
+        if (!hide && filterMostrar) {
+          const cached = chaptersCache[col.set_id];
+          if (cached && cached.length > 0) {
+            if (!cached.some(ch => ch.mostrar)) hide = true;
+          } else {
+            const row = dbQueryOne(
+              'SELECT COUNT(*) AS n FROM chapters WHERE source=? AND set_id=? AND mostrar=1',
+              [currentSource, col.set_id]
+            );
+            if (!row || row.n === 0) hide = true;
+          }
+        }
         item.classList.toggle('hidden', hide);
+        // Actualizar visibilidad de chapters dentro del acordeón si está abierto
+        if (filterMostrar) {
+          item.querySelectorAll('.chap-item').forEach(ci => {
+            const chapId = ci.querySelector('.chap-mostrar-chk')?.dataset.chapid;
+            if (!chapId) return;
+            const cached = chaptersCache[col.set_id];
+            const chap = cached?.find(ch => String(ch.id) === chapId);
+            ci.style.display = (chap && !chap.mostrar) ? 'none' : '';
+          });
+        } else {
+          item.querySelectorAll('.chap-item').forEach(ci => ci.style.display = '');
+        }
       });
     }
+
     document.getElementById('cf-diff').addEventListener('change', applyCollectionFilters);
     document.getElementById('cf-incomplete').addEventListener('change', applyCollectionFilters);
     document.getElementById('cf-perfect').addEventListener('change', applyCollectionFilters);
@@ -2160,6 +2234,7 @@
         chapDiv.innerHTML = '';
         for (const chap of chapters) {
           const ci = document.createElement('div'); ci.className = 'chap-item';
+          if (filterMostrar && !chap.mostrar) { ci.style.display = 'none'; }
           const diffStr = chap.diff_avg != null ? diffLabel(chap.diff_avg) : (chap.diff_min != null ? `${diffLabel(chap.diff_min)}–${diffLabel(chap.diff_max)}` : '—');
           const cs = runStats && runStats.by_chapter[chap.id];
           const chapDur = cs ? fmtDuration(cs.duration_ms) : '';
@@ -2167,7 +2242,27 @@
           const chapPctColor = cs ? pctColor(cs.pct) : 'var(--dim2)';
           ci.innerHTML = `<span class="chap-name">${chap.name || `Ch ${chap.chapter_num}`} <span style="color:var(--dim2)">(${diffStr})</span></span>
         <span class="chap-stats">${chap.problem_count}p <span class="chap-pct" style="color:${chapPctColor}">${chapPctStr}</span></span>
+        <label style="display:flex;align-items:center;gap:3px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);flex-shrink:0;white-space:nowrap;" title="Mostrar esta lección">
+          <input type="checkbox" class="chap-mostrar-chk" data-chapid="${chap.id}" ${chap.mostrar ? 'checked' : ''} style="accent-color:var(--gold);cursor:pointer;">
+          mostrar
+        </label>
         <button class="chap-btn" data-chapid="${chap.id}">▶ Run</button>`;
+          ci.querySelector('.chap-mostrar-chk').addEventListener('change', async e => {
+            e.stopPropagation();
+            const val = e.target.checked ? 1 : 0;
+            dbExec('UPDATE chapters SET mostrar=? WHERE id=?', [val, chap.id]);
+            chap.mostrar = val;
+            await saveDB();
+            try {
+              await fetch(SYNC_SERVER + '/db/chapter/mostrar', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ chapter_id: chap.id, mostrar: val }),
+                signal: AbortSignal.timeout(3000)
+              });
+            } catch (_) { }
+            if (filterMostrar) applyCollectionFilters();
+          });
           ci.querySelector('.chap-btn').addEventListener('click', e => { e.stopPropagation(); startRun({ source: currentSource, type: 'chapter', chapter_id: chap.id, colName: col.name, chapName: chap.name, chapNum: chap.chapter_num }); });
           chapDiv.appendChild(ci);
         }
