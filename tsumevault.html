@@ -1424,7 +1424,7 @@
       </div>
       <div
         style="padding:8px 14px;font-family:var(--mono);font-size:7px;color:var(--dim2);letter-spacing:.1em;position:sticky;bottom:0;background:var(--panel);">
-        v15</div>
+        v16</div>
     </aside>
   </div>
 
@@ -2414,7 +2414,8 @@
         const sgf = await res.text();
         const tree = parseSgfTree(sgf); if (!tree) { console.log('parse failed'); throw new Error('Parse failed'); }
         const size = parseInt((sgf.match(/SZ\[(\d+)\]/) || [, '19'])[1]);
-        currentProblem = { ...prob, tree, size }; problemStartTime = Date.now();
+        const _isReveal = !!(tree.markup && tree.markup.some(m => m.type === 'LB' && m.text === '?'));
+        currentProblem = { ...prob, tree, size, _isReveal }; problemStartTime = Date.now();
         renderProblem(currentProblem);
       } catch (e) { console.warn('Skip problem', probMeta.problem_id, e.message); nextProblem(); }
     }
@@ -2513,7 +2514,10 @@
       for (const mk of node.markup) {
         if (mk.type !== 'LB') continue;
         if (wgoBoard.obj_arr[mk.x][mk.y]) wgoBoard.obj_arr[mk.x][mk.y] = wgoBoard.obj_arr[mk.x][mk.y].filter(o => o.c === 1 || o.c === -1);
-        wgoBoard.addObject({ x: mk.x, y: mk.y, type: 'LB', text: mk.text });
+        const lbC = mk.text === ':)' ? '#5cb868' : mk.text === ':(' ? '#d45030' : undefined;
+        const lbObj = { x: mk.x, y: mk.y, type: 'LB', text: mk.text };
+        if (lbC) lbObj.c = lbC;
+        wgoBoard.addObject(lbObj);
       }
       const cb = document.getElementById('comment-box'); cb.style.display = 'block'; cb.textContent = node.comment || '';
     }
@@ -2583,7 +2587,12 @@
         setTimeout(() => { if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
       }
       function onBoardClick(x, y) {
-        clearGhost(); if (answered || waitingForNext) return;
+        clearGhost();
+        if (waitingForNext) {
+          if (currentProblem && currentProblem._isReveal) { nextProblem(); }
+          return;
+        }
+        if (answered) return;
         if (wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => (o.c === 1 || o.c === -1) && o.type !== 'outline')) return;
         const children = currentNode.children || [];
         const match = children.find(c => c.move && !c.move.pass && c.move.x === x && c.move.y === y);
@@ -2615,8 +2624,8 @@
       const cb = document.getElementById('comment-box');
       const clean = (comment || '').replace(/^RIGHT\s*/i, '').replace(/^WRONG\s*/i, '').trim();
       if (clean) { cb.textContent = clean; cb.style.display = 'block'; }
-      if (runMode) { setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000); }
-      else if (isRight) { setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000); }
+      if (runMode && !currentProblem._isReveal) { setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000); }
+      else if (isRight && !currentProblem._isReveal) { setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000); }
     }
     function togglePause() {
       if (!currentProblem || waitingForNext) return;
