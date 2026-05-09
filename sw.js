@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'tsumevault-v18';
+const CACHE_VERSION = 'tsumevault-v19';
 
 const STATIC_ASSETS = [
   '/tsumevault/tsumevault.html',
@@ -42,10 +42,10 @@ self.addEventListener('fetch', e => {
 
   // API del servidor — nunca cachear
   if (url.port === '3002' || url.pathname.startsWith('/db/') || url.pathname.startsWith('/sync/')) {
-    return; // deja pasar al navegador
+    return;
   }
 
-  // SGFs — cache on demand (network-first con fallback a cache)
+  // SGFs — cache-first con fallback a network
   if (url.pathname.endsWith('.sgf')) {
     e.respondWith(
       caches.open(CACHE_VERSION).then(async cache => {
@@ -56,7 +56,7 @@ self.addEventListener('fetch', e => {
           if (response.ok) cache.put(e.request, response.clone());
           return response;
         } catch {
-          return cached || new Response('SGF not found', { status: 404 });
+          return new Response('SGF not found', { status: 404 });
         }
       })
     );
@@ -91,35 +91,30 @@ self.addEventListener('message', e => {
     else e.source?.postMessage({ type: 'CACHE_VERSION', version: CACHE_VERSION });
     return;
   }
-  if (e.data?.type === 'GET_CACHE_COUNT') {
-  const port = e.ports?.[0];
-  caches.open(CACHE_VERSION).then(async cache => {
-    const keys = await cache.keys();
-    const sgfs = keys.filter(r => r.url.endsWith('.sgf')).length;
-    port?.postMessage({ type: 'CACHE_COUNT', sgfs, total: keys.length });
-  });
-  return;
-}
+
   if (e.data?.type === 'PRECACHE_SGFS') {
     const urls = e.data.urls || [];
+    const BATCH = 20;
     caches.open(CACHE_VERSION).then(async cache => {
       let done = 0;
-      for (const url of urls) {
-        const cached = await cache.match(url);
-        if (!cached) {
-          try {
-            const response = await fetch(url);
-            if (response.ok) cache.put(url, response.clone());
-          } catch { }
-        }
-        done++;
-        if (done % 500 === 0) {
+      for (let i = 0; i < urls.length; i += BATCH) {
+        const batch = urls.slice(i, i + BATCH);
+        await Promise.all(batch.map(async url => {
+          const cached = await cache.match(url);
+          if (!cached) {
+            try {
+              const response = await fetch(url);
+              if (response.ok) cache.put(url, response.clone());
+            } catch {}
+          }
+          done++;
+        }));
+        if (Math.floor(done / 100) > Math.floor((done - BATCH) / 100)) {
           e.source?.postMessage({ type: 'PRECACHE_PROGRESS', done, total: urls.length });
         }
       }
       e.source?.postMessage({ type: 'PRECACHE_DONE', total: urls.length });
     });
+    return;
   }
 });
-
-
