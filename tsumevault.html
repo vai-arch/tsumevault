@@ -2488,16 +2488,9 @@
 	async function updateSwVersionLabel() {
 	  if (!('serviceWorker' in navigator)) return;
 	  try {
-		const getSw = () => new Promise(resolve => {
-		  if (navigator.serviceWorker.controller) {
-			resolve(navigator.serviceWorker.controller);
-		  } else {
-			navigator.serviceWorker.addEventListener('controllerchange', () => {
-			  resolve(navigator.serviceWorker.controller);
-			}, { once: true });
-		  }
-		});
-		const sw = await getSw();
+		const reg = await navigator.serviceWorker.ready;
+		const sw = reg.active;
+		if (!sw) return;
 		const version = await new Promise(resolve => {
 		  const ch = new MessageChannel();
 		  ch.port1.onmessage = e => resolve(e.data.version);
