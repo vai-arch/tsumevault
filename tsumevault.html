@@ -1642,7 +1642,6 @@
         stmt.free();
       };
       ins('collections', ['source', 'set_id', 'name', 'folder', 'difficulty_raw', 'difficulty_num', 'num_problems', 'on_disk', 'chapter_count'], snap.collections);
-      ins('chapters', ['id', 'source', 'set_id', 'chapter_num', 'name', 'diff_min', 'diff_max', 'diff_avg', 'problem_count'], snap.chapters);
       ins('problems', ['source', 'problem_id', 'set_id', 'chapter_id', 'order_in_chapter', 'sgf_path', 'sgf_exists', 'difficulty_raw', 'difficulty_num', 'color_to_play'], snap.problems);
       if (snap.chapters && snap.chapters.length) {
         const stmt = db.prepare(`
