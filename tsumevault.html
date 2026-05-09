@@ -2783,12 +2783,14 @@
 	  btn.textContent = 'Descargando...';
 	  progress.style.display = 'block';
 	  progress.textContent = 'Iniciando...';
-	  const urls = dbQuery('SELECT sgf_path FROM problems WHERE sgf_path IS NOT NULL', []).map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
+	  const urls = dbQuery('SELECT p.sgf_path FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE ch.mostrar=1 AND p.sgf_path IS NOT NULL', []).map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
 	  const total = urls.length;
+	  const sessionId = Date.now();
 	  navigator.serviceWorker.ready.then(reg => {
-		reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls });
+		reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls, sessionId });
 	  });
 	  const handler = e => {
+		if (e.data?.sessionId !== sessionId) return;
 		if (e.data?.type === 'PRECACHE_PROGRESS') {
 		  progress.textContent = `${e.data.done} / ${total}`;
 		}
