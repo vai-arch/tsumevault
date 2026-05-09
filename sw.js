@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'tsumevault-v23';
+const CACHE_VERSION = 'tsumevault-v24';
 
 const STATIC_ASSETS = [
   '/tsumevault/tsumevault.html',
@@ -94,6 +94,7 @@ self.addEventListener('message', e => {
 
   if (e.data?.type === 'PRECACHE_SGFS') {
     const urls = e.data.urls || [];
+    const sessionId = e.data.sessionId;
     const BATCH = 20;
     caches.open(CACHE_VERSION).then(async cache => {
       let done = 0;
@@ -109,11 +110,11 @@ self.addEventListener('message', e => {
           }
           done++;
         }));
-        if (Math.floor(done / 100) > Math.floor((done - BATCH) / 100)) {
-          e.source?.postMessage({ type: 'PRECACHE_PROGRESS', done, total: urls.length });
+        if (Math.floor(done / 25) > Math.floor((done - BATCH) / 25)) {
+          e.source?.postMessage({ type: 'PRECACHE_PROGRESS', done, total: urls.length, sessionId });
         }
       }
-      e.source?.postMessage({ type: 'PRECACHE_DONE', total: urls.length });
+      e.source?.postMessage({ type: 'PRECACHE_DONE', total: urls.length, sessionId });
     });
     return;
   }
