@@ -1270,6 +1270,22 @@
                 Sonido activado
               </label>
             </div>
+            <!-- CACHE SGF -->
+            <div class="cfg-section">
+			  <div class="cfg-section-title">Cache offline</div>
+			  <div id="cfg-cache-status" style="font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:8px;">—</div>
+			  <div style="display:flex;gap:8px;margin-bottom:6px;">
+				<button onclick="cfgVerifyCache()"
+				  style="font-family:var(--mono);font-size:11px;background:var(--panel2,#333);color:var(--dim);border:1px solid var(--dim2);padding:5px 12px;cursor:pointer;border-radius:2px;">
+				  Verificar
+				</button>
+				<button id="cfg-cache-btn" onclick="cfgStartPrecache()"
+				  style="font-family:var(--mono);font-size:11px;background:var(--gold);color:#000;border:none;padding:5px 12px;cursor:pointer;border-radius:2px;">
+				  Descargar pendientes
+				</button>
+			  </div>
+			  <div id="cfg-cache-progress" style="font-family:var(--mono);font-size:9px;color:var(--dim2);display:none;"></div>
+			</div>
           </div>
 
 
@@ -1429,7 +1445,7 @@
       </div>
       <div
         style="padding:8px 14px;font-family:var(--mono);font-size:7px;color:var(--dim2);letter-spacing:.1em;position:sticky;bottom:0;background:var(--panel);">
-        v17</div>
+        <span id="cfg-sw-version">v?</span></div>
     </aside>
   </div>
 
@@ -2469,6 +2485,29 @@
     }
     function getMarkup(node) { return node.markup ? node.markup.map(m => ({ ...m })) : []; }
 
+	async function updateSwVersionLabel() {
+	  if (!('serviceWorker' in navigator)) return;
+	  try {
+		const getSw = () => new Promise(resolve => {
+		  if (navigator.serviceWorker.controller) {
+			resolve(navigator.serviceWorker.controller);
+		  } else {
+			navigator.serviceWorker.addEventListener('controllerchange', () => {
+			  resolve(navigator.serviceWorker.controller);
+			}, { once: true });
+		  }
+		});
+		const sw = await getSw();
+		const version = await new Promise(resolve => {
+		  const ch = new MessageChannel();
+		  ch.port1.onmessage = e => resolve(e.data.version);
+		  sw.postMessage({ type: 'GET_CACHE_VERSION' }, [ch.port2]);
+		  setTimeout(() => resolve('?'), 3000);
+		});
+		const el = document.getElementById('cfg-sw-version');
+		if (el) el.textContent = version;
+	  } catch {}
+	}
     function initBoard(size) {
       boardSize = size || 19;
       const margin = 24;
@@ -2707,18 +2746,66 @@
       document.getElementById('run-progress').style.display = 'none'; showSessionEnd(); switchTab('collections'); await loadCollections();
     });
 
-    (async () => { await initDB(); loadCollections(); })();
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/tsumevault/sw.js').then(() => {
-        navigator.serviceWorker.ready.then(() => precacheSgfs());
-      });
-    }
+    (async () => {
+	  await initDB();
+	  loadCollections();
+	  if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('/tsumevault/sw.js').then(() => {
+		  navigator.serviceWorker.ready.then(() => precacheSgfs());
+		  updateSwVersionLabel();
+		});
+	  }
+	})();
 
     function precacheSgfs() {
       if (!('serviceWorker' in navigator)) return;
       const urls = dbQuery('SELECT sgf_path FROM problems WHERE sgf_path IS NOT NULL', []).map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
       navigator.serviceWorker.ready.then(reg => { reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls }); });
     }
+	
+	
+	function cfgVerifyCache() {
+	  const el = document.getElementById('cfg-cache-status');
+	  const cached = localStorage.getItem('sgf_cached_count');
+	  const total = dbQuery('SELECT COUNT(*) as n FROM problems WHERE sgf_path IS NOT NULL', [])[0]?.n || 0;
+	  if (cached === null) {
+		el.textContent = `? / ${total} SGFs — nunca descargado`;
+		el.style.color = 'var(--dim)';
+	  } else {
+		const n = parseInt(cached);
+		el.textContent = `${n} / ${total} SGFs cacheados`;
+		el.style.color = n >= total ? 'var(--green, #4caf50)' : 'var(--gold)';
+	  }
+	}
+
+	function cfgStartPrecache() {
+	  if (!('serviceWorker' in navigator)) return;
+	  const btn = document.getElementById('cfg-cache-btn');
+	  const progress = document.getElementById('cfg-cache-progress');
+	  btn.disabled = true;
+	  btn.textContent = 'Descargando...';
+	  progress.style.display = 'block';
+	  progress.textContent = 'Iniciando...';
+	  const urls = dbQuery('SELECT sgf_path FROM problems WHERE sgf_path IS NOT NULL', []).map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
+	  const total = urls.length;
+	  navigator.serviceWorker.ready.then(reg => {
+		reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls });
+	  });
+	  const handler = e => {
+		if (e.data?.type === 'PRECACHE_PROGRESS') {
+		  progress.textContent = `${e.data.done} / ${total}`;
+		}
+		if (e.data?.type === 'PRECACHE_DONE') {
+		  navigator.serviceWorker.removeEventListener('message', handler);
+		  btn.disabled = false;
+		  btn.textContent = 'Descargar pendientes';
+		  progress.textContent = `Completado: ${total} SGFs`;
+		  localStorage.setItem('sgf_cached_count', total);
+		  cfgVerifyCache();
+		}
+	  };
+	  navigator.serviceWorker.addEventListener('message', handler);
+	}
   </script>
 </body>
 
