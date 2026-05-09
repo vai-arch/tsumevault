@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'tsumevault-v17';
+const CACHE_VERSION = 'tsumevault-v18';
 
 const STATIC_ASSETS = [
   '/tsumevault/tsumevault.html',
@@ -15,7 +15,13 @@ const STATIC_ASSETS = [
 // Instalación: cachear assets estáticos
 self.addEventListener('install', e => {
   e.waitUntil(
-    caches.open(CACHE_VERSION).then(cache => cache.addAll(STATIC_ASSETS))
+    caches.open(CACHE_VERSION).then(async cache => {
+      for (const url of STATIC_ASSETS) {
+        try {
+          await cache.add(url);
+        } catch {}
+      }
+    })
   );
   self.skipWaiting();
 });
@@ -77,11 +83,27 @@ self.addEventListener('fetch', e => {
   );
 });
 
-// Mensaje desde el cliente para pre-cachear SGFs nuevos
+// Mensaje desde el cliente
 self.addEventListener('message', e => {
+  if (e.data?.type === 'GET_CACHE_VERSION') {
+    const port = e.ports?.[0];
+    if (port) port.postMessage({ type: 'CACHE_VERSION', version: CACHE_VERSION });
+    else e.source?.postMessage({ type: 'CACHE_VERSION', version: CACHE_VERSION });
+    return;
+  }
+  if (e.data?.type === 'GET_CACHE_COUNT') {
+  const port = e.ports?.[0];
+  caches.open(CACHE_VERSION).then(async cache => {
+    const keys = await cache.keys();
+    const sgfs = keys.filter(r => r.url.endsWith('.sgf')).length;
+    port?.postMessage({ type: 'CACHE_COUNT', sgfs, total: keys.length });
+  });
+  return;
+}
   if (e.data?.type === 'PRECACHE_SGFS') {
     const urls = e.data.urls || [];
     caches.open(CACHE_VERSION).then(async cache => {
+      let done = 0;
       for (const url of urls) {
         const cached = await cache.match(url);
         if (!cached) {
@@ -90,9 +112,14 @@ self.addEventListener('message', e => {
             if (response.ok) cache.put(url, response.clone());
           } catch { }
         }
+        done++;
+        if (done % 500 === 0) {
+          e.source?.postMessage({ type: 'PRECACHE_PROGRESS', done, total: urls.length });
+        }
       }
-      // Notificar al cliente cuando termine
-      e.source?.postMessage({ type: 'PRECACHE_DONE' });
+      e.source?.postMessage({ type: 'PRECACHE_DONE', total: urls.length });
     });
   }
 });
+
+
