@@ -1269,15 +1269,6 @@
                 <input type="checkbox" id="cfg-sound-enabled" style="accent-color:var(--gold);cursor:pointer;">
                 Sonido activado
               </label>
-              <label
-                style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:10px;">
-                <input type="checkbox" id="cfg-tap-confirm" style="accent-color:var(--gold);cursor:pointer;">
-                Tap para confirmar (móvil)
-              </label>
-              <div style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:6px;line-height:1.6">
-                Primer tap fija la piedra, segundo tap confirma.<br>
-                Evita errores por misclick en móvil.
-              </div>
             </div>
             <!-- CACHE SGF -->
             <div class="cfg-section">
@@ -1472,14 +1463,12 @@
     const STONE_SET_KEY = 'stone_set_label';
     const FILTER_MOSTRAR_KEY = 'filter_mostrar';
     const SOUND_KEY = 'sound_enabled';
-    const TAP_CONFIRM_KEY = 'tap_confirm';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'http://192.168.0.50:3002';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
     let currentStoneSet = null; // {label, black:[], white:[]} or null = REALISTIC
     let filterMostrar = localStorage.getItem(FILTER_MOSTRAR_KEY) === 'true';
     let soundEnabled = localStorage.getItem(SOUND_KEY) !== 'false';
-    let tapConfirm = localStorage.getItem(TAP_CONFIRM_KEY) === 'true';
 
     let SQL = null, db = null;
     let allCollections = [], chaptersCache = {}, allProblems = [];
@@ -2082,7 +2071,6 @@
       loadSyncPresets();
       document.getElementById('cfg-filter-mostrar').checked = filterMostrar;
       document.getElementById('cfg-sound-enabled').checked = soundEnabled;
-      document.getElementById('cfg-tap-confirm').checked = tapConfirm;
     }
     function closeConfig() { document.getElementById('cfg-overlay').classList.remove('open'); }
     function onCfgOverlayClick(e) { if (e.target === document.getElementById('cfg-overlay')) closeConfig(); }
@@ -2138,10 +2126,6 @@
     document.getElementById('cfg-sound-enabled').addEventListener('change', e => {
       soundEnabled = e.target.checked;
       localStorage.setItem(SOUND_KEY, soundEnabled);
-    });
-    document.getElementById('cfg-tap-confirm').addEventListener('change', e => {
-      tapConfirm = e.target.checked;
-      localStorage.setItem(TAP_CONFIRM_KEY, tapConfirm);
     });
 
     // ══ STONE DRAW HANDLER ══
@@ -2645,39 +2629,14 @@
         const oppNode = node.children[0];
         setTimeout(() => { if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
       }
-      function resetGame() { game.allow_rewrite = true; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++)game.setStone(x, y, 0); for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
-      window._studyRestart = () => { history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; document.getElementById('comment-box').style.display = 'none'; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
-      window._studyBack = () => { if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; document.getElementById('comment-box').style.display = 'none'; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
-      let ghostPos = null; let pendingTap = null; const boardEl = wgoBoard.element;
-      function clearPending() { if (pendingTap) { wgoBoard.removeObject({ x: pendingTap.x, y: pendingTap.y, type: 'outline' }); pendingTap = null; } }
-      function updateGhost(e) { if (answered || waitingForNext) return; const rect = boardEl.getBoundingClientRect(); const mx = (e.clientX - rect.left) * wgoBoard.pixelRatio; const my = (e.clientY - rect.top) * wgoBoard.pixelRatio; const x = Math.round((mx - wgoBoard.left) / wgoBoard.fieldWidth); const y = Math.round((my - wgoBoard.top) / wgoBoard.fieldHeight); if (x < 0 || y < 0 || x >= boardSize || y >= boardSize) { clearGhost(); return; } if (ghostPos && ghostPos.x === x && ghostPos.y === y) return; clearGhost(); if (wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1)) return; ghostPos = { x, y }; wgoBoard.addObject({ x, y, c: playerC, type: 'outline' }); }
-      function clearGhost() { if (ghostPos) { wgoBoard.removeObject({ x: ghostPos.x, y: ghostPos.y, type: 'outline' }); ghostPos = null; } }
-      if (wgoBoard._ghostListener) { wgoBoard.element.removeEventListener('mousemove', wgoBoard._ghostListener); wgoBoard.element.removeEventListener('mouseleave', wgoBoard._clearGhost); }
-      wgoBoard._ghostListener = updateGhost; wgoBoard._clearGhost = clearGhost;
-      boardEl.addEventListener('mousemove', updateGhost); boardEl.addEventListener('mouseleave', clearGhost);
-      window._boardClickHandler = function(x, y) {
+      function onBoardClick(x, y) {
         clearGhost();
-        if (waitingForNext) { if (currentProblem && currentProblem._isReveal) { nextProblem(); } return; }
+        if (waitingForNext) {
+          if (currentProblem && currentProblem._isReveal) { nextProblem(); }
+          return;
+        }
         if (answered) return;
         if (wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => (o.c === 1 || o.c === -1) && o.type !== 'outline')) return;
-        if (tapConfirm) {
-          if (pendingTap && pendingTap.x === x && pendingTap.y === y) {
-            // segundo tap en mismo sitio → confirmar
-            clearPending();
-            onBoardClickExecute(x, y);
-          } else {
-            // primer tap o cambio de sitio → fijar pending
-            clearPending();
-            if (!(wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1))) {
-              pendingTap = { x, y };
-              wgoBoard.addObject({ x, y, c: playerC, type: 'outline' });
-            }
-          }
-        } else {
-          onBoardClickExecute(x, y);
-        }
-      };
-      function onBoardClickExecute(x, y) {
         const children = currentNode.children || [];
         const match = children.find(c => c.move && !c.move.pass && c.move.x === x && c.move.y === y);
         if (!match) { checkResult({ comment: 'WRONG' }); hadWrong = true; return; }
@@ -2686,6 +2645,16 @@
         placeStone(x, y, playerC); drawLastMoveDot(x, y); renderLabels(match); playSound('stone');
         if (checkResult(match)) return; playOpponent(match);
       }
+      function resetGame() { game.allow_rewrite = true; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++)game.setStone(x, y, 0); for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
+      window._studyRestart = () => { history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; document.getElementById('comment-box').style.display = 'none'; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
+      window._studyBack = () => { if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; document.getElementById('comment-box').style.display = 'none'; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
+      let ghostPos = null; const boardEl = wgoBoard.element;
+      function updateGhost(e) { if (answered || waitingForNext) return; const rect = boardEl.getBoundingClientRect(); const mx = (e.clientX - rect.left) * wgoBoard.pixelRatio; const my = (e.clientY - rect.top) * wgoBoard.pixelRatio; const x = Math.round((mx - wgoBoard.left) / wgoBoard.fieldWidth); const y = Math.round((my - wgoBoard.top) / wgoBoard.fieldHeight); if (x < 0 || y < 0 || x >= boardSize || y >= boardSize) { clearGhost(); return; } if (ghostPos && ghostPos.x === x && ghostPos.y === y) return; clearGhost(); if (wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1)) return; ghostPos = { x, y }; wgoBoard.addObject({ x, y, c: playerC, type: 'outline' }); }
+      function clearGhost() { if (ghostPos) { wgoBoard.removeObject({ x: ghostPos.x, y: ghostPos.y, type: 'outline' }); ghostPos = null; } }
+      if (wgoBoard._ghostListener) { wgoBoard.element.removeEventListener('mousemove', wgoBoard._ghostListener); wgoBoard.element.removeEventListener('mouseleave', wgoBoard._clearGhost); }
+      wgoBoard._ghostListener = updateGhost; wgoBoard._clearGhost = clearGhost;
+      boardEl.addEventListener('mousemove', updateGhost); boardEl.addEventListener('mouseleave', clearGhost);
+      window._boardClickHandler = onBoardClick;
       if (!wgoBoard._globalListenerSet) { wgoBoard.addEventListener('click', (x, y) => { if (window._boardClickHandler) window._boardClickHandler(x, y); }); wgoBoard._globalListenerSet = true; }
     }
     function showResult(isRight, comment) {
