@@ -2764,7 +2764,7 @@
 	function cfgVerifyCache() {
 	  const el = document.getElementById('cfg-cache-status');
 	  const cached = localStorage.getItem('sgf_cached_count');
-	  const total = dbQuery('SELECT COUNT(*) as n FROM problems WHERE sgf_path IS NOT NULL', [])[0]?.n || 0;
+	  const total = dbQuery('SELECT COUNT(*) as n FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE ch.mostrar=1 AND p.sgf_path IS NOT NULL', [])[0]?.n || 0;
 	  if (cached === null) {
 		el.textContent = `? / ${total} SGFs — nunca descargado`;
 		el.style.color = 'var(--dim)';
