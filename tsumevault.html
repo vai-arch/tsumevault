@@ -2670,8 +2670,8 @@
       const game = new WGo.Game(boardSize); game.allow_rewrite = true;
       for (const s of setupB) game.setStone(s.x, s.y, WGo.B);
       for (const s of setupW) game.setStone(s.x, s.y, WGo.W);
-      function gameSnapshot() { const pos = game.getPosition(); const snap = []; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v) snap.push({ x, y, v }); } return snap; }
-      function restoreSnapshot(snap) { game.allow_rewrite = true; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++)game.setStone(x, y, 0); for (const { x, y, v } of snap) game.setStone(x, y, v); redrawFromGame(); }
+      function gameSnapshot() { const pos = game.getPosition(); const snap = []; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v) snap.push({ x, y, v }); } return { stones: snap, marker: lastMoveMarker ? { ...lastMoveMarker } : null }; }
+      function restoreSnapshot(snap) { game.allow_rewrite = true; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++)game.setStone(x, y, 0); for (const { x, y, v } of snap.stones) game.setStone(x, y, v); lastMoveMarker = snap.marker; redrawFromGame(); }
       function redrawFromGame() { clearBoard(); const pos = game.getPosition(); for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 }); else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 }); } if (lastMoveMarker) wgoBoard.addObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); }
       function placeStone(x, y, c) { game.play(x, y, c === 1 ? WGo.B : WGo.W); redrawFromGame(); }
       function drawLastMoveDot(x, y) { if (lastMoveMarker) wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); wgoBoard.addObject({ x, y, type: 'CR' }); lastMoveMarker = { x, y }; }
