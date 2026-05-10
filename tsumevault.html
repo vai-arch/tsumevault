@@ -1384,6 +1384,10 @@
             <option value="struggling-10">Struggling (last 10)</option>
             <option value="struggling-20">Struggling (last 20)</option>
           </select>
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);margin-top:8px;padding-bottom:2px;">
+            <input type="checkbox" id="fp-visible" style="accent-color:var(--gold);cursor:pointer;">
+            Only visible chapters
+          </label>
           <div class="fp-label" style="margin-top:8px">Order</div>
           <select class="fsel" id="fp-order">
             <option value="difficulty">By difficulty</option>
@@ -1746,11 +1750,12 @@
       }
       return { collection, by_chapter };
     }
-    function localGetProblems(source, { set_id, chapter_id } = {}) {
-      let sql = `SELECT p.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct, COALESCE(s.pct_correct,0) AS pct_correct, s.last_seen FROM problems p LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,MAX(created_at) AS last_seen FROM attempts GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id WHERE p.source=?`;
+    function localGetProblems(source, { set_id, chapter_id, onlyVisible } = {}) {
+      let sql = `SELECT p.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct, COALESCE(s.pct_correct,0) AS pct_correct, s.last_seen FROM problems p LEFT JOIN chapters ch ON ch.id=p.chapter_id LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,MAX(created_at) AS last_seen FROM attempts GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id WHERE p.source=?`;
       const params = [source];
       if (chapter_id) { sql += ' AND p.chapter_id=?'; params.push(chapter_id); }
       else if (set_id) { sql += ' AND p.set_id=?'; params.push(set_id); }
+      if (onlyVisible) { sql += ' AND ch.mostrar=1'; }
       sql += ' ORDER BY p.order_in_chapter ASC';
       return dbQuery(sql, params);
     }
@@ -2449,8 +2454,9 @@
       const diffMin = document.getElementById('fp-diff').value, diffMax = document.getElementById('fp-diff-max').value;
       const color = document.getElementById('fp-color').value, status = document.getElementById('fp-status').value;
       const order = document.getElementById('fp-order').value;
+      const onlyVisible = document.getElementById('fp-visible').checked;
       try {
-        let problems = localGetProblems(currentSource, { set_id: setId ? parseInt(setId) : undefined, chapter_id: chapId ? parseInt(chapId) : undefined });
+        let problems = localGetProblems(currentSource, { set_id: setId ? parseInt(setId) : undefined, chapter_id: chapId ? parseInt(chapId) : undefined, onlyVisible });
         if (diffMin) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num >= parseInt(diffMin));
         if (diffMax) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num <= parseInt(diffMax));
         if (color) problems = problems.filter(p => p.color_to_play === color);
