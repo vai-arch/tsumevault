@@ -1128,6 +1128,7 @@
       #main {
         align-items: flex-start;
         padding-left: 0;
+        justify-content: flex-start;
       }
 
       #board-wrap {
@@ -1320,16 +1321,13 @@
               <option value="">All</option>
             </select>
           </div>
-          <label
-            style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);padding-bottom:2px;">
-            <input type="checkbox" id="cf-incomplete" style="accent-color:var(--gold);cursor:pointer;">
-            With attempts &amp; &lt; 100%
-          </label>
-          <label
-            style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);padding-bottom:2px;">
-            <input type="checkbox" id="cf-perfect" style="accent-color:var(--gold);cursor:pointer;">
-            Hide perfect runs
-          </label>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);padding-bottom:2px;">
+              <input type="checkbox" id="cf-needs-work" style="accent-color:var(--gold);cursor:pointer;">
+              Needs work (&lt;90% or not tried)
+            </label>
+            <button id="btn-expand-all" style="font-family:var(--mono);font-size:9px;color:var(--dim);background:transparent;border:1px solid var(--border2);border-radius:2px;padding:2px 7px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .15s;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">⊞ All</button>
+          </div>
         </div>
         <div id="col-list"
           style="flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;">
@@ -1392,6 +1390,7 @@
             <option value="random">Random</option>
           </select>
           <button class="fp-btn" id="fp-start">▶ Start practice</button>
+          <div id="fp-count" style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:6px;text-align:center;min-height:14px;"></div>
         </div>
       </div>
     </div>
@@ -1426,8 +1425,8 @@
         <div class="stat"><span class="stat-n ok" id="st-ok">0</span><span class="stat-l">Correct</span></div>
         <div class="stat"><span class="stat-n no" id="st-no">0</span><span class="stat-l">Wrong</span></div>
         <div class="stat"><span class="stat-n" id="st-seen">0</span><span class="stat-l">Seen</span></div>
-        <div class="stat"><span class="stat-n" id="st-pct" style="color:var(--gold)">—</span><span
-            class="stat-l">%</span></div>
+        <div class="stat"><span class="stat-n" id="st-pct" style="color:var(--gold)">—</span><span class="stat-l">%</span></div>
+        <div class="stat" id="st-total-wrap" style="display:none"><span class="stat-n" id="st-total" style="color:var(--dim)">—</span><span class="stat-l">Total</span></div>
       </div>
       <div id="run-progress">
         <div class="rp-label" id="rp-title">Run progress</div>
@@ -1508,10 +1507,11 @@
       if (num <= 2000) return (Math.round((2000 - num) / 100) + 1) + 'k';
       return Math.round((num - 2000) / 100) + 'd';
     }
+    const PCT_GREEN = 90, PCT_YELLOW = 80;
     function pctColor(pct) {
       if (pct == null) return 'var(--dim2)';
-      if (pct >= 90) return 'var(--ok-bright)';
-      if (pct >= 80) return 'var(--gold)';
+      if (pct >= PCT_GREEN) return 'var(--ok-bright)';
+      if (pct >= PCT_YELLOW) return 'var(--gold)';
       return 'var(--accent)';
     }
     function makeUUID() {
@@ -1790,7 +1790,7 @@
     LEFT JOIN collections c  ON c.source=r.source AND c.set_id=r.set_id
     LEFT JOIN chapters    ch ON ch.id=r.chapter_id
     LEFT JOIN (SELECT run_id, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok_count FROM run_items GROUP BY run_id) ri_stats ON ri_stats.run_id=r.id
-    WHERE r.source=? ORDER BY r.started_at DESC
+    WHERE r.source=? AND r.status='open' ORDER BY r.started_at DESC
   `, [source]);
     }
     function localGetRunItems(run_id) {
@@ -2181,10 +2181,8 @@
         item.innerHTML = `
       <div class="col-name"><span class="col-arrow">▶</span><span>${col.name}</span></div>
       <div class="col-stats"><span>${col.num_problems} probs</span><span class="col-diff">${diffStr}</span><span class="col-pct" id="cpct-${col.set_id}">—</span></div>
-      <div class="col-chapters" id="chaps-${col.set_id}"></div>
-      <button class="run-col-btn" id="runcol-${col.set_id}">▶ Run full collection</button>`;
+      <div class="col-chapters" id="chaps-${col.set_id}"></div>`;
         item.querySelector('.col-name').addEventListener('click', () => toggleCollection(col, item));
-        item.querySelector('.run-col-btn').addEventListener('click', e => { e.stopPropagation(); startRun({ source: currentSource, type: 'collection', set_id: col.set_id, colName: col.name }); });
         list.appendChild(item); refreshColPct(col.set_id);
       }
       applyCollectionFilters(); // ← añadir esta línea
@@ -2198,16 +2196,13 @@
     function applyCollectionFilters() {
       console.log('[filtro] chaptersCache keys:', Object.keys(chaptersCache));
       const maxDiff = document.getElementById('cf-diff').value;
-      const onlyIncomplete = document.getElementById('cf-incomplete').checked;
-      const hidePerfect = document.getElementById('cf-perfect').checked;
+      const needsWork = document.getElementById('cf-needs-work').checked;
       document.querySelectorAll('#col-list .col-item').forEach(item => {
         const setId = item.dataset.setId;
         const col = allCollections.find(c => String(c.set_id) === setId);
         if (!col) return;
         let hide = false;
         if (maxDiff !== '' && col.difficulty_num != null && col.difficulty_num > Number(maxDiff)) hide = true;
-        if (!hide && onlyIncomplete) { const hasAttempts = (col.total_attempts || 0) > 0; const pct = col.total_attempts > 0 ? Math.round((col.total_correct || 0) / col.total_attempts * 100) : 0; if (!hasAttempts || pct === 100) hide = true; }
-        if (!hide && hidePerfect) { const s = lastRunStatsAll[parseInt(setId)]; if (s) { const colPerfect = s.collection && s.collection.pct === 100; const chapValues = Object.values(s.by_chapter || {}); const allChapsPerfect = chapValues.length > 0 && chapValues.every(c => c.pct === 100); if (colPerfect && allChapsPerfect) hide = true; } }
         // Filtro mostrar: ocultar colección si ningún chapter tiene mostrar=1
         if (!hide && filterMostrar) {
           const cached = chaptersCache[col.set_id];
@@ -2222,24 +2217,30 @@
           }
         }
         item.classList.toggle('hidden', hide);
-        // Actualizar visibilidad de chapters dentro del acordeón si está abierto
-        if (filterMostrar) {
-          item.querySelectorAll('.chap-item').forEach(ci => {
-            const chapId = ci.querySelector('.chap-mostrar-chk')?.dataset.chapid;
-            if (!chapId) return;
+        // Actualizar visibilidad de chapters dentro del acordeón
+        const s = lastRunStatsAll[parseInt(setId)];
+        item.querySelectorAll('.chap-item').forEach(ci => {
+          const chapId = ci.querySelector('.chap-mostrar-chk')?.dataset.chapid;
+          if (!chapId) return;
+          // filtro mostrar
+          if (filterMostrar) {
             const cached = chaptersCache[col.set_id];
             const chap = cached?.find(ch => String(ch.id) === chapId);
-            ci.style.display = (chap && !chap.mostrar) ? 'none' : '';
-          });
-        } else {
-          item.querySelectorAll('.chap-item').forEach(ci => ci.style.display = '');
-        }
+            if (chap && !chap.mostrar) { ci.style.display = 'none'; return; }
+          }
+          // filtro needs-work: ocultar chapter si pct >= PCT_GREEN
+          if (needsWork) {
+            const cs = s && s.by_chapter[parseInt(chapId)];
+            if (cs && cs.pct != null && cs.pct >= PCT_GREEN) { ci.style.display = 'none'; return; }
+          }
+          ci.style.display = '';
+        });
       });
     }
 
     document.getElementById('cf-diff').addEventListener('change', applyCollectionFilters);
-    document.getElementById('cf-incomplete').addEventListener('change', applyCollectionFilters);
-    document.getElementById('cf-perfect').addEventListener('change', applyCollectionFilters);
+    document.getElementById('cf-needs-work').addEventListener('change', applyCollectionFilters);
+    document.getElementById('btn-expand-all').addEventListener('click', expandAllVisible);
 
     function fmtDuration(ms) {
       if (ms == null || ms < 0) return '';
@@ -2249,25 +2250,40 @@
     function refreshColPct(setId) {
       const el = document.getElementById(`cpct-${setId}`); if (!el) return;
       const s = lastRunStatsAll[parseInt(setId)];
-      let part1 = '';
-      if (s && s.collection && s.collection.pct != null) { const pct = s.collection.pct; const dur = fmtDuration(s.collection.duration_ms); part1 = `<span style="color:${pctColor(pct)}">${pct}%</span>${dur ? ' · ' + dur : ''}`; }
       const chapTotal = (s && s.chap_total) || 0; let chapDone = 0, pctSum = 0, pctCount = 0;
       if (s) { for (const cs of Object.values(s.by_chapter)) { if (cs.pct != null) { chapDone++; pctSum += cs.pct; pctCount++; } } }
       const avgPct = pctCount > 0 ? Math.round(pctSum / pctCount) : null;
       const part2 = chapTotal > 0 ? `${chapDone}/${chapTotal} · <span style="color:${pctColor(avgPct)}">${avgPct != null ? avgPct + '%avg' : '—'}</span>` : '';
-      if (!part1 && !part2) { el.textContent = ''; return; }
-      if (part1 && part2) el.innerHTML = `${part1} | ${part2}`; else el.innerHTML = part1 || part2;
+      if (!part2) { el.textContent = ''; return; }
+      el.innerHTML = part2;
     }
     async function refreshCollectionStats() {
-      try { lastRunStatsAll = localGetLastRunStatsAll(currentSource); document.querySelectorAll('.col-item').forEach(item => refreshColPct(parseInt(item.dataset.setId))); applyCollectionFilters(); } catch (e) { }
+      try {
+        lastRunStatsAll = localGetLastRunStatsAll(currentSource);
+        document.querySelectorAll('.col-item').forEach(item => {
+          const setId = parseInt(item.dataset.setId);
+          refreshColPct(setId);
+          // Re-renderizar stats de chapters abiertos
+          if (item.classList.contains('expanded')) {
+            const col = allCollections.find(c => c.set_id === setId);
+            if (!col) return;
+            const runStats = localGetLastRunStats(currentSource, col.set_id);
+            item.querySelectorAll('.chap-item').forEach(ci => {
+              const chapId = parseInt(ci.querySelector('.chap-mostrar-chk')?.dataset.chapid);
+              if (!chapId) return;
+              const cs = runStats && runStats.by_chapter[chapId];
+              const chapSpp = (cs && cs.duration_ms != null && cs.total > 0) ? Math.round(cs.duration_ms / 1000 / cs.total) + 's' : '';
+              const chapPctStr = cs && cs.pct != null ? cs.pct + '%' + (chapSpp ? ' · ' + chapSpp : '') : '';
+              const chapPctColor = cs ? pctColor(cs.pct) : 'var(--dim2)';
+              const pctEl = ci.querySelector('.chap-pct');
+              if (pctEl) { pctEl.textContent = chapPctStr; pctEl.style.color = chapPctColor; }
+            });
+          }
+        });
+        applyCollectionFilters();
+      } catch (e) { }
     }
-    async function toggleCollection(col, item) {
-      const isOpen = item.classList.contains('expanded');
-      document.querySelectorAll('.col-item.expanded').forEach(el => el.classList.remove('expanded'));
-      if (isOpen) return;
-      item.classList.add('expanded');
-      const chapDiv = item.querySelector('.col-chapters');
-      if (chapDiv.children.length > 0) return;
+    async function renderChapterList(col, chapDiv) {
       chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--dim2)">Loading…</div>`;
       try {
         const chapters = localGetChapters(currentSource, col.set_id);
@@ -2280,14 +2296,14 @@
           if (filterMostrar && !chap.mostrar) { ci.style.display = 'none'; }
           const diffStr = chap.diff_avg != null ? diffLabel(chap.diff_avg) : (chap.diff_min != null ? `${diffLabel(chap.diff_min)}–${diffLabel(chap.diff_max)}` : '—');
           const cs = runStats && runStats.by_chapter[chap.id];
-          const chapDur = cs ? fmtDuration(cs.duration_ms) : '';
-          const chapPctStr = cs && cs.pct != null ? cs.pct + '%' + (chapDur ? ' · ' + chapDur : '') : '';
+          const chapSpp = (cs && cs.duration_ms != null && cs.total > 0) ? Math.round(cs.duration_ms / 1000 / cs.total) + 's' : '';
+		  const chapPctStr = cs && cs.pct != null ? cs.pct + '%' + (chapSpp ? ' · ' + chapSpp : '') : '';
           const chapPctColor = cs ? pctColor(cs.pct) : 'var(--dim2)';
           ci.innerHTML = `<span class="chap-name">${chap.name || `Ch ${chap.chapter_num}`} <span style="color:var(--dim2)">(${diffStr})</span></span>
         <span class="chap-stats">${chap.problem_count}p <span class="chap-pct" style="color:${chapPctColor}">${chapPctStr}</span></span>
         <label style="display:flex;align-items:center;gap:3px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);flex-shrink:0;white-space:nowrap;" title="Mostrar esta lección">
           <input type="checkbox" class="chap-mostrar-chk" data-chapid="${chap.id}" ${chap.mostrar ? 'checked' : ''} style="accent-color:var(--gold);cursor:pointer;">
-          mostrar
+          show
         </label>
         <button class="chap-btn" data-chapid="${chap.id}">▶ Run</button>`;
           ci.querySelector('.chap-mostrar-chk').addEventListener('change', async e => {
@@ -2311,6 +2327,29 @@
         }
       } catch (e) { chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--accent)">Error loading chapters</div>`; }
     }
+    async function toggleCollection(col, item) {
+      const isOpen = item.classList.contains('expanded');
+      if (isOpen) { item.classList.remove('expanded'); return; }
+      item.classList.add('expanded');
+      const chapDiv = item.querySelector('.col-chapters');
+      if (chapDiv.children.length > 0) return;
+      await renderChapterList(col, chapDiv);
+    }
+    async function expandAllVisible() {
+      const visible = [...document.querySelectorAll('#col-list .col-item')].filter(el => !el.classList.contains('hidden'));
+      for (const item of visible) {
+        if (!item.classList.contains('expanded')) {
+          item.classList.add('expanded');
+          const col = allCollections.find(c => String(c.set_id) === item.dataset.setId);
+          if (col) {
+            const chapDiv = item.querySelector('.col-chapters');
+            if (chapDiv && chapDiv.children.length === 0) {
+              await renderChapterList(col, chapDiv);
+            }
+          }
+        }
+      }
+    }
 
     // ══ RUNS ══
     async function startRun(opts) {
@@ -2325,6 +2364,7 @@
         document.getElementById('rp-title').textContent = label;
         document.getElementById('run-progress').style.display = 'block';
         document.getElementById('cfg-pill-total').textContent = '';
+        document.getElementById('st-total-wrap').style.display = 'none';
         switchTab('runs'); await loadRuns(); updateSessionUI(); nextProblem();
       } catch (e) { alert('Failed to start run: ' + e.message); }
     }
@@ -2420,6 +2460,7 @@
           problems = problems.filter(p => strIds.has(p.problem_id));
         }
         if (!problems.length) {
+          document.getElementById('fp-count').textContent = '0 problems match';
           document.getElementById('board-wrap').style.display = 'none'; document.getElementById('comment-box').style.display = 'none';
           document.getElementById('result-flash').className = ''; document.getElementById('welcome').style.display = 'flex';
           document.getElementById('welcome').querySelector('p').textContent = 'No problems match the selected filters';
@@ -2428,6 +2469,9 @@
           document.getElementById('cfg-pill-ok').textContent = '0✓'; document.getElementById('cfg-pill-no').textContent = '0✗';
           return;
         }
+        document.getElementById('fp-count').textContent = `${problems.length} problems`;
+        document.getElementById('st-total').textContent = problems.length;
+        document.getElementById('st-total-wrap').style.display = '';
         if (order === 'random') { for (let i = problems.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[problems[i], problems[j]] = [problems[j], problems[i]]; } }
         activeRunId = null; runMode = false; runItems = []; document.getElementById('run-progress').style.display = 'none';
         allProblems = problems; document.getElementById('cfg-pill-total').textContent = `/ ${problems.length}`;
@@ -2478,6 +2522,7 @@
       document.getElementById('welcome').style.display = 'flex';
       document.getElementById('welcome').querySelector('p').textContent = `Done — ${sessionOk}✓ ${sessionNo}✗`;
       document.getElementById('welcome').style.pointerEvents = 'none';
+      document.getElementById('st-total-wrap').style.display = 'none';
     }
 
     // ══ SGF / BOARD ══
