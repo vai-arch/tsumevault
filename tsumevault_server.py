@@ -655,7 +655,6 @@ def handle_sync_push(body):
     print(f"[sync/push] {len(runs_in)} runs, {len(attempts_in)} attempts")
     
     
-    
     inserted_attempts = []  # {client_id, server_id}
     inserted_runs = []  # {client_uuid, server_id}
 
