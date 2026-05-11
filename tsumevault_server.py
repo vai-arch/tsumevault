@@ -627,11 +627,105 @@ def handle_sync_push(body):
     """
     attempts_in = body.get("attempts", [])
     runs_in = body.get("runs", [])
-
+    
+    
+    # LOG completo del payload
+    with open("sync_push_log.json", "w", encoding="utf-8") as f:
+        json.dump({
+            "runs_count": len(runs_in),
+            "attempts_count": len(attempts_in),
+            "runs": [{
+                "id": r.get("id"),
+                "uuid": r.get("uuid"),
+                "source": r.get("source"),
+                "chapter_id": r.get("chapter_id"),
+                "type": r.get("type"),
+                "status": r.get("status"),
+                "total": r.get("total"),
+                "done": r.get("done"),
+                "run_items_count": len(r.get("run_items", [])),
+                "run_items_sources": list(set(i.get("source") for i in r.get("run_items", []))),
+                "run_items_chapter_ids": list(set(
+                    # no tenemos chapter_id en run_items, pero sí problem_id
+                    str(i.get("problem_id")) for i in r.get("run_items", [])[:3]  # primeros 3 como muestra
+                )),
+            } for r in runs_in],
+            "attempts_run_ids": list(set(a.get("run_id") for a in attempts_in)),
+        }, f, indent=2)
+    print(f"[sync/push] {len(runs_in)} runs, {len(attempts_in)} attempts")
+    
+    
+    
     inserted_attempts = []  # {client_id, server_id}
     inserted_runs = []  # {client_uuid, server_id}
 
     with db_connect() as con:
+        # ── Runs primero (para poder mapear run_id en attempts) ──
+        client_to_server_run_id = {}  # client run_id → server run_id
+
+        # ── Runs ──
+        for r in runs_in:
+            uuid = r.get("uuid")
+            if not uuid:
+                continue
+            existing = con.execute(
+                "SELECT id FROM runs WHERE uuid=?", (uuid,)
+            ).fetchone()
+            if existing:
+                server_run_id = existing[0]
+                # Actualizar status/done/closed_at si ha cambiado
+                con.execute(
+                    """
+                    UPDATE runs SET status=?, done=?, closed_at=?
+                    WHERE id=?
+                """,
+                    (r["status"], r["done"], r.get("closed_at"), server_run_id),
+                )
+                # Actualizar resultados de run_items
+                for item in r.get("run_items", []):
+                    if item.get("result"):
+                        con.execute(
+                            "UPDATE run_items SET result=? WHERE run_id=? AND problem_id=?",
+                            (item["result"], server_run_id, item["problem_id"]),
+                        )
+            else:
+                cur = con.execute(
+                    """
+                    INSERT INTO runs (source, set_id, chapter_id, vc_id, type, status,
+                                      total, done, started_at, closed_at, uuid)
+                    VALUES (?,?,?,?,?,?,?,?,?,?,?)
+                """,
+                    (
+                        r["source"],
+                        r.get("set_id"),
+                        r.get("chapter_id"),
+                        r.get("vc_id"),
+                        r["type"],
+                        r["status"],
+                        r["total"],
+                        r["done"],
+                        r["started_at"],
+                        r.get("closed_at"),
+                        uuid,
+                    ),
+                )
+                server_run_id = cur.lastrowid
+
+                # run_items
+                for item in r.get("run_items", []):
+                    con.execute(
+                        """
+                        INSERT OR IGNORE INTO run_items (run_id, source, problem_id, order_in_run, result)
+                        VALUES (?,?,?,?,?)
+                    """,
+                        (server_run_id, item["source"], item["problem_id"], item["order_in_run"], item.get("result")),
+                    )
+
+            inserted_runs.append({"client_uuid": uuid, "server_id": server_run_id})
+            client_run_id = r.get("id") or r.get("client_id")
+            if client_run_id is not None:
+                client_to_server_run_id[int(client_run_id)] = server_run_id
+                
         # ── Attempts ──
         for a in attempts_in:
             uuid = a.get("uuid")
@@ -645,78 +739,21 @@ def handle_sync_push(body):
                     (a["source"], a["problem_id"], a["created_at"]),
                 ).fetchone()
             if existing:
-                inserted_attempts.append(
-                    {"client_id": a.get("client_id"), "server_id": existing[0]}
-                )
+                inserted_attempts.append({"client_id": a.get("client_id"), "server_id": existing[0]})
                 continue
+
+            # mapear run_id del cliente al del servidor
+            client_run_id = a.get("run_id")
+            server_run_id = client_to_server_run_id.get(int(client_run_id)) if client_run_id is not None else None
+
             cur = con.execute(
                 "INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at, uuid) VALUES (?,?,?,?,?,?,?)",
-                (
-                    a["source"],
-                    a["problem_id"],
-                    None,
-                    a["result"],
-                    a.get("time_ms"),
-                    a["created_at"],
-                    uuid,
-                ),
+                (a["source"], a["problem_id"], server_run_id, a["result"], a.get("time_ms"), a["created_at"], uuid),
             )
-            inserted_attempts.append(
-                {"client_id": a.get("client_id"), "server_id": cur.lastrowid}
-            )
-
-        # ── Runs ──
-        for r in runs_in:
-            uuid = r.get("uuid")
-            if not uuid:
-                continue
-            existing = con.execute(
-                "SELECT id FROM runs WHERE uuid=?", (uuid,)
-            ).fetchone()
-            if existing:
-                inserted_runs.append({"client_uuid": uuid, "server_id": existing[0]})
-                continue
-            cur = con.execute(
-                """
-                INSERT INTO runs (source, set_id, chapter_id, vc_id, type, status,
-                                  total, done, started_at, closed_at, uuid)
-                VALUES (?,?,?,?,?,?,?,?,?,?,?)
-            """,
-                (
-                    r["source"],
-                    r.get("set_id"),
-                    r.get("chapter_id"),
-                    r.get("vc_id"),
-                    r["type"],
-                    r["status"],
-                    r["total"],
-                    r["done"],
-                    r["started_at"],
-                    r.get("closed_at"),
-                    uuid,
-                ),
-            )
-            server_run_id = cur.lastrowid
-            inserted_runs.append({"client_uuid": uuid, "server_id": server_run_id})
-
-            # run_items
-            for item in r.get("run_items", []):
-                con.execute(
-                    """
-                    INSERT OR IGNORE INTO run_items (run_id, source, problem_id, order_in_run, result)
-                    VALUES (?,?,?,?,?)
-                """,
-                    (
-                        server_run_id,
-                        item["source"],
-                        item["problem_id"],
-                        item["order_in_run"],
-                        item.get("result"),
-                    ),
-                )
+            inserted_attempts.append({"client_id": a.get("client_id"), "server_id": cur.lastrowid})
 
         con.commit()
-
+        
     return {"ok": True, "attempts": inserted_attempts, "runs": inserted_runs}
 
 
@@ -857,10 +894,12 @@ if __name__ == "__main__":
         print(f"[WARN] DB no encontrada: {DB_PATH}")
         print("       Ejecuta tsumevault_init.py primero.")
 
+    import socket
+    local_ip = socket.gethostbyname(socket.gethostname())
     print(f"TsumeVault API → http://localhost:{PORT}")
+    print(f"Red local      → http://{local_ip}:{PORT}")
     print(f"DB             → {DB_PATH}")
     print("Ctrl+C para detener\n")
-
     migrate_db()
 
     HTTPServer(("0.0.0.0", PORT), Handler).serve_forever()

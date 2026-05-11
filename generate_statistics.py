@@ -1,17 +1,26 @@
 """
-export_chapters_report.py
-Genera un listado CSV (;-separado) para pegar en Google Sheets.
-Columnas: Source | Collection | Chapter | Date | Average | Time
+export_to_gsheets.py
+Lee tsumeVault.db y vuelca los resultados en la hoja "Problems" del Google Sheet.
+
+Requisitos:
+    pip install gspread
+
+Colocar el fichero JSON de credenciales junto a este script y
+ajustar CREDENTIALS_FILE con su nombre.
 
 Ejecutar desde el directorio donde está tsumeVault.db:
-    python export_chapters_report.py
+    python export_to_gsheets.py
 """
 
 import sqlite3
 import os
+import gspread
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_FILE = os.path.join(SCRIPT_DIR, "tsumeVault.db")
+SCRIPT_DIR      = os.path.dirname(os.path.abspath(__file__))
+DB_FILE         = os.path.join(SCRIPT_DIR, "tsumeVault.db")
+CREDENTIALS_FILE = os.path.join(SCRIPT_DIR, "conf/tsumevault-ad87227d16a1.json")  
+SPREADSHEET_ID  = "1MPPne1DvPD4ui0st4vtq1u1s49Qj4S2EhGmui2Jgmag"
+SHEET_NAME      = "Problems"
 
 SQL = """
 SELECT
@@ -37,17 +46,17 @@ SQL_RUN_STATS = """
 SELECT
     SUM(CASE WHEN ri.result = 'correct' THEN 1 ELSE 0 END) AS correct,
     COUNT(*)                                                  AS total,
-    (JULIANDAY(r.closed_at) - JULIANDAY(r.started_at)) * 86400000 AS duration_ms
+    (SELECT ROUND(AVG(time_ms) / 1000.0, 1)
+     FROM attempts
+     WHERE run_id = ri.run_id) AS avg_secs
 FROM run_items ri
-JOIN runs r ON r.id = ri.run_id
 WHERE ri.run_id = ?
 """
 
 def fmt_date(iso):
     if not iso:
         return ""
-    date_part = iso[:10]
-    y, m, d = date_part.split("-")
+    y, m, d = iso[:10].split("-")
     return f"{d}/{m}/{y}"
 
 def fmt_pct(correct, total):
@@ -55,37 +64,44 @@ def fmt_pct(correct, total):
         return ""
     return f"{round(correct / total * 100)}%"
 
-def fmt_time(ms):
-    if ms is None:
-        return ""
-    total_s = int(ms / 1000)
-    m = total_s // 60
-    s = total_s % 60
-    return f"{m}m{s:02d}s"
-
-def main():
-    con = sqlite3.connect(DB_FILE)
+def build_rows(con):
     rows = con.execute(SQL).fetchall()
-
-    lines = ["Source;Collection;Chapter;Date;Average;Time"]
-
+    result = []
     for source, collection, chapter, closed_at, run_id in rows:
         if run_id is not None:
-            att = con.execute(SQL_RUN_STATS, (run_id,)).fetchone()
-            correct, total, duration_ms = att
+            correct, total, avg_secs = con.execute(SQL_RUN_STATS, (run_id,)).fetchone()
             date_str = fmt_date(closed_at)
             avg_str  = fmt_pct(correct, total)
-            time_str = fmt_time(duration_ms)
+            time_str = str(avg_secs) if avg_secs is not None else ""
+            n_str    = str(total)
         else:
-            date_str = time_str = ""
-            avg_str = 0
+            date_str = avg_str = time_str = ""
+            n_str = ""
+        result.append([source, collection, chapter, date_str, n_str, avg_str, time_str])
+    return result
 
-        lines.append(f"{source};{collection};{chapter};{date_str};{avg_str};{time_str}")
-
+def main():
+    # Leer DB
+    con = sqlite3.connect(DB_FILE)
+    rows = build_rows(con)
     con.close()
 
-    output = "\n".join(lines)
-    print(output)
+    # Conectar a Sheets
+    gc     = gspread.service_account(filename=CREDENTIALS_FILE)
+    sh     = gc.open_by_key(SPREADSHEET_ID)
+    ws     = sh.worksheet(SHEET_NAME)
+
+    # Limpiar y escribir
+    header = [["Source", "Collection", "Chapter", "Date", "Num. Prob.", "Average", "Avg_secs"]]
+    ws.clear()
+    ws.update(header + rows, value_input_option="USER_ENTERED")
+
+    # Imprimir en pantalla
+    print(";".join(["Source", "Collection", "Chapter", "Date", "Num. Prob.", "Average", "Avg_secs"]))
+    for row in rows:
+        print(";".join(row))
+        
+    print(f"OK — {len(rows)} filas escritas en '{SHEET_NAME}'")
 
 if __name__ == "__main__":
     main()
