@@ -1828,29 +1828,30 @@
         dbExec(`UPDATE run_items SET result=? WHERE run_id=? AND problem_id=?`, [result, run_id, problem_id]);
       }
     }
-    function localInsertRun(source, type, { set_id, chapter_id } = {}) {
-      if (chapter_id && !set_id) { const ch = dbQueryOne('SELECT set_id FROM chapters WHERE id=?', [chapter_id]); if (ch) set_id = ch.set_id; }
-      let rows;
-      if (type === 'chapter' && chapter_id) rows = dbQuery(`SELECT source,problem_id FROM problems WHERE chapter_id=? ORDER BY order_in_chapter`, [chapter_id]);
-      else if (type === 'collection' && set_id) {
-        if (filterMostrar) {
-          rows = dbQuery(`SELECT p.source,p.problem_id FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE p.source=? AND p.set_id=? AND ch.mostrar=1 ORDER BY p.order_in_chapter`, [source, set_id]);
-        } else {
-          rows = dbQuery(`SELECT source,problem_id FROM problems WHERE source=? AND set_id=? ORDER BY order_in_chapter`, [source, set_id]);
-        }
-      } else return null;
-      for (let i = rows.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[rows[i], rows[j]] = [rows[j], rows[i]]; }
-      const total = rows.length, uuid = makeUUID();
-      const started_at = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
-      dbExec(`INSERT INTO runs (source,set_id,chapter_id,type,status,total,done,started_at,uuid) VALUES (?,?,?,?,?,?,0,?,?)`,
-        [source, set_id ?? null, chapter_id ?? null, type, 'open', total, started_at, uuid]);
-      const run_id = dbQueryOne('SELECT last_insert_rowid() AS id', []).id;
-      for (let order = 0; order < rows.length; order++) {
-        dbExec(`INSERT INTO run_items (run_id,source,problem_id,order_in_run) VALUES (?,?,?,?)`, [run_id, rows[order].source, rows[order].problem_id, order + 1]);
-      }
-      return { run_id, total };
-    }
-    function localUpdateRunStatus(run_id, status) {
+   function localInsertRun(source, type, { set_id, chapter_id } = {}) {
+	  if (chapter_id && !set_id) { const ch = dbQueryOne('SELECT set_id FROM chapters WHERE id=?', [chapter_id]); if (ch) set_id = ch.set_id; }
+	  let rows;
+	  if (type === 'chapter' && chapter_id) rows = dbQuery(`SELECT source,problem_id FROM problems WHERE chapter_id=? ORDER BY order_in_chapter`, [chapter_id]);
+	  else if (type === 'collection' && set_id) {
+		if (filterMostrar) {
+		  rows = dbQuery(`SELECT p.source,p.problem_id FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE p.source=? AND p.set_id=? AND ch.mostrar=1 ORDER BY p.order_in_chapter`, [source, set_id]);
+		} else {
+		  rows = dbQuery(`SELECT source,problem_id FROM problems WHERE source=? AND set_id=? ORDER BY order_in_chapter`, [source, set_id]);
+		}
+	  } else return null;
+	  for (let i = rows.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[rows[i], rows[j]] = [rows[j], rows[i]]; }
+	  const total = rows.length, uuid = makeUUID();
+	  const started_at = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+	  dbExec(`INSERT INTO runs (source,set_id,chapter_id,type,status,total,done,started_at,uuid) VALUES (?,?,?,?,?,?,0,?,?)`,
+		[source, set_id ?? null, chapter_id ?? null, type, 'open', total, started_at, uuid]);
+	  const run_id = dbQueryOne('SELECT id FROM runs WHERE uuid=?', [uuid])?.id;
+	  if (!run_id) { alert('[localInsertRun] INSERT falló: uuid=' + uuid); return null; }
+	  for (let order = 0; order < rows.length; order++) {
+		dbExec(`INSERT INTO run_items (run_id,source,problem_id,order_in_run) VALUES (?,?,?,?)`, [run_id, rows[order].source, rows[order].problem_id, order + 1]);
+	  }
+	  return { run_id, total };
+	}
+	function localUpdateRunStatus(run_id, status) {
       const closed_at = status === 'closed' ? new Date().toISOString().replace(/\.\d+Z$/, 'Z') : null;
       dbExec(`UPDATE runs SET status=?, closed_at=? WHERE id=?`, [status, closed_at, run_id]);
     }
