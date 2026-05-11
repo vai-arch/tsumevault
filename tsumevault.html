@@ -1265,6 +1265,20 @@
                 Las colecciones sin lecciones visibles también se ocultan.<br>
                 Run collection solo corre las lecciones marcadas.
               </div>
+              <div style="margin-top:12px;font-family:var(--mono);font-size:9px;color:var(--dim2);margin-bottom:4px">
+                URL del fichero de visibilidad (GitHub raw):
+              </div>
+              <div style="display:flex;gap:6px;align-items:center">
+                <input id="cfg-visibility-url" type="text"
+                  style="flex:1;font-family:var(--mono);font-size:9px;background:var(--bg);color:var(--text);border:1px solid var(--border2);padding:5px 8px;border-radius:2px;outline:none;"
+                  placeholder="https://raw.githubusercontent.com/...">
+                <button id="cfg-visibility-btn"
+                  style="font-family:var(--mono);font-size:9px;white-space:nowrap;padding:5px 10px;background:transparent;border:1px solid var(--gold-dim);color:var(--gold);cursor:pointer;border-radius:2px;transition:all .18s;">
+                  ↓ Aplicar
+                </button>
+              </div>
+              <div id="cfg-visibility-status"
+                style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:5px;min-height:14px"></div>
               <label
                 style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:10px;">
                 <input type="checkbox" id="cfg-sound-enabled" style="accent-color:var(--gold);cursor:pointer;">
@@ -1476,6 +1490,8 @@
     const FILTER_MOSTRAR_KEY = 'filter_mostrar';
     const SOUND_KEY = 'sound_enabled';
     const TAP_CONFIRM_KEY = 'tap_confirm';
+    const VISIBILITY_URL_KEY = 'visibility_url';
+    const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'http://192.168.0.50:3002';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -2088,6 +2104,7 @@
       document.getElementById('cfg-filter-mostrar').checked = filterMostrar;
       document.getElementById('cfg-sound-enabled').checked = soundEnabled;
       document.getElementById('cfg-tap-confirm').checked = tapConfirm;
+      document.getElementById('cfg-visibility-url').value = localStorage.getItem(VISIBILITY_URL_KEY) || VISIBILITY_URL_DEFAULT;
     }
     function closeConfig() { document.getElementById('cfg-overlay').classList.remove('open'); }
     function onCfgOverlayClick(e) { if (e.target === document.getElementById('cfg-overlay')) closeConfig(); }
@@ -2147,6 +2164,43 @@
     document.getElementById('cfg-tap-confirm').addEventListener('change', e => {
       tapConfirm = e.target.checked;
       localStorage.setItem(TAP_CONFIRM_KEY, tapConfirm);
+    });
+    document.getElementById('cfg-visibility-url').addEventListener('change', e => {
+      localStorage.setItem(VISIBILITY_URL_KEY, e.target.value.trim());
+    });
+    document.getElementById('cfg-visibility-btn').addEventListener('click', async () => {
+      const url = (document.getElementById('cfg-visibility-url').value.trim()) || VISIBILITY_URL_DEFAULT;
+      const statusEl = document.getElementById('cfg-visibility-status');
+      statusEl.style.color = 'var(--dim2)';
+      statusEl.textContent = 'Descargando…';
+      try {
+        const res = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        // Reset total: todos a 0
+        dbExec('UPDATE chapters SET mostrar=0', []);
+        let count = 0;
+        for (const source of Object.keys(data)) {
+          for (const colData of Object.values(data[source])) {
+            for (const ch of (colData.chapters || [])) {
+              if (ch.mostrar) {
+                dbExec('UPDATE chapters SET mostrar=1 WHERE id=?', [ch.id]);
+                count++;
+              }
+            }
+          }
+        }
+        // Invalidar cache de chapters y guardar IndexedDB
+        chaptersCache = {};
+        await saveDB();
+        // Recargar UI
+        await loadCollections();
+        statusEl.style.color = 'var(--ok-bright)';
+        statusEl.textContent = `✓ ${count} chapters marcados como visibles`;
+      } catch (e) {
+        statusEl.style.color = 'var(--accent)';
+        statusEl.textContent = `Error: ${e.message}`;
+      }
     });
 
     // ══ STONE DRAW HANDLER ══
