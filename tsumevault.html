@@ -1260,11 +1260,6 @@
                 <input type="checkbox" id="cfg-filter-mostrar" style="accent-color:var(--gold);cursor:pointer;">
                 Mostrar solo lecciones marcadas
               </label>
-              <div style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:6px;line-height:1.6">
-                Oculta las lecciones sin "mostrar" activo.<br>
-                Las colecciones sin lecciones visibles también se ocultan.<br>
-                Run collection solo corre las lecciones marcadas.
-              </div>
               <div style="margin-top:12px;font-family:var(--mono);font-size:9px;color:var(--dim2);margin-bottom:4px">
                 URL del fichero de visibilidad (GitHub raw):
               </div>
@@ -1289,9 +1284,14 @@
                 <input type="checkbox" id="cfg-tap-confirm" style="accent-color:var(--gold);cursor:pointer;">
                 Tap para confirmar (móvil)
               </label>
-              <div style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:6px;line-height:1.6">
-                Primer tap fija la piedra, segundo tap confirma.<br>
-                Evita errores por misclick en móvil.
+              <div style="display:flex;align-items:center;gap:8px;margin-top:12px;">
+                <span style="font-family:var(--mono);font-size:11px;color:var(--dim);white-space:nowrap;">Umbral verde / needs work:</span>
+                <input id="cfg-pct-green" type="number" min="1" max="100"
+                  style="width:52px;font-family:var(--mono);font-size:11px;background:var(--bg);color:var(--text);border:1px solid var(--border2);padding:4px 6px;border-radius:2px;outline:none;text-align:center;">
+                <span style="font-family:var(--mono);font-size:11px;color:var(--dim)">%</span>
+              </div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:4px;line-height:1.6">
+                Accuracy mínima para pintar stats de verde y excluir del filtro &quot;Needs work&quot;.
               </div>
             </div>
             <!-- CACHE SGF -->
@@ -1490,6 +1490,7 @@
     const FILTER_MOSTRAR_KEY = 'filter_mostrar';
     const SOUND_KEY = 'sound_enabled';
     const TAP_CONFIRM_KEY = 'tap_confirm';
+    const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
 
@@ -1527,7 +1528,8 @@
       if (num <= 2000) return (Math.round((2000 - num) / 100) + 1) + 'k';
       return Math.round((num - 2000) / 100) + 'd';
     }
-    const PCT_GREEN = 90, PCT_YELLOW = 80;
+    let PCT_GREEN = parseInt(localStorage.getItem(PCT_GREEN_KEY)) || 90;
+    const PCT_YELLOW = 80;
     function pctColor(pct) {
       if (pct == null) return 'var(--dim2)';
       if (pct >= PCT_GREEN) return 'var(--ok-bright)';
@@ -2105,6 +2107,7 @@
       document.getElementById('cfg-filter-mostrar').checked = filterMostrar;
       document.getElementById('cfg-sound-enabled').checked = soundEnabled;
       document.getElementById('cfg-tap-confirm').checked = tapConfirm;
+      document.getElementById('cfg-pct-green').value = PCT_GREEN;
       document.getElementById('cfg-visibility-url').value = localStorage.getItem(VISIBILITY_URL_KEY) || VISIBILITY_URL_DEFAULT;
     }
     function closeConfig() { document.getElementById('cfg-overlay').classList.remove('open'); }
@@ -2165,6 +2168,16 @@
     document.getElementById('cfg-tap-confirm').addEventListener('change', e => {
       tapConfirm = e.target.checked;
       localStorage.setItem(TAP_CONFIRM_KEY, tapConfirm);
+    });
+    document.getElementById('cfg-pct-green').addEventListener('change', e => {
+      const v = parseInt(e.target.value);
+      if (v >= 1 && v <= 100) {
+        PCT_GREEN = v;
+        localStorage.setItem(PCT_GREEN_KEY, v);
+        refreshCollectionStats();
+      } else {
+        e.target.value = PCT_GREEN;
+      }
     });
     document.getElementById('cfg-visibility-url').addEventListener('change', e => {
       localStorage.setItem(VISIBILITY_URL_KEY, e.target.value.trim());
@@ -2253,6 +2266,7 @@
       sel.innerHTML = '<option value="">All</option>';
       for (const n of nums) { const opt = document.createElement('option'); opt.value = n; opt.textContent = diffLabel(n); sel.appendChild(opt); }
     }
+
     function applyCollectionFilters() {
       console.log('[filtro] chaptersCache keys:', Object.keys(chaptersCache));
       const maxDiff = document.getElementById('cf-diff').value;
@@ -2276,7 +2290,6 @@
             if (!row || row.n === 0) hide = true;
           }
         }
-        item.classList.toggle('hidden', hide);
         // Actualizar visibilidad de chapters dentro del acordeón
         const s = lastRunStatsAll[parseInt(setId)];
         item.querySelectorAll('.chap-item').forEach(ci => {
@@ -2295,9 +2308,35 @@
           }
           ci.style.display = '';
         });
+        // Filtro needs-work: ocultar colección si ningún chapter la necesita
+        if (!hide && needsWork) {
+          const chapItems = [...item.querySelectorAll('.chap-item')];
+          if (chapItems.length > 0) {
+            // Chapters ya renderizados: ocultar colección si todos están ocultos
+            if (chapItems.every(ci => ci.style.display === 'none')) hide = true;
+          } else {
+            // Chapters no renderizados aún: ocultar colección si todos tienen pct >= PCT_GREEN
+            // (si no hay stats en absoluto, se considera "not tried" → mostrar)
+            const colStats = s && s.by_chapter;
+            if (colStats) {
+              const chapCount = dbQueryOne(
+                'SELECT COUNT(*) AS n FROM chapters WHERE source=? AND set_id=?',
+                [currentSource, col.set_id]
+              );
+              const total = chapCount ? chapCount.n : 0;
+              if (total > 0) {
+                const doneCount = Object.values(colStats).filter(cs => cs.pct != null && cs.pct >= PCT_GREEN).length;
+                const triedCount = Object.values(colStats).filter(cs => cs.pct != null).length;
+                // Ocultar sólo si TODOS los chapters tienen stats y todos >= PCT_GREEN
+                if (triedCount === total && doneCount === total) hide = true;
+              }
+            }
+          }
+        }
+        item.classList.toggle('hidden', hide);
       });
     }
-
+	
     document.getElementById('cf-diff').addEventListener('change', applyCollectionFilters);
     document.getElementById('cf-needs-work').addEventListener('change', applyCollectionFilters);
     document.getElementById('btn-expand-all').addEventListener('click', expandAllVisible);
