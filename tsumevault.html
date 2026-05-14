@@ -1904,6 +1904,16 @@
           }
         } catch (e) { console.warn('[sync] static_version check failed', e); }
       }
+	  // ── Sync mostrar ──
+      const chapMostrar = dbQuery('SELECT id, mostrar FROM chapters', []);
+      try {
+        await fetch(`${SYNC_SERVER}/sync/chapters_mostrar`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chapters: chapMostrar }),
+          signal: AbortSignal.timeout(8000)
+        });
+      } catch (_) { }
       await saveDB();
     }
     function setSyncStatus(state) {

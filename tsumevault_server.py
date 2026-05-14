@@ -857,9 +857,19 @@ class Handler(BaseHTTPRequestHandler):
             except Exception as e:
                 print(f"[ERROR PUT /db/chapter/mostrar] {e}")
                 self._respond(500, {"error": str(e)})
+        elif parsed.path == "/sync/chapters_mostrar":
+            try:
+                with db_connect() as con:
+                    for ch in body.get('chapters', []):
+                        con.execute('UPDATE chapters SET mostrar=? WHERE id=?', (ch['mostrar'], ch['id']))
+                    con.commit()
+                self._respond(200, {"ok": True})
+            except Exception as e:
+                print(f"[ERROR PUT /sync/chapters_mostrar] {e}")
+                self._respond(500, {"error": str(e)})
         else:
             self._respond(404, {"error": "not found"})
-
+            
     def _read_body(self):
         length = int(self.headers.get("Content-Length", 0))
         return json.loads(self.rfile.read(length)) if length else {}

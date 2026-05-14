@@ -16,11 +16,11 @@ import sqlite3
 import os
 import gspread
 
-SCRIPT_DIR      = os.path.dirname(os.path.abspath(__file__))
-DB_FILE         = os.path.join(SCRIPT_DIR, "tsumeVault.db")
-CREDENTIALS_FILE = os.path.join(SCRIPT_DIR, "conf/tsumevault-ad87227d16a1.json")  
-SPREADSHEET_ID  = "1MPPne1DvPD4ui0st4vtq1u1s49Qj4S2EhGmui2Jgmag"
-SHEET_NAME      = "Problems"
+SCRIPT_DIR       = os.path.dirname(os.path.abspath(__file__))
+DB_FILE          = os.path.join(SCRIPT_DIR, "tsumeVault.db")
+CREDENTIALS_FILE = os.path.join(SCRIPT_DIR, "conf/tsumevault-ad87227d16a1.json")
+SPREADSHEET_ID   = "1MPPne1DvPD4ui0st4vtq1u1s49Qj4S2EhGmui2Jgmag"
+SHEET_NAME       = "Problems"
 
 SQL = """
 SELECT
@@ -70,14 +70,14 @@ def build_rows(con):
     for source, collection, chapter, closed_at, run_id in rows:
         if run_id is not None:
             correct, total, avg_secs = con.execute(SQL_RUN_STATS, (run_id,)).fetchone()
-            date_str = fmt_date(closed_at)
-            avg_str  = fmt_pct(correct, total)
-            time_str = str(avg_secs) if avg_secs is not None else ""
-            n_str    = str(total)
+            date_str    = fmt_date(closed_at)
+            avg_str     = fmt_pct(correct, total)
+            time_str    = str(avg_secs) if avg_secs is not None else ""
+            n_str       = str(total)
+            correct_str = str(correct)
         else:
-            date_str = avg_str = time_str = ""
-            n_str = ""
-        result.append([source, collection, chapter, date_str, n_str, avg_str, time_str])
+            date_str = avg_str = time_str = n_str = correct_str = ""
+        result.append([source, collection, chapter, date_str, n_str, correct_str, avg_str, time_str])
     return result
 
 def main():
@@ -87,21 +87,21 @@ def main():
     con.close()
 
     # Conectar a Sheets
-    gc     = gspread.service_account(filename=CREDENTIALS_FILE)
-    sh     = gc.open_by_key(SPREADSHEET_ID)
-    ws     = sh.worksheet(SHEET_NAME)
+    gc = gspread.service_account(filename=CREDENTIALS_FILE)
+    sh = gc.open_by_key(SPREADSHEET_ID)
+    ws = sh.worksheet(SHEET_NAME)
 
     # Limpiar y escribir
-    header = [["Source", "Collection", "Chapter", "Date", "Num. Prob.", "Average", "Avg_secs"]]
+    header = [["Source", "Collection", "Chapter", "Date", "Num. Prob.", "Correct", "Average", "Avg_secs"]]
     ws.clear()
     ws.update(header + rows, value_input_option="USER_ENTERED")
 
     # Imprimir en pantalla
-    print(";".join(["Source", "Collection", "Chapter", "Date", "Num. Prob.", "Average", "Avg_secs"]))
+    print(";".join(["Source", "Collection", "Chapter", "Date", "Num. Prob.", "Correct", "Average", "Avg_secs"]))
     for row in rows:
         print(";".join(row))
-        
-    print(f"OK — {len(rows)} filas escritas en '{SHEET_NAME}'")
+
+    print(f"\nOK — {len(rows)} filas escritas en '{SHEET_NAME}'")
 
 if __name__ == "__main__":
     main()
