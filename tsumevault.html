@@ -2502,7 +2502,32 @@
       } catch (e) { alert('Failed to start run: ' + e.message); }
     }
 	
-
+	async function syncDeletedRuns() {
+      const localRuns = dbQuery(`SELECT id, uuid FROM runs WHERE uuid IS NOT NULL`, []);
+      if (!localRuns.length) return;
+      const uuids = localRuns.map(r => r.uuid);
+      try {
+        const r = await fetch(`${SYNC_SERVER}/sync/check_runs`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ uuids }),
+          signal: AbortSignal.timeout(8000)
+        });
+        if (!r.ok) return;
+        const { missing } = await r.json();
+        if (!missing.length) return;
+        console.log('[syncDeletedRuns] borrando localmente:', missing);
+        for (const uuid of missing) {
+          const run = dbQueryOne(`SELECT id FROM runs WHERE uuid=?`, [uuid]);
+          if (!run) continue;
+          dbExec(`DELETE FROM run_items WHERE run_id=?`, [run.id]);
+          dbExec(`DELETE FROM runs WHERE id=?`, [run.id]);
+        }
+        await saveDB();
+        console.log('[syncDeletedRuns] borrado completado:', missing.length, 'runs');
+      } catch (e) { console.warn('[syncDeletedRuns] failed', e); }
+    }
+	
 	async function deleteRun(run_id) {
       const run = dbQueryOne(`SELECT id, uuid FROM runs WHERE id=?`, [run_id]);
       if (!run) { console.warn('[deleteRun] run no encontrado localmente:', run_id); return; }
@@ -2988,9 +3013,10 @@
 
     (async () => {
 	  await initDB();
-	  await purgeEmptyRuns();
-	  loadCollections();
-	  tryAutoSync(true).then(() => loadCollections());
+      await purgeEmptyRuns();
+      await syncDeletedRuns();
+      loadCollections();
+      tryAutoSync(true).then(() => loadCollections());
 	  if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('/tsumevault/sw.js').then(() => {
 		  updateSwVersionLabel();

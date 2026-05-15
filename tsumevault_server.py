@@ -791,6 +791,19 @@ def handle_put_chapter_mostrar(body):
         con.commit()
     return {"ok": True}
 
+def handle_sync_check_runs(body):
+    uuids = body.get("uuids", [])
+    if not uuids:
+        return {"missing": []}
+    with db_connect() as con:
+        placeholders = ",".join("?" * len(uuids))
+        existing = con.execute(
+            f"SELECT uuid FROM runs WHERE uuid IN ({placeholders})", uuids
+        ).fetchall()
+    existing_set = {r[0] for r in existing}
+    missing = [u for u in uuids if u not in existing_set]
+    print(f"[check_runs] recibidos={len(uuids)} existentes={len(existing_set)} missing={len(missing)}")
+    return {"missing": missing}
 
 GET_ROUTES = {
     "/db/collections": handle_get_collections,
@@ -810,6 +823,10 @@ GET_ROUTES = {
 
 
 class Handler(BaseHTTPRequestHandler):
+    def handle(self):
+        print(f"[handle] nueva conexión")
+        super().handle()
+        
     def do_OPTIONS(self):
         self.send_response(200)
         self.send_header("Access-Control-Allow-Origin", "*")
@@ -835,27 +852,39 @@ class Handler(BaseHTTPRequestHandler):
             self._respond(500, {"error": str(e)})
 
     def do_POST(self):
+        print("1")
         parsed = urlparse(self.path)
+        print("2")
         body = self._read_body()
+        print("3")
+        print(f"[do_POST] path={parsed.path} body={body}")
         routes = {
             "/db/attempt": handle_post_attempt,
             "/db/run": handle_post_run,
             "/sync/push": handle_sync_push,
             "/db/runs/delete": handle_delete_runs,
+            "/sync/check_runs": handle_sync_check_runs,
         }
         handler = routes.get(parsed.path)
+        print("4")
         if not handler:
+            print("NO_HANDLER")
             self._respond(404, {"error": "not found"})
             return
+        print("5")
         try:
             result = handler(body)
+            print("6")
             if isinstance(result, tuple):
+                print("7")
                 self._respond(result[1], result[0])
             else:
+                print("8")
                 self._respond(200, result)
         except Exception as e:
             print(f"[ERROR POST {parsed.path}] {e}")
             self._respond(500, {"error": str(e)})
+        print("9")
 
     def do_PUT(self):
         parsed = urlparse(self.path)
