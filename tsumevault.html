@@ -2504,19 +2504,27 @@
 	
 
 	async function deleteRun(run_id) {
+      const run = dbQueryOne(`SELECT id, uuid FROM runs WHERE id=?`, [run_id]);
+      if (!run) { console.warn('[deleteRun] run no encontrado localmente:', run_id); return; }
+      console.log('[deleteRun] borrando local:', run_id, 'uuid:', run.uuid);
       dbExec(`DELETE FROM run_items WHERE run_id=?`, [run_id]);
       dbExec(`DELETE FROM runs WHERE id=?`, [run_id]);
       await saveDB();
+      console.log('[deleteRun] borrado local OK');
       try {
-        await fetch(`${SYNC_SERVER}/db/runs/delete`, {
+        const payload = run.uuid ? { uuids: [run.uuid] } : { ids: [run_id] };
+        console.log('[deleteRun] enviando al servidor:', JSON.stringify(payload));
+        const r = await fetch(`${SYNC_SERVER}/db/runs/delete`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ids: [run_id] }),
+          body: JSON.stringify(payload),
           signal: AbortSignal.timeout(5000)
         });
+        const data = await r.json();
+        console.log('[deleteRun] respuesta servidor:', JSON.stringify(data));
       } catch (e) { console.warn('[deleteRun] server delete failed', e); }
     }
-
+	
     async function loadRuns() {
       const list = document.getElementById('runs-list');
       list.innerHTML = `<div class="runs-empty">Loading…</div>`;
