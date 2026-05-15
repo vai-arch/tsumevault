@@ -2927,7 +2927,7 @@
     (async () => {
 	  await initDB();
 	  loadCollections();
-	  tryAutoSync(true);
+	  tryAutoSync(true).then(() => loadCollections());
 	  if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('/tsumevault/sw.js').then(() => {
 		  updateSwVersionLabel();
