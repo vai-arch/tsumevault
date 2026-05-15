@@ -37,6 +37,16 @@ PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 3002
 DB_PATH = os.path.join(SCRIPT_DIR, "tsumeVault.db")
 # ─────────────────────────────────────────────────────────────────────────────
 
+def handle_delete_runs(body):
+    ids = body.get("ids", [])
+    if not ids:
+        return {"error": "ids required"}, 400
+    with db_connect() as con:
+        placeholders = ",".join("?" * len(ids))
+        con.execute(f"DELETE FROM run_items WHERE run_id IN ({placeholders})", ids)
+        con.execute(f"DELETE FROM runs WHERE id IN ({placeholders})", ids)
+        con.commit()
+    return {"ok": True, "deleted": len(ids)}
 
 def db_connect():
     con = sqlite3.connect(DB_PATH)
@@ -819,6 +829,7 @@ class Handler(BaseHTTPRequestHandler):
             "/db/attempt": handle_post_attempt,
             "/db/run": handle_post_run,
             "/sync/push": handle_sync_push,
+            "/db/runs/delete": handle_delete_runs,
         }
         handler = routes.get(parsed.path)
         if not handler:
