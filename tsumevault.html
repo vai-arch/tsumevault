@@ -1494,7 +1494,7 @@
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
 
-    let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'http://192.168.0.50:3002';
+    let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
     let currentStoneSet = null; // {label, black:[], white:[]} or null = REALISTIC
     let filterMostrar = localStorage.getItem(FILTER_MOSTRAR_KEY) === 'true';
