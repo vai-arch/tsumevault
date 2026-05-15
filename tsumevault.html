@@ -291,6 +291,7 @@
       border-bottom: 1px solid rgba(255, 255, 255, .03);
       cursor: pointer;
       transition: background .1s;
+	  position: relative;
     }
 
     .run-item:hover {
@@ -1805,7 +1806,7 @@
       }
       return struggling;
     }
-    function localGetRuns(source) {
+	function localGetRuns(source) {
       return dbQuery(`
     SELECT r.*, CASE WHEN r.chapter_id IS NOT NULL THEN c.name || ' · ' || ch.name WHEN r.set_id IS NOT NULL THEN c.name ELSE 'Run #' || r.id END AS label,
       COALESCE(ri_stats.ok_count,0) AS ok_count
@@ -1813,7 +1814,7 @@
     LEFT JOIN collections c  ON c.source=r.source AND c.set_id=r.set_id
     LEFT JOIN chapters    ch ON ch.id=r.chapter_id
     LEFT JOIN (SELECT run_id, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok_count FROM run_items GROUP BY run_id) ri_stats ON ri_stats.run_id=r.id
-    WHERE r.source=? AND r.status='open' ORDER BY r.started_at DESC
+    WHERE r.source=? ORDER BY r.started_at DESC
   `, [source]);
     }
     function localGetRunItems(run_id) {
@@ -1858,6 +1859,29 @@
       dbExec(`UPDATE runs SET status=?, closed_at=? WHERE id=?`, [status, closed_at, run_id]);
     }
 
+	async function purgeEmptyRuns() {
+      const cutoff = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
+      const stale = dbQuery(
+        `SELECT id FROM runs WHERE status='open' AND started_at < ? AND
+         (SELECT COUNT(*) FROM run_items WHERE run_id=runs.id AND result IS NOT NULL) = 0`,
+        [cutoff]
+      );
+      if (!stale.length) return;
+      const ids = stale.map(r => r.id);
+      const ph = ids.map(() => '?').join(',');
+      dbExec(`DELETE FROM run_items WHERE run_id IN (${ph})`, ids);
+      dbExec(`DELETE FROM runs WHERE id IN (${ph})`, ids);
+      await saveDB();
+      try {
+        await fetch(`${SYNC_SERVER}/db/runs/delete`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ids }),
+          signal: AbortSignal.timeout(5000)
+        });
+      } catch (e) { console.warn('[purgeEmptyRuns] server delete failed', e); }
+    }
+	
     // ══ SYNC ══
     async function tryAutoSync(silent = false) {
       if (syncInProgress) return;
@@ -2477,6 +2501,22 @@
         switchTab('runs'); await loadRuns(); updateSessionUI(); nextProblem();
       } catch (e) { alert('Failed to start run: ' + e.message); }
     }
+	
+
+	async function deleteRun(run_id) {
+      dbExec(`DELETE FROM run_items WHERE run_id=?`, [run_id]);
+      dbExec(`DELETE FROM runs WHERE id=?`, [run_id]);
+      await saveDB();
+      try {
+        await fetch(`${SYNC_SERVER}/db/runs/delete`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ids: [run_id] }),
+          signal: AbortSignal.timeout(5000)
+        });
+      } catch (e) { console.warn('[deleteRun] server delete failed', e); }
+    }
+
     async function loadRuns() {
       const list = document.getElementById('runs-list');
       list.innerHTML = `<div class="runs-empty">Loading…</div>`;
@@ -2504,10 +2544,24 @@
             });
             item.appendChild(closeBtn);
           }
+          const deleteBtn = document.createElement('button');
+          deleteBtn.className = 'chap-btn';
+          deleteBtn.textContent = '🗑';
+          deleteBtn.style.cssText = 'position:absolute;top:6px;right:6px;padding:2px 6px;font-size:11px;';
+          deleteBtn.addEventListener('click', async e => {
+            e.stopPropagation();
+            if (!confirm('¿Borrar este run?')) return;
+            if (activeRunId === run.id) { activeRunId = null; runMode = false; runItems = []; document.getElementById('run-progress').style.display = 'none'; }
+            await deleteRun(run.id);
+            loadRuns();
+          });
+          item.appendChild(deleteBtn);
+          item.appendChild(deleteBtn);
           list.appendChild(item);
         }
       } catch (e) { list.innerHTML = `<div class="runs-empty" style="color:var(--accent)">Error loading runs</div>`; }
     }
+	
     async function resumeRun(runId) {
       try {
         activeRunId = runId; runItems = localGetRunItems(runId);
@@ -2926,6 +2980,7 @@
 
     (async () => {
 	  await initDB();
+	  await purgeEmptyRuns();
 	  loadCollections();
 	  tryAutoSync(true).then(() => loadCollections());
 	  if ('serviceWorker' in navigator) {
