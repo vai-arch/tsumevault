@@ -39,14 +39,26 @@ DB_PATH = os.path.join(SCRIPT_DIR, "tsumeVault.db")
 
 def handle_delete_runs(body):
     ids = body.get("ids", [])
-    if not ids:
-        return {"error": "ids required"}, 400
+    uuids = body.get("uuids", [])
+    if not ids and not uuids:
+        return {"error": "ids or uuids required"}, 400
+    print(f"[delete_runs] ids={ids} uuids={uuids}")
     with db_connect() as con:
-        placeholders = ",".join("?" * len(ids))
-        con.execute(f"DELETE FROM run_items WHERE run_id IN ({placeholders})", ids)
-        con.execute(f"DELETE FROM runs WHERE id IN ({placeholders})", ids)
+        if ids:
+            placeholders = ",".join("?" * len(ids))
+            rows = con.execute(f"SELECT id FROM runs WHERE id IN ({placeholders})", ids).fetchall()
+            print(f"[delete_runs] runs encontrados por id: {[r[0] for r in rows]}")
+            con.execute(f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE id IN ({placeholders}))", ids)
+            con.execute(f"DELETE FROM runs WHERE id IN ({placeholders})", ids)
+        if uuids:
+            placeholders = ",".join("?" * len(uuids))
+            rows = con.execute(f"SELECT id, uuid FROM runs WHERE uuid IN ({placeholders})", uuids).fetchall()
+            print(f"[delete_runs] runs encontrados por uuid: {[(r[0], r[1]) for r in rows]}")
+            con.execute(f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))", uuids)
+            con.execute(f"DELETE FROM runs WHERE uuid IN ({placeholders})", uuids)
         con.commit()
-    return {"ok": True, "deleted": len(ids)}
+    print(f"[delete_runs] borrado completado")
+    return {"ok": True}
 
 def db_connect():
     con = sqlite3.connect(DB_PATH)
