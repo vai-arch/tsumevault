@@ -1862,7 +1862,7 @@
 	async function purgeEmptyRuns() {
       const cutoff = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
       const stale = dbQuery(
-        `SELECT id FROM runs WHERE status='open' AND started_at < ? AND
+        `SELECT id FROM runs WHERE started_at < ? AND
          (SELECT COUNT(*) FROM run_items WHERE run_id=runs.id AND result IS NOT NULL) = 0`,
         [cutoff]
       );
