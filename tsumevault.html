@@ -291,7 +291,6 @@
       border-bottom: 1px solid rgba(255, 255, 255, .03);
       cursor: pointer;
       transition: background .1s;
-	  position: relative;
     }
 
     .run-item:hover {
@@ -1261,6 +1260,11 @@
                 <input type="checkbox" id="cfg-filter-mostrar" style="accent-color:var(--gold);cursor:pointer;">
                 Mostrar solo lecciones marcadas
               </label>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:6px;line-height:1.6">
+                Oculta las lecciones sin "mostrar" activo.<br>
+                Las colecciones sin lecciones visibles también se ocultan.<br>
+                Run collection solo corre las lecciones marcadas.
+              </div>
               <div style="margin-top:12px;font-family:var(--mono);font-size:9px;color:var(--dim2);margin-bottom:4px">
                 URL del fichero de visibilidad (GitHub raw):
               </div>
@@ -1285,14 +1289,9 @@
                 <input type="checkbox" id="cfg-tap-confirm" style="accent-color:var(--gold);cursor:pointer;">
                 Tap para confirmar (móvil)
               </label>
-              <div style="display:flex;align-items:center;gap:8px;margin-top:12px;">
-                <span style="font-family:var(--mono);font-size:11px;color:var(--dim);white-space:nowrap;">Umbral verde / needs work:</span>
-                <input id="cfg-pct-green" type="number" min="1" max="100"
-                  style="width:52px;font-family:var(--mono);font-size:11px;background:var(--bg);color:var(--text);border:1px solid var(--border2);padding:4px 6px;border-radius:2px;outline:none;text-align:center;">
-                <span style="font-family:var(--mono);font-size:11px;color:var(--dim)">%</span>
-              </div>
-              <div style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:4px;line-height:1.6">
-                Accuracy mínima para pintar stats de verde y excluir del filtro &quot;Needs work&quot;.
+              <div style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:6px;line-height:1.6">
+                Primer tap fija la piedra, segundo tap confirma.<br>
+                Evita errores por misclick en móvil.
               </div>
             </div>
             <!-- CACHE SGF -->
@@ -1325,6 +1324,7 @@
         <div class="tab active" data-tab="collections">Collections</div>
         <div class="tab" data-tab="runs">Runs</div>
         <div class="tab" data-tab="free">Free</div>
+        <div class="tab" data-tab="review">Review</div>
       </div>
 
       <div class="tab-pane active" id="tab-collections">
@@ -1412,6 +1412,35 @@
           <div id="fp-count" style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:6px;text-align:center;min-height:14px;"></div>
         </div>
       </div>
+      <div class="tab-pane" id="tab-review">
+        <div class="fp-section">
+          <div class="fp-label">Collection</div>
+          <select class="fsel" id="rv-col">
+            <option value="">All</option>
+          </select>
+        </div>
+        <div class="fp-section">
+          <button class="fp-btn" id="rv-start">▶ Start review</button>
+          <div id="rv-count" style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:6px;text-align:center;min-height:14px;"></div>
+        </div>
+        <div class="fp-section" id="rv-maturity" style="display:none">
+          <div class="fp-label" style="margin-bottom:6px">Source maturity</div>
+          <div style="display:flex;flex-direction:column;gap:5px;font-family:var(--mono);font-size:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="color:var(--dim)">Coverage</span>
+              <span id="rv-mat-coverage" style="color:var(--text)">—</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="color:var(--dim)">Mastery (all time)</span>
+              <span id="rv-mat-historic" style="color:var(--text)">—</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="color:var(--dim)">Mastery (last 30d)</span>
+              <span id="rv-mat-recent" style="color:var(--text)">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="main">
@@ -1491,11 +1520,10 @@
     const FILTER_MOSTRAR_KEY = 'filter_mostrar';
     const SOUND_KEY = 'sound_enabled';
     const TAP_CONFIRM_KEY = 'tap_confirm';
-    const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
 
-    let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
+    let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'http://192.168.0.50:3002';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
     let currentStoneSet = null; // {label, black:[], white:[]} or null = REALISTIC
     let filterMostrar = localStorage.getItem(FILTER_MOSTRAR_KEY) === 'true';
@@ -1529,8 +1557,7 @@
       if (num <= 2000) return (Math.round((2000 - num) / 100) + 1) + 'k';
       return Math.round((num - 2000) / 100) + 'd';
     }
-    let PCT_GREEN = parseInt(localStorage.getItem(PCT_GREEN_KEY)) || 90;
-    const PCT_YELLOW = 80;
+    const PCT_GREEN = 90, PCT_YELLOW = 80;
     function pctColor(pct) {
       if (pct == null) return 'var(--dim2)';
       if (pct >= PCT_GREEN) return 'var(--ok-bright)';
@@ -1806,7 +1833,55 @@
       }
       return struggling;
     }
-	function localGetRuns(source) {
+    function localGetReviewProblems(source, { set_id } = {}) {
+      let sql = `
+        WITH stats AS (
+          SELECT
+            p.source,
+            p.problem_id,
+            p.set_id,
+            p.chapter_id,
+            p.sgf_path,
+            p.sgf_exists,
+            p.difficulty_raw,
+            p.difficulty_num,
+            p.color_to_play,
+            p.order_in_chapter,
+            MAX(a.created_at) AS last_attempt_at,
+            COUNT(a.id) AS total_attempts,
+            SUM(CASE WHEN a.result = 'correct' THEN 1 ELSE 0 END) AS total_correct,
+            SUM(CASE WHEN a.result != 'correct' THEN 1 ELSE 0 END) AS total_wrong,
+            SUM(CASE WHEN a.result != 'correct'
+                 AND (julianday('now') - julianday(a.created_at)) <= 14
+                 THEN 1 ELSE 0 END) AS recent_wrong,
+            SUM(CASE WHEN a.result = 'correct'
+                 AND (julianday('now') - julianday(a.created_at)) <= 14
+                 THEN 1 ELSE 0 END) AS recent_correct,
+            julianday('now') - julianday(MAX(a.created_at)) AS days_since
+          FROM problems p
+          JOIN attempts a ON a.source = p.source AND a.problem_id = p.problem_id
+          WHERE p.source = ?`;
+      const params = [source];
+      if (set_id) { sql += ` AND p.set_id = ?`; params.push(set_id); }
+      sql += `
+          GROUP BY p.source, p.problem_id
+        )
+        SELECT *,
+          ROUND(
+            days_since * 1.5
+            + recent_wrong * 12
+            + total_wrong * 2
+            - total_correct * 0.7
+            - recent_correct * 5
+            + (8.0 / SQRT(total_attempts + 1))
+          , 2) AS urgency_score
+        FROM stats
+        WHERE total_attempts > 0
+        ORDER BY urgency_score DESC
+        LIMIT 50`;
+      return dbQuery(sql, params);
+    }
+    function localGetRuns(source) {
       return dbQuery(`
     SELECT r.*, CASE WHEN r.chapter_id IS NOT NULL THEN c.name || ' · ' || ch.name WHEN r.set_id IS NOT NULL THEN c.name ELSE 'Run #' || r.id END AS label,
       COALESCE(ri_stats.ok_count,0) AS ok_count
@@ -1814,7 +1889,7 @@
     LEFT JOIN collections c  ON c.source=r.source AND c.set_id=r.set_id
     LEFT JOIN chapters    ch ON ch.id=r.chapter_id
     LEFT JOIN (SELECT run_id, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok_count FROM run_items GROUP BY run_id) ri_stats ON ri_stats.run_id=r.id
-    WHERE r.source=? ORDER BY r.started_at DESC
+    WHERE r.source=? AND r.status='open' ORDER BY r.started_at DESC
   `, [source]);
     }
     function localGetRunItems(run_id) {
@@ -1859,29 +1934,6 @@
       dbExec(`UPDATE runs SET status=?, closed_at=? WHERE id=?`, [status, closed_at, run_id]);
     }
 
-	async function purgeEmptyRuns() {
-      const cutoff = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
-      const stale = dbQuery(
-        `SELECT id FROM runs WHERE started_at < ? AND
-         (SELECT COUNT(*) FROM run_items WHERE run_id=runs.id AND result IS NOT NULL) = 0`,
-        [cutoff]
-      );
-      if (!stale.length) return;
-      const ids = stale.map(r => r.id);
-      const ph = ids.map(() => '?').join(',');
-      dbExec(`DELETE FROM run_items WHERE run_id IN (${ph})`, ids);
-      dbExec(`DELETE FROM runs WHERE id IN (${ph})`, ids);
-      await saveDB();
-      try {
-        await fetch(`${SYNC_SERVER}/db/runs/delete`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ids }),
-          signal: AbortSignal.timeout(5000)
-        });
-      } catch (e) { console.warn('[purgeEmptyRuns] server delete failed', e); }
-    }
-	
     // ══ SYNC ══
     async function tryAutoSync(silent = false) {
       if (syncInProgress) return;
@@ -1928,16 +1980,6 @@
           }
         } catch (e) { console.warn('[sync] static_version check failed', e); }
       }
-	  // ── Sync mostrar ──
-      const chapMostrar = dbQuery('SELECT id, mostrar FROM chapters', []);
-      try {
-        await fetch(`${SYNC_SERVER}/sync/chapters_mostrar`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chapters: chapMostrar }),
-          signal: AbortSignal.timeout(8000)
-        });
-      } catch (_) { }
       await saveDB();
     }
     function setSyncStatus(state) {
@@ -2141,7 +2183,6 @@
       document.getElementById('cfg-filter-mostrar').checked = filterMostrar;
       document.getElementById('cfg-sound-enabled').checked = soundEnabled;
       document.getElementById('cfg-tap-confirm').checked = tapConfirm;
-      document.getElementById('cfg-pct-green').value = PCT_GREEN;
       document.getElementById('cfg-visibility-url').value = localStorage.getItem(VISIBILITY_URL_KEY) || VISIBILITY_URL_DEFAULT;
     }
     function closeConfig() { document.getElementById('cfg-overlay').classList.remove('open'); }
@@ -2202,16 +2243,6 @@
     document.getElementById('cfg-tap-confirm').addEventListener('change', e => {
       tapConfirm = e.target.checked;
       localStorage.setItem(TAP_CONFIRM_KEY, tapConfirm);
-    });
-    document.getElementById('cfg-pct-green').addEventListener('change', e => {
-      const v = parseInt(e.target.value);
-      if (v >= 1 && v <= 100) {
-        PCT_GREEN = v;
-        localStorage.setItem(PCT_GREEN_KEY, v);
-        refreshCollectionStats();
-      } else {
-        e.target.value = PCT_GREEN;
-      }
     });
     document.getElementById('cfg-visibility-url').addEventListener('change', e => {
       localStorage.setItem(VISIBILITY_URL_KEY, e.target.value.trim());
@@ -2274,7 +2305,7 @@
       try {
         allCollections = localGetCollections(currentSource);
         lastRunStatsAll = localGetLastRunStatsAll(currentSource);
-        renderCollectionsList(); populateCollectionDiffFilter(); populateFreeFilters(); clearSidebar();
+        renderCollectionsList(); populateCollectionDiffFilter(); populateFreeFilters(); populateReviewFilters(); clearSidebar();
       } catch (e) {
         document.getElementById('col-list').innerHTML = `<div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--accent);text-align:center">Error: ${e.message}</div>`;
       }
@@ -2300,7 +2331,6 @@
       sel.innerHTML = '<option value="">All</option>';
       for (const n of nums) { const opt = document.createElement('option'); opt.value = n; opt.textContent = diffLabel(n); sel.appendChild(opt); }
     }
-
     function applyCollectionFilters() {
       console.log('[filtro] chaptersCache keys:', Object.keys(chaptersCache));
       const maxDiff = document.getElementById('cf-diff').value;
@@ -2324,6 +2354,7 @@
             if (!row || row.n === 0) hide = true;
           }
         }
+        item.classList.toggle('hidden', hide);
         // Actualizar visibilidad de chapters dentro del acordeón
         const s = lastRunStatsAll[parseInt(setId)];
         item.querySelectorAll('.chap-item').forEach(ci => {
@@ -2342,35 +2373,9 @@
           }
           ci.style.display = '';
         });
-        // Filtro needs-work: ocultar colección si ningún chapter la necesita
-        if (!hide && needsWork) {
-          const chapItems = [...item.querySelectorAll('.chap-item')];
-          if (chapItems.length > 0) {
-            // Chapters ya renderizados: ocultar colección si todos están ocultos
-            if (chapItems.every(ci => ci.style.display === 'none')) hide = true;
-          } else {
-            // Chapters no renderizados aún: ocultar colección si todos tienen pct >= PCT_GREEN
-            // (si no hay stats en absoluto, se considera "not tried" → mostrar)
-            const colStats = s && s.by_chapter;
-            if (colStats) {
-              const chapCount = dbQueryOne(
-                'SELECT COUNT(*) AS n FROM chapters WHERE source=? AND set_id=?',
-                [currentSource, col.set_id]
-              );
-              const total = chapCount ? chapCount.n : 0;
-              if (total > 0) {
-                const doneCount = Object.values(colStats).filter(cs => cs.pct != null && cs.pct >= PCT_GREEN).length;
-                const triedCount = Object.values(colStats).filter(cs => cs.pct != null).length;
-                // Ocultar sólo si TODOS los chapters tienen stats y todos >= PCT_GREEN
-                if (triedCount === total && doneCount === total) hide = true;
-              }
-            }
-          }
-        }
-        item.classList.toggle('hidden', hide);
       });
     }
-	
+
     document.getElementById('cf-diff').addEventListener('change', applyCollectionFilters);
     document.getElementById('cf-needs-work').addEventListener('change', applyCollectionFilters);
     document.getElementById('btn-expand-all').addEventListener('click', expandAllVisible);
@@ -2501,55 +2506,6 @@
         switchTab('runs'); await loadRuns(); updateSessionUI(); nextProblem();
       } catch (e) { alert('Failed to start run: ' + e.message); }
     }
-	
-	async function syncDeletedRuns() {
-      const localRuns = dbQuery(`SELECT id, uuid FROM runs WHERE uuid IS NOT NULL`, []);
-      if (!localRuns.length) return;
-      const uuids = localRuns.map(r => r.uuid);
-      try {
-        const r = await fetch(`${SYNC_SERVER}/sync/check_runs`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ uuids }),
-          signal: AbortSignal.timeout(8000)
-        });
-        if (!r.ok) return;
-        const { missing } = await r.json();
-        if (!missing.length) return;
-        console.log('[syncDeletedRuns] borrando localmente:', missing);
-        for (const uuid of missing) {
-          const run = dbQueryOne(`SELECT id FROM runs WHERE uuid=?`, [uuid]);
-          if (!run) continue;
-          dbExec(`DELETE FROM run_items WHERE run_id=?`, [run.id]);
-          dbExec(`DELETE FROM runs WHERE id=?`, [run.id]);
-        }
-        await saveDB();
-        console.log('[syncDeletedRuns] borrado completado:', missing.length, 'runs');
-      } catch (e) { console.warn('[syncDeletedRuns] failed', e); }
-    }
-	
-	async function deleteRun(run_id) {
-      const run = dbQueryOne(`SELECT id, uuid FROM runs WHERE id=?`, [run_id]);
-      if (!run) { console.warn('[deleteRun] run no encontrado localmente:', run_id); return; }
-      console.log('[deleteRun] borrando local:', run_id, 'uuid:', run.uuid);
-      dbExec(`DELETE FROM run_items WHERE run_id=?`, [run_id]);
-      dbExec(`DELETE FROM runs WHERE id=?`, [run_id]);
-      await saveDB();
-      console.log('[deleteRun] borrado local OK');
-      try {
-        const payload = run.uuid ? { uuids: [run.uuid] } : { ids: [run_id] };
-        console.log('[deleteRun] enviando al servidor:', JSON.stringify(payload));
-        const r = await fetch(`${SYNC_SERVER}/db/runs/delete`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-          signal: AbortSignal.timeout(5000)
-        });
-        const data = await r.json();
-        console.log('[deleteRun] respuesta servidor:', JSON.stringify(data));
-      } catch (e) { console.warn('[deleteRun] server delete failed', e); }
-    }
-	
     async function loadRuns() {
       const list = document.getElementById('runs-list');
       list.innerHTML = `<div class="runs-empty">Loading…</div>`;
@@ -2577,24 +2533,10 @@
             });
             item.appendChild(closeBtn);
           }
-          const deleteBtn = document.createElement('button');
-          deleteBtn.className = 'chap-btn';
-          deleteBtn.textContent = '🗑';
-          deleteBtn.style.cssText = 'position:absolute;top:6px;right:6px;padding:2px 6px;font-size:11px;';
-          deleteBtn.addEventListener('click', async e => {
-            e.stopPropagation();
-            if (!confirm('¿Borrar este run?')) return;
-            if (activeRunId === run.id) { activeRunId = null; runMode = false; runItems = []; document.getElementById('run-progress').style.display = 'none'; }
-            await deleteRun(run.id);
-            loadRuns();
-          });
-          item.appendChild(deleteBtn);
-          item.appendChild(deleteBtn);
           list.appendChild(item);
         }
       } catch (e) { list.innerHTML = `<div class="runs-empty" style="color:var(--accent)">Error loading runs</div>`; }
     }
-	
     async function resumeRun(runId) {
       try {
         activeRunId = runId; runItems = localGetRunItems(runId);
@@ -2674,6 +2616,106 @@
         allProblems = problems; document.getElementById('cfg-pill-total').textContent = `/ ${problems.length}`;
         runIdx = -1; sessionOk = 0; sessionNo = 0; updateSessionUI(); nextProblem();
       } catch (e) { alert('Failed to load problems: ' + e.message); }
+    }
+
+    // ══ REVIEW ══
+    async function populateReviewFilters() {
+      const sel = document.getElementById('rv-col');
+      sel.innerHTML = '<option value="">All</option>';
+      for (const col of allCollections) {
+        const o = document.createElement('option');
+        o.value = col.set_id;
+        o.textContent = col.name;
+        sel.appendChild(o);
+      }
+      document.getElementById('rv-start').addEventListener('click', startReview);
+      renderMaturity();
+    }
+    function localGetMaturity(source) {
+      return dbQueryOne(`
+        WITH visible AS (
+          SELECT p.source, p.problem_id
+          FROM problems p
+          JOIN chapters ch ON ch.id = p.chapter_id
+          WHERE p.source = ? AND ch.mostrar = 1
+        ),
+        seen AS (
+          SELECT v.problem_id,
+            COUNT(a.id) AS total_attempts,
+            SUM(CASE WHEN a.result = 'correct' THEN 1 ELSE 0 END) AS total_correct,
+            SUM(CASE WHEN a.result = 'correct'
+                 AND julianday('now') - julianday(a.created_at) <= 30
+                 THEN 1 ELSE 0 END) AS recent_correct,
+            SUM(CASE WHEN a.result != 'correct'
+                 AND julianday('now') - julianday(a.created_at) <= 30
+                 THEN 1 ELSE 0 END) AS recent_wrong
+          FROM visible v
+          JOIN attempts a ON a.source = ? AND a.problem_id = v.problem_id
+          GROUP BY v.problem_id
+        )
+        SELECT
+          COUNT(*)                          AS total_visible,
+          COUNT(s.problem_id)               AS total_seen,
+          SUM(COALESCE(s.total_attempts,0)) AS sum_attempts,
+          SUM(COALESCE(s.total_correct,0))  AS sum_correct,
+          SUM(COALESCE(s.recent_correct,0)) AS sum_recent_correct,
+          SUM(COALESCE(s.recent_wrong,0))   AS sum_recent_wrong
+        FROM visible v
+        LEFT JOIN seen s ON s.problem_id = v.problem_id
+      `, [source, source]);
+    }
+    function renderMaturity() {
+      try {
+        const m = localGetMaturity(currentSource);
+        const el = document.getElementById('rv-maturity');
+        if (!m || m.total_visible === 0) { el.style.display = 'none'; return; }
+        el.style.display = '';
+        const coverage = m.total_seen / m.total_visible;
+        const qualHistoric = m.sum_attempts > 0 ? m.sum_correct / m.sum_attempts : 0;
+        const recentDenom = m.sum_recent_correct + m.sum_recent_wrong;
+        const qualRecent = recentDenom > 0 ? m.sum_recent_correct / recentDenom : null;
+        const fmt = v => Math.round(v * 100) + '%';
+        const color = v => v >= 0.8 ? 'var(--ok-bright)' : v >= 0.6 ? 'var(--gold)' : 'var(--accent)';
+        const covEl = document.getElementById('rv-mat-coverage');
+        covEl.textContent = fmt(coverage);
+        covEl.style.color = color(coverage);
+        const histEl = document.getElementById('rv-mat-historic');
+        const histVal = coverage * qualHistoric;
+        histEl.textContent = fmt(histVal);
+        histEl.style.color = color(histVal);
+        const recEl = document.getElementById('rv-mat-recent');
+        if (qualRecent === null) { recEl.textContent = '— (no recent data)'; recEl.style.color = 'var(--dim2)'; }
+        else { const recVal = coverage * qualRecent; recEl.textContent = fmt(recVal); recEl.style.color = color(recVal); }
+      } catch(e) { document.getElementById('rv-maturity').style.display = 'none'; }
+    }
+    async function startReview() {
+      const setId = document.getElementById('rv-col').value;
+      try {
+        const problems = localGetReviewProblems(currentSource, { set_id: setId ? parseInt(setId) : undefined });
+        if (!problems.length) {
+          document.getElementById('rv-count').textContent = '0 problems match';
+          document.getElementById('board-wrap').style.display = 'none';
+          document.getElementById('comment-box').style.display = 'none';
+          document.getElementById('result-flash').className = '';
+          document.getElementById('welcome').style.display = 'flex';
+          document.getElementById('welcome').querySelector('p').textContent = 'No problems to review yet';
+          document.getElementById('welcome').style.pointerEvents = 'none';
+          document.getElementById('cfg-pill-total').textContent = '';
+          document.getElementById('cfg-pill-rem').textContent = '—';
+          document.getElementById('cfg-pill-ok').textContent = '0✓';
+          document.getElementById('cfg-pill-no').textContent = '0✗';
+          return;
+        }
+        document.getElementById('rv-count').textContent = `${problems.length} problems`;
+        document.getElementById('st-total').textContent = problems.length;
+        document.getElementById('st-total-wrap').style.display = '';
+        activeRunId = null; runMode = false; runItems = [];
+        document.getElementById('run-progress').style.display = 'none';
+        allProblems = problems;
+        document.getElementById('cfg-pill-total').textContent = `/ ${problems.length}`;
+        runIdx = -1; sessionOk = 0; sessionNo = 0;
+        updateSessionUI(); nextProblem();
+      } catch (e) { alert('Failed to load review: ' + e.message); }
     }
 
     // ══ PROBLEM NAV ══
@@ -3002,6 +3044,8 @@
     startRun = async function (...args) { closeMobilePanel(); return _origStartRun(...args); };
     const _origStartFreePractice = startFreePractice;
     startFreePractice = async function (...args) { closeMobilePanel(); return _origStartFreePractice(...args); };
+    const _origStartReview = startReview;
+    startReview = async function (...args) { closeMobilePanel(); return _origStartReview(...args); };
 
     let rsTO;
     window.addEventListener('resize', () => { clearTimeout(rsTO); rsTO = setTimeout(() => { if (wgoBoard && currentProblem) { initBoard(currentProblem.size || 19); renderProblem(currentProblem); } }, 200); });
@@ -3013,10 +3057,7 @@
 
     (async () => {
 	  await initDB();
-      await purgeEmptyRuns();
-      await syncDeletedRuns();
-      loadCollections();
-      tryAutoSync(true).then(() => loadCollections());
+	  loadCollections();
 	  if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('/tsumevault/sw.js').then(() => {
 		  updateSwVersionLabel();
