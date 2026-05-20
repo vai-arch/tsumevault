@@ -1550,7 +1550,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260520-1314';
+	const SW_VERSION = 'tsumevault-20260520-1321';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -2903,6 +2903,10 @@
         sel.appendChild(o);
       }
       document.getElementById('rv-start').addEventListener('click', startReview);
+	  document.getElementById('rv-col').addEventListener('change', e => {
+		  const setId = e.target.value ? parseInt(e.target.value) : undefined;
+		  renderMaturity(setId);
+		});
       renderMaturity();
     }
     function renderMaturity(set_id) {
