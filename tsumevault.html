@@ -2648,10 +2648,10 @@
           const chapPctColor = cs ? pctColor(cs.pct) : 'var(--dim2)';
           ci.innerHTML = `<span class="chap-name">${chap.name || `Ch ${chap.chapter_num}`} <span style="color:var(--dim2)">(${diffStr})</span></span>
         <span class="chap-stats">${chap.problem_count}p <span class="chap-pct" style="color:${chapPctColor}">${chapPctStr}</span></span>
-        <label style="display:flex;align-items:center;gap:3px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);flex-shrink:0;white-space:nowrap;" title="Mostrar esta lección">
-          <input type="checkbox" class="chap-mostrar-chk" data-chapid="${chap.id}" ${chap.mostrar ? 'checked' : ''} style="accent-color:var(--gold);cursor:pointer;">
-          show
-        </label>
+        ${!filterMostrar ? `<label style="display:flex;align-items:center;gap:3px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);flex-shrink:0;white-space:nowrap;" title="Mostrar esta lección">
+		  <input type="checkbox" class="chap-mostrar-chk" data-chapid="${chap.id}" ${chap.mostrar ? 'checked' : ''} style="accent-color:var(--gold);cursor:pointer;">
+		  show
+		</label>` : `<input type="hidden" class="chap-mostrar-chk" data-chapid="${chap.id}">`}
         <button class="chap-btn" data-chapid="${chap.id}">▶ Run</button>`;
           ci.querySelector('.chap-mostrar-chk').addEventListener('change', async e => {
             e.stopPropagation();
@@ -2696,6 +2696,7 @@
           }
         }
       }
+	  applyCollectionFilters();
     }
 
     // ══ RUNS ══
