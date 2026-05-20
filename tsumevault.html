@@ -3303,7 +3303,7 @@
       loadCollections();
       tryAutoSync(true).then(() => loadCollections());
 	  if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('/tsumevault/sw.js').then(() => {
+		navigator.serviceWorker.register('/tsumevault/sw.js?' + SW_VERSION).then(() => {
 		  updateSwVersionLabel();
 		  if (location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
 		    navigator.serviceWorker.ready.then(() => precacheSgfs());

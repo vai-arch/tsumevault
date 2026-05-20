@@ -9,6 +9,9 @@ sqlite3 tsumeVault.db "PRAGMA wal_checkpoint(TRUNCATE)"
 echo Bajando base de datos de Hetzner...
 scp root@46.225.97.185:/opt/tsumevault/tsumeVault.db "%~dp0tsumeVault.db"
 
+echo Actualizando versión SW...
+python bump_version.py
+
 echo Añadiendo base de datos...
 git add -f tsumeVault.db
 
