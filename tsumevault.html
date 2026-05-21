@@ -1550,7 +1550,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260520-1321';
+	const SW_VERSION = 'tsumevault-20260521-1130';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -1882,7 +1882,7 @@
                  THEN 1 ELSE 0 END) AS recent_correct,
             julianday('now') - julianday(MAX(a.created_at)) AS days_since
           FROM problems p
-          JOIN attempts a ON a.source = p.source AND a.problem_id = p.problem_id
+          JOIN attempts a ON a.source = p.source AND a.problem_id = p.problem_id AND a.run_id IS NOT NULL
           WHERE p.source = ?`;
       const params = [source];
       if (set_id) { sql += ` AND p.set_id = ?`; params.push(set_id); }
@@ -1913,20 +1913,32 @@
           WHERE p.source = ? AND ch.mostrar = 1
           AND (? IS NULL OR p.set_id = ?)
         ),
-        seen AS (
-          SELECT v.problem_id,
-            COUNT(a.id) AS total_attempts,
-            SUM(CASE WHEN a.result = 'correct' THEN 1 ELSE 0 END) AS total_correct,
-            SUM(CASE WHEN a.result = 'correct'
-                 AND julianday('now') - julianday(a.created_at) <= 30
-                 THEN 1 ELSE 0 END) AS recent_correct,
-            SUM(CASE WHEN a.result != 'correct'
-                 AND julianday('now') - julianday(a.created_at) <= 30
-                 THEN 1 ELSE 0 END) AS recent_wrong
-          FROM visible v
-          JOIN attempts a ON a.source = ? AND a.problem_id = v.problem_id
-          GROUP BY v.problem_id
-        )
+        last5 AS (
+		  SELECT a.source, a.problem_id, a.result, a.created_at
+		  FROM attempts a
+		  WHERE a.source = ?
+		  AND a.run_id IS NOT NULL
+		  AND a.problem_id IN (SELECT problem_id FROM visible)
+		  AND a.id IN (
+			SELECT id FROM attempts a2
+			WHERE a2.source = a.source AND a2.problem_id = a.problem_id AND a2.run_id IS NOT NULL
+			ORDER BY a2.created_at DESC LIMIT 5
+		  )
+		),
+		seen AS (
+		  SELECT v.problem_id,
+			COUNT(a.id) AS total_attempts,
+			SUM(CASE WHEN a.result = 'correct' THEN 1 ELSE 0 END) AS total_correct,
+			SUM(CASE WHEN a.result = 'correct'
+				 AND julianday('now') - julianday(a.created_at) <= 30
+				 THEN 1 ELSE 0 END) AS recent_correct,
+			SUM(CASE WHEN a.result != 'correct'
+				 AND julianday('now') - julianday(a.created_at) <= 30
+				 THEN 1 ELSE 0 END) AS recent_wrong
+		  FROM visible v
+		  JOIN last5 a ON a.problem_id = v.problem_id
+		  GROUP BY v.problem_id
+		),
         SELECT
           COUNT(*)                          AS total_visible,
           COUNT(s.problem_id)               AS total_seen,
@@ -2299,7 +2311,7 @@
                  AND julianday('now') - julianday(a.created_at) <= 30
                  THEN 1 ELSE 0 END) AS recent_wrong
           FROM visible v
-          JOIN attempts a ON a.source = v.source AND a.problem_id = v.problem_id
+          JOIN attempts a ON a.source = v.source AND a.problem_id = v.problem_id AND a.run_id IS NOT NULL
           GROUP BY v.source, v.set_id, v.problem_id
         )
         SELECT
@@ -2955,11 +2967,16 @@
         document.getElementById('rv-count').textContent = `${problems.length} problems`;
         document.getElementById('st-total').textContent = problems.length;
         document.getElementById('st-total-wrap').style.display = '';
-        activeRunId = null; runMode = false; runItems = [];
+        runMode = false; runItems = [];
         document.getElementById('run-progress').style.display = 'none';
         allProblems = problems;
         document.getElementById('cfg-pill-total').textContent = `/ ${problems.length}`;
         runIdx = -1; sessionOk = 0; sessionNo = 0;
+        const rvUuid = makeUUID();
+        const rvStarted = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+        dbExec(`INSERT INTO runs (source,set_id,chapter_id,type,status,total,done,started_at,uuid) VALUES (?,NULL,NULL,'review','open',0,0,?,?)`, [currentSource, rvStarted, rvUuid]);
+        const rvRun = dbQueryOne('SELECT id FROM runs WHERE uuid=?', [rvUuid]);
+        activeRunId = rvRun ? rvRun.id : null;
         updateSessionUI(); nextProblem();
       } catch (e) { alert('Failed to load review: ' + e.message); }
     }
