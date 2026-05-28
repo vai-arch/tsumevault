@@ -37,6 +37,28 @@ PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 3002
 DB_PATH = os.path.join(SCRIPT_DIR, "tsumeVault.db")
 # ─────────────────────────────────────────────────────────────────────────────
 
+def handle_delete_runs(body):
+    ids = body.get("ids", [])
+    uuids = body.get("uuids", [])
+    if not ids and not uuids:
+        return {"error": "ids or uuids required"}, 400
+    print(f"[delete_runs] ids={ids} uuids={uuids}")
+    with db_connect() as con:
+        if ids:
+            placeholders = ",".join("?" * len(ids))
+            rows = con.execute(f"SELECT id FROM runs WHERE id IN ({placeholders})", ids).fetchall()
+            print(f"[delete_runs] runs encontrados por id: {[r[0] for r in rows]}")
+            con.execute(f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE id IN ({placeholders}))", ids)
+            con.execute(f"DELETE FROM runs WHERE id IN ({placeholders})", ids)
+        if uuids:
+            placeholders = ",".join("?" * len(uuids))
+            rows = con.execute(f"SELECT id, uuid FROM runs WHERE uuid IN ({placeholders})", uuids).fetchall()
+            print(f"[delete_runs] runs encontrados por uuid: {[(r[0], r[1]) for r in rows]}")
+            con.execute(f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))", uuids)
+            con.execute(f"DELETE FROM runs WHERE uuid IN ({placeholders})", uuids)
+        con.commit()
+    print(f"[delete_runs] borrado completado")
+    return {"ok": True}
 
 def db_connect():
     con = sqlite3.connect(DB_PATH)
@@ -743,7 +765,17 @@ def handle_sync_push(body):
 
             # mapear run_id del cliente al del servidor
             client_run_id = a.get("run_id")
-            server_run_id = client_to_server_run_id.get(int(client_run_id)) if client_run_id is not None else None
+            if client_run_id is not None:
+                server_run_id = client_to_server_run_id.get(int(client_run_id))
+                if server_run_id is None:
+                    # El run ya existía en el servidor — buscarlo por uuid en el payload
+                    run_data = next((r for r in runs_in if (r.get("id") or r.get("client_id")) == int(client_run_id)), None)
+                    if run_data and run_data.get("uuid"):
+                        row = con.execute("SELECT id FROM runs WHERE uuid=?", (run_data["uuid"],)).fetchone()
+                        if row:
+                            server_run_id = row[0]
+            else:
+                server_run_id = None
 
             cur = con.execute(
                 "INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at, uuid) VALUES (?,?,?,?,?,?,?)",
@@ -769,6 +801,19 @@ def handle_put_chapter_mostrar(body):
         con.commit()
     return {"ok": True}
 
+def handle_sync_check_runs(body):
+    uuids = body.get("uuids", [])
+    if not uuids:
+        return {"missing": []}
+    with db_connect() as con:
+        placeholders = ",".join("?" * len(uuids))
+        existing = con.execute(
+            f"SELECT uuid FROM runs WHERE uuid IN ({placeholders})", uuids
+        ).fetchall()
+    existing_set = {r[0] for r in existing}
+    missing = [u for u in uuids if u not in existing_set]
+    print(f"[check_runs] recibidos={len(uuids)} existentes={len(existing_set)} missing={len(missing)}")
+    return {"missing": missing}
 
 GET_ROUTES = {
     "/db/collections": handle_get_collections,
@@ -788,6 +833,10 @@ GET_ROUTES = {
 
 
 class Handler(BaseHTTPRequestHandler):
+    def handle(self):
+        print(f"[handle] nueva conexión")
+        super().handle()
+        
     def do_OPTIONS(self):
         self.send_response(200)
         self.send_header("Access-Control-Allow-Origin", "*")
@@ -813,26 +862,39 @@ class Handler(BaseHTTPRequestHandler):
             self._respond(500, {"error": str(e)})
 
     def do_POST(self):
+        print("1")
         parsed = urlparse(self.path)
+        print("2")
         body = self._read_body()
+        print("3")
+        print(f"[do_POST] path={parsed.path} body={body}")
         routes = {
             "/db/attempt": handle_post_attempt,
             "/db/run": handle_post_run,
             "/sync/push": handle_sync_push,
+            "/db/runs/delete": handle_delete_runs,
+            "/sync/check_runs": handle_sync_check_runs,
         }
         handler = routes.get(parsed.path)
+        print("4")
         if not handler:
+            print("NO_HANDLER")
             self._respond(404, {"error": "not found"})
             return
+        print("5")
         try:
             result = handler(body)
+            print("6")
             if isinstance(result, tuple):
+                print("7")
                 self._respond(result[1], result[0])
             else:
+                print("8")
                 self._respond(200, result)
         except Exception as e:
             print(f"[ERROR POST {parsed.path}] {e}")
             self._respond(500, {"error": str(e)})
+        print("9")
 
     def do_PUT(self):
         parsed = urlparse(self.path)
@@ -857,9 +919,19 @@ class Handler(BaseHTTPRequestHandler):
             except Exception as e:
                 print(f"[ERROR PUT /db/chapter/mostrar] {e}")
                 self._respond(500, {"error": str(e)})
+        elif parsed.path == "/sync/chapters_mostrar":
+            try:
+                with db_connect() as con:
+                    for ch in body.get('chapters', []):
+                        con.execute('UPDATE chapters SET mostrar=? WHERE id=?', (ch['mostrar'], ch['id']))
+                    con.commit()
+                self._respond(200, {"ok": True})
+            except Exception as e:
+                print(f"[ERROR PUT /sync/chapters_mostrar] {e}")
+                self._respond(500, {"error": str(e)})
         else:
             self._respond(404, {"error": "not found"})
-
+            
     def _read_body(self):
         length = int(self.headers.get("Content-Length", 0))
         return json.loads(self.rfile.read(length)) if length else {}

@@ -1552,7 +1552,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260528-2253';
+	const SW_VERSION = 'tsumevault-20260521-1131';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -1906,93 +1906,51 @@
         LIMIT 50`;
       return dbQuery(sql, params);
     }
-    function localGetMaturity(source, set_id) {
+ function localGetMaturity(source, set_id) {
   return dbQueryOne(`
     WITH visible AS (
-      SELECT p.problem_id
+      SELECT p.source, p.problem_id
       FROM problems p
       JOIN chapters ch ON ch.id = p.chapter_id
-      WHERE p.source = ?
-        AND ch.mostrar = 1
-        AND (? IS NULL OR p.set_id = ?)
+      WHERE p.source = ? AND ch.mostrar = 1
+      AND (? IS NULL OR p.set_id = ?)
     ),
-
-    ranked_attempts AS (
-      SELECT
-        a.problem_id,
-        a.result,
-        a.created_at,
-        ROW_NUMBER() OVER (
-          PARTITION BY a.problem_id
-          ORDER BY a.created_at DESC
-        ) AS rn
-      FROM attempts a
-      JOIN visible v ON v.problem_id = a.problem_id
-      WHERE a.source = ?
-        AND a.run_id IS NOT NULL
-    ),
-
     last5 AS (
-      SELECT *
-      FROM ranked_attempts
-      WHERE rn <= 5
+      SELECT a.problem_id, a.result, a.created_at
+      FROM attempts a
+      WHERE a.source = ?
+      AND a.run_id IS NOT NULL
+      AND a.problem_id IN (SELECT problem_id FROM visible)
+      AND a.id IN (
+        SELECT a2.id FROM attempts a2
+        WHERE a2.source = a.source AND a2.problem_id = a.problem_id AND a2.run_id IS NOT NULL
+        ORDER BY a2.created_at DESC LIMIT 5
+      )
     ),
-
     seen AS (
-      SELECT
-        l.problem_id,
-
-        COUNT(*) AS total_attempts,
-
-        SUM(CASE
-          WHEN l.result = 'correct' THEN 1
-          ELSE 0
-        END) AS total_correct,
-
-        SUM(CASE
-          WHEN l.result = 'correct'
-           AND julianday('now') - julianday(l.created_at) <= 30
-          THEN 1 ELSE 0
-        END) AS recent_correct,
-
-        SUM(CASE
-          WHEN l.result != 'correct'
-           AND julianday('now') - julianday(l.created_at) <= 30
-          THEN 1 ELSE 0
-        END) AS recent_wrong,
-
-        MAX(CASE
-          WHEN l.rn = 1 AND l.result = 'correct' THEN 1
-          ELSE 0
-        END) AS last_correct
-
-      FROM last5 l
-      GROUP BY l.problem_id
+      SELECT v.problem_id,
+        COUNT(a.id) AS total_attempts,
+        SUM(CASE WHEN a.result = 'correct' THEN 1 ELSE 0 END) AS total_correct,
+        SUM(CASE WHEN a.result = 'correct'
+             AND julianday('now') - julianday(a.created_at) <= 30
+             THEN 1 ELSE 0 END) AS recent_correct,
+        SUM(CASE WHEN a.result != 'correct'
+             AND julianday('now') - julianday(a.created_at) <= 30
+             THEN 1 ELSE 0 END) AS recent_wrong
+      FROM visible v
+      JOIN last5 a ON a.problem_id = v.problem_id
+      GROUP BY v.problem_id
     )
-
     SELECT
-      COUNT(*) AS total_visible,
-
+      COUNT(*)  AS total_visible,
       COUNT(s.problem_id) AS total_seen,
-
-      SUM(CASE
-        WHEN s.total_attempts > 0
-         AND CAST(s.total_correct AS REAL) / s.total_attempts >= 0.8
-        THEN 1 ELSE 0
-      END) AS dominated,
-
-      SUM(CASE
-        WHEN (s.recent_correct + s.recent_wrong) > 0
-         AND CAST(s.recent_correct AS REAL)
-           / (s.recent_correct + s.recent_wrong) >= 0.8
-        THEN 1 ELSE 0
-      END) AS dominated_recent,
-
-      SUM(COALESCE(s.last_correct, 0)) AS sum_last_correct
-
+      SUM(CASE WHEN s.total_attempts > 0 AND CAST(s.total_correct AS REAL) / s.total_attempts >= 0.8 THEN 1 ELSE 0 END) AS dominated,
+      SUM(CASE WHEN s.total_attempts > 0
+               AND CAST(s.recent_correct AS REAL) / (s.recent_correct + s.recent_wrong) >= 0.8
+               AND (s.recent_correct + s.recent_wrong) > 0
+               THEN 1 ELSE 0 END) AS dominated_recent
     FROM visible v
-    LEFT JOIN seen s
-      ON s.problem_id = v.problem_id
+    LEFT JOIN seen s ON s.problem_id = v.problem_id
   `, [source, set_id ?? null, set_id ?? null, source]);
 }
 	function localGetRuns(source) {
@@ -2337,32 +2295,58 @@
     function onCfgOverlayClick(e) { if (e.target === document.getElementById('cfg-overlay')) closeConfig(); }
 
     // ══ STATS MODAL ══
-    function localGetAllMaturity() {
-      const collections = dbQuery(`
-        SELECT DISTINCT c.source, c.set_id, c.name
-        FROM collections c
-        JOIN chapters ch ON ch.source = c.source AND ch.set_id = c.set_id
-        WHERE ch.mostrar = 1
-        ORDER BY c.source, c.name
-      `, []);
-      const allRows = [];
-      for (const col of collections) {
-        const m = localGetMaturity(col.source, col.set_id);
-        if (!m) continue;
-        allRows.push({
-          source: col.source,
-          set_id: col.set_id,
-          collection_name: col.name,
-          total_visible: m.total_visible,
-          total_seen: m.total_seen,
-          dominated: m.dominated,
-          dominated_recent: m.dominated_recent,
-          sum_last_correct: m.sum_last_correct
-        });
-      }
-      allRows.sort((a, b) => (a.dominated / (a.total_visible || 1)) - (b.dominated / (b.total_visible || 1)));
-      return allRows;
-    }
+   function localGetAllMaturity() {
+  return dbQuery(`
+    WITH visible AS (
+      SELECT p.source, p.set_id, CAST(p.problem_id AS TEXT) AS problem_id
+      FROM problems p
+      JOIN chapters ch ON ch.id = p.chapter_id
+      WHERE ch.mostrar = 1
+    ),
+    last5 AS (
+      SELECT a.source AS asource, a.problem_id AS aproblem_id, a.result, a.created_at
+      FROM attempts a
+      JOIN (SELECT p2.source AS vsource, CAST(p2.problem_id AS TEXT) AS vproblem_id FROM problems p2 JOIN chapters ch2 ON ch2.id = p2.chapter_id WHERE ch2.mostrar = 1) AS v2 ON v2.vsource = a.source AND v2.vproblem_id = a.problem_id
+      WHERE a.run_id IS NOT NULL
+      AND a.id IN (SELECT a2.id FROM attempts a2 WHERE a2.source = a.source AND a2.problem_id = a.problem_id AND a2.run_id IS NOT NULL ORDER BY a2.created_at DESC LIMIT 5)
+    ),
+    seen AS (
+      SELECT v.source, v.set_id, v.problem_id,
+        COUNT(*) AS total_attempts,
+        SUM(CASE WHEN a.result = 'correct' THEN 1 ELSE 0 END) AS total_correct,
+        SUM(CASE WHEN a.result = 'correct'
+             AND julianday('now') - julianday(a.created_at) <= 30
+             THEN 1 ELSE 0 END) AS recent_correct,
+        SUM(CASE WHEN a.result != 'correct'
+             AND julianday('now') - julianday(a.created_at) <= 30
+             THEN 1 ELSE 0 END) AS recent_wrong,
+        MAX(CASE WHEN a.created_at = (SELECT MAX(b.created_at) FROM last5 b WHERE b.asource = v.source AND b.aproblem_id = v.problem_id)
+            THEN CASE WHEN a.result = 'correct' THEN 1 ELSE 0 END END) AS last_correct
+      FROM visible v
+      JOIN last5 a ON a.asource = v.source AND a.aproblem_id = v.problem_id
+      GROUP BY v.source, v.set_id, v.problem_id
+    )
+    SELECT
+      v.source,
+      v.set_id,
+      c.name AS collection_name,
+      COUNT(*) AS total_visible,
+      COUNT(s.problem_id) AS total_seen,
+      SUM(CASE WHEN s.total_attempts > 0 AND CAST(s.total_correct AS REAL) / s.total_attempts >= 0.8 THEN 1 ELSE 0 END) AS dominated,
+      SUM(CASE WHEN s.total_attempts > 0
+               AND (s.recent_correct + s.recent_wrong) > 0
+               AND CAST(s.recent_correct AS REAL) / (s.recent_correct + s.recent_wrong) >= 0.8
+               THEN 1 ELSE 0 END) AS dominated_recent,
+      SUM(COALESCE(s.last_correct, 0)) AS sum_last_correct
+    FROM visible v
+    LEFT JOIN seen s ON s.source = v.source AND s.set_id = v.set_id AND s.problem_id = v.problem_id
+    LEFT JOIN collections c ON c.source = v.source AND c.set_id = v.set_id
+    GROUP BY v.source, v.set_id
+    ORDER BY
+      CAST(SUM(CASE WHEN s.total_attempts > 0 AND CAST(s.total_correct AS REAL) / s.total_attempts >= 0.8 THEN 1 ELSE 0 END) AS REAL) / COUNT(*) ASC,
+      v.source, c.name
+  `, []);
+}
     function openStats() {
       renderStatsTable();
       document.getElementById('stats-overlay').style.display = 'flex';
@@ -2378,8 +2362,9 @@
       for (const r of rows) {
         const covPct = r.total_visible > 0 ? Math.round(r.total_seen / r.total_visible * 100) : 0;
         const histPct = r.total_visible > 0 ? Math.round(r.dominated / r.total_visible * 100) : 0;
-        const recPct = r.total_visible > 0 ? Math.round(r.dominated_recent / r.total_visible * 100) : 0;
+        const recPct = r.total_visible > 0 ? Math.round(r.dominated_recent / r.total_visible * 100) : null;
         const lastPct = r.total_seen > 0 ? Math.round(r.sum_last_correct / r.total_seen * 100) : null;
+        const hasRecent = r.total_seen > 0;
         const tr = document.createElement('tr');
         tr.style.borderBottom = '1px solid var(--border)';
         tr.innerHTML = `
@@ -2387,8 +2372,8 @@
           <td style="padding:6px 8px;color:var(--text)">${r.collection_name || '—'}</td>
           <td style="padding:6px 8px;text-align:right;color:${color(covPct)}">${covPct}%</td>
           <td style="padding:6px 8px;text-align:right;color:${color(histPct)}">${histPct}%</td>
-          <td style="padding:6px 8px;text-align:right;color:${r.total_seen > 0 ? color(recPct) : 'var(--dim2)'}">
-            ${r.total_seen > 0 ? recPct + '%' : '—'}
+          <td style="padding:6px 8px;text-align:right;color:${hasRecent ? color(recPct) : 'var(--dim2)'}">
+            ${hasRecent ? recPct + '%' : '—'}
           </td>
           <td style="padding:6px 8px;text-align:right;color:${lastPct !== null ? color(lastPct) : 'var(--dim2)'}">
             ${lastPct !== null ? lastPct + '%' : '—'}
@@ -2958,7 +2943,8 @@
         const PCT_YELLOW = 80;
         const color = v => { const p = Math.round(v * 100); return p >= PCT_GREEN ? 'var(--ok-bright)' : p >= PCT_YELLOW ? 'var(--gold)' : 'var(--accent)'; };
         const covEl = document.getElementById('rv-mat-coverage');
-        covEl.textContent = fmt(m.total_seen / m.total_visible); covEl.style.color = color(m.total_seen / m.total_visible);
+        const coverage = m.total_seen / m.total_visible;
+        covEl.textContent = fmt(coverage); covEl.style.color = color(coverage);
         const histEl = document.getElementById('rv-mat-historic');
         const histVal = m.dominated / m.total_visible;
         histEl.textContent = fmt(histVal); histEl.style.color = color(histVal);
