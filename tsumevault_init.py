@@ -135,6 +135,8 @@ CREATE INDEX IF NOT EXISTS idx_problems_chap  ON problems(chapter_id);
 CREATE INDEX IF NOT EXISTS idx_attempts_prob  ON attempts(source, problem_id);
 CREATE INDEX IF NOT EXISTS idx_attempts_run   ON attempts(run_id);
 CREATE INDEX IF NOT EXISTS idx_run_items_run  ON run_items(run_id);
+CREATE INDEX IF NOT EXISTS idx_attempts_source_problem_created ON attempts(source, problem_id, created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_chapters_mostrar ON chapters(id, mostrar);
 """
 
 SCHEMA_VIEW = """
