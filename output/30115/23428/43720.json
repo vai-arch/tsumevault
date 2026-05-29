@@ -1,0 +1,93 @@
+{
+  "id": 43720,
+  "qtype": 12,
+  "qtypename": "棋理题",
+  "qtypename_en": "Go theory questions",
+  "levelname": "7K",
+  "title": "利用刺使白棋成为坏形",
+  "title_en": "Use thorns to make White Go into a bad shape",
+  "desc": "利用刺使白棋成为坏形",
+  "desc_en": "Use thorns to make White Go into a bad shape",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "qd",
+      "qc",
+      "pc",
+      "ob",
+      "nb"
+    ],
+    [
+      "oc",
+      "nc",
+      "mc"
+    ]
+  ],
+  "black_stones": [
+    "nb",
+    "ob",
+    "pc",
+    "qc",
+    "qd",
+    "qh"
+  ],
+  "white_stones": [
+    "mc",
+    "nc",
+    "oc",
+    "pd",
+    "oe",
+    "qe",
+    "re"
+  ],
+  "vote": 4.8,
+  "yes_count": 4065,
+  "no_count": 3224,
+  "correct_pct": 56,
+  "sx": 12,
+  "sy": 12,
+  "pos_x1": 7,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 11,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "pf",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [],
+      "pt": "pe",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": 43709,
+  "qtype": 8,
+  "qtypename": "欣赏题",
+  "qtypename_en": "Appreciation question",
+  "levelname": "9K",
+  "title": "利用倒吃使白棋成为坏形",
+  "title_en": "Using reverse eating to make the white dog into a bad shape",
+  "desc": "利用倒吃使白棋成为坏形",
+  "desc_en": "Using reverse eating to make the white dog into a bad shape",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "ra",
+      "qb",
+      "rc",
+      "pc",
+      "pd"
+    ],
+    [
+      "qa",
+      "pa",
+      "pb"
+    ]
+  ],
+  "black_stones": [
+    "ra",
+    "lb",
+    "mb",
+    "qb",
+    "kc",
+    "pc",
+    "rc",
+    "ld",
+    "od",
+    "pd"
+  ],
+  "white_stones": [
+    "pa",
+    "qa",
+    "nb",
+    "pb",
+    "mc",
+    "oc",
+    "nd",
+    "ne",
+    "of"
+  ],
+  "vote": 4.8,
+  "yes_count": 5281,
+  "no_count": 2578,
+  "correct_pct": 67,
+  "sx": 11,
+  "sy": 11,
+  "pos_x1": 8,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 10,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "na",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [],
+      "pt": "ob",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

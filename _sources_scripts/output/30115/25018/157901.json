@@ -1,0 +1,114 @@
+{
+  "id": 157901,
+  "qtype": 1,
+  "qtypename": "死活题",
+  "qtypename_en": "Life and Death",
+  "levelname": "10K",
+  "title": "黑棋先做先手眼，再做后手眼。",
+  "title_en": "Black Go does the Sente eye first, and then the Gote eye.",
+  "desc": "黑棋先做先手眼，再做后手眼。",
+  "desc_en": "Black Go does the Sente eye first, and then the Gote eye.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "cg",
+      "ch",
+      "dg",
+      "ef",
+      "eh"
+    ],
+    [
+      "bg",
+      "bh",
+      "bi"
+    ]
+  ],
+  "black_stones": [
+    "ef",
+    "cg",
+    "dg",
+    "gg",
+    "ch",
+    "eh",
+    "gh",
+    "ei",
+    "gi"
+  ],
+  "white_stones": [
+    "ee",
+    "cf",
+    "df",
+    "gf",
+    "bg",
+    "eg",
+    "fg",
+    "hg",
+    "bh",
+    "hh",
+    "bi",
+    "hi"
+  ],
+  "vote": 4.7,
+  "yes_count": 8817,
+  "no_count": 4057,
+  "correct_pct": 68,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "fh",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [
+        3
+      ],
+      "pt": "ff",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [],
+      "pt": "ci",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "id": 22604,
+  "qtype": 21,
+  "qtypename": "对杀题",
+  "qtypename_en": "Capturing race",
+  "levelname": "14K+",
+  "title": "",
+  "title_en": "",
+  "desc": "",
+  "desc_en": "",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "qc",
+      "pc",
+      "oc",
+      "ob",
+      "nd"
+    ],
+    [
+      "pb",
+      "rb",
+      "rc"
+    ]
+  ],
+  "black_stones": [
+    "kb",
+    "ob",
+    "qb",
+    "lc",
+    "oc",
+    "pc",
+    "qc",
+    "md",
+    "nd"
+  ],
+  "white_stones": [
+    "na",
+    "nb",
+    "pb",
+    "rb",
+    "nc",
+    "rc",
+    "od",
+    "pd",
+    "qd",
+    "rd"
+  ],
+  "vote": 4.8,
+  "yes_count": 23646,
+  "no_count": 4388,
+  "correct_pct": 84,
+  "sx": 11,
+  "sy": 6,
+  "pos_x1": 8,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 5,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        6,
+        8
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "pa",
+      "o": 1,
+      "c": 1,
+      "f": 0,
+      "tip": "RIGHT\r\n恭喜答对",
+      "tip_en": "RIGHT\r\nCongratulations on the correct answer"
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [
+        3
+      ],
+      "pt": "ra",
+      "o": 0,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [
+        4
+      ],
+      "pt": "mb",
+      "o": 0,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 3,
+      "subs": [
+        5
+      ],
+      "pt": "qa",
+      "o": 0,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "5": {
+      "id": 5,
+      "p": 4,
+      "subs": [],
+      "pt": "ma",
+      "o": 0,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "6": {
+      "id": 6,
+      "p": 0,
+      "subs": [
+        7
+      ],
+      "pt": "oa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "7": {
+      "id": 7,
+      "p": 6,
+      "subs": [],
+      "pt": "qa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "8": {
+      "id": 8,
+      "p": 0,
+      "subs": [
+        9
+      ],
+      "pt": "mb",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "9": {
+      "id": 9,
+      "p": 8,
+      "subs": [],
+      "pt": "pa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

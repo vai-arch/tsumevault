@@ -1,0 +1,176 @@
+{
+  "id": 157237,
+  "qtype": 12,
+  "qtypename": "棋理题",
+  "qtypename_en": "Go theory questions",
+  "levelname": "8K",
+  "title": "黑先，提重要的子。",
+  "title_en": "Black first, mention the important things.",
+  "desc": "黑先，提重要的子。",
+  "desc_en": "Black first, mention the important things.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "ed",
+      "ee",
+      "ef",
+      "fc",
+      "fe"
+    ],
+    [
+      "db",
+      "dd",
+      "de"
+    ]
+  ],
+  "black_stones": [
+    "fc",
+    "gc",
+    "ed",
+    "ee",
+    "fe",
+    "ef",
+    "fg",
+    "gg"
+  ],
+  "white_stones": [
+    "db",
+    "fb",
+    "gb",
+    "ec",
+    "dd",
+    "fd",
+    "de",
+    "df",
+    "ff",
+    "eg",
+    "dh",
+    "fh"
+  ],
+  "vote": 4.7,
+  "yes_count": 2945,
+  "no_count": 2410,
+  "correct_pct": 55,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        2,
+        5
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "gd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 0,
+      "subs": [
+        3
+      ],
+      "pt": "ge",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [
+        4
+      ],
+      "pt": "hc",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 3,
+      "subs": [],
+      "pt": "gd",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "亏损",
+      "tip_en": "Loss"
+    },
+    "5": {
+      "id": 5,
+      "p": 0,
+      "subs": [
+        6
+      ],
+      "pt": "gf",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "6": {
+      "id": 6,
+      "p": 5,
+      "subs": [
+        7
+      ],
+      "pt": "gd",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "7": {
+      "id": 7,
+      "p": 6,
+      "subs": [
+        8
+      ],
+      "pt": "hc",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "8": {
+      "id": 8,
+      "p": 7,
+      "subs": [],
+      "pt": "hd",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

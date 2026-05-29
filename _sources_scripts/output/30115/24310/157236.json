@@ -1,0 +1,87 @@
+{
+  "id": 157236,
+  "qtype": 12,
+  "qtypename": "棋理题",
+  "qtypename_en": "Go theory questions",
+  "levelname": "9K+",
+  "title": "黑先，提重要的子。",
+  "title_en": "Black first, mention the important things.",
+  "desc": "黑先，提重要的子。",
+  "desc_en": "Black first, mention the important things.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "ed",
+      "ee",
+      "ef",
+      "fc",
+      "fe"
+    ],
+    [
+      "db",
+      "dd",
+      "de"
+    ]
+  ],
+  "black_stones": [
+    "fc",
+    "gc",
+    "ed",
+    "ee",
+    "fe",
+    "ef",
+    "fg",
+    "gg"
+  ],
+  "white_stones": [
+    "db",
+    "fb",
+    "ec",
+    "dd",
+    "fd",
+    "de",
+    "df",
+    "ff",
+    "eg",
+    "dh",
+    "fh",
+    "gh"
+  ],
+  "vote": 4.7,
+  "yes_count": 2799,
+  "no_count": 1526,
+  "correct_pct": 65,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "gf",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

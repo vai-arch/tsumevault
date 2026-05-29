@@ -1,0 +1,188 @@
+{
+  "id": 11027,
+  "qtype": 21,
+  "qtypename": "对杀题",
+  "qtypename_en": "Capturing race",
+  "levelname": "10K",
+  "title": "",
+  "title_en": "",
+  "desc": "",
+  "desc_en": "",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "qa",
+      "rb",
+      "qb",
+      "pb",
+      "qc"
+    ],
+    [
+      "pa",
+      "oa",
+      "ob"
+    ]
+  ],
+  "black_stones": [
+    "qa",
+    "pb",
+    "qb",
+    "rb",
+    "qc",
+    "pd",
+    "pe",
+    "pf",
+    "qf",
+    "rf"
+  ],
+  "white_stones": [
+    "oa",
+    "pa",
+    "ob",
+    "oc",
+    "pc",
+    "rc",
+    "qd",
+    "rd",
+    "sd",
+    "qe"
+  ],
+  "vote": 4.5,
+  "yes_count": 15403,
+  "no_count": 8623,
+  "correct_pct": 64,
+  "sx": 7,
+  "sy": 8,
+  "pos_x1": 12,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 7,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        7
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "sb",
+      "o": 1,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [
+        3,
+        4,
+        5
+      ],
+      "pt": "ra",
+      "o": 1,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [],
+      "pt": "se",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 2,
+      "subs": [],
+      "pt": "re",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "5": {
+      "id": 5,
+      "p": 2,
+      "subs": [
+        6
+      ],
+      "pt": "sa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "6": {
+      "id": 6,
+      "p": 5,
+      "subs": [],
+      "pt": "sc",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "7": {
+      "id": 7,
+      "p": 0,
+      "subs": [
+        8
+      ],
+      "pt": "sa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "8": {
+      "id": 8,
+      "p": 7,
+      "subs": [
+        9
+      ],
+      "pt": "sb",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "9": {
+      "id": 9,
+      "p": 8,
+      "subs": [],
+      "pt": "sc",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

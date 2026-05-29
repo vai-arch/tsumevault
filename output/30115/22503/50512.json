@@ -1,0 +1,193 @@
+{
+  "id": 50512,
+  "qtype": 1,
+  "qtypename": "死活题",
+  "qtypename_en": "Life and Death",
+  "levelname": "10K+",
+  "title": "",
+  "title_en": "",
+  "desc": "",
+  "desc_en": "",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "sb",
+      "rd",
+      "qa",
+      "qb",
+      "qc"
+    ],
+    [
+      "rc",
+      "rb",
+      "ra"
+    ]
+  ],
+  "black_stones": [
+    "qa",
+    "qb",
+    "sb",
+    "oc",
+    "pc",
+    "qc",
+    "od",
+    "rd",
+    "oe",
+    "pe"
+  ],
+  "white_stones": [
+    "ra",
+    "mb",
+    "ob",
+    "rb",
+    "nc",
+    "rc",
+    "ne",
+    "qe",
+    "re",
+    "nf",
+    "of",
+    "pf",
+    "qg"
+  ],
+  "vote": 4.8,
+  "yes_count": 7063,
+  "no_count": 3713,
+  "correct_pct": 66,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 10,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        6
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "qd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [
+        3
+      ],
+      "pt": "sd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [
+        4
+      ],
+      "pt": "sc",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 3,
+      "subs": [
+        5
+      ],
+      "pt": "sa",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "5": {
+      "id": 5,
+      "p": 4,
+      "subs": [],
+      "pt": "sc",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "6": {
+      "id": 6,
+      "p": 0,
+      "subs": [
+        7
+      ],
+      "pt": "sc",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "7": {
+      "id": 7,
+      "p": 6,
+      "subs": [
+        8
+      ],
+      "pt": "qd",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "8": {
+      "id": 8,
+      "p": 7,
+      "subs": [
+        9
+      ],
+      "pt": "sa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "9": {
+      "id": 9,
+      "p": 8,
+      "subs": [],
+      "pt": "rb",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

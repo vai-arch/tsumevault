@@ -1,0 +1,140 @@
+{
+  "id": 51024,
+  "qtype": 1,
+  "qtypename": "死活题",
+  "qtypename_en": "Life and Death",
+  "levelname": "12K+",
+  "title": "",
+  "title_en": "",
+  "desc": "",
+  "desc_en": "",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "rb",
+      "rc",
+      "qd",
+      "pd",
+      "od"
+    ],
+    [
+      "ma",
+      "mb",
+      "nc"
+    ]
+  ],
+  "black_stones": [
+    "la",
+    "pa",
+    "lb",
+    "rb",
+    "lc",
+    "oc",
+    "rc",
+    "md",
+    "nd",
+    "od",
+    "pd",
+    "qd"
+  ],
+  "white_stones": [
+    "ma",
+    "oa",
+    "qa",
+    "ra",
+    "mb",
+    "ob",
+    "qb",
+    "nc",
+    "pc",
+    "qc"
+  ],
+  "vote": 4.8,
+  "yes_count": 6299,
+  "no_count": 2886,
+  "correct_pct": 69,
+  "sx": 10,
+  "sy": 6,
+  "pos_x1": 9,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 5,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        4
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "nb",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [
+        3
+      ],
+      "pt": "na",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [],
+      "pt": "mc",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 0,
+      "subs": [
+        5
+      ],
+      "pt": "mc",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "5": {
+      "id": 5,
+      "p": 4,
+      "subs": [],
+      "pt": "nb",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

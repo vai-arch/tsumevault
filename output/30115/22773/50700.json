@@ -1,0 +1,133 @@
+{
+  "id": 50700,
+  "qtype": 1,
+  "qtypename": "死活题",
+  "qtypename_en": "Life and Death",
+  "levelname": "11K+",
+  "title": "",
+  "title_en": "",
+  "desc": "",
+  "desc_en": "",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "sb",
+      "sc",
+      "rc",
+      "qc",
+      "pc"
+    ],
+    [
+      "rb",
+      "qb",
+      "qa"
+    ]
+  ],
+  "black_stones": [
+    "pb",
+    "sb",
+    "pc",
+    "qc",
+    "rc",
+    "sc"
+  ],
+  "white_stones": [
+    "qa",
+    "ob",
+    "qb",
+    "rb",
+    "oc",
+    "od",
+    "pd",
+    "qd",
+    "re"
+  ],
+  "vote": 4.7,
+  "yes_count": 11548,
+  "no_count": 6500,
+  "correct_pct": 64,
+  "sx": 7,
+  "sy": 7,
+  "pos_x1": 12,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 6,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        4
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "ra",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [
+        3
+      ],
+      "pt": "sa",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [],
+      "pt": "pa",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 0,
+      "subs": [
+        5
+      ],
+      "pt": "pa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "5": {
+      "id": 5,
+      "p": 4,
+      "subs": [],
+      "pt": "ra",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "黑淨死",
+      "tip_en": "Black death"
+    }
+  }
+}

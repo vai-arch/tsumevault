@@ -1,0 +1,80 @@
+{
+  "id": 157909,
+  "qtype": 14,
+  "qtypename": "中盘猜子题",
+  "qtypename_en": "Middlegame guessing sub-question",
+  "levelname": "11K+",
+  "title": "比较黑棋先手叫吃的价值，选择价值大的选点。",
+  "title_en": "Comparing the value of eating GoSente, choose Nakade with higher value.",
+  "desc": "比较黑棋先手叫吃的价值，选择价值大的选点。",
+  "desc_en": "Comparing the value of eating GoSente, choose Nakade with higher value.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "de",
+      "ee",
+      "fe",
+      "gd",
+      "ge"
+    ],
+    [
+      "cc",
+      "ce",
+      "cf"
+    ]
+  ],
+  "black_stones": [
+    "hc",
+    "gd",
+    "de",
+    "ee",
+    "fe",
+    "ge"
+  ],
+  "white_stones": [
+    "cc",
+    "ec",
+    "gc",
+    "dd",
+    "fd",
+    "ce",
+    "cf"
+  ],
+  "vote": 4.0,
+  "yes_count": 322,
+  "no_count": 108,
+  "correct_pct": 75,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "gb",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "id": 50372,
+  "qtype": 1,
+  "qtypename": "死活题",
+  "qtypename_en": "Life and Death",
+  "levelname": "10K",
+  "title": "",
+  "title_en": "",
+  "desc": "",
+  "desc_en": "",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "sc",
+      "sb",
+      "re",
+      "qe",
+      "pd"
+    ],
+    [
+      "sd",
+      "rd",
+      "rb"
+    ]
+  ],
+  "black_stones": [
+    "sb",
+    "mc",
+    "oc",
+    "sc",
+    "pd",
+    "qe",
+    "re"
+  ],
+  "white_stones": [
+    "ra",
+    "rb",
+    "qc",
+    "rd",
+    "sd"
+  ],
+  "vote": 4.7,
+  "yes_count": 14245,
+  "no_count": 11775,
+  "correct_pct": 55,
+  "sx": 9,
+  "sy": 7,
+  "pos_x1": 10,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 6,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        2
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "pb",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 0,
+      "subs": [
+        3
+      ],
+      "pt": "pc",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "恶手",
+      "tip_en": "evil hand"
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [
+        4
+      ],
+      "pt": "pb",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 3,
+      "subs": [
+        5
+      ],
+      "pt": "ob",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "失败图",
+      "tip_en": "failure graph"
+    },
+    "5": {
+      "id": 5,
+      "p": 4,
+      "subs": [],
+      "pt": "pa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

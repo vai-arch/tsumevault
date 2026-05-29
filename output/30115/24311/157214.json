@@ -1,0 +1,151 @@
+{
+  "id": 157214,
+  "qtype": 2,
+  "qtypename": "手筋题",
+  "qtypename_en": "Tesuji",
+  "levelname": "11K",
+  "title": "黑先，救重要的子。",
+  "title_en": "Black first, save the important child.",
+  "desc": "黑先，救重要的子。",
+  "desc_en": "Black first, save the important child.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "bd",
+      "be",
+      "bf",
+      "bg",
+      "bh"
+    ],
+    [
+      "ac",
+      "ad",
+      "ae"
+    ]
+  ],
+  "black_stones": [
+    "fc",
+    "bd",
+    "gd",
+    "be",
+    "bf",
+    "gf",
+    "hf",
+    "bg",
+    "cg",
+    "eg",
+    "fg",
+    "bh",
+    "dh",
+    "bi"
+  ],
+  "white_stones": [
+    "ac",
+    "bc",
+    "cc",
+    "ad",
+    "cd",
+    "ed",
+    "ae",
+    "ce",
+    "af",
+    "cf",
+    "df",
+    "ef",
+    "ff",
+    "ag",
+    "dg",
+    "gg",
+    "ah",
+    "ch",
+    "eh"
+  ],
+  "vote": 4.6,
+  "yes_count": 11607,
+  "no_count": 5872,
+  "correct_pct": 66,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        4
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "fh",
+      "o": 1,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [
+        3
+      ],
+      "pt": "di",
+      "o": 0,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [],
+      "pt": "gh",
+      "o": 0,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 0,
+      "subs": [
+        5
+      ],
+      "pt": "di",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "5": {
+      "id": 5,
+      "p": 4,
+      "subs": [],
+      "pt": "fh",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

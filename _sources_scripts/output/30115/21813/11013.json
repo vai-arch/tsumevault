@@ -1,0 +1,135 @@
+{
+  "id": 11013,
+  "qtype": 21,
+  "qtypename": "对杀题",
+  "qtypename_en": "Capturing race",
+  "levelname": "13K",
+  "title": "",
+  "title_en": "",
+  "desc": "",
+  "desc_en": "",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "rb",
+      "qb",
+      "qc",
+      "pd",
+      "pe"
+    ],
+    [
+      "pb",
+      "rc",
+      "pc"
+    ]
+  ],
+  "black_stones": [
+    "qb",
+    "rb",
+    "qc",
+    "pd",
+    "pe",
+    "qf",
+    "rf",
+    "sf"
+  ],
+  "white_stones": [
+    "pb",
+    "nc",
+    "pc",
+    "rc",
+    "qd",
+    "sd",
+    "qe",
+    "re",
+    "se"
+  ],
+  "vote": 4.6,
+  "yes_count": 16449,
+  "no_count": 5958,
+  "correct_pct": 73,
+  "sx": 8,
+  "sy": 8,
+  "pos_x1": 11,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 7,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        4
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "sb",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [
+        3
+      ],
+      "pt": "qa",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [],
+      "pt": "sc",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 0,
+      "subs": [
+        5
+      ],
+      "pt": "sc",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "5": {
+      "id": 5,
+      "p": 4,
+      "subs": [],
+      "pt": "sb",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

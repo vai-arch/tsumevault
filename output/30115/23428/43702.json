@@ -1,0 +1,90 @@
+{
+  "id": 43702,
+  "qtype": 12,
+  "qtypename": "棋理题",
+  "qtypename_en": "Go theory questions",
+  "levelname": "11K",
+  "title": "利用叫吃使白棋成为坏形",
+  "title_en": "Using barking to make White Go into a bad shape",
+  "desc": "利用叫吃使白棋成为坏形",
+  "desc_en": "Using barking to make White Go into a bad shape",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "rd",
+      "rc",
+      "qb",
+      "pb",
+      "oc"
+    ],
+    [
+      "pc",
+      "qc",
+      "qd"
+    ]
+  ],
+  "black_stones": [
+    "pb",
+    "qb",
+    "oc",
+    "rc",
+    "rd"
+  ],
+  "white_stones": [
+    "pc",
+    "qc",
+    "nd",
+    "od",
+    "qd"
+  ],
+  "vote": 4.8,
+  "yes_count": 9567,
+  "no_count": 4851,
+  "correct_pct": 66,
+  "sx": 13,
+  "sy": 12,
+  "pos_x1": 6,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 11,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "qe",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [],
+      "pt": "pd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}
