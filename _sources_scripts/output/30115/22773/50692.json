@@ -1,0 +1,150 @@
+{
+  "id": 50692,
+  "qtype": 1,
+  "qtypename": "死活题",
+  "qtypename_en": "Life and Death",
+  "levelname": "14K",
+  "title": "",
+  "title_en": "",
+  "desc": "",
+  "desc_en": "",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "ra",
+      "sb",
+      "sc",
+      "rc",
+      "qc"
+    ],
+    [
+      "re",
+      "sd",
+      "rb"
+    ]
+  ],
+  "black_stones": [
+    "ra",
+    "sb",
+    "qc",
+    "rc",
+    "sc",
+    "qd",
+    "qe",
+    "qf",
+    "rf",
+    "sf"
+  ],
+  "white_stones": [
+    "ob",
+    "qb",
+    "rb",
+    "pc",
+    "sd",
+    "pe",
+    "re",
+    "pf",
+    "pg",
+    "qg",
+    "rh"
+  ],
+  "vote": 4.8,
+  "yes_count": 15742,
+  "no_count": 2323,
+  "correct_pct": 87,
+  "sx": 7,
+  "sy": 10,
+  "pos_x1": 12,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 9,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        2,
+        3
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "rd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 0,
+      "subs": [],
+      "pt": "se",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 0,
+      "subs": [
+        4
+      ],
+      "pt": "qa",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 3,
+      "subs": [
+        5,
+        6
+      ],
+      "pt": "pb",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "5": {
+      "id": 5,
+      "p": 4,
+      "subs": [],
+      "pt": "rd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "6": {
+      "id": 6,
+      "p": 4,
+      "subs": [],
+      "pt": "se",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

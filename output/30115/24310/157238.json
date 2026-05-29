@@ -1,0 +1,120 @@
+{
+  "id": 157238,
+  "qtype": 2,
+  "qtypename": "手筋题",
+  "qtypename_en": "Tesuji",
+  "levelname": "11K",
+  "title": "黑先，提重要的子。",
+  "title_en": "Black first, mention the important things.",
+  "desc": "黑先，提重要的子。",
+  "desc_en": "Black first, mention the important things.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "ca",
+      "cb",
+      "cc",
+      "dd",
+      "de"
+    ],
+    [
+      "cg",
+      "da",
+      "db"
+    ]
+  ],
+  "black_stones": [
+    "ca",
+    "cb",
+    "eb",
+    "cc",
+    "ec",
+    "dd",
+    "fd",
+    "gd",
+    "hd",
+    "id",
+    "de",
+    "hf"
+  ],
+  "white_stones": [
+    "da",
+    "fa",
+    "ha",
+    "db",
+    "fb",
+    "dc",
+    "fc",
+    "gc",
+    "hc",
+    "ic",
+    "ed",
+    "ff",
+    "cg",
+    "eg",
+    "gg",
+    "hg"
+  ],
+  "vote": 4.8,
+  "yes_count": 11418,
+  "no_count": 6037,
+  "correct_pct": 65,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        2
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "ee",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 0,
+      "subs": [
+        3
+      ],
+      "pt": "ea",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [],
+      "pt": "ee",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "黑右边全死，失败",
+      "tip_en": "Black's right side is all dead, failure"
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "id": 51302,
+  "qtype": 1,
+  "qtypename": "死活题",
+  "qtypename_en": "Life and Death",
+  "levelname": "7K",
+  "title": "",
+  "title_en": "",
+  "desc": "",
+  "desc_en": "",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "rd",
+      "rc",
+      "rb",
+      "qb",
+      "pb"
+    ],
+    [
+      "sb",
+      "ra",
+      "qa"
+    ]
+  ],
+  "black_stones": [
+    "ob",
+    "pb",
+    "qb",
+    "rb",
+    "rc",
+    "rd",
+    "sd"
+  ],
+  "white_stones": [
+    "qa",
+    "ra",
+    "nb",
+    "sb",
+    "mc",
+    "oc",
+    "pc",
+    "qd",
+    "qe",
+    "re",
+    "se"
+  ],
+  "vote": 4.8,
+  "yes_count": 9206,
+  "no_count": 9585,
+  "correct_pct": 49,
+  "sx": 9,
+  "sy": 7,
+  "pos_x1": 10,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 6,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        2,
+        6
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "oa",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 0,
+      "subs": [
+        3
+      ],
+      "pt": "pa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [
+        4
+      ],
+      "pt": "qc",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 3,
+      "subs": [
+        5
+      ],
+      "pt": "sa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "5": {
+      "id": 5,
+      "p": 4,
+      "subs": [],
+      "pt": "ra",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "6": {
+      "id": 6,
+      "p": 0,
+      "subs": [
+        7
+      ],
+      "pt": "sc",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "7": {
+      "id": 7,
+      "p": 6,
+      "subs": [
+        8
+      ],
+      "pt": "oa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "8": {
+      "id": 8,
+      "p": 7,
+      "subs": [],
+      "pt": "sa",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

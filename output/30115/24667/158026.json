@@ -1,0 +1,81 @@
+{
+  "id": 158026,
+  "qtype": 12,
+  "qtypename": "棋理题",
+  "qtypename_en": "Go theory questions",
+  "levelname": "8K+",
+  "title": "白▲将黑棋挤出断点，黑先，用补方的棋形保护断点。",
+  "title_en": "White ▲ GoSqueezes Black out of CutNakade, Black first, and uses the complementary Shape to protect CutNakade.",
+  "desc": "白▲将黑棋挤出断点，黑先，用补方的棋形保护断点。",
+  "desc_en": "White ▲ GoSqueezes Black out of CutNakade, Black first, and uses the complementary Shape to protect CutNakade.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "cf",
+      "cg",
+      "ch",
+      "dd",
+      "de"
+    ],
+    [
+      "cc",
+      "dc",
+      "df"
+    ]
+  ],
+  "black_stones": [
+    "dd",
+    "de",
+    "cf",
+    "cg",
+    "ch",
+    "dh"
+  ],
+  "white_stones": [
+    "cc",
+    "dc",
+    "ed",
+    "ee",
+    "df",
+    "dg",
+    "fg",
+    "eh"
+  ],
+  "vote": 4.8,
+  "yes_count": 1793,
+  "no_count": 1988,
+  "correct_pct": 47,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "bd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

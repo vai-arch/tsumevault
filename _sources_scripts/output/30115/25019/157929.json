@@ -1,0 +1,95 @@
+{
+  "id": 157929,
+  "qtype": 14,
+  "qtypename": "中盘猜子题",
+  "qtypename_en": "Middlegame guessing sub-question",
+  "levelname": "10K",
+  "title": "黑△子先手冲，白▲子挡，好棋选择A，撞气选择B。",
+  "title_en": "Black △ Sente rushes, white ▲ blocks, good Go chooses A, and gas hits choose B.",
+  "desc": "黑△子先手冲，白▲子挡，好棋选择A，撞气选择B。",
+  "desc_en": "Black △ Sente rushes, white ▲ blocks, good Go chooses A, and gas hits choose B.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "af",
+      "be",
+      "bg",
+      "cf",
+      "ch"
+    ],
+    [
+      "bd",
+      "cc",
+      "ce"
+    ]
+  ],
+  "black_stones": [
+    "fc",
+    "fd",
+    "gd",
+    "id",
+    "be",
+    "ee",
+    "he",
+    "ie",
+    "af",
+    "cf",
+    "ef",
+    "gf",
+    "bg",
+    "dg",
+    "eg",
+    "ch"
+  ],
+  "white_stones": [
+    "fb",
+    "cc",
+    "ec",
+    "gc",
+    "hc",
+    "ic",
+    "bd",
+    "ed",
+    "hd",
+    "ce",
+    "de",
+    "df"
+  ],
+  "vote": 4.0,
+  "yes_count": 260,
+  "no_count": 130,
+  "correct_pct": 67,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "ai",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

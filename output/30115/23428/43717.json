@@ -1,0 +1,153 @@
+{
+  "id": 43717,
+  "qtype": 12,
+  "qtypename": "棋理题",
+  "qtypename_en": "Go theory questions",
+  "levelname": "13K+",
+  "title": "利用扑或滚打使白棋成为坏形",
+  "title_en": "Use Throw in or Roll to make White Go bad shape",
+  "desc": "利用扑或滚打使白棋成为坏形",
+  "desc_en": "Use Throw in or Roll to make White Go bad shape",
+  "lu": 19,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "qc",
+      "qb",
+      "pb",
+      "rd",
+      "re"
+    ],
+    [
+      "rg",
+      "qg",
+      "qf"
+    ]
+  ],
+  "black_stones": [
+    "pb",
+    "qb",
+    "qc",
+    "rd",
+    "oe",
+    "re",
+    "rf",
+    "og",
+    "pg",
+    "sg",
+    "qh",
+    "rh"
+  ],
+  "white_stones": [
+    "ob",
+    "nc",
+    "pc",
+    "od",
+    "qd",
+    "qe",
+    "qf",
+    "qg",
+    "rg"
+  ],
+  "vote": 4.6,
+  "yes_count": 9769,
+  "no_count": 3866,
+  "correct_pct": 72,
+  "sx": 10,
+  "sy": 12,
+  "pos_x1": 9,
+  "pos_x2": 18,
+  "pos_y1": 0,
+  "pos_y2": 11,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "pd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [
+        3
+      ],
+      "pt": "pe",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [
+        4
+      ],
+      "pt": "pf",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 3,
+      "subs": [
+        5
+      ],
+      "pt": "pd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "5": {
+      "id": 5,
+      "p": 4,
+      "subs": [
+        6
+      ],
+      "pt": "nd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "6": {
+      "id": 6,
+      "p": 5,
+      "subs": [],
+      "pt": "oc",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

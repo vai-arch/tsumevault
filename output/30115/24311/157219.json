@@ -1,0 +1,108 @@
+{
+  "id": 157219,
+  "qtype": 2,
+  "qtypename": "手筋题",
+  "qtypename_en": "Tesuji",
+  "levelname": "13K+",
+  "title": "黑先，救重要的子。",
+  "title_en": "Black first, save the important child.",
+  "desc": "黑先，救重要的子。",
+  "desc_en": "Black first, save the important child.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "bd",
+      "cb",
+      "cd",
+      "dc",
+      "eb"
+    ],
+    [
+      "be",
+      "ce",
+      "dd"
+    ]
+  ],
+  "black_stones": [
+    "fa",
+    "cb",
+    "eb",
+    "gb",
+    "dc",
+    "gc",
+    "bd",
+    "cd",
+    "ed",
+    "fd",
+    "hd",
+    "he",
+    "gf",
+    "hg"
+  ],
+  "white_stones": [
+    "ga",
+    "ha",
+    "hb",
+    "fc",
+    "hc",
+    "dd",
+    "gd",
+    "be",
+    "ce",
+    "de",
+    "ee",
+    "fe",
+    "ge",
+    "dg"
+  ],
+  "vote": 4.8,
+  "yes_count": 12854,
+  "no_count": 5317,
+  "correct_pct": 71,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2
+      ],
+      "pt": "fb",
+      "o": 1,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [],
+      "pt": "ec",
+      "o": 0,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

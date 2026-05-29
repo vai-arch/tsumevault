@@ -1,0 +1,82 @@
+{
+  "id": 158029,
+  "qtype": 2,
+  "qtypename": "手筋题",
+  "qtypename_en": "Tesuji",
+  "levelname": "5K+",
+  "title": "白▲将黑棋挤出断点，黑先，用补方的棋形保护断点。",
+  "title_en": "White ▲ GoSqueezes Black out of CutNakade, Black first, and uses the complementary Shape to protect CutNakade.",
+  "desc": "白▲将黑棋挤出断点，黑先，用补方的棋形保护断点。",
+  "desc_en": "White ▲ GoSqueezes Black out of CutNakade, Black first, and uses the complementary Shape to protect CutNakade.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "bd",
+      "cd",
+      "dc",
+      "de",
+      "ea"
+    ],
+    [
+      "bb",
+      "bc",
+      "ca"
+    ]
+  ],
+  "black_stones": [
+    "ea",
+    "fb",
+    "dc",
+    "ec",
+    "bd",
+    "cd",
+    "de"
+  ],
+  "white_stones": [
+    "ca",
+    "bb",
+    "db",
+    "eb",
+    "bc",
+    "cc",
+    "gf",
+    "eg"
+  ],
+  "vote": 4.8,
+  "yes_count": 1472,
+  "no_count": 2143,
+  "correct_pct": 41,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "gd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

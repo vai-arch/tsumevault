@@ -1,0 +1,79 @@
+{
+  "id": 157957,
+  "qtype": 14,
+  "qtypename": "中盘猜子题",
+  "qtypename_en": "Middlegame guessing sub-question",
+  "levelname": "11K",
+  "title": "黑先，请选择正确的点。",
+  "title_en": "Black first, please choose the correct Nakade.",
+  "desc": "黑先，请选择正确的点。",
+  "desc_en": "Black first, please choose the correct Nakade.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "dc",
+      "dd",
+      "eb",
+      "fb",
+      "fc"
+    ],
+    [
+      "df",
+      "ec",
+      "ed"
+    ]
+  ],
+  "black_stones": [
+    "eb",
+    "fb",
+    "dc",
+    "fc",
+    "dd",
+    "gd"
+  ],
+  "white_stones": [
+    "ec",
+    "ed",
+    "fd",
+    "ge",
+    "df",
+    "ff"
+  ],
+  "vote": 4.0,
+  "yes_count": 348,
+  "no_count": 73,
+  "correct_pct": 83,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "hd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

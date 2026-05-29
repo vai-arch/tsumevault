@@ -1,0 +1,165 @@
+{
+  "id": 157867,
+  "qtype": 1,
+  "qtypename": "死活题",
+  "qtypename_en": "Life and Death",
+  "levelname": "11K",
+  "title": "利用先手做出第二只眼。",
+  "title_en": "Use Sente to create a second eye.",
+  "desc": "利用先手做出第二只眼。",
+  "desc_en": "Use Sente to create a second eye.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "fg",
+      "fh",
+      "gf",
+      "hd",
+      "he"
+    ],
+    [
+      "eg",
+      "eh",
+      "ff"
+    ]
+  ],
+  "black_stones": [
+    "hd",
+    "id",
+    "he",
+    "gf",
+    "hf",
+    "if",
+    "fg",
+    "ig",
+    "fh",
+    "hh"
+  ],
+  "white_stones": [
+    "gc",
+    "hc",
+    "ic",
+    "gd",
+    "ge",
+    "ff",
+    "eg",
+    "gg",
+    "hg",
+    "eh",
+    "gh",
+    "gi"
+  ],
+  "vote": 4.8,
+  "yes_count": 10363,
+  "no_count": 4502,
+  "correct_pct": 70,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1,
+        6
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [
+        2,
+        4
+      ],
+      "pt": "hi",
+      "o": 1,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "2": {
+      "id": 2,
+      "p": 1,
+      "subs": [
+        3
+      ],
+      "pt": "fi",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "3": {
+      "id": 3,
+      "p": 2,
+      "subs": [],
+      "pt": "ih",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "4": {
+      "id": 4,
+      "p": 1,
+      "subs": [
+        5
+      ],
+      "pt": "ih",
+      "o": 0,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "5": {
+      "id": 5,
+      "p": 4,
+      "subs": [],
+      "pt": "fi",
+      "o": 0,
+      "c": 1,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "6": {
+      "id": 6,
+      "p": 0,
+      "subs": [
+        7
+      ],
+      "pt": "ih",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    },
+    "7": {
+      "id": 7,
+      "p": 6,
+      "subs": [],
+      "pt": "hi",
+      "o": 0,
+      "c": 0,
+      "f": 1,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "id": 157915,
+  "qtype": 14,
+  "qtypename": "中盘猜子题",
+  "qtypename_en": "Middlegame guessing sub-question",
+  "levelname": "11K+",
+  "title": "黑棋下A位或B位看上去都是先手叫吃，请选择不撞气的点。",
+  "title_en": "If you look at the upper position of Black GoLower A or B, Sente will always bid for victory. Please choose Nakade who does not interfere with your energy.",
+  "desc": "黑棋下A位或B位看上去都是先手叫吃，请选择不撞气的点。",
+  "desc_en": "If you look at the upper position of Black GoLower A or B, Sente will always bid for victory. Please choose Nakade who does not interfere with your energy.",
+  "lu": 9,
+  "blackfirst": true,
+  "prepos": [
+    [
+      "ad",
+      "bd",
+      "bh",
+      "cb",
+      "cd"
+    ],
+    [
+      "ae",
+      "af",
+      "ah"
+    ]
+  ],
+  "black_stones": [
+    "da",
+    "cb",
+    "eb",
+    "dc",
+    "fc",
+    "gc",
+    "ad",
+    "bd",
+    "cd",
+    "fd",
+    "ce",
+    "de",
+    "fe",
+    "df",
+    "gf",
+    "eg",
+    "gg",
+    "bh",
+    "dh",
+    "eh",
+    "fh",
+    "fi"
+  ],
+  "white_stones": [
+    "ea",
+    "fa",
+    "ha",
+    "fb",
+    "gb",
+    "ib",
+    "hc",
+    "hd",
+    "ae",
+    "be",
+    "ge",
+    "af",
+    "cf",
+    "hf",
+    "bg",
+    "cg",
+    "dg",
+    "hg",
+    "ah",
+    "ch",
+    "gh",
+    "ih",
+    "di",
+    "gi"
+  ],
+  "vote": 4.0,
+  "yes_count": 308,
+  "no_count": 113,
+  "correct_pct": 73,
+  "sx": 9,
+  "sy": 9,
+  "pos_x1": 0,
+  "pos_x2": 8,
+  "pos_y1": 0,
+  "pos_y2": 8,
+  "andata": {
+    "0": {
+      "id": 0,
+      "p": 0,
+      "subs": [
+        1
+      ],
+      "pt": "",
+      "o": 0,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    },
+    "1": {
+      "id": 1,
+      "p": 0,
+      "subs": [],
+      "pt": "gd",
+      "o": 1,
+      "c": 0,
+      "f": 0,
+      "tip": "",
+      "tip_en": ""
+    }
+  }
+}
