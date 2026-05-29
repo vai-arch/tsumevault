@@ -300,6 +300,8 @@ def andata_to_sgf(qqdata: dict, black_stones: list, white_stones: list) -> str:
     if aw:
         header += aw
     tree = build_node(0, 0)
+    if tree.startswith(';'):
+        tree = tree[1:]
     return f"({header}{tree})"
 
 
