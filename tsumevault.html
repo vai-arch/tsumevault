@@ -461,6 +461,7 @@
       pointer-events: none;
       opacity: 0;
       transition: opacity .15s;
+	  z-index: 400;
     }
 
     #result-flash.show {
@@ -1553,7 +1554,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260529-1327';
+	const SW_VERSION = 'tsumevault-20260602-1751';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -1807,7 +1808,7 @@
       FROM problems p LEFT JOIN attempts a ON a.source=p.source AND a.problem_id=p.problem_id
       GROUP BY p.chapter_id
     ) s ON ch.id=s.chapter_id
-    WHERE ch.source=? AND ch.set_id=? ORDER BY ch.diff_avg ASC
+    WHERE ch.source=? AND ch.set_id=? ORDER BY ch.name ASC
   `, [source, set_id]);
     }
     function localGetLastRunStats(source, set_id) {
@@ -1840,7 +1841,7 @@
     }
     function localGetProblem(source, problem_id) {
       return dbQueryOne(`
-    SELECT p.*, c.name AS collection_name, ch.chapter_num,
+    SELECT p.*, c.name AS collection_name, ch.chapter_num, ch.name AS chapter_name,
       COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct,
       COALESCE(s.pct_correct,0) AS pct_correct, COALESCE(s.avg_time_ms,0) AS avg_time_ms, s.last_seen
     FROM problems p
@@ -3180,7 +3181,7 @@ summary.className = 'stats-summary';
       document.getElementById('result-flash').className = '';
       document.getElementById('pi-id').textContent = prob.problem_id;
       document.getElementById('pi-col').textContent = prob.collection_name || '—';
-      document.getElementById('pi-chap').textContent = prob.chapter_num != null ? `Ch ${prob.chapter_num}` : '—';
+      document.getElementById('pi-chap').textContent = prob.chapter_name || (prob.chapter_num != null ? `Ch ${prob.chapter_num}` : '—');
       document.getElementById('pi-diff').textContent = diffLabel(prob.difficulty_num);
       document.getElementById('pi-color').textContent = prob.color_to_play === 'B' ? '● Black' : prob.color_to_play === 'W' ? '○ White' : '—';
       document.getElementById('ps-seen').textContent = prob.total_attempts || '—';

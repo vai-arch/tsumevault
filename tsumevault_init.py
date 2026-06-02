@@ -257,48 +257,62 @@ def import_source(con, source_info):
 
         if "chapters" in col:
             # ── Formato con capítulos pre-definidos (ej: guo_juan) ──
+            # Cada chapter del JSON se chunkea igual que tsumego_hero (CHAPTER_SIZE/CHAPTER_MIN).
+            # Si resulta más de un chunk, el nombre lleva sufijo (i/total).
             chapters = []
-            for chap_num, chap_json in enumerate(col["chapters"], 1):
-                # Normalizar campos de problema (difficulty_raw/difficulty_num en vez de difficultyRaw)
+
+            for chap_json in col["chapters"]:
+                chap_name = chap_json.get("name", f"Ch {len(chapters) + 1}")
+                chap_folder = str(
+                    chap_json.get("folder") or chap_json.get("chapterId", set_id)
+                )
+
+                # on_disk: contar SGFs de esta carpeta de lesson
+                chap_folder_path = os.path.join(problems_dir, chap_folder)
+                if os.path.isdir(chap_folder_path):
+                    on_disk += sum(
+                        1 for f in os.listdir(chap_folder_path) if f.lower().endswith(".sgf")
+                    )
+
+                # Normalizar problemas
                 norm_problems = []
                 for p in chap_json.get("problems", []):
                     norm_problems.append(
                         {
                             "problemId": p["problemId"],
-                            "difficultyRaw": p.get("difficulty_raw")
-                            or p.get("difficultyRaw"),
+                            "difficultyRaw": p.get("difficulty_raw") or p.get("difficultyRaw"),
                             "difficultyNum": p.get("difficulty_num")
                             or parse_difficulty_num(p.get("difficultyRaw")),
                             "lessonId": p.get("lessonId"),
                         }
                     )
-                diffs = [
-                    p["difficultyNum"]
-                    for p in norm_problems
-                    if p["difficultyNum"] is not None
-                ]
-                avg_diff = snap_to_rank(sum(diffs) / len(diffs)) if diffs else None
-                chapters.append(
-                    {
-                        "chapter_num": chap_num,
-                        "name": chap_json.get("name", f"Ch {chap_num}"),
-                        "diff_min": min(diffs) if diffs else None,
-                        "diff_max": max(diffs) if diffs else None,
-                        "diff_avg": avg_diff,
-                        "problems": norm_problems,
-                        "folder": str(
-                            chap_json.get("folder")
-                            or chap_json.get("chapterId", set_id)
-                        ),
-                    }
-                )
 
-            # on_disk: contar SGFs en todas las carpetas de capítulos
-            for chap in chapters:
-                chap_folder = os.path.join(problems_dir, chap["folder"])
-                if os.path.isdir(chap_folder):
-                    on_disk += sum(
-                        1 for f in os.listdir(chap_folder) if f.lower().endswith(".sgf")
+                # Chunking igual que tsumego_hero
+                raw_chunks = []
+                for i in range(0, len(norm_problems), CHAPTER_SIZE):
+                    raw_chunks.append(norm_problems[i : i + CHAPTER_SIZE])
+                if len(raw_chunks) > 1 and len(raw_chunks[-1]) < CHAPTER_MIN:
+                    raw_chunks[-2] = raw_chunks[-2] + raw_chunks[-1]
+                    raw_chunks.pop()
+
+                total_chunks = len(raw_chunks)
+                for chunk_idx, chunk in enumerate(raw_chunks, 1):
+                    if total_chunks > 1:
+                        chunk_name = f"{chap_name} ({chunk_idx}/{total_chunks})"
+                    else:
+                        chunk_name = chap_name
+                    diffs = [p["difficultyNum"] for p in chunk if p["difficultyNum"] is not None]
+                    avg_diff = snap_to_rank(sum(diffs) / len(diffs)) if diffs else None
+                    chapters.append(
+                        {
+                            "chapter_num": len(chapters) + 1,
+                            "name": chunk_name,
+                            "diff_min": min(diffs) if diffs else None,
+                            "diff_max": max(diffs) if diffs else None,
+                            "diff_avg": avg_diff,
+                            "problems": chunk,
+                            "folder": chap_folder,
+                        }
                     )
 
             all_diffs = [
@@ -418,7 +432,7 @@ def import_source(con, source_info):
 
                 con.execute(
                     """
-                    INSERT INTO problems
+                    INSERT OR REPLACE INTO problems
                         (source, problem_id, set_id, chapter_id, order_in_chapter,
                          sgf_path, sgf_exists, difficulty_raw, difficulty_num, color_to_play)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)

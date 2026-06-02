@@ -32,7 +32,7 @@ import sys
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_FILE = os.path.join(SCRIPT_DIR, "tsumeVault.db")
 SOURCE = "101_weiqi"
-INPUT_DIR = os.path.join(SCRIPT_DIR, "output")
+INPUT_DIR = os.path.join(SCRIPT_DIR, "_sources_scripts\output")
 OUTPUT_DIR = os.path.join(SCRIPT_DIR, SOURCE, "problems_std")
 
 # ── Difficulty helpers ────────────────────────────────────────────────────────
