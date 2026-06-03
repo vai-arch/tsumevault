@@ -1505,6 +1505,7 @@
         </div>
         <div id="gm-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
           <button class="ctrl-btn" id="gm-btn-prev">← Prev</button>
+          <button class="ctrl-btn" id="gm-btn-branch">↩ Branch</button>
           <button class="ctrl-btn" id="gm-btn-play">▶</button>
           <button class="ctrl-btn" id="gm-btn-next">Next →</button>
           <select id="gm-timer-sel" style="font-family:var(--mono);font-size:9px;background:var(--panel);color:var(--dim);border:1px solid var(--border2);border-radius:2px;padding:3px 5px;cursor:pointer;">
@@ -1581,7 +1582,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260603-1622';
+	const SW_VERSION = 'tsumevault-20260603-1703';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -3181,6 +3182,8 @@ summary.className = 'stats-summary';
       });
       wgoBoard.setSection(-0.5, -0.5, -0.5, -0.5);
       wgoBoard.addCustomObject(WGo.Board.coordinates);
+      wgoBoard.addEventListener('click', (x, y) => { if (window._boardClickHandler) window._boardClickHandler(x, y); });
+      wgoBoard._globalListenerSet = true;
       document.getElementById('board-wrap').style.display = 'block';
       document.getElementById('welcome').style.display = 'none';
       document.getElementById('comment-box').style.maxWidth = sz + 'px';
@@ -3529,7 +3532,7 @@ summary.className = 'stats-summary';
       if (children.length > 1) {
         children.forEach((child, idx) => {
           if (child.move && child.move.x !== undefined) {
-            wgoBoard.addObject({ x: child.move.x, y: child.move.y, type: WGo.Board.drawHandlers['LB'], text: String(idx + 1), c: '#e8a020' });
+            wgoBoard.addObject({ x: child.move.x, y: child.move.y, type: WGo.Board.drawHandlers['LB'], text: String(idx + 1), c: '#1a1aff' });
           }
         });
       }
@@ -3620,8 +3623,29 @@ summary.className = 'stats-summary';
 
     document.getElementById('gm-col').addEventListener('change', gmLoadGameList);
 
+    function gmGoToBranchStart() {
+      // Retrocede hasta el primer ancestro con más de un hijo
+      while (gmNodeStack.length > 0) {
+        const parent = gmNodeStack[gmNodeStack.length - 1];
+        if ((parent.children || []).length > 1) {
+          // Estamos en el nodo de decisión
+          gmCurrentNode = gmNodeStack.pop();
+          gmRenderCurrentNode();
+          gmUpdateControls();
+          return;
+        }
+        gmCurrentNode = gmNodeStack.pop();
+      }
+      // Si no hay bifurcación, va al principio
+      gmCurrentNode = gmRootNode;
+      gmNodeStack = [];
+      gmRenderCurrentNode();
+      gmUpdateControls();
+    }
+
     function gmInitControls() {
       document.getElementById('gm-btn-prev').addEventListener('click', () => { gmStopTimer(); gmPrev(); });
+      document.getElementById('gm-btn-branch').addEventListener('click', () => { gmStopTimer(); gmGoToBranchStart(); });
       document.getElementById('gm-btn-next').addEventListener('click', () => { gmStopTimer(); gmNext(); });
       document.getElementById('gm-btn-play').addEventListener('click', gmToggleTimer);
       document.getElementById('gm-timer-sel').addEventListener('change', e => {
