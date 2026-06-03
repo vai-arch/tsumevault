@@ -439,7 +439,7 @@
     #comment-box {
       width: 100%;
       max-width: 560px;
-      min-height: 32px;
+      height: calc(12px * 1.6 * 6 + 14px);
       padding: 7px 14px;
       background: rgba(22, 20, 16, .9);
       border-top: 1px solid var(--border);
@@ -449,6 +449,9 @@
       color: var(--text);
       text-align: center;
       display: block;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border2) transparent;
     }
 
     #result-flash {
@@ -1356,6 +1359,7 @@
         <div class="tab" data-tab="runs">Runs</div>
         <div class="tab" data-tab="free">Free</div>
         <div class="tab" data-tab="review">Review</div>
+        <div class="tab" data-tab="games">Games</div>
       </div>
 
       <div class="tab-pane active" id="tab-collections">
@@ -1472,6 +1476,17 @@
           </div>
         </div>
       </div>
+      <div class="tab-pane" id="tab-games">
+        <div class="fp-section">
+          <div class="fp-label">Collection</div>
+          <select class="fsel" id="gm-col">
+            <option value="">All</option>
+          </select>
+        </div>
+        <div id="gm-list" style="flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;padding:4px 0;">
+          <div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--dim2);text-align:center">Select a collection</div>
+        </div>
+      </div>
     </div>
 
     <div id="main">
@@ -1487,6 +1502,18 @@
           <button class="ctrl-btn" id="btn-restart">↺ Restart</button>
           <button class="ctrl-btn" id="btn-pause">⏸ Pause</button>
           <button class="ctrl-btn" id="btn-next">→ Next</button>
+        </div>
+        <div id="gm-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
+          <button class="ctrl-btn" id="gm-btn-prev">← Prev</button>
+          <button class="ctrl-btn" id="gm-btn-play">▶</button>
+          <button class="ctrl-btn" id="gm-btn-next">Next →</button>
+          <select id="gm-timer-sel" style="font-family:var(--mono);font-size:9px;background:var(--panel);color:var(--dim);border:1px solid var(--border2);border-radius:2px;padding:3px 5px;cursor:pointer;">
+            <option value="2000">2s</option>
+            <option value="3000" selected>3s</option>
+            <option value="5000">5s</option>
+            <option value="8000">8s</option>
+            <option value="10000">10s</option>
+          </select>
         </div>
       </div>
       <div id="comment-box"></div>
@@ -1554,7 +1581,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260603-0731';
+	const SW_VERSION = 'tsumevault-20260603-1229';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -1655,6 +1682,9 @@
         try { dbExec("ALTER TABLE chapters ADD COLUMN name TEXT"); } catch (e) { }
         try { dbExec("ALTER TABLE attempts ADD COLUMN uuid TEXT"); } catch (e) { }
         try { dbExec("ALTER TABLE chapters ADD COLUMN mostrar INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
+        try { dbExec("CREATE TABLE IF NOT EXISTS game_collections (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE, folder TEXT NOT NULL)"); } catch (e) { }
+        try { dbExec("CREATE TABLE IF NOT EXISTS games (id INTEGER PRIMARY KEY AUTOINCREMENT, game_collection_id INTEGER NOT NULL, name TEXT NOT NULL, sgf_path TEXT NOT NULL)"); } catch (e) { }
+        try { dbExec("CREATE INDEX IF NOT EXISTS idx_games_collection ON games(game_collection_id)"); } catch (e) { }
         return true;
       }
       console.log('[DB] Sin DB local, intentando snapshot…');
@@ -1725,6 +1755,19 @@
     CREATE INDEX IF NOT EXISTS idx_attempts_prob ON attempts(source, problem_id);
     CREATE INDEX IF NOT EXISTS idx_attempts_run  ON attempts(run_id);
     CREATE INDEX IF NOT EXISTS idx_run_items_run ON run_items(run_id);
+    CREATE TABLE IF NOT EXISTS game_collections (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL UNIQUE,
+      folder TEXT NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS games (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      game_collection_id INTEGER NOT NULL,
+      name TEXT NOT NULL,
+      sgf_path TEXT NOT NULL,
+      FOREIGN KEY (game_collection_id) REFERENCES game_collections(id)
+    );
+    CREATE INDEX IF NOT EXISTS idx_games_collection ON games(game_collection_id);
   `);
     }
 
@@ -1755,6 +1798,8 @@
         }
         stmt.free();
       }
+      ins('game_collections', ['id', 'name', 'folder'], snap.game_collections);
+      ins('games', ['id', 'game_collection_id', 'name', 'sgf_path'], snap.games);
     }
 
     // ── Local DB queries ──
@@ -2927,7 +2972,7 @@ summary.className = 'stats-summary';
         }
         if (!problems.length) {
           document.getElementById('fp-count').textContent = '0 problems match';
-          document.getElementById('board-wrap').style.display = 'none'; document.getElementById('comment-box').style.display = 'none';
+          document.getElementById('board-wrap').style.display = 'none'; document.getElementById('comment-box').textContent = '';
           document.getElementById('result-flash').className = ''; document.getElementById('welcome').style.display = 'flex';
           document.getElementById('welcome').querySelector('p').textContent = 'No problems match the selected filters';
           document.getElementById('welcome').style.pointerEvents = 'none';
@@ -2999,7 +3044,7 @@ summary.className = 'stats-summary';
         if (!problems.length) {
           document.getElementById('rv-count').textContent = '0 problems match';
           document.getElementById('board-wrap').style.display = 'none';
-          document.getElementById('comment-box').style.display = 'none';
+          document.getElementById('comment-box').textContent = '';
           document.getElementById('result-flash').className = '';
           document.getElementById('welcome').style.display = 'flex';
           document.getElementById('welcome').querySelector('p').textContent = 'No problems to review yet';
@@ -3065,7 +3110,7 @@ summary.className = 'stats-summary';
     function showSessionEnd() {
       clearSidebar(); clearBoard(); wgoBoard = null;
       document.getElementById('board-wrap').style.display = 'none';
-      document.getElementById('comment-box').style.display = 'none';
+      document.getElementById('comment-box').textContent = '';
       document.getElementById('result-flash').className = '';
       document.getElementById('welcome').style.display = 'flex';
       document.getElementById('welcome').querySelector('p').textContent = `Done — ${sessionOk}✓ ${sessionNo}✗`;
@@ -3171,7 +3216,7 @@ summary.className = 'stats-summary';
         if (lbC) lbObj.c = lbC;
         wgoBoard.addObject(lbObj);
       }
-      const cb = document.getElementById('comment-box'); cb.style.display = 'block'; cb.textContent = node.comment || '';
+      const cb = document.getElementById('comment-box'); cb.textContent = node.comment || '';
     }
     function renderProblem(prob) {
       currentProblem = prob; waitingForNext = false;
@@ -3184,8 +3229,8 @@ summary.className = 'stats-summary';
       hintEl.classList.remove('board-hint-black', 'board-hint-white');
       hintEl.classList.add(playerC === 1 ? 'board-hint-black' : 'board-hint-white');
       const cb = document.getElementById('comment-box');
-      if (root.comment) { const clean = root.comment.replace(/^DONOTSWAP\s*/i, '').trim(); cb.textContent = clean; cb.style.display = clean ? 'block' : 'none'; }
-      else { cb.textContent = ''; cb.style.display = 'none'; }
+      if (root.comment) { const clean = root.comment.replace(/^DONOTSWAP\s*/i, '').trim(); cb.textContent = clean; }
+      else { cb.textContent = ''; }
       document.getElementById('result-flash').className = '';
       document.getElementById('pi-id').textContent = prob.problem_id;
       document.getElementById('pi-col').textContent = prob.collection_name || '—';
@@ -3239,8 +3284,8 @@ summary.className = 'stats-summary';
         setTimeout(() => { if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
       }
       function resetGame() { game.allow_rewrite = true; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++)game.setStone(x, y, 0); for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
-      window._studyRestart = () => { history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; document.getElementById('comment-box').style.display = 'none'; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
-      window._studyBack = () => { if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; document.getElementById('comment-box').style.display = 'none'; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
+      window._studyRestart = () => { history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
+      window._studyBack = () => { if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
       let ghostPos = null; let pendingTap = null; const boardEl = wgoBoard.element;
       function clearPending() { if (pendingTap) { wgoBoard.removeObject({ x: pendingTap.x, y: pendingTap.y, type: 'outline' }); pendingTap = null; } }
       function updateGhost(e) { if (answered || waitingForNext) return; const rect = boardEl.getBoundingClientRect(); const mx = (e.clientX - rect.left) * wgoBoard.pixelRatio; const my = (e.clientY - rect.top) * wgoBoard.pixelRatio; const x = Math.round((mx - wgoBoard.left) / wgoBoard.fieldWidth); const y = Math.round((my - wgoBoard.top) / wgoBoard.fieldHeight); if (x < 0 || y < 0 || x >= boardSize || y >= boardSize) { clearGhost(); return; } if (ghostPos && ghostPos.x === x && ghostPos.y === y) return; clearGhost(); if (wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1)) return; ghostPos = { x, y }; wgoBoard.addObject({ x, y, c: playerC, type: 'outline' }); }
@@ -3325,9 +3370,269 @@ summary.className = 'stats-summary';
       if (e.code === 'KeyP') { e.preventDefault(); togglePause(); }
       if (e.code === 'Escape') { closeConfig(); closeStats(); }
     });
+    // ══ GAMES VIEWER ══
+
+    let gmCollections = [];
+    let gmCurrentGame = null;   // { id, name, sgf_path }
+    let gmRootNode = null;      // raíz del árbol WGo
+    let gmNodeStack = [];       // stack de nodos visitados (para prev)
+    let gmCurrentNode = null;   // nodo actual
+    let gmGame = null;          // WGo.Game para tracking de posición
+    let gmTimer = null;         // setInterval handle
+    let gmTimerRunning = false;
+    let gmTimerDelay = 3000;    // ms entre movimientos en auto-play
+    let gmActive = false;       // true cuando el viewer está activo
+
+    function gmLoadCollections() {
+      try {
+        const rows = dbQuery('SELECT id, name FROM game_collections ORDER BY name ASC', []);
+        gmCollections = rows;
+        const sel = document.getElementById('gm-col');
+        sel.innerHTML = '<option value="">All</option>';
+        for (const r of rows) {
+          const o = document.createElement('option');
+          o.value = r.id; o.textContent = r.name;
+          sel.appendChild(o);
+        }
+        gmLoadGameList();
+      } catch (e) { console.warn('gmLoadCollections', e); }
+    }
+
+    function gmLoadGameList() {
+      const colId = document.getElementById('gm-col').value;
+      const list = document.getElementById('gm-list');
+      try {
+        let rows;
+        if (colId) {
+          rows = dbQuery('SELECT g.id, g.name, g.sgf_path, gc.name AS col_name FROM games g JOIN game_collections gc ON gc.id=g.game_collection_id WHERE g.game_collection_id=? ORDER BY g.name ASC', [parseInt(colId)]);
+        } else {
+          rows = dbQuery('SELECT g.id, g.name, g.sgf_path, gc.name AS col_name FROM games g JOIN game_collections gc ON gc.id=g.game_collection_id ORDER BY gc.name ASC, g.name ASC', []);
+        }
+        if (!rows.length) { list.innerHTML = '<div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--dim2);text-align:center">No games found</div>'; return; }
+        list.innerHTML = '';
+        for (const r of rows) {
+          const div = document.createElement('div');
+          div.style.cssText = 'padding:7px 14px;font-family:var(--mono);font-size:9px;color:var(--text);cursor:pointer;border-bottom:1px solid var(--border);transition:background .1s;';
+          div.textContent = r.name.replace(/\.sgf$/i, '');
+          if (!colId) {
+            const sub = document.createElement('div');
+            sub.style.cssText = 'font-size:8px;color:var(--dim2);margin-top:2px;';
+            sub.textContent = r.col_name;
+            div.appendChild(sub);
+          }
+          div.addEventListener('mouseenter', () => div.style.background = 'var(--hover)');
+          div.addEventListener('mouseleave', () => div.style.background = '');
+          div.addEventListener('click', () => gmOpenGame(r));
+          list.appendChild(div);
+        }
+      } catch (e) { list.innerHTML = '<div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--dim2);text-align:center">Error loading games</div>'; console.warn('gmLoadGameList', e); }
+    }
+
+    async function gmOpenGame(gameRow) {
+      gmStopTimer();
+      gmActive = true;
+      gmCurrentGame = gameRow;
+      const sgfPath = SGF_BASE + gameRow.sgf_path.replace(/\\/g, '/');
+      try {
+        const res = await fetch(sgfPath);
+        if (!res.ok) throw new Error('SGF not found');
+        const sgf = await res.text();
+        const kifu = WGo.Kifu.fromSgf(sgf);
+        gmRootNode = kifu.root;
+        const size = parseInt((sgf.match(/SZ\[(\d+)\]/) || [, '19'])[1]);
+        gmNodeStack = [];
+        gmCurrentNode = gmRootNode;
+        if (!wgoBoard || boardSize !== size) initBoard(size);
+        gmGame = new WGo.Game(boardSize);
+        gmGame.allow_rewrite = true;
+        gmRenderCurrentNode();
+        gmUpdateControls();
+        switchToBoard();
+        document.getElementById('board-hint').textContent = gameRow.name.replace(/\.sgf$/i, '');
+        document.getElementById('board-hint').className = '';
+      } catch (e) { console.warn('gmOpenGame', e); alert('Error loading game: ' + e.message); }
+    }
+
+    function gmApplyNodeToGame(node) {
+      // Aplica setup stones del nodo raíz
+      if (node === gmRootNode) {
+        gmGame.allow_rewrite = true;
+        for (let x = 0; x < boardSize; x++) for (let y = 0; y < boardSize; y++) gmGame.setStone(x, y, 0);
+        if (node.setup) for (const s of node.setup) gmGame.setStone(s.x, s.y, s.c === 1 ? WGo.B : WGo.W);
+        if (node.properties) {
+          const toCoord = v => ({ x: v.charCodeAt(0) - 97, y: v.charCodeAt(1) - 97 });
+          if (node.properties.AB) { const ab = Array.isArray(node.properties.AB) ? node.properties.AB : [node.properties.AB]; ab.forEach(v => { const c = toCoord(v); gmGame.setStone(c.x, c.y, WGo.B); }); }
+          if (node.properties.AW) { const aw = Array.isArray(node.properties.AW) ? node.properties.AW : [node.properties.AW]; aw.forEach(v => { const c = toCoord(v); gmGame.setStone(c.x, c.y, WGo.W); }); }
+        }
+      }
+      if (node.move && node.move.x !== undefined) {
+        gmGame.play(node.move.x, node.move.y, node.move.c === 1 ? WGo.B : WGo.W);
+      }
+    }
+
+    function gmRebuildGameFromStack() {
+      // Reconstruye WGo.Game desde cero siguiendo el stack + nodo actual
+      gmGame = new WGo.Game(boardSize);
+      gmGame.allow_rewrite = true;
+      const path = [...gmNodeStack, gmCurrentNode];
+      for (const n of path) gmApplyNodeToGame(n);
+    }
+
+    function gmRenderCurrentNode() {
+      const node = gmCurrentNode;
+      clearBoard();
+      // Dibujar posición actual desde WGo.Game
+      gmRebuildGameFromStack();
+      const pos = gmGame.getPosition();
+      for (let x = 0; x < boardSize; x++) for (let y = 0; y < boardSize; y++) {
+        const v = pos.get(x, y);
+        if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 });
+        else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 });
+      }
+      // Marcar último movimiento (solo si no hay LB en esa posición)
+      if (node.move && node.move.x !== undefined) {
+        const hasLB = node.markup && node.markup.some(m => m.type === 'LB' && m.x === node.move.x && m.y === node.move.y);
+        if (!hasLB) wgoBoard.addObject({ x: node.move.x, y: node.move.y, type: 'CR' });
+      }
+      // Markup del nodo (LB, TR, SQ, etc.)
+      if (node.markup) {
+        const pos2 = gmGame.getPosition();
+        for (const mk of node.markup) {
+          const v = pos2.get(mk.x, mk.y);
+          const stoneC = v === WGo.B ? 1 : v === WGo.W ? -1 : 0;
+          const obj = { x: mk.x, y: mk.y };
+          if (mk.type === 'LB') {
+            obj.type = WGo.Board.drawHandlers['LB']; obj.text = mk.text || '';
+            obj.c = stoneC === 1 ? 'white' : stoneC === -1 ? 'black' : '#333';
+          } else if (WGo.Board.drawHandlers[mk.type]) {
+            obj.type = WGo.Board.drawHandlers[mk.type];
+            obj.c = stoneC === 1 ? 'white' : stoneC === -1 ? 'black' : '#333';
+          } else continue;
+          wgoBoard.addObject(obj);
+        }
+      }
+      // Variaciones: mostrar números en el tablero
+      const children = node.children || [];
+      if (children.length > 1) {
+        children.forEach((child, idx) => {
+          if (child.move && child.move.x !== undefined) {
+            wgoBoard.addObject({ x: child.move.x, y: child.move.y, type: WGo.Board.drawHandlers['LB'], text: String(idx + 1), c: '#e8a020' });
+          }
+        });
+      }
+      // Comentario
+      const cb = document.getElementById('comment-box');
+      cb.textContent = node.comment || '';
+      // Handler de click
+      gmSetupBoardClick();
+    }
+
+    function gmSetupBoardClick() {
+      if (!wgoBoard) return;
+      window._boardClickHandler = (x, y) => {
+        if (!gmActive) return;
+        const node = gmCurrentNode;
+        const children = node.children || [];
+        if (children.length === 0) return; // fin de partida
+        // Buscar si (x,y) coincide con algún hijo
+        const matchIdx = children.findIndex(c => c.move && c.move.x === x && c.move.y === y);
+        if (matchIdx === -1) return; // no coincide con ninguna variante
+        gmAdvanceTo(matchIdx);
+      };
+    }
+
+    function gmAdvanceTo(childIdx) {
+      const children = gmCurrentNode.children || [];
+      if (!children.length) return;
+      const idx = Math.max(0, Math.min(childIdx, children.length - 1));
+      gmNodeStack.push(gmCurrentNode);
+      gmCurrentNode = children[idx];
+      gmRenderCurrentNode();
+      gmUpdateControls();
+      // Parar timer si hay comentario o variaciones
+      if (gmTimerRunning && gmShouldPauseTimer()) gmStopTimer();
+    }
+
+    function gmPrev() {
+      if (!gmNodeStack.length) return;
+      gmCurrentNode = gmNodeStack.pop();
+      gmRenderCurrentNode();
+      gmUpdateControls();
+    }
+
+    function gmNext() {
+      const children = gmCurrentNode.children || [];
+      if (!children.length) return;
+      gmAdvanceTo(0); // avanza por la variante principal
+    }
+
+    function gmShouldPauseTimer() {
+      const node = gmCurrentNode;
+      const children = node.children || [];
+      return !!(node.comment) || children.length > 1 || children.length === 0;
+    }
+
+    function gmStartTimer() {
+      if (gmTimer) clearInterval(gmTimer);
+      gmTimerRunning = true;
+      document.getElementById('gm-btn-play').textContent = '⏸';
+      gmTimer = setInterval(() => {
+        const children = (gmCurrentNode.children || []);
+        if (children.length === 0) { gmStopTimer(); return; }  // fin de partida
+        if (children.length > 1) { gmStopTimer(); return; }    // variación: parar antes de avanzar
+        gmNext();
+        // Parar si el nodo al que llegamos tiene comentario o variaciones
+        if (gmShouldPauseTimer()) gmStopTimer();
+      }, gmTimerDelay);
+    }
+
+    function gmStopTimer() {
+      if (gmTimer) { clearInterval(gmTimer); gmTimer = null; }
+      gmTimerRunning = false;
+      const btn = document.getElementById('gm-btn-play');
+      if (btn) btn.textContent = '▶';
+    }
+
+    function gmToggleTimer() {
+      if (gmTimerRunning) gmStopTimer(); else gmStartTimer();
+    }
+
+    function gmUpdateControls() {
+      const hasPrev = gmNodeStack.length > 0;
+      const hasNext = (gmCurrentNode.children || []).length > 0;
+      document.getElementById('gm-btn-prev').disabled = !hasPrev;
+      document.getElementById('gm-btn-next').disabled = !hasNext;
+      if (!hasNext && gmTimerRunning) gmStopTimer();
+    }
+
+    document.getElementById('gm-col').addEventListener('change', gmLoadGameList);
+
+    function gmInitControls() {
+      document.getElementById('gm-btn-prev').addEventListener('click', () => { gmStopTimer(); gmPrev(); });
+      document.getElementById('gm-btn-next').addEventListener('click', () => { gmStopTimer(); gmNext(); });
+      document.getElementById('gm-btn-play').addEventListener('click', gmToggleTimer);
+      document.getElementById('gm-timer-sel').addEventListener('change', e => {
+        gmTimerDelay = parseInt(e.target.value);
+        if (gmTimerRunning) { gmStopTimer(); gmStartTimer(); }
+      });
+    }
+
     function switchTab(name) {
       document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === `tab-${name}`));
+      if (name === 'games') {
+        gmActive = true;
+        gmLoadCollections();
+        // Mostrar controles de games, ocultar los de problemas
+        document.getElementById('board-controls').style.display = 'none';
+        document.getElementById('gm-controls').style.display = 'flex';
+      } else {
+        gmActive = false;
+        gmStopTimer();
+        window._boardClickHandler = null;
+        document.getElementById('board-controls').style.display = '';
+        document.getElementById('gm-controls').style.display = 'none';
+      }
     }
     document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
       const name = t.dataset.tab; switchTab(name);
@@ -3370,6 +3675,7 @@ summary.className = 'stats-summary';
       await syncDeletedRuns();
       loadCollections();
       tryAutoSync(true).then(() => loadCollections());
+      gmInitControls();
 	  if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('/tsumevault/sw.js?' + SW_VERSION).then(() => {
 		  updateSwVersionLabel();
