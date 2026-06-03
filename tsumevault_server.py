@@ -656,6 +656,14 @@ def handle_sync_static_version(qs):
     return {"version": row[0] or 0}
 
 
+def handle_sync_games(qs):
+    """Devuelve todas las game_collections y games."""
+    with db_connect() as con:
+        game_collections = rows_to_list(con.execute("SELECT * FROM game_collections").fetchall())
+        games = rows_to_list(con.execute("SELECT * FROM games").fetchall())
+    return {"game_collections": game_collections, "games": games}
+
+
 def handle_sync_pull(qs):
     """Devuelve attempts y runs nuevos desde los IDs indicados."""
     since_attempt_id = int(qs.get("since_attempt_id", ["0"])[0])
@@ -874,6 +882,7 @@ GET_ROUTES = {
     "/sync/snapshot": handle_sync_snapshot,
     "/sync/pull": handle_sync_pull,
     "/sync/static_version": handle_sync_static_version,
+    "/sync/games": handle_sync_games,
 }
 
 
