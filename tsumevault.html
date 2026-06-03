@@ -1581,7 +1581,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260603-1229';
+	const SW_VERSION = 'tsumevault-20260603-1622';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -2163,6 +2163,19 @@
             }
           }
         } catch (e) { console.warn('[sync] static_version check failed', e); }
+        // ── Sync games ──
+        try {
+          const gR = await fetch(`${SYNC_SERVER}/sync/games`, { signal: AbortSignal.timeout(10000) });
+          if (gR.ok) {
+            const { game_collections, games } = await gR.json();
+            for (const col of game_collections) {
+              try { dbExec('INSERT OR IGNORE INTO game_collections (id, name, folder) VALUES (?,?,?)', [col.id, col.name, col.folder]); } catch(e) {}
+            }
+            for (const g of games) {
+              try { dbExec('INSERT OR IGNORE INTO games (id, game_collection_id, name, sgf_path) VALUES (?,?,?,?)', [g.id, g.game_collection_id, g.name, g.sgf_path]); } catch(e) {}
+            }
+          }
+        } catch (e) { console.warn('[sync] games sync failed', e); }
       }
 	  // ── Sync mostrar ──
       const chapMostrar = dbQuery('SELECT id, mostrar FROM chapters', []);
