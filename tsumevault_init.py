@@ -26,6 +26,8 @@ import os
 import re
 import sqlite3
 import sys
+import argparse
+import urllib.request
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
@@ -137,6 +139,22 @@ CREATE INDEX IF NOT EXISTS idx_attempts_run   ON attempts(run_id);
 CREATE INDEX IF NOT EXISTS idx_run_items_run  ON run_items(run_id);
 CREATE INDEX IF NOT EXISTS idx_attempts_source_problem_created ON attempts(source, problem_id, created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_chapters_mostrar ON chapters(id, mostrar);
+
+CREATE TABLE IF NOT EXISTS game_collections (
+    id      INTEGER PRIMARY KEY AUTOINCREMENT,
+    name    TEXT    NOT NULL UNIQUE,
+    folder  TEXT    NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS games (
+    id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+    game_collection_id  INTEGER NOT NULL,
+    name                TEXT    NOT NULL,
+    sgf_path            TEXT    NOT NULL,
+    FOREIGN KEY (game_collection_id) REFERENCES game_collections(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_games_collection ON games(game_collection_id);
 """
 
 SCHEMA_VIEW = """
@@ -460,10 +478,123 @@ def import_source(con, source_info):
     print(f"  Problemas actualizados (SGF): {prob_updated}")
 
 
+# ── Import de partidas ────────────────────────────────────────────────────────
+
+
+def import_games(con):
+    games_dir = os.path.join(SCRIPT_DIR, "games")
+    if not os.path.isdir(games_dir):
+        print("\n[games] Carpeta 'games/' no encontrada, skip.")
+        return
+
+    collections = sorted(
+        e.name for e in os.scandir(games_dir) if e.is_dir()
+    )
+    if not collections:
+        print("\n[games] Sin subcarpetas en 'games/', skip.")
+        return
+
+    print(f"\n[games] {len(collections)} colecciones encontradas")
+    col_new = col_skip = game_new = 0
+
+    for col_name in collections:
+        col_path = os.path.join(games_dir, col_name)
+
+        existing = con.execute(
+            "SELECT id FROM game_collections WHERE name=?", (col_name,)
+        ).fetchone()
+
+        if existing:
+            col_skip += 1
+            continue
+
+        cur = con.execute(
+            "INSERT INTO game_collections (name, folder) VALUES (?, ?)",
+            (col_name, col_name),
+        )
+        col_id = cur.lastrowid
+        col_new += 1
+
+        sgf_files = sorted(
+            f for f in os.listdir(col_path) if f.lower().endswith(".sgf")
+        )
+        for filename in sgf_files:
+            sgf_rel = f"games/{col_name}/{filename}".replace("\\", "/")
+            con.execute(
+                "INSERT INTO games (game_collection_id, name, sgf_path) VALUES (?, ?, ?)",
+                (col_id, filename, sgf_rel),
+            )
+            game_new += 1
+
+    con.commit()
+    print(f"  Colecciones nuevas : {col_new}")
+    print(f"  Colecciones skip   : {col_skip}")
+    print(f"  Partidas nuevas    : {game_new}")
+
+
+# ── Import de partidas (remoto) ───────────────────────────────────────────────
+
+
+def import_games_remote(server_url, games_dir):
+    """Envía colecciones y partidas al servidor remoto vía /admin/import_games."""
+    if not os.path.isdir(games_dir):
+        print("\n[games-remote] Carpeta 'games/' no encontrada, skip.")
+        return
+
+    collections = sorted(e.name for e in os.scandir(games_dir) if e.is_dir())
+    if not collections:
+        print("\n[games-remote] Sin subcarpetas en 'games/', skip.")
+        return
+
+    print(f"\n[games-remote] {len(collections)} colecciones encontradas → {server_url}")
+
+    payload_cols = []
+    payload_games = []
+    for col_name in collections:
+        col_path = os.path.join(games_dir, col_name)
+        payload_cols.append({"name": col_name, "folder": col_name})
+        sgf_files = sorted(f for f in os.listdir(col_path) if f.lower().endswith(".sgf"))
+        for filename in sgf_files:
+            sgf_rel = f"games/{col_name}/{filename}".replace("\\", "/")
+            payload_games.append({
+                "collection_name": col_name,
+                "name": filename,
+                "sgf_path": sgf_rel,
+            })
+
+    payload = json.dumps({
+        "game_collections": payload_cols,
+        "games": payload_games,
+    }).encode("utf-8")
+
+    url = server_url.rstrip("/") + "/admin/import_games"
+    req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"}, method="POST")
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            result = json.loads(resp.read().decode())
+        print(f"  Colecciones nuevas : {result.get('inserted_collections', '?')}")
+        print(f"  Partidas nuevas    : {result.get('inserted_games', '?')}")
+    except Exception as e:
+        print(f"  [ERROR] {e}")
+
+
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--server", metavar="URL", default=None,
+                        help="Si se indica, importa juegos al servidor remoto en lugar de local")
+    args = parser.parse_args()
+
+    games_dir = os.path.join(SCRIPT_DIR, "games")
+
+    if args.server:
+        # Modo remoto: solo importa juegos al servidor
+        import_games_remote(args.server, games_dir)
+        print("\nListo.")
+        return
+
     sources = find_sources(SCRIPT_DIR)
     if not sources:
         print("[ERROR] No se encontró ningún subdirectorio con all_collections.json")
@@ -509,6 +640,8 @@ def main():
 
     for source_info in sources:
         import_source(con, source_info)
+
+    import_games(con)
 
     con.close()
     print("\nListo.")

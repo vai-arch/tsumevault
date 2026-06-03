@@ -602,7 +602,52 @@ def handle_sync_snapshot(qs):
         collections = rows_to_list(con.execute("SELECT * FROM collections").fetchall())
         chapters = rows_to_list(con.execute("SELECT * FROM chapters").fetchall())
         problems = rows_to_list(con.execute("SELECT * FROM problems").fetchall())
-    return {"collections": collections, "chapters": chapters, "problems": problems}
+        game_collections = rows_to_list(con.execute("SELECT * FROM game_collections").fetchall())
+        games = rows_to_list(con.execute("SELECT * FROM games").fetchall())
+    return {"collections": collections, "chapters": chapters, "problems": problems,
+            "game_collections": game_collections, "games": games}
+
+
+def handle_admin_import_games(body):
+    """Recibe {game_collections: [...], games: [...]} e inserta en la DB."""
+    game_collections = body.get("game_collections", [])
+    games = body.get("games", [])
+    inserted_cols = 0
+    inserted_games = 0
+    with db_connect() as con:
+        for col in game_collections:
+            existing = con.execute(
+                "SELECT id FROM game_collections WHERE name=?", (col["name"],)
+            ).fetchone()
+            if existing:
+                continue
+            con.execute(
+                "INSERT INTO game_collections (name, folder) VALUES (?, ?)",
+                (col["name"], col["folder"]),
+            )
+            inserted_cols += 1
+        con.commit()
+        for game in games:
+            # Resolver game_collection_id por nombre de colección
+            row = con.execute(
+                "SELECT id FROM game_collections WHERE name=?", (game["collection_name"],)
+            ).fetchone()
+            if not row:
+                continue
+            col_id = row[0]
+            existing = con.execute(
+                "SELECT id FROM games WHERE game_collection_id=? AND name=?",
+                (col_id, game["name"]),
+            ).fetchone()
+            if existing:
+                continue
+            con.execute(
+                "INSERT INTO games (game_collection_id, name, sgf_path) VALUES (?, ?, ?)",
+                (col_id, game["name"], game["sgf_path"]),
+            )
+            inserted_games += 1
+        con.commit()
+    return {"inserted_collections": inserted_cols, "inserted_games": inserted_games}
 
 
 def handle_sync_static_version(qs):
@@ -874,6 +919,7 @@ class Handler(BaseHTTPRequestHandler):
             "/sync/push": handle_sync_push,
             "/db/runs/delete": handle_delete_runs,
             "/sync/check_runs": handle_sync_check_runs,
+            "/admin/import_games": handle_admin_import_games,
         }
         handler = routes.get(parsed.path)
         print("4")
