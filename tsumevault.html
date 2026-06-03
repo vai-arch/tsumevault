@@ -1554,7 +1554,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260602-1751';
+	const SW_VERSION = 'tsumevault-20260603-0731';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -2949,7 +2949,15 @@ summary.className = 'stats-summary';
     async function populateReviewFilters() {
       const sel = document.getElementById('rv-col');
       sel.innerHTML = '<option value="">All</option>';
-      for (const col of allCollections) {
+      let visibleCols = allCollections;
+      if (filterMostrar) {
+        const visibleSetIds = new Set(
+          dbQuery(`SELECT DISTINCT set_id FROM chapters WHERE source=? AND mostrar=1`, [currentSource])
+            .map(r => r.set_id)
+        );
+        visibleCols = allCollections.filter(c => visibleSetIds.has(c.set_id));
+      }
+      for (const col of visibleCols) {
         const o = document.createElement('option');
         o.value = col.set_id;
         o.textContent = col.name;
