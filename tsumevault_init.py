@@ -285,13 +285,6 @@ def import_source(con, source_info):
                     chap_json.get("folder") or chap_json.get("chapterId", set_id)
                 )
 
-                # on_disk: contar SGFs de esta carpeta de lesson
-                chap_folder_path = os.path.join(problems_dir, chap_folder)
-                if os.path.isdir(chap_folder_path):
-                    on_disk += sum(
-                        1 for f in os.listdir(chap_folder_path) if f.lower().endswith(".sgf")
-                    )
-
                 # Normalizar problemas
                 norm_problems = []
                 for p in chap_json.get("problems", []):
@@ -304,6 +297,15 @@ def import_source(con, source_info):
                             "lessonId": p.get("lessonId"),
                         }
                     )
+
+                # on_disk: contar SGFs en todas las carpetas de lessons del chapter
+                lesson_ids = set(str(p["lessonId"]) for p in norm_problems if p.get("lessonId"))
+                for lid in lesson_ids:
+                    lid_path = os.path.join(problems_dir, lid)
+                    if os.path.isdir(lid_path):
+                        on_disk += sum(
+                            1 for f in os.listdir(lid_path) if f.lower().endswith(".sgf")
+                        )
 
                 # Chunking igual que tsumego_hero
                 raw_chunks = []
@@ -438,7 +440,7 @@ def import_source(con, source_info):
                 p_diff_raw = p.get("difficultyRaw")
                 p_diff_num = p.get("difficultyNum") or parse_difficulty_num(p_diff_raw)
 
-                lesson_folder = chap["folder"]
+                lesson_folder = str(p.get("lessonId") or chap["folder"])
                 lesson_folder_path = os.path.join(problems_dir, lesson_folder)
                 sgf_filename = f"{problem_id}.sgf"
                 sgf_abs = os.path.join(lesson_folder_path, sgf_filename)
