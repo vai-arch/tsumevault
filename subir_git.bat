@@ -1,7 +1,7 @@
 @echo off
 
 echo Parando servidores...
-call _paraServidor.bat
+REM call _paraServidor.bat
 
 echo Cerrando WAL de SQLite...
 sqlite3 tsumeVault.db "PRAGMA wal_checkpoint(TRUNCATE)"
