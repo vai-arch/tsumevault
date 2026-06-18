@@ -176,6 +176,21 @@ GROUP BY source, problem_id;
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
 RAW_RE = re.compile(r"\(([+-]?\d+(?:\.\d+)?)\)")
+LEVEL_RE = re.compile(r"^(\d+)\s*([KkDd])\s*(\+?)$")
+
+
+def parse_levelname_101weiqi(levelname):
+    """Escala consistente con el resto de sources. 30k=-900, 1k=1900, 1d=2100."""
+    if not levelname:
+        return None
+    m = LEVEL_RE.match(levelname.strip())
+    if not m:
+        return None
+    num = int(m.group(1))
+    grade = m.group(2).upper()
+    plus = m.group(3) == "+"
+    base = (2000 + num * 100) if grade == "D" else (2000 - num * 100)
+    return base + (50 if plus else 0)
 
 
 def snap_to_rank(r):
@@ -204,20 +219,25 @@ def detect_color_to_play(sgf_path):
 
 
 def find_sources(script_dir):
-    """Escanea subdirectorios buscando all_collections.json."""
+    """Escanea subdirectorios buscando all_collections.json o estructura 101_weiqi."""
     sources = []
     for entry in os.scandir(script_dir):
         if not entry.is_dir():
             continue
         col_file = os.path.join(entry.path, "all_collections.json")
+        problems_dir = os.path.join(entry.path, "problems_std")
         if os.path.isfile(col_file):
-            sources.append(
-                {
-                    "source": entry.name,
-                    "collections_file": col_file,
-                    "problems_dir": os.path.join(entry.path, "problems_std"),
-                }
-            )
+            sources.append({
+                "source": entry.name,
+                "collections_file": col_file,
+                "problems_dir": problems_dir,
+            })
+        elif entry.name == "101_weiqi" and os.path.isdir(problems_dir):
+            sources.append({
+                "source": entry.name,
+                "collections_file": None,
+                "problems_dir": problems_dir,
+            })
     return sources
 
 
@@ -480,6 +500,221 @@ def import_source(con, source_info):
     print(f"  Problemas actualizados (SGF): {prob_updated}")
 
 
+# ── Import 101weiqi (fuente de verdad = disco) ───────────────────────────────
+
+
+def import_source_101weiqi(con, source_info):
+    source = source_info["source"]
+    problems_dir = source_info["problems_dir"]
+
+    if not os.path.isdir(problems_dir):
+        print(f"\n[{source}] problems_dir no encontrado: {problems_dir}")
+        return
+
+    book_dirs = sorted(
+        (e for e in os.scandir(problems_dir) if e.is_dir()),
+        key=lambda e: int(e.name) if e.name.isdigit() else 0,
+    )
+    print(f"\n[{source}] {len(book_dirs)} books en disco")
+
+    col_new = col_skip = chap_new = prob_new = prob_updated = 0
+
+    for book_entry in book_dirs:
+        set_id = int(book_entry.name) if book_entry.name.isdigit() else None
+        if set_id is None:
+            continue
+        book_path = book_entry.path
+
+        # ── Colección ya existente → actualizar sgf_exists y skip ──
+        existing = con.execute(
+            "SELECT 1 FROM collections WHERE source=? AND set_id=?", (source, set_id)
+        ).fetchone()
+        if existing:
+            missing = con.execute(
+                "SELECT problem_id, sgf_path FROM problems "
+                "WHERE source=? AND set_id=? AND sgf_exists=0",
+                (source, set_id),
+            ).fetchall()
+            for problem_id, sgf_path in missing:
+                sgf_abs = os.path.join(SCRIPT_DIR, sgf_path.replace("/", os.sep))
+                if os.path.isfile(sgf_abs):
+                    color = detect_color_to_play(sgf_abs)
+                    con.execute(
+                        "UPDATE problems SET sgf_exists=1, color_to_play=? "
+                        "WHERE source=? AND problem_id=?",
+                        (color, source, problem_id),
+                    )
+                    prob_updated += 1
+            col_skip += 1
+            continue
+
+        # ── Leer book.json para nombre ──
+        book_json_path = os.path.join(book_path, "book.json")
+        book_name = str(set_id)
+        if os.path.isfile(book_json_path):
+            try:
+                bj = json.load(open(book_json_path, encoding="utf-8"))
+                book_name = bj.get("name_en") or bj.get("name") or book_name
+            except Exception:
+                pass
+
+        # ── Escanear chapters en disco ──
+        chapter_dirs = sorted(
+            (e for e in os.scandir(book_path) if e.is_dir()),
+            key=lambda e: int(e.name) if e.name.isdigit() else 0,
+        )
+
+        all_chunks = []
+        on_disk = 0
+
+        for chap_entry in chapter_dirs:
+            chap_path = chap_entry.path
+
+            # Problemas reales = SGFs presentes en disco
+            sgf_files = sorted(
+                f for f in os.listdir(chap_path) if f.lower().endswith(".sgf")
+            )
+            if not sgf_files:
+                continue
+            on_disk += len(sgf_files)
+
+            # Leer chapter.json para nombre y metadatos
+            chap_json_path = os.path.join(chap_path, "chapter.json")
+            chap_name = chap_entry.name
+            prob_meta = {}
+            if os.path.isfile(chap_json_path):
+                try:
+                    cj = json.load(open(chap_json_path, encoding="utf-8"))
+                    chap_name = cj.get("name_en") or cj.get("name") or chap_name
+                    for p in cj.get("problems", []):
+                        prob_meta[p["qid"]] = p
+                except Exception:
+                    pass
+
+            # Construir lista de problemas desde disco
+            problems = []
+            for fname in sgf_files:
+                try:
+                    qid = int(os.path.splitext(fname)[0])
+                except ValueError:
+                    continue
+                meta = prob_meta.get(qid, {})
+                levelname = meta.get("levelname")
+                blackfirst = meta.get("blackfirst")
+
+                # Fallback 1: leer el .json individual del problema
+                if levelname is None:
+                    prob_json_path = os.path.join(chap_path, f"{qid}.json")
+                    if os.path.isfile(prob_json_path):
+                        try:
+                            pj = json.load(open(prob_json_path, encoding="utf-8"))
+                            levelname = pj.get("levelname")
+                            if blackfirst is None:
+                                blackfirst = pj.get("blackfirst")
+                        except Exception:
+                            pass
+
+                diff_num = parse_levelname_101weiqi(levelname)
+                sgf_rel = f"{source}/problems_std/{book_entry.name}/{chap_entry.name}/{fname}".replace("\\", "/")
+                sgf_abs = os.path.join(SCRIPT_DIR, sgf_rel.replace("/", os.sep))
+                color = ("B" if blackfirst else None) or detect_color_to_play(sgf_abs)
+                problems.append({
+                    "problemId": qid,
+                    "difficultyRaw": levelname,
+                    "difficultyNum": diff_num,
+                    "color": color,
+                    "sgf_rel": sgf_rel,
+                })
+
+            # ── Chunking ──
+            raw_chunks = []
+            for i in range(0, len(problems), CHAPTER_SIZE):
+                raw_chunks.append(problems[i : i + CHAPTER_SIZE])
+            if len(raw_chunks) > 1 and len(raw_chunks[-1]) < CHAPTER_MIN:
+                raw_chunks[-2] = raw_chunks[-2] + raw_chunks[-1]
+                raw_chunks.pop()
+
+            total_chunks = len(raw_chunks)
+            for chunk_idx, chunk in enumerate(raw_chunks, 1):
+                name = chap_name if total_chunks == 1 else f"{chap_name} ({chunk_idx}/{total_chunks})"
+                diffs = [p["difficultyNum"] for p in chunk if p["difficultyNum"] is not None]
+                avg_diff = snap_to_rank(sum(diffs) / len(diffs)) if diffs else None
+
+                # Fallback 2: heredar diff_avg del chunk para problemas sin dificultad
+                if avg_diff is not None:
+                    for p in chunk:
+                        if p["difficultyNum"] is None:
+                            p["difficultyNum"] = avg_diff
+
+                all_chunks.append({
+                    "chapter_num": len(all_chunks) + 1,
+                    "name": name,
+                    "diff_min": min(diffs) if diffs else None,
+                    "diff_max": max(diffs) if diffs else None,
+                    "diff_avg": avg_diff,
+                    "problems": chunk,
+                })
+
+        if not all_chunks:
+            continue
+
+        # ── Dificultad media de la colección ──
+        all_diffs = [
+            p["difficultyNum"]
+            for ch in all_chunks
+            for p in ch["problems"]
+            if p["difficultyNum"] is not None
+        ]
+        col_diff_num = snap_to_rank(sum(all_diffs) / len(all_diffs)) if all_diffs else None
+
+        con.execute(
+            """
+            INSERT INTO collections
+                (source, set_id, name, folder, difficulty_raw, difficulty_num,
+                 num_problems, on_disk, chapter_count)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (source, set_id, book_name, str(set_id), None, col_diff_num,
+             on_disk, on_disk, len(all_chunks)),
+        )
+        col_new += 1
+
+        for chap in all_chunks:
+            cur = con.execute(
+                """
+                INSERT INTO chapters
+                    (source, set_id, chapter_num, name,
+                     diff_min, diff_max, diff_avg, problem_count)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (source, set_id, chap["chapter_num"], chap["name"],
+                 chap["diff_min"], chap["diff_max"], chap["diff_avg"],
+                 len(chap["problems"])),
+            )
+            chapter_id = cur.lastrowid
+            chap_new += 1
+
+            for order, p in enumerate(chap["problems"], 1):
+                con.execute(
+                    """
+                    INSERT OR REPLACE INTO problems
+                        (source, problem_id, set_id, chapter_id, order_in_chapter,
+                         sgf_path, sgf_exists, difficulty_raw, difficulty_num, color_to_play)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    (source, p["problemId"], set_id, chapter_id, order,
+                     p["sgf_rel"], 1, p["difficultyRaw"], p["difficultyNum"], p["color"]),
+                )
+                prob_new += 1
+
+    con.commit()
+    print(f"  Colecciones nuevas        : {col_new}")
+    print(f"  Colecciones skip          : {col_skip}")
+    print(f"  Capítulos nuevos          : {chap_new}")
+    print(f"  Problemas nuevos          : {prob_new}")
+    print(f"  Problemas actualizados    : {prob_updated}")
+
+
 # ── Import de partidas ────────────────────────────────────────────────────────
 
 
@@ -641,7 +876,10 @@ def main():
                 print(f"  Reimportando {s} con nombres de capítulos...")
 
     for source_info in sources:
-        import_source(con, source_info)
+        if source_info["source"] == "101_weiqi":
+            import_source_101weiqi(con, source_info)
+        else:
+            import_source(con, source_info)
 
     import_games(con)
 
