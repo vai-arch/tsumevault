@@ -1609,7 +1609,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260623-1252';
+	const SW_VERSION = 'tsumevault-20260623-1603';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -2479,7 +2479,6 @@
           FROM problems p
           JOIN chapters ch ON ch.id = p.chapter_id
           WHERE p.source = ?
-            AND ch.mostrar = 1
             AND (ch.diff_avg IS NULL OR ch.diff_avg <= ?)
         ),
         ranked_attempts AS (
@@ -2612,12 +2611,12 @@
         tbody.appendChild(tr);
 
         // Listener del selector
-        tr.querySelector('#' + selId).addEventListener('change', e => {
+        tr.querySelector('select').addEventListener('change', e => {
           const num = parseInt(e.target.value);
-          const sel = bylevelLoad();
-          sel[source] = num;
-          bylevelSave(sel);
-          bylevelUpdateRow(source, num, color);
+          const saved = bylevelLoad();
+          saved[source] = num;
+          bylevelSave(saved);
+          bylevelUpdateRow(source, num);
         });
       }
 
@@ -2632,9 +2631,9 @@
       }
     }
 
-    function bylevelUpdateRow(source, maxDiffNum, color) {
+    function bylevelUpdateRow(source, maxDiffNum) {
       const PCT_YELLOW = 80;
-      const colorFn = color || (pct => pct >= PCT_GREEN ? 'var(--ok-bright)' : pct >= PCT_YELLOW ? 'var(--gold)' : 'var(--accent)');
+      const colorFn = pct => pct >= PCT_GREEN ? 'var(--ok-bright)' : pct >= PCT_YELLOW ? 'var(--gold)' : 'var(--accent)';
       const m = localGetMaturityByLevel(source, maxDiffNum);
       if (!m) return;
       const covPct  = m.total_visible > 0 ? Math.round(m.total_seen       / m.total_visible * 100) : 0;
@@ -2877,7 +2876,6 @@
     }
 
     function applyCollectionFilters() {
-      console.log('[filtro] chaptersCache keys:', Object.keys(chaptersCache));
       const maxDiff = document.getElementById('cf-diff').value;
       const needsWork = document.getElementById('cf-needs-work').checked;
       document.querySelectorAll('#col-list .col-item').forEach(item => {
@@ -2885,7 +2883,20 @@
         const col = allCollections.find(c => String(c.set_id) === setId);
         if (!col) return;
         let hide = false;
-        if (maxDiff !== '' && col.difficulty_num != null && col.difficulty_num > Number(maxDiff)) hide = true;
+        if (maxDiff !== '') {
+          const cached = chaptersCache[col.set_id];
+          let hasChapter;
+          if (cached && cached.length > 0) {
+            hasChapter = cached.some(ch => ch.diff_avg != null && ch.diff_avg <= Number(maxDiff));
+          } else {
+            const row = dbQueryOne(
+              'SELECT COUNT(*) AS n FROM chapters WHERE source=? AND set_id=? AND diff_avg <= ?',
+              [currentSource, col.set_id, Number(maxDiff)]
+            );
+            hasChapter = row && row.n > 0;
+          }
+          if (!hasChapter) hide = true;
+        }
         // Filtro mostrar: ocultar colección si ningún chapter tiene mostrar=1
         if (!hide && filterMostrar) {
           const cached = chaptersCache[col.set_id];
@@ -2909,6 +2920,11 @@
             const cached = chaptersCache[col.set_id];
             const chap = cached?.find(ch => String(ch.id) === chapId);
             if (chap && !chap.mostrar) { ci.style.display = 'none'; return; }
+          }
+          // filtro diff_avg
+          if (maxDiff !== '') {
+            const diffAvg = ci.dataset.diffAvg;
+            if (diffAvg !== '' && Number(diffAvg) > Number(maxDiff)) { ci.style.display = 'none'; return; }
           }
           // filtro needs-work: ocultar chapter si pct >= PCT_GREEN
           if (needsWork) {
@@ -3001,7 +3017,10 @@
         chapDiv.innerHTML = '';
         for (const chap of chapters) {
           const ci = document.createElement('div'); ci.className = 'chap-item';
+          ci.dataset.diffAvg = chap.diff_avg ?? '';
+          const maxDiff = document.getElementById('cf-diff').value;
           if (filterMostrar && !chap.mostrar) { ci.style.display = 'none'; }
+          else if (maxDiff !== '' && chap.diff_avg != null && chap.diff_avg > Number(maxDiff)) { ci.style.display = 'none'; }
           const diffStr = chap.diff_avg != null ? diffLabel(chap.diff_avg) : (chap.diff_min != null ? `${diffLabel(chap.diff_min)}–${diffLabel(chap.diff_max)}` : '—');
           const cs = runStats && runStats.by_chapter[chap.id];
           const chapSpp = (cs && cs.duration_ms != null && cs.total > 0) ? Math.round(cs.duration_ms / 1000 / cs.total) + 's' : '';
