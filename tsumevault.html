@@ -1343,10 +1343,6 @@
               mastery≥threshold
             </label>
             <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);">
-              <input type="checkbox" id="sf-hide-mastery30" style="accent-color:var(--gold);cursor:pointer;" onchange="applyStatsFilters()">
-              mastery30d≥threshold
-            </label>
-            <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);">
               <input type="checkbox" id="sf-hide-last" style="accent-color:var(--gold);cursor:pointer;" onchange="applyStatsFilters()">
               last≥threshold
             </label>
@@ -1359,7 +1355,6 @@
                   <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em">COLLECTION</th>
                   <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">COVERAGE</th>
                   <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">MASTERY</th>
-                  <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">MASTERY 30D</th>
                   <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">LAST</th>
                   <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">TOTAL</th>
                 </tr>
@@ -1496,10 +1491,6 @@
               <span style="color:var(--dim)">Mastery (all time)</span>
               <span id="rv-mat-historic" style="color:var(--text)">—</span>
             </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;">
-              <span style="color:var(--dim)">Mastery (last 30d)</span>
-              <span id="rv-mat-recent" style="color:var(--text)">—</span>
-            </div>
           </div>
         </div>
       </div>
@@ -1609,7 +1600,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260628-2220';
+	const SW_VERSION = 'tsumevault-20260629-0045';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -1796,6 +1787,17 @@
       FOREIGN KEY (game_collection_id) REFERENCES game_collections(id)
     );
     CREATE INDEX IF NOT EXISTS idx_games_collection ON games(game_collection_id);
+    CREATE TABLE IF NOT EXISTS sm2_state (
+      source      TEXT NOT NULL,
+      problem_id  TEXT NOT NULL,
+      due_date    TEXT NOT NULL,
+      interval    REAL NOT NULL DEFAULT 6,
+      easiness    REAL NOT NULL DEFAULT 2.5,
+      repetitions INTEGER NOT NULL DEFAULT 0,
+      updated_at  TEXT NOT NULL,
+      PRIMARY KEY (source, problem_id)
+    );
+    CREATE INDEX IF NOT EXISTS idx_sm2_updated ON sm2_state(updated_at);
   `);
     }
 
@@ -1828,6 +1830,24 @@
       }
       ins('game_collections', ['id', 'name', 'folder'], snap.game_collections);
       ins('games', ['id', 'game_collection_id', 'name', 'sgf_path'], snap.games);
+      // sm2_state: importar del snapshot solo si no tenemos registro local más reciente
+      if (snap.sm2_state && snap.sm2_state.length) {
+        const stmt = db.prepare(`
+          INSERT INTO sm2_state (source, problem_id, due_date, interval, easiness, repetitions, updated_at)
+          VALUES (?, ?, ?, ?, ?, ?, ?)
+          ON CONFLICT(source, problem_id) DO UPDATE SET
+            due_date    = excluded.due_date,
+            interval    = excluded.interval,
+            easiness    = excluded.easiness,
+            repetitions = excluded.repetitions,
+            updated_at  = excluded.updated_at
+          WHERE excluded.updated_at > sm2_state.updated_at
+        `);
+        for (const r of snap.sm2_state) {
+          stmt.run([r.source, r.problem_id, r.due_date, r.interval, r.easiness, r.repetitions, r.updated_at]);
+        }
+        stmt.free();
+      }
     }
 
     // ── Local DB queries ──
@@ -1941,45 +1961,38 @@
       return struggling;
     }
     function localGetReviewProblems(source, { set_id } = {}) {
+      const today = new Date().toLocaleDateString('sv');
       let sql = `
-        WITH stats AS (
-          SELECT
-            p.source, p.problem_id, p.set_id, p.chapter_id,
-            p.sgf_path, p.sgf_exists, p.difficulty_raw, p.difficulty_num,
-            p.color_to_play, p.order_in_chapter,
-            MAX(a.created_at) AS last_attempt_at,
-            COUNT(a.id) AS total_attempts,
-            SUM(CASE WHEN a.result = 'correct' THEN 1 ELSE 0 END) AS total_correct,
-            SUM(CASE WHEN a.result != 'correct' THEN 1 ELSE 0 END) AS total_wrong,
-            SUM(CASE WHEN a.result != 'correct'
-                 AND (julianday('now') - julianday(a.created_at)) <= 14
-                 THEN 1 ELSE 0 END) AS recent_wrong,
-            SUM(CASE WHEN a.result = 'correct'
-                 AND (julianday('now') - julianday(a.created_at)) <= 14
-                 THEN 1 ELSE 0 END) AS recent_correct,
-            julianday('now') - julianday(MAX(a.created_at)) AS days_since
-          FROM problems p
-          JOIN attempts a ON a.source = p.source AND a.problem_id = p.problem_id AND a.run_id IS NOT NULL
-          WHERE p.source = ?`;
-      const params = [source];
+        SELECT
+          p.source, p.problem_id, p.set_id, p.chapter_id,
+          p.sgf_path, p.sgf_exists, p.difficulty_raw, p.difficulty_num,
+          p.color_to_play, p.order_in_chapter,
+          s.due_date, s.interval, s.easiness, s.repetitions
+        FROM sm2_state s
+        JOIN problems p ON p.source = s.source AND p.problem_id = s.problem_id
+        JOIN chapters ch ON ch.id = p.chapter_id
+        WHERE s.source = ?
+          AND s.due_date <= ?
+          AND ch.mostrar = 1`;
+      const params = [source, today];
       if (set_id) { sql += ` AND p.set_id = ?`; params.push(set_id); }
-      sql += `
-          GROUP BY p.source, p.problem_id
-        )
-        SELECT *,
-          ROUND(
-            days_since * 1.5
-            + recent_wrong * 12
-            + total_wrong * 2
-            - total_correct * 0.7
-            - recent_correct * 5
-            + (8.0 / SQRT(total_attempts + 1))
-          , 2) AS urgency_score
-        FROM stats
-        WHERE total_attempts > 0
-        ORDER BY urgency_score DESC
-        LIMIT 50`;
+      sql += ` ORDER BY s.due_date ASC LIMIT 50`;
       return dbQuery(sql, params);
+    }
+
+    function localCountReviewPending(source, { set_id } = {}) {
+      const today = new Date().toLocaleDateString('sv');
+      let sql = `
+        SELECT COUNT(*) AS n
+        FROM sm2_state s
+        JOIN problems p ON p.source = s.source AND p.problem_id = s.problem_id
+        JOIN chapters ch ON ch.id = p.chapter_id
+        WHERE s.source = ?
+          AND s.due_date <= ?
+          AND ch.mostrar = 1`;
+      const params = [source, today];
+      if (set_id) { sql += ` AND p.set_id = ?`; params.push(set_id); }
+      return dbQueryOne(sql, params)?.n ?? 0;
     }
     function localGetMaturity(source, set_id) {
   return dbQueryOne(`
@@ -2093,7 +2106,55 @@
         dbExec(`UPDATE runs SET done=done+1 WHERE id=?`, [run_id]);
         dbExec(`UPDATE runs SET status='closed', closed_at=? WHERE id=? AND done>=total AND status='open'`, [created_at, run_id]);
         dbExec(`UPDATE run_items SET result=? WHERE run_id=? AND problem_id=?`, [result, run_id, problem_id]);
+        // SM-2: actualizar estado solo si el intento pertenece a un run (no Free Practice)
+        updateSm2(source, problem_id, result);
       }
+    }
+
+    function updateSm2(source, problem_id, result) {
+      const now = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+      const today = new Date().toLocaleDateString('sv'); // YYYY-MM-DD en hora local
+
+      // Leer estado actual o usar valores iniciales
+      const row = dbQueryOne(
+        'SELECT interval, easiness, repetitions FROM sm2_state WHERE source=? AND problem_id=?',
+        [source, problem_id]
+      );
+      let interval    = row ? row.interval    : 6;
+      let easiness    = row ? row.easiness    : 2.5;
+      let repetitions = row ? row.repetitions : 0;
+
+      if (result === 'correct') {
+        repetitions += 1;
+        // Calcular siguiente intervalo con jitter entre intervalo_actual y intervalo_siguiente
+        const nextBase = repetitions === 1 ? 6 : Math.round(interval * easiness);
+        const nextNext = Math.round(nextBase * easiness);
+        // jitter: aleatorio entre nextBase y nextNext (excluido)
+        const jitter = nextBase + Math.floor(Math.random() * Math.max(1, nextNext - nextBase));
+        interval = jitter;
+        // easiness no cambia en acierto (SM-2 estándar la sube levemente, pero lo omitimos para simplicidad)
+      } else {
+        // Fallo: reinicio completo
+        repetitions = 0;
+        interval = 1;
+        easiness = Math.max(1.3, easiness - 0.2);
+      }
+
+      // Calcular due_date
+      const due = new Date(today);
+      due.setDate(due.getDate() + Math.round(interval));
+      const due_date = due.toISOString().slice(0, 10);
+
+      dbExec(`
+        INSERT INTO sm2_state (source, problem_id, due_date, interval, easiness, repetitions, updated_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+        ON CONFLICT(source, problem_id) DO UPDATE SET
+          due_date    = excluded.due_date,
+          interval    = excluded.interval,
+          easiness    = excluded.easiness,
+          repetitions = excluded.repetitions,
+          updated_at  = excluded.updated_at
+      `, [source, problem_id, due_date, interval, easiness, repetitions, now]);
     }
    function localInsertRun(source, type, { set_id, chapter_id } = {}) {
 	  if (chapter_id && !set_id) { const ch = dbQueryOne('SELECT set_id FROM chapters WHERE id=?', [chapter_id]); if (ch) set_id = ch.set_id; }
@@ -2215,6 +2276,54 @@
           signal: AbortSignal.timeout(8000)
         });
       } catch (_) { }
+      // ── Sync SM-2 ──
+      try {
+        const lastSm2Sync = localStorage.getItem('last_sm2_sync') || '1970-01-01T00:00:00Z';
+        // Pull: recibir estados del servidor más recientes que nuestro cursor
+        const sm2PullR = await fetch(`${SYNC_SERVER}/sync/sm2/pull?since=${encodeURIComponent(lastSm2Sync)}`, {
+          signal: AbortSignal.timeout(8000)
+        });
+        if (sm2PullR.ok) {
+          const { sm2_state: pulled } = await sm2PullR.json();
+          for (const r of pulled) {
+            const existing = dbQueryOne(
+              'SELECT updated_at FROM sm2_state WHERE source=? AND problem_id=?',
+              [r.source, r.problem_id]
+            );
+            // Solo aplicar si el servidor tiene un estado más reciente
+            if (!existing || r.updated_at > existing.updated_at) {
+              dbExec(`
+                INSERT INTO sm2_state (source, problem_id, due_date, interval, easiness, repetitions, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(source, problem_id) DO UPDATE SET
+                  due_date    = excluded.due_date,
+                  interval    = excluded.interval,
+                  easiness    = excluded.easiness,
+                  repetitions = excluded.repetitions,
+                  updated_at  = excluded.updated_at
+              `, [r.source, r.problem_id, r.due_date, r.interval, r.easiness, r.repetitions, r.updated_at]);
+            }
+          }
+        }
+        // Push: enviar estados modificados desde el último sync
+        const pendingSm2 = dbQuery(
+		  "SELECT * FROM sm2_state WHERE updated_at > datetime('now', '-1 day')",
+		  []
+		);
+        if (pendingSm2.length > 0) {
+          const sm2PushR = await fetch(`${SYNC_SERVER}/sync/sm2/push`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sm2_state: pendingSm2 }),
+            signal: AbortSignal.timeout(8000)
+          });
+          if (sm2PushR.ok) {
+            localStorage.setItem('last_sm2_sync', new Date().toISOString().replace(/\.\d+Z$/, 'Z'));
+          }
+        } else {
+          localStorage.setItem('last_sm2_sync', new Date().toISOString().replace(/\.\d+Z$/, 'Z'));
+        }
+      } catch (e) { console.warn('[sync] sm2 sync failed', e); }
       await saveDB();
     }
     function setSyncStatus(state) {
@@ -2566,7 +2675,6 @@
         <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em">UP TO LEVEL</th>
         <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">COVERAGE</th>
         <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">MASTERY</th>
-        <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">MASTERY 30D</th>
         <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">LAST</th>
         <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">TOTAL</th>
       </tr></thead>`;
@@ -2605,7 +2713,6 @@
           </td>
           <td id="bylevel-cov-${source}"  style="padding:6px 8px;text-align:right">—</td>
           <td id="bylevel-hist-${source}" style="padding:6px 8px;text-align:right">—</td>
-          <td id="bylevel-rec-${source}"  style="padding:6px 8px;text-align:right">—</td>
           <td id="bylevel-last-${source}" style="padding:6px 8px;text-align:right">—</td>
           <td id="bylevel-tot-${source}"  style="padding:6px 8px;text-align:right;color:var(--dim)">—</td>
         `;
@@ -2639,14 +2746,11 @@
       if (!m) return;
       const covPct  = m.total_visible > 0 ? Math.round(m.total_seen       / m.total_visible * 100) : 0;
       const histPct = m.total_visible > 0 ? Math.round(m.dominated        / m.total_visible * 100) : 0;
-      const recPct  = m.total_visible > 0 ? Math.round(m.dominated_recent / m.total_visible * 100) : 0;
       const lastPct = m.total_seen    > 0 ? Math.round(m.sum_last_correct / m.total_seen    * 100) : null;
       document.getElementById('bylevel-cov-'  + source).style.color = colorFn(covPct);
       document.getElementById('bylevel-cov-'  + source).textContent = covPct + '%';
       document.getElementById('bylevel-hist-' + source).style.color = colorFn(histPct);
       document.getElementById('bylevel-hist-' + source).textContent = histPct + '%';
-      document.getElementById('bylevel-rec-'  + source).style.color = m.total_seen > 0 ? colorFn(recPct) : 'var(--dim2)';
-      document.getElementById('bylevel-rec-'  + source).textContent = m.total_seen > 0 ? recPct + '%' : '—';
       document.getElementById('bylevel-last-' + source).style.color = lastPct !== null ? colorFn(lastPct) : 'var(--dim2)';
       document.getElementById('bylevel-last-' + source).textContent = lastPct !== null ? lastPct + '%' : '—';
       document.getElementById('bylevel-tot-'  + source).textContent = m.total_visible;
@@ -2659,16 +2763,13 @@
     function onStatsOverlayClick(e) { if (e.target === document.getElementById('stats-overlay')) closeStats(); }
     function applyStatsFilters() {
       const hideMastery   = document.getElementById('sf-hide-mastery')?.checked;
-      const hideMastery30 = document.getElementById('sf-hide-mastery30')?.checked;
       const hideLast      = document.getElementById('sf-hide-last')?.checked;
       document.querySelectorAll('#stats-tbody tr[data-cov]').forEach(tr => {
         const cov  = parseInt(tr.dataset.cov);
         const hist = parseInt(tr.dataset.hist);
-        const rec  = tr.dataset.rec !== 'null' ? parseInt(tr.dataset.rec) : null;
         const last = tr.dataset.last !== 'null' ? parseInt(tr.dataset.last) : null;
         const hide =
           (hideMastery   && cov === 100 && hist >= PCT_GREEN) ||
-          (hideMastery30 && cov === 100 && rec  !== null && rec  >= PCT_GREEN) ||
           (hideLast      && cov === 100 && last !== null && last >= PCT_GREEN);
         tr.style.display = hide ? 'none' : '';
       });
@@ -2695,30 +2796,23 @@
       for (const r of rows) {
         const covPct  = r.total_visible > 0 ? Math.round(r.total_seen        / r.total_visible * 100) : 0;
         const histPct = r.total_visible > 0 ? Math.round(r.dominated         / r.total_visible * 100) : 0;
-        const recPct  = r.total_visible > 0 ? Math.round(r.dominated_recent  / r.total_visible * 100) : 0;
         const lastPct = r.total_seen    > 0 ? Math.round(r.sum_last_correct  / r.total_seen    * 100) : null;
         const tr = document.createElement('tr');
         tr.style.borderBottom = '1px solid var(--border)';
         tr.dataset.cov  = covPct;
         tr.dataset.hist = histPct;
-        tr.dataset.rec  = recPct !== null ? recPct  : (r.total_seen > 0 ? recPct : 'null');
         tr.dataset.last = lastPct !== null ? lastPct : 'null';
         tr.innerHTML = `
           <td style="padding:6px 8px;color:var(--dim)">${r.source}</td>
           <td style="padding:6px 8px;color:var(--text)">${r.collection_name || '—'}</td>
           <td style="padding:6px 8px;text-align:right;color:${color(covPct)}">${covPct}%</td>
           <td style="padding:6px 8px;text-align:right;color:${color(histPct)}">${histPct}%</td>
-          <td style="padding:6px 8px;text-align:right;color:${r.total_seen > 0 ? color(recPct) : 'var(--dim2)'}">
-            ${r.total_seen > 0 ? recPct + '%' : '—'}
-          </td>
-          <td style="padding:6px 8px;text-align:right;color:${lastPct !== null ? color(lastPct) : 'var(--dim2)'}">
-            ${lastPct !== null ? lastPct + '%' : '—'}
-          </td>
+          <td style="padding:6px 8px;text-align:right;color:${lastPct !== null ? color(lastPct) : 'var(--dim2)'}">${lastPct !== null ? lastPct + '%' : '—'}</td>
           <td style="padding:6px 8px;text-align:right;color:var(--dim)">${r.total_visible}</td>`;
         tbody.appendChild(tr);
       }
       if (!rows.length) {
-        tbody.innerHTML = '<tr><td colspan="7" style="padding:24px;text-align:center;color:var(--dim2)">No data yet</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="6" style="padding:24px;text-align:center;color:var(--dim2)">No data yet</td></tr>';
       }
       applyStatsFilters();
     }
@@ -2871,7 +2965,11 @@
     }
     function populateCollectionDiffFilter() {
       const sel = document.getElementById('cf-diff');
-      const nums = [...new Set(allCollections.map(c => c.difficulty_num).filter(n => n != null))].sort((a, b) => a - b);
+      const rows = dbQuery(
+        'SELECT DISTINCT diff_avg FROM chapters WHERE source=? AND diff_avg IS NOT NULL ORDER BY diff_avg ASC',
+        [currentSource]
+      );
+      const nums = rows.map(r => r.diff_avg);
       sel.innerHTML = '<option value="">All</option>';
       for (const n of nums) { const opt = document.createElement('option'); opt.value = n; opt.textContent = diffLabel(n); sel.appendChild(opt); }
     }
@@ -3299,6 +3397,18 @@
     }
     function renderMaturity(set_id) {
       try {
+        // Contador de pendientes SM-2
+        const pending = localCountReviewPending(currentSource, set_id != null ? { set_id } : {});
+        const countEl = document.getElementById('rv-count');
+        if (countEl) {
+          if (pending === 0) {
+            countEl.textContent = 'No problems due today';
+            countEl.style.color = 'var(--ok-bright)';
+          } else {
+            countEl.textContent = `${pending} problem${pending === 1 ? '' : 's'} due today`;
+            countEl.style.color = pending > 0 ? 'var(--gold)' : 'var(--dim)';
+          }
+        }
         const m = localGetMaturity(currentSource, set_id ?? null);
         const el = document.getElementById('rv-maturity');
         if (!m || m.total_visible === 0) { el.style.display = 'none'; return; }
@@ -3311,10 +3421,6 @@
         const histEl = document.getElementById('rv-mat-historic');
         const histVal = m.dominated / m.total_visible;
         histEl.textContent = fmt(histVal); histEl.style.color = color(histVal);
-        const recEl = document.getElementById('rv-mat-recent');
-        const recVal = m.dominated_recent / m.total_visible;
-        if (m.total_seen === 0) { recEl.textContent = '— (no recent data)'; recEl.style.color = 'var(--dim2)'; }
-        else { recEl.textContent = fmt(recVal); recEl.style.color = color(recVal); }
       } catch(e) { document.getElementById('rv-maturity').style.display = 'none'; }
     }
     async function startReview() {

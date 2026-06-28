@@ -100,6 +100,23 @@ def migrate_db():
             con.commit()
             print("[migrate] Columna mostrar añadida a chapters.")
 
+        # sm2_state
+        con.execute("""
+            CREATE TABLE IF NOT EXISTS sm2_state (
+                source      TEXT NOT NULL,
+                problem_id  TEXT NOT NULL,
+                due_date    TEXT NOT NULL,
+                interval    REAL NOT NULL DEFAULT 6,
+                easiness    REAL NOT NULL DEFAULT 2.5,
+                repetitions INTEGER NOT NULL DEFAULT 0,
+                updated_at  TEXT NOT NULL,
+                PRIMARY KEY (source, problem_id)
+            )
+        """)
+        con.execute("CREATE INDEX IF NOT EXISTS idx_sm2_updated ON sm2_state(updated_at)")
+        con.commit()
+        print("[migrate] Tabla sm2_state OK.")
+
 
 # ── GET handlers ──────────────────────────────────────────────────────────────
 
@@ -604,8 +621,9 @@ def handle_sync_snapshot(qs):
         problems = rows_to_list(con.execute("SELECT * FROM problems").fetchall())
         game_collections = rows_to_list(con.execute("SELECT * FROM game_collections").fetchall())
         games = rows_to_list(con.execute("SELECT * FROM games").fetchall())
+        sm2_state = rows_to_list(con.execute("SELECT * FROM sm2_state").fetchall())
     return {"collections": collections, "chapters": chapters, "problems": problems,
-            "game_collections": game_collections, "games": games}
+            "game_collections": game_collections, "games": games, "sm2_state": sm2_state}
 
 
 def handle_admin_import_games(body):
@@ -648,6 +666,43 @@ def handle_admin_import_games(body):
             inserted_games += 1
         con.commit()
     return {"inserted_collections": inserted_cols, "inserted_games": inserted_games}
+
+
+def handle_sync_sm2_pull(qs):
+    """Devuelve registros sm2_state actualizados desde el timestamp indicado."""
+    since = qs.get("since", ["1970-01-01T00:00:00Z"])[0]
+    with db_connect() as con:
+        rows = rows_to_list(con.execute(
+            "SELECT * FROM sm2_state WHERE updated_at > ? ORDER BY updated_at ASC",
+            (since,)
+        ).fetchall())
+    return {"sm2_state": rows}
+
+
+def handle_sync_sm2_push(body):
+    """Recibe registros sm2_state del cliente y los inserta/actualiza."""
+    records = body.get("sm2_state", [])
+    with db_connect() as con:
+        for r in records:
+            existing = con.execute(
+                "SELECT updated_at FROM sm2_state WHERE source=? AND problem_id=?",
+                (r["source"], r["problem_id"])
+            ).fetchone()
+            # Solo actualizar si el registro del cliente es mas reciente
+            if existing is None or r["updated_at"] > existing[0]:
+                con.execute("""
+                    INSERT INTO sm2_state (source, problem_id, due_date, interval, easiness, repetitions, updated_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(source, problem_id) DO UPDATE SET
+                        due_date    = excluded.due_date,
+                        interval    = excluded.interval,
+                        easiness    = excluded.easiness,
+                        repetitions = excluded.repetitions,
+                        updated_at  = excluded.updated_at
+                """, (r["source"], r["problem_id"], r["due_date"], r["interval"],
+                      r["easiness"], r["repetitions"], r["updated_at"]))
+        con.commit()
+    return {"ok": True, "count": len(records)}
 
 
 def handle_sync_static_version(qs):
@@ -883,6 +938,7 @@ GET_ROUTES = {
     "/sync/pull": handle_sync_pull,
     "/sync/static_version": handle_sync_static_version,
     "/sync/games": handle_sync_games,
+    "/sync/sm2/pull": handle_sync_sm2_pull,
 }
 
 
@@ -929,6 +985,7 @@ class Handler(BaseHTTPRequestHandler):
             "/db/runs/delete": handle_delete_runs,
             "/sync/check_runs": handle_sync_check_runs,
             "/admin/import_games": handle_admin_import_games,
+            "/sync/sm2/push": handle_sync_sm2_push,
         }
         handler = routes.get(parsed.path)
         print("4")
