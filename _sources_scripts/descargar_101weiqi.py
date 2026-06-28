@@ -571,6 +571,7 @@ def scrape_problem(
     andata = qqdata.get("andata")
     if not andata:
         log.warning(f"  Sin andata en qid={qid} (qtype={qqdata.get('qtype')}) — skip")
+        polite_sleep(delay_range)
         return False
 
     try:
@@ -603,28 +604,77 @@ def scrape_chapter(
 ) -> tuple[int, int]:
     chapter_id = chapter["id"]
     chapter_name = chapter.get("name", "?")
-    url = f"{BASE_URL}/book/{book_id}/{chapter_id}/"
+    nodecount = chapter.get("nodecount", 0)
 
-    log.info(f"  Capítulo {chapter_id} '{chapter_name}'")
+    log.info(f"  Capítulo {chapter_id} '{chapter_name}' (nodecount={nodecount})")
 
-    resp = get_with_retry(session, url, delay_range)
-    polite_sleep(delay_range)
+    # Recopilar todos los problemas de todas las páginas
+    all_qs = []
+    page_num = 1
+    chapter_data_base = None
 
-    if resp is None:
-        log.warning(f"  No se pudo obtener capítulo {chapter_id} — skip")
+    while True:
+        if page_num == 1:
+            url = f"{BASE_URL}/book/{book_id}/{chapter_id}/"
+        else:
+            url = f"{BASE_URL}/book/{book_id}/{chapter_id}/?page={page_num}"
+
+        resp = get_with_retry(session, url, delay_range)
+        polite_sleep(delay_range)
+
+        if resp is None:
+            log.warning(f"  No se pudo obtener capítulo {chapter_id} página {page_num} — stop")
+            break
+
+        nodedata = extract_js_var(resp.text, "nodedata")
+        if not nodedata:
+            log.warning(f"  nodedata no encontrado en capítulo {chapter_id} página {page_num} — stop")
+            break
+
+        qs = nodedata.get("pagedata", {}).get("qs", [])
+        if not qs:
+            break
+
+        # Guardar datos base del chapter (solo primera página)
+        if page_num == 1:
+            chapter_data_base = nodedata
+
+        all_qs.extend(qs)
+        log.info(f"    Página {page_num}: {len(qs)} problemas (total acumulado: {len(all_qs)})")
+
+        # Condición de parada: última página
+        if nodecount > 0 and len(all_qs) >= nodecount:
+            break
+        if len(qs) < 60:
+            break
+
+        page_num += 1
+
+    if not all_qs:
+        log.warning(f"  Sin problemas en capítulo {chapter_id}")
         return 0, 0
 
-    nodedata = extract_js_var(resp.text, "nodedata")
-    if not nodedata:
-        log.warning(
-            f"  nodedata no encontrado en capítulo {chapter_id} — posible acceso denegado"
-        )
-        return 0, 0
-
-    chapter_json_path = out_dir / str(book_id) / str(chapter_id) / "chapter.json"
-    if not chapter_json_path.exists():
+    # Guardar chapter.json con todos los problemas (siempre regenerar)
+    if chapter_data_base is not None:
         try:
-            chapter_data = extract_chapter_json(nodedata)
+            pd = chapter_data_base.get("pagedata", {})
+            chapter_data = {
+                "id": pd.get("id"),
+                "name": pd.get("name", ""),
+                "name_en": translate(pd.get("name", "")),
+                "desc": pd.get("desc", ""),
+                "nodecount": pd.get("nodecount", 0),
+                "problems": [
+                    {
+                        "qid": q.get("qid"),
+                        "qindex": q.get("qindex"),
+                        "levelname": q.get("levelname", ""),
+                        "blackfirst": q.get("blackfirst", True),
+                    }
+                    for q in all_qs
+                ],
+            }
+            chapter_json_path = out_dir / str(book_id) / str(chapter_id) / "chapter.json"
             chapter_json_path.parent.mkdir(parents=True, exist_ok=True)
             chapter_json_path.write_text(
                 json.dumps(chapter_data, ensure_ascii=False, indent=2), encoding="utf-8"
@@ -632,14 +682,9 @@ def scrape_chapter(
         except Exception as e:
             log.warning(f"  Error guardando chapter.json: {e}")
 
-    qs = nodedata.get("pagedata", {}).get("qs", [])
-    if not qs:
-        log.warning(f"  Sin problemas en capítulo {chapter_id}")
-        return 0, 0
-
     ok = 0
     failed = 0
-    for q in qs:
+    for q in all_qs:
         qid = q.get("qid")
         if qid is None:
             continue

@@ -166,7 +166,7 @@ def translate_go_title(title):
 # PARSE HTML
 # -----------------------------
 
-with open("101weiqi\getting_started.htm", "r", encoding="utf-8") as f:
+with open("getting_started.html", "r", encoding="utf-8") as f:
     html = f.read()
 
 soup = BeautifulSoup(html, "html.parser")
