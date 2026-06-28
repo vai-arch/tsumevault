@@ -1471,6 +1471,10 @@
       </div>
       <div class="tab-pane" id="tab-review">
         <div class="fp-section">
+          <div class="fp-label" style="margin-bottom:6px">Pending today</div>
+          <div id="rv-global-pending" style="font-family:var(--mono);font-size:10px;display:flex;flex-direction:column;gap:4px;"></div>
+        </div>
+        <div class="fp-section">
           <div class="fp-label">Collection</div>
           <select class="fsel" id="rv-col">
             <option value="">All</option>
@@ -1600,7 +1604,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260629-0045';
+	const SW_VERSION = 'tsumevault-20260629-0131';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -1961,7 +1965,7 @@
       return struggling;
     }
     function localGetReviewProblems(source, { set_id } = {}) {
-      const today = new Date().toLocaleDateString('sv');
+      const today = new Date().toISOString().slice(0, 10);
       let sql = `
         SELECT
           p.source, p.problem_id, p.set_id, p.chapter_id,
@@ -1981,7 +1985,7 @@
     }
 
     function localCountReviewPending(source, { set_id } = {}) {
-      const today = new Date().toLocaleDateString('sv');
+      const today = new Date().toISOString().slice(0, 10);
       let sql = `
         SELECT COUNT(*) AS n
         FROM sm2_state s
@@ -2113,7 +2117,7 @@
 
     function updateSm2(source, problem_id, result) {
       const now = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
-      const today = new Date().toLocaleDateString('sv'); // YYYY-MM-DD en hora local
+      const today = now.slice(0, 10); // YYYY-MM-DD
 
       // Leer estado actual o usar valores iniciales
       const row = dbQueryOne(
@@ -2307,9 +2311,9 @@
         }
         // Push: enviar estados modificados desde el último sync
         const pendingSm2 = dbQuery(
-		  "SELECT * FROM sm2_state WHERE updated_at > datetime('now', '-1 day')",
-		  []
-		);
+          'SELECT * FROM sm2_state WHERE updated_at > ?',
+          [lastSm2Sync]
+        );
         if (pendingSm2.length > 0) {
           const sm2PushR = await fetch(`${SYNC_SERVER}/sync/sm2/push`, {
             method: 'POST',
@@ -3371,7 +3375,27 @@
     }
 
     // ══ REVIEW ══
+    function renderGlobalPending() {
+      const container = document.getElementById('rv-global-pending');
+      if (!container) return;
+      const sources = dbQuery('SELECT DISTINCT source FROM sm2_state ORDER BY source', []);
+      if (!sources.length) {
+        container.innerHTML = `<span style="color:var(--dim2)">No review data yet</span>`;
+        return;
+      }
+      container.innerHTML = '';
+      for (const { source } of sources) {
+        const n = localCountReviewPending(source);
+        const color = n > 0 ? 'var(--gold)' : 'var(--ok-bright)';
+        const row = document.createElement('div');
+        row.style.cssText = 'display:flex;justify-content:space-between;align-items:center;';
+        row.innerHTML = `<span style="color:var(--dim)">${source}</span><span style="color:${color}">${n > 0 ? n + ' pending' : '✓ done'}</span>`;
+        container.appendChild(row);
+      }
+    }
+
     async function populateReviewFilters() {
+      renderGlobalPending();
       const sel = document.getElementById('rv-col');
       sel.innerHTML = '<option value="">All</option>';
       let visibleCols = allCollections;
