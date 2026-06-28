@@ -1609,7 +1609,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260623-1603';
+	const SW_VERSION = 'tsumevault-20260628-2220';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -2461,6 +2461,7 @@
         btn.style.borderBottom = active ? '2px solid var(--gold)' : '2px solid transparent';
         pane.style.display = active ? 'flex' : 'none';
       });
+      if (tab === 'collections') renderStatsTable();
       if (tab === 'bylevel') renderByLevel();
     }
 
@@ -2651,8 +2652,8 @@
       document.getElementById('bylevel-tot-'  + source).textContent = m.total_visible;
     }
     function openStats() {
-      renderStatsTable();
       document.getElementById('stats-overlay').style.display = 'flex';
+      switchStatsTab('collections');
     }
     function closeStats() { document.getElementById('stats-overlay').style.display = 'none'; }
     function onStatsOverlayClick(e) { if (e.target === document.getElementById('stats-overlay')) closeStats(); }
