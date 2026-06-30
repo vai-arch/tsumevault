@@ -1183,7 +1183,7 @@
       </select>
       <div style="flex:1"></div>
       <button id="stats-btn" onclick="openStats()" title="Statistics" style="background:transparent;border:1px solid var(--border2);color:var(--dim);font-size:15px;cursor:pointer;padding:4px 9px;border-radius:2px;transition:all .15s;margin-right:6px;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">📊</button>
-      <button id="cfg-btn" onclick="openConfig()" title="Settings">⚙</button>
+      <button id="cfg-btn" onclick="openConfig()" title="Settings" style="position:relative">⚙<span id="sync-error-dot" style="display:none;position:absolute;top:1px;right:1px;width:7px;height:7px;border-radius:50%;background:#e5484d;box-shadow:0 0 0 2px var(--bg,#1a1a1a);"></span></button>
     </header>
 
     <!-- CONFIG MODAL -->
@@ -1604,7 +1604,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260630-2329';
+	const SW_VERSION = 'tsumevault-20260630-2348';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -2331,21 +2331,23 @@
       await saveDB();
     }
     function setSyncStatus(state) {
-      const btn = document.getElementById('cfg-sync-btn');
-      const statusEl = document.getElementById('cfg-sync-status');
-      if (!btn) return;
-      if (state === 'syncing') {
-        btn.textContent = 'Syncing…'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = true;
-        if (statusEl) statusEl.textContent = 'Syncing…';
-      } else if (state === 'ok') {
-        btn.textContent = '✓ OK'; btn.style.color = 'var(--ok-bright)'; btn.style.borderColor = 'var(--ok-bright)'; btn.disabled = true;
-        if (statusEl) statusEl.textContent = 'Last sync: OK';
-        setTimeout(() => { btn.textContent = '↻ Sync'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = false; }, 3000);
-      } else {
-        btn.textContent = '↻ Sync'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = false;
-        if (statusEl && state === 'idle') statusEl.textContent = 'Last sync: error';
-      }
-    }
+	  const btn = document.getElementById('cfg-sync-btn');
+	  const statusEl = document.getElementById('cfg-sync-status');
+	  const dot = document.getElementById('sync-error-dot');
+	  if (dot) dot.style.display = (state === 'idle') ? 'block' : 'none';
+	  if (!btn) return;
+	  if (state === 'syncing') {
+		btn.textContent = 'Syncing…'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = true;
+		if (statusEl) statusEl.textContent = 'Syncing…';
+	  } else if (state === 'ok') {
+		btn.textContent = '✓ OK'; btn.style.color = 'var(--ok-bright)'; btn.style.borderColor = 'var(--ok-bright)'; btn.disabled = true;
+		if (statusEl) statusEl.textContent = 'Last sync: OK';
+		setTimeout(() => { btn.textContent = '↻ Sync'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = false; }, 3000);
+	  } else {
+		btn.textContent = '↻ Sync'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = false;
+		if (statusEl && state === 'idle') statusEl.textContent = 'Last sync: error';
+	  }
+	}
 
     // ══ CONFIG MODAL ══
 
