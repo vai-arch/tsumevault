@@ -1,6 +1,6 @@
 {
   "runs_count": 3,
-  "attempts_count": 101,
+  "attempts_count": 106,
   "runs": [
     {
       "id": 1,
@@ -16,9 +16,9 @@
         "tsumego_hero"
       ],
       "run_items_chapter_ids": [
-        "6501",
         "6540",
-        "6545"
+        "6545",
+        "6501"
       ]
     },
     {
@@ -41,23 +41,31 @@
       ]
     },
     {
-      "id": 3,
-      "uuid": "2abfd10c-9377-4495-a760-86f89bdfea87",
-      "source": "many_faces",
-      "chapter_id": null,
-      "type": "review",
-      "status": "closed",
-      "total": 0,
-      "done": 1,
-      "run_items_count": 0,
-      "run_items_sources": [],
-      "run_items_chapter_ids": []
+      "id": 460,
+      "uuid": "99b3e503-92e7-4d2a-8232-4b4039c6b8f5",
+      "source": "guo_juan",
+      "chapter_id": 6973,
+      "type": "chapter",
+      "status": "open",
+      "total": 50,
+      "done": 2,
+      "run_items_count": 50,
+      "run_items_sources": [
+        "guo_juan"
+      ],
+      "run_items_chapter_ids": [
+        "1419_01",
+        "1417_01",
+        "1419_02c"
+      ]
     }
   ],
   "attempts_run_ids": [
+    null,
     1,
     2,
     3,
-    457
+    457,
+    460
   ]
 }
