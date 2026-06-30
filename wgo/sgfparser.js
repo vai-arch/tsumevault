@@ -7,6 +7,27 @@ var to_num = function(str, i) {
 	return str.charCodeAt(i)-97;
 }
 
+var expand_points = function(values) {
+	var result = [];
+	for(var i = 0; i < values.length; i++) {
+		var v = values[i];
+		if(v.length === 5 && v.charAt(2) === ":") {
+			var x1 = to_num(v, 0), y1 = to_num(v, 1);
+			var x2 = to_num(v, 3), y2 = to_num(v, 4);
+			var xmin = Math.min(x1, x2), xmax = Math.max(x1, x2);
+			var ymin = Math.min(y1, y2), ymax = Math.max(y1, y2);
+			for(var x = xmin; x <= xmax; x++) {
+				for(var y = ymin; y <= ymax; y++) {
+					result.push(String.fromCharCode(x+97) + String.fromCharCode(y+97));
+				}
+			}
+		} else {
+			result.push(v);
+		}
+	}
+	return result;
+}
+
 var sgf_player_info = function(type, black, kifu, node, value, ident) {
 	var c = ident == black ? "black" : "white";
 	kifu.info[c] = kifu.info[c] || {};
@@ -31,6 +52,7 @@ properties["B"] = properties["W"] = function(kifu, node, value, ident) {
 	
 // Setup properties
 properties["AB"] = properties["AW"] = function(kifu, node, value, ident) {
+	value = expand_points(value);
 	for(var i in value) {
 		node.addSetup({
 			x: to_num(value[i], 0), 
@@ -40,6 +62,7 @@ properties["AB"] = properties["AW"] = function(kifu, node, value, ident) {
 	}
 }
 properties["AE"] = function(kifu, node, value) {
+	value = expand_points(value);
 	for(var i in value) {
 		node.addSetup({
 			x: to_num(value[i], 0), 
@@ -68,6 +91,7 @@ properties["LB"] = function(kifu, node, value) {
 	}
 }
 properties["CR"] = properties["SQ"] = properties["TR"] = properties["SL"] = properties["MA"] = function(kifu, node, value, ident) {
+	value = expand_points(value);
 	for(var i in value) {
 		node.addMarkup({
 			x: to_num(value[i],0), 
