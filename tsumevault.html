@@ -1604,7 +1604,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260630-2348';
+	const SW_VERSION = 'tsumevault-20260704-1819';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -2241,7 +2241,7 @@
       const newAttempts = dbQuery('SELECT * FROM attempts WHERE uuid IS NOT NULL', []).map(a => ({ ...a, client_id: a.id }));
       const newRuns = dbQuery('SELECT * FROM runs WHERE uuid IS NOT NULL', []).map(r => ({ ...r, run_items: dbQuery('SELECT * FROM run_items WHERE run_id=?', [r.id]) }));
       if (newAttempts.length || newRuns.length) {
-        const pushR = await fetch(`${SYNC_SERVER}/sync/push`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ attempts: newAttempts, runs: newRuns }), signal: AbortSignal.timeout(8000) });
+        const pushR = await fetch(`${SYNC_SERVER}/sync/push`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ attempts: newAttempts, runs: newRuns }), signal: AbortSignal.timeout(90000) });
         if (!pushR.ok) throw new Error('push failed');
       }
       if (!lightMode) {
