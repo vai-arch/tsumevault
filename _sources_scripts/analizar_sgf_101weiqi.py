@@ -22,7 +22,7 @@ from collections import defaultdict, Counter
 
 # ── Config ────────────────────────────────────────────────────────────────────
 SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_ROOT = os.path.join(SCRIPT_DIR, '101_weiqi', 'problems')
+DEFAULT_ROOT = os.path.join(SCRIPT_DIR, '101_weiqi', 'problems_std')
 REPORT_FILE  = os.path.join(SCRIPT_DIR, 'analizar_sgf_101weiqi_informe.txt')
 UNKNOWN_FILE = os.path.join(SCRIPT_DIR, 'analizar_sgf_101weiqi_unknown.txt')
 
@@ -34,6 +34,25 @@ flags        = [a for a in sys.argv[1:] if a.startswith('--')]
 PROBLEMS_ROOT = args[0] if args else DEFAULT_ROOT
 DO_DELETE     = '--delete' in flags
 
+def cleanup_empty_chapters(root, do_delete):
+    """Borra carpetas chapter (nivel 2) que no contienen ningún SGF."""
+    label = "BORRAR" if do_delete else "DRY-RUN"
+    deleted = 0
+    for book in os.scandir(root):
+        if not book.is_dir():
+            continue
+        for chap in os.scandir(book.path):
+            if not chap.is_dir():
+                continue
+            sgfs = [f for f in os.listdir(chap.path) if f.lower().endswith(".sgf")]
+            if not sgfs:
+                print(f"  [{label}] carpeta vacía: {chap.path}")
+                if do_delete:
+                    import shutil
+                    shutil.rmtree(chap.path)
+                deleted += 1
+    print(f"[{label}] Carpetas chapter vacías: {deleted}")
+    
 def distribution_stats(values, percentiles=(10, 25, 50, 75, 90, 95, 99)):
     if not values:
         return {}
@@ -45,6 +64,21 @@ def distribution_stats(values, percentiles=(10, 25, 50, 75, 90, 95, 99)):
         result[f'p{p}'] = s[idx]
     return result
 
+def cleanup_empty_books(root, do_delete):
+    """Borra carpetas book (nivel 1) que no contienen ninguna carpeta chapter con SGFs."""
+    import shutil
+    label = "BORRAR" if do_delete else "DRY-RUN"
+    deleted = 0
+    for book in os.scandir(root):
+        if not book.is_dir():
+            continue
+        subdirs = [e for e in os.scandir(book.path) if e.is_dir()]
+        if not subdirs:
+            print(f"  [{label}] book vacío: {book.path}")
+            if do_delete:
+                shutil.rmtree(book.path)
+            deleted += 1
+    print(f"[{label}] Carpetas book vacías: {deleted}")
 
 def write_size_report(results, lines):
     # Agrupar
@@ -827,5 +861,7 @@ if __name__ == '__main__':
     write_report(results, book_stats, REPORT_FILE, UNKNOWN_FILE)
     cleanup_invalid(results, PROBLEMS_ROOT, DO_DELETE)
     cleanup_small_chapters(results, PROBLEMS_ROOT, DO_DELETE, threshold=5)
+    cleanup_empty_chapters(PROBLEMS_ROOT, DO_DELETE)
+    cleanup_empty_books(PROBLEMS_ROOT, DO_DELETE)
     cleanup_duplicate_qids(PROBLEMS_ROOT, DO_DELETE)
     print("\nListo.")

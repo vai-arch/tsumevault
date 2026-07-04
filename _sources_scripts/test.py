@@ -1,23 +1,29 @@
-import json
-import re
+import os
+from collections import defaultdict
 
-import requests
+problems_dir = r"C:\Users\victor.diaz\Documents\All\Go\tsumevault\101_weiqi\problems_std"
 
-cookies = {
-    "sessionid": "r7h03pga7jsblaugo1v98pgoq9os7zb3",
-    "csrftoken": "3LCgrbJDglVy9MS4gx3oMEt9OIH69bbf",
-}
-headers = {"User-Agent": "Mozilla/5.0", "Referer": "https://www.101weiqi.com/"}
+qid_locations = defaultdict(list)  # qid -> [(book_id, chapter_id)]
 
-r = requests.get(
-    "https://www.101weiqi.com/book/30115/21813/11128/", cookies=cookies, headers=headers
-)
-for line in r.text.splitlines():
-    if "var qqdata" in line:
-        dd = json.loads(
-            re.search(r"var qqdata = (.+);?\s*$", line).group(1).rstrip(";")
-        )
-        for k, v in dd.get("andata", {}).items():
-            print(
-                f"node {k}: pt={v.get('pt')} subs={v.get('subs')} o={v.get('o')} c={v.get('c')} f={v.get('f')} tip={v.get('tip')}"
-            )
+for book in os.scandir(problems_dir):
+    if not book.is_dir():
+        continue
+    for chap in os.scandir(book.path):
+        if not chap.is_dir():
+            continue
+        for f in os.listdir(chap.path):
+            if f.lower().endswith(".sgf"):
+                try:
+                    qid = int(os.path.splitext(f)[0])
+                    qid_locations[qid].append((int(book.name), chap.name))
+                except ValueError:
+                    pass
+
+duplicates = {qid: locs for qid, locs in qid_locations.items() if len(locs) > 1}
+print(f"QIDs únicos: {len(qid_locations)}")
+print(f"QIDs duplicados: {len(duplicates)}")
+print(f"SGFs duplicados (copias extra): {sum(len(v)-1 for v in duplicates.values())}")
+
+# Mostrar algunos ejemplos
+for qid, locs in list(duplicates.items())[:5]:
+    print(f"  qid {qid}: {locs}")
