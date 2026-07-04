@@ -1604,7 +1604,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260704-1939';
+	const SW_VERSION = 'tsumevault-20260704-1942';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
@@ -2223,7 +2223,7 @@
     async function doSync(lightMode = false) {
       const maxServerAttemptId = dbQueryOne('SELECT MAX(id) AS m FROM attempts WHERE uuid IS NULL', [])?.m || 0;
       const maxServerRunId = dbQueryOne('SELECT MAX(id) AS m FROM runs WHERE uuid IS NULL', [])?.m || 0;
-      const pullR = await fetch(`${SYNC_SERVER}/sync/pull?since_attempt_id=${maxServerAttemptId}&since_run_id=${maxServerRunId}`, { signal: AbortSignal.timeout(8000) });
+      const pullR = await fetch(`${SYNC_SERVER}/sync/pull?since_attempt_id=${maxServerAttemptId}&since_run_id=${maxServerRunId}`, { signal: AbortSignal.timeout(90000) });
       if (!pullR.ok) throw new Error('pull failed');
       const pulled = await pullR.json();
       const stmtA = db.prepare(`INSERT OR IGNORE INTO attempts (id,source,problem_id,run_id,result,time_ms,created_at,uuid) VALUES (?,?,?,?,?,?,?,?)`);
