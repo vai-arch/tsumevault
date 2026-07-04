@@ -1,0 +1,490 @@
+Actúa como un Arquitecto Principal de Software, Auditor de Seguridad, Ingeniero Senior de Backend, Ingeniero Senior de Frontend, DBA, experto en UX, experto en rendimiento y revisor de código.
+
+Voy a proporcionarte el código completo de un proyecto.
+
+NO quiero un simple code review.
+
+Quiero una auditoría técnica exhaustiva como si fueras contratado para preparar la versión 2.0 del proyecto.
+
+Debes asumir que dispones de tiempo y recursos ilimitados para analizar absolutamente todo.
+
+No hagas suposiciones rápidas.
+No respondas hasta haber inspeccionado todo el código.
+
+Debes analizar TODOS los archivos conjuntamente, entendiendo las relaciones entre ellos.
+
+Los archivos son:
+
+- tsumevault.html
+- tsumevault_server.py
+- db_schema.sql
+
+Analiza el sistema desde todos estos puntos de vista.
+
+# 1. Arquitectura general
+
+Explica:
+
+- cómo está organizado el sistema
+- responsabilidades de cada archivo
+- dependencias
+- flujo de datos
+- comunicación frontend/backend
+- comunicación con SQLite
+- ciclo de vida de una operación completa
+
+Detecta problemas de arquitectura.
+
+Indica si existen responsabilidades mezcladas.
+
+Indica si existen componentes demasiado grandes.
+
+Indica si convendría dividir módulos.
+
+Propón una arquitectura mejor.
+
+--------------------------------------------------
+
+# 2. Calidad del código
+
+Busca:
+
+- duplicación
+- funciones demasiado largas
+- código muerto
+- código repetido
+- complejidad innecesaria
+- variables mal nombradas
+- responsabilidades mezcladas
+- funciones con demasiados parámetros
+- falta de encapsulación
+- acoplamiento excesivo
+- bajo nivel de cohesión
+
+Para cada problema:
+
+- explica por qué ocurre
+- gravedad
+- solución propuesta
+
+--------------------------------------------------
+
+# 3. Bugs potenciales
+
+Busca cuidadosamente:
+
+- condiciones de carrera
+- estados inconsistentes
+- edge cases
+- errores de sincronización
+- posibles crashes
+- posibles excepciones
+- operaciones que podrían fallar silenciosamente
+- errores lógicos
+- errores de concurrencia
+- errores de orden de ejecución
+- problemas de cache
+- errores de estado
+- problemas de asincronía
+
+No quiero únicamente bugs evidentes.
+
+Quiero también posibles bugs futuros.
+
+--------------------------------------------------
+
+# 4. Seguridad
+
+Haz una auditoría completa.
+
+Busca:
+
+SQL Injection
+
+XSS
+
+CSRF
+
+Path Traversal
+
+Directory Traversal
+
+Race Conditions
+
+Validaciones insuficientes
+
+Inputs no sanitizados
+
+Problemas CORS
+
+Información sensible expuesta
+
+Errores HTTP
+
+Manipulación de parámetros
+
+Autorización
+
+Autenticación
+
+Fugas de información
+
+Endpoints peligrosos
+
+SQLite locking
+
+Problemas derivados del uso de HTTPServer
+
+Cualquier otro problema de seguridad.
+
+Clasifica cada vulnerabilidad según gravedad:
+
+Crítica
+
+Alta
+
+Media
+
+Baja
+
+--------------------------------------------------
+
+# 5. Rendimiento
+
+Analiza:
+
+Frontend
+
+Backend
+
+SQLite
+
+Red
+
+Renderizado
+
+DOM
+
+CSS
+
+JavaScript
+
+Consultas SQL
+
+Índices
+
+Uso de memoria
+
+Uso de CPU
+
+Cache
+
+Transferencia de datos
+
+Carga inicial
+
+Latencia
+
+Analiza también:
+
+consultas innecesarias
+
+consultas repetidas
+
+algoritmos poco eficientes
+
+loops costosos
+
+operaciones O(n²)
+
+búsquedas repetidas
+
+duplicación de datos
+
+re-renderizados
+
+carga innecesaria de recursos
+
+Propón mejoras concretas.
+
+--------------------------------------------------
+
+# 6. Base de datos
+
+Analiza el esquema SQL.
+
+Busca:
+
+normalización
+
+desnormalización
+
+índices faltantes
+
+índices inútiles
+
+restricciones
+
+integridad
+
+foreign keys
+
+consistencia
+
+escalabilidad
+
+consultas costosas
+
+tipos incorrectos
+
+campos redundantes
+
+campos innecesarios
+
+--------------------------------------------------
+
+# 7. Frontend
+
+Analiza:
+
+HTML
+
+CSS
+
+JavaScript
+
+Responsive
+
+UX
+
+Accesibilidad
+
+Mantenibilidad
+
+Organización
+
+Renderizado
+
+Eventos
+
+Gestión del estado
+
+Memoria
+
+Listeners
+
+Manipulación del DOM
+
+Componentización
+
+--------------------------------------------------
+
+# 8. Backend
+
+Analiza:
+
+estructura
+
+routing
+
+HTTPServer
+
+SQLite
+
+gestión de errores
+
+logs
+
+validaciones
+
+organización
+
+migraciones
+
+API
+
+consistencia
+
+mantenibilidad
+
+--------------------------------------------------
+
+# 9. API
+
+Analiza cada endpoint.
+
+Para cada uno:
+
+- si sigue buenas prácticas REST
+- validaciones
+- códigos HTTP
+- errores
+- consistencia
+- formato JSON
+- posibles mejoras
+
+--------------------------------------------------
+
+# 10. Código innecesario
+
+Detecta:
+
+funciones sin usar
+
+variables sin usar
+
+imports innecesarios
+
+duplicaciones
+
+código obsoleto
+
+funciones parcialmente usadas
+
+--------------------------------------------------
+
+# 11. Escalabilidad
+
+Explica qué ocurriría si:
+
+- hubiera 100.000 problemas
+- miles de usuarios
+- múltiples clientes sincronizando
+- miles de runs
+- millones de intentos
+
+Detecta cuellos de botella.
+
+--------------------------------------------------
+
+# 12. Mejoras funcionales
+
+No te limites al código.
+
+Piensa como diseñador de producto.
+
+Sugiere nuevas funcionalidades que aportarían valor.
+
+Justifica cada una.
+
+--------------------------------------------------
+
+# 13. Refactorizaciones recomendadas
+
+Ordena las refactorizaciones por impacto.
+
+Para cada una indica:
+
+beneficio
+
+dificultad
+
+riesgo
+
+prioridad
+
+--------------------------------------------------
+
+# 14. Calidad profesional
+
+Evalúa el proyecto como si fuera una auditoría para una empresa.
+
+Da una nota de:
+
+Arquitectura
+
+Código
+
+Seguridad
+
+Escalabilidad
+
+Mantenibilidad
+
+Rendimiento
+
+Base de datos
+
+Frontend
+
+Backend
+
+API
+
+UX
+
+Explica cada nota.
+
+--------------------------------------------------
+
+# 15. Roadmap de mejoras
+
+Finalmente, NO implementes nada.
+
+En lugar de eso genera un plan de ejecución.
+
+Ese plan será utilizado por un modelo de IA menos potente.
+
+Cada tarea debe ser:
+
+muy pequeña
+
+independiente
+
+sin ambigüedades
+
+atómica
+
+verificable
+
+con archivos afectados
+
+con funciones afectadas
+
+con pasos exactos
+
+sin mezclar objetivos.
+
+Formato:
+
+Fase 1
+- tarea 1
+- tarea 2
+...
+
+Fase 2
+...
+
+Cada tarea debe poder realizarse en una única conversación por otro modelo.
+
+--------------------------------------------------
+
+# 16. Priorización
+
+Clasifica todas las tareas según:
+
+🔴 Críticas
+
+🟠 Muy importantes
+
+🟡 Recomendadas
+
+🟢 Opcionales
+
+--------------------------------------------------
+
+# 17. Resultado esperado
+
+No quiero respuestas superficiales.
+
+Quiero una auditoría extremadamente detallada, comparable a la realizada por un arquitecto principal con más de 20 años de experiencia.
+
+Si detectas algo dudoso, explícalo.
+
+Si ves varias alternativas, compáralas.
+
+Si encuentras una mejora pequeña, inclúyela igualmente.
+
+No omitas ningún detalle.
+
+El objetivo es obtener un documento maestro que sirva como hoja de ruta completa para evolucionar este proyecto durante los próximos meses.

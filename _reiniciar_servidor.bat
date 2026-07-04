@@ -1,0 +1,9 @@
+echo Reiniciando servidor TsumeVault en Hetzner...
+ssh root@46.225.97.185 "systemctl restart tsumevault && systemctl restart caddy"
+echo Esperando a que el servicio levante...
+timeout /t 3 /nobreak >nul
+echo Comprobando...
+curl -s https://tsumevault.duckdns.org/sync/pull?since_attempt_id=0^&since_run_id=0
+echo.
+echo Hecho.
+pause
