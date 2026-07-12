@@ -1253,6 +1253,9 @@
               <input id="cfg-sync-url" type="text" placeholder="http://192.168.1.x:3002">
               <button id="cfg-sync-btn">↻ Sync</button>
             </div>
+            <div class="cfg-input-row">
+              <input id="cfg-sync-token" type="password" placeholder="Auth token (optional)" autocomplete="off">
+            </div>
             <div class="cfg-pill">
               <span class="s-ok" id="cfg-pill-ok">0✓</span>
               <span class="s-no" id="cfg-pill-no">0✗</span>
@@ -1604,9 +1607,18 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260704-2158';
+	const SW_VERSION = 'tsumevault-20260712-1941';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
+    // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
+    // peticiones van sin cabecera (compatible con servidores sin auth).
+    const SYNC_TOKEN_KEY = 'sync_token';
+    function syncFetch(path, opts = {}) {
+      const headers = { ...(opts.headers || {}) };
+      const token = localStorage.getItem(SYNC_TOKEN_KEY);
+      if (token) headers['X-Auth-Token'] = token;
+      return fetch(SYNC_SERVER + path, { ...opts, headers });
+    }
     let currentBoardBg = localStorage.getItem(BOARD_BG_KEY) || '#c4943a';
     let currentStoneSet = null; // {label, black:[], white:[]} or null = REALISTIC
     let filterMostrar = localStorage.getItem(FILTER_MOSTRAR_KEY) === 'true';
@@ -1620,7 +1632,6 @@
     let waitingForNext = false;
     let sessionOk = 0, sessionNo = 0;
     let lastRunStatsAll = {};
-    let attemptsSinceLastSave = 0;
     let lightMode = false;
     let currentSource = 'tsumego_hero';
     const SGF_BASE = '/tsumevault/';
@@ -1692,7 +1703,24 @@
       return rows;
     }
     function dbQueryOne(sql, params) { const rows = dbQuery(sql, params); return rows.length ? rows[0] : null; }
-    async function saveDB() { const data = db.export(); await idbSet(DB_KEY, data); }
+    async function saveDB() { const data = db.export(); await idbSet(DB_KEY, data); saveDBPending = false; }
+    // ── Fase 1 (3.4): persistencia segura. saveDB() debounced tras cada intento
+    // y flush inmediato al ocultarse/cerrarse la página. Antes solo se guardaba
+    // cada 10 intentos o al final de un sync exitoso: sin conexión se podían
+    // perder hasta 9 intentos (y sus run_items y estados SM-2).
+    let saveDBTimer = null, saveDBPending = false;
+    function scheduleSaveDB(delay = 1500) {
+      saveDBPending = true;
+      if (saveDBTimer) clearTimeout(saveDBTimer);
+      saveDBTimer = setTimeout(() => { saveDBTimer = null; flushSaveDB(); }, delay);
+    }
+    async function flushSaveDB() {
+      if (saveDBTimer) { clearTimeout(saveDBTimer); saveDBTimer = null; }
+      if (!saveDBPending || !db) return;
+      try { await saveDB(); } catch (e) { console.warn('[saveDB] flush failed', e); }
+    }
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flushSaveDB(); });
+    window.addEventListener('pagehide', () => { flushSaveDB(); });
 
     async function initDB() {
       SQL = await initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${file}` });
@@ -1708,11 +1736,12 @@
         try { dbExec("CREATE TABLE IF NOT EXISTS game_collections (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE, folder TEXT NOT NULL)"); } catch (e) { }
         try { dbExec("CREATE TABLE IF NOT EXISTS games (id INTEGER PRIMARY KEY AUTOINCREMENT, game_collection_id INTEGER NOT NULL, name TEXT NOT NULL, sgf_path TEXT NOT NULL)"); } catch (e) { }
         try { dbExec("CREATE INDEX IF NOT EXISTS idx_games_collection ON games(game_collection_id)"); } catch (e) { }
+        migrateSyncColumns();
         return true;
       }
       console.log('[DB] Sin DB local, intentando snapshot…');
       try {
-        const r = await fetch(SYNC_SERVER + '/sync/snapshot', { signal: AbortSignal.timeout(5000) });
+        const r = await syncFetch('/sync/snapshot', { signal: AbortSignal.timeout(5000) });
         if (!r.ok) throw new Error(r.status);
         const snap = await r.json();
         db = new SQL.Database(); createSchema(); importSnapshot(snap);
@@ -1727,12 +1756,44 @@
           db = new SQL.Database(new Uint8Array(buf));
           try { dbExec("ALTER TABLE runs ADD COLUMN uuid TEXT"); } catch (e) { }
           try { dbExec("ALTER TABLE runs ADD COLUMN paused_ms INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
+          migrateSyncColumns();
           await saveDB();
           return true;
         } catch (e2) {
           db = new SQL.Database(); createSchema(); return false;
         }
       }
+    }
+
+    // ── Fase 1 (3.1/3.2/§6): migración de sincronización ──
+    // attempts.synced: 0 = pendiente de push, 1 = confirmado por el servidor.
+    // runs.synced:     0 = nunca pusheado, 1 = pusheado y sin cambios,
+    //                  2 = pusheado pero con cambios pendientes (re-push).
+    // Además: dedup por uuid de datos históricos + índices ÚNICOS parciales
+    // sobre uuid, que hacen que INSERT OR IGNORE deduplique por uuid en el pull
+    // (bug 3.1: antes solo se deduplicaba por id y el mismo intento podía
+    // acabar dos veces en la DB local, duplicando estadísticas).
+    function migrateSyncColumns() {
+      try { dbExec("ALTER TABLE attempts ADD COLUMN synced INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
+      try { dbExec("ALTER TABLE runs ADD COLUMN synced INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
+      try {
+        // Dedup de attempts: copias del mismo uuid → conservar la más antigua.
+        dbExec(`DELETE FROM attempts WHERE uuid IS NOT NULL AND id NOT IN (
+                  SELECT MIN(id) FROM attempts WHERE uuid IS NOT NULL GROUP BY uuid)`);
+        // Dedup de runs: repuntar attempts/run_items al run conservado.
+        const dups = dbQuery(`SELECT uuid, MIN(id) AS keep_id FROM runs
+                              WHERE uuid IS NOT NULL GROUP BY uuid HAVING COUNT(*) > 1`, []);
+        for (const d of dups) {
+          const extra = dbQuery('SELECT id FROM runs WHERE uuid=? AND id<>?', [d.uuid, d.keep_id]).map(r => r.id);
+          if (!extra.length) continue;
+          const ph = extra.map(() => '?').join(',');
+          dbExec(`UPDATE attempts SET run_id=? WHERE run_id IN (${ph})`, [d.keep_id, ...extra]);
+          dbExec(`DELETE FROM run_items WHERE run_id IN (${ph})`, extra);
+          dbExec(`DELETE FROM runs WHERE id IN (${ph})`, extra);
+        }
+        dbExec('CREATE UNIQUE INDEX IF NOT EXISTS idx_attempts_uuid ON attempts(uuid) WHERE uuid IS NOT NULL');
+        dbExec('CREATE UNIQUE INDEX IF NOT EXISTS idx_runs_uuid ON runs(uuid) WHERE uuid IS NOT NULL');
+      } catch (e) { console.warn('[migrate] uuid index migration failed', e); }
     }
 
     function createSchema() {
@@ -1758,14 +1819,16 @@
     CREATE TABLE IF NOT EXISTS attempts (
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
       problem_id TEXT NOT NULL, run_id INTEGER, result TEXT NOT NULL,
-      time_ms INTEGER, created_at TEXT NOT NULL, uuid TEXT
+      time_ms INTEGER, created_at TEXT NOT NULL, uuid TEXT,
+      synced INTEGER NOT NULL DEFAULT 0
     );
     CREATE TABLE IF NOT EXISTS runs (
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
       set_id INTEGER, chapter_id INTEGER, vc_id INTEGER,
       type TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open',
       total INTEGER NOT NULL DEFAULT 0, done INTEGER NOT NULL DEFAULT 0,
-      started_at TEXT NOT NULL, closed_at TEXT, uuid TEXT, paused_ms INTEGER NOT NULL DEFAULT 0
+      started_at TEXT NOT NULL, closed_at TEXT, uuid TEXT, paused_ms INTEGER NOT NULL DEFAULT 0,
+      synced INTEGER NOT NULL DEFAULT 0
     );
     CREATE TABLE IF NOT EXISTS run_items (
       run_id INTEGER NOT NULL, source TEXT NOT NULL,
@@ -1778,6 +1841,8 @@
     CREATE INDEX IF NOT EXISTS idx_attempts_prob ON attempts(source, problem_id);
     CREATE INDEX IF NOT EXISTS idx_attempts_run  ON attempts(run_id);
     CREATE INDEX IF NOT EXISTS idx_run_items_run ON run_items(run_id);
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_attempts_uuid ON attempts(uuid) WHERE uuid IS NOT NULL;
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_runs_uuid ON runs(uuid) WHERE uuid IS NOT NULL;
     CREATE TABLE IF NOT EXISTS game_collections (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL UNIQUE,
@@ -2110,6 +2175,8 @@
         dbExec(`UPDATE runs SET done=done+1 WHERE id=?`, [run_id]);
         dbExec(`UPDATE runs SET status='closed', closed_at=? WHERE id=? AND done>=total AND status='open'`, [created_at, run_id]);
         dbExec(`UPDATE run_items SET result=? WHERE run_id=? AND problem_id=?`, [result, run_id, problem_id]);
+        // Fase 1 (3.1): el run cambió tras haberse pusheado → re-push (synced=2).
+        dbExec(`UPDATE runs SET synced=2 WHERE id=? AND synced=1`, [run_id]);
         // SM-2: actualizar estado solo si el intento pertenece a un run (no Free Practice)
         updateSm2(source, problem_id, result);
       }
@@ -2186,26 +2253,38 @@
 	function localUpdateRunStatus(run_id, status) {
       const closed_at = status === 'closed' ? new Date().toISOString().replace(/\.\d+Z$/, 'Z') : null;
       dbExec(`UPDATE runs SET status=?, closed_at=? WHERE id=?`, [status, closed_at, run_id]);
+      // Fase 1 (3.1): el run cambió tras haberse pusheado → re-push (synced=2).
+      dbExec(`UPDATE runs SET synced=2 WHERE id=? AND synced=1`, [run_id]);
     }
 
 	async function purgeEmptyRuns() {
       const cutoff = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
+      // Fase 1 (3.3): done=0 añadido — los runs de review no tienen run_items,
+      // por lo que el criterio anterior (0 run_items con resultado) los
+      // consideraba "vacíos" y borraba runs con historial válido. Un run con
+      // done>0 nunca es purgable. Se excluye también el run activo.
       const stale = dbQuery(
-        `SELECT id FROM runs WHERE started_at < ? AND
+        `SELECT id, uuid FROM runs WHERE started_at < ? AND done = 0 AND
          (SELECT COUNT(*) FROM run_items WHERE run_id=runs.id AND result IS NOT NULL) = 0`,
         [cutoff]
-      );
+      ).filter(r => r.id !== activeRunId);
       if (!stale.length) return;
       const ids = stale.map(r => r.id);
       const ph = ids.map(() => '?').join(',');
       dbExec(`DELETE FROM run_items WHERE run_id IN (${ph})`, ids);
       dbExec(`DELETE FROM runs WHERE id IN (${ph})`, ids);
       await saveDB();
+      // Fase 1 (3.3): al servidor se envían SIEMPRE uuids. Antes se enviaban
+      // ids autoincrement locales, que en el servidor pueden corresponder a
+      // runs distintos → borrado de runs equivocados. Los runs sin uuid solo
+      // se eliminan localmente.
+      const uuids = stale.map(r => r.uuid).filter(Boolean);
+      if (!uuids.length) return;
       try {
-        await fetch(`${SYNC_SERVER}/db/runs/delete`, {
+        await syncFetch(`/db/runs/delete`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ids }),
+          body: JSON.stringify({ uuids }),
           signal: AbortSignal.timeout(5000)
         });
       } catch (e) { console.warn('[purgeEmptyRuns] server delete failed', e); }
@@ -2213,52 +2292,157 @@
 	
     // ══ SYNC ══
     async function tryAutoSync(silent = false) {
-      if (syncInProgress) return;
+      if (syncInProgress) return false;
       syncInProgress = true;
       if (!silent) setSyncStatus('syncing');
-      try { await doSync(silent); setSyncStatus('ok'); }
-      catch (e) { setSyncStatus('idle'); }
+      try { await doSync(silent); setSyncStatus('ok'); return true; }
+      catch (e) { setSyncStatus('idle'); return false; }
       finally { syncInProgress = false; }
     }
     async function doSync(lightMode = false) {
-      const maxServerAttemptId = dbQueryOne('SELECT MAX(id) AS m FROM attempts WHERE uuid IS NULL', [])?.m || 0;
-      const maxServerRunId = dbQueryOne('SELECT MAX(id) AS m FROM runs WHERE uuid IS NULL', [])?.m || 0;
-      const pullR = await fetch(`${SYNC_SERVER}/sync/pull?since_attempt_id=${maxServerAttemptId}&since_run_id=${maxServerRunId}`, { signal: AbortSignal.timeout(90000) });
+      // ── Fase 1 (3.1): cursores de pull persistentes ──
+      // El cursor antiguo (MAX(id) WHERE uuid IS NULL) no avanzaba con filas
+      // que llevan uuid, así que cada pull re-descargaba el mismo rango una y
+      // otra vez. Se conserva como suelo de compatibilidad y se añade un
+      // cursor persistido que avanza SOLO con ids realmente recibidos en el
+      // pull (nunca con ids del push: podrían saltarse filas intermedias de
+      // otros dispositivos). Los cursores se escriben en localStorage al final,
+      // únicamente tras un saveDB() exitoso (3.10: el cursor no debe adelantar
+      // a la DB persistida).
+      const cursorUpdates = {};
+      const heurAttemptId = dbQueryOne('SELECT MAX(id) AS m FROM attempts WHERE uuid IS NULL', [])?.m || 0;
+      const heurRunId = dbQueryOne('SELECT MAX(id) AS m FROM runs WHERE uuid IS NULL', [])?.m || 0;
+      // Cursor huérfano: localStorage y la DB (IndexedDB) tienen ciclos de vida
+      // independientes. Si la tabla local está vacía (instalación nueva o
+      // reset de la DB con localStorage superviviente), el cursor guardado se
+      // ignora; de lo contrario el pull nunca recuperaría el historial. Al
+      // final del sync el cursor se reescribe con el valor correcto.
+      const haveAttempts = (dbQueryOne('SELECT COUNT(*) AS c FROM attempts', [])?.c || 0) > 0;
+      const haveRuns = (dbQueryOne('SELECT COUNT(*) AS c FROM runs', [])?.c || 0) > 0;
+      const sinceAttemptId = Math.max(heurAttemptId, haveAttempts ? (parseInt(localStorage.getItem('last_pull_attempt_id') || '0', 10) || 0) : 0);
+      const sinceRunId = Math.max(heurRunId, haveRuns ? (parseInt(localStorage.getItem('last_pull_run_id') || '0', 10) || 0) : 0);
+      let maxPullAttemptId = sinceAttemptId, maxPullRunId = sinceRunId;
+      const pullR = await syncFetch(`/sync/pull?since_attempt_id=${sinceAttemptId}&since_run_id=${sinceRunId}`, { signal: AbortSignal.timeout(90000) });
       if (!pullR.ok) throw new Error('pull failed');
       const pulled = await pullR.json();
-      const stmtA = db.prepare(`INSERT OR IGNORE INTO attempts (id,source,problem_id,run_id,result,time_ms,created_at,uuid) VALUES (?,?,?,?,?,?,?,?)`);
-      for (const a of pulled.attempts) stmtA.run([a.id, a.source, a.problem_id, a.run_id, a.result, a.time_ms, a.created_at, a.uuid ?? null]);
-      stmtA.free();
+      // Lo recibido del servidor entra ya como sincronizado (synced=1) para no
+      // re-enviarlo. El índice ÚNICO sobre uuid hace que INSERT OR IGNORE
+      // deduplique también por uuid (3.1).
+      //
+      // Los ids del SERVIDOR ya no se reutilizan como PK local: las filas con
+      // uuid se insertan con autoincrement local y la correlación es por uuid.
+      // Antes, si un id local autoincrement ya ocupaba el valor del id del
+      // servidor (datos creados en este dispositivo antes de su primer sync),
+      // la fila del servidor se descartaba en silencio y no volvía jamás. Los
+      // ids del servidor solo se usan ya para el cursor del pull. Las filas
+      // LEGACY sin uuid conservan el comportamiento anterior (id del servidor
+      // + OR IGNORE): sin uuid, el id es su única clave de deduplicación.
+      //
+      // Runs ANTES que attempts: cada attempt remapea run_id a su id LOCAL
+      // vía run_uuid, incluidos los runs recién insertados en este mismo lote.
+      const runLocalId = new Map(); // run_uuid → id local (caché del lote)
       for (const r of pulled.runs) {
-        const exists = r.uuid ? dbQueryOne('SELECT id FROM runs WHERE uuid=?', [r.uuid]) : dbQueryOne('SELECT id FROM runs WHERE id=?', [r.id]);
-        if (!exists) {
-          dbExec(`INSERT OR IGNORE INTO runs (id,source,set_id,chapter_id,vc_id,type,status,total,done,started_at,closed_at,uuid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)`,
-            [r.id, r.source, r.set_id, r.chapter_id, r.vc_id, r.type, r.status, r.total, r.done, r.started_at, r.closed_at, r.uuid ?? null]);
+        if (r.id > maxPullRunId) maxPullRunId = r.id;
+        if (r.uuid) {
+          let localRun = dbQueryOne('SELECT id FROM runs WHERE uuid=?', [r.uuid]);
+          if (!localRun) {
+            dbExec(`INSERT OR IGNORE INTO runs (source,set_id,chapter_id,vc_id,type,status,total,done,started_at,closed_at,uuid,synced) VALUES (?,?,?,?,?,?,?,?,?,?,?,1)`,
+              [r.source, r.set_id, r.chapter_id, r.vc_id, r.type, r.status, r.total, r.done, r.started_at, r.closed_at, r.uuid]);
+            localRun = dbQueryOne('SELECT id FROM runs WHERE uuid=?', [r.uuid]);
+            if (localRun) {
+              for (const ri of (pulled.run_items || []).filter(i => i.run_id === r.id))
+                dbExec(`INSERT OR IGNORE INTO run_items (run_id,source,problem_id,order_in_run,result) VALUES (?,?,?,?,?)`, [localRun.id, ri.source, ri.problem_id, ri.order_in_run, ri.result]);
+            }
+          }
+          if (localRun) runLocalId.set(r.uuid, localRun.id);
+        } else if (!dbQueryOne('SELECT id FROM runs WHERE id=?', [r.id])) {
+          // legacy sin uuid: comportamiento previo intacto (id del servidor)
+          dbExec(`INSERT OR IGNORE INTO runs (id,source,set_id,chapter_id,vc_id,type,status,total,done,started_at,closed_at,uuid,synced) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,1)`,
+            [r.id, r.source, r.set_id, r.chapter_id, r.vc_id, r.type, r.status, r.total, r.done, r.started_at, r.closed_at, null]);
           for (const ri of (pulled.run_items || []).filter(i => i.run_id === r.id))
             dbExec(`INSERT OR IGNORE INTO run_items (run_id,source,problem_id,order_in_run,result) VALUES (?,?,?,?,?)`, [ri.run_id, ri.source, ri.problem_id, ri.order_in_run, ri.result]);
         }
       }
-      const newAttempts = dbQuery('SELECT * FROM attempts WHERE uuid IS NOT NULL', []).map(a => ({ ...a, client_id: a.id }));
-      const newRuns = dbQuery('SELECT * FROM runs WHERE uuid IS NOT NULL', []).map(r => ({ ...r, run_items: dbQuery('SELECT * FROM run_items WHERE run_id=?', [r.id]) }));
-      if (newAttempts.length || newRuns.length) {
-        const pushR = await fetch(`${SYNC_SERVER}/sync/push`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ attempts: newAttempts, runs: newRuns }), signal: AbortSignal.timeout(90000) });
-        if (!pushR.ok) throw new Error('push failed');
+      const stmtA = db.prepare(`INSERT OR IGNORE INTO attempts (source,problem_id,run_id,result,time_ms,created_at,uuid,synced) VALUES (?,?,?,?,?,?,?,1)`);
+      const stmtALegacy = db.prepare(`INSERT OR IGNORE INTO attempts (id,source,problem_id,run_id,result,time_ms,created_at,uuid,synced) VALUES (?,?,?,?,?,?,?,?,1)`);
+      for (const a of pulled.attempts) {
+        if (a.id > maxPullAttemptId) maxPullAttemptId = a.id;
+        if (!a.uuid) {
+          // legacy sin uuid: comportamiento previo intacto
+          stmtALegacy.run([a.id, a.source, a.problem_id, a.run_id, a.result, a.time_ms, a.created_at, null]);
+          continue;
+        }
+        // remapeo de run_id al id LOCAL:
+        // - clave run_uuid ausente → servidor ANTIGUO: usar a.run_id tal cual
+        //   (semántica previa; solo durante la transición de despliegue)
+        // - run_uuid con valor → id local por uuid; si no existe → NULL
+        // - run_uuid null → run legacy sin uuid o run borrado en servidor:
+        //   usar a.run_id solo si existe un run local con ese id y sin uuid
+        //   (los runs legacy conservan el id del servidor por construcción)
+        let localRunId = null;
+        if (!('run_uuid' in a)) {
+          localRunId = a.run_id ?? null;
+        } else if (a.run_uuid) {
+          if (runLocalId.has(a.run_uuid)) {
+            localRunId = runLocalId.get(a.run_uuid);
+          } else {
+            const row = dbQueryOne('SELECT id FROM runs WHERE uuid=?', [a.run_uuid]);
+            localRunId = row ? row.id : null;
+            runLocalId.set(a.run_uuid, localRunId);
+          }
+        } else if (a.run_id != null && dbQueryOne('SELECT id FROM runs WHERE id=? AND uuid IS NULL', [a.run_id])) {
+          localRunId = a.run_id;
+        }
+        stmtA.run([a.source, a.problem_id, localRunId, a.result, a.time_ms, a.created_at, a.uuid]);
       }
+      stmtA.free();
+      stmtALegacy.free();
+      // ── Fase 1 (3.1): push SOLO de pendientes ──
+      // Antes se enviaba el historial completo en cada auto-sync (uno por
+      // intento resuelto). Ahora: attempts con synced=0 y runs con synced<>1
+      // (0 = nunca pusheado, 2 = pusheado pero modificado después; el servidor
+      // actualiza status/done/run_items de runs ya existentes). Cada attempt
+      // adjunta run_uuid para que el servidor resuelva su run aunque este ya
+      // no viaje en el payload.
+      const newAttempts = dbQuery(`SELECT a.*, r.uuid AS run_uuid FROM attempts a
+        LEFT JOIN runs r ON r.id = a.run_id
+        WHERE a.uuid IS NOT NULL AND a.synced = 0`, []).map(a => ({ ...a, client_id: a.id }));
+      const newRuns = dbQuery(`SELECT * FROM runs WHERE uuid IS NOT NULL AND synced <> 1`, []).map(r => ({ ...r, run_items: dbQuery('SELECT * FROM run_items WHERE run_id=?', [r.id]) }));
+      if (newAttempts.length || newRuns.length) {
+        const pushR = await syncFetch(`/sync/push`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ attempts: newAttempts, runs: newRuns }), signal: AbortSignal.timeout(90000) });
+        if (!pushR.ok) throw new Error('push failed');
+        // Marcar como sincronizado SOLO lo enviado en este push: los intentos
+        // creados mientras el push estaba en vuelo conservan synced=0 y saldrán
+        // en el siguiente. En chunks para respetar el límite de variables.
+        const CHUNK = 400;
+        const attIds = newAttempts.map(a => a.id);
+        for (let i = 0; i < attIds.length; i += CHUNK) {
+          const slice = attIds.slice(i, i + CHUNK);
+          dbExec(`UPDATE attempts SET synced=1 WHERE id IN (${slice.map(() => '?').join(',')})`, slice);
+        }
+        // Un run solo pasa a synced=1 si NO ha cambiado durante el push en
+        // vuelo (mismos done/status); si cambió, sigue pendiente de re-push.
+        for (const r of newRuns) {
+          dbExec(`UPDATE runs SET synced=1 WHERE id=? AND done=? AND status=?`, [r.id, r.done, r.status]);
+        }
+      }
+      cursorUpdates['last_pull_attempt_id'] = String(maxPullAttemptId);
+      cursorUpdates['last_pull_run_id'] = String(maxPullRunId);
       if (!lightMode) {
         try {
-          const vR = await fetch(`${SYNC_SERVER}/sync/static_version`, { signal: AbortSignal.timeout(5000) });
+          const vR = await syncFetch(`/sync/static_version`, { signal: AbortSignal.timeout(5000) });
           if (vR.ok) {
             const { version } = await vR.json();
             const localVersion = parseInt(localStorage.getItem('static_version') || '0');
             if (version !== localVersion) {
-              const snapR = await fetch(`${SYNC_SERVER}/sync/snapshot`, { signal: AbortSignal.timeout(120000) });
+              const snapR = await syncFetch(`/sync/snapshot`, { signal: AbortSignal.timeout(120000) });
               if (snapR.ok) { importSnapshot(await snapR.json()); localStorage.setItem('static_version', String(version)); }
             }
           }
         } catch (e) { console.warn('[sync] static_version check failed', e); }
         // ── Sync games ──
         try {
-          const gR = await fetch(`${SYNC_SERVER}/sync/games`, { signal: AbortSignal.timeout(10000) });
+          const gR = await syncFetch(`/sync/games`, { signal: AbortSignal.timeout(10000) });
           if (gR.ok) {
             const { game_collections, games } = await gR.json();
             for (const col of game_collections) {
@@ -2273,7 +2457,7 @@
 	  // ── Sync mostrar ──
       const chapMostrar = dbQuery('SELECT id, mostrar FROM chapters', []);
       try {
-        await fetch(`${SYNC_SERVER}/sync/chapters_mostrar`, {
+        await syncFetch(`/sync/chapters_mostrar`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ chapters: chapMostrar }),
@@ -2281,15 +2465,26 @@
         });
       } catch (_) { }
       // ── Sync SM-2 ──
+      // Fase 1 (3.10, solo el cursor): last_sm2_sync ya NO se fija con el reloj
+      // del cliente (un reloj adelantado saltaba para siempre registros del
+      // servidor). Avanza al mayor updated_at efectivamente recibido del
+      // servidor o confirmado en el push. El push usa >= (y el servidor lo usa
+      // en el pull) para no excluir registros escritos en el mismo segundo que
+      // el cursor; re-enviar el registro frontera es un no-op (LWW).
       try {
-        const lastSm2Sync = localStorage.getItem('last_sm2_sync') || '1970-01-01T00:00:00Z';
+        // Cursor huérfano (mismo caso que el pull): con sm2_state vacía el
+        // cursor guardado se ignora para poder recuperar el estado completo.
+        const haveSm2 = (dbQueryOne('SELECT COUNT(*) AS c FROM sm2_state', [])?.c || 0) > 0;
+        const lastSm2Sync = haveSm2 ? (localStorage.getItem('last_sm2_sync') || '1970-01-01T00:00:00Z') : '1970-01-01T00:00:00Z';
+        let sm2Cursor = lastSm2Sync;
         // Pull: recibir estados del servidor más recientes que nuestro cursor
-        const sm2PullR = await fetch(`${SYNC_SERVER}/sync/sm2/pull?since=${encodeURIComponent(lastSm2Sync)}`, {
+        const sm2PullR = await syncFetch(`/sync/sm2/pull?since=${encodeURIComponent(lastSm2Sync)}`, {
           signal: AbortSignal.timeout(8000)
         });
         if (sm2PullR.ok) {
           const { sm2_state: pulled } = await sm2PullR.json();
           for (const r of pulled) {
+            if (r.updated_at > sm2Cursor) sm2Cursor = r.updated_at;
             const existing = dbQueryOne(
               'SELECT updated_at FROM sm2_state WHERE source=? AND problem_id=?',
               [r.source, r.problem_id]
@@ -2309,26 +2504,36 @@
             }
           }
         }
-        // Push: enviar estados modificados desde el último sync
+        // Push: enviar estados modificados desde el último sync (>=: el
+        // registro frontera se incluye para cubrir escrituras en el mismo
+        // segundo que el cursor)
         const pendingSm2 = dbQuery(
-          'SELECT * FROM sm2_state WHERE updated_at > ?',
+          'SELECT * FROM sm2_state WHERE updated_at >= ?',
           [lastSm2Sync]
         );
+        let sm2PushOk = true;
         if (pendingSm2.length > 0) {
-          const sm2PushR = await fetch(`${SYNC_SERVER}/sync/sm2/push`, {
+          const sm2PushR = await syncFetch(`/sync/sm2/push`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ sm2_state: pendingSm2 }),
             signal: AbortSignal.timeout(8000)
           });
+          sm2PushOk = sm2PushR.ok;
           if (sm2PushR.ok) {
-            localStorage.setItem('last_sm2_sync', new Date().toISOString().replace(/\.\d+Z$/, 'Z'));
+            for (const r of pendingSm2) if (r.updated_at > sm2Cursor) sm2Cursor = r.updated_at;
           }
-        } else {
-          localStorage.setItem('last_sm2_sync', new Date().toISOString().replace(/\.\d+Z$/, 'Z'));
         }
+        // El cursor solo avanza si el push tuvo éxito (o no había pendientes):
+        // si avanzara tras un push fallido, los registros locales anteriores al
+        // nuevo cursor no volverían a enviarse jamás.
+        if (sm2PushOk && sm2Cursor > lastSm2Sync) cursorUpdates['last_sm2_sync'] = sm2Cursor;
       } catch (e) { console.warn('[sync] sm2 sync failed', e); }
       await saveDB();
+      // Fase 1 (3.10): los cursores se persisten SOLO tras un saveDB() exitoso.
+      // Si saveDB lanza, el próximo sync repite el rango (inocuo: dedup por
+      // uuid y LWW en SM-2), en vez de saltárselo para siempre.
+      for (const k in cursorUpdates) localStorage.setItem(k, cursorUpdates[k]);
     }
     function setSyncStatus(state) {
 	  const btn = document.getElementById('cfg-sync-btn');
@@ -2525,6 +2730,7 @@
     async function openConfig() {
       document.getElementById('cfg-overlay').classList.add('open');
       document.getElementById('cfg-sync-url').value = SYNC_SERVER;
+      document.getElementById('cfg-sync-token').value = localStorage.getItem(SYNC_TOKEN_KEY) || '';
       if (!visualConfigLoaded) await loadVisualConfig();
       renderColorPills();
       renderBoardNav();
@@ -2855,6 +3061,12 @@
       SYNC_SERVER = e.target.value.trim().replace(/\/$/, '');
       localStorage.setItem(SYNC_SERVER_KEY, SYNC_SERVER);
     });
+    // Fase 1 (§4.1): token de autenticación opcional (X-Auth-Token). Vacío =
+    // sin cabecera, compatible con servidores sin TSUMEVAULT_TOKEN definido.
+    document.getElementById('cfg-sync-token').addEventListener('change', e => {
+      const v = e.target.value.trim();
+      if (v) localStorage.setItem(SYNC_TOKEN_KEY, v); else localStorage.removeItem(SYNC_TOKEN_KEY);
+    });
     document.getElementById('cfg-sync-btn').addEventListener('click', async () => {
       if (syncInProgress) return;
       syncInProgress = true; setSyncStatus('syncing');
@@ -3145,7 +3357,7 @@
             chap.mostrar = val;
             await saveDB();
             try {
-              await fetch(SYNC_SERVER + '/db/chapter/mostrar', {
+              await syncFetch('/db/chapter/mostrar', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ chapter_id: chap.id, mostrar: val }),
@@ -3203,11 +3415,16 @@
     }
 	
 	async function syncDeletedRuns() {
-      const localRuns = dbQuery(`SELECT id, uuid FROM runs WHERE uuid IS NOT NULL`, []);
+      // Fase 1 (3.2): solo se comprueban runs que el servidor confirmó alguna
+      // vez (synced<>0). Un run creado offline y aún no pusheado ya no puede
+      // borrarse localmente antes de tener la oportunidad de enviarse. Además
+      // esta función se ejecuta ahora DESPUÉS de un push exitoso (ver init),
+      // no antes del primer sync.
+      const localRuns = dbQuery(`SELECT id, uuid FROM runs WHERE uuid IS NOT NULL AND synced <> 0`, []);
       if (!localRuns.length) return;
       const uuids = localRuns.map(r => r.uuid);
       try {
-        const r = await fetch(`${SYNC_SERVER}/sync/check_runs`, {
+        const r = await syncFetch(`/sync/check_runs`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ uuids }),
@@ -3239,7 +3456,7 @@
       try {
         const payload = run.uuid ? { uuids: [run.uuid] } : { ids: [run_id] };
         console.log('[deleteRun] enviando al servidor:', JSON.stringify(payload));
-        const r = await fetch(`${SYNC_SERVER}/db/runs/delete`, {
+        const r = await syncFetch(`/db/runs/delete`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
@@ -3683,9 +3900,12 @@
         if (!runMode) { if (result === 'correct') sessionOk++; else sessionNo++; }
         const time_ms = Date.now() - problemStartTime - totalPaused;
         localInsertAttempt(currentSource, currentProblem.problem_id, activeRunId || null, result, time_ms);
-        attemptsSinceLastSave = (attemptsSinceLastSave || 0) + 1;
-        if (attemptsSinceLastSave >= 10) { attemptsSinceLastSave = 0; saveDB().then(() => tryAutoSync(true)).catch(() => { }); }
-        else { tryAutoSync(true).catch(() => { }); }
+        // Fase 1 (3.4): persistencia incondicional (debounced ~1,5 s) tras CADA
+        // intento. Antes solo se guardaba cada 10 intentos y, sin conexión, un
+        // cierre de la pestaña/PWA perdía hasta 9 intentos con sus run_items y
+        // estados SM-2.
+        scheduleSaveDB();
+        tryAutoSync(true).catch(() => { });
         if (runMode && runItems[runIdx]) runItems[runIdx].result = result;
       }
       function checkResult(node) {
@@ -4109,9 +4329,11 @@
     (async () => {
 	  await initDB();
       await purgeEmptyRuns();
-      await syncDeletedRuns();
       loadCollections();
-      tryAutoSync(true).then(() => loadCollections());
+      // Fase 1 (3.2): syncDeletedRuns SOLO tras un push exitoso en esta sesión.
+      // Antes corría antes del primer sync y borraba runs creados offline que
+      // aún no habían tenido oportunidad de enviarse.
+      tryAutoSync(true).then(async ok => { if (ok) await syncDeletedRuns(); loadCollections(); });
       gmInitControls();
 	  if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('/tsumevault/sw.js?' + SW_VERSION).then(() => {
