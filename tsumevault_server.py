@@ -22,42 +22,84 @@ Endpoints:
     PUT  /db/run       { id, status? }
 """
 
+import gzip
 import json
+import logging
 import os
 import random
 import sqlite3
 import sys
+import threading
 from datetime import datetime, timezone
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
 # ── Config ────────────────────────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 3002
 DB_PATH = os.path.join(SCRIPT_DIR, "tsumeVault.db")
+
+# Token estático de autenticación (Fase 1, §4.1). Si la variable de entorno
+# TSUMEVAULT_TOKEN no está definida, la autenticación queda DESACTIVADA
+# (modo compatibilidad: clientes antiguos siguen funcionando).
+AUTH_TOKEN = os.environ.get("TSUMEVAULT_TOKEN", "").strip()
+
+# Orígenes permitidos para CORS y para la verificación de Origin en escrituras.
+# Sobreescribible con TSUMEVAULT_ORIGINS (lista separada por comas).
+ALLOWED_ORIGINS = {
+    o.strip()
+    for o in os.environ.get(
+        "TSUMEVAULT_ORIGINS",
+        "https://vai-arch.github.io,http://localhost:3000,http://127.0.0.1:3000",
+    ).split(",")
+    if o.strip()
+}
+
+# Límite de tamaño del body (Fase 1, §4.2): rechaza payloads absurdos con 413.
+MAX_BODY_BYTES = 10 * 1024 * 1024  # 10 MB
+
+# El servidor pasa a ThreadingHTTPServer (una conexión lenta ya no bloquea el
+# servicio). Este lock serializa TODO el acceso a SQLite, preservando
+# exactamente la semántica single-thread previa: cero carreras SQL nuevas.
+DB_LOCK = threading.Lock()
+
+log = logging.getLogger("tsumevault")
+
+
+class _BodyError(Exception):
+    """Body HTTP inválido (demasiado grande o JSON malformado)."""
+
+    def __init__(self, code, msg):
+        super().__init__(msg)
+        self.code = code
 # ─────────────────────────────────────────────────────────────────────────────
 
 def handle_delete_runs(body):
     ids = body.get("ids", [])
     uuids = body.get("uuids", [])
+    if not isinstance(ids, list) or not isinstance(uuids, list):
+        return {"error": "ids/uuids must be lists"}, 400
     if not ids and not uuids:
         return {"error": "ids or uuids required"}, 400
-    print(f"[delete_runs] ids={ids} uuids={uuids}")
     with db_connect() as con:
         if ids:
+            # TODO(Fase 2): retirar la ruta por ids locales cuando todos los
+            # clientes usen uuids (bug 3.3 de la auditoría: los ids del cliente
+            # no se corresponden con los del servidor). Se mantiene solo por
+            # compatibilidad con clientes antiguos durante la transición.
+            try:
+                ids = [int(i) for i in ids]
+            except (TypeError, ValueError):
+                return {"error": "invalid ids"}, 400
             placeholders = ",".join("?" * len(ids))
-            rows = con.execute(f"SELECT id FROM runs WHERE id IN ({placeholders})", ids).fetchall()
-            print(f"[delete_runs] runs encontrados por id: {[r[0] for r in rows]}")
             con.execute(f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE id IN ({placeholders}))", ids)
             con.execute(f"DELETE FROM runs WHERE id IN ({placeholders})", ids)
         if uuids:
             placeholders = ",".join("?" * len(uuids))
-            rows = con.execute(f"SELECT id, uuid FROM runs WHERE uuid IN ({placeholders})", uuids).fetchall()
-            print(f"[delete_runs] runs encontrados por uuid: {[(r[0], r[1]) for r in rows]}")
             con.execute(f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))", uuids)
             con.execute(f"DELETE FROM runs WHERE uuid IN ({placeholders})", uuids)
         con.commit()
-    print(f"[delete_runs] borrado completado")
+    log.info("delete_runs: %d ids, %d uuids", len(ids), len(uuids))
     return {"ok": True}
 
 def db_connect():
@@ -85,12 +127,12 @@ def migrate_db():
         if "uuid" not in cols:
             con.execute("ALTER TABLE runs ADD COLUMN uuid TEXT")
             con.commit()
-            print("[migrate] Columna uuid añadida a runs.")
+            log.info("[migrate] Columna uuid añadida a runs.")
         cols_a = [r[1] for r in con.execute("PRAGMA table_info(attempts)").fetchall()]
         if "uuid" not in cols_a:
             con.execute("ALTER TABLE attempts ADD COLUMN uuid TEXT")
             con.commit()
-            print("[migrate] Columna uuid añadida a attempts.")
+            log.info("[migrate] Columna uuid añadida a attempts.")
 
         cols_ch = [r[1] for r in con.execute("PRAGMA table_info(chapters)").fetchall()]
         if "mostrar" not in cols_ch:
@@ -98,7 +140,51 @@ def migrate_db():
                 "ALTER TABLE chapters ADD COLUMN mostrar INTEGER NOT NULL DEFAULT 0"
             )
             con.commit()
-            print("[migrate] Columna mostrar añadida a chapters.")
+            log.info("[migrate] Columna mostrar añadida a chapters.")
+
+        # ── Fase 1 (3.1/§6): dedup por uuid + índices ÚNICOS sobre uuid ──
+        # Attempts duplicados con el mismo uuid son copias del mismo intento:
+        # se conserva el más antiguo (MIN(id)).
+        cur = con.execute(
+            """
+            DELETE FROM attempts WHERE uuid IS NOT NULL AND id NOT IN (
+                SELECT MIN(id) FROM attempts WHERE uuid IS NOT NULL GROUP BY uuid)
+            """
+        )
+        if cur.rowcount:
+            log.info("[migrate] %d attempts duplicados por uuid eliminados.", cur.rowcount)
+        # Runs duplicados por uuid: repuntar attempts al run conservado,
+        # eliminar run_items redundantes y borrar los duplicados.
+        dup_runs = con.execute(
+            """
+            SELECT uuid, MIN(id) AS keep_id FROM runs
+            WHERE uuid IS NOT NULL GROUP BY uuid HAVING COUNT(*) > 1
+            """
+        ).fetchall()
+        for row in dup_runs:
+            keep_id, run_uuid = row["keep_id"], row["uuid"]
+            extra = [
+                r[0]
+                for r in con.execute(
+                    "SELECT id FROM runs WHERE uuid=? AND id<>?", (run_uuid, keep_id)
+                ).fetchall()
+            ]
+            if not extra:
+                continue
+            ph = ",".join("?" * len(extra))
+            con.execute(f"UPDATE attempts SET run_id=? WHERE run_id IN ({ph})", [keep_id] + extra)
+            con.execute(f"DELETE FROM run_items WHERE run_id IN ({ph})", extra)
+            con.execute(f"DELETE FROM runs WHERE id IN ({ph})", extra)
+            log.info("[migrate] run uuid=%s: %d duplicados fusionados en id=%d.", run_uuid, len(extra), keep_id)
+        # Índices únicos parciales: garantizan dedup por uuid y aceleran los
+        # lookups de handle_sync_push (antes eran full scans, §5.2).
+        con.execute(
+            "CREATE UNIQUE INDEX IF NOT EXISTS idx_attempts_uuid ON attempts(uuid) WHERE uuid IS NOT NULL"
+        )
+        con.execute(
+            "CREATE UNIQUE INDEX IF NOT EXISTS idx_runs_uuid ON runs(uuid) WHERE uuid IS NOT NULL"
+        )
+        con.commit()
 
         # sm2_state
         con.execute("""
@@ -115,7 +201,7 @@ def migrate_db():
         """)
         con.execute("CREATE INDEX IF NOT EXISTS idx_sm2_updated ON sm2_state(updated_at)")
         con.commit()
-        print("[migrate] Tabla sm2_state OK.")
+        log.info("[migrate] Migraciones completadas.")
 
 
 # ── GET handlers ──────────────────────────────────────────────────────────────
@@ -497,6 +583,9 @@ def handle_post_attempt(body):
     for f in ("source", "problem_id", "result"):
         if f not in body:
             return {"error": f"missing: {f}"}, 400
+    if body["result"] not in ("correct", "wrong"):
+        # Fase 1 (3.11): antes se insertaba cualquier valor sin validar.
+        return {"error": "result must be correct|wrong"}, 400
     with db_connect() as con:
         result = body["result"]
         con.execute(
@@ -597,13 +686,15 @@ def handle_post_run(body):
 def handle_put_run(body):
     if "id" not in body:
         return {"error": "id required"}, 400
+    if "status" not in body:
+        # Fase 1 (3.11): antes respondía {ok:true} sin hacer nada.
+        return {"error": "status required"}, 400
     with db_connect() as con:
-        if "status" in body:
-            closed_at = now_iso() if body["status"] == "closed" else None
-            con.execute(
-                "UPDATE runs SET status=?, closed_at=? WHERE id=?",
-                (body["status"], closed_at, int(body["id"])),
-            )
+        closed_at = now_iso() if body["status"] == "closed" else None
+        con.execute(
+            "UPDATE runs SET status=?, closed_at=? WHERE id=?",
+            (body["status"], closed_at, int(body["id"])),
+        )
         con.commit()
     return {"ok": True}
 
@@ -669,11 +760,17 @@ def handle_admin_import_games(body):
 
 
 def handle_sync_sm2_pull(qs):
-    """Devuelve registros sm2_state actualizados desde el timestamp indicado."""
+    """Devuelve registros sm2_state actualizados desde el timestamp indicado.
+
+    Fase 1 (3.10): se usa >= en lugar de > para que, con resolución de
+    segundo, un registro escrito en el mismo segundo que el cursor no quede
+    excluido para siempre. El cliente aplica LWW, así que re-recibir el
+    registro frontera es un no-op inocuo.
+    """
     since = qs.get("since", ["1970-01-01T00:00:00Z"])[0]
     with db_connect() as con:
         rows = rows_to_list(con.execute(
-            "SELECT * FROM sm2_state WHERE updated_at > ? ORDER BY updated_at ASC",
+            "SELECT * FROM sm2_state WHERE updated_at >= ? ORDER BY updated_at ASC",
             (since,)
         ).fetchall())
     return {"sm2_state": rows}
@@ -682,6 +779,13 @@ def handle_sync_sm2_pull(qs):
 def handle_sync_sm2_push(body):
     """Recibe registros sm2_state del cliente y los inserta/actualiza."""
     records = body.get("sm2_state", [])
+    # ── Validación de entrada (Fase 1, 3.11) ──
+    if not isinstance(records, list):
+        return {"error": "sm2_state must be a list"}, 400
+    required = ("source", "problem_id", "due_date", "interval", "easiness", "repetitions", "updated_at")
+    for r in records:
+        if not isinstance(r, dict) or any(f not in r for f in required):
+            return {"error": "invalid sm2_state entry"}, 400
     with db_connect() as con:
         for r in records:
             existing = con.execute(
@@ -724,9 +828,15 @@ def handle_sync_pull(qs):
     since_attempt_id = int(qs.get("since_attempt_id", ["0"])[0])
     since_run_id = int(qs.get("since_run_id", ["0"])[0])
     with db_connect() as con:
+        # run_uuid acompaña a cada attempt para que los clientes nuevos puedan
+        # remapear run_id a su id LOCAL (los ids del servidor ya no se reutilizan
+        # como PK local; ver colisión de ids en la auditoría). Los clientes
+        # antiguos ignoran la clave extra.
         attempts = rows_to_list(
             con.execute(
-                "SELECT * FROM attempts WHERE id > ? ORDER BY id ASC",
+                """SELECT a.*, r.uuid AS run_uuid FROM attempts a
+                   LEFT JOIN runs r ON r.id = a.run_id
+                   WHERE a.id > ? ORDER BY a.id ASC""",
                 (since_attempt_id,),
             ).fetchall()
         )
@@ -757,34 +867,31 @@ def handle_sync_push(body):
     """
     attempts_in = body.get("attempts", [])
     runs_in = body.get("runs", [])
-    
-    
-    # LOG completo del payload
-    with open("sync_push_log.json", "w", encoding="utf-8") as f:
-        json.dump({
-            "runs_count": len(runs_in),
-            "attempts_count": len(attempts_in),
-            "runs": [{
-                "id": r.get("id"),
-                "uuid": r.get("uuid"),
-                "source": r.get("source"),
-                "chapter_id": r.get("chapter_id"),
-                "type": r.get("type"),
-                "status": r.get("status"),
-                "total": r.get("total"),
-                "done": r.get("done"),
-                "run_items_count": len(r.get("run_items", [])),
-                "run_items_sources": list(set(i.get("source") for i in r.get("run_items", []))),
-                "run_items_chapter_ids": list(set(
-                    # no tenemos chapter_id en run_items, pero sí problem_id
-                    str(i.get("problem_id")) for i in r.get("run_items", [])[:3]  # primeros 3 como muestra
-                )),
-            } for r in runs_in],
-            "attempts_run_ids": list(set(a.get("run_id") for a in attempts_in)),
-        }, f, indent=2)
-    print(f"[sync/push] {len(runs_in)} runs, {len(attempts_in)} attempts")
-    
-    
+
+    # ── Validación de entrada (Fase 1, 3.11) ──
+    if not isinstance(attempts_in, list) or not isinstance(runs_in, list):
+        return {"error": "attempts/runs must be lists"}, 400
+    for a in attempts_in:
+        if not isinstance(a, dict):
+            return {"error": "invalid attempt entry"}, 400
+        for f in ("source", "problem_id", "result", "created_at"):
+            if f not in a:
+                return {"error": f"attempt missing field: {f}"}, 400
+        if a["result"] not in ("correct", "wrong"):
+            return {"error": "invalid attempt result"}, 400
+    for r in runs_in:
+        if not isinstance(r, dict):
+            return {"error": "invalid run entry"}, 400
+        if not r.get("uuid"):
+            continue  # los runs sin uuid se ignoran (comportamiento previo)
+        for f in ("source", "type", "status", "total", "done", "started_at"):
+            if f not in r:
+                return {"error": f"run missing field: {f}"}, 400
+        if not isinstance(r.get("run_items", []), list):
+            return {"error": "invalid run_items"}, 400
+
+    log.info("sync/push: %d runs, %d attempts", len(runs_in), len(attempts_in))
+
     inserted_attempts = []  # {client_id, server_id}
     inserted_runs = []  # {client_uuid, server_id}
 
@@ -882,6 +989,14 @@ def handle_sync_push(body):
                         row = con.execute("SELECT id FROM runs WHERE uuid=?", (run_data["uuid"],)).fetchone()
                         if row:
                             server_run_id = row[0]
+                if server_run_id is None and a.get("run_uuid"):
+                    # Fase 1 (3.1): los clientes nuevos adjuntan run_uuid a cada
+                    # attempt; permite resolver el run aunque ese run no viaje
+                    # en este push (p. ej. ya sincronizado). Los clientes
+                    # antiguos no envían run_uuid: se conserva el fallback previo.
+                    row = con.execute("SELECT id FROM runs WHERE uuid=?", (a["run_uuid"],)).fetchone()
+                    if row:
+                        server_run_id = row[0]
             else:
                 server_run_id = None
 
@@ -911,6 +1026,8 @@ def handle_put_chapter_mostrar(body):
 
 def handle_sync_check_runs(body):
     uuids = body.get("uuids", [])
+    if not isinstance(uuids, list):
+        return {"error": "uuids must be a list"}, 400
     if not uuids:
         return {"missing": []}
     with db_connect() as con:
@@ -920,8 +1037,29 @@ def handle_sync_check_runs(body):
         ).fetchall()
     existing_set = {r[0] for r in existing}
     missing = [u for u in uuids if u not in existing_set]
-    print(f"[check_runs] recibidos={len(uuids)} existentes={len(existing_set)} missing={len(missing)}")
+    log.info("check_runs: recibidos=%d existentes=%d missing=%d", len(uuids), len(existing_set), len(missing))
     return {"missing": missing}
+
+
+def handle_sync_chapters_mostrar(body):
+    """Actualiza el flag mostrar de chapters (antes lógica inline en do_PUT)."""
+    chapters = body.get("chapters")
+    if not isinstance(chapters, list):
+        return {"error": "chapters (list) required"}, 400
+    normalized = []
+    for ch in chapters:
+        if not isinstance(ch, dict) or "id" not in ch or "mostrar" not in ch:
+            return {"error": "invalid chapter entry"}, 400
+        try:
+            # Fase 1 (§4.4): normalizar mostrar a 0/1 (antes se escribía tal cual).
+            normalized.append((int(bool(ch["mostrar"])), int(ch["id"])))
+        except (TypeError, ValueError):
+            return {"error": "invalid chapter entry"}, 400
+    with db_connect() as con:
+        for mostrar, chapter_id in normalized:
+            con.execute("UPDATE chapters SET mostrar=? WHERE id=?", (mostrar, chapter_id))
+        con.commit()
+    return {"ok": True}
 
 GET_ROUTES = {
     "/db/collections": handle_get_collections,
@@ -942,18 +1080,84 @@ GET_ROUTES = {
 }
 
 
+POST_ROUTES = {
+    "/db/attempt": handle_post_attempt,
+    "/db/run": handle_post_run,
+    "/sync/push": handle_sync_push,
+    "/db/runs/delete": handle_delete_runs,
+    "/sync/check_runs": handle_sync_check_runs,
+    "/admin/import_games": handle_admin_import_games,
+    "/sync/sm2/push": handle_sync_sm2_push,
+}
+
+PUT_ROUTES = {
+    "/db/run": handle_put_run,
+    "/db/chapter/mostrar": handle_put_chapter_mostrar,
+    "/sync/chapters_mostrar": handle_sync_chapters_mostrar,
+}
+
+
 class Handler(BaseHTTPRequestHandler):
-    def handle(self):
-        print(f"[handle] nueva conexión")
-        super().handle()
-        
+    # Fase 1 (§4.2): timeout de socket — una conexión colgada no retiene el hilo.
+    timeout = 30
+
+    def log_message(self, fmt, *args):
+        # Log de acceso vía logging (sin bodies — Fase 1, §4.3).
+        log.info("%s %s", self.address_string(), fmt % args)
+
+    def _send_cors(self):
+        """Fase 1 (§4.1): CORS restringido — solo se refleja un Origin permitido."""
+        origin = self.headers.get("Origin", "")
+        if origin in ALLOWED_ORIGINS:
+            self.send_header("Access-Control-Allow-Origin", origin)
+            self.send_header("Vary", "Origin")
+
     def do_OPTIONS(self):
         self.send_response(200)
-        self.send_header("Access-Control-Allow-Origin", "*")
+        self._send_cors()
         self.send_header("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, X-Auth-Token")
+        self.send_header("Access-Control-Max-Age", "86400")
         self.send_header("Content-Length", "0")
         self.end_headers()
+
+    def _gate(self, write=False):
+        """Auth por token + verificación de Origin en escrituras (Fase 1, §4.1).
+
+        Devuelve True si la petición puede continuar; si no, responde y
+        devuelve False. Con TSUMEVAULT_TOKEN sin definir la auth se omite
+        (modo compatibilidad).
+        """
+        if AUTH_TOKEN:
+            if self.headers.get("X-Auth-Token", "") != AUTH_TOKEN:
+                self._respond(401, {"error": "unauthorized"})
+                return False
+        if write:
+            origin = self.headers.get("Origin")
+            # Origin ausente = cliente no-navegador (curl, scripts propios): permitido.
+            if origin is not None and origin not in ALLOWED_ORIGINS:
+                self._respond(403, {"error": "forbidden origin"})
+                return False
+        return True
+
+    def _dispatch(self, handler, arg):
+        try:
+            with DB_LOCK:
+                result = handler(arg)
+        except (ValueError, TypeError, KeyError) as e:
+            # Parámetros/payload malformados → 400 (Fase 1, 3.11).
+            log.warning("bad request %s: %r", self.path, e)
+            self._respond(400, {"error": "bad request"})
+            return
+        except Exception:
+            # Fase 1 (§4.3): el detalle queda en el log, no en la respuesta.
+            log.exception("error handling %s", self.path)
+            self._respond(500, {"error": "internal server error"})
+            return
+        if isinstance(result, tuple):
+            self._respond(result[1], result[0])
+        else:
+            self._respond(200, result)
 
     def do_GET(self):
         parsed = urlparse(self.path)
@@ -961,128 +1165,95 @@ class Handler(BaseHTTPRequestHandler):
         if not handler:
             self._respond(404, {"error": "not found"})
             return
-        try:
-            result = handler(parse_qs(parsed.query))
-            if isinstance(result, tuple):
-                self._respond(result[1], result[0])
-            else:
-                self._respond(200, result)
-        except Exception as e:
-            print(f"[ERROR GET {parsed.path}] {e}")
-            self._respond(500, {"error": str(e)})
+        if not self._gate(write=False):
+            return
+        self._dispatch(handler, parse_qs(parsed.query))
 
     def do_POST(self):
-        print("1")
-        parsed = urlparse(self.path)
-        print("2")
-        body = self._read_body()
-        print("3")
-        print(f"[do_POST] path={parsed.path} body={body}")
-        routes = {
-            "/db/attempt": handle_post_attempt,
-            "/db/run": handle_post_run,
-            "/sync/push": handle_sync_push,
-            "/db/runs/delete": handle_delete_runs,
-            "/sync/check_runs": handle_sync_check_runs,
-            "/admin/import_games": handle_admin_import_games,
-            "/sync/sm2/push": handle_sync_sm2_push,
-        }
-        handler = routes.get(parsed.path)
-        print("4")
-        if not handler:
-            print("NO_HANDLER")
-            self._respond(404, {"error": "not found"})
-            return
-        print("5")
-        try:
-            result = handler(body)
-            print("6")
-            if isinstance(result, tuple):
-                print("7")
-                self._respond(result[1], result[0])
-            else:
-                print("8")
-                self._respond(200, result)
-        except Exception as e:
-            print(f"[ERROR POST {parsed.path}] {e}")
-            self._respond(500, {"error": str(e)})
-        print("9")
+        self._handle_write(POST_ROUTES)
 
     def do_PUT(self):
+        self._handle_write(PUT_ROUTES)
+
+    def _handle_write(self, routes):
         parsed = urlparse(self.path)
-        body = self._read_body()
-        if parsed.path == "/db/run":
-            try:
-                result = handle_put_run(body)
-                if isinstance(result, tuple):
-                    self._respond(result[1], result[0])
-                else:
-                    self._respond(200, result)
-            except Exception as e:
-                print(f"[ERROR PUT /db/run] {e}")
-                self._respond(500, {"error": str(e)})
-        elif parsed.path == "/db/chapter/mostrar":
-            try:
-                result = handle_put_chapter_mostrar(body)
-                if isinstance(result, tuple):
-                    self._respond(result[1], result[0])
-                else:
-                    self._respond(200, result)
-            except Exception as e:
-                print(f"[ERROR PUT /db/chapter/mostrar] {e}")
-                self._respond(500, {"error": str(e)})
-        elif parsed.path == "/sync/chapters_mostrar":
-            try:
-                with db_connect() as con:
-                    for ch in body.get('chapters', []):
-                        con.execute('UPDATE chapters SET mostrar=? WHERE id=?', (ch['mostrar'], ch['id']))
-                    con.commit()
-                self._respond(200, {"ok": True})
-            except Exception as e:
-                print(f"[ERROR PUT /sync/chapters_mostrar] {e}")
-                self._respond(500, {"error": str(e)})
-        else:
+        handler = routes.get(parsed.path)
+        if not handler:
             self._respond(404, {"error": "not found"})
-            
+            return
+        if not self._gate(write=True):
+            return
+        try:
+            body = self._read_body()
+        except _BodyError as e:
+            self._respond(e.code, {"error": str(e)})
+            return
+        self._dispatch(handler, body)
+
     def _read_body(self):
-        length = int(self.headers.get("Content-Length", 0))
-        return json.loads(self.rfile.read(length)) if length else {}
+        """Lee y parsea el body JSON. Lanza _BodyError si es inválido.
+
+        Fase 1 (3.11/§4.2): antes un JSON malformado explotaba fuera del try
+        del dispatcher (conexión colgada) y no había límite de tamaño.
+        """
+        try:
+            length = int(self.headers.get("Content-Length", 0) or 0)
+        except ValueError:
+            raise _BodyError(400, "invalid content-length")
+        if length > MAX_BODY_BYTES:
+            raise _BodyError(413, "body too large")
+        if not length:
+            return {}
+        raw = self.rfile.read(length)
+        try:
+            body = json.loads(raw)
+        except Exception:
+            raise _BodyError(400, "invalid json")
+        if not isinstance(body, dict):
+            raise _BodyError(400, "invalid json")
+        return body
 
     def _respond(self, code, obj):
-        import gzip
-
         body = json.dumps(obj, ensure_ascii=False).encode()
         accept_encoding = self.headers.get("Accept-Encoding", "")
-        print(f"[RESPOND] size={len(body)} accept_encoding={accept_encoding}")
-
+        self.send_response(code)
+        self._send_cors()
+        self.send_header("Content-Type", "application/json")
         if "gzip" in accept_encoding and len(body) > 1024:
             body = gzip.compress(body, compresslevel=6)
-            self.send_response(code)
-            self.send_header("Access-Control-Allow-Origin", "*")
-            self.send_header("Content-Type", "application/json")
             self.send_header("Content-Encoding", "gzip")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-        else:
-            self.send_response(code)
-            self.send_header("Access-Control-Allow-Origin", "*")
-            self.send_header("Content-Type", "application/json")
-            self.send_header("Content-Length", str(len(body)))
-            self.end_headers()
-        self.wfile.write(body)
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        try:
+            self.wfile.write(body)
+        except (BrokenPipeError, ConnectionResetError):
+            pass
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(message)s",
+    )
     if not os.path.isfile(DB_PATH):
-        print(f"[WARN] DB no encontrada: {DB_PATH}")
-        print("       Ejecuta tsumevault_init.py primero.")
+        log.warning("DB no encontrada: %s — ejecuta tsumevault_init.py primero.", DB_PATH)
 
-    import socket
-    local_ip = socket.gethostbyname(socket.gethostname())
-    print(f"TsumeVault API → http://localhost:{PORT}")
-    print(f"Red local      → http://{local_ip}:{PORT}")
-    print(f"DB             → {DB_PATH}")
-    print("Ctrl+C para detener\n")
+    try:
+        import socket
+        local_ip = socket.gethostbyname(socket.gethostname())
+    except Exception:
+        # Fase 1 (§4.6): un host sin resolución de hostname ya no impide arrancar.
+        local_ip = "?"
+    log.info("TsumeVault API → http://localhost:%d", PORT)
+    log.info("Red local      → http://%s:%d", local_ip, PORT)
+    log.info("DB             → %s", DB_PATH)
+    if AUTH_TOKEN:
+        log.info("Auth: X-Auth-Token ACTIVADO")
+    else:
+        log.warning("Auth: TSUMEVAULT_TOKEN no definido — autenticación DESACTIVADA (modo compatibilidad)")
+    log.info("Orígenes permitidos: %s", ", ".join(sorted(ALLOWED_ORIGINS)))
     migrate_db()
 
-    HTTPServer(("0.0.0.0", PORT), Handler).serve_forever()
+    server = ThreadingHTTPServer(("0.0.0.0", PORT), Handler)
+    server.daemon_threads = True
+    server.serve_forever()
