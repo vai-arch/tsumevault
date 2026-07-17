@@ -1183,7 +1183,7 @@
       </select>
       <div style="flex:1"></div>
       <button id="stats-btn" onclick="openStats()" title="Statistics" style="background:transparent;border:1px solid var(--border2);color:var(--dim);font-size:15px;cursor:pointer;padding:4px 9px;border-radius:2px;transition:all .15s;margin-right:6px;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">📊</button>
-      <button id="cfg-btn" onclick="openConfig()" title="Settings" style="position:relative">⚙<span id="sync-error-dot" style="display:none;position:absolute;top:1px;right:1px;width:7px;height:7px;border-radius:50%;background:#e5484d;box-shadow:0 0 0 2px var(--bg,#1a1a1a);"></span></button>
+      <button id="cfg-btn" onclick="openConfig()" title="Settings" style="position:relative">⚙<span id="sync-error-dot" style="display:none;position:absolute;top:1px;right:1px;width:7px;height:7px;border-radius:50%;background:#e5484d;box-shadow:0 0 0 2px var(--bg,#1a1a1a);"></span><span id="pending-badge" title="Pendiente de sincronizar" style="display:none;position:absolute;bottom:-2px;right:-2px;min-width:12px;height:12px;border-radius:6px;background:var(--gold,#c9a86a);color:#141414;font-size:8px;line-height:12px;text-align:center;padding:0 2px;font-family:var(--mono,monospace);box-shadow:0 0 0 2px var(--bg,#1a1a1a);"></span></button>
     </header>
 
     <!-- CONFIG MODAL -->
@@ -1244,6 +1244,7 @@
           <div class="cfg-section">
             <div class="cfg-section-title">Sync</div>
             <div id="cfg-sync-status"></div>
+            <div id="cfg-sync-pending" style="font-size:9px;color:var(--dim2);margin-top:2px"></div>
             <div class="cfg-input-row">
               <select class="fsel" id="cfg-sync-presets" style="margin-bottom:0;flex:1">
                 <option value="">— Saved servers —</option>
@@ -1294,6 +1295,11 @@
                 <input type="checkbox" id="cfg-tap-confirm" style="accent-color:var(--gold);cursor:pointer;">
                 Tap para confirmar (móvil)
               </label>
+              <label
+                style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:10px;">
+                <input type="checkbox" id="cfg-second-chance" style="accent-color:var(--gold);cursor:pointer;">
+                Second chance (repesca de fallos al final del run)
+              </label>
               <div style="display:flex;align-items:center;gap:8px;margin-top:12px;">
                 <span style="font-family:var(--mono);font-size:11px;color:var(--dim);white-space:nowrap;">Umbral verde / needs work:</span>
                 <input id="cfg-pct-green" type="number" min="1" max="100"
@@ -1317,6 +1323,10 @@
 				  style="font-family:var(--mono);font-size:11px;background:var(--gold);color:#000;border:none;padding:5px 12px;cursor:pointer;border-radius:2px;">
 				  Descargar pendientes
 				</button>
+				<button id="cfg-cache-force-btn" onclick="cfgForcePrecache()" title="Borra los SGF cacheados de los capítulos visibles y los vuelve a descargar del origen"
+				  style="font-family:var(--mono);font-size:11px;background:var(--panel2,#333);color:var(--gold);border:1px solid var(--gold-dim,var(--gold));padding:5px 12px;cursor:pointer;border-radius:2px;">
+				  ⟳ Redescargar todo
+				</button>
 			  </div>
 			  <div id="cfg-cache-progress" style="font-family:var(--mono);font-size:9px;color:var(--dim2);display:none;"></div>
 			</div>
@@ -1334,6 +1344,7 @@
           <div style="display:flex;gap:0;">
             <button id="stats-tab-collections" onclick="switchStatsTab('collections')" style="font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:transparent;border:none;border-bottom:2px solid var(--gold);color:var(--gold);padding:2px 14px 4px;cursor:pointer;">Collections</button>
             <button id="stats-tab-bylevel" onclick="switchStatsTab('bylevel')" style="font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--dim);padding:2px 14px 4px;cursor:pointer;">By Level</button>
+            <button id="stats-tab-activity" onclick="switchStatsTab('activity')" style="font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;background:transparent;border:none;border-bottom:2px solid transparent;color:var(--dim);padding:2px 14px 4px;cursor:pointer;">Activity</button>
           </div>
           <button onclick="closeStats()" style="background:transparent;border:none;color:var(--dim);font-size:18px;cursor:pointer;line-height:1;padding:2px 6px;transition:color .15s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--dim)'">✕</button>
         </div>
@@ -1372,6 +1383,16 @@
         <div id="stats-pane-bylevel" style="display:none;flex-direction:column;flex:1;overflow:hidden;">
           <div style="overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;flex:1;padding:16px 18px;">
             <div id="bylevel-content"></div>
+          </div>
+        </div>
+
+        <!-- TAB: ACTIVITY (F4 heatmap + F5 evolución de madurez) -->
+        <div id="stats-pane-activity" style="display:none;flex-direction:column;flex:1;overflow:hidden;">
+          <div style="overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;flex:1;padding:16px 18px;">
+            <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;">Activity · last 26 weeks</div>
+            <div id="activity-heatmap"></div>
+            <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:18px 0 8px;">Maturity over time</div>
+            <div id="maturity-chart"></div>
           </div>
         </div>
       </div></div>
@@ -1607,7 +1628,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260712-1941';
+	const SW_VERSION = 'tsumevault-20260717-1034';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1637,7 +1658,12 @@
     const SGF_BASE = '/tsumevault/';
     let pausedAt = 0, totalPaused = 0, isPaused = false;
     let activeRunId = null, runItems = [], runIdx = -1, runMode = false, problemStartTime = 0;
+    let tapToAdvance = false;                                   // F2 (§12.2): pausa en fallo durante runs
+    let retryQueue = [], retryQueued = new Set(), retryPhase = false; // F3 (§12.3): cola de repesca
+    let secondChance = localStorage.getItem('second_chance') === 'true';
     let syncInProgress = false;
+    let lastSyncError = null;      // T6/3.10: ultimo error de sync (para el alert del boton manual)
+    let syncStatusTimer = null;    // T6/3.10: temporizador unico de setSyncStatus
 
     const SFX = {
       stone: new Audio('audio/stone.mp3'),
@@ -1659,6 +1685,19 @@
       if (pct >= PCT_YELLOW) return 'var(--gold)';
       return 'var(--accent)';
     }
+    // T2/3.6: fecha LOCAL YYYY-MM-DD. Las fechas de review (due_date) usan el
+    // dia local del usuario; con toISOString() (UTC), en CEST entre las 00:00
+    // y las 02:00 los problemas que vencen "hoy" no aparecian hasta las 2 AM.
+    // Los timestamps completos del protocolo de sync siguen en ISO UTC.
+    function localDateStr(d = new Date()) {
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    }
+
+    // T10/R11: escapado HTML para interpolaciones con datos de la DB/servidor
+    // en innerHTML. Cierra el XSS almacenado (4.5): datos hostiles llegados via
+    // push/import/snapshot ya no ejecutan JS al renderizarse.
+    function esc(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
     function makeUUID() {
       return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
         (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16));
@@ -1794,6 +1833,37 @@
         dbExec('CREATE UNIQUE INDEX IF NOT EXISTS idx_attempts_uuid ON attempts(uuid) WHERE uuid IS NOT NULL');
         dbExec('CREATE UNIQUE INDEX IF NOT EXISTS idx_runs_uuid ON runs(uuid) WHERE uuid IS NOT NULL');
       } catch (e) { console.warn('[migrate] uuid index migration failed', e); }
+      try { migrateSyncMeta(); } catch (e) { console.warn('[migrate] sync_meta migration failed', e); }
+      // F5 (§12.5): analítica local de evolución de madurez (no se sincroniza)
+      try { dbExec('CREATE TABLE IF NOT EXISTS daily_stats (date TEXT NOT NULL, source TEXT NOT NULL, dominated INTEGER NOT NULL DEFAULT 0, seen INTEGER NOT NULL DEFAULT 0, total INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (date, source))'); } catch (e) { }
+    }
+
+    // ── T9: cursores de sync DENTRO de la DB (tabla sync_meta) ──
+    // localStorage y la DB (IndexedDB) tienen ciclos de vida independientes:
+    // con los cursores en sync_meta, datos y cursores viven y mueren juntos
+    // (un reset de DB resetea los cursores por construccion; una restauracion
+    // de copia antigua restaura cursores coherentes con esa copia) y ademas se
+    // persisten ATOMICAMENTE con los datos en el mismo saveDB().
+    function getSyncMeta(key) {
+      const r = dbQueryOne('SELECT value FROM sync_meta WHERE key=?', [key]);
+      return r ? r.value : null;
+    }
+    function setSyncMeta(key, value) {
+      dbExec('INSERT OR REPLACE INTO sync_meta (key, value) VALUES (?,?)', [key, String(value)]);
+    }
+    function migrateSyncMeta() {
+      const existed = !!dbQueryOne("SELECT name FROM sqlite_master WHERE type='table' AND name='sync_meta'", []);
+      if (existed) return;
+      dbExec('CREATE TABLE IF NOT EXISTS sync_meta (key TEXT PRIMARY KEY, value TEXT)');
+      // Import unico desde localStorage (clientes anteriores a sync_meta). Las
+      // claves viejas de localStorage NO se borran ni se vuelven a escribir:
+      // quedan como fallback si el usuario vuelve a una version anterior. Si lo
+      // importado estuviera huerfano (DB reseteada), los guards de tabla vacia
+      // de doSync lo neutralizan.
+      for (const k of ['last_pull_attempt_id', 'last_pull_run_id', 'last_sm2_sync']) {
+        const v = localStorage.getItem(k);
+        if (v != null) dbExec('INSERT OR REPLACE INTO sync_meta (key, value) VALUES (?,?)', [k, v]);
+      }
     }
 
     function createSchema() {
@@ -1843,6 +1913,12 @@
     CREATE INDEX IF NOT EXISTS idx_run_items_run ON run_items(run_id);
     CREATE UNIQUE INDEX IF NOT EXISTS idx_attempts_uuid ON attempts(uuid) WHERE uuid IS NOT NULL;
     CREATE UNIQUE INDEX IF NOT EXISTS idx_runs_uuid ON runs(uuid) WHERE uuid IS NOT NULL;
+    CREATE TABLE IF NOT EXISTS sync_meta (key TEXT PRIMARY KEY, value TEXT);
+    CREATE TABLE IF NOT EXISTS daily_stats (
+      date TEXT NOT NULL, source TEXT NOT NULL,
+      dominated INTEGER NOT NULL DEFAULT 0, seen INTEGER NOT NULL DEFAULT 0,
+      total INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (date, source)
+    );
     CREATE TABLE IF NOT EXISTS game_collections (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL UNIQUE,
@@ -1934,8 +2010,8 @@
   `, [source]);
     }
     function localGetLastRunStatsAll(source) {
-      const colRuns = dbQuery(`SELECT set_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms FROM runs WHERE source=? AND status='closed' AND set_id IS NOT NULL AND chapter_id IS NULL GROUP BY set_id HAVING id=MAX(id)`, [source]);
-      const chapRuns = dbQuery(`SELECT chapter_id,set_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms FROM runs WHERE source=? AND status='closed' AND chapter_id IS NOT NULL GROUP BY chapter_id HAVING id=MAX(id)`, [source]);
+      const colRuns = dbQuery(`SELECT set_id,id,started_at,closed_at,paused_ms FROM (SELECT set_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms, ROW_NUMBER() OVER (PARTITION BY set_id ORDER BY id DESC) rn FROM runs WHERE source=? AND status='closed' AND set_id IS NOT NULL AND chapter_id IS NULL) WHERE rn=1` /* T8/3.12: SQL estandar; antes bare columns (GROUP BY+HAVING id=MAX(id)), no estandar. Equivalencia verificada en compare_queries.js */, [source]);
+      const chapRuns = dbQuery(`SELECT chapter_id,set_id,id,started_at,closed_at,paused_ms FROM (SELECT chapter_id,set_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms, ROW_NUMBER() OVER (PARTITION BY chapter_id ORDER BY id DESC) rn FROM runs WHERE source=? AND status='closed' AND chapter_id IS NOT NULL) WHERE rn=1`, [source]);
       const result = {};
       for (const row of colRuns) {
         const items = dbQueryOne(`SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok FROM run_items WHERE run_id=?`, [row.id]);
@@ -1975,7 +2051,7 @@
     }
     function localGetLastRunStats(source, set_id) {
       const colRun = dbQueryOne(`SELECT id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms FROM runs WHERE source=? AND set_id=? AND chapter_id IS NULL AND status='closed' ORDER BY closed_at DESC LIMIT 1`, [source, set_id]);
-      const chapRuns = dbQuery(`SELECT chapter_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms FROM runs WHERE source=? AND set_id=? AND chapter_id IS NOT NULL AND status='closed' GROUP BY chapter_id HAVING id=MAX(id)`, [source, set_id]);
+      const chapRuns = dbQuery(`SELECT chapter_id,id,started_at,closed_at,paused_ms FROM (SELECT chapter_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms, ROW_NUMBER() OVER (PARTITION BY chapter_id ORDER BY id DESC) rn FROM runs WHERE source=? AND set_id=? AND chapter_id IS NOT NULL AND status='closed') WHERE rn=1`, [source, set_id]);
       const by_chapter = {};
       for (const row of chapRuns) {
         const items = dbQueryOne(`SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok FROM run_items WHERE run_id=?`, [row.id]);
@@ -2017,20 +2093,30 @@
       return dbQueryOne(`SELECT MIN(difficulty_num) AS min, MAX(difficulty_num) AS max FROM problems WHERE source=? AND difficulty_num IS NOT NULL`, [source]);
     }
     function localGetStruggling(source, { set_id, chapter_id } = {}, n = 3) {
-      let sql = 'SELECT problem_id FROM problems WHERE source=?';
+      // T12/P3: antes, una query POR PROBLEMA del scope (64k prepares en un
+      // source grande). Ahora UNA sola query con window function; equivalencia
+      // verificada en compare_struggling.js (el caller usa Set: el orden no
+      // importa). Desempate por id DESC en created_at empatados: la version
+      // antigua era no determinista en ese caso; esta es determinista.
+      let scope = '';
       const params = [source];
-      if (chapter_id) { sql += ' AND chapter_id=?'; params.push(chapter_id); }
-      else if (set_id) { sql += ' AND set_id=?'; params.push(set_id); }
-      const probs = dbQuery(sql, params).map(r => r.problem_id);
-      const struggling = [];
-      for (const pid of probs) {
-        const rows = dbQuery(`SELECT result FROM attempts WHERE source=? AND problem_id=? ORDER BY created_at DESC LIMIT ?`, [source, pid, n]);
-        if (rows.length && rows.some(r => r.result === 'wrong')) struggling.push(pid);
-      }
-      return struggling;
+      if (chapter_id) { scope = ' AND p.chapter_id=?'; params.push(chapter_id); }
+      else if (set_id) { scope = ' AND p.set_id=?'; params.push(set_id); }
+      params.push(n);
+      return dbQuery(`
+        WITH ranked AS (
+          SELECT a.problem_id, a.result,
+                 ROW_NUMBER() OVER (PARTITION BY a.problem_id ORDER BY a.created_at DESC, a.id DESC) rn
+          FROM attempts a
+          JOIN problems p ON p.source = a.source AND p.problem_id = a.problem_id
+          WHERE a.source = ?${scope}
+        )
+        SELECT problem_id FROM ranked WHERE rn <= ?
+        GROUP BY problem_id
+        HAVING SUM(result = 'wrong') > 0`, params).map(r => r.problem_id);
     }
     function localGetReviewProblems(source, { set_id } = {}) {
-      const today = new Date().toISOString().slice(0, 10);
+      const today = localDateStr(); // T2/3.6: dia local, no UTC
       let sql = `
         SELECT
           p.source, p.problem_id, p.set_id, p.chapter_id,
@@ -2050,7 +2136,7 @@
     }
 
     function localCountReviewPending(source, { set_id } = {}) {
-      const today = new Date().toISOString().slice(0, 10);
+      const today = localDateStr(); // T2/3.6: dia local, no UTC
       let sql = `
         SELECT COUNT(*) AS n
         FROM sm2_state s
@@ -2184,7 +2270,7 @@
 
     function updateSm2(source, problem_id, result) {
       const now = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
-      const today = now.slice(0, 10); // YYYY-MM-DD
+      const today = localDateStr(); // T2/3.6: dia local (updated_at sigue en UTC)
 
       // Leer estado actual o usar valores iniciales
       const row = dbQueryOne(
@@ -2212,9 +2298,12 @@
       }
 
       // Calcular due_date
-      const due = new Date(today);
+      // T2/3.6: due en base local de principio a fin (new Date() local + formato
+      // local); antes new Date('YYYY-MM-DD') fijaba medianoche UTC y toISOString
+      // reconvertia a UTC, con desfase de un dia segun la zona horaria.
+      const due = new Date();
       due.setDate(due.getDate() + Math.round(interval));
-      const due_date = due.toISOString().slice(0, 10);
+      const due_date = localDateStr(due);
 
       dbExec(`
         INSERT INTO sm2_state (source, problem_id, due_date, interval, easiness, repetitions, updated_at)
@@ -2295,8 +2384,17 @@
       if (syncInProgress) return false;
       syncInProgress = true;
       if (!silent) setSyncStatus('syncing');
-      try { await doSync(silent); setSyncStatus('ok'); return true; }
-      catch (e) { setSyncStatus('idle'); return false; }
+      try {
+        await doSync(silent); lastSyncError = null; setSyncStatus('ok');
+        // Q3: los intentos registrados MIENTRAS este sync estaba en vuelo
+        // rebotan en syncInProgress y quedarian pendientes sin reintento (el
+        // badge se quedaba "pegado" al dejar de resolver). Si al terminar sigue
+        // habiendo pendientes, se encadena otro sync; converge al pausar y no
+        // se encadena nada si el sync falla.
+        if (countPendingSync().total > 0) setTimeout(() => { tryAutoSync(true).catch(() => { }); }, 1500);
+        return true;
+      }
+      catch (e) { lastSyncError = e; setSyncStatus('idle'); return false; }
       finally { syncInProgress = false; }
     }
     async function doSync(lightMode = false) {
@@ -2319,8 +2417,8 @@
       // final del sync el cursor se reescribe con el valor correcto.
       const haveAttempts = (dbQueryOne('SELECT COUNT(*) AS c FROM attempts', [])?.c || 0) > 0;
       const haveRuns = (dbQueryOne('SELECT COUNT(*) AS c FROM runs', [])?.c || 0) > 0;
-      const sinceAttemptId = Math.max(heurAttemptId, haveAttempts ? (parseInt(localStorage.getItem('last_pull_attempt_id') || '0', 10) || 0) : 0);
-      const sinceRunId = Math.max(heurRunId, haveRuns ? (parseInt(localStorage.getItem('last_pull_run_id') || '0', 10) || 0) : 0);
+      const sinceAttemptId = Math.max(heurAttemptId, haveAttempts ? (parseInt(getSyncMeta('last_pull_attempt_id') || '0', 10) || 0) : 0);
+      const sinceRunId = Math.max(heurRunId, haveRuns ? (parseInt(getSyncMeta('last_pull_run_id') || '0', 10) || 0) : 0);
       let maxPullAttemptId = sinceAttemptId, maxPullRunId = sinceRunId;
       const pullR = await syncFetch(`/sync/pull?since_attempt_id=${sinceAttemptId}&since_run_id=${sinceRunId}`, { signal: AbortSignal.timeout(90000) });
       if (!pullR.ok) throw new Error('pull failed');
@@ -2475,7 +2573,7 @@
         // Cursor huérfano (mismo caso que el pull): con sm2_state vacía el
         // cursor guardado se ignora para poder recuperar el estado completo.
         const haveSm2 = (dbQueryOne('SELECT COUNT(*) AS c FROM sm2_state', [])?.c || 0) > 0;
-        const lastSm2Sync = haveSm2 ? (localStorage.getItem('last_sm2_sync') || '1970-01-01T00:00:00Z') : '1970-01-01T00:00:00Z';
+        const lastSm2Sync = haveSm2 ? (getSyncMeta('last_sm2_sync') || '1970-01-01T00:00:00Z') : '1970-01-01T00:00:00Z';
         let sm2Cursor = lastSm2Sync;
         // Pull: recibir estados del servidor más recientes que nuestro cursor
         const sm2PullR = await syncFetch(`/sync/sm2/pull?since=${encodeURIComponent(lastSm2Sync)}`, {
@@ -2529,13 +2627,39 @@
         // nuevo cursor no volverían a enviarse jamás.
         if (sm2PushOk && sm2Cursor > lastSm2Sync) cursorUpdates['last_sm2_sync'] = sm2Cursor;
       } catch (e) { console.warn('[sync] sm2 sync failed', e); }
+      // T9: los cursores se escriben en sync_meta ANTES del saveDB final, de
+      // modo que se persisten ATOMICAMENTE con los datos en el mismo export.
+      // Si saveDB lanza, ni datos ni cursores persisten: el proximo sync repite
+      // el rango (inocuo: dedup por uuid y LWW en SM-2). Ya no se escribe nada
+      // en localStorage.
+      for (const k in cursorUpdates) setSyncMeta(k, cursorUpdates[k]);
       await saveDB();
-      // Fase 1 (3.10): los cursores se persisten SOLO tras un saveDB() exitoso.
-      // Si saveDB lanza, el próximo sync repite el rango (inocuo: dedup por
-      // uuid y LWW en SM-2), en vez de saltárselo para siempre.
-      for (const k in cursorUpdates) localStorage.setItem(k, cursorUpdates[k]);
+    }
+    // ── F1 (§12.1): indicador de datos pendientes de sync ──
+    // Cuenta lo aun no confirmado por el servidor usando la columna synced de
+    // Fase 1 (attempts: 0 = pendiente; runs: <>1 = nunca pusheado o modificado
+    // tras el push). Cero red: consulta local instantanea. La confianza en un
+    // sistema offline-first es una feature.
+    function countPendingSync() {
+      if (!db) return { attempts: 0, runs: 0, total: 0 };
+      try {
+        const a = dbQueryOne('SELECT COUNT(*) AS c FROM attempts WHERE uuid IS NOT NULL AND synced = 0', [])?.c || 0;
+        const r = dbQueryOne('SELECT COUNT(*) AS c FROM runs WHERE uuid IS NOT NULL AND synced <> 1', [])?.c || 0;
+        return { attempts: a, runs: r, total: a + r };
+      } catch (e) { return { attempts: 0, runs: 0, total: 0 }; }
+    }
+    function updatePendingBadge() {
+      const p = countPendingSync();
+      const badge = document.getElementById('pending-badge');
+      if (badge) { badge.style.display = p.total > 0 ? 'block' : 'none'; badge.textContent = p.total > 99 ? '99+' : String(p.total); }
+      const det = document.getElementById('cfg-sync-pending');
+      if (det) det.textContent = p.total > 0 ? `⏳ ${p.attempts} attempts · ${p.runs} runs sin sincronizar` : '✓ Todo sincronizado';
     }
     function setSyncStatus(state) {
+	  // T6/3.10: el setTimeout de 3 s del estado "ok" podia rehabilitar el boton
+	  // en mitad de un sync posterior; se centraliza en un unico temporizador que
+	  // cada cambio de estado cancela antes de programar el siguiente.
+	  if (syncStatusTimer) { clearTimeout(syncStatusTimer); syncStatusTimer = null; }
 	  const btn = document.getElementById('cfg-sync-btn');
 	  const statusEl = document.getElementById('cfg-sync-status');
 	  const dot = document.getElementById('sync-error-dot');
@@ -2547,11 +2671,12 @@
 	  } else if (state === 'ok') {
 		btn.textContent = '✓ OK'; btn.style.color = 'var(--ok-bright)'; btn.style.borderColor = 'var(--ok-bright)'; btn.disabled = true;
 		if (statusEl) statusEl.textContent = 'Last sync: OK';
-		setTimeout(() => { btn.textContent = '↻ Sync'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = false; }, 3000);
+		syncStatusTimer = setTimeout(() => { syncStatusTimer = null; btn.textContent = '↻ Sync'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = false; }, 3000);
 	  } else {
 		btn.textContent = '↻ Sync'; btn.style.color = 'var(--gold)'; btn.style.borderColor = 'var(--gold-dim)'; btn.disabled = false;
 		if (statusEl && state === 'idle') statusEl.textContent = 'Last sync: error';
 	  }
+	  updatePendingBadge(); // F1: refrescar el contador en cada cambio de estado
 	}
 
     // ══ CONFIG MODAL ══
@@ -2739,6 +2864,7 @@
       document.getElementById('cfg-filter-mostrar').checked = filterMostrar;
       document.getElementById('cfg-sound-enabled').checked = soundEnabled;
       document.getElementById('cfg-tap-confirm').checked = tapConfirm;
+      document.getElementById('cfg-second-chance').checked = secondChance;
       document.getElementById('cfg-pct-green').value = PCT_GREEN;
       document.getElementById('cfg-visibility-url').value = localStorage.getItem(VISIBILITY_URL_KEY) || VISIBILITY_URL_DEFAULT;
     }
@@ -2772,8 +2898,88 @@
       allRows.sort((a, b) => (a.dominated / (a.total_visible || 1)) - (b.dominated / (b.total_visible || 1)));
       return allRows;
     }
+    // ── F4 (§12.4): heatmap de actividad (attempts por día, estilo GitHub) ──
+    // Bucketing por día UTC (substr del created_at ISO del protocolo): es
+    // visualización de hábito; el desvío de ±2h respecto al día local (CEST)
+    // se asume y documenta. 26 semanas alineadas a lunes.
+    function renderActivityHeatmap() {
+      const el = document.getElementById('activity-heatmap');
+      if (!el || !db) return;
+      const DAY = 86400000, WEEKS = 26;
+      const todayMs = Date.now() - (Date.now() % DAY);
+      let startMs = todayMs - (WEEKS * 7 - 1) * DAY;
+      while (new Date(startMs).getUTCDay() !== 1) startMs -= DAY; // alinear a lunes
+      const startStr = new Date(startMs).toISOString().slice(0, 10);
+      let byDay = new Map();
+      try {
+        const rows = dbQuery(`SELECT substr(created_at,1,10) AS d, COUNT(*) AS c FROM attempts WHERE substr(created_at,1,10) >= ? GROUP BY d`, [startStr]);
+        byDay = new Map(rows.map(r => [r.d, r.c]));
+      } catch (e) { }
+      const lvl = c => c === 0 ? 0 : c < 5 ? 1 : c < 15 ? 2 : c < 30 ? 3 : 4;
+      const colors = ['var(--border)', 'rgba(201,168,106,.28)', 'rgba(201,168,106,.52)', 'rgba(201,168,106,.76)', 'var(--gold)'];
+      let total = 0, active = 0, cols = [];
+      for (let w = startMs; w <= todayMs; w += 7 * DAY) {
+        let cells = '';
+        for (let d = 0; d < 7; d++) {
+          const ms = w + d * DAY;
+          if (ms > todayMs) { cells += `<div style="width:10px;height:10px"></div>`; continue; }
+          const key = new Date(ms).toISOString().slice(0, 10);
+          const c = byDay.get(key) || 0;
+          total += c; if (c > 0) active++;
+          cells += `<div title="${key} · ${c} attempts" style="width:10px;height:10px;border-radius:2px;background:${colors[lvl(c)]}"></div>`;
+        }
+        cols.push(`<div style="display:flex;flex-direction:column;gap:2px">${cells}</div>`);
+      }
+      el.innerHTML = `<div style="display:flex;gap:2px;overflow-x:auto;padding-bottom:4px">${cols.join('')}</div>
+        <div style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:6px">${total} attempts · ${active} active days (UTC days)</div>`;
+    }
+
+    // ── F5 (§12.5): evolución de madurez ──
+    // daily_stats es una tabla LOCAL (no sincronizada): un snapshot por
+    // (día local, source) de los mismos agregados que muestra renderMaturity,
+    // tomado al cerrar cada sesión. Hoy solo se ve el presente; la tendencia
+    // es la métrica motivacional real.
+    function snapshotDailyStats() {
+      if (!db) return;
+      try {
+        const m = localGetMaturity(currentSource, null);
+        if (!m || !m.total_visible) return;
+        dbExec('INSERT OR REPLACE INTO daily_stats (date, source, dominated, seen, total) VALUES (?,?,?,?,?)',
+          [localDateStr(), currentSource, m.dominated || 0, m.total_seen || 0, m.total_visible || 0]);
+      } catch (e) { console.warn('[daily_stats] snapshot failed', e); }
+    }
+    function renderMaturityChart() {
+      const el = document.getElementById('maturity-chart');
+      if (!el || !db) return;
+      let rows = [];
+      try { rows = dbQuery('SELECT date, dominated, seen, total FROM daily_stats WHERE source=? ORDER BY date', [currentSource]); } catch (e) { }
+      if (rows.length < 2) {
+        el.innerHTML = `<div style="font-family:var(--mono);font-size:10px;color:var(--dim2);padding:12px 0">Not enough history yet — a snapshot is stored each time you finish a session (${rows.length}/2 days).</div>`;
+        return;
+      }
+      const W = 620, H = 170, PL = 34, PR = 8, PT = 10, PB = 22;
+      const maxY = Math.max(1, ...rows.map(r => Math.max(r.total || 0, r.seen || 0, r.dominated || 0)));
+      const x = i => PL + i * (W - PL - PR) / (rows.length - 1);
+      const y = v => PT + (H - PT - PB) * (1 - (v || 0) / maxY);
+      const line = (key, color, width) => `<polyline fill="none" stroke="${color}" stroke-width="${width}" points="${rows.map((r, i) => x(i).toFixed(1) + ',' + y(r[key]).toFixed(1)).join(' ')}"/>`;
+      el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" style="width:100%;max-width:${W}px;display:block">
+        <line x1="${PL}" y1="${H - PB}" x2="${W - PR}" y2="${H - PB}" stroke="var(--border2)" stroke-width="1"/>
+        <line x1="${PL}" y1="${PT}" x2="${PL}" y2="${H - PB}" stroke="var(--border2)" stroke-width="1"/>
+        <text x="${PL - 4}" y="${PT + 4}" text-anchor="end" font-size="8" fill="var(--dim2)" font-family="monospace">${maxY}</text>
+        <text x="${PL - 4}" y="${H - PB}" text-anchor="end" font-size="8" fill="var(--dim2)" font-family="monospace">0</text>
+        <text x="${PL}" y="${H - PB + 12}" font-size="8" fill="var(--dim2)" font-family="monospace">${rows[0].date}</text>
+        <text x="${W - PR}" y="${H - PB + 12}" text-anchor="end" font-size="8" fill="var(--dim2)" font-family="monospace">${rows[rows.length - 1].date}</text>
+        ${line('total', 'var(--border2)', 1)}
+        ${line('seen', 'var(--dim2)', 1.2)}
+        ${line('dominated', 'var(--gold)', 1.8)}
+      </svg>
+      <div style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:4px">
+        <span style="color:var(--gold)">— dominated</span> · <span>— seen</span> · <span style="color:var(--border2)">— total visible</span> · ${currentSource}
+      </div>`;
+    }
+
 	function switchStatsTab(tab) {
-      const tabs = ['collections', 'bylevel'];
+      const tabs = ['collections', 'bylevel', 'activity'];
       tabs.forEach(t => {
         const btn = document.getElementById('stats-tab-' + t);
         const pane = document.getElementById('stats-pane-' + t);
@@ -2784,6 +2990,7 @@
       });
       if (tab === 'collections') renderStatsTable();
       if (tab === 'bylevel') renderByLevel();
+      if (tab === 'activity') { renderActivityHeatmap(); renderMaturityChart(); }
     }
 
     const BYLEVEL_KEY = 'bylevel_selections';
@@ -2858,6 +3065,44 @@
       `, [source, maxDiffNum, source]);
     }
 	
+    // ── R1: visibilidad masiva por nivel ──
+    // Nucleo puro (testeable): visibles los capitulos con diff_avg <= nivel o
+    // sin dificultad conocida — EXACTAMENTE el mismo criterio que la columna
+    // "UP TO LEVEL" del tab (localGetMaturityByLevel), para que lo visible
+    // coincida con lo que la fila muestra. Nota de escala: diff_avg menor =
+    // mas facil en la escala interna (15k=600 ... 1d=2100); "numero mayor" en
+    // etiqueta kyu = numero MENOR interno.
+    function applyMostrarUpTo(source, maxDiffNum) {
+      dbExec(`UPDATE chapters SET mostrar = CASE WHEN diff_avg IS NULL OR diff_avg <= ? THEN 1 ELSE 0 END WHERE source = ?`, [maxDiffNum, source]);
+      return dbQueryOne('SELECT SUM(mostrar = 1) AS shown, SUM(mostrar = 0) AS hidden FROM chapters WHERE source = ?', [source]);
+    }
+    function applyVisibilityByLevel() {
+      const srcs = dbQuery('SELECT DISTINCT source FROM chapters WHERE diff_avg IS NOT NULL', []).map(r => r.source);
+      const plan = [];
+      for (const source of srcs) {
+        const sel = document.getElementById('bylevel-sel-' + esc(source));
+        const num = sel ? parseInt(sel.value) : NaN;
+        if (Number.isFinite(num)) plan.push({ source, num });
+      }
+      if (!plan.length) { alert('No sources with a selected level.'); return; }
+      const msg = 'Aplicar visibilidad por nivel a TODAS las fuentes:\n' +
+        plan.map(pl => `  ${pl.source}: mostrar solo ≤ ${diffLabel(pl.num)}`).join('\n') +
+        '\n\nLos capítulos más difíciles quedarán ocultos.';
+      if (!confirm(msg)) return;
+      let shown = 0, hidden = 0;
+      for (const pl of plan) {
+        const r = applyMostrarUpTo(pl.source, pl.num);
+        shown += (r && r.shown) || 0; hidden += (r && r.hidden) || 0;
+      }
+      chaptersCache = {};
+      scheduleSaveDB();
+      tryAutoSync(true).catch(() => { });   // doSync ya empuja el mostrar de todos los capitulos
+      loadCollections();
+      renderByLevel();
+      const st = document.getElementById('bylevel-apply-status');
+      if (st) st.textContent = `Aplicado: ${shown} capítulos visibles · ${hidden} ocultos`;
+    }
+
     function renderByLevel() {
       const selections = bylevelLoad();
       const PCT_YELLOW = 80;
@@ -2872,7 +3117,11 @@
       `, []);
 
       const container = document.getElementById('bylevel-content');
-      container.innerHTML = '';
+      // R1: barra de accion — aplica a todas las fuentes el nivel de su combo
+      container.innerHTML = `<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+        <button onclick="applyVisibilityByLevel()" style="font-family:var(--mono);font-size:10px;letter-spacing:.08em;background:var(--gold);color:#000;border:none;padding:5px 12px;cursor:pointer;border-radius:2px;">Aplicar visibilidad ≤ nivel</button>
+        <span id="bylevel-apply-status" style="font-family:var(--mono);font-size:9px;color:var(--dim2)"></span>
+      </div>`;
 
       if (!sources.length) {
         container.innerHTML = '<div style="font-family:var(--mono);font-size:11px;color:var(--dim2);text-align:center;padding:24px">No data</div>';
@@ -2911,22 +3160,22 @@
         tr.id = 'bylevel-row-' + source;
 
         // Selector de nivel
-        const selId = 'bylevel-sel-' + source;
+        const selId = 'bylevel-sel-' + esc(source); // T10/R11: coherente en atributo y lookup
         let opts = levels.map(l =>
           `<option value="${l.difficulty_num}" ${l.difficulty_num === savedNum ? 'selected' : ''}>${diffLabel(l.difficulty_num)}</option>`
         ).join('');
 
         tr.innerHTML = `
-          <td style="padding:6px 8px;color:var(--dim)">${source}</td>
+          <td style="padding:6px 8px;color:var(--dim)">${esc(source)}</td>
           <td style="padding:6px 8px;">
             <select id="${selId}" style="font-family:var(--mono);font-size:10px;background:var(--panel);border:1px solid var(--border2);color:var(--text);padding:2px 4px;border-radius:2px;cursor:pointer;outline:none;">
               ${opts}
             </select>
           </td>
-          <td id="bylevel-cov-${source}"  style="padding:6px 8px;text-align:right">—</td>
-          <td id="bylevel-hist-${source}" style="padding:6px 8px;text-align:right">—</td>
-          <td id="bylevel-last-${source}" style="padding:6px 8px;text-align:right">—</td>
-          <td id="bylevel-tot-${source}"  style="padding:6px 8px;text-align:right;color:var(--dim)">—</td>
+          <td id="bylevel-cov-${esc(source)}"  style="padding:6px 8px;text-align:right">—</td>
+          <td id="bylevel-hist-${esc(source)}" style="padding:6px 8px;text-align:right">—</td>
+          <td id="bylevel-last-${esc(source)}" style="padding:6px 8px;text-align:right">—</td>
+          <td id="bylevel-tot-${esc(source)}"  style="padding:6px 8px;text-align:right;color:var(--dim)">—</td>
         `;
         tbody.appendChild(tr);
 
@@ -2959,13 +3208,14 @@
       const covPct  = m.total_visible > 0 ? Math.round(m.total_seen       / m.total_visible * 100) : 0;
       const histPct = m.total_visible > 0 ? Math.round(m.dominated        / m.total_visible * 100) : 0;
       const lastPct = m.total_seen    > 0 ? Math.round(m.sum_last_correct / m.total_seen    * 100) : null;
-      document.getElementById('bylevel-cov-'  + source).style.color = colorFn(covPct);
-      document.getElementById('bylevel-cov-'  + source).textContent = covPct + '%';
-      document.getElementById('bylevel-hist-' + source).style.color = colorFn(histPct);
-      document.getElementById('bylevel-hist-' + source).textContent = histPct + '%';
-      document.getElementById('bylevel-last-' + source).style.color = lastPct !== null ? colorFn(lastPct) : 'var(--dim2)';
-      document.getElementById('bylevel-last-' + source).textContent = lastPct !== null ? lastPct + '%' : '—';
-      document.getElementById('bylevel-tot-'  + source).textContent = m.total_visible;
+      // T10/R11: los ids se generan con esc(source); el lookup usa lo mismo
+      document.getElementById('bylevel-cov-'  + esc(source)).style.color = colorFn(covPct);
+      document.getElementById('bylevel-cov-'  + esc(source)).textContent = covPct + '%';
+      document.getElementById('bylevel-hist-' + esc(source)).style.color = colorFn(histPct);
+      document.getElementById('bylevel-hist-' + esc(source)).textContent = histPct + '%';
+      document.getElementById('bylevel-last-' + esc(source)).style.color = lastPct !== null ? colorFn(lastPct) : 'var(--dim2)';
+      document.getElementById('bylevel-last-' + esc(source)).textContent = lastPct !== null ? lastPct + '%' : '—';
+      document.getElementById('bylevel-tot-'  + esc(source)).textContent = m.total_visible;
     }
     function openStats() {
       document.getElementById('stats-overlay').style.display = 'flex';
@@ -3015,8 +3265,8 @@
         tr.dataset.hist = histPct;
         tr.dataset.last = lastPct !== null ? lastPct : 'null';
         tr.innerHTML = `
-          <td style="padding:6px 8px;color:var(--dim)">${r.source}</td>
-          <td style="padding:6px 8px;color:var(--text)">${r.collection_name || '—'}</td>
+          <td style="padding:6px 8px;color:var(--dim)">${esc(r.source)}</td>
+          <td style="padding:6px 8px;color:var(--text)">${esc(r.collection_name || '—')}</td>
           <td style="padding:6px 8px;text-align:right;color:${color(covPct)}">${covPct}%</td>
           <td style="padding:6px 8px;text-align:right;color:${color(histPct)}">${histPct}%</td>
           <td style="padding:6px 8px;text-align:right;color:${lastPct !== null ? color(lastPct) : 'var(--dim2)'}">${lastPct !== null ? lastPct + '%' : '—'}</td>
@@ -3067,15 +3317,20 @@
       const v = e.target.value.trim();
       if (v) localStorage.setItem(SYNC_TOKEN_KEY, v); else localStorage.removeItem(SYNC_TOKEN_KEY);
     });
+    // T6/3.10: el boton delega en tryAutoSync (seccion critica UNICA via
+    // syncInProgress); antes duplicaba aqui su propia exclusion y su propia
+    // gestion de estado. Se conservan los comportamientos exclusivos del sync
+    // manual: refresco de colecciones/runs y alert con el error.
     document.getElementById('cfg-sync-btn').addEventListener('click', async () => {
-      if (syncInProgress) return;
-      syncInProgress = true; setSyncStatus('syncing');
-      try {
-        await doSync(); setSyncStatus('ok'); loadCollections();
+      if (syncInProgress) return; // solo lectura (evita alert con error obsoleto en doble click); la exclusion real esta en tryAutoSync
+      const ok = await tryAutoSync(false);
+      if (ok) {
+        loadCollections();
         if (activeRunId) runItems = localGetRunItems(activeRunId);
         if (document.querySelector('.tab[data-tab="runs"].active')) loadRuns();
-      } catch (e) { setSyncStatus('idle'); alert('Sync error: ' + e.message); }
-      finally { syncInProgress = false; }
+      } else if (lastSyncError) {
+        alert('Sync error: ' + (lastSyncError.message || lastSyncError));
+      }
     });
     document.getElementById('cfg-filter-mostrar').addEventListener('change', e => {
       filterMostrar = e.target.checked;
@@ -3085,6 +3340,10 @@
     document.getElementById('cfg-sound-enabled').addEventListener('change', e => {
       soundEnabled = e.target.checked;
       localStorage.setItem(SOUND_KEY, soundEnabled);
+    });
+    document.getElementById('cfg-second-chance').addEventListener('change', e => {
+      secondChance = e.target.checked;
+      localStorage.setItem('second_chance', secondChance);
     });
     document.getElementById('cfg-tap-confirm').addEventListener('change', e => {
       tapConfirm = e.target.checked;
@@ -3163,7 +3422,7 @@
         lastRunStatsAll = localGetLastRunStatsAll(currentSource);
         renderCollectionsList(); populateCollectionDiffFilter(); populateFreeFilters(); populateReviewFilters(); clearSidebar();
       } catch (e) {
-        document.getElementById('col-list').innerHTML = `<div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--accent);text-align:center">Error: ${e.message}</div>`;
+        document.getElementById('col-list').innerHTML = `<div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--accent);text-align:center">Error: ${esc(e.message)}</div>`;
       }
     }
     function renderCollectionsList() {
@@ -3173,8 +3432,8 @@
         item.className = 'col-item'; item.dataset.setId = col.set_id;
         const diffStr = col.difficulty_raw || diffLabel(col.difficulty_num) || '—';
         item.innerHTML = `
-      <div class="col-name"><span class="col-arrow">▶</span><span>${col.name}</span></div>
-      <div class="col-stats"><span>${col.num_problems} probs</span><span class="col-diff">${diffStr}</span><span class="col-pct" id="cpct-${col.set_id}">—</span></div>
+      <div class="col-name"><span class="col-arrow">▶</span><span>${esc(col.name)}</span></div>
+      <div class="col-stats"><span>${col.num_problems} probs</span><span class="col-diff">${esc(diffStr)}</span><span class="col-pct" id="cpct-${col.set_id}">—</span></div>
       <div class="col-chapters" id="chaps-${col.set_id}"></div>`;
         item.querySelector('.col-name').addEventListener('click', () => toggleCollection(col, item));
         list.appendChild(item); refreshColPct(col.set_id);
@@ -3343,7 +3602,7 @@
           const chapSpp = (cs && cs.duration_ms != null && cs.total > 0) ? Math.round(cs.duration_ms / 1000 / cs.total) + 's' : '';
 		  const chapPctStr = cs && cs.pct != null ? cs.pct + '%' + (chapSpp ? ' · ' + chapSpp : '') : '';
           const chapPctColor = cs ? pctColor(cs.pct) : 'var(--dim2)';
-          ci.innerHTML = `<span class="chap-name">${chap.name || `Ch ${chap.chapter_num}`} <span style="color:var(--dim2)">(${diffStr})</span></span>
+          ci.innerHTML = `<span class="chap-name">${esc(chap.name || `Ch ${chap.chapter_num}`)} <span style="color:var(--dim2)">(${esc(diffStr)})</span></span>
         <span class="chap-stats">${chap.problem_count}p <span class="chap-pct" style="color:${chapPctColor}">${chapPctStr}</span></span>
         ${!filterMostrar ? `<label style="display:flex;align-items:center;gap:3px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);flex-shrink:0;white-space:nowrap;" title="Mostrar esta lección">
 		  <input type="checkbox" class="chap-mostrar-chk" data-chapid="${chap.id}" ${chap.mostrar ? 'checked' : ''} style="accent-color:var(--gold);cursor:pointer;">
@@ -3405,6 +3664,7 @@
         activeRunId = result.run_id;
         await saveDB(); tryAutoSync();
         runItems = localGetRunItems(activeRunId); runIdx = -1; runMode = true; sessionOk = 0; sessionNo = 0;
+        retryQueue = []; retryQueued = new Set(); retryPhase = false; // F3
         const label = opts.colName ? (opts.chapNum ? `${opts.colName} · Ch ${opts.chapNum}` : opts.colName) : 'Run';
         document.getElementById('rp-title').textContent = label;
         document.getElementById('run-progress').style.display = 'block';
@@ -3482,7 +3742,7 @@
           const okCount = run.ok_count || 0, accPct = done > 0 ? Math.round(okCount / done * 100) : null;
           const date = (run.started_at || '').slice(0, 10);
           const accStr = accPct != null ? `<span style="color:${pctColor(accPct)}">${accPct}%✓</span>` : '';
-          item.innerHTML = `<div class="run-title">${run.label || `Run #${run.id}`}</div><div class="run-meta"><span class="${statusCls}">${run.status}</span><span>${done}/${total} (${compPct}%) ${accStr}</span><span style="color:var(--dim2)">${date}</span></div>`;
+          item.innerHTML = `<div class="run-title">${esc(run.label || `Run #${run.id}`)}</div><div class="run-meta"><span class="${statusCls}">${esc(run.status)}</span><span>${done}/${total} (${compPct}%) ${accStr}</span><span style="color:var(--dim2)">${esc(date)}</span></div>`;
           if (run.status === 'open') {
             item.addEventListener('click', () => resumeRun(run.id));
             const closeBtn = document.createElement('button');
@@ -3514,12 +3774,30 @@
 	
     async function resumeRun(runId) {
       try {
-        activeRunId = runId; runItems = localGetRunItems(runId);
+        // T7/3.12: si no queda ningun item pendiente (findIndex -1), NO entrar
+        // en modo run: antes runIdx quedaba en -2 → -1 y el run terminado se
+        // rejugaba desde el item 0, anadiendo attempts nuevos sobre run_items
+        // ya resueltos. Cubre tambien runs sin run_items (p. ej. de review),
+        // que no son reanudables. Se cierra si seguia open y se avisa.
+        const items = localGetRunItems(runId);
+        const firstPending = items.findIndex(i => !i.result);
+        if (firstPending === -1) {
+          const row = dbQueryOne('SELECT status FROM runs WHERE id=?', [runId]);
+          if (row && row.status === 'open') {
+            localUpdateRunStatus(runId, 'closed');
+            scheduleSaveDB();
+            tryAutoSync(true).catch(() => { });
+          }
+          alert('This run is already complete — nothing to resume.');
+          loadRuns();
+          return;
+        }
+        activeRunId = runId; runItems = items;
         sessionOk = runItems.filter(i => i.result === 'correct').length;
         sessionNo = runItems.filter(i => i.result === 'wrong').length;
-        runIdx = runItems.findIndex(i => !i.result) - 1;
-        if (runIdx < -1) runIdx = -1;
+        runIdx = firstPending - 1;
         runMode = true; document.getElementById('run-progress').style.display = 'block';
+        retryQueue = []; retryQueued = new Set(); retryPhase = false; // F3
         updateRunProgress(); nextProblem();
       } catch (e) { alert('Failed to resume run: ' + e.message); }
     }
@@ -3548,8 +3826,14 @@
           }
         }
       } catch (e) { }
-      document.getElementById('fp-col').addEventListener('change', updateFreeChapters);
-      document.getElementById('fp-start').addEventListener('click', startFreePractice);
+      // T3/3.7: registro unico. populateFreeFilters se llama en cada
+      // loadCollections (arranque, syncs, cambios de visibilidad/source): sin
+      // guard, cada llamada apilaba otro listener y un click ejecutaba
+      // startFreePractice N veces. Los handlers son funciones con nombre que
+      // leen el estado del DOM en el momento del click: el guard no congela nada.
+      const fpCol = document.getElementById('fp-col'), fpStart = document.getElementById('fp-start');
+      if (!fpCol.dataset.bound) { fpCol.dataset.bound = '1'; fpCol.addEventListener('change', updateFreeChapters); }
+      if (!fpStart.dataset.bound) { fpStart.dataset.bound = '1'; fpStart.addEventListener('click', startFreePractice); }
     }
     async function updateFreeChapters() {
       const setId = document.getElementById('fp-col').value;
@@ -3608,7 +3892,7 @@
         const color = n > 0 ? 'var(--gold)' : 'var(--ok-bright)';
         const row = document.createElement('div');
         row.style.cssText = 'display:flex;justify-content:space-between;align-items:center;';
-        row.innerHTML = `<span style="color:var(--dim)">${source}</span><span style="color:${color}">${n > 0 ? n + ' pending' : '✓ done'}</span>`;
+        row.innerHTML = `<span style="color:var(--dim)">${esc(source)}</span><span style="color:${color}">${n > 0 ? n + ' pending' : '✓ done'}</span>`;
         container.appendChild(row);
       }
     }
@@ -3631,11 +3915,19 @@
         o.textContent = col.name;
         sel.appendChild(o);
       }
-      document.getElementById('rv-start').addEventListener('click', startReview);
-	  document.getElementById('rv-col').addEventListener('change', e => {
-		  const setId = e.target.value ? parseInt(e.target.value) : undefined;
-		  renderMaturity(setId);
-		});
+      // T3/3.7: registro unico (ver nota en populateFreeFilters). Aqui era mas
+      // grave: cada click fantasma en rv-start creaba e insertaba UN RUN de
+      // review en la DB, que ademas se sincronizaba. El handler de rv-col lee
+      // e.target.value en el momento del evento: nada del closure se congela.
+      const rvStart = document.getElementById('rv-start'), rvCol = document.getElementById('rv-col');
+      if (!rvStart.dataset.bound) { rvStart.dataset.bound = '1'; rvStart.addEventListener('click', startReview); }
+      if (!rvCol.dataset.bound) {
+        rvCol.dataset.bound = '1';
+        rvCol.addEventListener('change', e => {
+          const setId = e.target.value ? parseInt(e.target.value) : undefined;
+          renderMaturity(setId);
+        });
+      }
       renderMaturity();
     }
     function renderMaturity(set_id) {
@@ -3696,7 +3988,10 @@
         runIdx = -1; sessionOk = 0; sessionNo = 0;
         const rvUuid = makeUUID();
         const rvStarted = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
-        dbExec(`INSERT INTO runs (source,set_id,chapter_id,type,status,total,done,started_at,uuid) VALUES (?,NULL,NULL,'review','open',0,0,?,?)`, [currentSource, rvStarted, rvUuid]);
+        // T4/3.8: total = problemas de la sesion. Con total=0, el guard de cierre
+        // de localInsertAttempt (done>=total) cerraba el run al PRIMER intento y
+        // done seguia creciendo sobre un run closed (done=25, total=0).
+        dbExec(`INSERT INTO runs (source,set_id,chapter_id,type,status,total,done,started_at,uuid) VALUES (?,NULL,NULL,'review','open',?,0,?,?)`, [currentSource, problems.length, rvStarted, rvUuid]);
         const rvRun = dbQueryOne('SELECT id FROM runs WHERE uuid=?', [rvUuid]);
         activeRunId = rvRun ? rvRun.id : null;
         updateSessionUI(); nextProblem();
@@ -3706,10 +4001,34 @@
     // ══ PROBLEM NAV ══
     function nextProblem() {
       document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad');
+      tapToAdvance = false; // F2
       runIdx++;
       let probMeta;
-      if (runMode) { if (runIdx >= runItems.length) { endRun(); return; } probMeta = runItems[runIdx]; }
-      else { if (runIdx >= allProblems.length) { showSessionEnd(); return; } probMeta = allProblems[runIdx]; }
+      if (runMode) {
+        if (runIdx >= runItems.length) {
+          // F3: antes de terminar el run se sirve la cola de repesca
+          if (retryQueue.length) { retryPhase = true; probMeta = retryQueue.shift(); }
+          else { retryPhase = false; endRun(); return; }
+        } else { probMeta = runItems[runIdx]; }
+      }
+      else {
+        if (runIdx >= allProblems.length) {
+          // T4/3.8: al terminar una sesion de review, soltar el run activo. Sin
+          // esto, activeRunId seguia apuntando al run de review (solo endRun lo
+          // limpiaba, y la review no pasa por endRun) y flujos posteriores podian
+          // atribuirle intentos. Si quedo abierto (problemas saltados sin
+          // responder), se cierra aqui: la sesion ha terminado.
+          if (activeRunId) {
+            const rvRow = dbQueryOne('SELECT status FROM runs WHERE id=?', [activeRunId]);
+            if (rvRow && rvRow.status === 'open') localUpdateRunStatus(activeRunId, 'closed');
+            activeRunId = null;
+            scheduleSaveDB();
+          }
+          snapshotDailyStats(); scheduleSaveDB(); // F5: foto del día al cerrar sesión
+          showSessionEnd(); return;
+        }
+        probMeta = allProblems[runIdx];
+      }
       loadAndRender(probMeta);
     }
     async function loadAndRender(probMeta) {
@@ -3726,8 +4045,9 @@
         const tree = parseSgfTree(sgf); if (!tree) { console.log('parse failed'); throw new Error('Parse failed'); }
         const size = parseInt((sgf.match(/SZ\[(\d+)\]/) || [, '19'])[1]);
         const _isReveal = !!(tree.markup && tree.markup.some(m => m.type === 'LB' && m.text === '?'));
-        currentProblem = { ...prob, tree, size, _isReveal }; problemStartTime = Date.now();
+        currentProblem = { ...prob, tree, size, _isReveal, _isRetry: !!probMeta._isRetry }; problemStartTime = Date.now();
         renderProblem(currentProblem);
+        if (currentProblem._isRetry) { const h = document.getElementById('board-hint'); if (h) h.textContent += ' · ↻ second chance'; }
       } catch (e) { console.warn('Skip problem', probMeta.problem_id, e.message); nextProblem(); }
     }
     function clearSidebar() {
@@ -3735,10 +4055,13 @@
     }
     async function endRun() {
       if (activeRunId) { try { localUpdateRunStatus(activeRunId, 'closed'); await saveDB(); tryAutoSync(); } catch (e) { } activeRunId = null; }
+      snapshotDailyStats(); scheduleSaveDB(); // F5: foto del día al cerrar sesión
       runMode = false; document.getElementById('run-progress').style.display = 'none';
+      retryQueue = []; retryQueued = new Set(); retryPhase = false; // F3
       showSessionEnd(); loadRuns(); refreshCollectionStats();
     }
     function showSessionEnd() {
+      window._studyRedraw = null; // T5/3.9: el hook muere con la sesion
       clearSidebar(); clearBoard(); wgoBoard = null;
       document.getElementById('board-wrap').style.display = 'none';
       document.getElementById('comment-box').textContent = '';
@@ -3759,6 +4082,16 @@
         const toW = v => ({ x: v.charCodeAt(0) - 97, y: v.charCodeAt(1) - 97, c: -1 });
         if (node.properties.AB) { const ab = Array.isArray(node.properties.AB) ? node.properties.AB : [node.properties.AB]; ab.forEach(v => black.push(toB(v))); }
         if (node.properties.AW) { const aw = Array.isArray(node.properties.AW) ? node.properties.AW : [node.properties.AW]; aw.forEach(v => white.push(toW(v))); }
+        // T8/3.12: AE (Add Empty) elimina piedras del setup, simetrico a AB/AW.
+        // Antes se ignoraba y se renderizaban piedras que el SGF borra.
+        if (node.properties.AE) {
+          const ae = Array.isArray(node.properties.AE) ? node.properties.AE : [node.properties.AE];
+          for (const v of ae) {
+            const x = v.charCodeAt(0) - 97, y = v.charCodeAt(1) - 97;
+            for (let i = black.length - 1; i >= 0; i--) if (black[i].x === x && black[i].y === y) black.splice(i, 1);
+            for (let i = white.length - 1; i >= 0; i--) if (white[i].x === x && white[i].y === y) white.splice(i, 1);
+          }
+        }
       }
       return { black, white };
     }
@@ -3899,14 +4232,19 @@
         if (attemptRecorded) return; attemptRecorded = true;
         if (!runMode) { if (result === 'correct') sessionOk++; else sessionNo++; }
         const time_ms = Date.now() - problemStartTime - totalPaused;
-        localInsertAttempt(currentSource, currentProblem.problem_id, activeRunId || null, result, time_ms);
+        // F3: los intentos de repesca NO se atribuyen al run (run_id NULL): el
+        // attempt cuenta en historial y SM-2, pero no incrementa done, no
+        // reescribe el run_item (el wrong original es la verdad del run) y no
+        // puede re-tocar el cierre del run.
+        localInsertAttempt(currentSource, currentProblem.problem_id, currentProblem._isRetry ? null : (activeRunId || null), result, time_ms);
         // Fase 1 (3.4): persistencia incondicional (debounced ~1,5 s) tras CADA
         // intento. Antes solo se guardaba cada 10 intentos y, sin conexión, un
         // cierre de la pestaña/PWA perdía hasta 9 intentos con sus run_items y
         // estados SM-2.
         scheduleSaveDB();
         tryAutoSync(true).catch(() => { });
-        if (runMode && runItems[runIdx]) runItems[runIdx].result = result;
+        if (runMode && !currentProblem._isRetry && runItems[runIdx]) runItems[runIdx].result = result;
+        updatePendingBadge(); // F1
       }
       function checkResult(node) {
         const comment = (node.comment || '').trim().toUpperCase();
@@ -3915,11 +4253,16 @@
         return false;
       }
       function playOpponent(node) {
-        if (!node.children || !node.children.length) { showResult(true, ''); if (!hadWrong) { recordAttempt('correct'); if (!runMode) sessionOk++; } updateSessionUI(); return; }
+        if (!node.children || !node.children.length) { showResult(true, ''); if (!hadWrong) { recordAttempt('correct'); /* T1/3.5: recordAttempt ya incrementa sessionOk cuando !runMode; el sessionOk++ extra de esta rama duplicaba el contador de sesion */ } updateSessionUI(); return; }
         const oppNode = node.children[0];
         setTimeout(() => { if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
       }
       function resetGame() { game.allow_rewrite = true; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++)game.setStone(x, y, 0); for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
+      // T5/3.9: rehidratacion tras resize. Repinta la posicion ACTUAL desde el
+      // objeto game del closure (setup + jugadas) y las labels del nodo actual,
+      // sin re-entrar en setupInteractiveMode: currentNode, hadWrong,
+      // attemptRecorded, history y el intento en curso sobreviven intactos.
+      window._studyRedraw = () => { redrawFromGame(); renderLabels(currentNode); };
       window._studyRestart = () => { history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
       window._studyBack = () => { if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
       let ghostPos = null; let pendingTap = null; const boardEl = wgoBoard.element;
@@ -3931,7 +4274,7 @@
       boardEl.addEventListener('mousemove', updateGhost); boardEl.addEventListener('mouseleave', clearGhost);
       window._boardClickHandler = function(x, y) {
         clearGhost();
-        if (waitingForNext) { if (currentProblem && currentProblem._isReveal) { nextProblem(); } return; }
+        if (waitingForNext) { if (currentProblem && (currentProblem._isReveal || tapToAdvance)) { tapToAdvance = false; nextProblem(); } return; }
         if (answered) return;
         if (wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => (o.c === 1 || o.c === -1) && o.type !== 'outline')) return;
         if (tapConfirm) {
@@ -3972,7 +4315,25 @@
       const cb = document.getElementById('comment-box');
       const clean = (comment || '').replace(/^RIGHT\s*/i, '').replace(/^WRONG\s*/i, '').trim();
       if (clean) { cb.textContent = clean; cb.style.display = 'block'; }
-      if (runMode && !currentProblem._isReveal) { setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000); }
+      // F3 (§12.3): con second chance activado, el problema fallado entra en la
+      // cola de repesca (UNA repesca por problema; los reveals y las propias
+      // repescas no se re-encolan). El attempt 'wrong' original ya quedo
+      // registrado: la repesca no falsea stats.
+      if (runMode && !isRight && secondChance && currentProblem && !currentProblem._isReveal && !currentProblem._isRetry && !retryQueued.has(currentProblem.problem_id)) {
+        retryQueued.add(currentProblem.problem_id);
+        retryQueue.push({ problem_id: currentProblem.problem_id, _isRetry: true });
+      }
+      if (runMode && !currentProblem._isReveal) {
+        if (isRight) { setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000); }
+        else {
+          // F2 (§12.2): en runs, el fallo YA NO auto-avanza al segundo: el
+          // comentario de refutacion queda visible hasta que el usuario toca el
+          // tablero. El valor pedagogico del fallo se perdia con el auto-avance.
+          tapToAdvance = true;
+          const hint = document.getElementById('board-hint');
+          if (hint) hint.textContent = 'Tap board to continue →';
+        }
+      }
       else if (isRight && !currentProblem._isReveal) { setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000); }
     }
     function togglePause() {
@@ -4319,7 +4680,20 @@
     startReview = async function (...args) { closeMobilePanel(); return _origStartReview(...args); };
 
     let rsTO;
-    window.addEventListener('resize', () => { clearTimeout(rsTO); rsTO = setTimeout(() => { if (wgoBoard && currentProblem) { initBoard(currentProblem.size || 19); renderProblem(currentProblem); } }, 200); });
+    // T5/3.9: antes el resize hacia initBoard + renderProblem, reconstruyendo el
+    // modo interactivo desde el nodo raiz: se perdia el progreso del intento y,
+    // al resetearse hadWrong/attemptRecorded, un fallo ya registrado seguido de
+    // acierto tras el resize registraba un attempt 'correct' adicional (doble
+    // attempt). En movil se disparaba con el giro o el teclado. Ahora se
+    // reconstruye SOLO el canvas (initBoard, que ya re-registra el click global)
+    // y se repinta el estado vivo con _studyRedraw. El visor de partidas
+    // (gmActive) se excluye: repintarle un problema encima seria peor que
+    // conservar el tamano anterior hasta la proxima interaccion.
+    window.addEventListener('resize', () => { clearTimeout(rsTO); rsTO = setTimeout(() => {
+      if (!wgoBoard || !currentProblem || gmActive) return;
+      initBoard(currentProblem.size || 19);
+      if (window._studyRedraw) window._studyRedraw(); else renderProblem(currentProblem);
+    }, 200); });
 
     document.getElementById('source-sel').addEventListener('change', async e => {
       currentSource = e.target.value; activeRunId = null; runMode = false; runItems = []; allProblems = []; chaptersCache = {};
@@ -4329,6 +4703,7 @@
     (async () => {
 	  await initDB();
       await purgeEmptyRuns();
+      updatePendingBadge(); // F1: estado inicial del contador (util offline)
       loadCollections();
       // Fase 1 (3.2): syncDeletedRuns SOLO tras un push exitoso en esta sesión.
       // Antes corría antes del primer sync y borraba runs creados offline que
@@ -4369,18 +4744,32 @@
 	  }
 	}
 
-	function cfgStartPrecache() {
+	// R2: modo force — el precache vive en el service worker (que salta los ya
+	// cacheados); en vez de tocar el SW, la pagina borra esas URLs de TODAS las
+	// caches (Cache API) antes de relanzar el precache normal, que asi las
+	// vuelve a bajar del origen. Util cuando un SGF se corrige en origen.
+	function cfgForcePrecache() {
+	  if (!confirm('Se borrarán de la caché los SGF de los capítulos visibles y se volverán a descargar del origen.\n¿Continuar?')) return;
+	  cfgStartPrecache(true);
+	}
+	function cfgStartPrecache(force = false) {
 	  if (!('serviceWorker' in navigator)) return;
 	  const btn = document.getElementById('cfg-cache-btn');
+	  const btnF = document.getElementById('cfg-cache-force-btn');
 	  const progress = document.getElementById('cfg-cache-progress');
-	  btn.disabled = true;
+	  btn.disabled = true; if (btnF) btnF.disabled = true;
 	  btn.textContent = 'Descargando...';
 	  progress.style.display = 'block';
-	  progress.textContent = 'Iniciando...';
+	  progress.textContent = force ? 'Borrando caché…' : 'Iniciando...';
 	  const urls = dbQuery('SELECT p.sgf_path FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE ch.mostrar=1 AND p.sgf_path IS NOT NULL', []).map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
 	  const total = urls.length;
 	  const sessionId = Date.now();
-	  navigator.serviceWorker.ready.then(reg => {
+	  const prep = force && ('caches' in window)
+		? caches.keys().then(keys => Promise.all(keys.map(k =>
+			caches.open(k).then(c => Promise.all(urls.map(u => c.delete(u)))))))
+		  .catch(e => { console.warn('[precache] no se pudo limpiar la caché', e); })
+		: Promise.resolve();
+	  prep.then(() => navigator.serviceWorker.ready).then(reg => {
 		reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls, sessionId });
 	  });
 	  const handler = e => {
@@ -4390,7 +4779,7 @@
 		}
 		if (e.data?.type === 'PRECACHE_DONE') {
 		  navigator.serviceWorker.removeEventListener('message', handler);
-		  btn.disabled = false;
+		  btn.disabled = false; if (btnF) btnF.disabled = false;
 		  btn.textContent = 'Descargar pendientes';
 		  progress.textContent = `Completado: ${total} SGFs`;
 		  localStorage.setItem('sgf_cached_count', total);
