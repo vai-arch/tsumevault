@@ -1,0 +1,367 @@
+#!/usr/bin/env node
+/* Arnés de validación Fase 1: ejecuta el código REAL del cliente modificado
+ * (harness_bundle.js, extraído de tsumevault.html) en contextos vm aislados
+ * ("dispositivos") contra el servidor real tsumevault_server.py.
+ */
+'use strict';
+const fs = require('fs');
+const vm = require('node:vm');
+const nodeCrypto = require('crypto');
+const initSqlJs = require('sql.js');
+
+const BUNDLE = fs.readFileSync('harness_bundle.js', 'utf8');
+const SERVER = process.env.TEST_SERVER || 'http://127.0.0.1:3488';
+const OFFLINE = 'http://127.0.0.1:9';   // puerto cerrado: simula sin conexión
+
+let SQLHost = null;
+const fails = [];
+function check(name, cond, extra = '') {
+  console.log((cond ? 'PASS ' : 'FAIL ') + name + (cond ? '' : `  ${extra}`));
+  if (!cond) fails.push(name);
+}
+
+function makeDevice(name, opts = {}) {
+  const store = opts.store || new Map();   // localStorage persistente entre "reinicios"
+  const idb = opts.idb || new Map();       // IndexedDB simulada
+  const netlog = [];
+  const ctx = {
+    console,
+    setTimeout, clearTimeout,
+    AbortSignal,
+    crypto: { getRandomValues: (a) => nodeCrypto.randomFillSync(a) },
+    alert: () => {},
+    setSyncStatus: () => {},
+    document: { addEventListener: () => {}, getElementById: () => null, visibilityState: 'visible' },
+    window: { addEventListener: () => {} },
+    localStorage: {
+      getItem: (k) => (store.has(k) ? store.get(k) : null),
+      setItem: (k, v) => store.set(k, String(v)),
+      removeItem: (k) => store.delete(k),
+    },
+    fetch: async (url, o) => {
+      netlog.push({ url: String(url), method: (o && o.method) || 'GET', body: (o && o.body) || null });
+      return fetch(url, o);
+    },
+    idbGet: async (k) => (idb.has(k) ? idb.get(k) : undefined),
+    idbSet: async (k, v) => { idb.set(k, v); },
+    DB_KEY: 'tsumeVault_db',
+    SYNC_SERVER: opts.server || SERVER,
+    SQL: SQLHost,
+    db: null,
+    activeRunId: null,
+    filterMostrar: false,
+    lightMode: true,
+    syncInProgress: false,
+  };
+  vm.createContext(ctx, { name });
+  vm.runInContext(BUNDLE, ctx, { filename: 'bundle.js' });
+  const dev = {
+    name, ctx, store, idb, netlog,
+    run: (code) => vm.runInContext(code, ctx, { filename: `${name}.js` }),
+    async runAsync(code) { return await vm.runInContext(`(async()=>{ ${code} })()`, ctx, { filename: `${name}.js` }); },
+    q: (sql) => vm.runInContext(`dbQuery(${JSON.stringify(sql)}, [])`, ctx),
+    q1: (sql) => vm.runInContext(`dbQueryOne(${JSON.stringify(sql)}, [])`, ctx),
+    pushCount: () => netlog.filter(c => c.url.endsWith('/sync/push')).length,
+  };
+  return dev;
+}
+
+// "Reinicio" de un dispositivo: nuevo contexto, misma localStorage e IndexedDB;
+// la DB se recarga desde IndexedDB como hace initDB(), aplicando migraciones.
+function reloadDevice(dev, opts = {}) {
+  const nd = makeDevice(dev.name, { store: dev.store, idb: dev.idb, server: opts.server || dev.ctx.SYNC_SERVER });
+  const saved = dev.idb.get('tsumeVault_db');
+  if (saved) {
+    nd.ctx.db = new SQLHost.Database(saved);
+    nd.run('migrateSyncColumns()');
+  } else {
+    nd.run('db = new SQL.Database(); createSchema();');
+  }
+  return nd;
+}
+
+function freshDevice(name, opts = {}) {
+  const d = makeDevice(name, opts);
+  d.run('db = new SQL.Database(); createSchema();');
+  // datos estáticos mínimos para poder crear runs (localInsertRun consulta problems/chapters)
+  d.run(`
+    dbExec("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar) VALUES (1,'tsumego_hero',1,1,1)", []);
+    dbExec("INSERT INTO problems (source,problem_id,set_id,chapter_id,order_in_chapter,sgf_path) VALUES ('tsumego_hero','p1',1,1,1,'x.sgf')", []);
+    dbExec("INSERT INTO problems (source,problem_id,set_id,chapter_id,order_in_chapter,sgf_path) VALUES ('tsumego_hero','p2',1,1,2,'y.sgf')", []);
+    localStorage.setItem('static_version','0');
+  `);
+  return d;
+}
+
+async function serverQuery(sql) {
+  // consulta directa a la DB del servidor (mismo host) vía sqlite3 CLI no está
+  // garantizada; usamos python inline desde el runner bash. Aquí: endpoint pull.
+  throw new Error('no usado');
+}
+
+(async () => {
+  SQLHost = await initSqlJs();
+
+  // ════ Escenario 1: instalación desde cero + crear run + resolver + sync ════
+  let A = freshDevice('A');
+  A.run(`
+    const r = localInsertRun('tsumego_hero', 'chapter', { chapter_id: 1 });
+    activeRunId = r.run_id;
+    localInsertAttempt('tsumego_hero', 'p1', activeRunId, 'correct', 1200);
+    localInsertAttempt('tsumego_hero', 'p2', activeRunId, 'wrong', 800);
+  `);
+  check('E1: run local creado con synced=0', A.q1("SELECT synced,done,status FROM runs").synced === 0);
+  let ok = await A.runAsync('return await tryAutoSync(true)');
+  check('E1: primer sync ok', ok === true);
+  check('E1: attempts marcados synced=1 tras push', A.q1("SELECT COUNT(*) c FROM attempts WHERE synced=0").c === 0);
+  check('E1: run marcado synced=1 tras push', A.q1("SELECT synced FROM runs").synced === 1);
+  const runUuidA = A.q1('SELECT uuid FROM runs').uuid;
+
+  // Verificación en servidor vía pull limpio
+  const pull0 = await (await fetch(`${SERVER}/sync/pull?since_attempt_id=0&since_run_id=0`)).json();
+  check('E1: servidor tiene el run', pull0.runs.some(r => r.uuid === runUuidA));
+  check('E1: servidor tiene 2 attempts', pull0.attempts.length === 2);
+  check('E1: run cerrado y done=2 en servidor', pull0.runs.find(r => r.uuid === runUuidA).status === 'closed' && pull0.runs.find(r => r.uuid === runUuidA).done === 2, JSON.stringify(pull0.runs));
+
+  // ════ Escenario 2: sincronizar dos veces seguidas → sin re-push ════
+  const pushesBefore = A.pushCount();
+  ok = await A.runAsync('return await tryAutoSync(true)');
+  check('E2: segundo sync ok', ok === true);
+  check('E2: segundo sync NO envía push (nada pendiente)', A.pushCount() === pushesBefore, `pushes=${A.pushCount() - pushesBefore}`);
+
+  // ════ Escenario 3: segundo dispositivo hace pull sin duplicar ════
+  let B = freshDevice('B');
+  ok = await B.runAsync('return await tryAutoSync(true)');
+  check('E3: sync B ok', ok === true);
+  check('E3: B tiene el run de A exactamente 1 vez', B.q1(`SELECT COUNT(*) c FROM runs WHERE uuid='${runUuidA}'`).c === 1);
+  check('E3: B tiene 2 attempts (sin duplicados)', B.q1('SELECT COUNT(*) c FROM attempts').c === 2);
+  check('E3: attempts en B llegan como synced=1', B.q1('SELECT COUNT(*) c FROM attempts WHERE synced=1').c === 2);
+  check('E3: B no pushea nada', B.pushCount() === 0);
+  check('E3: run_items de A visibles en B', B.q1('SELECT COUNT(*) c FROM run_items').c === 2);
+
+  // ════ Escenario 4 (bug 3.1): pull duplicado no duplica estadísticas ════
+  A.store.set('last_pull_attempt_id', '0');
+  A.store.set('last_pull_run_id', '0');
+  ok = await A.runAsync('return await tryAutoSync(true)');
+  check('E4: re-pull completo ok', ok === true);
+  check('E4: sin attempts duplicados tras re-pull (índice único uuid)', A.q1('SELECT COUNT(*) c FROM attempts').c === 2, `c=${A.q1('SELECT COUNT(*) c FROM attempts').c}`);
+  check('E4: sin runs duplicados tras re-pull', A.q1('SELECT COUNT(*) c FROM runs').c === 1);
+  check('E4: cursor de pull avanzó', parseInt(A.store.get('last_pull_attempt_id')) >= 2);
+
+  // ════ Escenario 5 (bug 3.2): run creado offline sobrevive a syncDeletedRuns ════
+  let C = freshDevice('C', { server: OFFLINE });
+  C.run(`
+    const r = localInsertRun('tsumego_hero', 'chapter', { chapter_id: 1 });
+    activeRunId = r.run_id;
+    localInsertAttempt('tsumego_hero', 'p1', activeRunId, 'correct', 900);
+  `);
+  const cUuid = C.q1('SELECT uuid FROM runs').uuid;   // capturado ANTES del sync
+  ok = await C.runAsync('return await tryAutoSync(true)');
+  check('E5: sync offline falla silenciosamente', ok === false);
+  await C.runAsync('await saveDB()');   // persistir como haría la app antes del reinicio
+  // reinicio del dispositivo aún offline: syncDeletedRuns directo (peor caso)
+  C = reloadDevice(C, { server: SERVER });
+  const runsBefore = C.q1('SELECT COUNT(*) c FROM runs').c;
+  await C.runAsync('await syncDeletedRuns()');
+  check('E5: syncDeletedRuns NO borra el run offline no pusheado', C.q1('SELECT COUNT(*) c FROM runs').c === runsBefore);
+  ok = await C.runAsync('return await tryAutoSync(true)');
+  check('E5: al recuperar conexión el run se pushea', ok === true && C.q1('SELECT synced FROM runs WHERE synced<>1') === null);
+  const pull1 = await (await fetch(`${SERVER}/sync/pull?since_attempt_id=0&since_run_id=0`)).json();
+  check('E5: servidor recibió el run creado offline', pull1.runs.some(r => r.uuid === cUuid));
+
+  // ════ Escenario 6 (bug 3.3): purga por uuid; review runs con done>0 intactos ════
+  let D = freshDevice('D');
+  await D.runAsync('await tryAutoSync(true)');   // trae estado actual
+  D.run(`
+    // run vacío antiguo (purgable) — no pusheado
+    dbExec("INSERT INTO runs (source,type,status,total,done,started_at,uuid,synced) VALUES ('tsumego_hero','chapter','open',2,0,'2026-07-10T09:00:00Z','empty-old-uuid',0)", []);
+    // run estilo review: sin run_items pero con done>0 (historial VÁLIDO)
+    dbExec("INSERT INTO runs (source,type,status,total,done,started_at,uuid,synced) VALUES ('tsumego_hero','review','closed',0,5,'2026-07-09T09:00:00Z','review-old-uuid',0)", []);
+  `);
+  await D.runAsync('await purgeEmptyRuns()');
+  check('E6: run vacío antiguo purgado localmente', D.q1("SELECT COUNT(*) c FROM runs WHERE uuid='empty-old-uuid'").c === 0);
+  check('E6: run de review con done>0 NO purgado', D.q1("SELECT COUNT(*) c FROM runs WHERE uuid='review-old-uuid'").c === 1);
+  const delCalls = D.netlog.filter(c => c.url.endsWith('/db/runs/delete'));
+  check('E6: la purga contactó al servidor por uuid', delCalls.length === 1);
+  // el run de A (válido, en servidor) no debe haber sido tocado
+  const pull2 = await (await fetch(`${SERVER}/sync/pull?since_attempt_id=0&since_run_id=0`)).json();
+  check('E6: el run válido de A sigue en el servidor', pull2.runs.some(r => r.uuid === runUuidA));
+
+  // ════ Escenario 7: eliminar un run se propaga con check_runs ════
+  await A.runAsync(`await deleteRun(dbQueryOne("SELECT id FROM runs WHERE uuid='${runUuidA}'", []).id)`);
+  const pull3 = await (await fetch(`${SERVER}/sync/pull?since_attempt_id=0&since_run_id=0`)).json();
+  check('E7: run eliminado en servidor', !pull3.runs.some(r => r.uuid === runUuidA));
+  ok = await B.runAsync('return await tryAutoSync(true)');
+  await B.runAsync('await syncDeletedRuns()');
+  check('E7: B elimina localmente el run borrado (estaba synced)', B.q1(`SELECT COUNT(*) c FROM runs WHERE uuid='${runUuidA}'`).c === 0);
+
+  // ════ Escenario 8: SM-2 cursor sin reloj de cliente ════
+  const cur = C.store.get('last_sm2_sync');
+  const maxUpd = C.q1('SELECT MAX(updated_at) m FROM sm2_state');
+  check('E8: cursor SM-2 = max(updated_at) visto, no reloj', cur === (maxUpd && maxUpd.m), `cursor=${cur} max=${maxUpd && maxUpd.m}`);
+  // B recibe el estado SM-2 de C
+  await B.runAsync('await tryAutoSync(true)');
+  check('E8: SM-2 replicado a B', B.q1("SELECT COUNT(*) c FROM sm2_state WHERE source='tsumego_hero' AND problem_id='p1'").c === 1);
+
+  // ════ Escenario 9: run modificado tras push se re-pushea (dirty=2) ════
+  let E = freshDevice('E');
+  E.run(`
+    const r = localInsertRun('tsumego_hero', 'chapter', { chapter_id: 1 });
+    activeRunId = r.run_id;
+  `);
+  await E.runAsync('await tryAutoSync(true)');   // push del run abierto done=0
+  check('E9: run abierto pusheado synced=1', E.q1('SELECT synced FROM runs').synced === 1);
+  E.run(`
+    localInsertAttempt('tsumego_hero', 'p1', activeRunId, 'correct', 500);
+    localInsertAttempt('tsumego_hero', 'p2', activeRunId, 'correct', 500);
+  `);
+  check('E9: run pasa a synced=2 al cambiar', E.q1('SELECT synced FROM runs').synced === 2);
+  await E.runAsync('await tryAutoSync(true)');
+  const eUuid = E.q1('SELECT uuid FROM runs').uuid;
+  const pull4 = await (await fetch(`${SERVER}/sync/pull?since_attempt_id=0&since_run_id=0`)).json();
+  const srvRun = pull4.runs.find(r => r.uuid === eUuid);
+  check('E9: servidor refleja el cierre (done=2, closed)', srvRun && srvRun.done === 2 && srvRun.status === 'closed', JSON.stringify(srvRun));
+  const srvItems = pull4.run_items.filter(i => i.run_id === srvRun.id && i.result === 'correct');
+  check('E9: resultados de run_items actualizados en servidor', srvItems.length === 2, JSON.stringify(pull4.run_items.filter(i => i.run_id === srvRun.id)));
+  check('E9: run vuelve a synced=1', E.q1('SELECT synced FROM runs').synced === 1);
+
+  // ════ Escenario 10: migración de instalación existente (schema viejo) ════
+  const oldDb = new SQLHost.Database();
+  oldDb.run(`
+    CREATE TABLE attempts (id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
+      problem_id TEXT NOT NULL, run_id INTEGER, result TEXT NOT NULL,
+      time_ms INTEGER, created_at TEXT NOT NULL, uuid TEXT);
+    CREATE TABLE runs (id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
+      set_id INTEGER, chapter_id INTEGER, vc_id INTEGER, type TEXT NOT NULL,
+      status TEXT NOT NULL DEFAULT 'open', total INTEGER NOT NULL DEFAULT 0,
+      done INTEGER NOT NULL DEFAULT 0, started_at TEXT NOT NULL, closed_at TEXT,
+      uuid TEXT, paused_ms INTEGER NOT NULL DEFAULT 0);
+    CREATE TABLE run_items (run_id INTEGER NOT NULL, source TEXT NOT NULL,
+      problem_id TEXT NOT NULL, order_in_run INTEGER NOT NULL, result TEXT,
+      PRIMARY KEY (run_id, problem_id));
+    INSERT INTO runs (id,source,type,status,total,done,started_at,uuid) VALUES
+      (1,'tsumego_hero','chapter','closed',1,1,'2026-07-01T10:00:00Z','dup-run'),
+      (2,'tsumego_hero','chapter','closed',1,1,'2026-07-01T10:00:00Z','dup-run');
+    INSERT INTO attempts (id,source,problem_id,run_id,result,time_ms,created_at,uuid) VALUES
+      (1,'tsumego_hero','p1',1,'correct',700,'2026-07-01T10:00:01Z','dup-att'),
+      (2,'tsumego_hero','p1',2,'correct',700,'2026-07-01T10:00:01Z','dup-att');
+  `);
+  let F = makeDevice('F');
+  F.ctx.db = oldDb;
+  F.run('migrateSyncColumns()');
+  check('E10: migración dedup attempts (queda 1)', F.q1("SELECT COUNT(*) c FROM attempts WHERE uuid='dup-att'").c === 1);
+  check('E10: migración dedup runs (queda 1)', F.q1("SELECT COUNT(*) c FROM runs WHERE uuid='dup-run'").c === 1);
+  check('E10: attempt repuntado al run conservado', F.q1("SELECT run_id FROM attempts WHERE uuid='dup-att'").run_id === 1);
+  check('E10: columnas synced añadidas con backfill 0', F.q1('SELECT COUNT(*) c FROM attempts WHERE synced=0').c === 1);
+  const idx = F.q("SELECT name FROM sqlite_master WHERE type='index'").map(r => r.name);
+  check('E10: índices únicos uuid creados', idx.includes('idx_attempts_uuid') && idx.includes('idx_runs_uuid'), idx.join(','));
+
+  // ════ Escenario 11: debounce de saveDB persiste sin sync ════
+  let G = freshDevice('G', { server: OFFLINE });
+  G.run(`
+    localInsertAttempt('tsumego_hero', 'p1', null, 'correct', 300);
+    scheduleSaveDB(50);
+  `);
+  await new Promise(r => setTimeout(r, 250));
+  check('E11: intento persistido en IndexedDB por el debounce', (() => {
+    const bytes = G.idb.get('tsumeVault_db');
+    if (!bytes) return false;
+    const d2 = new SQLHost.Database(bytes);
+    const st = d2.prepare('SELECT COUNT(*) c FROM attempts'); st.step();
+    const c = st.getAsObject().c; st.free(); d2.close();
+    return c === 1;
+  })());
+  // reinicio simulado: el intento sigue y se sincroniza al volver la conexión
+  G = reloadDevice(G, { server: SERVER });
+  ok = await G.runAsync('return await tryAutoSync(true)');
+  check('E11: tras reinicio y reconexión, el intento pendiente se pushea', ok === true && G.q1('SELECT synced FROM attempts').synced === 1);
+
+  // ════ Escenario 12: token de cliente ════
+  let H = freshDevice('H');
+  H.store.set('sync_token', 'tok-cliente');
+  let captured = null;
+  const origFetch = H.ctx.fetch;
+  H.ctx.fetch = async (url, o) => { captured = o && o.headers; return origFetch(url, o); };
+  await H.runAsync("await syncFetch('/sync/static_version', {})");
+  check('E12: syncFetch añade X-Auth-Token si hay token guardado', captured && captured['X-Auth-Token'] === 'tok-cliente', JSON.stringify(captured));
+  H.store.delete('sync_token');
+  captured = null;
+  await H.runAsync("await syncFetch('/sync/static_version', {})");
+  check('E12: sin token guardado no se envía cabecera', captured && !('X-Auth-Token' in captured), JSON.stringify(captured));
+
+  // ════ Escenario 13 (fix cursores huérfanos): reset de DB con localStorage vivo ════
+  // B tiene datos y cursores avanzados. Simulamos que el usuario borra la DB
+  // del navegador (IndexedDB) pero localStorage sobrevive: la DB renace vacía
+  // con los cursores antiguos apuntando por delante de los datos del servidor.
+  check('E13: precondición — B tiene cursores avanzados', parseInt(B.store.get('last_pull_attempt_id')) > 0 && parseInt(B.store.get('last_pull_run_id')) > 0 && !!B.store.get('last_sm2_sync'));
+  const srvSnapshot = await (await fetch(`${SERVER}/sync/pull?since_attempt_id=0&since_run_id=0`)).json();
+  B.idb.delete('tsumeVault_db');                       // reset de la DB
+  B = makeDevice('B', { store: B.store, idb: B.idb }); // recarga con localStorage intacto
+  B.run('db = new SQL.Database(); createSchema();');
+  B.run(`
+    dbExec("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar) VALUES (1,'tsumego_hero',1,1,1)", []);
+    dbExec("INSERT INTO problems (source,problem_id,set_id,chapter_id,order_in_chapter,sgf_path) VALUES ('tsumego_hero','p1',1,1,1,'x.sgf')", []);
+    localStorage.setItem('static_version','0');
+  `);
+  ok = await B.runAsync('return await tryAutoSync(true)');
+  check('E13: sync tras reset ok', ok === true);
+  check('E13: recupera TODOS los attempts del servidor pese al cursor huérfano',
+    B.q1('SELECT COUNT(*) c FROM attempts').c === srvSnapshot.attempts.length,
+    `local=${B.q1('SELECT COUNT(*) c FROM attempts').c} servidor=${srvSnapshot.attempts.length}`);
+  check('E13: recupera TODOS los runs del servidor',
+    B.q1('SELECT COUNT(*) c FROM runs').c === srvSnapshot.runs.length,
+    `local=${B.q1('SELECT COUNT(*) c FROM runs').c} servidor=${srvSnapshot.runs.length}`);
+  check('E13: recupera el estado SM-2', B.q1('SELECT COUNT(*) c FROM sm2_state').c >= 1);
+  const maxSrvAtt = Math.max(0, ...srvSnapshot.attempts.map(a => a.id));
+  check('E13: el cursor se reescribe al valor correcto tras la recuperación',
+    parseInt(B.store.get('last_pull_attempt_id')) === maxSrvAtt,
+    `cursor=${B.store.get('last_pull_attempt_id')} max=${maxSrvAtt}`);
+  ok = await B.runAsync('return await tryAutoSync(true)');
+  check('E13: segundo sync tras recuperación sin duplicados',
+    ok === true && B.q1('SELECT COUNT(*) c FROM attempts').c === srvSnapshot.attempts.length);
+
+  // ════ Escenario 14 (remapeo de ids): datos locales previos al primer sync ════
+  // K crea DOS runs con un attempt cada uno ANTES de su primer sync: sus ids
+  // locales (runs 1-2, attempts 1-2) colisionan con ids ya usados en el
+  // servidor. Antes, las filas del servidor con id ocupado se descartaban en
+  // silencio y no volvían (el cursor avanza igual); ahora todo entra con ids
+  // locales nuevos y cada attempt cuelga de su run correcto vía run_uuid.
+  let K = freshDevice('K');
+  K.run(`
+    const r1 = localInsertRun('tsumego_hero', 'chapter', { chapter_id: 1 });
+    localInsertAttempt('tsumego_hero', 'p1', r1.run_id, 'correct', 600);
+    const r2 = localInsertRun('tsumego_hero', 'chapter', { chapter_id: 1 });
+    localInsertAttempt('tsumego_hero', 'p2', r2.run_id, 'wrong', 700);
+  `);
+  const kUuids = K.q('SELECT uuid FROM runs').map(r => r.uuid);
+  const srvPre = await (await fetch(`${SERVER}/sync/pull?since_attempt_id=0&since_run_id=0`)).json();
+  check('E14: precondición — colisión real de ids run y attempt',
+    srvPre.runs.some(r => r.id === 2) && srvPre.attempts.some(a => a.id <= 2),
+    JSON.stringify({ runs: srvPre.runs.map(x => x.id), atts: srvPre.attempts.map(x => x.id) }));
+  ok = await K.runAsync('return await tryAutoSync(true)');
+  check('E14: sync ok', ok === true);
+  const kRuns = K.q1('SELECT COUNT(*) c FROM runs').c;
+  const kAtts = K.q1('SELECT COUNT(*) c FROM attempts').c;
+  check('E14: K recibe TODOS los runs del servidor pese a la colisión',
+    kRuns === srvPre.runs.length + 2, `local=${kRuns} esperado=${srvPre.runs.length + 2}`);
+  check('E14: K recibe TODOS los attempts del servidor pese a la colisión',
+    kAtts === srvPre.attempts.length + 2, `local=${kAtts} esperado=${srvPre.attempts.length + 2}`);
+  let attached = 0, wrong = 0;
+  for (const a of srvPre.attempts) {
+    if (!a.uuid || !a.run_uuid) continue;
+    const row = K.q1(`SELECT r.uuid u FROM attempts x JOIN runs r ON r.id = x.run_id WHERE x.uuid = '${a.uuid}'`);
+    if (row && row.u === a.run_uuid) attached++; else wrong++;
+  }
+  check('E14: cada attempt recibido cuelga de su run correcto (por uuid)', wrong === 0 && attached > 0, `ok=${attached} mal=${wrong}`);
+  check('E14: los attempts propios de K siguen en sus runs locales 1 y 2',
+    K.q1('SELECT COUNT(*) c FROM attempts WHERE run_id IN (1,2)').c === 2);
+  ok = await K.runAsync('return await tryAutoSync(true)');
+  check('E14: doble sync sin duplicados',
+    ok === true && K.q1('SELECT COUNT(*) c FROM attempts').c === kAtts && K.q1('SELECT COUNT(*) c FROM runs').c === kRuns);
+  const srvPost = await (await fetch(`${SERVER}/sync/pull?since_attempt_id=0&since_run_id=0`)).json();
+  check('E14: los runs propios de K llegaron al servidor',
+    kUuids.every(u => srvPost.runs.some(r => r.uuid === u)));
+
+  console.log('\nRESULTADO CLIENTE:', fails.length ? `${fails.length} FALLOS: ${fails.join(' | ')}` : 'TODO OK');
+  process.exit(fails.length ? 1 : 0);
+})().catch(e => { console.error('ERROR FATAL', e); process.exit(2); });

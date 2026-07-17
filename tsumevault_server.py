@@ -27,6 +27,7 @@ import json
 import logging
 import os
 import random
+import signal
 import sqlite3
 import sys
 import threading
@@ -72,7 +73,10 @@ class _BodyError(Exception):
     def __init__(self, code, msg):
         super().__init__(msg)
         self.code = code
+
+
 # ─────────────────────────────────────────────────────────────────────────────
+
 
 def handle_delete_runs(body):
     ids = body.get("ids", [])
@@ -92,15 +96,22 @@ def handle_delete_runs(body):
             except (TypeError, ValueError):
                 return {"error": "invalid ids"}, 400
             placeholders = ",".join("?" * len(ids))
-            con.execute(f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE id IN ({placeholders}))", ids)
+            con.execute(
+                f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE id IN ({placeholders}))",
+                ids,
+            )
             con.execute(f"DELETE FROM runs WHERE id IN ({placeholders})", ids)
         if uuids:
             placeholders = ",".join("?" * len(uuids))
-            con.execute(f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))", uuids)
+            con.execute(
+                f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))",
+                uuids,
+            )
             con.execute(f"DELETE FROM runs WHERE uuid IN ({placeholders})", uuids)
         con.commit()
     log.info("delete_runs: %d ids, %d uuids", len(ids), len(uuids))
     return {"ok": True}
+
 
 def db_connect():
     con = sqlite3.connect(DB_PATH)
@@ -123,6 +134,14 @@ def rows_to_list(rows):
 
 def migrate_db():
     with db_connect() as con:
+        # T11: schema_version formal via PRAGMA user_version. Las migraciones
+        # historicas (todas idempotentes: comprobaciones de PRAGMA table_info,
+        # CREATE ... IF NOT EXISTS y dedup re-ejecutable) quedan bajo la
+        # version 1. Migraciones futuras: "if version < N: ...; sellar N".
+        version = con.execute("PRAGMA user_version").fetchone()[0]
+        if version >= 1:
+            log.info("[migrate] schema_version=%d — nada que migrar.", version)
+            return
         cols = [r[1] for r in con.execute("PRAGMA table_info(runs)").fetchall()]
         if "uuid" not in cols:
             con.execute("ALTER TABLE runs ADD COLUMN uuid TEXT")
@@ -152,7 +171,9 @@ def migrate_db():
             """
         )
         if cur.rowcount:
-            log.info("[migrate] %d attempts duplicados por uuid eliminados.", cur.rowcount)
+            log.info(
+                "[migrate] %d attempts duplicados por uuid eliminados.", cur.rowcount
+            )
         # Runs duplicados por uuid: repuntar attempts al run conservado,
         # eliminar run_items redundantes y borrar los duplicados.
         dup_runs = con.execute(
@@ -172,10 +193,18 @@ def migrate_db():
             if not extra:
                 continue
             ph = ",".join("?" * len(extra))
-            con.execute(f"UPDATE attempts SET run_id=? WHERE run_id IN ({ph})", [keep_id] + extra)
+            con.execute(
+                f"UPDATE attempts SET run_id=? WHERE run_id IN ({ph})",
+                [keep_id] + extra,
+            )
             con.execute(f"DELETE FROM run_items WHERE run_id IN ({ph})", extra)
             con.execute(f"DELETE FROM runs WHERE id IN ({ph})", extra)
-            log.info("[migrate] run uuid=%s: %d duplicados fusionados en id=%d.", run_uuid, len(extra), keep_id)
+            log.info(
+                "[migrate] run uuid=%s: %d duplicados fusionados en id=%d.",
+                run_uuid,
+                len(extra),
+                keep_id,
+            )
         # Índices únicos parciales: garantizan dedup por uuid y aceleran los
         # lookups de handle_sync_push (antes eran full scans, §5.2).
         con.execute(
@@ -199,9 +228,12 @@ def migrate_db():
                 PRIMARY KEY (source, problem_id)
             )
         """)
-        con.execute("CREATE INDEX IF NOT EXISTS idx_sm2_updated ON sm2_state(updated_at)")
+        con.execute(
+            "CREATE INDEX IF NOT EXISTS idx_sm2_updated ON sm2_state(updated_at)"
+        )
+        con.execute("PRAGMA user_version = 1")  # T11: sellar la version
         con.commit()
-        log.info("[migrate] Migraciones completadas.")
+        log.info("[migrate] Migraciones completadas (schema_version=1).")
 
 
 # ── GET handlers ──────────────────────────────────────────────────────────────
@@ -388,12 +420,12 @@ def handle_get_last_run_stats(qs):
             (source, int(set_id)),
         ).fetchone()
 
-        # Último run cerrado por capítulo
+        # Último run cerrado por capítulo (T8/3.12: SQL estándar, sin bare columns)
         chap_runs = con.execute(
             """
-            SELECT chapter_id, id FROM runs
+            SELECT chapter_id, MAX(id) AS id FROM runs
             WHERE source=? AND set_id=? AND chapter_id IS NOT NULL AND status='closed'
-            GROUP BY chapter_id HAVING id = MAX(id)
+            GROUP BY chapter_id
         """,
             (source, int(set_id)),
         ).fetchall()
@@ -441,9 +473,9 @@ def handle_get_last_run_stats_all(qs):
         # Último run cerrado por set_id (runs de colección completa)
         col_runs = con.execute(
             """
-            SELECT set_id, id FROM runs
+            SELECT set_id, MAX(id) AS id FROM runs
             WHERE source=? AND status='closed' AND set_id IS NOT NULL AND chapter_id IS NULL
-            GROUP BY set_id HAVING id = MAX(id)
+            GROUP BY set_id
         """,
             (source,),
         ).fetchall()
@@ -451,9 +483,12 @@ def handle_get_last_run_stats_all(qs):
         # Último run cerrado por chapter_id
         chap_runs = con.execute(
             """
-            SELECT chapter_id, set_id, id FROM runs
-            WHERE source=? AND status='closed' AND chapter_id IS NOT NULL
-            GROUP BY chapter_id HAVING id = MAX(id)
+            SELECT chapter_id, set_id, id FROM (
+              SELECT chapter_id, set_id, id,
+                     ROW_NUMBER() OVER (PARTITION BY chapter_id ORDER BY id DESC) rn
+              FROM runs
+              WHERE source=? AND status='closed' AND chapter_id IS NOT NULL
+            ) WHERE rn=1
         """,
             (source,),
         ).fetchall()
@@ -506,39 +541,34 @@ def handle_get_struggling(qs):
     n = int(qs.get("n", ["3"])[0])
 
     with db_connect() as con:
+        # T12/P3: una sola query con window function en lugar de una query por
+        # problema del scope (mismo cambio y misma equivalencia verificada que
+        # en el cliente: compare_struggling.js).
+        scope = ""
+        params = [source]
         if chapter_id:
-            scope_rows = con.execute(
-                "SELECT problem_id FROM problems WHERE source=? AND chapter_id=?",
-                (source, int(chapter_id)),
-            ).fetchall()
+            scope = " AND p.chapter_id=?"
+            params.append(int(chapter_id))
         elif set_id:
-            scope_rows = con.execute(
-                "SELECT problem_id FROM problems WHERE source=? AND set_id=?",
-                (source, int(set_id)),
-            ).fetchall()
-        else:
-            scope_rows = con.execute(
-                "SELECT problem_id FROM problems WHERE source=?", (source,)
-            ).fetchall()
-        scope_ids = [r[0] for r in scope_rows]
-        if not scope_ids:
-            return {"problem_ids": []}
-        struggling = []
-        for problem_id in scope_ids:
-            rows = con.execute(
-                """
-                SELECT result FROM attempts
-                WHERE source=? AND problem_id=?
-                ORDER BY created_at DESC
-                LIMIT ?
-            """,
-                (source, problem_id, n),
-            ).fetchall()
-            if not rows:
-                continue
-            results = [r[0] for r in rows]
-            if any(r == "wrong" for r in results):
-                struggling.append(problem_id)
+            scope = " AND p.set_id=?"
+            params.append(int(set_id))
+        params.append(n)
+        rows = con.execute(
+            f"""
+            WITH ranked AS (
+              SELECT a.problem_id, a.result,
+                     ROW_NUMBER() OVER (PARTITION BY a.problem_id ORDER BY a.created_at DESC, a.id DESC) rn
+              FROM attempts a
+              JOIN problems p ON p.source = a.source AND p.problem_id = a.problem_id
+              WHERE a.source = ?{scope}
+            )
+            SELECT problem_id FROM ranked WHERE rn <= ?
+            GROUP BY problem_id
+            HAVING SUM(result = 'wrong') > 0
+        """,
+            params,
+        ).fetchall()
+        struggling = [r[0] for r in rows]
     return {"problem_ids": struggling}
 
 
@@ -710,11 +740,19 @@ def handle_sync_snapshot(qs):
         collections = rows_to_list(con.execute("SELECT * FROM collections").fetchall())
         chapters = rows_to_list(con.execute("SELECT * FROM chapters").fetchall())
         problems = rows_to_list(con.execute("SELECT * FROM problems").fetchall())
-        game_collections = rows_to_list(con.execute("SELECT * FROM game_collections").fetchall())
+        game_collections = rows_to_list(
+            con.execute("SELECT * FROM game_collections").fetchall()
+        )
         games = rows_to_list(con.execute("SELECT * FROM games").fetchall())
         sm2_state = rows_to_list(con.execute("SELECT * FROM sm2_state").fetchall())
-    return {"collections": collections, "chapters": chapters, "problems": problems,
-            "game_collections": game_collections, "games": games, "sm2_state": sm2_state}
+    return {
+        "collections": collections,
+        "chapters": chapters,
+        "problems": problems,
+        "game_collections": game_collections,
+        "games": games,
+        "sm2_state": sm2_state,
+    }
 
 
 def handle_admin_import_games(body):
@@ -739,7 +777,8 @@ def handle_admin_import_games(body):
         for game in games:
             # Resolver game_collection_id por nombre de colección
             row = con.execute(
-                "SELECT id FROM game_collections WHERE name=?", (game["collection_name"],)
+                "SELECT id FROM game_collections WHERE name=?",
+                (game["collection_name"],),
             ).fetchone()
             if not row:
                 continue
@@ -769,10 +808,12 @@ def handle_sync_sm2_pull(qs):
     """
     since = qs.get("since", ["1970-01-01T00:00:00Z"])[0]
     with db_connect() as con:
-        rows = rows_to_list(con.execute(
-            "SELECT * FROM sm2_state WHERE updated_at >= ? ORDER BY updated_at ASC",
-            (since,)
-        ).fetchall())
+        rows = rows_to_list(
+            con.execute(
+                "SELECT * FROM sm2_state WHERE updated_at >= ? ORDER BY updated_at ASC",
+                (since,),
+            ).fetchall()
+        )
     return {"sm2_state": rows}
 
 
@@ -782,7 +823,15 @@ def handle_sync_sm2_push(body):
     # ── Validación de entrada (Fase 1, 3.11) ──
     if not isinstance(records, list):
         return {"error": "sm2_state must be a list"}, 400
-    required = ("source", "problem_id", "due_date", "interval", "easiness", "repetitions", "updated_at")
+    required = (
+        "source",
+        "problem_id",
+        "due_date",
+        "interval",
+        "easiness",
+        "repetitions",
+        "updated_at",
+    )
     for r in records:
         if not isinstance(r, dict) or any(f not in r for f in required):
             return {"error": "invalid sm2_state entry"}, 400
@@ -790,11 +839,12 @@ def handle_sync_sm2_push(body):
         for r in records:
             existing = con.execute(
                 "SELECT updated_at FROM sm2_state WHERE source=? AND problem_id=?",
-                (r["source"], r["problem_id"])
+                (r["source"], r["problem_id"]),
             ).fetchone()
             # Solo actualizar si el registro del cliente es mas reciente
             if existing is None or r["updated_at"] > existing[0]:
-                con.execute("""
+                con.execute(
+                    """
                     INSERT INTO sm2_state (source, problem_id, due_date, interval, easiness, repetitions, updated_at)
                     VALUES (?, ?, ?, ?, ?, ?, ?)
                     ON CONFLICT(source, problem_id) DO UPDATE SET
@@ -803,8 +853,17 @@ def handle_sync_sm2_push(body):
                         easiness    = excluded.easiness,
                         repetitions = excluded.repetitions,
                         updated_at  = excluded.updated_at
-                """, (r["source"], r["problem_id"], r["due_date"], r["interval"],
-                      r["easiness"], r["repetitions"], r["updated_at"]))
+                """,
+                    (
+                        r["source"],
+                        r["problem_id"],
+                        r["due_date"],
+                        r["interval"],
+                        r["easiness"],
+                        r["repetitions"],
+                        r["updated_at"],
+                    ),
+                )
         con.commit()
     return {"ok": True, "count": len(records)}
 
@@ -818,7 +877,9 @@ def handle_sync_static_version(qs):
 def handle_sync_games(qs):
     """Devuelve todas las game_collections y games."""
     with db_connect() as con:
-        game_collections = rows_to_list(con.execute("SELECT * FROM game_collections").fetchall())
+        game_collections = rows_to_list(
+            con.execute("SELECT * FROM game_collections").fetchall()
+        )
         games = rows_to_list(con.execute("SELECT * FROM games").fetchall())
     return {"game_collections": game_collections, "games": games}
 
@@ -954,14 +1015,20 @@ def handle_sync_push(body):
                         INSERT OR IGNORE INTO run_items (run_id, source, problem_id, order_in_run, result)
                         VALUES (?,?,?,?,?)
                     """,
-                        (server_run_id, item["source"], item["problem_id"], item["order_in_run"], item.get("result")),
+                        (
+                            server_run_id,
+                            item["source"],
+                            item["problem_id"],
+                            item["order_in_run"],
+                            item.get("result"),
+                        ),
                     )
 
             inserted_runs.append({"client_uuid": uuid, "server_id": server_run_id})
             client_run_id = r.get("id") or r.get("client_id")
             if client_run_id is not None:
                 client_to_server_run_id[int(client_run_id)] = server_run_id
-                
+
         # ── Attempts ──
         for a in attempts_in:
             uuid = a.get("uuid")
@@ -975,7 +1042,9 @@ def handle_sync_push(body):
                     (a["source"], a["problem_id"], a["created_at"]),
                 ).fetchone()
             if existing:
-                inserted_attempts.append({"client_id": a.get("client_id"), "server_id": existing[0]})
+                inserted_attempts.append(
+                    {"client_id": a.get("client_id"), "server_id": existing[0]}
+                )
                 continue
 
             # mapear run_id del cliente al del servidor
@@ -984,9 +1053,18 @@ def handle_sync_push(body):
                 server_run_id = client_to_server_run_id.get(int(client_run_id))
                 if server_run_id is None:
                     # El run ya existía en el servidor — buscarlo por uuid en el payload
-                    run_data = next((r for r in runs_in if (r.get("id") or r.get("client_id")) == int(client_run_id)), None)
+                    run_data = next(
+                        (
+                            r
+                            for r in runs_in
+                            if (r.get("id") or r.get("client_id")) == int(client_run_id)
+                        ),
+                        None,
+                    )
                     if run_data and run_data.get("uuid"):
-                        row = con.execute("SELECT id FROM runs WHERE uuid=?", (run_data["uuid"],)).fetchone()
+                        row = con.execute(
+                            "SELECT id FROM runs WHERE uuid=?", (run_data["uuid"],)
+                        ).fetchone()
                         if row:
                             server_run_id = row[0]
                 if server_run_id is None and a.get("run_uuid"):
@@ -994,7 +1072,9 @@ def handle_sync_push(body):
                     # attempt; permite resolver el run aunque ese run no viaje
                     # en este push (p. ej. ya sincronizado). Los clientes
                     # antiguos no envían run_uuid: se conserva el fallback previo.
-                    row = con.execute("SELECT id FROM runs WHERE uuid=?", (a["run_uuid"],)).fetchone()
+                    row = con.execute(
+                        "SELECT id FROM runs WHERE uuid=?", (a["run_uuid"],)
+                    ).fetchone()
                     if row:
                         server_run_id = row[0]
             else:
@@ -1002,12 +1082,22 @@ def handle_sync_push(body):
 
             cur = con.execute(
                 "INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at, uuid) VALUES (?,?,?,?,?,?,?)",
-                (a["source"], a["problem_id"], server_run_id, a["result"], a.get("time_ms"), a["created_at"], uuid),
+                (
+                    a["source"],
+                    a["problem_id"],
+                    server_run_id,
+                    a["result"],
+                    a.get("time_ms"),
+                    a["created_at"],
+                    uuid,
+                ),
             )
-            inserted_attempts.append({"client_id": a.get("client_id"), "server_id": cur.lastrowid})
+            inserted_attempts.append(
+                {"client_id": a.get("client_id"), "server_id": cur.lastrowid}
+            )
 
         con.commit()
-        
+
     return {"ok": True, "attempts": inserted_attempts, "runs": inserted_runs}
 
 
@@ -1024,6 +1114,7 @@ def handle_put_chapter_mostrar(body):
         con.commit()
     return {"ok": True}
 
+
 def handle_sync_check_runs(body):
     uuids = body.get("uuids", [])
     if not isinstance(uuids, list):
@@ -1037,7 +1128,12 @@ def handle_sync_check_runs(body):
         ).fetchall()
     existing_set = {r[0] for r in existing}
     missing = [u for u in uuids if u not in existing_set]
-    log.info("check_runs: recibidos=%d existentes=%d missing=%d", len(uuids), len(existing_set), len(missing))
+    log.info(
+        "check_runs: recibidos=%d existentes=%d missing=%d",
+        len(uuids),
+        len(existing_set),
+        len(missing),
+    )
     return {"missing": missing}
 
 
@@ -1057,9 +1153,12 @@ def handle_sync_chapters_mostrar(body):
             return {"error": "invalid chapter entry"}, 400
     with db_connect() as con:
         for mostrar, chapter_id in normalized:
-            con.execute("UPDATE chapters SET mostrar=? WHERE id=?", (mostrar, chapter_id))
+            con.execute(
+                "UPDATE chapters SET mostrar=? WHERE id=?", (mostrar, chapter_id)
+            )
         con.commit()
     return {"ok": True}
+
 
 GET_ROUTES = {
     "/db/collections": handle_get_collections,
@@ -1236,10 +1335,13 @@ if __name__ == "__main__":
         format="%(asctime)s %(levelname)s %(message)s",
     )
     if not os.path.isfile(DB_PATH):
-        log.warning("DB no encontrada: %s — ejecuta tsumevault_init.py primero.", DB_PATH)
+        log.warning(
+            "DB no encontrada: %s — ejecuta tsumevault_init.py primero.", DB_PATH
+        )
 
     try:
         import socket
+
         local_ip = socket.gethostbyname(socket.gethostname())
     except Exception:
         # Fase 1 (§4.6): un host sin resolución de hostname ya no impide arrancar.
@@ -1250,10 +1352,25 @@ if __name__ == "__main__":
     if AUTH_TOKEN:
         log.info("Auth: X-Auth-Token ACTIVADO")
     else:
-        log.warning("Auth: TSUMEVAULT_TOKEN no definido — autenticación DESACTIVADA (modo compatibilidad)")
+        log.warning(
+            "Auth: TSUMEVAULT_TOKEN no definido — autenticación DESACTIVADA (modo compatibilidad)"
+        )
     log.info("Orígenes permitidos: %s", ", ".join(sorted(ALLOWED_ORIGINS)))
     migrate_db()
 
     server = ThreadingHTTPServer(("0.0.0.0", PORT), Handler)
     server.daemon_threads = True
+
+    # T11: apagado limpio con SIGTERM/SIGINT (systemd/docker). shutdown() debe
+    # invocarse desde otro hilo: llamado desde el propio hilo de serve_forever
+    # se bloquearia. Tras serve_forever se cierra el socket y se sale con 0.
+    def _shutdown(signum, _frame):
+        log.info("Señal %d recibida — apagando limpiamente…", signum)
+        threading.Thread(target=server.shutdown, daemon=True).start()
+
+    signal.signal(signal.SIGTERM, _shutdown)
+    signal.signal(signal.SIGINT, _shutdown)
     server.serve_forever()
+    server.server_close()
+    log.info("Servidor detenido.")
+    sys.exit(0)
