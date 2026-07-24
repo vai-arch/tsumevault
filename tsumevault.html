@@ -1628,7 +1628,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260717-1121';
+	const SW_VERSION = 'tsumevault-20260724-1210';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -3892,7 +3892,19 @@
         const color = n > 0 ? 'var(--gold)' : 'var(--ok-bright)';
         const row = document.createElement('div');
         row.style.cssText = 'display:flex;justify-content:space-between;align-items:center;';
-        row.innerHTML = `<span style="color:var(--dim)">${esc(source)}</span><span style="color:${color}">${n > 0 ? n + ' pending' : '✓ done'}</span>`;
+        // F6: el nombre del source actua como cambiador de source SIN salir de
+        // la pestana review (keepTab). Las filas se reconstruyen en cada render
+        // (innerHTML=''), asi que el listener no se acumula (cf. T3/3.7).
+        const isCur = source === currentSource;
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = source;
+        nameSpan.style.cssText = `color:${isCur ? 'var(--gold)' : 'var(--dim)'};cursor:pointer;${isCur ? 'font-weight:600;' : ''}`;
+        nameSpan.title = isCur ? 'Current source' : 'Switch to this source';
+        if (!isCur) nameSpan.addEventListener('click', () => changeSource(source, { keepTab: true }));
+        const cntSpan = document.createElement('span');
+        cntSpan.style.color = color;
+        cntSpan.textContent = n > 0 ? n + ' pending' : '✓ done';
+        row.appendChild(nameSpan); row.appendChild(cntSpan);
         container.appendChild(row);
       }
     }
@@ -3929,6 +3941,11 @@
         });
       }
       renderMaturity();
+    }
+    // F6: relee el filtro rv-col vigente y repinta madurez/contador.
+    function refreshReviewMaturity() {
+      const rvSel = document.getElementById('rv-col');
+      renderMaturity(rvSel && rvSel.value ? parseInt(rvSel.value) : undefined);
     }
     function renderMaturity(set_id) {
       try {
@@ -4025,7 +4042,12 @@
             scheduleSaveDB();
           }
           snapshotDailyStats(); scheduleSaveDB(); // F5: foto del día al cerrar sesión
-          showSessionEnd(); return;
+          showSessionEnd();
+          // F6: refrescar pendientes tras la review. SM-2 se actualiza por
+          // intento, pero la UI (lista global + contador due today) solo se
+          // repintaba via loadCollections: quedaba stale hasta cambiar de tab.
+          renderGlobalPending(); refreshReviewMaturity();
+          return;
         }
         probMeta = allProblems[runIdx];
       }
@@ -4655,6 +4677,9 @@
     document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
       const name = t.dataset.tab; switchTab(name);
       if (name === 'runs') loadRuns(); if (name === 'collections') refreshCollectionStats();
+      // F6: refrescar pendientes al entrar en review (cubre runs normales u
+      // otros flujos que tocaron SM-2 fuera de la pestana).
+      if (name === 'review') { renderGlobalPending(); refreshReviewMaturity(); }
     }));
 
     // ══ RESPONSIVE ══
@@ -4695,10 +4720,21 @@
       if (window._studyRedraw) window._studyRedraw(); else renderProblem(currentProblem);
     }, 200); });
 
-    document.getElementById('source-sel').addEventListener('change', async e => {
-      currentSource = e.target.value; activeRunId = null; runMode = false; runItems = []; allProblems = []; chaptersCache = {};
-      document.getElementById('run-progress').style.display = 'none'; showSessionEnd(); switchTab('collections'); await loadCollections();
-    });
+    // F6: cambio de source unificado. keepTab=true (click en un source de
+    // "pending today") mantiene la pestana actual; el dropdown conserva su
+    // flujo previo (saltar a collections). loadCollections -> populateReviewFilters
+    // ya reconstruye rv-col y re-renderiza pendientes/madurez del nuevo source.
+    // Si el source viene de sm2_state y no existe en el dropdown, se cambia
+    // igualmente currentSource y el dropdown se deja como esta.
+    async function changeSource(src, { keepTab = false } = {}) {
+      currentSource = src; activeRunId = null; runMode = false; runItems = []; allProblems = []; chaptersCache = {};
+      document.getElementById('run-progress').style.display = 'none'; showSessionEnd();
+      const sel = document.getElementById('source-sel');
+      if (sel && sel.value !== src && Array.from(sel.options).some(o => o.value === src)) sel.value = src;
+      if (!keepTab) switchTab('collections');
+      await loadCollections();
+    }
+    document.getElementById('source-sel').addEventListener('change', e => changeSource(e.target.value));
 
     (async () => {
 	  await initDB();
