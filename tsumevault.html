@@ -1290,6 +1290,12 @@
                 <input type="checkbox" id="cfg-sound-enabled" style="accent-color:var(--gold);cursor:pointer;">
                 Sonido activado
               </label>
+              <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+                <span style="font-family:var(--mono);font-size:11px;color:var(--dim);white-space:nowrap;">Volumen SFX:</span>
+                <input id="cfg-sfx-volume" type="range" min="0" max="100"
+                  style="flex:1;accent-color:var(--gold);cursor:pointer;">
+                <span id="cfg-sfx-volume-val" style="font-family:var(--mono);font-size:10px;color:var(--dim2);width:32px;text-align:right;">100%</span>
+              </div>
               <label
                 style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:10px;">
                 <input type="checkbox" id="cfg-tap-confirm" style="accent-color:var(--gold);cursor:pointer;">
@@ -1300,6 +1306,21 @@
                 <input type="checkbox" id="cfg-second-chance" style="accent-color:var(--gold);cursor:pointer;">
                 Second chance (repesca de fallos al final del run)
               </label>
+              <label
+                style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:10px;">
+                <input type="checkbox" id="cfg-music-enabled" style="accent-color:var(--gold);cursor:pointer;">
+                Música activada
+              </label>
+              <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+                <span style="font-family:var(--mono);font-size:11px;color:var(--dim);white-space:nowrap;">Volumen música:</span>
+                <input id="cfg-music-volume" type="range" min="0" max="100"
+                  style="flex:1;accent-color:var(--gold);cursor:pointer;">
+                <span id="cfg-music-volume-val" style="font-family:var(--mono);font-size:10px;color:var(--dim2);width:32px;text-align:right;">50%</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;margin-top:8px;">
+                <span style="font-family:var(--mono);font-size:11px;color:var(--dim);white-space:nowrap;">Playlist:</span>
+                <select id="cfg-music-playlist" class="fsel" style="flex:1;margin-bottom:0;"></select>
+              </div>
               <div style="display:flex;align-items:center;gap:8px;margin-top:12px;">
                 <span style="font-family:var(--mono);font-size:11px;color:var(--dim);white-space:nowrap;">Umbral verde / needs work:</span>
                 <input id="cfg-pct-green" type="number" min="1" max="100"
@@ -1624,11 +1645,19 @@
     const STONE_SET_KEY = 'stone_set_label';
     const FILTER_MOSTRAR_KEY = 'filter_mostrar';
     const SOUND_KEY = 'sound_enabled';
+    const SFX_VOLUME_KEY = 'sfx_volume';
     const TAP_CONFIRM_KEY = 'tap_confirm';
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260724-1532';
+    // Musica de fondo (independiente de SFX): interruptor y volumen propios,
+    // mas la playlist y pista seleccionadas la ultima vez.
+    const MUSIC_ENABLED_KEY = 'music_enabled';
+    const MUSIC_VOLUME_KEY = 'music_volume';
+    const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
+    const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
+    const MUSIC_BASE = 'audio/background_music/';
+	const SW_VERSION = 'tsumevault-20260724-1559';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1644,7 +1673,12 @@
     let currentStoneSet = null; // {label, black:[], white:[]} or null = REALISTIC
     let filterMostrar = localStorage.getItem(FILTER_MOSTRAR_KEY) === 'true';
     let soundEnabled = localStorage.getItem(SOUND_KEY) !== 'false';
+    let sfxVolume = parseInt(localStorage.getItem(SFX_VOLUME_KEY));
+    if (isNaN(sfxVolume) || sfxVolume < 0 || sfxVolume > 100) sfxVolume = 100;
     let tapConfirm = localStorage.getItem(TAP_CONFIRM_KEY) === 'true';
+    let musicEnabled = localStorage.getItem(MUSIC_ENABLED_KEY) !== 'false';
+    let musicVolume = parseInt(localStorage.getItem(MUSIC_VOLUME_KEY));
+    if (isNaN(musicVolume) || musicVolume < 0 || musicVolume > 100) musicVolume = 50;
 
     let SQL = null, db = null;
     let allCollections = [], chaptersCache = {}, allProblems = [];
@@ -1670,7 +1704,97 @@
       right: new Audio('audio/right.mp3'),
       wrong: new Audio('audio/wrong.mp3'),
     };
-    function playSound(n) { if (!soundEnabled) return; try { SFX[n].currentTime = 0; SFX[n].play(); } catch (e) { } }
+    function playSound(n) { if (!soundEnabled) return; try { SFX[n].currentTime = 0; SFX[n].volume = sfxVolume / 100; SFX[n].play(); } catch (e) { } }
+
+    // ── Musica de fondo ──────────────────────────────────────────────
+    // Completamente independiente de SFX/playSound: <audio> propio, jamas
+    // pausado ni atenuado por los efectos de sonido. Requisitos: playlists
+    // multiples (indice en playlists.json), avance automatico con loop,
+    // arranque tras primera interaccion (autoplay policy), volumen e
+    // interruptor propios persistidos, y recuerda la ultima playlist +
+    // pista seleccionadas.
+    let bgmPlaylists = [];      // nombres de fichero, ej. ["playlist_01.json", ...]
+    let bgmTracks = [];         // rutas relativas de la playlist activa, ej. ["playlist_01/Music_01.mp3", ...]
+    let bgmPlaylistFile = localStorage.getItem(MUSIC_PLAYLIST_KEY) || null;
+    let bgmTrackIdx = parseInt(localStorage.getItem(MUSIC_TRACK_IDX_KEY)) || 0;
+    let bgmStarted = false;
+    const bgmAudio = new Audio();
+    bgmAudio.volume = musicVolume / 100;
+    bgmAudio.addEventListener('ended', () => {
+      if (!bgmTracks.length) return;
+      bgmTrackIdx = (bgmTrackIdx + 1) % bgmTracks.length; // loop al llegar al final
+      localStorage.setItem(MUSIC_TRACK_IDX_KEY, bgmTrackIdx);
+      bgmPlayCurrentTrack();
+    });
+
+    function bgmPlayCurrentTrack() {
+      if (!musicEnabled || !bgmTracks.length) return;
+      const track = bgmTracks[bgmTrackIdx];
+      if (!track) return;
+      try {
+        bgmAudio.src = MUSIC_BASE + track;
+        bgmAudio.play().catch(() => { }); // autoplay bloqueado: se reintentara en bgmArmAutostart
+      } catch (e) { }
+    }
+
+    async function bgmLoadPlaylist(file, resetIdx) {
+      try {
+        const res = await fetch(MUSIC_BASE + file, { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const list = await res.json();
+        bgmTracks = Array.isArray(list) ? list : [];
+        bgmPlaylistFile = file;
+        localStorage.setItem(MUSIC_PLAYLIST_KEY, file);
+        if (resetIdx) { bgmTrackIdx = 0; localStorage.setItem(MUSIC_TRACK_IDX_KEY, 0); }
+        else if (bgmTrackIdx >= bgmTracks.length) { bgmTrackIdx = 0; }
+        if (bgmStarted) bgmPlayCurrentTrack();
+      } catch (e) { bgmTracks = []; }
+    }
+
+    async function bgmSwitchPlaylist(file) {
+      bgmAudio.pause();
+      await bgmLoadPlaylist(file, true);
+    }
+
+    async function bgmInit() {
+      try {
+        const res = await fetch(MUSIC_BASE + 'playlists.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        bgmPlaylists = await res.json();
+        if (!Array.isArray(bgmPlaylists) || !bgmPlaylists.length) return;
+        bgmPopulateSelect();
+        // usa la ultima playlist seleccionada si sigue existiendo; si no, la primera
+        const file = (bgmPlaylistFile && bgmPlaylists.includes(bgmPlaylistFile)) ? bgmPlaylistFile : bgmPlaylists[0];
+        await bgmLoadPlaylist(file, false);
+        bgmArmAutostart();
+      } catch (e) { } // sin playlists.json la app sigue funcionando sin musica
+    }
+
+    function bgmPopulateSelect() {
+      const sel = document.getElementById('cfg-music-playlist');
+      if (!sel) return;
+      sel.innerHTML = '';
+      for (const file of bgmPlaylists) {
+        const opt = document.createElement('option');
+        opt.value = file;
+        opt.textContent = file;
+        opt.selected = file === bgmPlaylistFile;
+        sel.appendChild(opt);
+      }
+    }
+
+    // El autoplay del navegador exige un gesto del usuario: se arma un
+    // listener 'once' sobre varios tipos de interaccion y se lanza la
+    // reproduccion en la primera que ocurra.
+    function bgmArmAutostart() {
+      if (bgmStarted) return;
+      const start = () => {
+        if (bgmStarted) return;
+        bgmStarted = true;
+        if (musicEnabled) bgmPlayCurrentTrack();
+      };
+      ['click', 'touchstart', 'keydown'].forEach(ev => document.addEventListener(ev, start, { once: true }));
+    }
 
     function diffLabel(num) {
       if (num == null) return '—';
@@ -2863,8 +2987,14 @@
       loadSyncPresets();
       document.getElementById('cfg-filter-mostrar').checked = filterMostrar;
       document.getElementById('cfg-sound-enabled').checked = soundEnabled;
+      document.getElementById('cfg-sfx-volume').value = sfxVolume;
+      document.getElementById('cfg-sfx-volume-val').textContent = sfxVolume + '%';
       document.getElementById('cfg-tap-confirm').checked = tapConfirm;
       document.getElementById('cfg-second-chance').checked = secondChance;
+      document.getElementById('cfg-music-enabled').checked = musicEnabled;
+      document.getElementById('cfg-music-volume').value = musicVolume;
+      document.getElementById('cfg-music-volume-val').textContent = musicVolume + '%';
+      if (bgmPlaylists.length) bgmPopulateSelect(); // por si aun no habia terminado bgmInit() al primer render
       document.getElementById('cfg-pct-green').value = PCT_GREEN;
       document.getElementById('cfg-visibility-url').value = localStorage.getItem(VISIBILITY_URL_KEY) || VISIBILITY_URL_DEFAULT;
     }
@@ -3337,6 +3467,11 @@
       soundEnabled = e.target.checked;
       localStorage.setItem(SOUND_KEY, soundEnabled);
     });
+    document.getElementById('cfg-sfx-volume').addEventListener('input', e => {
+      sfxVolume = parseInt(e.target.value);
+      document.getElementById('cfg-sfx-volume-val').textContent = sfxVolume + '%';
+      localStorage.setItem(SFX_VOLUME_KEY, sfxVolume);
+    });
     document.getElementById('cfg-second-chance').addEventListener('change', e => {
       secondChance = e.target.checked;
       localStorage.setItem('second_chance', secondChance);
@@ -3344,6 +3479,21 @@
     document.getElementById('cfg-tap-confirm').addEventListener('change', e => {
       tapConfirm = e.target.checked;
       localStorage.setItem(TAP_CONFIRM_KEY, tapConfirm);
+    });
+    document.getElementById('cfg-music-enabled').addEventListener('change', e => {
+      musicEnabled = e.target.checked;
+      localStorage.setItem(MUSIC_ENABLED_KEY, musicEnabled);
+      if (musicEnabled) { if (bgmStarted) bgmPlayCurrentTrack(); }
+      else { bgmAudio.pause(); }
+    });
+    document.getElementById('cfg-music-volume').addEventListener('input', e => {
+      musicVolume = parseInt(e.target.value);
+      bgmAudio.volume = musicVolume / 100;
+      document.getElementById('cfg-music-volume-val').textContent = musicVolume + '%';
+      localStorage.setItem(MUSIC_VOLUME_KEY, musicVolume);
+    });
+    document.getElementById('cfg-music-playlist').addEventListener('change', e => {
+      bgmSwitchPlaylist(e.target.value);
     });
     document.getElementById('cfg-pct-green').addEventListener('change', e => {
       const v = parseInt(e.target.value);
@@ -4737,6 +4887,7 @@
       await purgeEmptyRuns();
       updatePendingBadge(); // F1: estado inicial del contador (util offline)
       loadCollections();
+      bgmInit(); // musica de fondo: no bloquea el resto del arranque si falla
       // Fase 1 (3.2): syncDeletedRuns SOLO tras un push exitoso en esta sesión.
       // Antes corría antes del primer sync y borraba runs creados offline que
       // aún no habían tenido oportunidad de enviarse.
