@@ -1628,7 +1628,7 @@
     const PCT_GREEN_KEY = 'pct_green';
     const VISIBILITY_URL_KEY = 'visibility_url';
     const VISIBILITY_URL_DEFAULT = 'https://raw.githubusercontent.com/vai-arch/tsumevault/main/conf/chapters_visibility.json';
-	const SW_VERSION = 'tsumevault-20260724-1210';
+	const SW_VERSION = 'tsumevault-20260724-1513';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -3076,31 +3076,22 @@
       dbExec(`UPDATE chapters SET mostrar = CASE WHEN diff_avg IS NULL OR diff_avg <= ? THEN 1 ELSE 0 END WHERE source = ?`, [maxDiffNum, source]);
       return dbQueryOne('SELECT SUM(mostrar = 1) AS shown, SUM(mostrar = 0) AS hidden FROM chapters WHERE source = ?', [source]);
     }
-    function applyVisibilityByLevel() {
-      const srcs = dbQuery('SELECT DISTINCT source FROM chapters WHERE diff_avg IS NOT NULL', []).map(r => r.source);
-      const plan = [];
-      for (const source of srcs) {
-        const sel = document.getElementById('bylevel-sel-' + esc(source));
-        const num = sel ? parseInt(sel.value) : NaN;
-        if (Number.isFinite(num)) plan.push({ source, num });
-      }
-      if (!plan.length) { alert('No sources with a selected level.'); return; }
-      const msg = 'Aplicar visibilidad por nivel a TODAS las fuentes:\n' +
-        plan.map(pl => `  ${pl.source}: mostrar solo ≤ ${diffLabel(pl.num)}`).join('\n') +
-        '\n\nLos capítulos más difíciles quedarán ocultos.';
+    // R1 (revisado): aplica visibilidad por nivel a UNA sola fuente (la de la
+    // fila donde se pulsa el icono de ojo), no a todas las fuentes a la vez.
+    function applyVisibilityForSource(source) {
+      const sel = document.getElementById('bylevel-sel-' + esc(source));
+      const num = sel ? parseInt(sel.value) : NaN;
+      if (!Number.isFinite(num)) { alert('No hay nivel seleccionado para esta fuente.'); return; }
+      const msg = `Aplicar visibilidad por nivel a "${source}":\n` +
+        `  mostrar solo ≤ ${diffLabel(num)}` +
+        '\n\nLos capítulos más difíciles de esta fuente quedarán ocultos.';
       if (!confirm(msg)) return;
-      let shown = 0, hidden = 0;
-      for (const pl of plan) {
-        const r = applyMostrarUpTo(pl.source, pl.num);
-        shown += (r && r.shown) || 0; hidden += (r && r.hidden) || 0;
-      }
+      applyMostrarUpTo(source, num);
       chaptersCache = {};
       scheduleSaveDB();
       tryAutoSync(true).catch(() => { });   // doSync ya empuja el mostrar de todos los capitulos
       loadCollections();
       renderByLevel();
-      const st = document.getElementById('bylevel-apply-status');
-      if (st) st.textContent = `Aplicado: ${shown} capítulos visibles · ${hidden} ocultos`;
     }
 
     function renderByLevel() {
@@ -3117,11 +3108,9 @@
       `, []);
 
       const container = document.getElementById('bylevel-content');
-      // R1: barra de accion — aplica a todas las fuentes el nivel de su combo
-      container.innerHTML = `<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap">
-        <button onclick="applyVisibilityByLevel()" style="font-family:var(--mono);font-size:10px;letter-spacing:.08em;background:var(--gold);color:#000;border:none;padding:5px 12px;cursor:pointer;border-radius:2px;">Aplicar visibilidad ≤ nivel</button>
-        <span id="bylevel-apply-status" style="font-family:var(--mono);font-size:9px;color:var(--dim2)"></span>
-      </div>`;
+      // R1 (revisado): sin barra de accion global — la aplicacion de
+      // visibilidad ahora es por fila (icono de ojo en la ultima columna).
+      container.innerHTML = '';
 
       if (!sources.length) {
         container.innerHTML = '<div style="font-family:var(--mono);font-size:11px;color:var(--dim2);text-align:center;padding:24px">No data</div>';
@@ -3138,6 +3127,7 @@
         <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">MASTERY</th>
         <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">LAST</th>
         <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:right">TOTAL</th>
+        <th style="padding:6px 8px;font-weight:normal;letter-spacing:.1em;text-align:center" title="Aplicar visibilidad ≤ nivel a esta fuente">👁</th>
       </tr></thead>`;
       const tbody = document.createElement('tbody');
 
@@ -3176,6 +3166,9 @@
           <td id="bylevel-hist-${esc(source)}" style="padding:6px 8px;text-align:right">—</td>
           <td id="bylevel-last-${esc(source)}" style="padding:6px 8px;text-align:right">—</td>
           <td id="bylevel-tot-${esc(source)}"  style="padding:6px 8px;text-align:right;color:var(--dim)">—</td>
+          <td style="padding:6px 8px;text-align:center">
+            <button class="bylevel-apply-btn" title="Aplicar visibilidad ≤ nivel a ${esc(source)}" style="font-family:var(--mono);font-size:11px;line-height:1;background:transparent;border:1px solid var(--gold-dim);color:var(--gold);padding:3px 6px;cursor:pointer;border-radius:2px;">👁</button>
+          </td>
         `;
         tbody.appendChild(tr);
 
@@ -3187,6 +3180,9 @@
           bylevelSave(saved);
           bylevelUpdateRow(source, num);
         });
+
+        // Listener del boton de aplicar visibilidad (por fila, no global)
+        tr.querySelector('.bylevel-apply-btn').addEventListener('click', () => applyVisibilityForSource(source));
       }
 
       table.appendChild(tbody);
