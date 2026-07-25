@@ -1657,7 +1657,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260724-1802';
+	const SW_VERSION = 'tsumevault-20260725-1302';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2662,16 +2662,22 @@
             }
           }
         } catch (e) { console.warn('[sync] static_version check failed', e); }
-        // ── Sync games ──
+        // ── Sync games (T-games-1: reemplazo completo, no aditivo) ──
+        // game_collections/games nunca se editan desde el cliente: son un
+        // espejo de solo lectura de lo que el servidor tiene en disco. Por
+        // eso, en vez de INSERT OR IGNORE (que nunca eliminaba lo borrado en
+        // origen), se sustituye el contenido local completo en cada sync.
         try {
           const gR = await syncFetch(`/sync/games`, { signal: AbortSignal.timeout(10000) });
           if (gR.ok) {
             const { game_collections, games } = await gR.json();
+            dbExec('DELETE FROM games', []);
+            dbExec('DELETE FROM game_collections', []);
             for (const col of game_collections) {
-              try { dbExec('INSERT OR IGNORE INTO game_collections (id, name, folder) VALUES (?,?,?)', [col.id, col.name, col.folder]); } catch(e) {}
+              try { dbExec('INSERT INTO game_collections (id, name, folder) VALUES (?,?,?)', [col.id, col.name, col.folder]); } catch(e) {}
             }
             for (const g of games) {
-              try { dbExec('INSERT OR IGNORE INTO games (id, game_collection_id, name, sgf_path) VALUES (?,?,?,?)', [g.id, g.game_collection_id, g.name, g.sgf_path]); } catch(e) {}
+              try { dbExec('INSERT INTO games (id, game_collection_id, name, sgf_path) VALUES (?,?,?,?)', [g.id, g.game_collection_id, g.name, g.sgf_path]); } catch(e) {}
             }
           }
         } catch (e) { console.warn('[sync] games sync failed', e); }
