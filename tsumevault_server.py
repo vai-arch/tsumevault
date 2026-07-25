@@ -756,38 +756,54 @@ def handle_sync_snapshot(qs):
 
 
 def handle_admin_import_games(body):
-    """Recibe {game_collections: [...], games: [...]} e inserta en la DB."""
+    """Recibe {game_collections: [...], games: [...]} y REEMPLAZA por completo
+    el contenido de game_collections/games.
+
+    T-games-1: antes era aditivo (insertaba solo lo que no existía ya), lo que
+    dejaba basura si una colección o partida se borraba en disco. games/
+    game_collections no se editan nunca desde el cliente (son de solo lectura
+    para tsumevault.html), así que un reemplazo total en cada import es seguro
+    y más simple que diffear. Ninguna otra tabla referencia estos ids (ver
+    db_schema.sql), por lo que no quedan huérfanos.
+    """
     game_collections = body.get("game_collections", [])
     games = body.get("games", [])
+    if not isinstance(game_collections, list) or not isinstance(games, list):
+        return {"error": "game_collections and games must be lists"}, 400
+    for col in game_collections:
+        if not isinstance(col, dict) or "name" not in col or "folder" not in col:
+            return {"error": "invalid game_collections entry"}, 400
+    for game in games:
+        if (
+            not isinstance(game, dict)
+            or "collection_name" not in game
+            or "name" not in game
+            or "sgf_path" not in game
+        ):
+            return {"error": "invalid games entry"}, 400
+
     inserted_cols = 0
     inserted_games = 0
+    skipped_games = 0
     with db_connect() as con:
+        # Orden de borrado: games antes que game_collections (FK, PRAGMA
+        # foreign_keys=ON).
+        con.execute("DELETE FROM games")
+        con.execute("DELETE FROM game_collections")
+
+        col_ids = {}  # name -> id
         for col in game_collections:
-            existing = con.execute(
-                "SELECT id FROM game_collections WHERE name=?", (col["name"],)
-            ).fetchone()
-            if existing:
-                continue
-            con.execute(
+            cur = con.execute(
                 "INSERT INTO game_collections (name, folder) VALUES (?, ?)",
                 (col["name"], col["folder"]),
             )
+            col_ids[col["name"]] = cur.lastrowid
             inserted_cols += 1
-        con.commit()
+
         for game in games:
-            # Resolver game_collection_id por nombre de colección
-            row = con.execute(
-                "SELECT id FROM game_collections WHERE name=?",
-                (game["collection_name"],),
-            ).fetchone()
-            if not row:
-                continue
-            col_id = row[0]
-            existing = con.execute(
-                "SELECT id FROM games WHERE game_collection_id=? AND name=?",
-                (col_id, game["name"]),
-            ).fetchone()
-            if existing:
+            col_id = col_ids.get(game["collection_name"])
+            if col_id is None:
+                skipped_games += 1
                 continue
             con.execute(
                 "INSERT INTO games (game_collection_id, name, sgf_path) VALUES (?, ?, ?)",
@@ -795,7 +811,11 @@ def handle_admin_import_games(body):
             )
             inserted_games += 1
         con.commit()
-    return {"inserted_collections": inserted_cols, "inserted_games": inserted_games}
+    return {
+        "collections": inserted_cols,
+        "games": inserted_games,
+        "skipped_games": skipped_games,
+    }
 
 
 def handle_sync_sm2_pull(qs):

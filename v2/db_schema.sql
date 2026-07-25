@@ -49,9 +49,9 @@ CREATE TABLE attempts (
 CREATE TABLE runs (
     id          INTEGER PRIMARY KEY AUTOINCREMENT,
     source      TEXT    NOT NULL,
-    set_id      INTEGER,                -- NULL si es colecci├│n virtual
-    chapter_id  INTEGER,                -- NULL si es run de colecci├│n completa
-    vc_id       INTEGER,                -- NULL si no es colecci├│n virtual
+    set_id      INTEGER,                -- NULL si es colección virtual
+    chapter_id  INTEGER,                -- NULL si es run de colección completa
+    vc_id       INTEGER,                -- NULL si no es colección virtual
     type        TEXT    NOT NULL,       -- 'chapter', 'collection', 'virtual'
     status      TEXT    NOT NULL DEFAULT 'open',  -- 'open', 'closed'
     total       INTEGER NOT NULL DEFAULT 0,
@@ -80,6 +80,18 @@ CREATE TABLE virtual_items (
     PRIMARY KEY (vc_id, source, problem_id),
     FOREIGN KEY (vc_id) REFERENCES virtual_collections(id)
 );
+CREATE TABLE game_collections (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE, folder TEXT NOT NULL);
+CREATE TABLE games (id INTEGER PRIMARY KEY AUTOINCREMENT, game_collection_id INTEGER NOT NULL, name TEXT NOT NULL, sgf_path TEXT NOT NULL);
+CREATE TABLE sm2_state (
+                source      TEXT NOT NULL,
+                problem_id  TEXT NOT NULL,
+                due_date    TEXT NOT NULL,
+                interval    REAL NOT NULL DEFAULT 6,
+                easiness    REAL NOT NULL DEFAULT 2.5,
+                repetitions INTEGER NOT NULL DEFAULT 0,
+                updated_at  TEXT NOT NULL,
+                PRIMARY KEY (source, problem_id)
+            );
 CREATE INDEX idx_problems_set   ON problems(source, set_id);
 CREATE INDEX idx_problems_diff  ON problems(source, difficulty_num);
 CREATE INDEX idx_problems_chap  ON problems(chapter_id);
@@ -88,13 +100,10 @@ CREATE INDEX idx_attempts_run   ON attempts(run_id);
 CREATE INDEX idx_run_items_run  ON run_items(run_id);
 CREATE INDEX idx_attempts_source_problem_created ON attempts(source, problem_id, created_at DESC);
 CREATE INDEX idx_chapters_mostrar ON chapters(id, mostrar);
--- Fase 1 (auditoria 3.1/§6): dedup por uuid; el servidor los crea tambien
--- via migracion automatica en instalaciones existentes.
+CREATE INDEX idx_games_collection ON games(game_collection_id);
+CREATE INDEX idx_sm2_updated ON sm2_state(updated_at);
 CREATE UNIQUE INDEX idx_attempts_uuid ON attempts(uuid) WHERE uuid IS NOT NULL;
 CREATE UNIQUE INDEX idx_runs_uuid ON runs(uuid) WHERE uuid IS NOT NULL;
-CREATE TABLE game_collections (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE, folder TEXT NOT NULL);
-CREATE TABLE games (id INTEGER PRIMARY KEY AUTOINCREMENT, game_collection_id INTEGER NOT NULL, name TEXT NOT NULL, sgf_path TEXT NOT NULL);
-CREATE INDEX idx_games_collection ON games(game_collection_id);
 CREATE VIEW problem_stats AS
 SELECT
     source,
@@ -108,14 +117,3 @@ SELECT
 FROM attempts
 GROUP BY source, problem_id
 /* problem_stats(source,problem_id,total_attempts,total_correct,total_wrong,pct_correct,avg_time_ms,last_seen) */;
-CREATE TABLE sm2_state (
-                source      TEXT NOT NULL,
-                problem_id  TEXT NOT NULL,
-                due_date    TEXT NOT NULL,
-                interval    REAL NOT NULL DEFAULT 6,
-                easiness    REAL NOT NULL DEFAULT 2.5,
-                repetitions INTEGER NOT NULL DEFAULT 0,
-                updated_at  TEXT NOT NULL,
-                PRIMARY KEY (source, problem_id)
-            );
-CREATE INDEX idx_sm2_updated ON sm2_state(updated_at);
