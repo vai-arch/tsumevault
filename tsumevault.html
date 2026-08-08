@@ -1609,6 +1609,14 @@
         </div>
         <div class="rp-counts" id="rp-counts"></div>
       </div>
+      <div class="sb-section" id="free-nav-section" style="display:none">
+        <div class="sb-label">Free practice</div>
+        <div style="display:flex;gap:6px;margin-bottom:10px;">
+          <button id="free-prev-btn" type="button" style="flex:1;font-family:var(--mono);font-size:10px;letter-spacing:.08em;padding:6px 4px;background:transparent;border:1px solid var(--border2);color:var(--dim);cursor:pointer;border-radius:2px;">◀ Prev</button>
+          <button id="free-next-btn" type="button" style="flex:1;font-family:var(--mono);font-size:10px;letter-spacing:.08em;padding:6px 4px;background:transparent;border:1px solid var(--border2);color:var(--dim);cursor:pointer;border-radius:2px;">Next ▶</button>
+        </div>
+        <div id="free-list" style="max-height:260px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;"></div>
+      </div>
       <div class="sb-section" id="prob-info">
         <div class="sb-label">Problem</div>
         <div class="sb-row">ID&nbsp;&nbsp;&nbsp;&nbsp; <span class="v" id="pi-id">—</span></div>
@@ -1657,7 +1665,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260725-1302';
+	const SW_VERSION = 'tsumevault-20260808-2056';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1693,6 +1701,7 @@
     let pausedAt = 0, totalPaused = 0, isPaused = false;
     let activeRunId = null, runItems = [], runIdx = -1, runMode = false, problemStartTime = 0;
     let tapToAdvance = false;                                   // F2 (§12.2): pausa en fallo durante runs
+    let freeMode = false;                                       // F7: Free Practice pura (distinto de runMode/Review)
     let retryQueue = [], retryQueued = new Set(), retryPhase = false; // F3 (§12.3): cola de repesca
     let secondChance = localStorage.getItem('second_chance') === 'true';
     let syncInProgress = false;
@@ -2193,7 +2202,7 @@
       return { collection, by_chapter };
     }
     function localGetProblems(source, { set_id, chapter_id, onlyVisible } = {}) {
-      let sql = `SELECT p.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct, COALESCE(s.pct_correct,0) AS pct_correct, s.last_seen FROM problems p LEFT JOIN chapters ch ON ch.id=p.chapter_id LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,MAX(created_at) AS last_seen FROM attempts GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id WHERE p.source=?`;
+      let sql = `SELECT p.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct, COALESCE(s.pct_correct,0) AS pct_correct, s.last_seen FROM problems p LEFT JOIN chapters ch ON ch.id=p.chapter_id LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,MAX(created_at) AS last_seen FROM attempts WHERE run_id IS NOT NULL GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id WHERE p.source=?`;
       const params = [source];
       if (chapter_id) { sql += ' AND p.chapter_id=?'; params.push(chapter_id); }
       else if (set_id) { sql += ' AND p.set_id=?'; params.push(set_id); }
@@ -2209,7 +2218,7 @@
     FROM problems p
     LEFT JOIN collections c  ON c.source=p.source AND c.set_id=p.set_id
     LEFT JOIN chapters    ch ON ch.id=p.chapter_id
-    LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,AVG(time_ms) AS avg_time_ms,MAX(created_at) AS last_seen FROM attempts GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id
+    LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,AVG(time_ms) AS avg_time_ms,MAX(created_at) AS last_seen FROM attempts WHERE run_id IS NOT NULL GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id
     WHERE p.source=? AND p.problem_id=?
   `, [source, problem_id]);
     }
@@ -2233,7 +2242,7 @@
                  ROW_NUMBER() OVER (PARTITION BY a.problem_id ORDER BY a.created_at DESC, a.id DESC) rn
           FROM attempts a
           JOIN problems p ON p.source = a.source AND p.problem_id = a.problem_id
-          WHERE a.source = ?${scope}
+          WHERE a.source = ?${scope} AND a.run_id IS NOT NULL
         )
         SELECT problem_id FROM ranked WHERE rn <= ?
         GROUP BY problem_id
@@ -3815,7 +3824,7 @@
         if (!result) throw new Error('No se pudo crear el run');
         activeRunId = result.run_id;
         await saveDB(); tryAutoSync();
-        runItems = localGetRunItems(activeRunId); runIdx = -1; runMode = true; sessionOk = 0; sessionNo = 0;
+        runItems = localGetRunItems(activeRunId); runIdx = -1; runMode = true; freeMode = false; sessionOk = 0; sessionNo = 0;
         retryQueue = []; retryQueued = new Set(); retryPhase = false; // F3
         const label = opts.colName ? (opts.chapNum ? `${opts.colName} · Ch ${opts.chapNum}` : opts.colName) : 'Run';
         document.getElementById('rp-title').textContent = label;
@@ -3948,7 +3957,7 @@
         sessionOk = runItems.filter(i => i.result === 'correct').length;
         sessionNo = runItems.filter(i => i.result === 'wrong').length;
         runIdx = firstPending - 1;
-        runMode = true; document.getElementById('run-progress').style.display = 'block';
+        runMode = true; freeMode = false; document.getElementById('run-progress').style.display = 'block';
         retryQueue = []; retryQueued = new Set(); retryPhase = false; // F3
         updateRunProgress(); nextProblem();
       } catch (e) { alert('Failed to resume run: ' + e.message); }
@@ -4023,9 +4032,9 @@
         document.getElementById('st-total').textContent = problems.length;
         document.getElementById('st-total-wrap').style.display = '';
         if (order === 'random') { for (let i = problems.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[problems[i], problems[j]] = [problems[j], problems[i]]; } }
-        activeRunId = null; runMode = false; runItems = []; document.getElementById('run-progress').style.display = 'none';
+        activeRunId = null; runMode = false; freeMode = true; runItems = []; document.getElementById('run-progress').style.display = 'none';
         allProblems = problems; document.getElementById('cfg-pill-total').textContent = `/ ${problems.length}`;
-        runIdx = -1; sessionOk = 0; sessionNo = 0; updateSessionUI(); nextProblem();
+        runIdx = -1; sessionOk = 0; sessionNo = 0; updateSessionUI(); renderFreeList(); nextProblem();
       } catch (e) { alert('Failed to load problems: ' + e.message); }
     }
 
@@ -4150,7 +4159,7 @@
         document.getElementById('rv-count').textContent = `${problems.length} problems`;
         document.getElementById('st-total').textContent = problems.length;
         document.getElementById('st-total-wrap').style.display = '';
-        runMode = false; runItems = [];
+        runMode = false; freeMode = false; runItems = [];
         document.getElementById('run-progress').style.display = 'none';
         allProblems = problems;
         document.getElementById('cfg-pill-total').textContent = `/ ${problems.length}`;
@@ -4205,6 +4214,49 @@
       }
       loadAndRender(probMeta);
     }
+    // F7: navegacion manual de Free Practice (Prev/salto directo). Next
+    // reutiliza nextProblem() de arriba (ya no auto-avanza en freeMode, ver
+    // showResult). Ambas reconstruyen el problema via loadAndRender: el
+    // intento que se registre al re-responder ira con run_id=NULL (activeRunId
+    // es null durante Free), asi que NO afecta a SM-2 ni a las stats por-problema
+    // (localGetProblem/localGetProblems ya excluyen run_id NULL).
+    function prevProblem() {
+      if (!freeMode || runIdx <= 0) return;
+      document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad');
+      tapToAdvance = false;
+      runIdx--;
+      loadAndRender(allProblems[runIdx]);
+    }
+    function jumpToProblem(idx) {
+      if (!freeMode || idx < 0 || idx >= allProblems.length || idx === runIdx) return;
+      document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad');
+      tapToAdvance = false;
+      runIdx = idx;
+      loadAndRender(allProblems[runIdx]);
+    }
+    // F7: lista lateral de Free Practice, ordenada por problem_id (independiente
+    // del orden de juego, que puede ser random). Se reconstruye entera en cada
+    // llamada (igual que renderGlobalPending/populateFreeFilters): sin listeners
+    // acumulados porque el contenedor se vacia primero.
+    function renderFreeList() {
+      const section = document.getElementById('free-nav-section');
+      const listEl = document.getElementById('free-list');
+      if (!section || !listEl) return;
+      if (!freeMode || !allProblems.length) { section.style.display = 'none'; return; }
+      section.style.display = '';
+      const sorted = allProblems.map((p, i) => ({ p, i })).sort((a, b) => a.p.problem_id - b.p.problem_id);
+      listEl.innerHTML = '';
+      for (const { p, i } of sorted) {
+        const row = document.createElement('div');
+        const isCur = i === runIdx;
+        row.textContent = String(p.problem_id);
+        row.style.cssText = `font-family:var(--mono);font-size:11px;padding:4px 6px;cursor:pointer;border-radius:2px;${isCur ? 'color:var(--gold);font-weight:600;background:rgba(212,168,74,.12);' : 'color:var(--dim);'}`;
+        row.addEventListener('click', () => jumpToProblem(i));
+        listEl.appendChild(row);
+      }
+    }
+    document.getElementById('free-prev-btn').addEventListener('click', prevProblem);
+    document.getElementById('free-next-btn').addEventListener('click', () => { if (freeMode) nextProblem(); });
     async function loadAndRender(probMeta) {
       isPaused = false; pausedAt = 0; totalPaused = 0;
       document.getElementById('pause-overlay').style.display = 'none';
@@ -4385,6 +4437,7 @@
       if (wgoBoard._studyListener) wgoBoard.removeEventListener('click', wgoBoard._studyListener);
       wgoBoard._studyListener = null;
       setupInteractiveMode(root, playerC);
+      renderFreeList(); // F7: repinta highlight del activo (no-op fuera de freeMode)
       if (runMode) updateRunProgress(); updateSessionUI();
       document.getElementById('btn-back').style.display = runMode ? 'none' : '';
       document.getElementById('btn-next').style.display = runMode ? 'none' : '';
@@ -4508,6 +4561,10 @@
           if (hint) hint.textContent = 'Tap board to continue →';
         }
       }
+      // F7: Free Practice no auto-avanza NUNCA (ni acierto ni fallo). El
+      // usuario decide cuando pasar via Prev/Next/lista. Review (freeMode
+      // false, runMode false) sigue igual que siempre en la rama de abajo.
+      else if (freeMode) { /* sin auto-avance */ }
       else if (isRight && !currentProblem._isReveal) { setTimeout(() => { if (waitingForNext) nextProblem(); }, 1000); }
     }
     function togglePause() {
@@ -4879,7 +4936,7 @@
     // Si el source viene de sm2_state y no existe en el dropdown, se cambia
     // igualmente currentSource y el dropdown se deja como esta.
     async function changeSource(src, { keepTab = false } = {}) {
-      currentSource = src; activeRunId = null; runMode = false; runItems = []; allProblems = []; chaptersCache = {};
+      currentSource = src; activeRunId = null; runMode = false; freeMode = false; runItems = []; allProblems = []; chaptersCache = {};
       document.getElementById('run-progress').style.display = 'none'; showSessionEnd();
       const sel = document.getElementById('source-sel');
       if (sel && sel.value !== src && Array.from(sel.options).some(o => o.value === src)) sel.value = src;
