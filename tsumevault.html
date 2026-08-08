@@ -1666,7 +1666,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260808-2247';
+	const SW_VERSION = 'tsumevault-20260808-2359';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2145,7 +2145,12 @@
     }
     function localGetLastRunStatsAll(source) {
       const colRuns = dbQuery(`SELECT set_id,id,started_at,closed_at,paused_ms FROM (SELECT set_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms, ROW_NUMBER() OVER (PARTITION BY set_id ORDER BY id DESC) rn FROM runs WHERE source=? AND status='closed' AND set_id IS NOT NULL AND chapter_id IS NULL) WHERE rn=1` /* T8/3.12: SQL estandar; antes bare columns (GROUP BY+HAVING id=MAX(id)), no estandar. Equivalencia verificada en compare_queries.js */, [source]);
-      const chapRuns = dbQuery(`SELECT chapter_id,set_id,id,started_at,closed_at,paused_ms FROM (SELECT chapter_id,set_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms, ROW_NUMBER() OVER (PARTITION BY chapter_id ORDER BY id DESC) rn FROM runs WHERE source=? AND status='closed' AND chapter_id IS NOT NULL) WHERE rn=1`, [source]);
+      // Fix: solo capitulos que siguen existiendo hoy en `chapters`. Sin este
+      // filtro, runs cerrados sobre un chapter_id ya borrado/reimportado con
+      // id nuevo se seguian contando en chapDone (refreshColPct), pudiendo
+      // superar chapTotal (ej. "24/19"). No se toca runs/run_items: es solo
+      // el calculo de esta estadistica agregada.
+      const chapRuns = dbQuery(`SELECT chapter_id,set_id,id,started_at,closed_at,paused_ms FROM (SELECT chapter_id,set_id,id,started_at,closed_at,COALESCE(paused_ms,0) AS paused_ms, ROW_NUMBER() OVER (PARTITION BY chapter_id ORDER BY id DESC) rn FROM runs WHERE source=? AND status='closed' AND chapter_id IS NOT NULL AND chapter_id IN (SELECT id FROM chapters WHERE source=?)) WHERE rn=1`, [source, source]);
       const result = {};
       for (const row of colRuns) {
         const items = dbQueryOne(`SELECT COUNT(*) AS total, SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok FROM run_items WHERE run_id=?`, [row.id]);
