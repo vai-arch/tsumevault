@@ -1568,6 +1568,7 @@
           <button class="ctrl-btn" id="btn-back">← Back</button>
           <button class="ctrl-btn" id="btn-restart">↺ Restart</button>
           <button class="ctrl-btn" id="btn-pause">⏸ Pause</button>
+          <button class="ctrl-btn" id="btn-hint" style="display:none" title="Muestra el siguiente movimiento correcto (solo Free)">💡 Hint</button>
           <button class="ctrl-btn" id="btn-next">→ Next</button>
         </div>
         <div id="gm-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
@@ -1665,7 +1666,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260808-2056';
+	const SW_VERSION = 'tsumevault-20260808-2247';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -3769,7 +3770,8 @@
 		  <input type="checkbox" class="chap-mostrar-chk" data-chapid="${chap.id}" ${chap.mostrar ? 'checked' : ''} style="accent-color:var(--gold);cursor:pointer;">
 		  show
 		</label>` : `<input type="hidden" class="chap-mostrar-chk" data-chapid="${chap.id}">`}
-        <button class="chap-btn" data-chapid="${chap.id}">▶ Run</button>`;
+        <button class="chap-btn" data-chapid="${chap.id}" title="Run (cuenta para SM-2 y stats)">▶</button>
+        <button class="chap-btn chap-free-btn" data-chapid="${chap.id}" title="Free practice (sin run, no cuenta en stats)">🧩</button>`;
           ci.querySelector('.chap-mostrar-chk').addEventListener('change', async e => {
             e.stopPropagation();
             const val = e.target.checked ? 1 : 0;
@@ -3787,6 +3789,7 @@
             if (filterMostrar) applyCollectionFilters();
           });
           ci.querySelector('.chap-btn').addEventListener('click', e => { e.stopPropagation(); startRun({ source: currentSource, type: 'chapter', chapter_id: chap.id, colName: col.name, chapName: chap.name, chapNum: chap.chapter_num }); });
+          ci.querySelector('.chap-free-btn').addEventListener('click', e => { e.stopPropagation(); practiceChapterFree(col, chap); });
           chapDiv.appendChild(ci);
         }
       } catch (e) { chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--accent)">Error loading chapters</div>`; }
@@ -4001,6 +4004,21 @@
       const sel = document.getElementById('fp-chap'); sel.innerHTML = '<option value="">All</option>';
       if (!setId) return;
       try { const chapters = localGetChapters(currentSource, parseInt(setId)); chaptersCache[setId] = chapters; for (const c of chapters) { const o = document.createElement('option'); o.value = c.id; o.textContent = c.name || `Ch ${c.chapter_num}`; sel.appendChild(o); } } catch (e) { }
+    }
+    // F9: precarga Collection+Chapter en la pestaña Free y arranca la
+    // practica directamente, sin crear ningun run (no afecta a SM-2 ni a stats).
+    // Se limpian diff/color/status por si habia un filtro previo que dejara
+    // el capitulo con 0 problemas sin que se note por que.
+    async function practiceChapterFree(col, chap) {
+      document.getElementById('fp-col').value = col.set_id;
+      await updateFreeChapters();
+      document.getElementById('fp-chap').value = chap.id;
+      document.getElementById('fp-diff').value = '';
+      document.getElementById('fp-diff-max').value = '';
+      document.getElementById('fp-color').value = '';
+      document.getElementById('fp-status').value = '';
+      switchTab('free');
+      await startFreePractice();
     }
     async function startFreePractice() {
       const setId = document.getElementById('fp-col').value, chapId = document.getElementById('fp-chap').value;
@@ -4442,18 +4460,25 @@
       document.getElementById('btn-back').style.display = runMode ? 'none' : '';
       document.getElementById('btn-next').style.display = runMode ? 'none' : '';
       document.getElementById('btn-restart').style.display = runMode ? 'none' : '';
+      document.getElementById('btn-hint').style.display = freeMode ? '' : 'none'; // F8: pista solo en Free
     }
     function setupInteractiveMode(root, playerC) {
-      let firstMoveDone = false, currentNode = root, attemptRecorded = false, answered = false, hadWrong = false;
+      let firstMoveDone = false, currentNode = root, attemptRecorded = false, answered = false, hadWrong = false, hintMarker = null;
       const history = []; let lastMoveMarker = null;
       const { black: setupB, white: setupW } = getSetupStones(root);
-      const game = new WGo.Game(boardSize); game.allow_rewrite = true;
+      let game = new WGo.Game(boardSize); game.allow_rewrite = true;
       for (const s of setupB) game.setStone(s.x, s.y, WGo.B);
       for (const s of setupW) game.setStone(s.x, s.y, WGo.W);
       function gameSnapshot() { const pos = game.getPosition(); const snap = []; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v) snap.push({ x, y, v }); } return { stones: snap, marker: lastMoveMarker ? { ...lastMoveMarker } : null }; }
-      function restoreSnapshot(snap) { game.allow_rewrite = true; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++)game.setStone(x, y, 0); for (const { x, y, v } of snap.stones) game.setStone(x, y, v); lastMoveMarker = snap.marker; redrawFromGame(); }
+      // Fix: recrear game (pila de posiciones nueva) en vez de reescribir con setStone
+      // sobre la pila vieja. game.setStone solo muta la posicion de arriba de la pila
+      // (ver docs WGo.Game), no la limpia: la pila seguia acumulando posiciones
+      // 'fantasma' de jugadas ya deshechas, y el siguiente game.play() a veces chocaba
+      // contra ellas (posicion repetida) devolviendo un codigo de error que placeStone()
+      // ignoraba -> la piedra no se pintaba aunque la logica del puzzle seguia normal.
+      function restoreSnapshot(snap) { game = new WGo.Game(boardSize); game.allow_rewrite = true; for (const { x, y, v } of snap.stones) game.setStone(x, y, v); lastMoveMarker = snap.marker; redrawFromGame(); }
       function redrawFromGame() { clearBoard(); const pos = game.getPosition(); for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 }); else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 }); } if (lastMoveMarker) wgoBoard.addObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); }
-      function placeStone(x, y, c) { game.play(x, y, c === 1 ? WGo.B : WGo.W); redrawFromGame(); }
+      function placeStone(x, y, c) { game.play(x, y, c === 1 ? WGo.B : WGo.W); redrawFromGame(); hintMarker = null; }
       function drawLastMoveDot(x, y) { if (lastMoveMarker) wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); wgoBoard.addObject({ x, y, type: 'CR' }); lastMoveMarker = { x, y }; }
       function recordAttempt(result) {
         if (attemptRecorded) return; attemptRecorded = true;
@@ -4484,14 +4509,26 @@
         const oppNode = node.children[0];
         setTimeout(() => { if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
       }
-      function resetGame() { game.allow_rewrite = true; for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++)game.setStone(x, y, 0); for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
+      function resetGame() { game = new WGo.Game(boardSize); game.allow_rewrite = true; for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
       // T5/3.9: rehidratacion tras resize. Repinta la posicion ACTUAL desde el
       // objeto game del closure (setup + jugadas) y las labels del nodo actual,
       // sin re-entrar en setupInteractiveMode: currentNode, hadWrong,
       // attemptRecorded, history y el intento en curso sobreviven intactos.
       window._studyRedraw = () => { redrawFromGame(); renderLabels(currentNode); };
-      window._studyRestart = () => { history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
-      window._studyBack = () => { if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
+      window._studyRestart = () => { history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
+      window._studyBack = () => { if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
+      // F8: pista (solo Free) — señala el hijo 'correcto' de currentNode
+      // (el que no arranca con WRONG) sin jugarlo ni registrar ningún intento.
+      window._studyHint = () => {
+        if (!freeMode || answered || waitingForNext) return;
+        if (hintMarker) { wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'LB' }); hintMarker = null; }
+        const children = currentNode.children || [];
+        const correct = children.find(c => c.move && !c.move.pass && c.move.x !== undefined && !(c.comment || '').trim().toUpperCase().startsWith('WRONG'));
+        if (!correct) return;
+        const { x, y } = correct.move;
+        wgoBoard.addObject({ x, y, type: 'LB', text: '●', c: '#d4a84a' });
+        hintMarker = { x, y };
+      };
       let ghostPos = null; let pendingTap = null; const boardEl = wgoBoard.element;
       function clearPending() { if (pendingTap) { wgoBoard.removeObject({ x: pendingTap.x, y: pendingTap.y, type: 'outline' }); pendingTap = null; } }
       function updateGhost(e) { if (answered || waitingForNext) return; const rect = boardEl.getBoundingClientRect(); const mx = (e.clientX - rect.left) * wgoBoard.pixelRatio; const my = (e.clientY - rect.top) * wgoBoard.pixelRatio; const x = Math.round((mx - wgoBoard.left) / wgoBoard.fieldWidth); const y = Math.round((my - wgoBoard.top) / wgoBoard.fieldHeight); if (x < 0 || y < 0 || x >= boardSize || y >= boardSize) { clearGhost(); return; } if (ghostPos && ghostPos.x === x && ghostPos.y === y) return; clearGhost(); if (wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1)) return; ghostPos = { x, y }; wgoBoard.addObject({ x, y, c: playerC, type: 'outline' }); }
@@ -4592,6 +4629,7 @@
     document.getElementById('btn-next').addEventListener('click', () => { if (runMode) return; nextProblem(); });
     document.getElementById('btn-restart').addEventListener('click', () => { if (window._studyRestart) window._studyRestart(); });
     document.getElementById('btn-back').addEventListener('click', () => { if (window._studyBack) window._studyBack(); });
+    document.getElementById('btn-hint').addEventListener('click', () => { if (window._studyHint) window._studyHint(); });
     window.addEventListener('keydown', e => {
       if ((e.code === 'Enter' || e.code === 'Space') && waitingForNext && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.altKey && e.code === 'KeyN' && !runMode) { e.preventDefault(); nextProblem(); }
