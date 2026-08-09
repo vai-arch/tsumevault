@@ -1676,7 +1676,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260809-1033';
+	const SW_VERSION = 'tsumevault-20260809-1117';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -4692,7 +4692,13 @@
       function onBoardClickExecute(x, y) {
         const children = currentNode.children || [];
         const match = children.find(c => c.move && !c.move.pass && c.move.x === x && c.move.y === y);
-        if (!match) { checkResult({ comment: 'WRONG' }); hadWrong = true; return; }
+        // F10: clic 'fuera de arbol' (ni siquiera es una variante contemplada
+        // por el problema) — no se juega ninguna piedra (placeStone no se llama
+        // aqui), asi que en Free no tiene sentido bloquear con waitingForNext:
+        // no hay nada que deshacer con Back. Se marca el fallo igual (comentario,
+        // flash, recordAttempt via checkResult) pero se puede intentar de
+        // inmediato en otro punto. En Run se deja el comportamiento de siempre.
+        if (!match) { checkResult({ comment: 'WRONG' }); hadWrong = true; if (freeMode) waitingForNext = false; return; }
         history.push({ node: currentNode, snap: gameSnapshot() }); answered = true;
         if (!firstMoveDone) { clearCrossMarks(); firstMoveDone = true; }
         placeStone(x, y, playerC); drawLastMoveDot(x, y); renderLabels(match); playSound('stone');
