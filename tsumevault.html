@@ -1542,6 +1542,16 @@
             </div>
           </div>
         </div>
+        <div class="fp-section" id="rv-futureload" style="display:none">
+          <div class="fp-label" style="margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;">
+            <span>Scheduled ahead</span>
+            <span style="display:flex;gap:4px;">
+              <button id="rv-fl-weekly" class="rv-fl-toggle-btn" style="font-family:var(--mono);font-size:9px;background:transparent;border:1px solid var(--gold);color:var(--gold);padding:2px 6px;cursor:pointer;border-radius:2px;">Weekly</button>
+              <button id="rv-fl-daily" class="rv-fl-toggle-btn" style="font-family:var(--mono);font-size:9px;background:transparent;border:1px solid var(--border2);color:var(--dim);padding:2px 6px;cursor:pointer;border-radius:2px;">Daily (4w)</button>
+            </span>
+          </div>
+          <div id="rv-fl-content" style="font-family:var(--mono);font-size:9px;max-height:260px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;"></div>
+        </div>
       </div>
       <div class="tab-pane" id="tab-games">
         <div class="fp-section">
@@ -1666,7 +1676,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260808-2359';
+	const SW_VERSION = 'tsumevault-20260809-1033';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2377,6 +2387,55 @@
       ON s.problem_id = v.problem_id
   `, [source, set_id ?? null, set_id ?? null, source]);
 }
+    // F9: carga futura programada por SM-2, agregada por semana desde hoy.
+    // week_idx=0 es la semana en curso (hoy..+6d), 1 la siguiente, etc. Se
+    // recorta a 52 semanas (1 anio) y el resto se agrupa en un cubo overflow
+    // (week_idx=52, isOverflow=true) para que un intervalo muy largo (SM-2
+    // puede llegar a 190+ dias) no genere cientos de filas vacias. Huecos
+    // intermedios sin ningun due_date se rellenan a 0 para que la escala
+    // visual sea continua.
+    function localGetFutureLoadWeekly(source) {
+      const rows = dbQuery(`
+        SELECT CAST((julianday(due_date) - julianday(date('now','localtime'))) / 7 AS INTEGER) AS week_idx,
+               COUNT(*) AS n
+        FROM sm2_state
+        WHERE source = ? AND due_date >= date('now','localtime')
+        GROUP BY week_idx
+        ORDER BY week_idx
+      `, [source]);
+      if (!rows.length) return [];
+      const byIdx = new Map(rows.map(r => [r.week_idx, r.n]));
+      const lastIdx = rows[rows.length - 1].week_idx;
+      const capIdx = Math.min(lastIdx, 51);
+      const out = [];
+      for (let i = 0; i <= capIdx; i++) out.push({ week_idx: i, n: byIdx.get(i) || 0 });
+      let overflow = 0;
+      for (const r of rows) if (r.week_idx > 51) overflow += r.n;
+      if (overflow > 0) out.push({ week_idx: 52, n: overflow, isOverflow: true });
+      return out;
+    }
+    // F9: carga futura dia a dia para las proximas 4 semanas (28 dias,
+    // incluyendo hoy). Huecos sin due_date se rellenan a 0, igual que en la
+    // vista semanal, para que la rejilla sea completa (7x4) sin fechas
+    // faltantes.
+    function localGetFutureLoadDaily(source) {
+      const rows = dbQuery(`
+        SELECT due_date, COUNT(*) AS n
+        FROM sm2_state
+        WHERE source = ? AND due_date >= date('now','localtime') AND due_date < date('now','+28 days','localtime')
+        GROUP BY due_date
+        ORDER BY due_date
+      `, [source]);
+      const byDate = new Map(rows.map(r => [r.due_date, r.n]));
+      const out = [];
+      const base = new Date();
+      for (let i = 0; i < 28; i++) {
+        const d = new Date(base); d.setDate(d.getDate() + i);
+        const ds = localDateStr(d);
+        out.push({ date: ds, n: byDate.get(ds) || 0 });
+      }
+      return out;
+    }
 	function localGetRuns(source) {
       return dbQuery(`
     SELECT r.*, CASE WHEN r.chapter_id IS NOT NULL THEN c.name || ' · ' || ch.name WHEN r.set_id IS NOT NULL THEN c.name ELSE 'Run #' || r.id END AS label,
@@ -4132,6 +4191,7 @@
       renderMaturity(rvSel && rvSel.value ? parseInt(rvSel.value) : undefined);
     }
     function renderMaturity(set_id) {
+      renderFutureLoad(); // F9: independiente del filtro de coleccion (set_id)
       try {
         // Contador de pendientes SM-2
         const pending = localCountReviewPending(currentSource, set_id != null ? { set_id } : {});
@@ -4158,6 +4218,72 @@
         const histVal = m.dominated / m.total_visible;
         histEl.textContent = fmt(histVal); histEl.style.color = color(histVal);
       } catch(e) { document.getElementById('rv-maturity').style.display = 'none'; }
+    }
+    // F9: modo del toggle semanal/diario, solo de sesion (no persistido en
+    // localStorage a peticion explicita).
+    let rvFutureLoadMode = 'weekly';
+    // F9: mapa de calor de la carga futura programada por SM-2 para el source
+    // actual. Vista semanal (barras horizontales, mejor para movil: se hace
+    // scroll vertical, no horizontal) por defecto, con toggle a vista diaria
+    // (rejilla 7 columnas) de las proximas 4 semanas. Se reconstruye entera
+    // en cada llamada (igual que renderGlobalPending/renderFreeList): sin
+    // listeners acumulados porque el contenedor se vacia primero.
+    function renderFutureLoad() {
+      const section = document.getElementById('rv-futureload');
+      const content = document.getElementById('rv-fl-content');
+      if (!section || !content) return;
+      if (!currentSource) { section.style.display = 'none'; return; }
+      section.style.display = '';
+      const btnW = document.getElementById('rv-fl-weekly'), btnD = document.getElementById('rv-fl-daily');
+      if (btnW && !btnW.dataset.bound) {
+        btnW.dataset.bound = '1';
+        btnW.addEventListener('click', () => { rvFutureLoadMode = 'weekly'; renderFutureLoad(); });
+      }
+      if (btnD && !btnD.dataset.bound) {
+        btnD.dataset.bound = '1';
+        btnD.addEventListener('click', () => { rvFutureLoadMode = 'daily'; renderFutureLoad(); });
+      }
+      if (btnW) { btnW.style.borderColor = rvFutureLoadMode === 'weekly' ? 'var(--gold)' : 'var(--border2)'; btnW.style.color = rvFutureLoadMode === 'weekly' ? 'var(--gold)' : 'var(--dim)'; }
+      if (btnD) { btnD.style.borderColor = rvFutureLoadMode === 'daily' ? 'var(--gold)' : 'var(--border2)'; btnD.style.color = rvFutureLoadMode === 'daily' ? 'var(--gold)' : 'var(--dim)'; }
+      content.innerHTML = '';
+      if (rvFutureLoadMode === 'weekly') {
+        const data = localGetFutureLoadWeekly(currentSource);
+        if (!data.length) { content.innerHTML = '<div style="color:var(--dim2);text-align:center;padding:8px">Nothing scheduled</div>'; return; }
+        const max = Math.max(...data.map(d => d.n), 1);
+        for (const d of data) {
+          const row = document.createElement('div');
+          row.style.cssText = 'display:flex;align-items:center;gap:6px;padding:2px 0;';
+          const label = document.createElement('span');
+          label.style.cssText = 'width:44px;color:var(--dim);flex-shrink:0;';
+          label.textContent = d.isOverflow ? '52+w' : (d.week_idx === 0 ? 'now' : '+' + d.week_idx + 'w');
+          const barWrap = document.createElement('div');
+          barWrap.style.cssText = 'flex:1;background:var(--panel);border-radius:2px;overflow:hidden;height:11px;';
+          const bar = document.createElement('div');
+          const pct = Math.round((d.n / max) * 100);
+          bar.style.cssText = 'height:100%;width:' + pct + '%;background:' + (d.n > 0 ? 'var(--gold)' : 'transparent') + ';';
+          barWrap.appendChild(bar);
+          const count = document.createElement('span');
+          count.style.cssText = 'width:24px;text-align:right;color:var(--text);flex-shrink:0;';
+          count.textContent = d.n || '';
+          row.appendChild(label); row.appendChild(barWrap); row.appendChild(count);
+          content.appendChild(row);
+        }
+      } else {
+        const data = localGetFutureLoadDaily(currentSource);
+        const max = Math.max(...data.map(d => d.n), 1);
+        const grid = document.createElement('div');
+        grid.style.cssText = 'display:grid;grid-template-columns:repeat(7,1fr);gap:3px;';
+        for (const d of data) {
+          const cell = document.createElement('div');
+          const intensity = d.n / max;
+          const bg = d.n === 0 ? 'var(--panel)' : intensity > 0.66 ? 'var(--accent)' : intensity > 0.33 ? 'var(--gold)' : 'var(--gold-dim)';
+          cell.style.cssText = 'aspect-ratio:1;border-radius:2px;background:' + bg + ';display:flex;align-items:center;justify-content:center;color:var(--text);font-size:8px;';
+          cell.textContent = d.n || '';
+          cell.title = d.date + ': ' + d.n;
+          grid.appendChild(cell);
+        }
+        content.appendChild(grid);
+      }
     }
     async function startReview() {
       const setId = document.getElementById('rv-col').value;
