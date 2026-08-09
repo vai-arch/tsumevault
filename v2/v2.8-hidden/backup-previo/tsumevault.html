@@ -1579,7 +1579,6 @@
           <button class="ctrl-btn" id="btn-restart">↺ Restart</button>
           <button class="ctrl-btn" id="btn-pause">⏸ Pause</button>
           <button class="ctrl-btn" id="btn-hint" style="display:none" title="Muestra el siguiente movimiento correcto (solo Free)">💡 Hint</button>
-          <button class="ctrl-btn" id="btn-hide-problem" style="display:none" title="Hide this problem everywhere (history kept; reversible only in the server DB) — T13">🚫 Hide</button>
           <button class="ctrl-btn" id="btn-next">→ Next</button>
         </div>
         <div id="gm-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
@@ -1677,7 +1676,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260809-2101';
+	const SW_VERSION = 'tsumevault-20260809-1117';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1917,7 +1916,6 @@
         try { dbExec("ALTER TABLE chapters ADD COLUMN name TEXT"); } catch (e) { }
         try { dbExec("ALTER TABLE attempts ADD COLUMN uuid TEXT"); } catch (e) { }
         try { dbExec("ALTER TABLE chapters ADD COLUMN mostrar INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
-        try { dbExec("ALTER TABLE problems ADD COLUMN hidden INTEGER NOT NULL DEFAULT 0"); } catch (e) { } // T13: borrado logico de problemas
         try { dbExec("CREATE TABLE IF NOT EXISTS game_collections (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL UNIQUE, folder TEXT NOT NULL)"); } catch (e) { }
         try { dbExec("CREATE TABLE IF NOT EXISTS games (id INTEGER PRIMARY KEY AUTOINCREMENT, game_collection_id INTEGER NOT NULL, name TEXT NOT NULL, sgf_path TEXT NOT NULL)"); } catch (e) { }
         try { dbExec("CREATE INDEX IF NOT EXISTS idx_games_collection ON games(game_collection_id)"); } catch (e) { }
@@ -2030,8 +2028,7 @@
       source TEXT NOT NULL, problem_id TEXT NOT NULL, set_id INTEGER NOT NULL,
       chapter_id INTEGER, order_in_chapter INTEGER, sgf_path TEXT NOT NULL,
       sgf_exists INTEGER NOT NULL DEFAULT 0, difficulty_raw TEXT,
-      difficulty_num INTEGER, color_to_play TEXT,
-      hidden INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (source, problem_id)
+      difficulty_num INTEGER, color_to_play TEXT, PRIMARY KEY (source, problem_id)
     );
     CREATE TABLE IF NOT EXISTS attempts (
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
@@ -2102,29 +2099,7 @@
         stmt.free();
       };
       ins('collections', ['source', 'set_id', 'name', 'folder', 'difficulty_raw', 'difficulty_num', 'num_problems', 'on_disk', 'chapter_count'], snap.collections);
-      // T13: upsert dedicado — el INSERT OR REPLACE generico machacaba
-      // hidden a 0 en cada re-import por static_version. En conflicto,
-      // hidden NO se actualiza (se preserva el local, como chapters.mostrar);
-      // dispositivos nuevos si lo heredan del snapshot en el insert fresco.
-      if (snap.problems && snap.problems.length) {
-        const stmtP = db.prepare(`
-        INSERT INTO problems (source,problem_id,set_id,chapter_id,order_in_chapter,sgf_path,sgf_exists,difficulty_raw,difficulty_num,color_to_play,hidden)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?)
-        ON CONFLICT(source, problem_id) DO UPDATE SET
-          set_id=excluded.set_id, chapter_id=excluded.chapter_id,
-          order_in_chapter=excluded.order_in_chapter, sgf_path=excluded.sgf_path,
-          sgf_exists=excluded.sgf_exists, difficulty_raw=excluded.difficulty_raw,
-          difficulty_num=excluded.difficulty_num, color_to_play=excluded.color_to_play
-          -- hidden NO se actualiza: se preserva el valor local (T13)
-      `);
-        for (const r of snap.problems) {
-          stmtP.run([r.source, r.problem_id, r.set_id, r.chapter_id ?? null,
-          r.order_in_chapter ?? null, r.sgf_path, r.sgf_exists ?? 0,
-          r.difficulty_raw ?? null, r.difficulty_num ?? null, r.color_to_play ?? null,
-          r.hidden ?? 0]);
-        }
-        stmtP.free();
-      }
+      ins('problems', ['source', 'problem_id', 'set_id', 'chapter_id', 'order_in_chapter', 'sgf_path', 'sgf_exists', 'difficulty_raw', 'difficulty_num', 'color_to_play'], snap.problems);
       if (snap.chapters && snap.chapters.length) {
         const stmt = db.prepare(`
         INSERT INTO chapters (id,source,set_id,chapter_num,name,diff_min,diff_max,diff_avg,problem_count,mostrar)
@@ -2167,15 +2142,12 @@
     // ── Local DB queries ──
     function localGetCollections(source) {
       return dbQuery(`
-    SELECT c.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct,
-      COALESCE(v.visible_problems,0) AS visible_problems
+    SELECT c.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct
     FROM collections c
-    LEFT JOIN (SELECT source, set_id, COUNT(*) AS visible_problems FROM problems WHERE hidden = 0 GROUP BY source, set_id) v ON c.source=v.source AND c.set_id=v.set_id
     LEFT JOIN (
       SELECT p.source, p.set_id, COUNT(a.id) AS total_attempts,
         SUM(CASE WHEN a.result='correct' THEN 1 ELSE 0 END) AS total_correct
       FROM problems p LEFT JOIN attempts a ON a.source=p.source AND a.problem_id=p.problem_id
-      WHERE p.hidden = 0
       GROUP BY p.source, p.set_id
     ) s ON c.source=s.source AND c.set_id=s.set_id
     WHERE c.source=? ORDER BY c.difficulty_num ASC, c.name ASC
@@ -2215,15 +2187,12 @@
     }
     function localGetChapters(source, set_id) {
       return dbQuery(`
-    SELECT ch.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct,
-      COALESCE(v.visible_problems,0) AS visible_problems
+    SELECT ch.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct
     FROM chapters ch
-    LEFT JOIN (SELECT chapter_id, COUNT(*) AS visible_problems FROM problems WHERE hidden = 0 GROUP BY chapter_id) v ON ch.id=v.chapter_id
     LEFT JOIN (
       SELECT p.chapter_id, COUNT(a.id) AS total_attempts,
         SUM(CASE WHEN a.result='correct' THEN 1 ELSE 0 END) AS total_correct
       FROM problems p LEFT JOIN attempts a ON a.source=p.source AND a.problem_id=p.problem_id
-      WHERE p.hidden = 0
       GROUP BY p.chapter_id
     ) s ON ch.id=s.chapter_id
     WHERE ch.source=? AND ch.set_id=? ORDER BY ch.name ASC
@@ -2249,7 +2218,7 @@
       return { collection, by_chapter };
     }
     function localGetProblems(source, { set_id, chapter_id, onlyVisible } = {}) {
-      let sql = `SELECT p.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct, COALESCE(s.pct_correct,0) AS pct_correct, s.last_seen FROM problems p LEFT JOIN chapters ch ON ch.id=p.chapter_id LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,MAX(created_at) AS last_seen FROM attempts WHERE run_id IS NOT NULL GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id WHERE p.source=? AND p.hidden=0`;
+      let sql = `SELECT p.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct, COALESCE(s.pct_correct,0) AS pct_correct, s.last_seen FROM problems p LEFT JOIN chapters ch ON ch.id=p.chapter_id LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,MAX(created_at) AS last_seen FROM attempts WHERE run_id IS NOT NULL GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id WHERE p.source=?`;
       const params = [source];
       if (chapter_id) { sql += ' AND p.chapter_id=?'; params.push(chapter_id); }
       else if (set_id) { sql += ' AND p.set_id=?'; params.push(set_id); }
@@ -2270,7 +2239,7 @@
   `, [source, problem_id]);
     }
     function localGetDifficultyRange(source) {
-      return dbQueryOne(`SELECT MIN(difficulty_num) AS min, MAX(difficulty_num) AS max FROM problems WHERE source=? AND difficulty_num IS NOT NULL AND hidden=0`, [source]);
+      return dbQueryOne(`SELECT MIN(difficulty_num) AS min, MAX(difficulty_num) AS max FROM problems WHERE source=? AND difficulty_num IS NOT NULL`, [source]);
     }
     function localGetStruggling(source, { set_id, chapter_id } = {}, n = 3) {
       // T12/P3: antes, una query POR PROBLEMA del scope (64k prepares en un
@@ -2289,7 +2258,7 @@
                  ROW_NUMBER() OVER (PARTITION BY a.problem_id ORDER BY a.created_at DESC, a.id DESC) rn
           FROM attempts a
           JOIN problems p ON p.source = a.source AND p.problem_id = a.problem_id
-          WHERE a.source = ?${scope} AND a.run_id IS NOT NULL AND p.hidden = 0
+          WHERE a.source = ?${scope} AND a.run_id IS NOT NULL
         )
         SELECT problem_id FROM ranked WHERE rn <= ?
         GROUP BY problem_id
@@ -2308,8 +2277,7 @@
         JOIN chapters ch ON ch.id = p.chapter_id
         WHERE s.source = ?
           AND s.due_date <= ?
-          AND ch.mostrar = 1
-          AND p.hidden = 0`;
+          AND ch.mostrar = 1`;
       const params = [source, today];
       if (set_id) { sql += ` AND p.set_id = ?`; params.push(set_id); }
       sql += ` ORDER BY s.due_date ASC LIMIT 50`;
@@ -2325,8 +2293,7 @@
         JOIN chapters ch ON ch.id = p.chapter_id
         WHERE s.source = ?
           AND s.due_date <= ?
-          AND ch.mostrar = 1
-          AND p.hidden = 0`;
+          AND ch.mostrar = 1`;
       const params = [source, today];
       if (set_id) { sql += ` AND p.set_id = ?`; params.push(set_id); }
       return dbQueryOne(sql, params)?.n ?? 0;
@@ -2339,7 +2306,6 @@
       JOIN chapters ch ON ch.id = p.chapter_id
       WHERE p.source = ?
         AND ch.mostrar = 1
-        AND p.hidden = 0
         AND (? IS NULL OR p.set_id = ?)
     ),
 
@@ -2551,12 +2517,12 @@
    function localInsertRun(source, type, { set_id, chapter_id } = {}) {
 	  if (chapter_id && !set_id) { const ch = dbQueryOne('SELECT set_id FROM chapters WHERE id=?', [chapter_id]); if (ch) set_id = ch.set_id; }
 	  let rows;
-	  if (type === 'chapter' && chapter_id) rows = dbQuery(`SELECT source,problem_id FROM problems WHERE chapter_id=? AND hidden=0 ORDER BY order_in_chapter`, [chapter_id]);
+	  if (type === 'chapter' && chapter_id) rows = dbQuery(`SELECT source,problem_id FROM problems WHERE chapter_id=? ORDER BY order_in_chapter`, [chapter_id]);
 	  else if (type === 'collection' && set_id) {
 		if (filterMostrar) {
-		  rows = dbQuery(`SELECT p.source,p.problem_id FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE p.source=? AND p.set_id=? AND ch.mostrar=1 AND p.hidden=0 ORDER BY p.order_in_chapter`, [source, set_id]);
+		  rows = dbQuery(`SELECT p.source,p.problem_id FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE p.source=? AND p.set_id=? AND ch.mostrar=1 ORDER BY p.order_in_chapter`, [source, set_id]);
 		} else {
-		  rows = dbQuery(`SELECT source,problem_id FROM problems WHERE source=? AND set_id=? AND hidden=0 ORDER BY order_in_chapter`, [source, set_id]);
+		  rows = dbQuery(`SELECT source,problem_id FROM problems WHERE source=? AND set_id=? ORDER BY order_in_chapter`, [source, set_id]);
 		}
 	  } else return null;
 	  for (let i = rows.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[rows[i], rows[j]] = [rows[j], rows[i]]; }
@@ -2799,36 +2765,6 @@
           body: JSON.stringify({ chapters: chapMostrar }),
           signal: AbortSignal.timeout(8000)
         });
-      } catch (_) { }
-      // ── T13: Sync problemas ocultos (borrado lógico) ──
-      // Semantica local de hidden: 0=visible, 2=oculto PENDIENTE de
-      // confirmar (lo pone la UI/offline), 1=oculto CONFIRMADO por el
-      // servidor. Solo se empujan los pendientes (2): si se empujara la
-      // lista completa, cualquier cliente ya sincronizado re-ocultaria un
-      // problema des-ocultado a mano en la BD del servidor (bug cazado por
-      // el harness T13). La respuesta es la verdad absoluta: convierte los
-      // pendientes empujados en confirmados (2->1) y pone a 0 los
-      // confirmados que ya no esten (unhide manual propagado). Los
-      // pendientes NO empujados (p.ej. ocultados en mitad del vuelo) se
-      // conservan en 2 para el siguiente sync. El servidor solo guarda 0/1.
-      // Servidor viejo: 404 -> hR.ok false -> no se toca nada local.
-      try {
-        const hiddenPending = dbQuery('SELECT source, problem_id FROM problems WHERE hidden=2', []);
-        const hR = await syncFetch(`/sync/problems_hidden`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ problems: hiddenPending }),
-          signal: AbortSignal.timeout(8000)
-        });
-        if (hR.ok) {
-          const { hidden } = await hR.json();
-          if (Array.isArray(hidden)) {
-            dbExec('UPDATE problems SET hidden=0 WHERE hidden=1', []);
-            for (const hp of hidden) {
-              dbExec('UPDATE problems SET hidden=1 WHERE source=? AND problem_id=?', [hp.source, hp.problem_id]);
-            }
-          }
-        }
       } catch (_) { }
       // ── Sync SM-2 ──
       // Fase 1 (3.10, solo el cursor): last_sm2_sync ya NO se fija con el reloj
@@ -3283,7 +3219,6 @@
           JOIN chapters ch ON ch.id = p.chapter_id
           WHERE p.source = ?
             AND (ch.diff_avg IS NULL OR ch.diff_avg <= ?)
-            AND p.hidden = 0
         ),
         ranked_attempts AS (
           SELECT
@@ -3724,7 +3659,7 @@
         const diffStr = col.difficulty_raw || diffLabel(col.difficulty_num) || '—';
         item.innerHTML = `
       <div class="col-name"><span class="col-arrow">▶</span><span>${esc(col.name)}</span></div>
-      <div class="col-stats"><span>${col.visible_problems || col.num_problems} probs</span><span class="col-diff">${esc(diffStr)}</span><span class="col-pct" id="cpct-${col.set_id}">—</span></div>
+      <div class="col-stats"><span>${col.num_problems} probs</span><span class="col-diff">${esc(diffStr)}</span><span class="col-pct" id="cpct-${col.set_id}">—</span></div>
       <div class="col-chapters" id="chaps-${col.set_id}"></div>`;
         item.querySelector('.col-name').addEventListener('click', () => toggleCollection(col, item));
         list.appendChild(item); refreshColPct(col.set_id);
@@ -3894,7 +3829,7 @@
 		  const chapPctStr = cs && cs.pct != null ? cs.pct + '%' + (chapSpp ? ' · ' + chapSpp : '') : '';
           const chapPctColor = cs ? pctColor(cs.pct) : 'var(--dim2)';
           ci.innerHTML = `<span class="chap-name">${esc(chap.name || `Ch ${chap.chapter_num}`)} <span style="color:var(--dim2)">(${esc(diffStr)})</span></span>
-        <span class="chap-stats">${chap.visible_problems || chap.problem_count}p <span class="chap-pct" style="color:${chapPctColor}">${chapPctStr}</span></span>
+        <span class="chap-stats">${chap.problem_count}p <span class="chap-pct" style="color:${chapPctColor}">${chapPctStr}</span></span>
         ${!filterMostrar ? `<label style="display:flex;align-items:center;gap:3px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);flex-shrink:0;white-space:nowrap;" title="Mostrar esta lección">
 		  <input type="checkbox" class="chap-mostrar-chk" data-chapid="${chap.id}" ${chap.mostrar ? 'checked' : ''} style="accent-color:var(--gold);cursor:pointer;">
 		  show
@@ -4471,32 +4406,6 @@
     }
     document.getElementById('free-prev-btn').addEventListener('click', prevProblem);
     document.getElementById('free-next-btn').addEventListener('click', () => { if (freeMode) nextProblem(); });
-    // T13: borrado logico desde Free. Marca hidden=2 (oculto PENDIENTE de
-    // confirmar; doSync lo empuja y el servidor responde la verdad, ver el
-    // bloque T13 de doSync). Historial (attempts/sm2_state/run_items)
-    // intacto. Reversible solo con UPDATE manual en la BD del servidor.
-    function hideCurrentProblem() {
-      if (!freeMode || !currentProblem) return;
-      const pid = currentProblem.problem_id;
-      if (!confirm(`Hide problem ${pid} everywhere?` + String.fromCharCode(10) + 'History is kept. Reversible only by editing the server DB.')) return;
-      dbExec('UPDATE problems SET hidden=2 WHERE source=? AND problem_id=?', [currentSource, pid]);
-      saveDB().catch(() => { });
-      // sacarlo de la sesion Free en curso y recolocar el indice
-      const idx = allProblems.findIndex(pr => pr.problem_id === pid);
-      if (idx !== -1) {
-        allProblems.splice(idx, 1);
-        if (runIdx > idx) runIdx--;
-      }
-      document.getElementById('fp-count').textContent = `${allProblems.length} problems`;
-      document.getElementById('st-total').textContent = allProblems.length;
-      document.getElementById('cfg-pill-total').textContent = `/ ${allProblems.length}`;
-      renderFreeList();
-      tryAutoSync(true).catch(() => { });   // con conexion, el push+confirmacion es inmediato
-      if (!allProblems.length) { document.getElementById('board-hint').textContent = 'No problems left'; return; }
-      if (runIdx >= allProblems.length) runIdx = allProblems.length - 1;
-      if (runIdx < 0) runIdx = 0;
-      loadAndRender(allProblems[runIdx]);   // tras el splice, el siguiente ocupa el hueco del oculto
-    }
     async function loadAndRender(probMeta) {
       isPaused = false; pausedAt = 0; totalPaused = 0;
       document.getElementById('pause-overlay').style.display = 'none';
@@ -4683,7 +4592,6 @@
       document.getElementById('btn-next').style.display = runMode ? 'none' : '';
       document.getElementById('btn-restart').style.display = runMode ? 'none' : '';
       document.getElementById('btn-hint').style.display = freeMode ? '' : 'none'; // F8: pista solo en Free
-      document.getElementById('btn-hide-problem').style.display = freeMode ? '' : 'none'; // T13: ocultar solo en Free
     }
     function setupInteractiveMode(root, playerC) {
       let firstMoveDone = false, currentNode = root, attemptRecorded = false, answered = false, hadWrong = false, hintMarker = null;
@@ -4859,7 +4767,6 @@
     document.getElementById('btn-restart').addEventListener('click', () => { if (window._studyRestart) window._studyRestart(); });
     document.getElementById('btn-back').addEventListener('click', () => { if (window._studyBack) window._studyBack(); });
     document.getElementById('btn-hint').addEventListener('click', () => { if (window._studyHint) window._studyHint(); });
-    document.getElementById('btn-hide-problem').addEventListener('click', hideCurrentProblem); // T13
     window.addEventListener('keydown', e => {
       if ((e.code === 'Enter' || e.code === 'Space') && waitingForNext && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.altKey && e.code === 'KeyN' && !runMode) { e.preventDefault(); nextProblem(); }
