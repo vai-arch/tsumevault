@@ -132,23 +132,6 @@ def rows_to_list(rows):
 # ── Migration ────────────────────────────────────────────────────────────────
 
 
-def _migrate_v2_hidden(con):
-    """T13: schema v2 — borrado lógico de problemas (columna problems.hidden).
-
-    hidden=0 (default) => visible; hidden=1 => oculto en toda la app sin
-    borrar attempts/sm2_state/run_items. Idempotente (PRAGMA table_info).
-    """
-    cols_p = [r[1] for r in con.execute("PRAGMA table_info(problems)").fetchall()]
-    if "hidden" not in cols_p:
-        con.execute(
-            "ALTER TABLE problems ADD COLUMN hidden INTEGER NOT NULL DEFAULT 0"
-        )
-        log.info("[migrate] Columna hidden añadida a problems.")
-    con.execute("PRAGMA user_version = 2")  # T13: sellar la version
-    con.commit()
-    log.info("[migrate] Migraciones completadas (schema_version=2).")
-
-
 def migrate_db():
     with db_connect() as con:
         # T11: schema_version formal via PRAGMA user_version. Las migraciones
@@ -156,12 +139,8 @@ def migrate_db():
         # CREATE ... IF NOT EXISTS y dedup re-ejecutable) quedan bajo la
         # version 1. Migraciones futuras: "if version < N: ...; sellar N".
         version = con.execute("PRAGMA user_version").fetchone()[0]
-        if version >= 2:
-            log.info("[migrate] schema_version=%d — nada que migrar.", version)
-            return
         if version >= 1:
-            # T13: v1 ya aplicada — solo falta v2 (problems.hidden).
-            _migrate_v2_hidden(con)
+            log.info("[migrate] schema_version=%d — nada que migrar.", version)
             return
         cols = [r[1] for r in con.execute("PRAGMA table_info(runs)").fetchall()]
         if "uuid" not in cols:
@@ -252,9 +231,9 @@ def migrate_db():
         con.execute(
             "CREATE INDEX IF NOT EXISTS idx_sm2_updated ON sm2_state(updated_at)"
         )
+        con.execute("PRAGMA user_version = 1")  # T11: sellar la version
         con.commit()
-        # T13: aplicar también v2 y sellar directamente en schema_version=2.
-        _migrate_v2_hidden(con)
+        log.info("[migrate] Migraciones completadas (schema_version=1).")
 
 
 # ── GET handlers ──────────────────────────────────────────────────────────────
@@ -267,21 +246,14 @@ def handle_get_collections(qs):
             """
             SELECT c.*,
                    COALESCE(s.total_attempts, 0) AS total_attempts,
-                   COALESCE(s.total_correct,  0) AS total_correct,
-                   COALESCE(v.visible_problems, 0) AS visible_problems
+                   COALESCE(s.total_correct,  0) AS total_correct
             FROM collections c
-            LEFT JOIN (
-                SELECT source, set_id, COUNT(*) AS visible_problems
-                FROM problems WHERE hidden = 0
-                GROUP BY source, set_id
-            ) v ON c.source = v.source AND c.set_id = v.set_id
             LEFT JOIN (
                 SELECT p.source, p.set_id,
                        SUM(a.total_attempts) AS total_attempts,
                        SUM(a.total_correct)  AS total_correct
                 FROM problems p
                 LEFT JOIN problem_stats a USING (source, problem_id)
-                WHERE p.hidden = 0
                 GROUP BY p.source, p.set_id
             ) s ON c.source = s.source AND c.set_id = s.set_id
             WHERE c.source = ?
@@ -302,21 +274,14 @@ def handle_get_chapters(qs):
             """
             SELECT ch.*,
                    COALESCE(s.total_attempts, 0) AS total_attempts,
-                   COALESCE(s.total_correct,  0) AS total_correct,
-                   COALESCE(v.visible_problems, 0) AS visible_problems
+                   COALESCE(s.total_correct,  0) AS total_correct
             FROM chapters ch
-            LEFT JOIN (
-                SELECT chapter_id, COUNT(*) AS visible_problems
-                FROM problems WHERE hidden = 0
-                GROUP BY chapter_id
-            ) v ON ch.id = v.chapter_id
             LEFT JOIN (
                 SELECT p.chapter_id,
                        SUM(a.total_attempts) AS total_attempts,
                        SUM(a.total_correct)  AS total_correct
                 FROM problems p
                 LEFT JOIN problem_stats a USING (source, problem_id)
-                WHERE p.hidden = 0
                 GROUP BY p.chapter_id
             ) s ON ch.id = s.chapter_id
             WHERE ch.source = ? AND ch.set_id = ?
@@ -342,7 +307,7 @@ def handle_get_problems(qs):
                        s.last_seen
                 FROM problems p
                 LEFT JOIN problem_stats s USING (source, problem_id)
-                WHERE p.chapter_id = ? AND p.hidden = 0
+                WHERE p.chapter_id = ?
                 ORDER BY p.order_in_chapter ASC
             """,
                 (int(chapter_id),),
@@ -357,7 +322,7 @@ def handle_get_problems(qs):
                        s.last_seen
                 FROM problems p
                 LEFT JOIN problem_stats s USING (source, problem_id)
-                WHERE p.source = ? AND p.set_id = ? AND p.hidden = 0
+                WHERE p.source = ? AND p.set_id = ?
                 ORDER BY p.order_in_chapter ASC
             """,
                 (source, int(set_id)),
@@ -372,7 +337,7 @@ def handle_get_problems(qs):
                        s.last_seen
                 FROM problems p
                 LEFT JOIN problem_stats s USING (source, problem_id)
-                WHERE p.source = ? AND p.hidden = 0
+                WHERE p.source = ?
                 ORDER BY p.order_in_chapter ASC
             """,
                 (source,),
@@ -595,7 +560,7 @@ def handle_get_struggling(qs):
                      ROW_NUMBER() OVER (PARTITION BY a.problem_id ORDER BY a.created_at DESC, a.id DESC) rn
               FROM attempts a
               JOIN problems p ON p.source = a.source AND p.problem_id = a.problem_id
-              WHERE a.source = ?{scope} AND p.hidden = 0
+              WHERE a.source = ?{scope}
             )
             SELECT problem_id FROM ranked WHERE rn <= ?
             GROUP BY problem_id
@@ -614,7 +579,7 @@ def handle_get_difficulty_range(qs):
             """
             SELECT MIN(difficulty_num), MAX(difficulty_num)
             FROM problems
-            WHERE source=? AND difficulty_num IS NOT NULL AND hidden=0
+            WHERE source=? AND difficulty_num IS NOT NULL
         """,
             (source,),
         ).fetchone()
@@ -706,12 +671,12 @@ def handle_post_run(body):
                 set_id = row[0]
         if run_type == "chapter" and chapter_id:
             rows = con.execute(
-                "SELECT source, problem_id FROM problems WHERE chapter_id=? AND hidden=0 ORDER BY order_in_chapter",
+                "SELECT source, problem_id FROM problems WHERE chapter_id=? ORDER BY order_in_chapter",
                 (int(chapter_id),),
             ).fetchall()
         elif run_type == "collection" and set_id:
             rows = con.execute(
-                "SELECT source, problem_id FROM problems WHERE source=? AND set_id=? AND hidden=0 ORDER BY order_in_chapter",
+                "SELECT source, problem_id FROM problems WHERE source=? AND set_id=? ORDER BY order_in_chapter",
                 (source, int(set_id)),
             ).fetchall()
         elif run_type == "virtual" and vc_id:
@@ -1215,43 +1180,6 @@ def handle_sync_chapters_mostrar(body):
     return {"ok": True}
 
 
-def handle_sync_problems_hidden(body):
-    """T13: merge de problemas ocultos (borrado lógico).
-
-    El cliente envía la lista de sus ocultos locales; el servidor marca
-    hidden=1 en esas filas (UNIÓN: este endpoint nunca pone 0 — des-ocultar
-    se hace manualmente en la BD) y responde con la lista completa de
-    ocultos resultante, que el cliente aplica como verdad absoluta. Así un
-    UPDATE manual hidden=0 en el servidor se propaga solo a los clientes.
-    No crea filas: un problem_id inexistente en el catálogo se ignora.
-    """
-    problems = body.get("problems")
-    if not isinstance(problems, list):
-        return {"error": "problems (list) required"}, 400
-    normalized = []
-    for pr in problems:
-        if not isinstance(pr, dict) or "source" not in pr or "problem_id" not in pr:
-            return {"error": "invalid problem entry"}, 400
-        normalized.append((str(pr["source"]), str(pr["problem_id"])))
-    updated = 0
-    with db_connect() as con:
-        for source, problem_id in normalized:
-            cur = con.execute(
-                "UPDATE problems SET hidden=1 WHERE source=? AND problem_id=? AND hidden=0",
-                (source, problem_id),
-            )
-            updated += cur.rowcount
-        con.commit()
-        rows = rows_to_list(
-            con.execute(
-                "SELECT source, problem_id FROM problems WHERE hidden=1"
-            ).fetchall()
-        )
-    if updated:
-        log.info("problems_hidden: %d problemas ocultados; total ocultos=%d", updated, len(rows))
-    return {"hidden": rows, "updated": updated}
-
-
 GET_ROUTES = {
     "/db/collections": handle_get_collections,
     "/db/chapters": handle_get_chapters,
@@ -1285,7 +1213,6 @@ PUT_ROUTES = {
     "/db/run": handle_put_run,
     "/db/chapter/mostrar": handle_put_chapter_mostrar,
     "/sync/chapters_mostrar": handle_sync_chapters_mostrar,
-    "/sync/problems_hidden": handle_sync_problems_hidden,  # T13
 }
 
 
