@@ -1644,6 +1644,8 @@
         <div class="sb-row">Wrong&nbsp;&nbsp;&nbsp; <span class="v" id="ps-no">—</span></div>
         <div class="sb-row">%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="vg" id="ps-pct">—</span></div>
         <div class="sb-row">Avg time <span class="v" id="ps-ms">—</span></div>
+        <div class="sb-row">Streak&nbsp;&nbsp; <span class="vg" id="ps-streak">—</span></div>
+        <div class="sb-row" id="ps-nextin-row">Next in&nbsp; <span class="v" id="ps-nextin">—</span></div>
       </div>
       <div
         style="padding:8px 14px;font-family:var(--mono);font-size:7px;color:var(--dim2);letter-spacing:.1em;position:sticky;bottom:0;background:var(--panel);">
@@ -1677,7 +1679,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260809-2101';
+	const SW_VERSION = 'tsumevault-20260810-2354';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2268,6 +2270,47 @@
     LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,AVG(time_ms) AS avg_time_ms,MAX(created_at) AS last_seen FROM attempts WHERE run_id IS NOT NULL GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id
     WHERE p.source=? AND p.problem_id=?
   `, [source, problem_id]);
+    }
+    // F10: racha de aciertos consecutivos desde el ultimo fallo (o desde el
+    // principio si nunca ha fallado). A diferencia de total_attempts/total_correct
+    // de localGetProblem (que solo cuentan intentos con run_id IS NOT NULL),
+    // aqui se cuentan TODOS los intentos sin importar el modo: es informacion
+    // puramente historica, no afecta al SM-2, asi que tiene sentido mostrarla
+    // tambien en Free Practice (a diferencia de la prediccion de dias, que
+    // solo aplica donde el intento lleva run_id: Runs y Review).
+    function localGetStreak(source, problem_id) {
+      const rows = dbQuery(
+        `SELECT result FROM attempts WHERE source=? AND problem_id=? ORDER BY created_at DESC, id DESC LIMIT 200`,
+        [source, problem_id]
+      );
+      let streak = 0;
+      for (const r of rows) {
+        if (r.result === 'correct') streak++;
+        else break;
+      }
+      return streak;
+    }
+    // F10: prediccion de en cuantos dias volveria a aparecer este problema SI
+    // se resuelve bien AHORA MISMO, reproduciendo exactamente la rama de
+    // acierto de updateSm2 (mismo nextBase/nextNext) pero sin escribir nada -
+    // es una simulacion de solo lectura sobre el sm2_state actual (o los
+    // valores por defecto si el problema aun no tiene fila, igual que hace
+    // updateSm2). Devuelve un rango {min,max} porque el intervalo real tiene
+    // jitter aleatorio (ver updateSm2); si nextNext<=nextBase (easiness baja)
+    // el rango colapsa a un unico valor min===max.
+    function predictNextInterval(source, problem_id) {
+      const row = dbQueryOne(
+        'SELECT interval, easiness, repetitions FROM sm2_state WHERE source=? AND problem_id=?',
+        [source, problem_id]
+      );
+      const interval    = row ? row.interval    : 6;
+      const easiness     = row ? row.easiness    : 2.5;
+      const repetitions  = (row ? row.repetitions : 0) + 1;
+      const nextBase = repetitions === 1 ? 6 : Math.round(interval * easiness);
+      const nextNext = Math.round(nextBase * easiness);
+      const min = nextBase;
+      const max = nextNext > nextBase ? nextNext - 1 : nextBase;
+      return { min, max };
     }
     function localGetDifficultyRange(source) {
       return dbQueryOne(`SELECT MIN(difficulty_num) AS min, MAX(difficulty_num) AS max FROM problems WHERE source=? AND difficulty_num IS NOT NULL AND hidden=0`, [source]);
@@ -4517,7 +4560,7 @@
       } catch (e) { console.warn('Skip problem', probMeta.problem_id, e.message); nextProblem(); }
     }
     function clearSidebar() {
-      ['pi-id', 'pi-col', 'pi-chap', 'pi-diff', 'pi-color', 'ps-seen', 'ps-ok', 'ps-no', 'ps-pct', 'ps-ms'].forEach(id => document.getElementById(id).textContent = '—');
+      ['pi-id', 'pi-col', 'pi-chap', 'pi-diff', 'pi-color', 'ps-seen', 'ps-ok', 'ps-no', 'ps-pct', 'ps-ms', 'ps-streak', 'ps-nextin'].forEach(id => document.getElementById(id).textContent = '—');
     }
     async function endRun() {
       if (activeRunId) { try { localUpdateRunStatus(activeRunId, 'closed'); await saveDB(); tryAutoSync(); } catch (e) { } activeRunId = null; }
@@ -4674,6 +4717,23 @@
       document.getElementById('ps-no').textContent = prob.total_attempts != null ? (prob.total_attempts - prob.total_correct) || '0' : '—';
       document.getElementById('ps-pct').textContent = prob.total_attempts > 0 ? Math.round(prob.pct_correct) + '%' : '—';
       document.getElementById('ps-ms').textContent = prob.avg_time_ms > 0 ? (prob.avg_time_ms / 1000).toFixed(1) + 's' : '—';
+      // F10: racha de aciertos consecutivos - valida en los 3 modos, ya que
+      // es historial puro y no depende de run_id (a diferencia de ps-seen/ok/no).
+      const streak = localGetStreak(currentSource, prob.problem_id);
+      document.getElementById('ps-streak').textContent = streak > 0 ? (streak + 'x') : '—';
+      // F10: prediccion de reaparicion - SOLO tiene sentido en Runs/Review,
+      // porque son los unicos modos donde el intento lleva run_id y por tanto
+      // updateSm2() se ejecuta de verdad. En Free Practice mostrarla seria
+      // una promesa falsa (el SM-2 no se toca ahi), asi que se oculta la fila
+      // entera en vez de mostrar un numero que no se va a cumplir.
+      const nextInRow = document.getElementById('ps-nextin-row');
+      if (freeMode) {
+        nextInRow.style.display = 'none';
+      } else {
+        nextInRow.style.display = '';
+        const pred = predictNextInterval(currentSource, prob.problem_id);
+        document.getElementById('ps-nextin').textContent = pred.min === pred.max ? (pred.min + 'd') : (pred.min + '-' + pred.max + 'd');
+      }
       if (wgoBoard._studyListener) wgoBoard.removeEventListener('click', wgoBoard._studyListener);
       wgoBoard._studyListener = null;
       setupInteractiveMode(root, playerC);
