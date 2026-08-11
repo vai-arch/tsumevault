@@ -96,6 +96,13 @@ def handle_delete_runs(body):
             except (TypeError, ValueError):
                 return {"error": "invalid ids"}, 400
             placeholders = ",".join("?" * len(ids))
+            # T18: los attempts de un run borrado NO se eliminan (perderian
+            # historial real de seen/correct/streak); se desvinculan a NULL y
+            # pasan a contar como Free Practice. Decision de producto: T18.
+            con.execute(
+                f"UPDATE attempts SET run_id=NULL WHERE run_id IN (SELECT id FROM runs WHERE id IN ({placeholders}))",
+                ids,
+            )
             con.execute(
                 f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE id IN ({placeholders}))",
                 ids,
@@ -103,6 +110,11 @@ def handle_delete_runs(body):
             con.execute(f"DELETE FROM runs WHERE id IN ({placeholders})", ids)
         if uuids:
             placeholders = ",".join("?" * len(uuids))
+            # T18: mismo tratamiento que arriba para la rama por uuids.
+            con.execute(
+                f"UPDATE attempts SET run_id=NULL WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))",
+                uuids,
+            )
             con.execute(
                 f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))",
                 uuids,
