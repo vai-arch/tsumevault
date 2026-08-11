@@ -1679,7 +1679,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260811-1930';
+	const SW_VERSION = 'tsumevault-20260811-2224';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -4182,11 +4182,26 @@
         // rejugaba desde el item 0, anadiendo attempts nuevos sobre run_items
         // ya resueltos. Cubre tambien runs sin run_items (p. ej. de review),
         // que no son reanudables. Se cierra si seguia open y se avisa.
+        const runRow = dbQueryOne('SELECT status, type FROM runs WHERE id=?', [runId]);
+        // T19: desde que Review crea run_items (persistencia/historial para
+        // Runs), una review abierta con items pendientes ya no cae en el
+        // "sin items" de abajo. Se mantiene el comportamiento previo a
+        // proposito: Review nunca es reanudable desde aqui (su navegacion es
+        // allProblems/runIdx, no runItems/runMode); se cierra igual que antes.
+        if (runRow && runRow.type === 'review') {
+          if (runRow.status === 'open') {
+            localUpdateRunStatus(runId, 'closed');
+            scheduleSaveDB();
+            tryAutoSync(true).catch(() => { });
+          }
+          alert('This run is already complete — nothing to resume.');
+          loadRuns();
+          return;
+        }
         const items = localGetRunItems(runId);
         const firstPending = items.findIndex(i => !i.result);
         if (firstPending === -1) {
-          const row = dbQueryOne('SELECT status FROM runs WHERE id=?', [runId]);
-          if (row && row.status === 'open') {
+          if (runRow && runRow.status === 'open') {
             localUpdateRunStatus(runId, 'closed');
             scheduleSaveDB();
             tryAutoSync(true).catch(() => { });
@@ -4497,6 +4512,18 @@
         dbExec(`INSERT INTO runs (source,set_id,chapter_id,type,status,total,done,started_at,uuid) VALUES (?,NULL,NULL,'review','open',?,0,?,?)`, [currentSource, problems.length, rvStarted, rvUuid]);
         const rvRun = dbQueryOne('SELECT id FROM runs WHERE uuid=?', [rvUuid]);
         activeRunId = rvRun ? rvRun.id : null;
+        // T19 (bug "0%" en Runs pese a acertar): startReview() creaba el run
+        // pero nunca sus run_items, asi que localGetRuns() (que calcula
+        // ok_count a partir de run_items) siempre veia 0 aciertos para
+        // reviews. Los run_items de Review son solo persistencia/historial
+        // para la pestana Runs: la navegacion de la sesion sigue usando
+        // allProblems/runIdx (NO runItems/runMode), sin cambios aqui.
+        if (activeRunId) {
+          for (let order = 0; order < problems.length; order++) {
+            dbExec(`INSERT INTO run_items (run_id, source, problem_id, order_in_run) VALUES (?,?,?,?)`,
+              [activeRunId, currentSource, problems[order].problem_id, order + 1]);
+          }
+        }
         updateSessionUI(); nextProblem();
       } catch (e) { alert('Failed to load review: ' + e.message); }
     }
