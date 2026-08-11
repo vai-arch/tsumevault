@@ -1679,7 +1679,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260811-1851';
+	const SW_VERSION = 'tsumevault-20260811-1930';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2271,16 +2271,18 @@
     WHERE p.source=? AND p.problem_id=?
   `, [source, problem_id]);
     }
-    // F10: racha de aciertos consecutivos desde el ultimo fallo (o desde el
-    // principio si nunca ha fallado). A diferencia de total_attempts/total_correct
-    // de localGetProblem (que solo cuentan intentos con run_id IS NOT NULL),
-    // aqui se cuentan TODOS los intentos sin importar el modo: es informacion
-    // puramente historica, no afecta al SM-2, asi que tiene sentido mostrarla
-    // tambien en Free Practice (a diferencia de la prediccion de dias, que
-    // solo aplica donde el intento lleva run_id: Runs y Review).
+    // T14: racha de aciertos consecutivos desde el ultimo fallo (o desde el
+    // principio si nunca ha fallado). Alineada con total_attempts/total_correct
+    // de localGetProblem: SOLO cuenta intentos con run_id IS NOT NULL (Runs/
+    // Review). Antes (F10 original) incluia tambien Free Practice, lo que
+    // producia una racha mayor que "vistos/correctos" y confundia (reportado
+    // por Victor: problema con 3 vistos/3 correctos pero racha x5). Se sigue
+    // mostrando en Free Practice (a diferencia de la prediccion de dias, que
+    // se oculta ahi): ahora refleja la racha real del sistema de repaso,
+    // aunque el usuario este practicando libremente en ese momento.
     function localGetStreak(source, problem_id) {
       const rows = dbQuery(
-        `SELECT result FROM attempts WHERE source=? AND problem_id=? ORDER BY created_at DESC, id DESC LIMIT 200`,
+        `SELECT result FROM attempts WHERE source=? AND problem_id=? AND run_id IS NOT NULL ORDER BY created_at DESC, id DESC LIMIT 200`,
         [source, problem_id]
       );
       let streak = 0;
@@ -2556,19 +2558,33 @@
       let easiness    = row ? row.easiness    : 2.5;
       let repetitions = row ? row.repetitions : 0;
 
+      // T16: 'interval' guarda SIEMPRE el valor PURO/canonico (nextBase), NUNCA
+      // el ya aleatorizado con jitter. Antes 'interval = jitter' hacia que la
+      // proxima repeticion calculara su nextBase a partir de un valor ya
+      // sorteado, y ese sorteo se multiplicaba de nuevo por easiness en cada
+      // repeticion sucesiva: el azar se acumulaba sin limite (5 aciertos podian
+      // dar desde 333 hasta 17531 dias segun como cayeran los sorteos previos,
+      // en vez del rango puro 238-594 que le corresponde). El jitter se seguia
+      // necesitando para que no se amontonen problemas en la misma fecha, asi
+      // que se conserva, pero ahora SOLO decide daysUntilDue (la fecha concreta
+      // de este vencimiento), nunca la base que se persiste para el futuro.
+      let daysUntilDue;
       if (result === 'correct') {
         repetitions += 1;
         // Calcular siguiente intervalo con jitter entre intervalo_actual y intervalo_siguiente
         const nextBase = repetitions === 1 ? 6 : Math.round(interval * easiness);
         const nextNext = Math.round(nextBase * easiness);
-        // jitter: aleatorio entre nextBase y nextNext (excluido)
+        // jitter: aleatorio entre nextBase y nextNext (excluido); SOLO afecta a
+        // cuando vence esta vez, no se persiste como base de calculos futuros.
         const jitter = nextBase + Math.floor(Math.random() * Math.max(1, nextNext - nextBase));
-        interval = jitter;
+        daysUntilDue = jitter;
+        interval = nextBase; // T16: se guarda el valor puro, no el sorteado
         // easiness no cambia en acierto (SM-2 estándar la sube levemente, pero lo omitimos para simplicidad)
       } else {
         // Fallo: reinicio completo
         repetitions = 0;
         interval = 1;
+        daysUntilDue = interval;
         easiness = Math.max(1.3, easiness - 0.2);
       }
 
@@ -2577,7 +2593,7 @@
       // local); antes new Date('YYYY-MM-DD') fijaba medianoche UTC y toISOString
       // reconvertia a UTC, con desfase de un dia segun la zona horaria.
       const due = new Date();
-      due.setDate(due.getDate() + Math.round(interval));
+      due.setDate(due.getDate() + Math.round(daysUntilDue));
       const due_date = localDateStr(due);
 
       dbExec(`
@@ -2655,6 +2671,47 @@
     }
 	
     // ══ SYNC ══
+    // T15: pull de sm2_state de SOLO LECTURA, con timeout corto, pensado para
+    // llamarse justo antes de empezar/reanudar una sesion (Runs/Review) y asi
+    // reducir la ventana de carrera donde updateSm2() calcula repetitions sobre
+    // una copia local desactualizada de sm2_state (detectado: Victor reporto
+    // discrepancias sistematicas entre el streak recalculado desde attempts y
+    // sm2_state.repetitions, rastreadas hasta este mecanismo). Deliberadamente
+    // NO toca last_sm2_sync ni hace push: es un refresco best-effort que se
+    // limita a aplicar (via LWW, igual que el bloque equivalente de doSync) lo
+    // que el servidor tenga mas reciente; si falla o no hay red, no bloquea ni
+    // lanza, se sigue con el estado local que hubiera. doSync() mantiene su
+    // propio bloque de sync SM-2 (pull+push+cursor) intacto y sin relacion con
+    // esta funcion, para no arriesgar su logica de cursores ya validada.
+    async function pullSm2State(timeoutMs = 4000) {
+      try {
+        const haveSm2 = (dbQueryOne('SELECT COUNT(*) AS c FROM sm2_state', [])?.c || 0) > 0;
+        const lastSm2Sync = haveSm2 ? (getSyncMeta('last_sm2_sync') || '1970-01-01T00:00:00Z') : '1970-01-01T00:00:00Z';
+        const r = await syncFetch(`/sync/sm2/pull?since=${encodeURIComponent(lastSm2Sync)}`, {
+          signal: AbortSignal.timeout(timeoutMs)
+        });
+        if (!r.ok) return;
+        const { sm2_state: pulled } = await r.json();
+        for (const row of pulled) {
+          const existing = dbQueryOne(
+            'SELECT updated_at FROM sm2_state WHERE source=? AND problem_id=?',
+            [row.source, row.problem_id]
+          );
+          if (!existing || row.updated_at > existing.updated_at) {
+            dbExec(`
+              INSERT INTO sm2_state (source, problem_id, due_date, interval, easiness, repetitions, updated_at)
+              VALUES (?, ?, ?, ?, ?, ?, ?)
+              ON CONFLICT(source, problem_id) DO UPDATE SET
+                due_date    = excluded.due_date,
+                interval    = excluded.interval,
+                easiness    = excluded.easiness,
+                repetitions = excluded.repetitions,
+                updated_at  = excluded.updated_at
+            `, [row.source, row.problem_id, row.due_date, row.interval, row.easiness, row.repetitions, row.updated_at]);
+          }
+        }
+      } catch (_) { /* offline o timeout: se sigue con el estado local, sin bloquear */ }
+    }
     async function tryAutoSync(silent = false) {
       if (syncInProgress) return false;
       syncInProgress = true;
@@ -3994,6 +4051,7 @@
     // ══ RUNS ══
     async function startRun(opts) {
       if (activeRunId) { try { localUpdateRunStatus(activeRunId, 'closed'); await saveDB(); } catch (e) { } }
+      await pullSm2State(); // T15: refresco best-effort antes de generar el run
       try {
         const result = localInsertRun(opts.source, opts.type, { set_id: opts.set_id, chapter_id: opts.chapter_id });
         if (!result) throw new Error('No se pudo crear el run');
@@ -4089,7 +4147,7 @@
           const accStr = accPct != null ? `<span style="color:${pctColor(accPct)}">${accPct}%✓</span>` : '';
           item.innerHTML = `<div class="run-title">${esc(run.label || `Run #${run.id}`)}</div><div class="run-meta"><span class="${statusCls}">${esc(run.status)}</span><span>${done}/${total} (${compPct}%) ${accStr}</span><span style="color:var(--dim2)">${esc(date)}</span></div>`;
           if (run.status === 'open') {
-            item.addEventListener('click', () => resumeRun(run.id));
+            item.addEventListener('click', async () => { await pullSm2State(); resumeRun(run.id); }); // T15
             const closeBtn = document.createElement('button');
             closeBtn.className = 'chap-btn'; closeBtn.textContent = '✕ Close'; closeBtn.style.marginTop = '4px';
             closeBtn.addEventListener('click', async e => {
@@ -4405,6 +4463,7 @@
     async function startReview() {
       const setId = document.getElementById('rv-col').value;
       const setIdInt = setId ? parseInt(setId) : undefined;
+      await pullSm2State(); // T15: refresco best-effort antes de decidir que esta pendiente
       try {
         const problems = localGetReviewProblems(currentSource, { set_id: setIdInt });
         renderMaturity(setIdInt);
