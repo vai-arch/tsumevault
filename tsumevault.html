@@ -1679,7 +1679,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260811-2224';
+	const SW_VERSION = 'tsumevault-20260812-0005';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -4101,6 +4101,7 @@
         }
         await saveDB();
         console.log('[syncDeletedRuns] borrado completado:', missing.length, 'runs');
+        await pullSm2State(); // T19: refresca sm2_state local (recalculado por el servidor al borrarse en el otro dispositivo)
       } catch (e) { console.warn('[syncDeletedRuns] failed', e); }
     }
 	
@@ -4127,6 +4128,7 @@
         });
         const data = await r.json();
         console.log('[deleteRun] respuesta servidor:', JSON.stringify(data));
+        await pullSm2State(); // T19: refresca sm2_state local con el recalculo del servidor
       } catch (e) { console.warn('[deleteRun] server delete failed', e); }
     }
 	
