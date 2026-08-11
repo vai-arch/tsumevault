@@ -25,13 +25,14 @@ Endpoints:
 import gzip
 import json
 import logging
+import math
 import os
 import random
 import signal
 import sqlite3
 import sys
 import threading
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
@@ -86,6 +87,10 @@ def handle_delete_runs(body):
     if not ids and not uuids:
         return {"error": "ids or uuids required"}, 400
     with db_connect() as con:
+        # T19: pares (source, problem_id) con attempts afectados por el
+        # borrado, capturados ANTES de desvincularlos (UPDATE de T18) para
+        # poder recalcular sm2_state con el historial que queda.
+        affected_pairs = set()
         if ids:
             # TODO(Fase 2): retirar la ruta por ids locales cuando todos los
             # clientes usen uuids (bug 3.3 de la auditoría: los ids del cliente
@@ -96,6 +101,12 @@ def handle_delete_runs(body):
             except (TypeError, ValueError):
                 return {"error": "invalid ids"}, 400
             placeholders = ",".join("?" * len(ids))
+            # T19: capturar pares afectados ANTES del UPDATE de T18.
+            rows = con.execute(
+                f"SELECT DISTINCT source, problem_id FROM attempts WHERE run_id IN (SELECT id FROM runs WHERE id IN ({placeholders}))",
+                ids,
+            ).fetchall()
+            affected_pairs.update((r["source"], r["problem_id"]) for r in rows)
             # T18: los attempts de un run borrado NO se eliminan (perderian
             # historial real de seen/correct/streak); se desvinculan a NULL y
             # pasan a contar como Free Practice. Decision de producto: T18.
@@ -110,6 +121,12 @@ def handle_delete_runs(body):
             con.execute(f"DELETE FROM runs WHERE id IN ({placeholders})", ids)
         if uuids:
             placeholders = ",".join("?" * len(uuids))
+            # T19: capturar pares afectados ANTES del UPDATE de T18.
+            rows = con.execute(
+                f"SELECT DISTINCT source, problem_id FROM attempts WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))",
+                uuids,
+            ).fetchall()
+            affected_pairs.update((r["source"], r["problem_id"]) for r in rows)
             # T18: mismo tratamiento que arriba para la rama por uuids.
             con.execute(
                 f"UPDATE attempts SET run_id=NULL WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))",
@@ -120,9 +137,117 @@ def handle_delete_runs(body):
                 uuids,
             )
             con.execute(f"DELETE FROM runs WHERE uuid IN ({placeholders})", uuids)
+        # T19: recalcular sm2_state para los pares afectados, coherente con
+        # los attempts que quedan (run_id IS NOT NULL) tras el borrado. Dentro
+        # de la MISMA transaccion que el borrado (atomicidad).
+        if affected_pairs:
+            _recalc_sm2_for_pairs(con, affected_pairs)
         con.commit()
     log.info("delete_runs: %d ids, %d uuids", len(ids), len(uuids))
     return {"ok": True}
+
+
+def _js_round(x):
+    """T19: replica Math.round de JS (redondeo .5 siempre hacia arriba, no
+    banker's rounding como el round() nativo de Python). Portado literal de
+    sm2_replay.py::js_round (T17) -- NO modificar sin re-validar contra
+    updateSm2() real en tsumevault.html."""
+    return math.floor(x + 0.5)
+
+
+def _replay_sm2(results, rand_source):
+    """T19: portado VERBATIM de sm2_replay.py::replay_sm2 (T17, ya validado
+    campo a campo contra updateSm2() real). results: lista de
+    'correct'/'wrong' en orden cronologico (created_at ASC, id ASC como
+    desempate). rand_source: funcion sin argumentos que devuelve un float en
+    [0,1), llamada una vez por cada resultado 'correct'. Devuelve
+    (interval, easiness, repetitions, days_until_due)."""
+    interval = 6.0
+    easiness = 2.5
+    repetitions = 0
+    days_until_due = 6.0
+    for result in results:
+        if result == "correct":
+            repetitions += 1
+            next_base = 6.0 if repetitions == 1 else _js_round(interval * easiness)
+            next_next = _js_round(next_base * easiness)
+            span = max(1, next_next - next_base)
+            jitter = next_base + math.floor(rand_source() * span)
+            days_until_due = jitter
+            interval = next_base
+        else:
+            repetitions = 0
+            interval = 1.0
+            days_until_due = interval
+            easiness = max(1.3, easiness - 0.2)
+    return interval, easiness, repetitions, days_until_due
+
+
+def _recalc_sm2_for_pairs(con, pairs):
+    """T19: recalcula sm2_state para cada (source, problem_id) en `pairs`,
+    reproduciendo _replay_sm2 sobre el historial COMPLETO que queda
+    (attempts WHERE run_id IS NOT NULL), igual que recalc_sm2.py (T17). Debe
+    llamarse DENTRO de la misma transaccion que el borrado de runs que la
+    origina (atomicidad: si el recalculo fallara, el borrado no debe quedar
+    a medias).
+
+    Si un par se queda sin ningun attempt con run_id IS NOT NULL tras el
+    borrado, su fila en sm2_state NO se toca (ni se borra ni se resetea) --
+    mismo criterio que recalc_sm2.py, que simplemente nunca la visita.
+
+    Filtro anti-churn (igual que recalc_sm2.py): due_date solo se re-sortea
+    si repetitions/interval/easiness cambian de verdad respecto al valor ya
+    guardado; si no, se deja la fila tal cual (evita barajar fechas de
+    repaso que nunca estuvieron mal solo porque el jitter aleatorio dio un
+    numero distinto)."""
+    rng = random.Random()
+    now = now_iso()
+    for source, problem_id in pairs:
+        rows = con.execute(
+            """SELECT result, created_at FROM attempts
+               WHERE source=? AND problem_id=? AND run_id IS NOT NULL
+               ORDER BY created_at ASC, id ASC""",
+            (source, problem_id),
+        ).fetchall()
+        if not rows:
+            continue  # T19: sin historial restante -> no tocar sm2_state
+
+        results = [r["result"] for r in rows]
+        # T19: aproximacion UTC (created_at[:10]), igual que recalc_sm2.py --
+        # el margen de error frente a la fecha local exacta es insignificante
+        # frente a intervalos de 6+ dias.
+        last_date = rows[-1]["created_at"][:10]
+
+        interval, easiness, repetitions, days_until_due = _replay_sm2(results, rng.random)
+        # T19: el ancla de due_date es la fecha del ULTIMO intento real que
+        # queda, no "hoy" (recalc_sm2.py documenta que anclar en "hoy" fue un
+        # bug real detectado antes).
+        anchor = datetime.strptime(last_date, "%Y-%m-%d")
+        due_date = (anchor + timedelta(days=round(days_until_due))).strftime("%Y-%m-%d")
+
+        current = con.execute(
+            "SELECT due_date, interval, easiness, repetitions FROM sm2_state WHERE source=? AND problem_id=?",
+            (source, problem_id),
+        ).fetchone()
+
+        needs_fix = (
+            current is None
+            or current["repetitions"] != repetitions
+            or abs((current["interval"] or 0) - interval) > 0.01
+            or abs((current["easiness"] or 0) - easiness) > 0.001
+        )
+        if not needs_fix:
+            continue
+
+        con.execute(
+            """INSERT INTO sm2_state (source, problem_id, due_date, interval, easiness, repetitions, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(source, problem_id) DO UPDATE SET
+                   due_date=excluded.due_date, interval=excluded.interval,
+                   easiness=excluded.easiness, repetitions=excluded.repetitions,
+                   updated_at=excluded.updated_at""",
+            (source, problem_id, due_date, interval, easiness, repetitions, now),
+        )
 
 
 def db_connect():
