@@ -1414,6 +1414,13 @@
             <div id="activity-heatmap"></div>
             <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:18px 0 8px;">Maturity over time</div>
             <div id="maturity-chart"></div>
+            <!-- F11: auditoría de integridad de la BD del servidor (endpoint T20) -->
+            <div style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:18px 0 8px;">Database audit</div>
+            <div style="display:flex;gap:10px;align-items:center;margin-bottom:6px;">
+              <button onclick="runDbAudit()" style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;background:transparent;color:var(--fg,#ddd);border:1px solid var(--border2,#444);border-radius:4px;cursor:pointer;">Run audit</button>
+              <span id="audit-status" style="font-family:var(--mono);font-size:10px;color:var(--dim);"></span>
+            </div>
+            <div id="audit-results"></div>
           </div>
         </div>
       </div></div>
@@ -1679,7 +1686,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260812-0013';
+	const SW_VERSION = 'tsumevault-20260812-1023';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -3272,6 +3279,90 @@
       allRows.sort((a, b) => (a.dominated / (a.total_visible || 1)) - (b.dominated / (b.total_visible || 1)));
       return allRows;
     }
+    // ── F11: auditoría de integridad de la BD del servidor (endpoint T20) ──
+    // Vista resumen (?summary=1) y zoom por check (?check=ID, máx 20 ejemplos).
+    // Regla XSS del proyecto: todo el DOM se construye con createElement /
+    // textContent — cero innerHTML con datos dinámicos.
+    const AUDIT_SEV_COLOR = { ERROR: '#e5484d', WARNING: '#c9a86a', INFO: '#6a9fc9', PASS: '#4a915f', SKIP: '#777' };
+    async function runDbAudit() {
+      const status = document.getElementById('audit-status');
+      const out = document.getElementById('audit-results');
+      if (!status || !out) return;
+      out.textContent = '';
+      status.textContent = 'auditando…';
+      let rep;
+      try {
+        const r = await syncFetch('/db/audit?summary=1');
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        rep = await r.json();
+      } catch (e) {
+        status.textContent = 'audit KO: ' + e.message;
+        return;
+      }
+      const s = rep.summary || {};
+      status.textContent = (rep.ok ? 'OK · ' : '') + (s.errors | 0) + ' err · ' + (s.warnings | 0)
+        + ' warn · ' + (s.info | 0) + ' info · ' + (s.pass | 0) + ' pass · '
+        + Math.round(rep.elapsed_ms || 0) + ' ms';
+      const checks = rep.checks || [];
+      const noPass = checks.filter(c => c.severity !== 'PASS');
+      for (const c of noPass) out.appendChild(auditRow(c));
+      const foot = document.createElement('div');
+      foot.style.cssText = 'font-family:var(--mono);font-size:10px;padding:6px 0;color:'
+        + (noPass.length ? 'var(--dim)' : '#4a915f') + ';';
+      foot.textContent = noPass.length
+        ? '+ ' + (checks.length - noPass.length) + ' checks en PASS'
+        : '✔ Auditoría en verde: ' + checks.length + ' checks PASS';
+      out.appendChild(foot);
+    }
+    function auditRow(c) {
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;gap:8px;align-items:baseline;padding:4px 0;border-bottom:1px solid var(--border2,#333);font-family:var(--mono);font-size:10px;cursor:pointer;flex-wrap:wrap;';
+      const sev = document.createElement('span');
+      sev.style.cssText = 'min-width:56px;font-weight:bold;color:' + (AUDIT_SEV_COLOR[c.severity] || 'var(--dim)') + ';';
+      sev.textContent = c.severity;
+      const id = document.createElement('span');
+      id.style.cssText = 'min-width:26px;color:var(--dim);';
+      id.textContent = String(c.id);
+      const title = document.createElement('span');
+      title.style.cssText = 'flex:1;';
+      title.textContent = c.title + ' (' + c.count + ')';
+      row.appendChild(sev); row.appendChild(id); row.appendChild(title);
+      const detail = document.createElement('div');
+      detail.style.cssText = 'display:none;flex-basis:100%;';
+      row.appendChild(detail);
+      row.addEventListener('click', () => auditToggleDetail(c, detail));
+      return row;
+    }
+    async function auditToggleDetail(c, detail) {
+      if (detail.style.display !== 'none') { detail.style.display = 'none'; return; }
+      detail.style.display = 'block';
+      if (detail.dataset.loaded) return;
+      detail.textContent = 'cargando ejemplos…';
+      try {
+        const r = await syncFetch('/db/audit?check=' + encodeURIComponent(c.id));
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const rep = await r.json();
+        const full = (rep.checks || []).find(x => String(x.id) === String(c.id));
+        detail.textContent = '';
+        if (full && full.note) {
+          const note = document.createElement('div');
+          note.style.cssText = 'color:var(--dim);font-size:10px;padding:4px 0;white-space:normal;';
+          note.textContent = full.note;
+          detail.appendChild(note);
+        }
+        const pre = document.createElement('pre');
+        pre.style.cssText = 'max-height:260px;overflow:auto;font-size:9px;background:rgba(0,0,0,.25);padding:6px;border-radius:4px;white-space:pre-wrap;word-break:break-all;';
+        const ex = (full && full.examples) || [];
+        pre.textContent = ex.length
+          ? JSON.stringify(ex, null, 1) + (full.count > ex.length ? '\n… (' + full.count + ' en total, mostrando ' + ex.length + ')' : '')
+          : '(sin ejemplos)';
+        detail.appendChild(pre);
+        detail.dataset.loaded = '1';
+      } catch (e) {
+        detail.textContent = 'KO: ' + e.message;
+      }
+    }
+
     // ── F4 (§12.4): heatmap de actividad (attempts por día, estilo GitHub) ──
     // Bucketing por día UTC (substr del created_at ISO del protocolo): es
     // visualización de hábito; el desvío de ±2h respecto al día local (CEST)
