@@ -28,10 +28,12 @@ import logging
 import math
 import os
 import random
+import re
 import signal
 import sqlite3
 import sys
 import threading
+import time
 from datetime import datetime, timedelta, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
@@ -248,6 +250,494 @@ def _recalc_sm2_for_pairs(con, pairs):
                    updated_at=excluded.updated_at""",
             (source, problem_id, due_date, interval, easiness, repetitions, now),
         )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# T20: Auditoría de integridad — GET /db/audit
+#
+# Solo lectura: el handler abre su PROPIA conexión en modo ro (file:...?mode=ro,
+# nunca db_connect) y run_audit solo ejecuta SELECT/PRAGMA. Reutiliza
+# _replay_sm2 (T17/T19) para verificar sm2_state contra el historial real de
+# attempts de run, de modo que auditor y código de producción no puedan
+# divergir. Corre bajo DB_LOCK vía _dispatch como cualquier ruta (decisión T20).
+#
+# Severidades: ERROR (inconsistencia real), WARNING (anomalía probablemente
+# histórica o ventana de sync), INFO (diagnóstico, no es fallo), PASS (sin
+# hallazgos), SKIP (check omitido por parámetro).
+
+_AUDIT_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_AUDIT_ISO_RE = re.compile(r"^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}")
+_AUDIT_RUN_STATUS = ("open", "closed")
+# 'review' es un tipo REAL creado por startReview() en el cliente (corrección
+# T20 sobre el spec original, que solo listaba chapter/collection/virtual).
+_AUDIT_RUN_TYPES = ("chapter", "collection", "virtual", "review")
+
+
+def _audit_has_table(con, name):
+    return bool(
+        con.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (name,)
+        ).fetchone()
+    )
+
+
+def run_audit(con, limit=20, skip_integrity=False):
+    """T20: ejecuta todas las comprobaciones de integridad y devuelve un dict
+    JSON-able. `con` debe ser una conexión de SOLO LECTURA. `limit` acota los
+    ejemplos por check (None = todos, modo verbose). Los ejemplos se diseñan
+    autosuficientes: deben bastar para diagnosticar sin volver a la BD."""
+    t_all = time.perf_counter()
+    checks = []
+
+    def _ms(t):
+        return round((time.perf_counter() - t) * 1000.0, 1)
+
+    def add(check_id, section, title, findings, severity, note="", t=None, skipped=False):
+        entry = {
+            "id": check_id,
+            "section": section,
+            "title": title,
+            "severity": "SKIP" if skipped else (severity if findings else "PASS"),
+            "count": len(findings),
+            "examples": findings if limit is None else findings[:limit],
+            "note": note,
+            "elapsed_ms": _ms(t) if t is not None else 0.0,
+        }
+        checks.append(entry)
+        return entry
+
+    def q(sql, params=()):
+        return [dict(r) for r in con.execute(sql, params).fetchall()]
+
+    has_collections = _audit_has_table(con, "collections")
+
+    # ── [DB] integridad física ──
+    t = time.perf_counter()
+    if skip_integrity:
+        add("A1", "DB", "PRAGMA integrity_check", [], "ERROR",
+            note="omitido (skip_integrity=1)", t=t, skipped=True)
+    else:
+        rows = [r[0] for r in con.execute("PRAGMA integrity_check").fetchall()]
+        bad = [] if rows == ["ok"] else [{"detail": r} for r in rows]
+        add("A1", "DB", "PRAGMA integrity_check", bad, "ERROR",
+            note="corrupción física del fichero SQLite", t=t)
+
+    t = time.perf_counter()
+    fk = q("PRAGMA foreign_key_check")
+    add("A2", "DB", "PRAGMA foreign_key_check", fk, "ERROR",
+        note="violaciones de claves foráneas declaradas en el esquema", t=t)
+
+    # ── [PROBLEMS] ──
+    if has_collections:
+        t = time.perf_counter()
+        rows = q("""SELECT p.source, p.set_id, COUNT(*) AS problems
+                    FROM problems p LEFT JOIN collections c
+                      ON c.source=p.source AND c.set_id=p.set_id
+                    WHERE c.set_id IS NULL GROUP BY p.source, p.set_id""")
+        add(20, "PROBLEMS", "problems(source,set_id) sin collection", rows, "ERROR", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT p.source, p.problem_id, p.chapter_id
+                FROM problems p LEFT JOIN chapters ch ON ch.id=p.chapter_id
+                WHERE p.chapter_id IS NOT NULL AND ch.id IS NULL""")
+    add(19, "PROBLEMS", "problems.chapter_id sin chapter", rows, "ERROR", t=t)
+
+    t = time.perf_counter()
+    rows = q("SELECT source, problem_id, hidden FROM problems WHERE hidden NOT IN (0,1)")
+    add("A3", "PROBLEMS", "problems.hidden fuera de {0,1} en servidor", rows, "ERROR",
+        note="hidden=2 es estado transitorio SOLO de cliente (T13); en servidor indica bug de sync", t=t)
+
+    # ── [CHAPTERS] ──
+    if has_collections:
+        t = time.perf_counter()
+        rows = q("""SELECT ch.id, ch.source, ch.set_id, ch.chapter_num
+                    FROM chapters ch LEFT JOIN collections c
+                      ON c.source=ch.source AND c.set_id=ch.set_id
+                    WHERE c.set_id IS NULL""")
+        add("19b", "CHAPTERS", "chapters(source,set_id) sin collection", rows, "ERROR", t=t)
+
+    t = time.perf_counter()
+    rows = q("SELECT id, source, set_id, chapter_num, mostrar FROM chapters WHERE mostrar NOT IN (0,1)")
+    add("A4", "CHAPTERS", "chapters.mostrar fuera de {0,1}", rows, "ERROR", t=t)
+
+    # ── [ATTEMPTS] ──
+    t = time.perf_counter()
+    rows = q("""SELECT a.source, a.problem_id, COUNT(*) AS attempts
+                FROM attempts a LEFT JOIN problems p
+                  ON p.source=a.source AND p.problem_id=a.problem_id
+                WHERE p.problem_id IS NULL GROUP BY a.source, a.problem_id""")
+    add(1, "ATTEMPTS", "attempts sin problem", rows, "WARNING",
+        note="pueden ser históricos de problemas eliminados de la BD; hidden=1 NO produce esto (la fila sigue en problems)", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT a.id, a.source, a.problem_id, a.run_id, a.result, a.created_at
+                FROM attempts a LEFT JOIN runs r ON r.id=a.run_id
+                WHERE a.run_id IS NOT NULL AND r.id IS NULL""")
+    add(4, "ATTEMPTS", "attempts de run sin run", rows, "ERROR",
+        note="T18 desvincula (run_id=NULL) al borrar runs, así que esto no debería existir", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT a.id, a.source, a.problem_id, a.run_id, a.result, a.created_at
+                FROM attempts a JOIN runs r ON r.id=a.run_id
+                LEFT JOIN run_items ri ON ri.run_id=a.run_id
+                  AND ri.source=a.source AND ri.problem_id=a.problem_id
+                WHERE ri.run_id IS NULL""")
+    add(5, "ATTEMPTS", "attempt de run sin run_item correspondiente", rows, "ERROR",
+        note="T20.1: posible cicatriz de colisión de ids pre-fix: el run referido puede no ser el run real del attempt (p.ej. source distinto). Reparable con repair_t21.py", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT id, source, problem_id, run_id, result, created_at
+                FROM attempts WHERE result NOT IN ('correct','wrong')""")
+    add("A5", "ATTEMPTS", "attempts.result fuera de {'correct','wrong'}", rows, "ERROR",
+        note="detectaría filas legacy con 1/0 (el comentario del esquema es engañoso: los datos reales son TEXT)", t=t)
+
+    t = time.perf_counter()
+    bad_dates = []
+    for r in con.execute("SELECT id, source, problem_id, created_at FROM attempts"):
+        ca = r["created_at"]
+        if not ca or not _AUDIT_ISO_RE.match(str(ca)):
+            bad_dates.append(dict(r))
+    add("A6", "ATTEMPTS", "attempts.created_at vacío o con formato inválido", bad_dates, "WARNING", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT uuid, COUNT(*) AS n, GROUP_CONCAT(id) AS ids FROM attempts
+                WHERE uuid IS NOT NULL GROUP BY uuid HAVING n > 1""")
+    add("17a", "UUIDS", "attempts.uuid duplicado", rows, "ERROR",
+        note="el índice único parcial idx_attempts_uuid debería impedirlo", t=t)
+
+    # ── [RUNS] ──
+    t = time.perf_counter()
+    ph_s = ",".join("?" * len(_AUDIT_RUN_STATUS))
+    rows = q("SELECT id, uuid, type, status, started_at FROM runs WHERE status NOT IN (%s)" % ph_s,
+             _AUDIT_RUN_STATUS)
+    add("9a", "RUNS", "runs.status con valor inesperado", rows, "ERROR",
+        note="valores conocidos: open, closed", t=t)
+
+    t = time.perf_counter()
+    ph_t = ",".join("?" * len(_AUDIT_RUN_TYPES))
+    rows = q("SELECT id, uuid, type, status, started_at FROM runs WHERE type NOT IN (%s)" % ph_t,
+             _AUDIT_RUN_TYPES)
+    add("9b", "RUNS", "runs.type con valor inesperado", rows, "WARNING",
+        note="valores conocidos: chapter, collection, virtual, review", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT id, uuid, type, status, started_at, closed_at FROM runs
+                WHERE status='closed' AND (closed_at IS NULL OR closed_at='')""")
+    add("9c", "RUNS", "run closed sin closed_at", rows, "ERROR", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT id, uuid, type, status, started_at, closed_at FROM runs
+                WHERE status='open' AND closed_at IS NOT NULL""")
+    add("9d", "RUNS", "run open con closed_at", rows, "WARNING", t=t)
+
+    t = time.perf_counter()
+    mism = q("""SELECT r.id, r.uuid, r.type, r.status, r.total, r.done,
+                       COUNT(ri.run_id) AS run_items
+                FROM runs r LEFT JOIN run_items ri ON ri.run_id=r.id
+                GROUP BY r.id HAVING r.total <> COUNT(ri.run_id)""")
+    add(7, "RUNS", "runs.total ≠ COUNT(run_items) (runs no-review)",
+        [m for m in mism if m["type"] != "review"], "ERROR", t=t)
+    add("7r", "RUNS", "runs.total ≠ COUNT(run_items) (runs de review)",
+        [m for m in mism if m["type"] == "review"], "WARNING",
+        note="los run_items de reviews pre-T19 se crearon retroactivamente desde attempts: reviews parciales pueden tener menos items que total", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT r.id, r.uuid, r.type, r.status, r.total, r.done,
+                       SUM(CASE WHEN ri.result IS NOT NULL THEN 1 ELSE 0 END) AS answered
+                FROM runs r LEFT JOIN run_items ri ON ri.run_id=r.id
+                GROUP BY r.id
+                HAVING r.done <> SUM(CASE WHEN ri.result IS NOT NULL THEN 1 ELSE 0 END)""")
+    add(8, "RUNS", "runs.done ≠ run_items contestados", rows, "WARNING",
+        note="un run parcial (done<total) es VÁLIDO; esto compara done contra items con result", t=t)
+
+    t = time.perf_counter()
+    rows = q("SELECT id, uuid, type, status, total, done FROM runs WHERE done > total")
+    add("A8", "RUNS", "runs.done > runs.total", rows, "WARNING",
+        note="bug histórico T4/3.8 (reviews con total=0); filas antiguas pueden persistir", t=t)
+
+    t = time.perf_counter()
+    bad_dates = []
+    for r in con.execute("SELECT id, uuid, type, started_at, closed_at FROM runs"):
+        sa, ca = r["started_at"], r["closed_at"]
+        if not sa or not _AUDIT_ISO_RE.match(str(sa)):
+            d = dict(r); d["campo"] = "started_at"; bad_dates.append(d)
+        if ca is not None and not _AUDIT_ISO_RE.match(str(ca)):
+            d = dict(r); d["campo"] = "closed_at"; bad_dates.append(d)
+    add("A6r", "RUNS", "runs.started_at/closed_at con formato inválido", bad_dates, "WARNING", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT uuid, COUNT(*) AS n, GROUP_CONCAT(id) AS ids FROM runs
+                WHERE uuid IS NOT NULL GROUP BY uuid HAVING n > 1""")
+    add("17b", "UUIDS", "runs.uuid duplicado", rows, "ERROR",
+        note="el índice único parcial idx_runs_uuid debería impedirlo", t=t)
+
+    t = time.perf_counter()
+    a_no = con.execute("SELECT COUNT(*) FROM attempts WHERE uuid IS NULL").fetchone()[0]
+    r_no = con.execute("SELECT COUNT(*) FROM runs WHERE uuid IS NULL").fetchone()[0]
+    inf = [{"attempts_sin_uuid": a_no, "runs_sin_uuid": r_no}] if (a_no or r_no) else []
+    add("A7", "UUIDS", "filas legacy sin uuid", inf, "INFO",
+        note="anteriores al sync por uuid; no es un fallo, solo inventario", t=t)
+
+    # ── [RUN_ITEMS] ──
+    t = time.perf_counter()
+    rows = q("""SELECT ri.run_id, ri.source, ri.problem_id, ri.result
+                FROM run_items ri LEFT JOIN runs r ON r.id=ri.run_id
+                WHERE r.id IS NULL""")
+    add(2, "RUN_ITEMS", "run_items sin run", rows, "ERROR", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT ri.run_id, ri.source, ri.problem_id, ri.result
+                FROM run_items ri LEFT JOIN problems p
+                  ON p.source=ri.source AND p.problem_id=ri.problem_id
+                WHERE p.problem_id IS NULL""")
+    add(3, "RUN_ITEMS", "run_items sin problem", rows, "WARNING",
+        note="pueden ser históricos de problemas eliminados", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT ri.run_id, ri.source, ri.problem_id, ri.result,
+                       EXISTS(SELECT 1 FROM attempts ax WHERE ax.source=ri.source
+                              AND ax.problem_id=ri.problem_id) AS attempt_elsewhere
+                FROM run_items ri LEFT JOIN attempts a ON a.run_id=ri.run_id
+                  AND a.source=ri.source AND a.problem_id=ri.problem_id
+                WHERE ri.result IS NOT NULL AND a.id IS NULL""")
+    add(6, "RUN_ITEMS", "run_item contestado sin attempt en NINGUNA parte",
+        [r for r in rows if not r["attempt_elsewhere"]], "ERROR",
+        note="basta existencia; NO se exige 1:1. Esperado 0: indicaría pérdida real de historial", t=t)
+    add("6c", "RUN_ITEMS", "run_item contestado cuyo attempt vive en OTRO run",
+        [r for r in rows if r["attempt_elsewhere"]], "WARNING",
+        note="T20.1: cicatriz de la colisión de ids de sync pre-fix (runs mayo-2026): el historial existe, colgado de otro run_id. Reparable con repair_t21.py")
+
+    t = time.perf_counter()
+    rows = q("""SELECT run_id, source, problem_id, result FROM run_items
+                WHERE result IS NOT NULL AND result NOT IN ('correct','wrong')""")
+    add("A9", "RUN_ITEMS", "run_items.result fuera de {NULL,'correct','wrong'}", rows, "ERROR", t=t)
+
+    # ── [VIRTUAL] ──
+    if _audit_has_table(con, "virtual_items"):
+        t = time.perf_counter()
+        rows = q("""SELECT vi.vc_id, vi.source, vi.problem_id
+                    FROM virtual_items vi LEFT JOIN virtual_collections vc ON vc.id=vi.vc_id
+                    WHERE vc.id IS NULL""")
+        add("18a", "VIRTUAL", "virtual_items sin virtual_collection", rows, "ERROR", t=t)
+
+        t = time.perf_counter()
+        rows = q("""SELECT vi.vc_id, vi.source, vi.problem_id
+                    FROM virtual_items vi LEFT JOIN problems p
+                      ON p.source=vi.source AND p.problem_id=vi.problem_id
+                    WHERE p.problem_id IS NULL""")
+        add("18b", "VIRTUAL", "virtual_items sin problem", rows, "WARNING", t=t)
+
+        t = time.perf_counter()
+        rows = q("""SELECT r.id, r.uuid, r.vc_id, r.status, r.started_at
+                    FROM runs r LEFT JOIN virtual_collections vc ON vc.id=r.vc_id
+                    WHERE r.type='virtual' AND (r.vc_id IS NULL OR vc.id IS NULL)""")
+        add("18c", "VIRTUAL", "run virtual sin vc_id válido", rows, "WARNING",
+            note="la VC pudo borrarse después del run; no se asume regla no demostrada", t=t)
+
+        t = time.perf_counter()
+        rows = q("SELECT id, uuid, type, vc_id FROM runs WHERE type<>'virtual' AND vc_id IS NOT NULL")
+        add("18d", "VIRTUAL", "run no-virtual con vc_id", rows, "INFO", t=t)
+
+    # ── [SM2] preparación compartida: historial de attempts de run ──
+    t_prep = time.perf_counter()
+    attempts_by_key = {}
+    for r in con.execute(
+        """SELECT source, problem_id, result, created_at, id, run_id FROM attempts
+           WHERE run_id IS NOT NULL ORDER BY created_at ASC, id ASC"""
+    ):
+        attempts_by_key.setdefault((r["source"], str(r["problem_id"])), []).append(
+            {"created_at": r["created_at"], "result": r["result"], "run_id": r["run_id"]}
+        )
+    sm2_rows = q("SELECT source, problem_id, due_date, interval, easiness, repetitions, updated_at FROM sm2_state")
+    sm2_keys = {(s["source"], str(s["problem_id"]).strip()) for s in sm2_rows}
+    prep_ms = _ms(t_prep)
+
+    # ── [SM2] ──
+    t = time.perf_counter()
+    faltan = []
+    for r in con.execute(
+        """SELECT p.source, p.problem_id FROM problems p
+           JOIN chapters ch ON ch.id=p.chapter_id
+           WHERE ch.mostrar=1 AND p.hidden=0"""
+    ):
+        key = (r["source"], str(r["problem_id"]))
+        hist = attempts_by_key.get(key)
+        if hist and key not in sm2_keys:
+            faltan.append({"source": r["source"], "problem_id": r["problem_id"],
+                           "run_attempts": len(hist), "last_attempt": hist[-1]})
+    add(10, "SM2", "problema activo con attempts de run y SIN sm2_state", faltan, "WARNING",
+        note="POST /db/attempt no toca sm2_state (llega por sync del cliente): puede ser ventana de sync. Se usan attempts de RUN (Free no crea sm2)", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT source, problem_id, COUNT(*) AS n FROM sm2_state
+                GROUP BY source, problem_id HAVING n > 1""")
+    add("10b", "SM2", "sm2_state con más de una fila por (source,problem_id)", rows, "ERROR",
+        note="el PRIMARY KEY debería impedirlo: si aparece, la BD está corrupta", t=t)
+
+    t = time.perf_counter()
+    # T20.2: el join SQL con CAST(... AS TEXT) impedía usar el índice (escaneo
+    # cruzado, ~14 s en la BD real). Misma semántica en Python con un set de
+    # claves: los ids de texto (p.ej. many_faces) casan igual, en milisegundos.
+    prob_keys = {(r[0], str(r[1]).strip())
+                 for r in con.execute("SELECT source, problem_id FROM problems")}
+    rows = [{"source": s["source"], "problem_id": s["problem_id"],
+             "repetitions": s["repetitions"], "interval": s["interval"],
+             "due_date": s["due_date"], "updated_at": s["updated_at"]}
+            for s in sm2_rows
+            if (s["source"], str(s["problem_id"]).strip()) not in prob_keys]
+    add(11, "SM2", "sm2_state sin problem", rows, "WARNING",
+        note="T20.1: comparación como TEXT en ambos lados (fuentes con ids de texto, p.ej. many_faces, son válidas; el CAST a INTEGER original las marcaba huérfanas falsamente)", t=t)
+
+    t = time.perf_counter()
+    sospechosos = []
+    for s in sm2_rows:
+        reasons = []
+        if s["interval"] is None or s["interval"] < 0:
+            reasons.append("interval < 0")
+        if s["repetitions"] is None or s["repetitions"] < 0:
+            reasons.append("repetitions < 0")
+        if s["easiness"] is None or s["easiness"] < 1.3 - 1e-9:
+            reasons.append("easiness < 1.3")
+        if not s["due_date"] or not _AUDIT_DATE_RE.match(str(s["due_date"])):
+            reasons.append("due_date vacío o inválido")
+        if not s["updated_at"] or not _AUDIT_ISO_RE.match(str(s["updated_at"])):
+            reasons.append("updated_at vacío o inválido")
+        if reasons:
+            d = dict(s); d["reasons"] = reasons; sospechosos.append(d)
+    add(12, "SM2", "valores sospechosos en sm2_state", sospechosos, "ERROR",
+        note="límites del propio algoritmo: easiness nunca baja de 1.3, interval/repetitions nunca negativos", t=t)
+
+    # ── [REPETITIONS] reconstrucción con _replay_sm2 REAL ──
+    t = time.perf_counter()
+    hist_cap = None if limit is None else 50
+
+    def _hist_view(hist):
+        if hist_cap is not None and len(hist) > hist_cap:
+            return {"attempt_history": hist[-hist_cap:], "history_truncated": True,
+                    "history_total": len(hist)}
+        return {"attempt_history": hist, "history_truncated": False,
+                "history_total": len(hist)}
+
+    err_reps, warn_ties, warn_ie, info_sin_hist = [], [], [], []
+    diag_wrong_pos, diag_correct_cero = [], []
+    for s in sm2_rows:
+        key = (s["source"], str(s["problem_id"]).strip())
+        hist = attempts_by_key.get(key)
+        stored = {"repetitions": s["repetitions"], "interval": s["interval"],
+                  "easiness": s["easiness"], "due_date": s["due_date"],
+                  "updated_at": s["updated_at"]}
+        if not hist:
+            info_sin_hist.append({"source": s["source"], "problem_id": s["problem_id"],
+                                  "stored": stored})
+            continue
+        results = [h["result"] for h in hist]
+        rng = random.Random(0)  # el jitter solo afecta a due_date, que no se compara
+        interval, easiness, repetitions, _ = _replay_sm2(results, rng.random)
+        recon = {"repetitions": repetitions, "interval": interval, "easiness": easiness}
+        # Desempate created_at+id: los ids del SERVIDOR se asignan en orden de
+        # push y pueden diferir del orden local si dos attempts comparten
+        # timestamp con resultados distintos -> el replay no es concluyente.
+        ts_seen, ties = {}, False
+        for h in hist:
+            prev = ts_seen.get(h["created_at"])
+            if prev is not None and prev != h["result"]:
+                ties = True
+                break
+            ts_seen[h["created_at"]] = h["result"]
+        base = {"source": s["source"], "problem_id": s["problem_id"],
+                "stored": stored, "reconstructed": recon}
+        base.update(_hist_view(hist))
+        if s["repetitions"] != repetitions:
+            base["timestamp_ties"] = ties
+            (warn_ties if ties else err_reps).append(base)
+        elif (abs((s["interval"] or 0) - interval) > 0.01
+              or abs((s["easiness"] or 0) - easiness) > 0.001):
+            base["note"] = "repetitions coincide; difieren interval/easiness"
+            warn_ie.append(base)
+        # Check 14: diagnóstico del último attempt relevante
+        last = hist[-1]
+        d14 = {"source": s["source"], "problem_id": s["problem_id"],
+               "last_attempt": last, "sm2_updated_at": s["updated_at"],
+               "repetitions": s["repetitions"]}
+        if last["result"] == "wrong" and (s["repetitions"] or 0) > 0:
+            diag_wrong_pos.append(d14)
+        elif last["result"] == "correct" and (s["repetitions"] or 0) == 0:
+            diag_correct_cero.append(d14)
+    add(13, "REPETITIONS", "repetitions ≠ reconstrucción del historial", err_reps, "ERROR",
+        note="reconstruido con _replay_sm2 REAL sobre attempts con run_id, orden created_at ASC, id ASC; racha, NO recuento total. elapsed incluye la preparación compartida (%.1f ms)" % prep_ms, t=t)
+    add("13t", "REPETITIONS", "repetitions ≠ reconstrucción, con empates de timestamp", warn_ties, "WARNING",
+        note="hay attempts con el mismo created_at y distinto result: el orden por id de servidor puede diferir del orden local real")
+    add("13i", "REPETITIONS", "interval/easiness ≠ reconstrucción (repetitions coincide)", warn_ie, "WARNING",
+        note="tolerancias 0.01/0.001 (las de _recalc_sm2_for_pairs); legado pre-T16 posible si recalc_sm2 no visitó la fila")
+    add("13n", "REPETITIONS", "sm2_state sin ningún attempt de run", info_sin_hist, "INFO",
+        note="herencia legítima de runs borrados (T18 desvincula attempts; T19 no toca sm2 si no queda historial): no verificable")
+    add("14a", "REPETITIONS", "último attempt = wrong con repetitions > 0", diag_wrong_pos, "WARNING",
+        note="diagnóstico del spec; si el check 13 coincide, no debería aparecer")
+    add("14b", "REPETITIONS", "último attempt = correct con repetitions = 0", diag_correct_cero, "INFO",
+        note="diagnóstico del spec; si el check 13 coincide, no debería aparecer")
+
+    # ── [LONG_INTERVALS] ──
+    t = time.perf_counter()
+    largos = []
+    for s in sorted((x for x in sm2_rows if (x["interval"] or 0) >= 90),
+                    key=lambda x: -(x["interval"] or 0)):
+        key = (s["source"], str(s["problem_id"]).strip())
+        hist = attempts_by_key.get(key, [])
+        d = {"source": s["source"], "problem_id": s["problem_id"],
+             "repetitions": s["repetitions"], "interval": s["interval"],
+             "easiness": s["easiness"], "due_date": s["due_date"],
+             "updated_at": s["updated_at"],
+             "last_attempt": hist[-1] if hist else None}
+        d.update(_hist_view(hist))
+        largos.append(d)
+    add(15, "LONG_INTERVALS", "sm2_state con interval >= 90 (investigación, no error)", largos, "INFO",
+        note="un intervalo largo puede ser correcto si la secuencia de aciertos lo justifica; se incluye el historial (check 16) para poder verificarlo a mano", t=t)
+
+    # ── Resumen ──
+    n_err = sum(1 for c in checks if c["severity"] == "ERROR")
+    n_warn = sum(1 for c in checks if c["severity"] == "WARNING")
+    n_info = sum(1 for c in checks if c["severity"] == "INFO")
+    n_pass = sum(1 for c in checks if c["severity"] == "PASS")
+    return {
+        "generated_at": now_iso(),
+        "elapsed_ms": _ms(t_all),
+        "limit_per_check": limit,
+        "checks": checks,
+        "summary": {"errors": n_err, "warnings": n_warn, "info": n_info,
+                    "pass": n_pass, "checks_total": len(checks)},
+        "ok": n_err == 0,
+    }
+
+
+def handle_get_audit(qs):
+    """T20: GET /db/audit[?verbose=1][&skip_integrity=1]. Auditoría de
+    integridad de solo lectura. Abre su propia conexión en modo ro: aunque
+    hubiera un bug, escribir es físicamente imposible."""
+    verbose = qs.get("verbose", ["0"])[0] == "1"
+    skip_integrity = qs.get("skip_integrity", ["0"])[0] == "1"
+    summary_only = qs.get("summary", ["0"])[0] == "1"
+    check_filter = qs.get("check", [""])[0].strip()
+    if not os.path.isfile(DB_PATH):
+        return {"error": "db not found"}, 500
+    con = sqlite3.connect("file:%s?mode=ro" % DB_PATH, uri=True)
+    con.row_factory = sqlite3.Row
+    try:
+        report = run_audit(con, limit=None if verbose else 20,
+                           skip_integrity=skip_integrity)
+    finally:
+        con.close()
+    # T20.1: ?check=6,11 filtra los checks devueltos (el summary global no cambia);
+    # ?summary=1 vacía los ejemplos para una vista de panorama ligera.
+    if check_filter:
+        wanted = {c.strip() for c in check_filter.split(",") if c.strip()}
+        report["checks"] = [c for c in report["checks"] if str(c["id"]) in wanted]
+    if summary_only:
+        for c in report["checks"]:
+            c["examples"] = []
+    report["db_path"] = DB_PATH
+    report["verbose"] = verbose
+    report["summary_only"] = summary_only
+    return report
 
 
 def db_connect():
@@ -1400,6 +1890,7 @@ GET_ROUTES = {
     "/db/struggling": handle_get_struggling,
     "/db/run/items": handle_get_run_items,
     "/db/difficulty_range": handle_get_difficulty_range,
+    "/db/audit": handle_get_audit,  # T20
     "/sync/snapshot": handle_sync_snapshot,
     "/sync/pull": handle_sync_pull,
     "/sync/static_version": handle_sync_static_version,
