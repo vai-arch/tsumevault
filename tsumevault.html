@@ -1686,7 +1686,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260812-1023';
+	const SW_VERSION = 'tsumevault-20260814-1528';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2481,11 +2481,18 @@
     // intermedios sin ningun due_date se rellenan a 0 para que la escala
     // visual sea continua.
     function localGetFutureLoadWeekly(source) {
+      // F9.1: filtra hidden/mostrar (antes ausente) y absorbe el backlog atrasado
+      // (due_date < hoy) dentro del bucket 'now' en vez de perderlo.
       const rows = dbQuery(`
-        SELECT CAST((julianday(due_date) - julianday(date('now','localtime'))) / 7 AS INTEGER) AS week_idx,
+        SELECT CASE WHEN julianday(s.due_date) < julianday(date('now','localtime'))
+                    THEN 0
+                    ELSE CAST((julianday(s.due_date) - julianday(date('now','localtime'))) / 7 AS INTEGER)
+               END AS week_idx,
                COUNT(*) AS n
-        FROM sm2_state
-        WHERE source = ? AND due_date >= date('now','localtime')
+        FROM sm2_state s
+        JOIN problems p ON p.source = s.source AND p.problem_id = s.problem_id
+        JOIN chapters ch ON ch.id = p.chapter_id
+        WHERE s.source = ? AND ch.mostrar = 1 AND p.hidden = 0
         GROUP BY week_idx
         ORDER BY week_idx
       `, [source]);
@@ -2505,10 +2512,16 @@
     // vista semanal, para que la rejilla sea completa (7x4) sin fechas
     // faltantes.
     function localGetFutureLoadDaily(source) {
+      // F9.1: filtra hidden/mostrar (antes ausente) y colapsa todo lo atrasado
+      // (due_date <= hoy) en el bucket 'hoy', igual que localCountReviewPending.
+      // Los dias futuros (i=1..27) siguen siendo conteo exacto, sin proyectar backlog.
       const rows = dbQuery(`
-        SELECT due_date, COUNT(*) AS n
-        FROM sm2_state
-        WHERE source = ? AND due_date >= date('now','localtime') AND due_date < date('now','+28 days','localtime')
+        SELECT CASE WHEN s.due_date <= date('now','localtime') THEN date('now','localtime') ELSE s.due_date END AS due_date,
+               COUNT(*) AS n
+        FROM sm2_state s
+        JOIN problems p ON p.source = s.source AND p.problem_id = s.problem_id
+        JOIN chapters ch ON ch.id = p.chapter_id
+        WHERE s.source = ? AND s.due_date < date('now','+28 days','localtime') AND ch.mostrar = 1 AND p.hidden = 0
         GROUP BY due_date
         ORDER BY due_date
       `, [source]);
