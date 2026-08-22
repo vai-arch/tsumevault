@@ -1,4 +1,4 @@
 git add .
-git commit -m "one triton game"
+git commit -m "janice kin games"
 git push
 pause
