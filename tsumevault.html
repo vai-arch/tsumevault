@@ -1686,7 +1686,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260814-1643';
+	const SW_VERSION = 'tsumevault-20260822-2049';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2516,16 +2516,22 @@
       // (due_date <= hoy) en el bucket 'hoy', igual que localCountReviewPending.
       // Los dias futuros (i=1..27) siguen siendo conteo exacto, sin proyectar backlog.
       const rows = dbQuery(`
-        SELECT CASE WHEN s.due_date <= date('now','localtime') THEN date('now','localtime') ELSE s.due_date END AS due_date,
+        SELECT CASE WHEN s.due_date <= date('now','localtime') THEN date('now','localtime') ELSE s.due_date END AS bucket_date,
                COUNT(*) AS n
         FROM sm2_state s
         JOIN problems p ON p.source = s.source AND p.problem_id = s.problem_id
         JOIN chapters ch ON ch.id = p.chapter_id
         WHERE s.source = ? AND s.due_date < date('now','+28 days','localtime') AND ch.mostrar = 1 AND p.hidden = 0
-        GROUP BY due_date
-        ORDER BY due_date
+        GROUP BY bucket_date
+        ORDER BY bucket_date
       `, [source]);
-      const byDate = new Map(rows.map(r => [r.due_date, r.n]));
+      // F9.1 fix-2: el alias se llamaba antes 'due_date', igual que la columna
+      // real s.due_date -- SQLite resuelve GROUP BY/ORDER BY hacia la columna
+      // de tabla en vez de hacia el alias cuando coinciden en nombre, asi que
+      // el backlog NO se colapsaba (cada due_date original formaba su propio
+      // grupo) y el Map se quedaba solo con la ULTIMA fila de 'hoy', pisando
+      // al resto. Renombrado a 'bucket_date' para evitar la colision.
+      const byDate = new Map(rows.map(r => [r.bucket_date, r.n]));
       const out = [];
       const base = new Date();
       for (let i = 0; i < 28; i++) {
