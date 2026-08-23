@@ -1686,7 +1686,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260822-2049';
+	const SW_VERSION = 'tsumevault-20260823-1237';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2540,6 +2540,43 @@
         out.push({ date: ds, n: byDate.get(ds) || 0 });
       }
       return out;
+    }
+    // F9.2: % de problemas en 'hoy' (colapsado, incluye backlog) y 'manana'
+    // (vencimiento exacto) cuyo intento MAS RECIENTE fue incorrecto. Toda
+    // fila de sm2_state proviene de un intento previo (la crea updateSm2
+    // tras responder), asi que dentro de estos dos buckets nunca hay 'nunca
+    // intentado' -- no hace falta tratarlo como caso aparte, aunque el LEFT
+    // JOIN es defensivo por si acaso. No se calcula para dia+2 en adelante:
+    // un fallo SIEMPRE fija daysUntilDue=1 (ver updateSm2), asi que nada mas
+    // alla de manana puede provenir de un fallo reciente.
+    function localGetTodayTomorrowFailRate(source) {
+      const rows = dbQuery(`
+        WITH due_bucket AS (
+          SELECT s.problem_id,
+                 CASE WHEN s.due_date <= date('now','localtime') THEN date('now','localtime') ELSE s.due_date END AS bucket_date
+          FROM sm2_state s
+          JOIN problems p ON p.source = s.source AND p.problem_id = s.problem_id
+          JOIN chapters ch ON ch.id = p.chapter_id
+          WHERE s.source = ? AND s.due_date <= date('now','+1 day','localtime')
+            AND ch.mostrar = 1 AND p.hidden = 0
+        ),
+        last_attempt AS (
+          SELECT a.problem_id, a.result,
+                 ROW_NUMBER() OVER (PARTITION BY a.problem_id ORDER BY a.created_at DESC) AS rn
+          FROM attempts a WHERE a.source = ? AND a.run_id IS NOT NULL
+        )
+        SELECT b.bucket_date, COUNT(*) AS total,
+               SUM(CASE WHEN la.result != 'correct' THEN 1 ELSE 0 END) AS fallados
+        FROM due_bucket b
+        LEFT JOIN last_attempt la ON la.problem_id = b.problem_id AND la.rn = 1
+        GROUP BY b.bucket_date
+      `, [source, source]);
+      const byDate = new Map(rows.map(r => [r.bucket_date, r]));
+      const today = localDateStr();
+      const tmwDate = new Date(); tmwDate.setDate(tmwDate.getDate() + 1);
+      const tomorrow = localDateStr(tmwDate);
+      const pct = r => (r && r.total > 0) ? Math.round(100 * r.fallados / r.total) : null;
+      return { todayPct: pct(byDate.get(today)), tomorrowPct: pct(byDate.get(tomorrow)) };
     }
 	function localGetRuns(source) {
       return dbQuery(`
@@ -4517,7 +4554,9 @@
         const covEl = document.getElementById('rv-mat-coverage');
         covEl.textContent = fmt(m.total_seen / m.total_visible); covEl.style.color = color(m.total_seen / m.total_visible);
         const histEl = document.getElementById('rv-mat-historic');
-        const histVal = m.dominated / m.total_visible;
+        // Solo cuenta sobre lo intentado (total_seen), no sobre total_visible:
+        // si Coverage=80%, el 20% nunca intentado no debe restar Mastery.
+        const histVal = m.total_seen > 0 ? m.dominated / m.total_seen : 0;
         histEl.textContent = fmt(histVal); histEl.style.color = color(histVal);
       } catch(e) { document.getElementById('rv-maturity').style.display = 'none'; }
     }
@@ -4572,16 +4611,34 @@
         }
       } else {
         const data = localGetFutureLoadDaily(currentSource);
+        const failRate = localGetTodayTomorrowFailRate(currentSource); // F9.2
         const max = Math.max(...data.map(d => d.n), 1);
         const grid = document.createElement('div');
         grid.style.cssText = 'display:grid;grid-template-columns:repeat(7,1fr);gap:3px;';
-        for (const d of data) {
+        for (let i = 0; i < data.length; i++) {
+          const d = data[i];
           const cell = document.createElement('div');
           const intensity = d.n / max;
           const bg = d.n === 0 ? 'var(--panel)' : intensity > 0.66 ? 'var(--accent)' : intensity > 0.33 ? 'var(--gold)' : 'var(--gold-dim)';
-          cell.style.cssText = 'aspect-ratio:1;border-radius:2px;background:' + bg + ';display:flex;align-items:center;justify-content:center;color:var(--text);font-size:8px;';
-          cell.textContent = d.n || '';
-          cell.title = d.date + ': ' + d.n;
+          // F9.2: solo hoy (i=0) y manana (i=1) llevan % de fallo reciente en
+          // una segunda linea -- dia+2 en adelante nunca puede provenir de un
+          // fallo (ver nota en localGetTodayTomorrowFailRate), asi que ahi el
+          // dato seria siempre nulo/sin sentido y se deja la celda tal cual.
+          const pctVal = i === 0 ? failRate.todayPct : i === 1 ? failRate.tomorrowPct : null;
+          if (pctVal != null) {
+            cell.style.cssText = 'aspect-ratio:1;border-radius:2px;background:' + bg + ';display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text);font-size:8px;line-height:1.15;';
+            const numLine = document.createElement('div');
+            numLine.textContent = d.n || '';
+            const pctLine = document.createElement('div');
+            pctLine.textContent = pctVal + '%';
+            cell.appendChild(numLine);
+            cell.appendChild(pctLine);
+            cell.title = d.date + ': ' + d.n + ' (' + pctVal + '% fallo reciente)';
+          } else {
+            cell.style.cssText = 'aspect-ratio:1;border-radius:2px;background:' + bg + ';display:flex;align-items:center;justify-content:center;color:var(--text);font-size:8px;';
+            cell.textContent = d.n || '';
+            cell.title = d.date + ': ' + d.n;
+          }
           grid.appendChild(cell);
         }
         content.appendChild(grid);
