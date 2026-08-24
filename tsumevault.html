@@ -1688,7 +1688,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260824-1937';
+	const SW_VERSION = 'tsumevault-20260824-1951';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -5004,6 +5004,27 @@
       document.getElementById('board-wrap').style.display = 'block';
       document.getElementById('welcome').style.display = 'none';
       document.getElementById('comment-box').style.maxWidth = sz + 'px';
+      // TEMP DEBUG (F11): quitar tras diagnosticar el descentrado en movil.
+      // Lee medidas REALES tras el reflow (rAF) y las pinta en pantalla.
+      requestAnimationFrame(() => {
+        let dbg = document.getElementById('f11-debug');
+        if (!dbg) {
+          dbg = document.createElement('div');
+          dbg.id = 'f11-debug';
+          dbg.style.cssText = 'position:fixed;top:44px;left:0;right:0;z-index:9999;background:rgba(0,0,0,.85);color:#0f0;font-family:monospace;font-size:9px;padding:4px 6px;line-height:1.4;white-space:pre-wrap;pointer-events:none;';
+          document.body.appendChild(dbg);
+        }
+        const mainEl = document.getElementById('main');
+        const bwEl = document.getElementById('board-wrap');
+        const mainR = mainEl.getBoundingClientRect();
+        const bwR = bwEl.getBoundingClientRect();
+        dbg.textContent =
+          `innerW=${window.innerWidth} innerH=${window.innerHeight} margin=${margin}\n` +
+          `sz(calc)=${sz} availW=${availW} availH=${availH}\n` +
+          `main: left=${mainR.left.toFixed(1)} width=${mainR.width.toFixed(1)} right=${mainR.right.toFixed(1)}\n` +
+          `board-wrap: left=${bwR.left.toFixed(1)} width=${bwR.width.toFixed(1)} right=${bwR.right.toFixed(1)}\n` +
+          `gap izq=${bwR.left.toFixed(1)} gap der=${(window.innerWidth - bwR.right).toFixed(1)}`;
+      });
     }
     function clearBoard() {
       if (!wgoBoard) return;
