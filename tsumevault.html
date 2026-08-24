@@ -1474,10 +1474,12 @@
           </select>
         </div>
         <div class="fp-section">
-          <div class="fp-label">Chapter</div>
-          <select class="fsel" id="fp-chap">
-            <option value="">All</option>
-          </select>
+          <div class="fp-label" style="display:flex;justify-content:space-between;align-items:center;">
+            <span>Chapter</span>
+            <span id="fp-chap-clear" style="text-transform:none;letter-spacing:normal;color:var(--dim);cursor:pointer;text-decoration:underline;">Clear</span>
+          </div>
+          <!-- F11: checklist de capitulos (multi-seleccion dentro de la misma coleccion); ningun check marcado = All -->
+          <div id="fp-chap-list" style="max-height:150px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;border:1px solid var(--border2);border-radius:2px;padding:4px 8px;font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:4px;"></div>
         </div>
         <div class="fp-section">
           <div class="fp-label">Difficulty</div>
@@ -1686,7 +1688,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260823-1237';
+	const SW_VERSION = 'tsumevault-20260824-1900';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2257,13 +2259,23 @@
       }
       return { collection, by_chapter };
     }
-    function localGetProblems(source, { set_id, chapter_id, onlyVisible } = {}) {
+    // F11: chapter_ids (array) permite elegir varios capitulos a la vez,
+    // siempre dentro de la misma coleccion (el caller la fija via set_id).
+    // Tiene prioridad sobre chapter_id (que se mantiene para compat con
+    // practiceChapterFree y llamadas de un solo capitulo).
+    function localGetProblems(source, { set_id, chapter_id, chapter_ids, onlyVisible } = {}) {
       let sql = `SELECT p.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct, COALESCE(s.pct_correct,0) AS pct_correct, s.last_seen FROM problems p LEFT JOIN chapters ch ON ch.id=p.chapter_id LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,MAX(created_at) AS last_seen FROM attempts WHERE run_id IS NOT NULL GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id WHERE p.source=? AND p.hidden=0`;
       const params = [source];
-      if (chapter_id) { sql += ' AND p.chapter_id=?'; params.push(chapter_id); }
+      let multiChap = false;
+      if (chapter_ids && chapter_ids.length) { sql += ` AND p.chapter_id IN (${chapter_ids.map(() => '?').join(',')})`; params.push(...chapter_ids); multiChap = true; }
+      else if (chapter_id) { sql += ' AND p.chapter_id=?'; params.push(chapter_id); }
       else if (set_id) { sql += ' AND p.set_id=?'; params.push(set_id); }
       if (onlyVisible) { sql += ' AND ch.mostrar=1'; }
-      sql += ' ORDER BY p.order_in_chapter ASC';
+      // F11: con varios capitulos elegidos a la vez, agrupar por nombre de
+      // chapter (alfabetico, igual que el checklist de seleccion) y dentro de
+      // cada uno mantener el orden de siempre (order_in_chapter). El resto de
+      // casos (un chapter, una coleccion entera, o 'todas') no cambian.
+      sql += multiChap ? ' ORDER BY ch.name ASC, p.order_in_chapter ASC' : ' ORDER BY p.order_in_chapter ASC';
       return dbQuery(sql, params);
     }
     function localGetProblem(source, problem_id) {
@@ -4379,9 +4391,7 @@
 
     // ══ FREE PRACTICE ══
     async function populateFreeFilters() {
-      const sel = document.getElementById('fp-col');
-      sel.innerHTML = '<option value="">All</option>';
-      for (const col of allCollections) { const o = document.createElement('option'); o.value = col.set_id; o.textContent = col.name; sel.appendChild(o); }
+      refreshFreeCollectionOptions(); // F11: aplica 'Only visible chapters' a #fp-col
       const minSel = document.getElementById('fp-diff'), maxSel = document.getElementById('fp-diff-max');
       minSel.innerHTML = '<option value="">Min: Any</option>'; maxSel.innerHTML = '<option value="">Max: Any</option>';
       try {
@@ -4399,23 +4409,82 @@
       // startFreePractice N veces. Los handlers son funciones con nombre que
       // leen el estado del DOM en el momento del click: el guard no congela nada.
       const fpCol = document.getElementById('fp-col'), fpStart = document.getElementById('fp-start');
-      if (!fpCol.dataset.bound) { fpCol.dataset.bound = '1'; fpCol.addEventListener('change', updateFreeChapters); }
+      const fpVisible = document.getElementById('fp-visible'), fpChapClear = document.getElementById('fp-chap-clear');
+      if (!fpCol.dataset.bound) { fpCol.dataset.bound = '1'; fpCol.addEventListener('change', () => renderFreeChapterList()); }
       if (!fpStart.dataset.bound) { fpStart.dataset.bound = '1'; fpStart.addEventListener('click', startFreePractice); }
+      // F11: togglear 'Only visible chapters' refresca tanto las colecciones
+      // como el checklist de capitulos de la coleccion actualmente elegida.
+      if (!fpVisible.dataset.bound) { fpVisible.dataset.bound = '1'; fpVisible.addEventListener('change', () => { refreshFreeCollectionOptions(); renderFreeChapterList(); }); }
+      if (fpChapClear && !fpChapClear.dataset.bound) { fpChapClear.dataset.bound = '1'; fpChapClear.addEventListener('click', () => { document.querySelectorAll('#fp-chap-list input:checked').forEach(cb => cb.checked = false); }); }
     }
-    async function updateFreeChapters() {
+    // F11: reconstruye #fp-col. Si 'Only visible chapters' esta marcado,
+    // excluye colecciones sin ningun capitulo con mostrar=1 (mismo criterio
+    // que applyCollectionFilters() para el sidebar, T13). Si la coleccion que
+    // estaba elegida deja de cumplir el filtro, la deja en 'All'.
+    function refreshFreeCollectionOptions() {
+      const sel = document.getElementById('fp-col');
+      const onlyVisible = document.getElementById('fp-visible').checked;
+      const prevValue = sel.value;
+      sel.innerHTML = '<option value="">All</option>';
+      let prevStillValid = false;
+      for (const col of allCollections) {
+        if (onlyVisible) {
+          const cached = chaptersCache[col.set_id];
+          let hasVisible;
+          if (cached && cached.length > 0) { hasVisible = cached.some(ch => ch.mostrar); }
+          else {
+            const row = dbQueryOne('SELECT COUNT(*) AS n FROM chapters WHERE source=? AND set_id=? AND mostrar=1', [currentSource, col.set_id]);
+            hasVisible = row && row.n > 0;
+          }
+          if (!hasVisible) continue;
+        }
+        const o = document.createElement('option'); o.value = col.set_id; o.textContent = col.name; sel.appendChild(o);
+        if (String(col.set_id) === prevValue) prevStillValid = true;
+      }
+      sel.value = prevStillValid ? prevValue : '';
+    }
+    // F11: pinta el checklist de capitulos (uno o varios marcables, todos de
+    // la coleccion de #fp-col) en #fp-chap-list. Respeta 'Only visible
+    // chapters' salvo que ignoreVisibleFilter=true (accion directa desde el
+    // sidebar, ver practiceChapterFree). Al repintar conserva los ids
+    // marcados que sigan presentes (p.ej. al togglear el checkbox).
+    function renderFreeChapterList(ignoreVisibleFilter) {
       const setId = document.getElementById('fp-col').value;
-      const sel = document.getElementById('fp-chap'); sel.innerHTML = '<option value="">All</option>';
+      const listEl = document.getElementById('fp-chap-list');
+      const prevChecked = new Set([...listEl.querySelectorAll('input:checked')].map(cb => cb.value));
+      listEl.innerHTML = '';
       if (!setId) return;
-      try { const chapters = localGetChapters(currentSource, parseInt(setId)); chaptersCache[setId] = chapters; for (const c of chapters) { const o = document.createElement('option'); o.value = c.id; o.textContent = c.name || `Ch ${c.chapter_num}`; sel.appendChild(o); } } catch (e) { }
+      const onlyVisible = !ignoreVisibleFilter && document.getElementById('fp-visible').checked;
+      let chapters;
+      try { chapters = localGetChapters(currentSource, parseInt(setId)); } catch (e) { return; }
+      chaptersCache[setId] = chapters;
+      const shown = onlyVisible ? chapters.filter(c => c.mostrar) : chapters;
+      for (const c of shown) {
+        const label = document.createElement('label');
+        label.style.cssText = 'display:flex;align-items:center;gap:6px;cursor:pointer;padding:2px 0;';
+        const cb = document.createElement('input');
+        cb.type = 'checkbox'; cb.value = c.id; cb.style.cssText = 'accent-color:var(--gold);cursor:pointer;flex-shrink:0;';
+        if (prevChecked.has(String(c.id))) cb.checked = true;
+        label.appendChild(cb);
+        label.appendChild(document.createTextNode(c.name || `Ch ${c.chapter_num}`));
+        listEl.appendChild(label);
+      }
     }
-    // F9: precarga Collection+Chapter en la pestaña Free y arranca la
+    // F9/F11: precarga Collection+Chapter en la pestaña Free y arranca la
     // practica directamente, sin crear ningun run (no afecta a SM-2 ni a stats).
     // Se limpian diff/color/status por si habia un filtro previo que dejara
-    // el capitulo con 0 problemas sin que se note por que.
+    // el capitulo con 0 problemas sin que se note por que. No aplica 'Only
+    // visible chapters': es una accion directa sobre un capitulo concreto,
+    // igual que antes de F11 (updateFreeChapters tampoco lo aplicaba).
     async function practiceChapterFree(col, chap) {
-      document.getElementById('fp-col').value = col.set_id;
-      await updateFreeChapters();
-      document.getElementById('fp-chap').value = chap.id;
+      const fpCol = document.getElementById('fp-col');
+      if (![...fpCol.options].some(o => o.value === String(col.set_id))) {
+        const o = document.createElement('option'); o.value = col.set_id; o.textContent = col.name; fpCol.appendChild(o);
+      }
+      fpCol.value = col.set_id;
+      renderFreeChapterList(true);
+      const cb = document.getElementById('fp-chap-list').querySelector(`input[value="${chap.id}"]`);
+      if (cb) cb.checked = true;
       document.getElementById('fp-diff').value = '';
       document.getElementById('fp-diff-max').value = '';
       document.getElementById('fp-color').value = '';
@@ -4424,19 +4493,26 @@
       await startFreePractice();
     }
     async function startFreePractice() {
-      const setId = document.getElementById('fp-col').value, chapId = document.getElementById('fp-chap').value;
+      const setId = document.getElementById('fp-col').value;
+      // F11: uno o varios capitulos marcados (todos de la misma coleccion);
+      // ninguno marcado == All (comportamiento previo).
+      const chapIds = [...document.querySelectorAll('#fp-chap-list input:checked')].map(cb => parseInt(cb.value));
       const diffMin = document.getElementById('fp-diff').value, diffMax = document.getElementById('fp-diff-max').value;
       const color = document.getElementById('fp-color').value, status = document.getElementById('fp-status').value;
       const order = document.getElementById('fp-order').value;
       const onlyVisible = document.getElementById('fp-visible').checked;
       try {
-        let problems = localGetProblems(currentSource, { set_id: setId ? parseInt(setId) : undefined, chapter_id: chapId ? parseInt(chapId) : undefined, onlyVisible });
+        let problems = localGetProblems(currentSource, { set_id: setId ? parseInt(setId) : undefined, chapter_ids: chapIds.length ? chapIds : undefined, onlyVisible });
         if (diffMin) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num >= parseInt(diffMin));
         if (diffMax) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num <= parseInt(diffMax));
         if (color) problems = problems.filter(p => p.color_to_play === color);
         if (status.startsWith('struggling')) {
           const n = parseInt(status.split('-')[1]);
-          const strIds = new Set(localGetStruggling(currentSource, { set_id: setId ? parseInt(setId) : undefined, chapter_id: chapId ? parseInt(chapId) : undefined }, n));
+          // F11: con varios (o cero) capitulos marcados no hay un chapter_id
+          // unico que pasar; el scope se amplia a la coleccion (o global), y el
+          // cruce posterior con `problems` (ya acotado a los elegidos) deja el
+          // resultado final correcto igual.
+          const strIds = new Set(localGetStruggling(currentSource, { set_id: setId ? parseInt(setId) : undefined, chapter_id: chapIds.length === 1 ? chapIds[0] : undefined }, n));
           problems = problems.filter(p => strIds.has(p.problem_id));
         }
         if (!problems.length) {
@@ -5085,7 +5161,7 @@
       boardEl.addEventListener('mousemove', updateGhost); boardEl.addEventListener('mouseleave', clearGhost);
       window._boardClickHandler = function(x, y) {
         clearGhost();
-        if (waitingForNext) { if (currentProblem && (currentProblem._isReveal || tapToAdvance)) { tapToAdvance = false; nextProblem(); } return; }
+        if (waitingForNext) { if (currentProblem && (currentProblem._isReveal || tapToAdvance || freeMode)) { tapToAdvance = false; nextProblem(); } return; } // F11: en Free, tocar el tablero tras resolver == Next
         if (answered) return;
         if (wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => (o.c === 1 || o.c === -1) && o.type !== 'outline')) return;
         if (tapConfirm) {
