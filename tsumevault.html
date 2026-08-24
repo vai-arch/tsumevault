@@ -1688,7 +1688,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260824-1900';
+	const SW_VERSION = 'tsumevault-20260824-1931';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -4839,17 +4839,35 @@
       const section = document.getElementById('free-nav-section');
       const listEl = document.getElementById('free-list');
       if (!section || !listEl) return;
-      if (!freeMode || !allProblems.length) { section.style.display = 'none'; return; }
-      section.style.display = '';
-      const sorted = allProblems.map((p, i) => ({ p, i })).sort((a, b) => a.p.problem_id - b.p.problem_id);
-      listEl.innerHTML = '';
-      for (const { p, i } of sorted) {
-        const row = document.createElement('div');
-        const isCur = i === runIdx;
-        row.textContent = String(p.problem_id);
-        row.style.cssText = `font-family:var(--mono);font-size:11px;padding:4px 6px;cursor:pointer;border-radius:2px;${isCur ? 'color:var(--gold);font-weight:600;background:rgba(212,168,74,.12);' : 'color:var(--dim);'}`;
-        row.addEventListener('click', () => jumpToProblem(i));
-        listEl.appendChild(row);
+      // F11-fix: #free-nav-section (Prev/Next + lista) solo existe en Free
+      // Mode y añade alto a #sidebar. initBoard() calcula el tamaño del
+      // tablero UNA sola vez (linea ~5043: solo se re-ejecuta si cambia el
+      // tamaño del GOBAN, no si cambia el layout de alrededor); si esa
+      // medida se hizo con el sidebar mas corto (Review/Run, sin este
+      // bloque) y luego se entra en Free Mode, el tablero se queda con un
+      // tamaño que ya no encaja. Al cambiar la visibilidad de esta seccion
+      // se dispara el mismo recalculo que ya usa el listener de window
+      // resize (linea ~5598, con su propio debounce de 200ms), tras dejar
+      // que el navegador aplique el nuevo layout.
+      const wasVisible = section.style.display !== 'none';
+      const willBeVisible = freeMode && allProblems.length > 0;
+      if (!willBeVisible) {
+        section.style.display = 'none';
+      } else {
+        section.style.display = '';
+        const sorted = allProblems.map((p, i) => ({ p, i })).sort((a, b) => a.p.problem_id - b.p.problem_id);
+        listEl.innerHTML = '';
+        for (const { p, i } of sorted) {
+          const row = document.createElement('div');
+          const isCur = i === runIdx;
+          row.textContent = String(p.problem_id);
+          row.style.cssText = `font-family:var(--mono);font-size:11px;padding:4px 6px;cursor:pointer;border-radius:2px;${isCur ? 'color:var(--gold);font-weight:600;background:rgba(212,168,74,.12);' : 'color:var(--dim);'}`;
+          row.addEventListener('click', () => jumpToProblem(i));
+          listEl.appendChild(row);
+        }
+      }
+      if (wasVisible !== willBeVisible) {
+        requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
       }
     }
     document.getElementById('free-prev-btn').addEventListener('click', prevProblem);
