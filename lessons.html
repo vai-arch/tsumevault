@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go Lessons</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Serif+JP:wght@300;400&display=swap');
+:root {
+  --bg:#0e0c08;--panel:#161410;--border:#2e2a1e;--border2:#3a3526;
+  --gold:#d4a84a;--gold-dim:#7a5e22;--text:#ede4cc;--dim:#6a6050;--dim2:#4a4438;
+  --accent:#d45030;--mono:'IBM Plex Mono',monospace;--serif:'Noto Serif JP',serif;
+  --ok:#4a8a50;--ok-dim:#2a5a30;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--serif);overflow:hidden;}
+#app{height:100vh;display:grid;grid-template-rows:42px 54px 1fr;overflow:hidden;}
+
+/* HEADER */
+#hdr{display:flex;align-items:center;gap:14px;padding:0 18px;border-bottom:1px solid var(--border);background:var(--panel);}
+.logo{font-family:var(--mono);font-size:11px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;}
+#count-pill{font-family:var(--mono);font-size:9px;letter-spacing:.18em;padding:3px 11px;border-radius:99px;border:1px solid var(--border2);color:var(--dim);}
+#count-pill span{color:var(--gold);}
+
+/* FILTERS */
+#filters{display:flex;align-items:center;gap:10px;padding:0 18px;border-bottom:1px solid var(--border);background:var(--panel);overflow-x:auto;}
+.fsel{font-family:var(--mono);font-size:10px;letter-spacing:.08em;background:transparent;border:1px solid var(--border2);color:var(--dim);padding:4px 10px;border-radius:2px;cursor:pointer;outline:none;min-width:160px;max-width:240px;}
+.fsel:hover,.fsel:focus{border-color:var(--gold-dim);color:var(--text);}
+.fsel option{background:var(--panel);color:var(--text);}
+.fsep{width:1px;height:18px;background:var(--border);flex-shrink:0;}
+.flabel{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--dim2);text-transform:uppercase;flex-shrink:0;}
+#btn-clear{font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:3px 9px;background:transparent;border:1px solid var(--border2);color:var(--dim2);cursor:pointer;border-radius:2px;transition:all .2s;margin-left:auto;flex-shrink:0;}
+#btn-clear:hover{border-color:var(--accent);color:var(--accent);}
+
+/* TABLE */
+#table-wrap{overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;}
+table{width:100%;border-collapse:collapse;}
+thead th{position:sticky;top:0;background:var(--panel);font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:400;padding:8px 14px;border-bottom:1px solid var(--border);text-align:left;cursor:pointer;user-select:none;white-space:nowrap;}
+thead th:hover{color:var(--gold);}
+thead th.sort-asc::after{content:' ▲';color:var(--gold);}
+thead th.sort-desc::after{content:' ▼';color:var(--gold);}
+tbody tr{border-bottom:1px solid rgba(255,255,255,.03);cursor:pointer;transition:background .1s;}
+tbody tr:hover{background:rgba(212,168,74,.06);}
+tbody td{padding:7px 14px;font-family:var(--mono);font-size:10px;color:var(--dim);}
+tbody td.name{color:var(--text);max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+tbody td.name .suffix{color:var(--dim);font-size:9px;display:block;margin-top:1px;}
+tbody td.diff{text-align:center;}
+.diff-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold-dim);}
+.diff-dot.on{background:var(--gold);}
+tbody td.len,tbody td.probs{text-align:right;color:var(--dim2);}
+tbody td.status{text-align:center;width:36px;}
+.st-ok{color:var(--ok);font-size:11px;}
+.st-no{color:var(--dim2);font-size:11px;}
+.st-chk{color:var(--dim2);font-size:9px;animation:spin 1s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+#empty{display:none;padding:48px;text-align:center;font-family:var(--mono);font-size:10px;color:var(--dim2);letter-spacing:.12em;}
+.file-btn{font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:3px 9px;background:transparent;border:1px solid var(--border2);color:var(--dim2);cursor:pointer;border-radius:2px;transition:all .2s;flex-shrink:0;}
+.file-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+.tog{cursor:pointer;font-size:13px;line-height:1;background:none;border:none;padding:0;transition:color .15s;}
+.tog.on{color:var(--gold);}
+.tog.off{color:var(--dim2);}
+.tog:hover{color:var(--gold);}
+</style>
+</head>
+<body>
+<div id="app">
+  <header id="hdr">
+    <div class="logo">Go · Lessons</div>
+    <div style="flex:1"></div>
+    <div id="count-pill">Mostrando <span id="cnt">—</span> lecciones</div>
+  </header>
+  <div id="filters">
+    <span class="flabel">Type</span>
+    <select class="fsel" id="sel-type"><option value="">All</option></select>
+    <div class="fsep"></div>
+    <span class="flabel">Collection</span>
+    <select class="fsel" id="sel-col"><option value="">All</option></select>
+    <div class="fsep"></div>
+    <span class="flabel">Lesson</span>
+    <select class="fsel" id="sel-name"><option value="">All</option></select>
+    <div class="fsep"></div>
+    <span class="flabel">Diff</span>
+    <select class="fsel" id="sel-diff" style="min-width:90px;max-width:120px"><option value="">All</option></select>
+    <div class="fsep"></div>
+    <span class="flabel">Studied</span>
+    <select class="fsel" id="sel-studied" style="min-width:80px;max-width:100px">
+      <option value="">All</option>
+      <option value="yes">✓ Yes</option>
+      <option value="no">○ No</option>
+    </select>
+    <button id="btn-clear">✕ Clear</button>
+    <button id="btn-save" class="file-btn" style="margin-left:4px">↓ Save</button>
+  </div>
+  <div id="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th data-col="status" style="width:36px"></th>
+          <th data-col="typeName">Type</th>
+          <th data-col="collectionName">Collection</th>
+          <th data-col="lessonName">Name</th>
+          <th data-col="lessonDifficulty" style="width:90px">Diff</th>
+          <th data-col="lessonLength" style="width:70px">Min</th>
+          <th data-col="numPubProbs" style="width:70px">Probs</th>
+          <th data-col="studied" style="width:52px;text-align:center">Done</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div id="empty">No hay lecciones que coincidan con los filtros</div>
+  </div>
+</div>
+<script>
+// ── Config ──
+const PLAYER_DATA_BASE = 'player/';         // manifest + studied/recorded
+const LESSONS_BASE     = 'player/lessons/'; // sgf/json/ogg de cada lección
+const LESSONS_JSON  = PLAYER_DATA_BASE + 'all_lessons.json';
+const STUDIED_JSON  = PLAYER_DATA_BASE + 'studied.json';
+const PLAYER_URL    = 'player.html';
+const LS_KEY        = 'go_studied';
+const LS_FILTERS_KEY = 'go_lessons_filters';
+
+// ── State ──
+let allRows = [], filtered = [], sortCol = 'lessonName', sortDir = 1;
+const statusCache = {};
+let studied = new Set(); // lessonId (number)
+
+// ── Studied persistence ──
+function saveStudied() {
+  const arr = [...studied];
+  localStorage.setItem(LS_KEY, JSON.stringify(arr));
+}
+function exportStudied() {
+  const blob = new Blob([JSON.stringify({studied:[...studied]},null,2)], {type:'application/json'});
+  const a = document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='studied.json'; a.click();
+}
+async function loadStudied() {
+  // 1. try file
+  try {
+    const r = await fetch(STUDIED_JSON);
+    if (r.ok) { const d=await r.json(); studied=new Set((d.studied||[]).map(Number)); saveStudied(); return; }
+  } catch {}
+  // 2. fallback localStorage
+  try { const s=localStorage.getItem(LS_KEY); if(s) studied=new Set(JSON.parse(s).map(Number)); } catch {}
+}
+
+// ── Filtros: persistencia ──
+function saveFilters() {
+  const state = {
+    type: document.getElementById('sel-type').value,
+    col: document.getElementById('sel-col').value,
+    name: document.getElementById('sel-name').value,
+    diff: document.getElementById('sel-diff').value,
+    studied: document.getElementById('sel-studied').value,
+  };
+  try { localStorage.setItem(LS_FILTERS_KEY, JSON.stringify(state)); } catch {}
+}
+function loadSavedFilters() {
+  try { return JSON.parse(localStorage.getItem(LS_FILTERS_KEY) || 'null') || {}; } catch { return {}; }
+}
+
+// ── Helpers ──
+function sanitize(name) {
+  if (!name) return '';
+  return name.replace(/[\\/:*?"<>|]/g,'_').trim().replace(/\.+$/,'');
+}
+function lessonDir(r) {
+  const type = sanitize((r.typeName||'').trim());
+  const col  = sanitize((r.collectionName||'').trim());
+  const name = sanitize((r.lessonName||'').trim());
+  const suf  = sanitize((r.lessonSuffix||'').trim());
+  let p = `${LESSONS_BASE}${type}/${col}/${name}`;
+  if (suf) p += `/${suf}`;
+  return p + '/';
+}
+
+// ── Load ──
+async function loadData() {
+  await loadStudied();
+  const res = await fetch(LESSONS_JSON);
+  const data = await res.json();
+  allRows = data.rows.filter(Boolean);
+  buildFilters();
+  const saved = loadSavedFilters();
+  const selT = document.getElementById('sel-type');
+  const selD = document.getElementById('sel-diff');
+  const selSt = document.getElementById('sel-studied');
+  if (saved.type && [...selT.options].some(o=>o.value===saved.type)) selT.value = saved.type;
+  if (saved.diff && [...selD.options].some(o=>o.value===saved.diff)) selD.value = saved.diff;
+  if (saved.studied) selSt.value = saved.studied;
+  updateCollections(saved.col, saved.name);
+  applyFilters();
+}
+
+// ── Filters ──
+function buildFilters() {
+  const types = [...new Set(allRows.map(r=>r.typeName||''))].sort();
+  const diffs = [...new Set(allRows.map(r=>r.lessonDifficulty).filter(Boolean))].sort((a,b)=>a-b);
+  const selT = document.getElementById('sel-type');
+  const selD = document.getElementById('sel-diff');
+  types.forEach(t => { const o=document.createElement('option'); o.value=t; o.textContent=t; selT.appendChild(o); });
+  diffs.forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=d; selD.appendChild(o); });
+}
+
+function getFilteredByTypeCol() {
+  const t = document.getElementById('sel-type').value;
+  const c = document.getElementById('sel-col').value;
+  return allRows.filter(r => (!t||r.typeName===t) && (!c||r.collectionName===c));
+}
+
+function updateCollections(forceCol, forceName) {
+  const t = document.getElementById('sel-type').value;
+  const selC = document.getElementById('sel-col');
+  const prev = forceCol !== undefined ? forceCol : selC.value;
+  selC.innerHTML = '<option value="">All</option>';
+  const cols = [...new Set(allRows.filter(r=>!t||r.typeName===t).map(r=>r.collectionName||''))].sort();
+  cols.forEach(c => { const o=document.createElement('option'); o.value=c; o.textContent=c; selC.appendChild(o); });
+  selC.value = cols.includes(prev) ? prev : '';
+  updateNames(true, forceName);
+}
+
+function updateNames(reset, forceName) {
+  const base = getFilteredByTypeCol();
+  const selN = document.getElementById('sel-name');
+  const prev = forceName !== undefined ? forceName : (reset ? '' : selN.value);
+  selN.innerHTML = '<option value="">All</option>';
+  const names = [...new Set(base.map(r=>r.lessonName||''))].sort();
+  names.forEach(n => { const o=document.createElement('option'); o.value=n; o.textContent=n; selN.appendChild(o); });
+  selN.value = names.includes(prev) ? prev : '';
+}
+
+function applyFilters() {
+  const t  = document.getElementById('sel-type').value;
+  const c  = document.getElementById('sel-col').value;
+  const n  = document.getElementById('sel-name').value;
+  const d  = document.getElementById('sel-diff').value;
+  const st = document.getElementById('sel-studied').value;
+  saveFilters();
+  filtered = allRows.filter(r =>
+    (!t  || r.typeName===t) &&
+    (!c  || r.collectionName===c) &&
+    (!n  || r.lessonName===n) &&
+    (!d  || String(r.lessonDifficulty)===d) &&
+    (!st || (st==='yes' ? studied.has(r.lessonId) : !studied.has(r.lessonId)))
+  );
+  sortRows();
+  renderTable();
+  document.getElementById('cnt').textContent = filtered.length;
+}
+
+// ── Sort ──
+function sortRows() {
+  filtered.sort((a,b) => {
+    if (sortCol==='studied') {
+      const av=studied.has(a.lessonId)?1:0, bv=studied.has(b.lessonId)?1:0;
+      return (av-bv)*sortDir;
+    }
+    let av = a[sortCol]??'', bv = b[sortCol]??'';
+    if (typeof av==='string') return av.localeCompare(bv)*sortDir;
+    return (av-bv)*sortDir;
+  });
+}
+
+// ── Render ──
+function renderTable() {
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  document.getElementById('empty').style.display = filtered.length ? 'none' : 'block';
+  filtered.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.dataset.id = r.lessonId;
+    const st = statusCache[r.lessonId];
+    const stCell = st==='ok' ? '<span class="st-ok">●</span>'
+                 : st==='no' ? '<span class="st-no">○</span>'
+                 : '<span class="st-chk">◌</span>';
+    const fullName = r.lessonSuffix ? `${r.lessonName} — ${r.lessonSuffix}` : (r.lessonName||'—');
+    const isDone = studied.has(r.lessonId);
+    tr.innerHTML = `
+      <td class="status">${stCell}</td>
+      <td style="font-size:9px;color:var(--dim2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px">${r.typeName||'—'}</td>
+      <td style="font-size:9px;color:var(--dim2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:200px">${r.collectionName||'—'}</td>
+      <td class="name">${fullName}</td>
+      <td class="diff" style="text-align:center;color:var(--gold)">${r.lessonDifficulty||'—'}</td>
+      <td class="len">${r.lessonLength||'—'}</td>
+      <td class="probs">${r.numPubProbs||'—'}</td>
+      <td style="text-align:center"><button class="tog ${isDone?'on':'off'}" data-id="${r.lessonId}">${isDone?'✓':'○'}</button></td>`;
+    tr.addEventListener('click', e => {
+  if (e.target.closest('.tog')) return;
+
+  const url = new URL(PLAYER_URL, window.location.href);
+  url.searchParams.set("id", r.lessonId);
+
+  window.open(url.toString(), '_blank');
+});
+    tbody.appendChild(tr);
+  });
+  checkStatusBatch(filtered.map(r=>r.lessonId).slice(0,40));
+}
+
+// ── Toggle studied ──
+document.getElementById('tbody').addEventListener('click', e => {
+  const btn = e.target.closest('.tog');
+  if (!btn) return;
+  const id = Number(btn.dataset.id);
+  if (studied.has(id)) studied.delete(id); else studied.add(id);
+  saveStudied();
+  btn.className = `tog ${studied.has(id)?'on':'off'}`;
+  btn.textContent = studied.has(id) ? '✓' : '○';
+  // if studied filter active, re-filter
+  if (document.getElementById('sel-studied').value) applyFilters();
+});
+
+// ── Status check ──
+async function checkStatus(id, row) {
+  if (statusCache[id] !== undefined) return;
+  statusCache[id] = 'chk';
+  const dir = lessonDir(row);
+  try {
+    const r = await fetch(dir + id + '.ogg', {method:'HEAD'});
+    statusCache[id] = r.ok ? 'ok' : 'no';
+  } catch { statusCache[id] = 'no'; }
+  const td = document.querySelector(`tr[data-id="${id}"] td.status`);
+  if (td) td.innerHTML = statusCache[id]==='ok'
+    ? '<span class="st-ok">●</span>'
+    : '<span class="st-no">○</span>';
+}
+function checkStatusBatch(ids) {
+  const rowMap = Object.fromEntries(allRows.map(r=>[r.lessonId,r]));
+  ids.forEach((id,i) => {
+    if (statusCache[id]!==undefined) return;
+    setTimeout(() => checkStatus(id, rowMap[id]), i*60);
+  });
+}
+
+// ── Events ──
+document.getElementById('sel-type').addEventListener('change', () => { updateCollections(); applyFilters(); });
+document.getElementById('sel-col').addEventListener('change', () => { updateNames(false); applyFilters(); });
+document.getElementById('sel-name').addEventListener('change', applyFilters);
+document.getElementById('sel-diff').addEventListener('change', applyFilters);
+document.getElementById('sel-studied').addEventListener('change', applyFilters);
+document.getElementById('btn-clear').addEventListener('click', () => {
+  ['sel-type','sel-col','sel-name','sel-diff','sel-studied'].forEach(id => document.getElementById(id).value='');
+  updateCollections(); applyFilters();
+});
+document.getElementById('btn-save').addEventListener('click', exportStudied);
+document.querySelectorAll('thead th[data-col]').forEach(th => {
+  th.addEventListener('click', () => {
+    const col = th.dataset.col;
+    if (col==='status') return;
+    if (sortCol===col) sortDir*=-1; else { sortCol=col; sortDir=1; }
+    document.querySelectorAll('thead th').forEach(t=>t.className='');
+    th.className = sortDir===1?'sort-asc':'sort-desc';
+    sortRows(); renderTable();
+  });
+});
+
+loadData();
+</script>
+</body>
+</html>

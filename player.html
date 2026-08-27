@@ -1,0 +1,1248 @@
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go · Player</title>
+<script src="wgo/wgo.min.js"></script>
+<script src="wgo/sgfparser.js"></script>
+<script src="wgo/kifu.js"></script>
+<link rel="icon" href="img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="img/icons/icon-192.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=IBM+Plex+Mono:wght@400;600&display=swap');
+:root {
+  --bg:#0e0c08;--panel:#161410;--border:#2e2a1e;--border2:#3a3526;
+  --gold:#d4a84a;--gold-dim:#7a5e22;--text:#ede4cc;--dim:#6a6050;--dim2:#4a4438;
+  --accent:#d45030;--mono:'IBM Plex Mono',monospace;--serif:'Noto Serif JP',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);font-family:var(--serif);}
+#app{height:100vh;display:grid;grid-template-rows:42px 54px 1fr 76px;grid-template-columns:1fr 270px;grid-template-areas:"hdr hdr""nav nav""main side""xprt side";}
+#hdr{grid-area:hdr;display:flex;align-items:center;gap:14px;padding:0 18px;border-bottom:1px solid var(--border);background:var(--panel);}
+#nav{grid-area:nav;display:flex;align-items:center;gap:10px;padding:0 18px;border-bottom:1px solid var(--border);background:var(--panel);overflow-x:auto;}
+.fsel{font-family:var(--mono);font-size:10px;letter-spacing:.08em;background:transparent;border:1px solid var(--border2);color:var(--dim);padding:4px 10px;border-radius:2px;cursor:pointer;outline:none;min-width:160px;max-width:240px;}
+.fsel:hover,.fsel:focus{border-color:var(--gold-dim);color:var(--text);}
+.fsel option{background:var(--panel);color:var(--text);}
+.fsep{width:1px;height:18px;background:var(--border);flex-shrink:0;}
+.flabel{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--dim2);text-transform:uppercase;flex-shrink:0;}
+.logo{font-family:var(--mono);font-size:11px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;}
+.logo-sep{flex:1;}
+#status-pill{font-family:var(--mono);font-size:9px;letter-spacing:.18em;padding:3px 11px;border-radius:99px;border:1px solid var(--border2);color:var(--dim);display:flex;align-items:center;gap:7px;transition:all .3s;}
+#status-pill.playing{border-color:var(--gold-dim);color:var(--gold);}
+#status-pill .dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.5;transition:opacity .3s;}
+#status-pill.playing .dot{opacity:1;animation:blink 1.1s ease infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+#main{grid-area:main;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 40% 40%,rgba(180,140,60,.04) 0%,transparent 70%);}
+#board-wrap{position:relative;box-shadow:0 0 0 1px #7a5e22,0 12px 48px rgba(0,0,0,.75);border-radius:1px;overflow:hidden;}
+#board-wrap canvas{display:block;}
+#subtitles{height:72px;padding:6px 12px;background:rgba(0,0,0,.55);font-family:var(--serif);font-size:13px;line-height:1.5;color:var(--text);text-align:center;display:flex;align-items:center;justify-content:center;overflow:hidden;word-break:break-word;box-sizing:border-box;}
+#ptr{position:absolute;width:22px;height:22px;border-radius:50%;border:2px solid var(--accent);background:rgba(212,80,48,.2);pointer-events:none;transform:translate(-50%,-50%);display:none;transition:left .1s linear,top .1s linear;}
+#lesson-header{height:32px;padding:0 12px;background:rgba(0,0,0,.55);font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--dim);display:flex;align-items:center;gap:12px;overflow:hidden;box-sizing:border-box;}
+#lesson-header span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#lesson-header .lh-type{color:var(--dim2);}
+#lesson-header .lh-col{color:var(--dim2);}
+#lesson-header .lh-name{color:var(--text);flex:1;}
+#lesson-header .lh-diff{color:var(--gold);flex-shrink:0;}
+#ptr.visible{display:none;}
+#ptr.flash{animation:ptr-flash .25s ease;}
+@keyframes ptr-flash{0%{transform:translate(-50%,-50%) scale(2.2);opacity:0;}100%{transform:translate(-50%,-50%) scale(1);opacity:1;}}
+#welcome{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--dim);pointer-events:none;}
+#welcome .kanji{font-size:56px;opacity:.12;line-height:1;}
+#welcome p{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;}
+#sidebar{grid-area:side;border-left:1px solid var(--border);background:var(--panel);display:flex;flex-direction:column;overflow:hidden;}
+.sb-section{padding:14px 16px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.sb-label{font-family:var(--mono);font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--dim);margin-bottom:10px;}
+.file-row{display:flex;align-items:center;gap:8px;margin-bottom:7px;}
+.file-ext{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--gold-dim);min-width:30px;text-transform:uppercase;}
+.file-name{font-family:var(--mono);font-size:10px;color:var(--dim);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:color .3s;}
+.file-name.ok{color:var(--text);}
+.file-btn{font-family:var(--mono);font-size:9px;letter-spacing:.08em;padding:4px 9px;background:transparent;border:1px solid var(--border2);color:var(--dim);cursor:pointer;border-radius:2px;transition:all .2s;white-space:nowrap;}
+.file-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+.file-btn.loaded{border-color:var(--gold-dim);color:var(--gold);}
+input[type=file]{display:none;}
+#node-info{font-family:var(--mono);font-size:10px;line-height:1.85;color:var(--dim);}
+#node-info .v{color:var(--text);}
+#xprt{grid-area:xprt;padding:12px 18px 14px;border-top:1px solid var(--border);background:var(--panel);display:flex;flex-direction:column;gap:10px;}
+#prog-wrap{position:relative;height:3px;background:var(--border2);border-radius:2px;cursor:pointer;}
+#prog-fill{height:100%;background:var(--gold);border-radius:2px;pointer-events:none;transition:width .1s linear;}
+#prog-thumb{position:absolute;top:50%;width:10px;height:10px;border-radius:50%;background:var(--gold);transform:translate(-50%,-50%);pointer-events:none;transition:left .1s linear;}
+.tick{position:absolute;top:0;bottom:0;width:1px;background:rgba(212,168,74,.3);pointer-events:none;}
+.ctrl-row{display:flex;align-items:center;gap:12px;}
+.cbtn{background:none;border:none;color:var(--dim);cursor:pointer;font-size:14px;line-height:1;padding:0;transition:color .2s,transform .1s;display:flex;align-items:center;justify-content:center;}
+.cbtn:hover{color:var(--gold);}
+.cbtn:active{transform:scale(.88);}
+.cbtn.round{width:32px;height:32px;border-radius:50%;border:1px solid var(--border2);font-size:12px;}
+.cbtn.round:hover{border-color:var(--gold-dim);}
+.time-disp{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.08em;flex:1;}
+.time-disp .cur{color:var(--text);}
+.speed-btn{font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:3px 7px;background:transparent;border:1px solid var(--border2);color:var(--dim);cursor:pointer;border-radius:2px;transition:all .2s;}
+.speed-btn:hover{border-color:var(--gold-dim);color:var(--gold);}
+.speed-btn.active{border-color:var(--gold-dim);color:var(--gold);}
+.vol-row{display:flex;align-items:center;gap:7px;}
+input[type=range].vol{-webkit-appearance:none;width:64px;height:3px;background:var(--border2);border-radius:2px;outline:none;cursor:pointer;}
+input[type=range].vol::-webkit-slider-thumb{-webkit-appearance:none;width:9px;height:9px;border-radius:50%;background:var(--gold-dim);}
+/* ── Recorder ── */
+#rec-section .sb-label{cursor:pointer;user-select:none;margin-bottom:0;}
+#rec-toggle-arrow{color:var(--dim2);margin-left:4px;}
+#rec-body{margin-top:10px;}
+#rec-queue-info{font-family:var(--mono);font-size:9px;color:var(--dim);margin-bottom:6px;line-height:1.7;}
+#rec-queue-info .rq-count{color:var(--gold);}
+#rec-progress{font-family:var(--mono);font-size:9px;color:var(--dim2);margin-bottom:8px;min-height:13px;line-height:1.4;}
+.rec-btn{font-family:var(--mono);font-size:9px;letter-spacing:.1em;padding:5px 11px;background:transparent;border:1px solid var(--border2);color:var(--dim);cursor:pointer;border-radius:2px;transition:all .2s;width:100%;margin-bottom:5px;text-align:left;}
+.rec-btn:hover:not(:disabled){border-color:var(--gold-dim);color:var(--gold);}
+.rec-btn:disabled{opacity:.35;cursor:default;}
+.rec-btn.recording{border-color:var(--accent);color:var(--accent);animation:blink 1.1s ease infinite;}
+</style>
+</head>
+<body>
+<div id="app">
+  <header id="hdr">
+    <a href="lessons.html" style="font-family:var(--mono);font-size:11px;color:var(--dim);text-decoration:none;letter-spacing:.1em;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--dim)'">← Index</a>
+    <div class="logo" id="lesson-title" style="margin-left:8px;letter-spacing:.18em;font-size:10px;color:var(--text);font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:480px">Go · Lesson · Player</div>
+    <div class="logo-sep"></div>
+    <div id="status-pill"><span class="dot"></span><span id="status-txt">LOADING</span></div>
+  </header>
+  <div id="nav">
+    <span class="flabel">Type</span>
+    <select class="fsel" id="nav-type"><option value="">—</option></select>
+    <div class="fsep"></div>
+    <span class="flabel">Collection</span>
+    <select class="fsel" id="nav-col"><option value="">—</option></select>
+    <div class="fsep"></div>
+    <span class="flabel">Lesson</span>
+    <select class="fsel" id="nav-name"><option value="">—</option></select>
+    <div class="fsep"></div>
+    <span class="flabel">Diff</span>
+    <select class="fsel" id="nav-diff" style="min-width:90px;max-width:120px"><option value="">All</option></select>
+    <div class="fsep"></div>
+    <span class="flabel">Studied</span>
+    <select class="fsel" id="nav-studied" style="min-width:80px;max-width:100px">
+      <option value="">All</option>
+      <option value="yes">✓ Yes</option>
+      <option value="no">○ No</option>
+    </select>
+	<div class="fsep"></div>
+	<span class="flabel">Recorded</span>
+	<select class="fsel" id="nav-recorded" style="min-width:80px;max-width:100px">
+	  <option value="">All</option>
+	  <option value="yes">✓ Yes</option>
+	  <option value="no">○ No</option>
+	</select>
+    <div style="margin-left:auto;flex-shrink:0">
+      <button id="btn-save" class="fsel" style="cursor:pointer" onclick="exportStudied()">↓ Save</button>
+	  <button id="btn-save-rec" class="fsel" style="cursor:pointer;margin-left:4px" onclick="exportRecorded()">↓ Save recorded</button>
+    </div>
+  </div>
+  <div id="main">
+    <div id="welcome"><div class="kanji">囲碁</div><p>Load SGF · JSON · Audio</p></div>
+    <div id="board-wrap" style="display:none">
+      <div id="lesson-header"><span class="lh-type" id="lh-type">—</span><span class="lh-col" id="lh-col">—</span><span class="lh-name" id="lh-name">—</span><span class="lh-diff" id="lh-diff">—</span></div>
+      <div id="board"></div><div id="ptr"></div>
+      <div id="subtitles"></div>
+    </div>
+  </div>
+  <aside id="sidebar">
+    <!-- Lesson meta -->
+    <div class="sb-section">
+      <div class="sb-label">Lesson</div>
+      <div id="lesson-meta" style="font-family:var(--mono);font-size:9px;line-height:1.9;color:var(--dim)">
+        <div>ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="v" id="meta-id">—</span></div>
+        <div>Type&nbsp;&nbsp;&nbsp; <span class="v" id="meta-type">—</span></div>
+        <div>Collection <span class="v" id="meta-col">—</span></div>
+        <div>Lesson&nbsp;&nbsp; <span class="v" id="meta-name">—</span></div>
+        <div>Diff&nbsp;&nbsp;&nbsp; <span class="v" id="meta-diff">—</span></div>
+        <div>Length&nbsp; <span class="v" id="meta-len">—</span> min</div>
+        <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+          <span>Studied</span>
+          <button id="meta-studied" style="background:none;border:none;cursor:pointer;font-size:15px;color:var(--dim2);padding:0;transition:color .15s">○</button>
+        </div>
+      </div>
+    </div>
+    <!-- State -->
+    <div class="sb-section">
+      <div class="sb-label">State</div>
+      <div id="node-info">
+        <div>Node&nbsp;&nbsp;&nbsp; <span class="v" id="ni-id">—</span></div>
+        <div>Move&nbsp;&nbsp;&nbsp; <span class="v" id="ni-move">—</span></div>
+        <div>Markers <span class="v" id="ni-markers">—</span></div>
+      </div>
+    </div>
+    <!-- Recorder -->
+    <div id="rec-section" class="sb-section">
+      <div class="sb-label" id="rec-toggle">Record <span id="rec-toggle-arrow">▸</span></div>
+      <div id="rec-body" style="display:none">
+        <div id="rec-queue-info">Queue: <span class="rq-count" id="rq-count">0</span> lessons</div>
+        <div id="rec-progress"></div>
+        <button class="rec-btn" id="btn-rec-queue">⊞ Queue from nav filters</button>
+        <button class="rec-btn" id="btn-rec-start" disabled>▶ Start recording</button>
+        <button class="rec-btn" id="btn-rec-stop" disabled>■ Stop</button>
+      </div>
+    </div>
+  </aside>
+  <div id="xprt">
+    <div id="prog-wrap">
+      <div id="prog-fill" style="width:0%"></div>
+      <div id="tick-layer"></div>
+      <div id="prog-thumb" style="left:0%"></div>
+    </div>
+    <div class="ctrl-row">
+      <button class="cbtn" id="btn-prev" title="Evento anterior">⏮</button>
+      <button class="cbtn round" id="btn-play" title="Play/Pausa">▶</button>
+      <button class="cbtn" id="btn-next" title="Evento siguiente">⏭</button>
+      <div class="time-disp"><span class="cur" id="t-cur">0:00</span> / <span id="t-tot">0:00</span></div>
+      <button class="speed-btn" id="btn-slow">0.75×</button>
+      <button class="speed-btn active" id="btn-norm">1×</button>
+      <button class="speed-btn" id="btn-fast">1.5×</button>
+      <div class="vol-row">
+        <span style="font-size:11px;color:var(--dim)">♪</span>
+        <input type="range" class="vol" id="vol" min="0" max="1" step="0.05" value="0.85">
+      </div>
+    </div>
+  </div>
+</div>
+<audio id="audio"></audio>
+<script>
+// ══════════════════════════════════════════════════════════════
+//  GO LESSON PLAYER — IGS architecture
+//  Live KNode tree (no SGF round-trip), direct WGo.Board rendering
+// ══════════════════════════════════════════════════════════════
+
+let wgoBoard = null, boardSize = 19;
+let padding = 0.6;
+let liveKifu = null;
+let changeList = [], rawEvents = [], isReady = false, currentIdx = -1;
+const audio = document.getElementById('audio');
+let recCompletedNaturally = false;
+
+// ── Rutas base (ajustables según despliegue) ──
+const PLAYER_DATA_BASE = 'player/';         // manifest + studied/recorded
+const LESSONS_BASE     = 'player/lessons/'; // sgf/json/ogg de cada lección
+
+// ── u(): inject NN[N] markers into SGF (IGS exact replica) ──
+function u(sgf) {
+  let t = sgf.replace('game 2;','game2,');
+  t = t.replace(/([a-zA-Z]);/g,'$1,');
+  t = t.replace(/;-\)/g,':)');
+  t = t.replace(/; B/gi,': B');
+  t = t.replace(/; W/gi,': W');
+  t = t.replace(/Euros\);/gi,'Euros):');
+  t = t.replace(/NN\[\d{1,3}\]/g,'');
+  t = t.replace(/N\[end\]/g,'');
+  const parts = t.split(';');
+  let o = parts.shift();
+  parts.forEach((part,idx) => { o += `;NN[${idx}]${part}`; });
+  return o;
+}
+
+// ── Find KNode by NN value ──
+function findKNode(nn, node) {
+  if (node.NN == nn) return node;
+  if (!node.children || !node.children.length) return false;
+  let found = false;
+  node.children.forEach(c => { const r = findKNode(nn,c); if (typeof r==='object' && r) found=r; });
+  return found;
+}
+
+// ── coordIdx: SGF letter → 0-based index ──
+function coordIdx(letter) { return letter.charCodeAt(0) - 97; }
+
+// ── applyAddProp: mutate live KNode ──
+function applyAddProp([nodeNN, propStr], root) {
+  const node = findKNode(nodeNN, root);
+  if (!node) { console.warn('addProp: node not found', nodeNN, propStr); return; }
+  const bi = propStr.indexOf('[');
+  const propName = propStr.slice(0, bi);
+  const propVal  = propStr.slice(bi+1, -1);
+
+  switch(propName) {
+    case 'B': case 'W':
+      node.move = (propVal===''||propVal==='tt')
+        ? { pass:true, c: propName==='B' ? 1 : -1 }
+        : { x:coordIdx(propVal[0]), y:coordIdx(propVal[1]), c: propName==='B' ? 1 : -1 };
+      break;
+    case 'C': node.comment = propStr; break;
+    case 'TR': case 'SQ': case 'CR': case 'MA':
+      if (!node.markup) node.markup=[];
+      node.markup.push({ type:propName, x:coordIdx(propVal[0]), y:coordIdx(propVal[1]) });
+      break;
+    case 'LB': {
+      if (!node.markup) node.markup=[];
+      const [coord,label] = propVal.split(':');
+      node.markup.push({ type:'LB', text:label, x:coordIdx(coord[0]), y:coordIdx(coord[1]) });
+      break;
+    }
+    case 'AB': case 'AW': case 'AE':
+      if (!node.setup) node.setup=[];
+      node.setup.push({
+        x: coordIdx(propVal[0]), y: coordIdx(propVal[1]),
+        c: propName==='AB' ? 1 : propName==='AW' ? -1 : 0
+      });
+      break;
+    default: console.log('Unknown prop:', propName, propVal);
+  }
+}
+
+function buildChangeList(sgf, events) {
+  const processed = u(sgf);
+  liveKifu = WGo.Kifu.fromSgf(processed);
+  liveKifu.root.NN = 0;
+
+  const markupState = new Map();
+  const setupState = new Map();
+
+  function snapshotMarkup() {
+    const snap = new Map();
+    for (const [nn, items] of markupState) {
+      snap.set(nn, items.map(m => ({...m})));
+    }
+    return snap;
+  }
+
+  function snapshotSetup() {
+    const snap = new Map();
+    for (const [nn, items] of setupState) {
+      snap.set(nn, items.map(s => ({...s})));
+    }
+    return snap;
+  }
+
+  let activeNN = 0;
+  const list = [];
+
+  events.forEach((ev, idx) => {
+    if (idx === 0) {
+      activeNN = ev.activate !== undefined ? ev.activate : 0;
+      list.push({ ...ev, activeNN, markupSnap: snapshotMarkup(), setupSnap: snapshotSetup() });
+      return;
+    }
+
+    const keys = Object.keys(ev).filter(k => k !== 'time');
+    keys.forEach(key => {
+      switch(key) {
+        case 'activate':
+          activeNN = ev.activate;
+          break;
+        case 'addChild': {
+          const [parentNN, childNN] = ev.addChild;
+          const parentNode = findKNode(parentNN, liveKifu.root);
+          if (parentNode && !findKNode(childNN, liveKifu.root)) {
+            const newNode = new WGo.KNode({ NN: childNN }, parentNode);
+            parentNode.children.push(newNode);
+          }
+          if (ev.addProp) {
+            applyAddPropToState(ev.addProp, markupState, setupState, liveKifu.root);
+          }
+          break;
+        }
+        case 'addProp':
+          if (!ev.addChild) {
+            applyAddPropToState(ev.addProp, markupState, setupState, liveKifu.root);
+          }
+          break;
+        case 'removeProp':
+          applyRemovePropFromState(ev.removeProp, markupState, setupState, liveKifu.root);
+          break;
+        case 'pointer': case 'changeProp': case 'removeChild':
+          break;
+        default: console.warn('Unknown event key:', key, ev);
+      }
+    });
+
+    list.push({ ...ev, activeNN, markupSnap: snapshotMarkup(), setupSnap: snapshotSetup() });
+  });
+
+  return list;
+}
+function applyAddPropToState([nodeNN, propStr], markupState, setupState, root) {
+  const bi = propStr.indexOf('[');
+  const propName = propStr.slice(0, bi);
+  const propVal  = propStr.slice(bi+1, -1);
+
+  if (propName === 'B' || propName === 'W') {
+    applyAddProp([nodeNN, propStr], root);
+    return;
+  }
+
+  switch(propName) {
+    case 'TR': case 'SQ': case 'CR': case 'MA': {
+      if (!markupState.has(nodeNN)) markupState.set(nodeNN, []);
+      markupState.get(nodeNN).push({ type:propName, x:coordIdx(propVal[0]), y:coordIdx(propVal[1]) });
+      break;
+    }
+    case 'LB': {
+      if (!markupState.has(nodeNN)) markupState.set(nodeNN, []);
+      const [coord, label] = propVal.split(':');
+      markupState.get(nodeNN).push({ type:'LB', text:label, x:coordIdx(coord[0]), y:coordIdx(coord[1]) });
+      break;
+    }
+    case 'AB': case 'AW': case 'AE': {
+      if (!setupState.has(nodeNN)) setupState.set(nodeNN, []);
+      setupState.get(nodeNN).push({ type:propName, x:coordIdx(propVal[0]), y:coordIdx(propVal[1]) });
+      break;
+    }
+    default:
+      applyAddProp([nodeNN, propStr], root);
+  }
+}
+function applyRemovePropFromState([nodeNN, propStr], markupState, setupState, root) {
+  const bi = propStr.indexOf('[');
+  const propName = propStr.slice(0, bi);
+  const propVal  = propStr.slice(bi+1, -1);
+
+  if (['AB','AW','AE'].includes(propName)) {
+    const x = coordIdx(propVal[0]), y = coordIdx(propVal[1]);
+    if (setupState.has(nodeNN)) {
+      const items = setupState.get(nodeNN);
+      const i = items.findIndex(m => m.x===x && m.y===y);
+      if (i >= 0) {
+        items.splice(i, 1);
+        if (items.length === 0) setupState.delete(nodeNN);
+        return;
+      }
+    }
+    const node = findKNode(nodeNN, root);
+    if (node && node.setup) {
+      const i = node.setup.findIndex(s => s.x===x && s.y===y);
+      if (i >= 0) {
+        if (!setupState.has(nodeNN)) setupState.set(nodeNN, []);
+        setupState.get(nodeNN).push({ type: 'AE', x, y });
+      }
+    }
+    return;
+  }
+
+  // Markup (TR/SQ/CR/MA/LB)
+  const x = propName === 'LB' ? coordIdx(propVal.split(':')[0][0]) : coordIdx(propVal[0]);
+  const y = propName === 'LB' ? coordIdx(propVal.split(':')[0][1]) : coordIdx(propVal[1]);
+
+  if (markupState.has(nodeNN)) {
+    const items = markupState.get(nodeNN);
+    const i = propName === 'LB'
+      ? items.findIndex(m => m.type==='LB' && m.x===x && m.y===y)
+      : items.findIndex(m => m.type===propName && m.x===x && m.y===y);
+    if (i >= 0) {
+      items.splice(i, 1);
+      if (items.length === 0) markupState.delete(nodeNN);
+      return;
+    }
+  }
+
+  // No está en markupState — puede estar en SGF base
+  const node = findKNode(nodeNN, root);
+  if (node && node.markup) {
+    const found = propName === 'LB'
+      ? node.markup.some(m => m.type==='LB' && m.x===x && m.y===y)
+      : node.markup.some(m => m.type===propName && m.x===x && m.y===y);
+    if (found) {
+      if (!markupState.has(nodeNN)) markupState.set(nodeNN, []);
+      markupState.get(nodeNN).push({ type:'REMOVE', propName, x, y });
+    }
+  }
+}
+
+
+// ── Collect path root→node ──
+function collectPathToNN(nn, node, path=[]) {
+  path.push(node);
+  if (node.NN == nn) return path;
+  if (!node.children) return null;
+  for (const c of node.children) {
+    const r = collectPathToNN(nn, c, [...path]);
+    if (r) return r;
+  }
+  return null;
+}
+
+// ── Init WGo board ──
+function initBoard() {
+  const main = document.getElementById('main');
+  const avail = Math.min(main.clientWidth-32, main.clientHeight-32);
+  const size  = Math.max(260, Math.min(avail, 720));
+  document.getElementById('board').innerHTML = '';
+  wgoBoard = new WGo.Board(document.getElementById('board'), {
+    size: boardSize,
+    width: size,
+    background: '#c4943a',
+  });
+  wgoBoard.setSection(-padding, -padding, -padding, -padding);
+  document.getElementById('board-wrap').style.display = 'block';
+  document.getElementById('welcome').style.display    = 'none';
+  wgoBoard.addCustomObject(WGo.Board.coordinates);
+  const sub = document.getElementById('subtitles');
+  if (sub) sub.style.width = size + 'px';
+  const hdr = document.getElementById('lesson-header');
+  if (hdr) hdr.style.width = size + 'px';
+}
+
+// ── Clear board ──
+function clearBoard() {
+  if (!wgoBoard) return;
+  if (typeof wgoBoard.removeAll === 'function') {
+    wgoBoard.removeAll();
+  } else if (typeof wgoBoard.removeAllObjects === 'function') {
+    wgoBoard.removeAllObjects();
+  } else {
+    try {
+      if (wgoBoard.obj_arr) {
+        for (let i=0; i<wgoBoard.obj_arr.length; i++) wgoBoard.obj_arr[i]=[];
+        if (typeof wgoBoard.redraw === 'function') wgoBoard.redraw();
+        else initBoard();
+      }
+    } catch(e) { initBoard(); }
+  }
+}
+
+function renderSnapshot(idx) {
+  if (!wgoBoard || !liveKifu || idx<0 || idx>=changeList.length) return;
+  currentIdx = idx;
+  const entry = changeList[idx];
+  const activeNN = entry.activeNN;
+  clearBoard();
+
+  const path = collectPathToNN(activeNN, liveKifu.root);
+  if (!path) { console.warn('Path not found for NN', activeNN); return; }
+
+  const game = new WGo.Game(boardSize);
+  game.allow_rewrite = true;
+
+  for (const node of path) {
+    if (node.setup) {
+      for (const s of node.setup) {
+        if (s.c === 1)       game.setStone(s.x, s.y, WGo.B);
+        else if (s.c === -1) game.setStone(s.x, s.y, WGo.W);
+        else                 game.setStone(s.x, s.y, 0);
+      }
+    }
+    // Setup dinámico (AB/AW/AE vía addProp) declarado en ESTE nodo del path,
+    // sea o no el nodo activo — igual que node.setup, debe persistir hacia los hijos.
+    const dynSetup = entry.setupSnap && entry.setupSnap.get(node.NN);
+    if (dynSetup) {
+      for (const s of dynSetup) {
+        if (s.type === 'AB')      game.setStone(s.x, s.y, WGo.B);
+        else if (s.type === 'AW') game.setStone(s.x, s.y, WGo.W);
+        else if (s.type === 'AE') game.setStone(s.x, s.y, 0);
+      }
+    }
+    if (node.move && !node.move.pass) {
+      const color = node.move.c === 1 ? WGo.B : WGo.W;
+      const result = game.play(node.move.x, node.move.y, color);
+      if (typeof result === 'number') {
+        game.setStone(node.move.x, node.move.y, color);
+      }
+    }
+  }
+
+  const pos = game.getPosition();
+  const black = new Map(), white = new Map();
+  for (let x = 0; x < boardSize; x++) {
+    for (let y = 0; y < boardSize; y++) {
+      const v = pos.get(x, y);
+      const k = `${x},${y}`;
+      if (v === WGo.B)      black.set(k, {x, y});
+      else if (v === WGo.W) white.set(k, {x, y});
+    }
+  }
+
+  for (const {x,y} of black.values()) wgoBoard.addObject({x, y, c: 1});
+  for (const {x,y} of white.values()) wgoBoard.addObject({x, y, c:-1});
+
+  const activeNode = path[path.length-1];
+  if (activeNode && activeNode.move && !activeNode.move.pass) {
+    drawLastMoveDot(activeNode.move.x, activeNode.move.y, activeNode.move.c);
+  }
+
+  // Markup: combinar SGF base + markupSnap, aplicando eliminaciones REMOVE
+  const activeNode2 = path[path.length-1];
+  const baseMarkup = activeNode2 && activeNode2.markup ? activeNode2.markup : [];
+  const snapMarkup = entry.markupSnap && entry.markupSnap.get(activeNN) || [];
+  const removes = snapMarkup.filter(m => m.type === 'REMOVE');
+  const additions = snapMarkup.filter(m => m.type !== 'REMOVE');
+
+  const finalMarkup = [
+    ...baseMarkup.filter(m => !removes.some(r =>
+      r.propName === m.type && r.x === m.x && r.y === m.y)),
+    ...additions
+  ];
+
+  if (finalMarkup.length) renderMarkup(finalMarkup, black, white);
+  updateInfoPanel(activeNode, finalMarkup.length ? finalMarkup : null);
+}
+function renderMarkup(markupList, black, white) {
+  for (const mk of markupList) {
+    const k = `${mk.x},${mk.y}`;
+    const stoneC = black && black.has(k) ? 1 : white && white.has(k) ? -1 : 0;
+    const obj = { x: mk.x, y: mk.y, c: stoneC };
+    if (mk.type === 'LB') {
+	  obj.type = WGo.Board.drawHandlers['LB'];
+	  obj.text = mk.text || '';
+	  obj.c = stoneC === 1 ? 'white' : stoneC === -1 ? 'black' : '#333';
+    } else if (WGo.Board.drawHandlers[mk.type]) {
+  obj.type = WGo.Board.drawHandlers[mk.type];
+  obj.c = stoneC === 1 ? 'white' : stoneC === -1 ? 'black' : '#333';
+} else { continue; }
+    wgoBoard.addObject(obj);
+  }
+}
+
+function drawLastMoveDot(x, y, c) {
+  wgoBoard.addObject({
+    x: x,
+    y: y,
+    type: "CR"
+  });
+}
+// ── Info panel ──
+function updateInfoPanel(node, markupList) {
+  if (!node) return;
+  document.getElementById('ni-id').textContent = node.NN !== undefined ? node.NN : '—';
+  if (node.move) {
+    if (node.move.pass) {
+      document.getElementById('ni-move').textContent = (node.move.c===1?'●':'○')+' pass';
+    } else {
+      const L='ABCDEFGHJKLMNOPQRST';
+      document.getElementById('ni-move').textContent =
+        (node.move.c===1?'● ':'○ ') + L[node.move.x] + (boardSize - node.move.y);
+    }
+  } else {
+    document.getElementById('ni-move').textContent = node.setup ? 'setup' : '—';
+  }
+  document.getElementById('ni-markers').textContent =
+    markupList && markupList.length ? markupList.map(m=>m.type).join(' ') : '—';
+}
+
+// ── Pointer ──
+let ptrTO;
+function showPointer(px, py) {
+  const ptr=document.getElementById('ptr'), wrap=document.getElementById('board-wrap');
+  if (!wrap || wrap.style.display==='none') return;
+  const margin=0.045, inner=1-2*margin;
+  ptr.style.left = (margin + (px/(boardSize-1))*inner)*100 + '%';
+  ptr.style.top  = (margin + (py/(boardSize-1))*inner)*100 + '%';
+  ptr.classList.add('visible'); ptr.classList.remove('flash');
+  void ptr.offsetWidth; ptr.classList.add('flash');
+  clearTimeout(ptrTO);
+  ptrTO = setTimeout(() => ptr.classList.remove('visible'), 1600);
+}
+function hidePointer() { document.getElementById('ptr').classList.remove('visible'); }
+
+// ── Sync audio → board ──
+function syncToAudio(forceT) {
+  if (!isReady || !changeList.length) return;
+  const t = forceT !== undefined ? forceT : audio.currentTime;
+  if (isNaN(t)) return;
+  let idx=0;
+  for (let i=changeList.length-1; i>=0; i--) {
+    if (changeList[i].time <= t) { idx=i; break; }
+  }
+  if (idx !== currentIdx) renderSnapshot(idx);
+  updateProgress(t);
+
+  let lastPtr=null;
+  for (const ev of rawEvents) {
+    if (ev.time > t+0.05) break;
+    if ('pointer' in ev) lastPtr=ev;
+  }
+  if (lastPtr) {
+    if (lastPtr.pointer[0] >= 0) showPointer(lastPtr.pointer[0], lastPtr.pointer[1]);
+    else hidePointer();
+  }
+  const tms = t * 1000;
+  const sub = subtitles.find(s => tms >= s.start && tms < s.end);
+  document.getElementById('subtitles').textContent = sub ? sub.sub : '';
+}
+
+function updateProgress(t) {
+  const dur=audio.duration||1;
+  const pct=Math.min(100,(t/dur)*100);
+  document.getElementById('prog-fill').style.width = pct+'%';
+  document.getElementById('prog-thumb').style.left  = pct+'%';
+  document.getElementById('t-cur').textContent = fmtTime(t);
+}
+
+function fmtTime(s) {
+  if (!s || isNaN(s)) return '0:00';
+  const m=Math.floor(s/60), ss=Math.floor(s%60).toString().padStart(2,'0');
+  return `${m}:${ss}`;
+}
+
+// ── Seek ──
+function seekToIdx(idx) {
+  if (!isReady) return;
+  const t=changeList[idx]?.time ?? 0;
+  audio.currentTime=t; renderSnapshot(idx); updateProgress(t);
+}
+function seekPrev() {
+  let i=currentIdx-1;
+  while (i>=0 && !('activate' in changeList[i])) i--;
+  if (i>=0) seekToIdx(i);
+}
+function seekNext() {
+  let i=currentIdx+1;
+  while (i<changeList.length && !('activate' in changeList[i])) i++;
+  if (i<changeList.length) seekToIdx(i);
+}
+
+// ── Load ──
+let loadedSgf=null, loadedJson=null;
+let subtitles = [];
+
+function tryInit() {
+  if (!loadedSgf || !loadedJson) return;
+  try {
+    boardSize = parseInt((loadedSgf.match(/SZ\[(\d+)\]/)||[,'19'])[1]);
+    rawEvents  = loadedJson;
+    changeList = buildChangeList(loadedSgf, loadedJson);
+    initBoard();
+    renderSnapshot(0);
+    isReady = true;
+    if (audio.duration) buildTicks();
+    setStatus('READY');
+  } catch(err) {
+    console.error('Init error:', err);
+    setStatus('ERROR: '+err.message.slice(0,50));
+  }
+}
+
+function setStatus(txt) {
+  document.getElementById('status-txt').textContent = txt;
+  document.getElementById('status-pill').className = 'status-pill'+(txt==='PLAYING'?' playing':'');
+}
+
+function buildTicks() {
+  const layer=document.getElementById('tick-layer');
+  layer.innerHTML='';
+  const dur=audio.duration||1;
+  changeList.forEach(e => {
+    if (!('activate' in e || 'addChild' in e)) return;
+    const tick=document.createElement('div');
+    tick.className='tick'; tick.style.left=((e.time/dur)*100)+'%';
+    layer.appendChild(tick);
+  });
+}
+
+// Audio events
+audio.addEventListener('timeupdate', syncToAudio);
+setInterval(() => { if (!audio.paused) syncToAudio(); }, 250);
+audio.addEventListener('canplaythrough', () => {
+  document.getElementById('t-tot').textContent=fmtTime(audio.duration);
+  buildTicks();
+});
+audio.addEventListener('playing', () => { setStatus('PLAYING'); document.getElementById('btn-play').textContent='⏸'; });
+audio.addEventListener('pause',   () => { setStatus('PAUSED');  document.getElementById('btn-play').textContent='▶'; });
+audio.addEventListener('ended',   () => { setStatus('ENDED');   document.getElementById('btn-play').textContent='▶'; });
+
+// Transport
+document.getElementById('btn-play').addEventListener('click', () => {
+  if (audio.paused) audio.play(); else audio.pause();
+});
+document.getElementById('btn-prev').addEventListener('click', seekPrev);
+document.getElementById('btn-next').addEventListener('click', seekNext);
+document.getElementById('prog-wrap').addEventListener('click', e => {
+  if (!isReady) return;
+  const rect=e.currentTarget.getBoundingClientRect();
+  const t = ((e.clientX-rect.left)/rect.width)*(audio.duration||0);
+  currentIdx = -1;
+  audio.currentTime = t;
+  syncToAudio(t);
+});
+[{id:'btn-slow',v:0.75},{id:'btn-norm',v:1.0},{id:'btn-fast',v:1.5}].forEach(({id,v}) => {
+  document.getElementById(id).addEventListener('click', () => {
+    audio.playbackRate=v;
+    document.querySelectorAll('.speed-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  });
+});
+document.getElementById('vol').addEventListener('input', e => { audio.volume=parseFloat(e.target.value); });
+
+// Keyboard
+window.addEventListener('keydown', e => {
+  if (e.code==='Space')      { e.preventDefault(); document.getElementById('btn-play').click(); }
+  if (e.code==='ArrowLeft')  { audio.currentTime=Math.max(0,audio.currentTime-10); syncToAudio(); }
+  if (e.code==='ArrowRight') { audio.currentTime=Math.min(audio.duration||0,audio.currentTime+10); syncToAudio(); }
+  if (e.code==='ArrowUp')    seekPrev();
+  if (e.code==='ArrowDown')  seekNext();
+});
+
+// Resize
+let rsTO;
+window.addEventListener('resize', () => {
+  clearTimeout(rsTO);
+  rsTO=setTimeout(() => { if(isReady){ initBoard(); renderSnapshot(currentIdx); } }, 200);
+});
+
+// ── Helpers ──
+function sanitize(name) {
+  if (!name) return '';
+  return name.replace(/[\\/:*?"<>|]/g,'_').trim().replace(/\.+$/,'');
+}
+function lessonDir(r) {
+  const type = sanitize((r.typeName||'').trim());
+  const col  = sanitize((r.collectionName||'').trim());
+  const name = sanitize((r.lessonName||'').trim());
+  const suf  = sanitize((r.lessonSuffix||'').trim());
+  let p = `${LESSONS_BASE}${type}/${col}/${name}`;
+  if (suf) p += `/${suf}`;
+  return p + '/';
+}
+async function saveToServer(filename, data) {
+  try {
+    const r = await fetch('http://localhost:3001/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename, data })
+    });
+    console.log('save response:', r.status, r.ok);
+    return r.ok;
+  } catch(e) { console.log('save error:', e); return false; }
+}
+
+// ── Globals for recorder ──
+window.currentLesson = null;
+window.playerAudio   = audio;
+
+// ── Studied ──
+const LS_KEY = 'go_studied';
+let studied = new Set();
+function saveStudied() {
+  localStorage.setItem(LS_KEY, JSON.stringify([...studied]));
+  saveToServer('studied.json', { studied: [...studied] });
+}
+function exportStudied() {
+  const blob = new Blob([JSON.stringify({studied:[...studied]},null,2)], {type:'application/json'});
+  const a = document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='player/studied.json'; a.click();
+}
+async function loadStudied() {
+  try {
+    const r = await fetch(PLAYER_DATA_BASE + 'studied.json');
+    if (r.ok) { const d=await r.json(); studied=new Set((d.studied||[]).map(Number)); saveStudied(); return; }
+  } catch {}
+  try { const s=localStorage.getItem(LS_KEY); if(s) studied=new Set(JSON.parse(s).map(Number)); } catch {}
+}
+
+const LS_KEY_REC = 'go_recorded';
+let recorded = new Set();
+function saveRecorded() {
+  console.log('Saving recorded:', [...recorded].length);
+  localStorage.setItem(LS_KEY_REC, JSON.stringify([...recorded]));
+  saveToServer('recorded.json', { recorded: [...recorded] });
+}
+function exportRecorded() {
+  const blob = new Blob([JSON.stringify({recorded:[...recorded]},null,2)], {type:'application/json'});
+  const a = document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='player/recorded.json'; a.click();
+}
+async function loadRecorded() {
+  console.log('Loading recorded:', [...recorded].length);
+  try {
+    const r = await fetch(PLAYER_DATA_BASE + 'recorded.json');
+    if (r.ok) { const d=await r.json(); recorded=new Set((d.recorded||[]).map(Number)); return; }
+  } catch {}
+  try { const s=localStorage.getItem(LS_KEY_REC); if(s) recorded=new Set(JSON.parse(s).map(Number)); } catch {}
+}
+
+// ── Load lesson ──
+async function loadLesson(forcedId) {
+  const id = forcedId || new URLSearchParams(location.search).get('id') || localStorage.getItem('go_last_id');
+  if (!id) {
+    setStatus('NO ID');
+    const allRes = await fetch(PLAYER_DATA_BASE + 'all_lessons.json');
+    const allData = await allRes.json();
+    allLessons = allData.rows.filter(Boolean);
+    navWire(allLessons);
+    navPopulate(allLessons, {});
+    return;
+  }
+  setStatus('LOADING...');
+  isReady = false; currentIdx = -1; changeList = []; rawEvents = [];
+  loadedSgf = null; loadedJson = null;
+  try {
+    if (!allLessons.length) {
+      const allRes = await fetch(PLAYER_DATA_BASE + 'all_lessons.json');
+      const allData = await allRes.json();
+      allLessons = allData.rows.filter(Boolean);
+      navWire(allLessons);
+    }
+    const row = allLessons.find(r => String(r.lessonId) === String(id));
+    if (!row) throw new Error('Lesson not found: ' + id);
+    window.currentLesson = row;
+    localStorage.setItem('go_last_id', row.lessonId);
+    navPopulate(allLessons, row);
+
+    const title = row.lessonSuffix ? `${row.lessonName} — ${row.lessonSuffix}` : row.lessonName || ('Lesson ' + id);
+    document.getElementById('lesson-title').textContent = title;
+    document.title = title + ' · Go Player';
+
+    document.getElementById('meta-id').textContent   = row.lessonId;
+    document.getElementById('meta-type').textContent = row.typeName || '—';
+    document.getElementById('meta-col').textContent  = row.collectionName || '—';
+    document.getElementById('meta-name').textContent = row.lessonSuffix
+      ? `${row.lessonName} — ${row.lessonSuffix}` : row.lessonName || '—';
+    document.getElementById('meta-diff').textContent = row.lessonDifficulty || '—';
+    document.getElementById('meta-len').textContent  = row.lessonLength || '—';
+    document.getElementById('lh-type').textContent = row.typeName || '—';
+    document.getElementById('lh-col').textContent  = row.collectionName || '—';
+    document.getElementById('lh-name').textContent = row.lessonSuffix
+      ? `${row.lessonName} — ${row.lessonSuffix}` : row.lessonName || '—';
+    document.getElementById('lh-diff').textContent = row.lessonDifficulty ? `Diff ${row.lessonDifficulty}` : '—';
+
+    const studiedBtn = document.getElementById('meta-studied');
+    const isStudied = studied.has(row.lessonId);
+    studiedBtn.textContent = isStudied ? '✓' : '○';
+    studiedBtn.style.color = isStudied ? 'var(--gold)' : 'var(--dim2)';
+    studiedBtn.onclick = () => {
+      if (studied.has(row.lessonId)) studied.delete(row.lessonId); else studied.add(row.lessonId);
+      saveStudied();
+      studiedBtn.textContent = studied.has(row.lessonId) ? '✓' : '○';
+      studiedBtn.style.color = studied.has(row.lessonId) ? 'var(--gold)' : 'var(--dim2)';
+    };
+
+    const dir = lessonDir(row);
+    const [sgfRes, jsonRes] = await Promise.all([fetch(dir+id+'.sgf'), fetch(dir+id+'.json')]);
+    if (!sgfRes.ok)  throw new Error('SGF not found');
+    if (!jsonRes.ok) throw new Error('JSON not found');
+    loadedSgf  = await sgfRes.text();
+    loadedJson = await jsonRes.json();
+    audio.src = dir + id + '.ogg';
+    audio.load();
+    try {
+      const subRes = await fetch(dir + id + '_subtitles.json');
+      if (subRes.ok) {
+        const subData = await subRes.json();
+        subtitles = (subData.rows || []);
+      } else { subtitles = []; }
+    } catch { subtitles = []; }
+    tryInit();
+  } catch(err) {
+    setStatus('ERROR: ' + err.message.slice(0,50));
+    console.error('loadLesson:', err);
+  }
+}
+
+// ── Nav combos ──
+let allLessons = [];
+
+function navPopulate(rows, currentRow) {
+  const d  = document.getElementById('nav-diff').value;
+  const st = document.getElementById('nav-studied').value;
+  const rc = document.getElementById('nav-recorded').value;
+  const filtered = rows.filter(r =>
+    (!d  || String(r.lessonDifficulty)===d) &&
+    (!st || (st==='yes' ? studied.has(r.lessonId) : !studied.has(r.lessonId))) &&
+    (!rc || (rc==='yes' ? recorded.has(r.lessonId) : !recorded.has(r.lessonId)))
+  );
+  const types = [...new Set(filtered.map(r=>r.typeName||''))].sort();
+  const diffs = [...new Set(rows.map(r=>r.lessonDifficulty).filter(Boolean))].sort((a,b)=>a-b);
+  const selT = document.getElementById('nav-type');
+  const selD = document.getElementById('nav-diff');
+  const prevT = selT.value;
+  selT.innerHTML = '<option value="">All</option>';
+  types.forEach(t => { const o=document.createElement('option'); o.value=t; o.textContent=t; selT.appendChild(o); });
+  // restore previous selection if still valid, otherwise stay on All
+  if (prevT && types.includes(prevT)) selT.value = prevT;
+  if (selD.options.length <= 1) {
+    diffs.forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=d; selD.appendChild(o); });
+  }
+  navUpdateCols(rows, currentRow, false);
+}
+
+function navGetFiltered(rows) {
+  const t  = document.getElementById('nav-type').value;
+  const c  = document.getElementById('nav-col').value;
+  const d  = document.getElementById('nav-diff').value;
+  const st = document.getElementById('nav-studied').value;
+  const rc = document.getElementById('nav-recorded').value;
+  return rows.filter(r =>
+    (!t  || r.typeName===t) &&
+    (!c  || r.collectionName===c) &&
+    (!d  || String(r.lessonDifficulty)===d) &&
+    (!st || (st==='yes' ? studied.has(r.lessonId) : !studied.has(r.lessonId))) &&
+    (!rc || (rc==='yes' ? recorded.has(r.lessonId) : !recorded.has(r.lessonId)))
+  );
+}
+
+function navUpdateCols(rows, currentRow, init) {
+  const t  = document.getElementById('nav-type').value;
+  const d  = document.getElementById('nav-diff').value;
+  const st = document.getElementById('nav-studied').value;
+  const rc = document.getElementById('nav-recorded').value;
+  const selC = document.getElementById('nav-col');
+  const prev = init ? (currentRow.collectionName || '') : selC.value;
+  selC.innerHTML = '<option value="">All</option>';
+  const filtered = rows.filter(r =>
+    (!t  || r.typeName===t) &&
+    (!d  || String(r.lessonDifficulty)===d) &&
+    (!st || (st==='yes' ? studied.has(r.lessonId) : !studied.has(r.lessonId))) &&
+    (!rc || (rc==='yes' ? recorded.has(r.lessonId) : !recorded.has(r.lessonId)))
+  );
+  const cols = [...new Set(filtered.map(r=>r.collectionName||''))].sort();
+  cols.forEach(c => { const o=document.createElement('option'); o.value=c; o.textContent=c; if(c===prev) o.selected=true; selC.appendChild(o); });
+  if (!cols.includes(prev)) selC.value = '';
+  navUpdateNames(rows, currentRow, init);
+}
+
+function navUpdateNames(rows, currentRow, init) {
+  const selN = document.getElementById('nav-name');
+  const prev = init ? currentRow.lessonId : selN.value;
+  selN.innerHTML = '';
+  const lessons = navGetFiltered(rows);
+  lessons.forEach(r => {
+    const o=document.createElement('option');
+    o.value=r.lessonId;
+    o.textContent = r.lessonSuffix ? `${r.lessonName} — ${r.lessonSuffix}` : r.lessonName;
+    if(String(r.lessonId)===String(prev)) o.selected=true;
+    selN.appendChild(o);
+  });
+  // only auto-navigate if user explicitly changed the lesson dropdown
+}
+
+function navWire(rows) {
+  document.getElementById('nav-recorded').addEventListener('change', () => { navPopulate(rows, window.currentLesson||{}, false); navUpdateCols(rows, {}, false); });
+  document.getElementById('nav-diff').addEventListener('change', () => { navPopulate(rows, window.currentLesson||{}, false); navUpdateCols(rows, {}, false); });
+  document.getElementById('nav-studied').addEventListener('change', () => { navPopulate(rows, window.currentLesson||{}, false); navUpdateCols(rows, {}, false); });
+  document.getElementById('nav-type').addEventListener('change',    () => { navUpdateCols(rows, {}, false); });
+  document.getElementById('nav-col').addEventListener('change',     () => { navUpdateNames(rows, {}, false); });
+  document.getElementById('nav-name').addEventListener('change', function(e) {
+  if (!e.isTrusted) return; // ignore programmatic changes
+  const id = this.value;
+  if (id) { history.replaceState(null,'',`?id=${id}`); loadLesson(id); }
+});
+}
+
+// ══════════════════════════════════════════════════════════════
+//  RECORDER
+// ══════════════════════════════════════════════════════════════
+let recQueue = [], recIdx = 0, recActive = false;
+let mediaRecorder = null, recChunks = [];
+
+// Audio graph — creado una sola vez
+let recAudioCtx = null, recAudioDest = null;
+function ensureAudioGraph() {
+  if (recAudioCtx) return;
+  recAudioCtx = new AudioContext();
+  const src = recAudioCtx.createMediaElementSource(window.playerAudio);
+  recAudioDest = recAudioCtx.createMediaStreamDestination();
+  src.connect(recAudioDest);
+  src.connect(recAudioCtx.destination); // mantener altavoces
+}
+
+// Canvas proxy — creado una sola vez, copia WGo cada frame
+let recProxyCanvas = null, recProxyCtx = null, recAnimFrame = null;
+function ensureProxyCanvas() {
+  if (recProxyCanvas) return;
+  recProxyCanvas = document.createElement('canvas');
+  recProxyCtx = recProxyCanvas.getContext('2d');
+}
+function startProxyCopy() {
+  function copyFrame() {
+    const canvases = document.querySelectorAll('#board canvas');
+    if (canvases.length) {
+      const first = canvases[0];
+      if (recProxyCanvas.width !== first.width || recProxyCanvas.height !== first.height) {
+        recProxyCanvas.width  = first.width;
+        recProxyCanvas.height = first.height;
+      }
+      recProxyCtx.fillStyle = '#c4943a';
+      recProxyCtx.fillRect(0, 0, recProxyCanvas.width, recProxyCanvas.height);
+      canvases.forEach(c => recProxyCtx.drawImage(c, 0, 0));
+    }
+  }
+  recAnimFrame = setInterval(copyFrame, 40); // ~25 fps
+}
+function stopProxyCopy() {
+  if (recAnimFrame) { clearInterval(recAnimFrame); recAnimFrame = null; }
+}
+
+function recSanitize(s) {
+  return (s||'').replace(/[\\/:*?"<>|]/g,'_').trim().replace(/\.+$/,'');
+}
+function recFilename(row) {
+  const t = recSanitize(row.typeName);
+  const c = recSanitize(row.collectionName);
+  const n = recSanitize(row.lessonName);
+  const s = recSanitize(row.lessonSuffix);
+  const d = row.lessonDifficulty ? `[D${row.lessonDifficulty}]` : '';
+  const id = `[ID${row.lessonId}]`;
+  const base = s ? `${t} - ${c} - ${n} - ${s}` : `${t} - ${c} - ${n}`;
+  return `${base} - ${d} ${id}`.trim() + '.webm';
+}
+function recSetProgress(txt) {
+  document.getElementById('rec-progress').textContent = txt;
+}
+function recUpdateQueueUI() {
+  document.getElementById('rq-count').textContent = recQueue.length;
+  document.getElementById('btn-rec-start').disabled = recQueue.length === 0 || recActive;
+}
+
+// Toggle panel
+document.getElementById('rec-toggle').addEventListener('click', () => {
+  const body = document.getElementById('rec-body');
+  const arrow = document.getElementById('rec-toggle-arrow');
+  const open = body.style.display === 'none';
+  body.style.display = open ? 'block' : 'none';
+  arrow.textContent = open ? '▾' : '▸';
+});
+
+document.getElementById('btn-rec-queue').addEventListener('click', () => {
+  if (recActive) return;
+  if (!allLessons.length) { recSetProgress('Carga primero una lección'); return; }
+  recQueue = navGetFiltered(allLessons).slice();
+  recIdx = 0;
+  const totalMin = recQueue.reduce((acc, r) => acc + (r.lessonLength || 0), 0);
+const hh = Math.floor(totalMin / 60);
+const mm = totalMin % 60;
+const durTxt = hh > 0 ? `${hh}h ${mm}m` : `${mm}m`;
+recSetProgress(`${recQueue.length} lecciones en cola · ${durTxt}`);
+  recUpdateQueueUI();
+});
+
+document.getElementById('btn-rec-start').addEventListener('click', () => {
+  if (!recQueue.length || recActive) return;
+  recRunning = false;
+  recActive = true;
+  recIdx = 0;
+  document.getElementById('btn-rec-start').disabled = true;
+  document.getElementById('btn-rec-stop').disabled = false;
+  document.getElementById('btn-rec-start').classList.add('recording');
+  recSetProgress('Iniciando...');
+  recRunNext();
+});
+
+document.getElementById('btn-rec-stop').addEventListener('click', () => {
+  recActive = false;
+  stopProxyCopy();
+  if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+  document.getElementById('btn-rec-stop').disabled = true;
+  document.getElementById('btn-rec-start').disabled = false;
+  document.getElementById('btn-rec-start').classList.remove('recording');
+  document.getElementById('btn-rec-start').textContent = '▶ Start recording';
+  recSetProgress('Detenido por usuario');
+});
+let recRunning = false;
+
+async function recRunNext() {
+  if (recRunning) return;
+  recRunning = true;
+
+  try {
+    if (!recActive || recIdx >= recQueue.length) {
+      recActive = false;
+      stopProxyCopy();
+      document.getElementById('btn-rec-stop').disabled = true;
+      document.getElementById('btn-rec-start').disabled = recQueue.length === 0;
+      document.getElementById('btn-rec-start').classList.remove('recording');
+      recSetProgress(recIdx >= recQueue.length ? `✓ Lote completo (${recQueue.length})` : 'Detenido');
+      recRunning = false;
+      return;
+    }
+
+    const row = recQueue[recIdx];
+    recSetProgress(`[${recIdx+1}/${recQueue.length}] Cargando…`);
+
+    await loadLesson(row.lessonId);
+
+    const ready = await waitUntil(() => isReady, 10000);
+    if (!ready) {
+      recSetProgress(`[${recIdx+1}/${recQueue.length}] ERROR al cargar — saltando`);
+      recIdx++;
+      recRunning = false;
+      setTimeout(recRunNext, 500);
+      return;
+    }
+
+    await waitUntilAudioReady();
+
+    ensureAudioGraph();
+    ensureProxyCanvas();
+    stopProxyCopy();
+    startProxyCopy();
+
+    await new Promise(r => setTimeout(r, 100));
+
+    const remaining = recQueue.slice(recIdx).reduce((acc, r) => acc + (r.lessonLength || 0), 0);
+    const hh = Math.floor(remaining / 60);
+    const mm = remaining % 60;
+    const durTxt = hh > 0 ? `${hh}h ${mm}m` : `${mm}m`;
+    recSetProgress(`[${recIdx+1}/${recQueue.length}] ● REC: ${row.lessonName} · ${durTxt} restantes`);
+
+    recCompletedNaturally = false;
+	recChunks = [];
+
+    const videoStream = recProxyCanvas.captureStream(25);
+    const combinedStream = new MediaStream([
+      ...videoStream.getVideoTracks(),
+      ...recAudioDest.stream.getAudioTracks()
+    ]);
+
+    const mimeType = MediaRecorder.isTypeSupported('video/webm;codecs=vp9,opus')
+      ? 'video/webm;codecs=vp9,opus' : 'video/webm';
+
+    mediaRecorder = new MediaRecorder(combinedStream, {
+      mimeType,
+      videoBitsPerSecond: 3_000_000,
+      audioBitsPerSecond: 128_000
+    });
+
+    mediaRecorder.ondataavailable = e => { if (e.data.size > 0) recChunks.push(e.data); };
+
+    mediaRecorder.onstop = () => {
+	  stopProxyCopy();
+	  if (recCompletedNaturally) {
+		const blob = new Blob(recChunks, { type: 'video/webm' });
+		const a = document.createElement('a');
+		a.href = URL.createObjectURL(blob);
+		a.download = recFilename(row);
+		a.click();
+		setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+		recorded.add(row.lessonId);
+		saveRecorded();
+		recSetProgress(`[${recIdx+1}/${recQueue.length}] ✓ ${recFilename(row)}`);
+		recIdx++;
+		recRunning = false;
+		setTimeout(recRunNext, 2000);
+	  } else {
+		recSetProgress(`Detenido manualmente — ${recFilename(row)} descartado`);
+		recRunning = false;
+	  }
+	};
+
+    mediaRecorder.start();
+    window.playerAudio.currentTime = 0;
+    window.playerAudio.play();
+
+    window.playerAudio.addEventListener('ended', function onEnded() {
+	  recCompletedNaturally = true;
+	  if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+	}, { once: true });
+
+  } catch(e) {
+    console.error('recRunNext error:', e);
+    recRunning = false;
+  }
+}
+
+function waitUntil(fn, timeout=5000) {
+  return new Promise(resolve => {
+    const t0 = Date.now();
+    const check = () => {
+      if (fn()) return resolve(true);
+      if (Date.now()-t0 > timeout) return resolve(false);
+      setTimeout(check, 150);
+    };
+    check();
+  });
+}
+
+function waitUntilAudioReady() {
+  return new Promise(resolve => {
+    const a = window.playerAudio;
+    if (a.readyState >= 3) return resolve();
+    a.addEventListener('canplaythrough', () => resolve(), { once: true });
+    setTimeout(resolve, 8000);
+  });
+}
+
+loadStudied().then(() => loadRecorded()).then(() => loadLesson());
+</script>
+</body>
+</html>	
