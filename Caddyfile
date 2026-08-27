@@ -1,0 +1,15 @@
+{
+    servers {
+        protocols h1 h2
+    }
+}
+tsumevault.duckdns.org {
+    route {
+        handle_path /player/* {
+            root * /opt/tsumevault/player
+            header Access-Control-Allow-Origin "*"
+            file_server
+        }
+        reverse_proxy localhost:3002
+    }
+}

@@ -5,6 +5,8 @@ python bump_version.py
 
 echo subiendo HTML y sw.js
 git add -f tsumevault.html
+git add -f lessons.html
+git add -f player.html
 git add -f sw.js
 
 echo Commit y push...
