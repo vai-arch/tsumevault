@@ -65,7 +65,8 @@ tbody td.status{text-align:center;width:36px;}
 <body>
 <div id="app">
   <header id="hdr">
-    <div class="logo">Go · Lessons</div>
+    <a href="tsumevault" style="font-family:var(--mono);font-size:11px;color:var(--dim);text-decoration:none;letter-spacing:.1em;transition:color .2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--dim)'">← TsumeVault</a>
+    <div class="logo" style="margin-left:8px">Go · Lessons</div>
     <div style="flex:1"></div>
     <div id="count-pill">Mostrando <span id="cnt">—</span> lecciones</div>
   </header>
@@ -116,7 +117,7 @@ const PLAYER_DATA_BASE = 'player/';         // manifest + studied/recorded
 const LESSONS_BASE     = 'player/lessons/'; // sgf/json/ogg de cada lección
 const LESSONS_JSON  = PLAYER_DATA_BASE + 'all_lessons.json';
 const STUDIED_JSON  = PLAYER_DATA_BASE + 'studied.json';
-const PLAYER_URL    = 'player.html';
+const PLAYER_URL    = 'player';
 const LS_KEY        = 'go_studied';
 const LS_FILTERS_KEY = 'go_lessons_filters';
 
