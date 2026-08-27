@@ -164,7 +164,7 @@ function loadSavedFilters() {
 // ── Helpers ──
 function sanitize(name) {
   if (!name) return '';
-  return name.replace(/[\\/:*?"<>|]/g,'_').trim().replace(/\.+$/,'');
+  return name.replace(/[\\/:*?"<>'|]/g,'_').trim().replace(/\.+$/,'');
 }
 function lessonDir(r) {
   const type = sanitize((r.typeName||'').trim());
