@@ -215,8 +215,8 @@ const audio = document.getElementById('audio');
 let recCompletedNaturally = false;
 
 // ── Rutas base (ajustables según despliegue) ──
-const PLAYER_DATA_BASE = 'player/';         // manifest + studied/recorded
-const LESSONS_BASE     = 'player/lessons/'; // sgf/json/ogg de cada lección
+const PLAYER_DATA_BASE = 'https://tsumevault.duckdns.org/player/';         // manifest + studied/recorded
+const LESSONS_BASE     = 'https://tsumevault.duckdns.org/player/lessons/'; // sgf/json/ogg de cada lección
 
 // ── u(): inject NN[N] markers into SGF (IGS exact replica) ──
 function u(sgf) {
