@@ -1582,6 +1582,7 @@
       </div>
       <div id="board-wrap" style="display:none">
         <div id="board"></div>
+        <div id="result-flash"></div>
         <div id="board-hint">—</div>
         <div id="board-controls">
           <button class="ctrl-btn" id="btn-back">← Back</button>
@@ -1606,7 +1607,6 @@
         </div>
       </div>
       <div id="comment-box"></div>
-      <div id="result-flash"></div>
       <div id="pause-overlay"
         style="display:none;position:absolute;inset:0;background:rgba(14,12,8,.92);flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:10;cursor:pointer;">
         <div style="font-family:var(--mono);font-size:32px;color:var(--gold);letter-spacing:.2em">PAUSED</div>
@@ -1688,7 +1688,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260827-1255';
+	const SW_VERSION = 'tsumevault-20260827-1310';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -5035,10 +5035,15 @@
       const bSet = new Set(black.map(s => `${s.x},${s.y}`)), wSet = new Set(white.map(s => `${s.x},${s.y}`));
       for (const mk of markupList) {
         const k = `${mk.x},${mk.y}`, stoneC = bSet.has(k) ? 1 : wSet.has(k) ? -1 : 0;
+        if (mk.type === 'LB' && (mk.text === ':)' || mk.text === ':(')) {
+          const faceC = mk.text === ':)' ? '#5cb868' : '#d45030';
+          wgoBoard.addObject({ x: mk.x, y: mk.y, type: WGo.Board.drawHandlers['CR'], c: faceC });
+          wgoBoard.addObject({ x: mk.x, y: mk.y, type: WGo.Board.drawHandlers['LB'], text: '●', c: faceC });
+          continue;
+        }
         const obj = { x: mk.x, y: mk.y };
         if (mk.type === 'LB') {
-          obj.type = WGo.Board.drawHandlers['LB']; obj.text = mk.text || '';
-          if (mk.text === ':)') obj.c = '#5cb868'; else if (mk.text === ':(') obj.c = '#d45030'; else obj.c = stoneC === 1 ? 'white' : stoneC === -1 ? 'black' : '#333';
+          obj.type = WGo.Board.drawHandlers['LB']; obj.text = mk.text || ''; obj.c = stoneC === 1 ? 'white' : stoneC === -1 ? 'black' : '#333';
         } else if (WGo.Board.drawHandlers[mk.type]) {
           obj.type = WGo.Board.drawHandlers[mk.type]; obj.c = stoneC === 1 ? 'white' : stoneC === -1 ? 'black' : '#333';
         } else continue;
@@ -5055,12 +5060,20 @@
     function renderLabels(node) {
       if (!node.markup) return;
       for (const mk of node.markup) {
-        if (mk.type !== 'LB') continue;
         if (wgoBoard.obj_arr[mk.x][mk.y]) wgoBoard.obj_arr[mk.x][mk.y] = wgoBoard.obj_arr[mk.x][mk.y].filter(o => o.c === 1 || o.c === -1);
-        const lbC = mk.text === ':)' ? '#5cb868' : mk.text === ':(' ? '#d45030' : undefined;
-        const lbObj = { x: mk.x, y: mk.y, type: 'LB', text: mk.text };
-        if (lbC) lbObj.c = lbC;
-        wgoBoard.addObject(lbObj);
+        if (mk.type === 'LB' && (mk.text === ':)' || mk.text === ':(')) {
+          const faceC = mk.text === ':)' ? '#5cb868' : '#d45030';
+          wgoBoard.addObject({ x: mk.x, y: mk.y, type: 'CR', c: faceC });
+          wgoBoard.addObject({ x: mk.x, y: mk.y, type: 'LB', text: '●', c: faceC });
+          continue;
+        }
+        const obj = { x: mk.x, y: mk.y };
+        if (mk.type === 'LB') {
+          obj.type = 'LB'; obj.text = mk.text || '';
+        } else if (WGo.Board.drawHandlers[mk.type]) {
+          obj.type = WGo.Board.drawHandlers[mk.type];
+        } else continue;
+        wgoBoard.addObject(obj);
       }
       const cb = document.getElementById('comment-box'); cb.textContent = node.comment || '';
     }
@@ -5175,12 +5188,14 @@
       // (el que no arranca con WRONG) sin jugarlo ni registrar ningún intento.
       window._studyHint = () => {
         if (!freeMode || answered || waitingForNext) return;
-        if (hintMarker) { wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'LB' }); hintMarker = null; }
+        if (hintMarker) { wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'CR' }); wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'LB' }); hintMarker = null; }
         const children = currentNode.children || [];
         const correct = children.find(c => c.move && !c.move.pass && c.move.x !== undefined && !(c.comment || '').trim().toUpperCase().startsWith('WRONG'));
         if (!correct) return;
         const { x, y } = correct.move;
-        wgoBoard.addObject({ x, y, type: 'LB', text: '●', c: '#d4a84a' });
+        const hintC = '#1a1aff';
+        wgoBoard.addObject({ x, y, type: 'CR', c: hintC });
+        wgoBoard.addObject({ x, y, type: 'LB', text: '●', c: hintC });
         hintMarker = { x, y };
       };
       let ghostPos = null; let pendingTap = null; const boardEl = wgoBoard.element;
@@ -5221,7 +5236,7 @@
         // no hay nada que deshacer con Back. Se marca el fallo igual (comentario,
         // flash, recordAttempt via checkResult) pero se puede intentar de
         // inmediato en otro punto. En Run se deja el comportamiento de siempre.
-        if (!match) { checkResult({ comment: 'WRONG' }); hadWrong = true; if (freeMode) waitingForNext = false; return; }
+        if (!match) { if (currentProblem && currentProblem._isReveal) return; checkResult({ comment: 'WRONG' }); hadWrong = true; if (freeMode) waitingForNext = false; return; }
         history.push({ node: currentNode, snap: gameSnapshot() }); answered = true;
         if (!firstMoveDone) { clearCrossMarks(); firstMoveDone = true; }
         placeStone(x, y, playerC); drawLastMoveDot(x, y); renderLabels(match); playSound('stone');
