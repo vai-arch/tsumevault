@@ -288,10 +288,23 @@ function applyAddProp([nodeNN, propStr], root) {
   }
 }
 
+// ── El parser SGF de WGo guarda las propiedades como texto, así que node.NN
+// no es número real para nodos que vienen del SGF (solo los creados con
+// addChild en vivo lo tienen). findKNode/collectPathToNN lo toleran porque
+// usan ==, pero entry.setupSnap.get(node.NN) en renderSnapshot usa Map.get()
+// (sin coerción) y fallaba en silencio, dejando el AB/AW/AE dinámico sin
+// aplicarse nunca sobre nodos del SGF original. Se normaliza una vez, para
+// todo el árbol, justo tras parsear. ──
+function normalizeNN(node) {
+  if (node.NN !== undefined && node.NN !== null) node.NN = Number(node.NN);
+  (node.children || []).forEach(normalizeNN);
+}
+
 function buildChangeList(sgf, events) {
   const processed = u(sgf);
   liveKifu = WGo.Kifu.fromSgf(processed);
   liveKifu.root.NN = 0;
+  normalizeNN(liveKifu.root);
 
   const markupState = new Map();
   const setupState = new Map();
