@@ -218,6 +218,13 @@ let padding = 0.6;
 let liveKifu = null;
 let changeList = [], rawEvents = [], isReady = false, currentIdx = -1;
 const audio = document.getElementById('audio');
+// player.html se sirve desde GitHub Pages (vai-arch.github.io) pero el audio
+// viene de tsumevault.duckdns.org — origen distinto. Sin crossOrigin, el
+// <audio> carga en modo no-cors: se oye por altavoz normal, pero
+// createMediaElementSource() (usado solo al grabar) recibe el stream
+// "tainted" y produce silencio. Requiere que el servidor mande
+// Access-Control-Allow-Origin para los .ogg (ver Caddy).
+audio.crossOrigin = 'anonymous';
 let recCompletedNaturally = false;
 
 // ── Rutas base (ajustables según despliegue) ──
