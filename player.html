@@ -1079,6 +1079,18 @@ function stopProxyCopy() {
   if (recAnimFrame) { clearInterval(recAnimFrame); recAnimFrame = null; }
 }
 
+// captureStream() crea un VideoTrack nuevo en cada lección. Si no se
+// detiene explícitamente el anterior, el navegador mantiene su pipeline
+// de captura vivo indefinidamente (fuga de memoria nativa, no de heap JS) —
+// esto es lo que provoca "Aw, Snap!" tras grabar muchas lecciones seguidas.
+let recVideoStream = null;
+function stopVideoStream() {
+  if (recVideoStream) {
+    recVideoStream.getTracks().forEach(t => t.stop());
+    recVideoStream = null;
+  }
+}
+
 function recSanitize(s) {
   return (s||'').replace(/[\\/:*?"<>|]/g,'_').trim().replace(/\.+$/,'');
 }
@@ -1138,6 +1150,7 @@ document.getElementById('btn-rec-stop').addEventListener('click', () => {
   recActive = false;
   stopProxyCopy();
   if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+  stopVideoStream();
   document.getElementById('btn-rec-stop').disabled = true;
   document.getElementById('btn-rec-start').disabled = false;
   document.getElementById('btn-rec-start').classList.remove('recording');
@@ -1154,6 +1167,7 @@ async function recRunNext() {
     if (!recActive || recIdx >= recQueue.length) {
       recActive = false;
       stopProxyCopy();
+      stopVideoStream();
       document.getElementById('btn-rec-stop').disabled = true;
       document.getElementById('btn-rec-start').disabled = recQueue.length === 0;
       document.getElementById('btn-rec-start').classList.remove('recording');
@@ -1194,7 +1208,9 @@ async function recRunNext() {
     recCompletedNaturally = false;
 	recChunks = [];
 
+    stopVideoStream(); // liberar el track de la lección anterior antes de crear uno nuevo
     const videoStream = recProxyCanvas.captureStream(25);
+    recVideoStream = videoStream;
     const combinedStream = new MediaStream([
       ...videoStream.getVideoTracks(),
       ...recAudioDest.stream.getAudioTracks()
