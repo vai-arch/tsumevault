@@ -1688,7 +1688,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260901-1531';
+	const SW_VERSION = 'tsumevault-20260901-1626';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -3607,7 +3607,14 @@
     // mas facil en la escala interna (15k=600 ... 1d=2100); "numero mayor" en
     // etiqueta kyu = numero MENOR interno.
     function applyMostrarUpTo(source, maxDiffNum) {
-      dbExec(`UPDATE chapters SET mostrar = CASE WHEN diff_avg IS NULL OR diff_avg <= ? THEN 1 ELSE 0 END WHERE source = ?`, [maxDiffNum, source]);
+      dbExec(`UPDATE chapters SET mostrar = CASE
+        WHEN (diff_avg IS NULL OR diff_avg <= ?)
+         AND (
+           NOT EXISTS (SELECT 1 FROM problems p WHERE p.chapter_id = chapters.id)
+           OR EXISTS (SELECT 1 FROM problems p WHERE p.chapter_id = chapters.id AND p.hidden = 0)
+         )
+        THEN 1 ELSE 0
+      END WHERE source = ?`, [maxDiffNum, source]);
       return dbQueryOne('SELECT SUM(mostrar = 1) AS shown, SUM(mostrar = 0) AS hidden FROM chapters WHERE source = ?', [source]);
     }
     // R1 (revisado): aplica visibilidad por nivel a UNA sola fuente (la de la
@@ -4089,7 +4096,13 @@
     }
 	
     document.getElementById('cf-diff').addEventListener('change', applyCollectionFilters);
-    document.getElementById('cf-needs-work').addEventListener('change', applyCollectionFilters);
+    document.getElementById('cf-needs-work').addEventListener('change', () => {
+      if (document.getElementById('cf-needs-work').checked) {
+        expandAllVisible();
+      } else {
+        applyCollectionFilters();
+      }
+    });
     document.getElementById('btn-expand-all').addEventListener('click', expandAllVisible);
 
     function fmtDuration(ms) {
