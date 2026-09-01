@@ -180,6 +180,7 @@ input[type=range].vol::-webkit-slider-thumb{-webkit-appearance:none;width:9px;he
         <div id="rec-queue-info">Queue: <span class="rq-count" id="rq-count">0</span> lessons</div>
         <div id="rec-progress"></div>
         <button class="rec-btn" id="btn-rec-queue">⊞ Queue from nav filters</button>
+        <button class="rec-btn" id="btn-rec-queue-add">⊕ Add nav filters to queue</button>
         <button class="rec-btn" id="btn-rec-start" disabled>▶ Start recording</button>
         <button class="rec-btn" id="btn-rec-stop" disabled>■ Stop</button>
       </div>
@@ -1131,6 +1132,20 @@ const hh = Math.floor(totalMin / 60);
 const mm = totalMin % 60;
 const durTxt = hh > 0 ? `${hh}h ${mm}m` : `${mm}m`;
 recSetProgress(`${recQueue.length} lecciones en cola · ${durTxt}`);
+  recUpdateQueueUI();
+});
+
+document.getElementById('btn-rec-queue-add').addEventListener('click', () => {
+  if (recActive) return;
+  if (!allLessons.length) { recSetProgress('Carga primero una lección'); return; }
+  const existingIds = new Set(recQueue.map(r => r.lessonId));
+  const toAdd = navGetFiltered(allLessons).filter(r => !existingIds.has(r.lessonId));
+  recQueue = recQueue.concat(toAdd);
+  const totalMin = recQueue.reduce((acc, r) => acc + (r.lessonLength || 0), 0);
+  const hh = Math.floor(totalMin / 60);
+  const mm = totalMin % 60;
+  const durTxt = hh > 0 ? `${hh}h ${mm}m` : `${mm}m`;
+  recSetProgress(`+${toAdd.length} añadidas · ${recQueue.length} en cola · ${durTxt}`);
   recUpdateQueueUI();
 });
 
