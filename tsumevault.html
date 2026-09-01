@@ -1183,6 +1183,7 @@
       </select>
       <div style="flex:1"></div>
       <button id="stats-btn" onclick="openStats()" title="Statistics" style="background:transparent;border:1px solid var(--border2);color:var(--dim);font-size:15px;cursor:pointer;padding:4px 9px;border-radius:2px;transition:all .15s;margin-right:6px;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">📊</button>
+      <button id="lessons-btn" onclick="window.location.href='lessons'" title="Go Lessons" style="background:transparent;border:1px solid var(--border2);color:var(--dim);font-size:15px;cursor:pointer;padding:4px 9px;border-radius:2px;transition:all .15s;margin-right:6px;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">📚</button>
       <button id="cfg-btn" onclick="openConfig()" title="Settings" style="position:relative">⚙<span id="sync-error-dot" style="display:none;position:absolute;top:1px;right:1px;width:7px;height:7px;border-radius:50%;background:#e5484d;box-shadow:0 0 0 2px var(--bg,#1a1a1a);"></span><span id="pending-badge" title="Pendiente de sincronizar" style="display:none;position:absolute;bottom:-2px;right:-2px;min-width:12px;height:12px;border-radius:6px;background:var(--gold,#c9a86a);color:#141414;font-size:8px;line-height:12px;text-align:center;padding:0 2px;font-family:var(--mono,monospace);box-shadow:0 0 0 2px var(--bg,#1a1a1a);"></span></button>
     </header>
 
@@ -1684,7 +1685,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260901-1650';
+	const SW_VERSION = 'tsumevault-20260902-0033';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
