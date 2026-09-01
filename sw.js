@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'tsumevault-20260901-1626';
+const CACHE_VERSION = 'tsumevault-20260901-1650';
 
 const STATIC_ASSETS = [
   '/tsumevault/tsumevault.html',
