@@ -1491,12 +1491,8 @@
           </select>
         </div>
         <div class="fp-section">
-          <div class="fp-label">Color</div>
-          <select class="fsel" id="fp-color">
-            <option value="">Any</option>
-            <option value="B">Black</option>
-            <option value="W">White</option>
-          </select>
+          <div class="fp-label">Problem ID</div>
+          <input class="fsel" id="fp-problem-id" type="text" placeholder="e.g. 42 or lvl_20k_013" style="cursor:text;">
         </div>
         <div class="fp-section">
           <div class="fp-label">Status</div>
@@ -1688,7 +1684,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260901-1626';
+	const SW_VERSION = 'tsumevault-20260901-1650';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -4500,7 +4496,7 @@
       if (cb) cb.checked = true;
       document.getElementById('fp-diff').value = '';
       document.getElementById('fp-diff-max').value = '';
-      document.getElementById('fp-color').value = '';
+      document.getElementById('fp-problem-id').value = '';
       document.getElementById('fp-status').value = '';
       switchTab('free');
       await startFreePractice();
@@ -4511,14 +4507,14 @@
       // ninguno marcado == All (comportamiento previo).
       const chapIds = [...document.querySelectorAll('#fp-chap-list input:checked')].map(cb => parseInt(cb.value));
       const diffMin = document.getElementById('fp-diff').value, diffMax = document.getElementById('fp-diff-max').value;
-      const color = document.getElementById('fp-color').value, status = document.getElementById('fp-status').value;
+      const problemIdFilter = document.getElementById('fp-problem-id').value.trim(), status = document.getElementById('fp-status').value;
       const order = document.getElementById('fp-order').value;
       const onlyVisible = document.getElementById('fp-visible').checked;
       try {
         let problems = localGetProblems(currentSource, { set_id: setId ? parseInt(setId) : undefined, chapter_ids: chapIds.length ? chapIds : undefined, onlyVisible });
         if (diffMin) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num >= parseInt(diffMin));
         if (diffMax) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num <= parseInt(diffMax));
-        if (color) problems = problems.filter(p => p.color_to_play === color);
+        if (problemIdFilter) problems = problems.filter(p => String(p.problem_id).toLowerCase().includes(problemIdFilter.toLowerCase()));
         if (status.startsWith('struggling')) {
           const n = parseInt(status.split('-')[1]);
           // F11: con varios (o cero) capitulos marcados no hay un chapter_id
