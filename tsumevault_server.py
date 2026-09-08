@@ -512,6 +512,23 @@ def run_audit(con, limit=20, skip_integrity=False):
                 WHERE result IS NOT NULL AND result NOT IN ('correct','wrong')""")
     add("A9", "RUN_ITEMS", "run_items.result fuera de {NULL,'correct','wrong'}", rows, "ERROR", t=t)
 
+    # ── [TAGS] (T23) ──
+    if _audit_has_table(con, "problem_tags"):
+        t = time.perf_counter()
+        rows = q("""SELECT pt.source, pt.problem_id, pt.tag, pt.active FROM problem_tags pt
+                    LEFT JOIN tags tg ON tg.tag = pt.tag COLLATE NOCASE WHERE tg.tag IS NULL""")
+        add("T23a", "TAGS", "problem_tags.tag sin fila en tags (etiqueta huérfana)", rows, "ERROR",
+            note="el push la auto-crea y el borrado exige in_use=0: indicaría edición manual", t=t)
+        t = time.perf_counter()
+        rows = q("""SELECT pt.source, pt.problem_id, pt.tag, pt.active FROM problem_tags pt
+                    LEFT JOIN problems p ON p.source = pt.source AND CAST(p.problem_id AS TEXT) = pt.problem_id
+                    WHERE p.source IS NULL""")
+        add("T23b", "TAGS", "problem_tags apunta a un problem inexistente", rows, "WARNING",
+            note="el push ignora problems desconocidos: indicaría borrado físico de problems", t=t)
+        t = time.perf_counter()
+        rows = q("SELECT source, problem_id, tag, active, updated_at FROM problem_tags WHERE active NOT IN (0,1)")
+        add("T23c", "TAGS", "problem_tags.active fuera de {0,1}", rows, "ERROR", t=t)
+
     # ── [VIRTUAL] ──
     if _audit_has_table(con, "virtual_items"):
         t = time.perf_counter()
@@ -774,6 +791,32 @@ def _migrate_v2_hidden(con):
     con.execute("PRAGMA user_version = 2")  # T13: sellar la version
     con.commit()
     log.info("[migrate] Migraciones completadas (schema_version=2).")
+    _migrate_v3_tags(con)  # T23: encadenar v3
+
+
+def _migrate_v3_tags(con):
+    """T23: schema v3 — etiquetas de problemas.
+
+    tags: dominio global (clave = texto, case-insensitive).
+    problem_tags: asignaciones con LWW por updated_at (active 0/1; el 0 es
+    un tombstone que propaga la retirada entre dispositivos). Idempotente.
+    """
+    con.execute(
+        "CREATE TABLE IF NOT EXISTS tags (tag TEXT PRIMARY KEY COLLATE NOCASE, created_at TEXT NOT NULL)"
+    )
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS problem_tags (
+            source TEXT NOT NULL, problem_id TEXT NOT NULL,
+            tag TEXT NOT NULL COLLATE NOCASE,
+            active INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL,
+            PRIMARY KEY (source, problem_id, tag))"""
+    )
+    con.execute(
+        "CREATE INDEX IF NOT EXISTS idx_problem_tags_updated ON problem_tags(updated_at)"
+    )
+    con.execute("PRAGMA user_version = 3")  # T23: sellar la version
+    con.commit()
+    log.info("[migrate] Migraciones completadas (schema_version=3).")
 
 
 def migrate_db():
@@ -783,11 +826,15 @@ def migrate_db():
         # CREATE ... IF NOT EXISTS y dedup re-ejecutable) quedan bajo la
         # version 1. Migraciones futuras: "if version < N: ...; sellar N".
         version = con.execute("PRAGMA user_version").fetchone()[0]
-        if version >= 2:
+        if version >= 3:
             log.info("[migrate] schema_version=%d — nada que migrar.", version)
             return
+        if version >= 2:
+            # T23: v2 ya aplicada — solo falta v3 (tags).
+            _migrate_v3_tags(con)
+            return
         if version >= 1:
-            # T13: v1 ya aplicada — solo falta v2 (problems.hidden).
+            # T13: v1 ya aplicada — solo falta v2 (problems.hidden) (+ v3 encadenada).
             _migrate_v2_hidden(con)
             return
         cols = [r[1] for r in con.execute("PRAGMA table_info(runs)").fetchall()]
@@ -1879,6 +1926,118 @@ def handle_sync_problems_hidden(body):
     return {"hidden": rows, "updated": updated}
 
 
+def _norm_tag(t):
+    """T23: normaliza un nombre de tag; None si no es válido."""
+    if not isinstance(t, str):
+        return None
+    t = " ".join(t.split())
+    if not t or len(t) > 40:
+        return None
+    return t
+
+
+def handle_sync_tags(body):
+    """T23: merge del dominio de tags (UNIÓN: nunca borra). El cliente envía
+    sus tags locales; el servidor inserta los que falten y responde con la
+    lista completa, que el cliente aplica como verdad (borrando solo tags
+    locales ya confirmados que hayan desaparecido, ver doSync)."""
+    tags = body.get("tags")
+    if not isinstance(tags, list):
+        return {"error": "tags (list) required"}, 400
+    normalized = []
+    for t in tags:
+        nt = _norm_tag(t)
+        if nt is None:
+            return {"error": "invalid tag"}, 400
+        normalized.append(nt)
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    added = 0
+    with db_connect() as con:
+        for t in normalized:
+            cur = con.execute("INSERT OR IGNORE INTO tags (tag, created_at) VALUES (?,?)", (t, now))
+            added += cur.rowcount
+        con.commit()
+        rows = [r[0] for r in con.execute("SELECT tag FROM tags ORDER BY tag COLLATE NOCASE").fetchall()]
+    if added:
+        log.info("tags: %d tags nuevos; total=%d", added, len(rows))
+    return {"tags": rows, "added": added}
+
+
+def handle_sync_tags_delete(body):
+    """T23: borra un tag del dominio. 409 si tiene asignaciones activas."""
+    tag = _norm_tag(body.get("tag"))
+    if tag is None:
+        return {"error": "tag required"}, 400
+    with db_connect() as con:
+        in_use = con.execute(
+            "SELECT COUNT(*) FROM problem_tags WHERE tag=? AND active=1", (tag,)
+        ).fetchone()[0]
+        if in_use:
+            return {"error": "tag in use", "in_use": in_use}, 409
+        con.execute("DELETE FROM problem_tags WHERE tag=?", (tag,))  # tombstones inactivos
+        cur = con.execute("DELETE FROM tags WHERE tag=?", (tag,))
+        con.commit()
+        rows = [r[0] for r in con.execute("SELECT tag FROM tags ORDER BY tag COLLATE NOCASE").fetchall()]
+    log.info("tags: borrado %r (%d filas)", tag, cur.rowcount)
+    return {"ok": True, "deleted": cur.rowcount, "tags": rows}
+
+
+def handle_sync_problem_tags_pull(qs):
+    """T23: asignaciones actualizadas desde el cursor (>=, igual que sm2)."""
+    since = qs.get("since", ["1970-01-01T00:00:00Z"])[0]
+    with db_connect() as con:
+        rows = rows_to_list(
+            con.execute(
+                "SELECT source, problem_id, tag, active, updated_at FROM problem_tags WHERE updated_at >= ? ORDER BY updated_at ASC",
+                (since,),
+            ).fetchall()
+        )
+    return {"problem_tags": rows}
+
+
+def handle_sync_problem_tags_push(body):
+    """T23: recibe asignaciones del cliente y aplica LWW por updated_at.
+    Inserta en tags el nombre si faltara (defensivo: nunca asignaciones
+    huérfanas). No crea problems: una asignación a un problem inexistente
+    se ignora (el audit T23b vigila los huérfanos)."""
+    records = body.get("problem_tags", [])
+    if not isinstance(records, list):
+        return {"error": "problem_tags must be a list"}, 400
+    required = ("source", "problem_id", "tag", "active", "updated_at")
+    normalized = []
+    for r in records:
+        if not isinstance(r, dict) or any(f not in r for f in required):
+            return {"error": "invalid problem_tags entry"}, 400
+        tag = _norm_tag(r["tag"])
+        if tag is None or r["active"] not in (0, 1) or not isinstance(r["updated_at"], str):
+            return {"error": "invalid problem_tags entry"}, 400
+        normalized.append((str(r["source"]), str(r["problem_id"]), tag, int(r["active"]), r["updated_at"]))
+    applied = 0
+    with db_connect() as con:
+        for source, problem_id, tag, active, updated_at in normalized:
+            exists_p = con.execute(
+                "SELECT 1 FROM problems WHERE source=? AND problem_id=?", (source, problem_id)
+            ).fetchone()
+            if not exists_p:
+                continue
+            existing = con.execute(
+                "SELECT updated_at FROM problem_tags WHERE source=? AND problem_id=? AND tag=?",
+                (source, problem_id, tag),
+            ).fetchone()
+            if existing is None or updated_at > existing[0]:
+                con.execute("INSERT OR IGNORE INTO tags (tag, created_at) VALUES (?,?)", (tag, updated_at))
+                con.execute(
+                    """INSERT INTO problem_tags (source, problem_id, tag, active, updated_at)
+                       VALUES (?,?,?,?,?)
+                       ON CONFLICT(source, problem_id, tag) DO UPDATE SET
+                         active=excluded.active, updated_at=excluded.updated_at""",
+                    (source, problem_id, tag, active, updated_at),
+                )
+                applied += 1
+        con.commit()
+    return {"ok": True, "applied": applied}
+
+
 GET_ROUTES = {
     "/db/collections": handle_get_collections,
     "/db/chapters": handle_get_chapters,
@@ -1896,6 +2055,7 @@ GET_ROUTES = {
     "/sync/static_version": handle_sync_static_version,
     "/sync/games": handle_sync_games,
     "/sync/sm2/pull": handle_sync_sm2_pull,
+    "/sync/problem_tags/pull": handle_sync_problem_tags_pull,  # T23
 }
 
 
@@ -1907,6 +2067,8 @@ POST_ROUTES = {
     "/sync/check_runs": handle_sync_check_runs,
     "/admin/import_games": handle_admin_import_games,
     "/sync/sm2/push": handle_sync_sm2_push,
+    "/sync/tags/delete": handle_sync_tags_delete,  # T23
+    "/sync/problem_tags/push": handle_sync_problem_tags_push,  # T23
 }
 
 PUT_ROUTES = {
@@ -1914,6 +2076,7 @@ PUT_ROUTES = {
     "/db/chapter/mostrar": handle_put_chapter_mostrar,
     "/sync/chapters_mostrar": handle_sync_chapters_mostrar,
     "/sync/problems_hidden": handle_sync_problems_hidden,  # T13
+    "/sync/tags": handle_sync_tags,  # T23
 }
 
 

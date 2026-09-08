@@ -747,6 +747,10 @@
       border-bottom: none;
     }
 
+    /* T23: chips de etiquetas (config, sidebar y filtro Free) */
+    .tag-chip { display:inline-flex; align-items:center; gap:5px; font-family:var(--mono); font-size:9px; color:var(--gold); border:1px solid var(--gold-dim); border-radius:10px; padding:2px 7px; line-height:1.4; }
+    .tag-chip .tag-x { cursor:pointer; color:var(--dim2); font-size:10px; }
+    .tag-chip .tag-x:hover { color:#e5484d; }
     .cfg-section-title {
       font-family: var(--mono);
       font-size: 10px;
@@ -1332,6 +1336,22 @@
                 Accuracy mínima para pintar stats de verde y excluir del filtro &quot;Needs work&quot;.
               </div>
             </div>
+            <!-- T23: ETIQUETAS -->
+            <div class="cfg-section">
+              <div class="cfg-section-title">Etiquetas (tags)</div>
+              <div style="display:flex;gap:6px;align-items:center">
+                <input id="cfg-tag-new" type="text" maxlength="40" placeholder="Nueva etiqueta (p. ej. ko, seki, tesuji)" autocomplete="off"
+                  style="flex:1;font-family:var(--mono);font-size:9px;background:var(--bg);color:var(--text);border:1px solid var(--border2);padding:5px 8px;border-radius:2px;outline:none;">
+                <button id="cfg-tag-add"
+                  style="font-family:var(--mono);font-size:9px;white-space:nowrap;padding:5px 10px;background:transparent;border:1px solid var(--gold-dim);color:var(--gold);cursor:pointer;border-radius:2px;transition:all .18s;">
+                  + Añadir
+                </button>
+              </div>
+              <div id="cfg-tag-list" style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;min-height:14px"></div>
+              <div style="font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:6px;line-height:1.6">
+                Se asignan desde el panel &quot;Problem&quot; (Run o Free). Borrar una etiqueta requiere conexión y que ningún problema la tenga asignada.
+              </div>
+            </div>
             <!-- CACHE SGF -->
             <div class="cfg-section">
 			  <div class="cfg-section-title">Cache offline</div>
@@ -1495,6 +1515,14 @@
           <div class="fp-label">Problem ID</div>
           <input class="fsel" id="fp-problem-id" type="text" placeholder="e.g. 42 or lvl_20k_013" style="cursor:text;">
         </div>
+        <!-- T23: filtro por etiquetas (OR entre marcadas, AND con el resto); ninguna marcada = All -->
+        <div class="fp-section">
+          <div class="fp-label" style="display:flex;justify-content:space-between;align-items:center;">
+            <span>Tags</span>
+            <span id="fp-tags-clear" style="text-transform:none;letter-spacing:normal;color:var(--dim);cursor:pointer;text-decoration:underline;">Clear</span>
+          </div>
+          <div id="fp-tags-list" style="max-height:110px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;border:1px solid var(--border2);border-radius:2px;padding:4px 8px;font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:4px;"></div>
+        </div>
         <div class="fp-section">
           <div class="fp-label">Status</div>
           <select class="fsel" id="fp-status">
@@ -1642,6 +1670,9 @@
         <div class="sb-row">Chapter&nbsp; <span class="v" id="pi-chap">—</span></div>
         <div class="sb-row">Diff&nbsp;&nbsp;&nbsp;&nbsp; <span class="vg" id="pi-diff">—</span></div>
         <div class="sb-row">Color&nbsp;&nbsp;&nbsp; <span class="v" id="pi-color">—</span></div>
+        <!-- T23: etiquetas del problema actual (Run y Free); editor desplegable -->
+        <div class="sb-row" style="display:flex;align-items:flex-start;gap:6px;">Tags&nbsp;&nbsp;&nbsp;&nbsp; <span class="v" id="pi-tags" style="display:flex;flex-wrap:wrap;gap:4px;align-items:center;line-height:1.4;padding-top:5px;">—</span></div>
+        <div id="pi-tags-editor" data-pid="" style="display:none;margin:2px 0 6px 0;padding:6px 8px;border:1px solid var(--border2);border-radius:2px;font-family:var(--mono);font-size:10px;color:var(--dim);max-height:140px;overflow-y:auto;scrollbar-width:thin;"></div>
       </div>
       <div class="sb-section">
         <div class="sb-label">Problem stats</div>
@@ -1685,7 +1716,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260902-0033';
+	const SW_VERSION = 'tsumevault-20260908-1314';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1990,6 +2021,12 @@
       try { migrateSyncMeta(); } catch (e) { console.warn('[migrate] sync_meta migration failed', e); }
       // F5 (§12.5): analítica local de evolución de madurez (no se sincroniza)
       try { dbExec('CREATE TABLE IF NOT EXISTS daily_stats (date TEXT NOT NULL, source TEXT NOT NULL, dominated INTEGER NOT NULL DEFAULT 0, seen INTEGER NOT NULL DEFAULT 0, total INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (date, source))'); } catch (e) { }
+      // T23: etiquetas de problemas (instalaciones existentes; mismo DDL que createSchema)
+      try {
+        dbExec('CREATE TABLE IF NOT EXISTS tags (tag TEXT PRIMARY KEY COLLATE NOCASE, synced INTEGER NOT NULL DEFAULT 0)');
+        dbExec('CREATE TABLE IF NOT EXISTS problem_tags (source TEXT NOT NULL, problem_id TEXT NOT NULL, tag TEXT NOT NULL COLLATE NOCASE, active INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (source, problem_id, tag))');
+        dbExec('CREATE INDEX IF NOT EXISTS idx_problem_tags_updated ON problem_tags(updated_at)');
+      } catch (e) { console.warn('[migrate] tags tables failed', e); }
     }
 
     // ── T9: cursores de sync DENTRO de la DB (tabla sync_meta) ──
@@ -2098,6 +2135,15 @@
       PRIMARY KEY (source, problem_id)
     );
     CREATE INDEX IF NOT EXISTS idx_sm2_updated ON sm2_state(updated_at);
+    -- T23: etiquetas. tags.synced: 0=creado localmente pendiente, 1=confirmado por servidor.
+    -- problem_tags.active: 1=asignado, 0=tombstone (retirado); synced igual que attempts.
+    CREATE TABLE IF NOT EXISTS tags (tag TEXT PRIMARY KEY COLLATE NOCASE, synced INTEGER NOT NULL DEFAULT 0);
+    CREATE TABLE IF NOT EXISTS problem_tags (
+      source TEXT NOT NULL, problem_id TEXT NOT NULL, tag TEXT NOT NULL COLLATE NOCASE,
+      active INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0,
+      PRIMARY KEY (source, problem_id, tag)
+    );
+    CREATE INDEX IF NOT EXISTS idx_problem_tags_updated ON problem_tags(updated_at);
   `);
     }
 
@@ -2260,7 +2306,7 @@
     // siempre dentro de la misma coleccion (el caller la fija via set_id).
     // Tiene prioridad sobre chapter_id (que se mantiene para compat con
     // practiceChapterFree y llamadas de un solo capitulo).
-    function localGetProblems(source, { set_id, chapter_id, chapter_ids, onlyVisible } = {}) {
+    function localGetProblems(source, { set_id, chapter_id, chapter_ids, onlyVisible, tags } = {}) {
       let sql = `SELECT p.*, COALESCE(s.total_attempts,0) AS total_attempts, COALESCE(s.total_correct,0) AS total_correct, COALESCE(s.pct_correct,0) AS pct_correct, s.last_seen FROM problems p LEFT JOIN chapters ch ON ch.id=p.chapter_id LEFT JOIN (SELECT source,problem_id,COUNT(*) AS total_attempts,SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS total_correct,ROUND(AVG(CASE WHEN result='correct' THEN 100.0 ELSE 0 END),1) AS pct_correct,MAX(created_at) AS last_seen FROM attempts WHERE run_id IS NOT NULL GROUP BY source,problem_id) s ON p.source=s.source AND p.problem_id=s.problem_id WHERE p.source=? AND p.hidden=0`;
       const params = [source];
       let multiChap = false;
@@ -2268,12 +2314,45 @@
       else if (chapter_id) { sql += ' AND p.chapter_id=?'; params.push(chapter_id); }
       else if (set_id) { sql += ' AND p.set_id=?'; params.push(set_id); }
       if (onlyVisible) { sql += ' AND ch.mostrar=1'; }
+      // T23: filtro por etiquetas (OR entre las elegidas, AND con el resto)
+      if (tags && tags.length) { sql += ` AND EXISTS (SELECT 1 FROM problem_tags pt WHERE pt.source=p.source AND pt.problem_id=p.problem_id AND pt.active=1 AND pt.tag IN (${tags.map(() => '?').join(',')}))`; params.push(...tags); }
       // F11: con varios capitulos elegidos a la vez, agrupar por nombre de
       // chapter (alfabetico, igual que el checklist de seleccion) y dentro de
       // cada uno mantener el orden de siempre (order_in_chapter). El resto de
       // casos (un chapter, una coleccion entera, o 'todas') no cambian.
       sql += multiChap ? ' ORDER BY ch.name ASC, p.order_in_chapter ASC' : ' ORDER BY p.order_in_chapter ASC';
       return dbQuery(sql, params);
+    }
+    // ── T23: etiquetas — API local (el sync vive en el bloque T23 de doSync) ──
+    // tags.synced: 0 = creado localmente, pendiente; 1 = confirmado por servidor.
+    // problem_tags.active: 1 = asignado, 0 = tombstone (retirado); synced idem.
+    function normTag(t) { const s = String(t ?? '').trim().replace(/\s+/g, ' '); return (s && s.length <= 40) ? s : null; }
+    function localGetTags() { return dbQuery('SELECT tag FROM tags ORDER BY tag COLLATE NOCASE', []).map(r => r.tag); }
+    function localAddTag(name) {
+      const t = normTag(name); if (!t) return null;
+      const ex = dbQueryOne('SELECT tag FROM tags WHERE tag=?', [t]);   // PK NOCASE: 'Ko' == 'ko'
+      if (ex) return ex.tag;
+      dbExec('INSERT INTO tags (tag, synced) VALUES (?,0)', [t]);
+      return t;
+    }
+    function localTagInUse(tag) { return dbQueryOne('SELECT COUNT(*) AS c FROM problem_tags WHERE tag=? AND active=1', [tag])?.c || 0; }
+    function localGetProblemTags(source, problem_id) {
+      return dbQuery('SELECT tag FROM problem_tags WHERE source=? AND problem_id=? AND active=1 ORDER BY tag COLLATE NOCASE', [source, String(problem_id)]).map(r => r.tag);
+    }
+    // Devuelve true si cambio algo. updated_at siempre estrictamente mayor que
+    // el anterior de la fila (resolucion de segundo): dos toggles en el mismo
+    // segundo se ordenarian igual en el servidor (LWW usa '>').
+    function localSetProblemTag(source, problem_id, tag, active) {
+      const t = normTag(tag); if (!t) return false;
+      const pid = String(problem_id), a = active ? 1 : 0;
+      const ex = dbQueryOne('SELECT active, updated_at FROM problem_tags WHERE source=? AND problem_id=? AND tag=?', [source, pid, t]);
+      if (ex && ex.active === a) return false;
+      let now = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+      if (ex && now <= ex.updated_at) now = new Date(Date.parse(ex.updated_at) + 1000).toISOString().replace(/\.\d+Z$/, 'Z');
+      dbExec('INSERT OR IGNORE INTO tags (tag, synced) VALUES (?,0)', [t]);   // nunca asignaciones huerfanas
+      dbExec(`INSERT INTO problem_tags (source, problem_id, tag, active, updated_at, synced) VALUES (?,?,?,?,?,0)
+        ON CONFLICT(source, problem_id, tag) DO UPDATE SET active=excluded.active, updated_at=excluded.updated_at, synced=0`, [source, pid, t, a, now]);
+      return true;
     }
     function localGetProblem(source, problem_id) {
       return dbQueryOne(`
@@ -3002,6 +3081,84 @@
           }
         }
       } catch (_) { }
+      // ── T23: Sync etiquetas ──
+      // (1) Dominio: se empujan SOLO los tags locales pendientes (synced=0;
+      // empujar la lista completa resucitaria en el servidor un tag borrado
+      // desde otro dispositivo, bug cazado por el harness T23). La respuesta
+      // es la verdad: los que faltan se crean (synced=1); los locales
+      // CONFIRMADOS (synced=1) ausentes de la respuesta se borran (borrado
+      // hecho desde otro dispositivo); los pendientes no enviados en este
+      // vuelo se conservan. Servidor viejo: 404 -> no-op.
+      // (2) Asignaciones (problem_tags): pull con cursor last_tags_sync en
+      // sync_meta (>=, LWW por updated_at, como sm2_state) y push de las filas
+      // con synced=0 (flag local: NO depende del reloj del cliente, a
+      // diferencia del push de sm2, para que un reloj atrasado no deje filas
+      // sin enviar jamas). active=0 es un tombstone que propaga la retirada.
+      // El cursor solo avanza si el push tuvo exito.
+      try {
+        const localTags = dbQuery('SELECT tag, synced FROM tags', []);
+        const pendingTags = localTags.filter(r => r.synced === 0).map(r => r.tag);
+        const tR = await syncFetch(`/sync/tags`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ tags: pendingTags }),
+          signal: AbortSignal.timeout(8000)
+        });
+        if (tR.ok) {
+          const { tags: srvTags } = await tR.json();
+          if (Array.isArray(srvTags)) {
+            const keep = new Set(srvTags.map(t => String(t).toLowerCase()));
+            for (const { tag: t, synced } of localTags) {
+              if (keep.has(t.toLowerCase())) dbExec('UPDATE tags SET synced=1 WHERE tag=?', [t]);
+              else if (synced === 1) dbExec('DELETE FROM tags WHERE tag=?', [t]);
+            }
+            for (const t of srvTags) dbExec('INSERT OR IGNORE INTO tags (tag, synced) VALUES (?,1)', [t]);
+          }
+        }
+      } catch (e) { console.warn('[sync] tags sync failed', e); }
+      try {
+        const haveTags = (dbQueryOne('SELECT COUNT(*) AS c FROM problem_tags', [])?.c || 0) > 0;
+        const lastTagsSync = haveTags ? (getSyncMeta('last_tags_sync') || '1970-01-01T00:00:00Z') : '1970-01-01T00:00:00Z';
+        let tagsCursor = lastTagsSync;
+        const ptPullR = await syncFetch(`/sync/problem_tags/pull?since=${encodeURIComponent(lastTagsSync)}`, {
+          signal: AbortSignal.timeout(8000)
+        });
+        if (ptPullR.ok) {
+          const { problem_tags: pulled } = await ptPullR.json();
+          for (const r of (pulled || [])) {
+            if (r.updated_at > tagsCursor) tagsCursor = r.updated_at;
+            const existing = dbQueryOne('SELECT updated_at FROM problem_tags WHERE source=? AND problem_id=? AND tag=?', [r.source, r.problem_id, r.tag]);
+            if (!existing || r.updated_at > existing.updated_at) {
+              dbExec('INSERT OR IGNORE INTO tags (tag, synced) VALUES (?,1)', [r.tag]);
+              dbExec(`
+                INSERT INTO problem_tags (source, problem_id, tag, active, updated_at, synced)
+                VALUES (?, ?, ?, ?, ?, 1)
+                ON CONFLICT(source, problem_id, tag) DO UPDATE SET
+                  active = excluded.active, updated_at = excluded.updated_at, synced = 1
+              `, [r.source, r.problem_id, r.tag, r.active, r.updated_at]);
+            }
+          }
+          const pendingPt = dbQuery('SELECT source, problem_id, tag, active, updated_at FROM problem_tags WHERE synced=0', []);
+          let ptPushOk = true;
+          if (pendingPt.length > 0) {
+            const ptPushR = await syncFetch(`/sync/problem_tags/push`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ problem_tags: pendingPt }),
+              signal: AbortSignal.timeout(8000)
+            });
+            ptPushOk = ptPushR.ok;
+            if (ptPushR.ok) {
+              for (const r of pendingPt) {
+                if (r.updated_at > tagsCursor) tagsCursor = r.updated_at;
+                // solo la fila enviada (misma updated_at): una modificacion en vuelo queda pendiente
+                dbExec('UPDATE problem_tags SET synced=1 WHERE source=? AND problem_id=? AND tag=? AND updated_at=?', [r.source, r.problem_id, r.tag, r.updated_at]);
+              }
+            }
+          }
+          if (ptPushOk && tagsCursor > lastTagsSync) cursorUpdates['last_tags_sync'] = tagsCursor;
+        }
+      } catch (e) { console.warn('[sync] problem_tags sync failed', e); }
       // ── Sync SM-2 ──
       // Fase 1 (3.10, solo el cursor): last_sm2_sync ya NO se fija con el reloj
       // del cliente (un reloj adelantado saltaba para siempre registros del
@@ -3292,6 +3449,101 @@
       document.getElementById('cfg-sync-url').value = SYNC_SERVER;
     });
 
+    // ── T23: gestion del dominio de etiquetas (modal ⚙) ──
+    // Crear: local (synced=0) + push en el proximo sync (union). Borrar: solo
+    // con conexion y sin asignaciones activas (local y en servidor: 409).
+    function refreshTagViews() {
+      renderCfgTags();
+      if (typeof renderProblemTags === 'function') renderProblemTags();     // F5 sidebar
+      if (typeof renderFreeTagList === 'function') renderFreeTagList();     // F6 filtro Free
+    }
+    function renderCfgTags() {
+      const box = document.getElementById('cfg-tag-list'); if (!box) return;
+      box.innerHTML = '';
+      const tags = db ? localGetTags() : [];
+      if (!tags.length) { const e = document.createElement('span'); e.style.cssText = 'font-family:var(--mono);font-size:9px;color:var(--dim2)'; e.textContent = 'Sin etiquetas todavía'; box.appendChild(e); return; }
+      for (const t of tags) {
+        const chip = document.createElement('span'); chip.className = 'tag-chip';
+        const name = document.createElement('span'); name.textContent = t;
+        const n = localTagInUse(t); if (n) { const c = document.createElement('span'); c.style.color = 'var(--dim2)'; c.textContent = `×${n}`; name.appendChild(c); }
+        const x = document.createElement('span'); x.className = 'tag-x'; x.textContent = '✕'; x.title = 'Borrar etiqueta';
+        x.addEventListener('click', () => cfgDeleteTag(t));
+        chip.appendChild(name); chip.appendChild(x); box.appendChild(chip);
+      }
+    }
+    function cfgAddTag() {
+      const inp = document.getElementById('cfg-tag-new');
+      const t = normTag(inp.value);
+      if (!t) { alert('Nombre de etiqueta no válido (1–40 caracteres).'); return; }
+      localAddTag(t); inp.value = '';
+      saveDB().catch(() => { });
+      refreshTagViews();
+      tryAutoSync(true).catch(() => { });
+    }
+    async function cfgDeleteTag(tag) {
+      const n = localTagInUse(tag);
+      if (n) { alert(`"${tag}" está asignada a ${n} problema(s). Retírala antes de borrarla.`); return; }
+      if (!confirm(`¿Borrar la etiqueta "${tag}"?`)) return;
+      const local = dbQueryOne('SELECT synced FROM tags WHERE tag=?', [tag]);
+      if (local && local.synced === 1) {
+        // confirmada por el servidor: borrar alli primero (409 si en uso en otro dispositivo)
+        try {
+          const r = await syncFetch('/sync/tags/delete', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ tag }), signal: AbortSignal.timeout(8000) });
+          if (r.status === 409) { const b = await r.json().catch(() => ({})); alert(`El servidor tiene "${tag}" asignada a ${b.in_use ?? '?'} problema(s) (otro dispositivo). Sincroniza y retírala antes.`); return; }
+          if (!r.ok) { alert('El servidor rechazó el borrado (' + r.status + ').'); return; }
+        } catch (e) { alert('Borrar una etiqueta requiere conexión con el servidor.'); return; }
+      }
+      dbExec('DELETE FROM problem_tags WHERE tag=?', [tag]);   // solo tombstones (in_use=0)
+      dbExec('DELETE FROM tags WHERE tag=?', [tag]);
+      saveDB().catch(() => { });
+      refreshTagViews();
+    }
+    // ── T23: etiquetas del problema actual (sidebar #prob-info; Run y Free) ──
+    // Cada chip con ✕ retira la etiqueta; '🏷 +' despliega el editor con el
+    // dominio completo. Los nodos se reconstruyen en cada render: listener
+    // fresco por nodo (no hace falta dataset.bound). No para el cronometro.
+    function renderProblemTags() {
+      const box = document.getElementById('pi-tags'), ed = document.getElementById('pi-tags-editor');
+      if (!box || !ed) return;
+      box.innerHTML = '';
+      if (!currentProblem || !db) { box.textContent = '—'; ed.style.display = 'none'; ed.dataset.pid = ''; return; }
+      const src = currentProblem.source || currentSource, pid = String(currentProblem.problem_id);
+      if (ed.dataset.pid !== src + '|' + pid) { ed.style.display = 'none'; ed.dataset.pid = src + '|' + pid; }   // cambio de problema: cerrar editor
+      for (const t of localGetProblemTags(src, pid)) {
+        const chip = document.createElement('span'); chip.className = 'tag-chip';
+        const name = document.createElement('span'); name.textContent = t;
+        const x = document.createElement('span'); x.className = 'tag-x'; x.textContent = '✕'; x.title = 'Quitar etiqueta';
+        x.addEventListener('click', () => toggleProblemTag(t, false));
+        chip.appendChild(name); chip.appendChild(x); box.appendChild(chip);
+      }
+      const btn = document.createElement('span'); btn.className = 'tag-chip'; btn.style.cursor = 'pointer'; btn.textContent = '🏷 +'; btn.title = 'Asignar etiquetas';
+      btn.addEventListener('click', () => { ed.style.display = ed.style.display === 'none' ? '' : 'none'; renderProblemTagEditor(); });
+      box.appendChild(btn);
+      if (ed.style.display !== 'none') renderProblemTagEditor();
+    }
+    function renderProblemTagEditor() {
+      const ed = document.getElementById('pi-tags-editor'); if (!ed || !currentProblem) return;
+      ed.innerHTML = '';
+      const all = localGetTags();
+      if (!all.length) { ed.textContent = 'Sin etiquetas definidas: créalas en ⚙ Settings.'; return; }
+      const src = currentProblem.source || currentSource, pid = String(currentProblem.problem_id);
+      const mine = new Set(localGetProblemTags(src, pid).map(t => t.toLowerCase()));
+      for (const t of all) {
+        const lab = document.createElement('label'); lab.style.cssText = 'display:flex;align-items:center;gap:6px;cursor:pointer;line-height:1.8;';
+        const cb = document.createElement('input'); cb.type = 'checkbox'; cb.style.accentColor = 'var(--gold)'; cb.checked = mine.has(t.toLowerCase());
+        cb.addEventListener('change', () => toggleProblemTag(t, cb.checked));
+        const tx = document.createElement('span'); tx.textContent = t;
+        lab.appendChild(cb); lab.appendChild(tx); ed.appendChild(lab);
+      }
+    }
+    function toggleProblemTag(tag, active) {
+      if (!currentProblem || !db) return;
+      const src = currentProblem.source || currentSource;
+      if (!localSetProblemTag(src, currentProblem.problem_id, tag, active)) return;
+      scheduleSaveDB();
+      renderProblemTags();
+      tryAutoSync(true).catch(() => { });   // con conexion, el push es inmediato
+    }
     async function openConfig() {
       document.getElementById('cfg-overlay').classList.add('open');
       document.getElementById('cfg-sync-url').value = SYNC_SERVER;
@@ -3301,6 +3553,11 @@
       renderBoardNav();
       renderStonesNav();
       loadSyncPresets();
+      // T23: etiquetas (listeners con guard dataset.bound: el modal persiste)
+      renderCfgTags();
+      const tagAdd = document.getElementById('cfg-tag-add'), tagNew = document.getElementById('cfg-tag-new');
+      if (!tagAdd.dataset.bound) { tagAdd.dataset.bound = '1'; tagAdd.addEventListener('click', cfgAddTag); }
+      if (!tagNew.dataset.bound) { tagNew.dataset.bound = '1'; tagNew.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') { ev.preventDefault(); cfgAddTag(); } }); }
       document.getElementById('cfg-filter-mostrar').checked = filterMostrar;
       document.getElementById('cfg-sound-enabled').checked = soundEnabled;
       document.getElementById('cfg-sfx-volume').value = sfxVolume;
@@ -3860,6 +4117,7 @@
       const ok = await tryAutoSync(false);
       if (ok) {
         loadCollections();
+        refreshTagViews();   // T23: etiquetas recibidas de otros dispositivos
         if (activeRunId) runItems = localGetRunItems(activeRunId);
         if (document.querySelector('.tab[data-tab="runs"].active')) loadRuns();
       } else if (lastSyncError) {
@@ -4426,6 +4684,25 @@
       // como el checklist de capitulos de la coleccion actualmente elegida.
       if (!fpVisible.dataset.bound) { fpVisible.dataset.bound = '1'; fpVisible.addEventListener('change', () => { refreshFreeCollectionOptions(); renderFreeChapterList(); }); }
       if (fpChapClear && !fpChapClear.dataset.bound) { fpChapClear.dataset.bound = '1'; fpChapClear.addEventListener('click', () => { document.querySelectorAll('#fp-chap-list input:checked').forEach(cb => cb.checked = false); }); }
+      // T23: checklist de etiquetas
+      renderFreeTagList();
+      const fpTagsClear = document.getElementById('fp-tags-clear');
+      if (fpTagsClear && !fpTagsClear.dataset.bound) { fpTagsClear.dataset.bound = '1'; fpTagsClear.addEventListener('click', () => { document.querySelectorAll('#fp-tags-list input:checked').forEach(cb => cb.checked = false); }); }
+    }
+    // T23: reconstruye #fp-tags-list conservando lo marcado (se llama al abrir
+    // Free y cada vez que cambia el dominio de etiquetas).
+    function renderFreeTagList() {
+      const box = document.getElementById('fp-tags-list'); if (!box || !db) return;
+      const checked = new Set([...box.querySelectorAll('input:checked')].map(cb => cb.value.toLowerCase()));
+      box.innerHTML = '';
+      const tags = localGetTags();
+      if (!tags.length) { const e = document.createElement('span'); e.style.color = 'var(--dim2)'; e.textContent = 'No tags defined (⚙ Settings)'; box.appendChild(e); return; }
+      for (const t of tags) {
+        const lab = document.createElement('label'); lab.style.cssText = 'display:flex;align-items:center;gap:6px;cursor:pointer;line-height:1.8;';
+        const cb = document.createElement('input'); cb.type = 'checkbox'; cb.value = t; cb.style.accentColor = 'var(--gold)'; cb.checked = checked.has(t.toLowerCase());
+        const tx = document.createElement('span'); tx.textContent = t;
+        lab.appendChild(cb); lab.appendChild(tx); box.appendChild(lab);
+      }
     }
     // F11: reconstruye #fp-col. Si 'Only visible chapters' esta marcado,
     // excluye colecciones sin ningun capitulo con mostrar=1 (mismo criterio
@@ -4499,6 +4776,7 @@
       document.getElementById('fp-diff-max').value = '';
       document.getElementById('fp-problem-id').value = '';
       document.getElementById('fp-status').value = '';
+      document.querySelectorAll('#fp-tags-list input:checked').forEach(cb => cb.checked = false);   // T23
       switchTab('free');
       await startFreePractice();
     }
@@ -4511,8 +4789,9 @@
       const problemIdFilter = document.getElementById('fp-problem-id').value.trim(), status = document.getElementById('fp-status').value;
       const order = document.getElementById('fp-order').value;
       const onlyVisible = document.getElementById('fp-visible').checked;
+      const tagSel = [...document.querySelectorAll('#fp-tags-list input:checked')].map(cb => cb.value);   // T23: ninguna = All
       try {
-        let problems = localGetProblems(currentSource, { set_id: setId ? parseInt(setId) : undefined, chapter_ids: chapIds.length ? chapIds : undefined, onlyVisible });
+        let problems = localGetProblems(currentSource, { set_id: setId ? parseInt(setId) : undefined, chapter_ids: chapIds.length ? chapIds : undefined, onlyVisible, tags: tagSel.length ? tagSel : undefined });
         if (diffMin) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num >= parseInt(diffMin));
         if (diffMax) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num <= parseInt(diffMax));
         if (problemIdFilter) problems = problems.filter(p => String(p.problem_id).toLowerCase().includes(problemIdFilter.toLowerCase()));
@@ -4929,6 +5208,7 @@
     }
     function clearSidebar() {
       ['pi-id', 'pi-col', 'pi-chap', 'pi-diff', 'pi-color', 'ps-seen', 'ps-ok', 'ps-no', 'ps-pct', 'ps-ms', 'ps-streak', 'ps-nextin'].forEach(id => document.getElementById(id).textContent = '—');
+      { const b = document.getElementById('pi-tags'), e = document.getElementById('pi-tags-editor'); if (b) b.textContent = '—'; if (e) { e.style.display = 'none'; e.dataset.pid = ''; } }   // T23
     }
     async function endRun() {
       if (activeRunId) { try { localUpdateRunStatus(activeRunId, 'closed'); await saveDB(); tryAutoSync(); } catch (e) { } activeRunId = null; }
@@ -5106,6 +5386,7 @@
       document.getElementById('pi-chap').textContent = prob.chapter_name || (prob.chapter_num != null ? `Ch ${prob.chapter_num}` : '—');
       document.getElementById('pi-diff').textContent = diffLabel(prob.difficulty_num);
       document.getElementById('pi-color').textContent = prob.color_to_play === 'B' ? '● Black' : prob.color_to_play === 'W' ? '○ White' : '—';
+      renderProblemTags();   // T23
       document.getElementById('ps-seen').textContent = prob.total_attempts || '—';
       document.getElementById('ps-ok').textContent = prob.total_correct || '—';
       document.getElementById('ps-no').textContent = prob.total_attempts != null ? (prob.total_attempts - prob.total_correct) || '0' : '—';
