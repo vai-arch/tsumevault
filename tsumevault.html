@@ -1184,6 +1184,7 @@
         <option value="many_faces">many_faces</option>
         <option value="go_problems">go_problems</option>
         <option value="101_weiqi">101_weiqi</option>
+        <option value="101_weiqi">my_collections</option>
       </select>
       <div style="flex:1"></div>
       <button id="stats-btn" onclick="openStats()" title="Statistics" style="background:transparent;border:1px solid var(--border2);color:var(--dim);font-size:15px;cursor:pointer;padding:4px 9px;border-radius:2px;transition:all .15s;margin-right:6px;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">📊</button>
@@ -1729,7 +1730,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260913-1710';
+	const SW_VERSION = 'tsumevault-20260914-0057';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
