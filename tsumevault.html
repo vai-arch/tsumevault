@@ -1730,7 +1730,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260914-1029';
+	const SW_VERSION = 'tsumevault-20260914-1358';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1766,6 +1766,7 @@
     let pausedAt = 0, totalPaused = 0, isPaused = false;
     let activeRunId = null, runItems = [], runIdx = -1, runMode = false, problemStartTime = 0;
     let tapToAdvance = false;                                   // F2 (§12.2): pausa en fallo durante runs
+    let everWrong = false;                                      // T25: hubo al menos un fallo en ESTE problema. A diferencia de hadWrong (closure, lo resetea Restart), sobrevive a Restart/Back y solo muere al cargar otro problema.
     let freeMode = false;                                       // F7: Free Practice pura (distinto de runMode/Review)
     let retryQueue = [], retryQueued = new Set(), retryPhase = false; // F3 (§12.3): cola de repesca
     let secondChance = localStorage.getItem('second_chance') === 'true';
@@ -1777,6 +1778,7 @@
       stone: new Audio('audio/stone.mp3'),
       right: new Audio('audio/right.mp3'),
       wrong: new Audio('audio/wrong.mp3'),
+      variant: new Audio('audio/variant.mp3'),   // T26: paso a una variante del MISMO problema (no es el cierre del problema)
     };
     function playSound(n) { if (!soundEnabled) return; try { SFX[n].currentTime = 0; SFX[n].volume = sfxVolume / 100; SFX[n].play(); } catch (e) { } }
 
@@ -5446,7 +5448,7 @@
       const cb = document.getElementById('comment-box'); cb.textContent = node.comment || '';
     }
     function renderProblem(prob) {
-      currentProblem = prob; waitingForNext = false;
+      currentProblem = prob; waitingForNext = false; everWrong = false; // T25: el flag de fallo muere aqui, no en Restart/Back
       const root = prob.tree, size = prob.size || 19;
       if (!wgoBoard || boardSize !== size) initBoard(size);
       renderSetup(root); renderLabels(root);
@@ -5538,7 +5540,7 @@
       function checkResult(node) {
         const comment = (node.comment || '').trim().toUpperCase();
         if (comment.startsWith('RIGHT')) { finishCorrect(node.comment); return true; } // T24: cierre centralizado (puede ser un ✓ intermedio)
-        if (comment.startsWith('WRONG')) { showResult(false, node.comment); if (!hadWrong) { recordAttempt('wrong'); } hadWrong = true; updateSessionUI(); return true; }
+        if (comment.startsWith('WRONG')) { everWrong = true; showResult(false, node.comment); if (!hadWrong) { recordAttempt('wrong'); } hadWrong = true; updateSessionUI(); return true; }
         return false;
       }
       // T24: cierre correcto centralizado. Si quedan alternativas del oponente
@@ -5555,7 +5557,7 @@
         showResult(true, comment); if (!hadWrong) { recordAttempt('correct'); /* T1/3.5: recordAttempt ya incrementa sessionOk cuando !runMode */ } updateSessionUI();
       }
       function branchTransition(comment) {
-        answered = true; hintMarker = null; playSound('right');
+        answered = true; hintMarker = null; playSound('variant'); // T26: sonido propio — sonaba 'right', identico al cierre real del problema, y no se distinguia de haber terminado
         const flash = document.getElementById('result-flash');
         flash.textContent = '✓'; flash.style.color = 'var(--ok-bright)'; flash.className = 'show';
         setTimeout(() => { flash.className = 'hide'; }, 800);
@@ -5692,7 +5694,18 @@
       // usuario decide cuando pasar via Prev/Next/lista. Review (freeMode
       // false, runMode false) sigue igual que siempre en la rama de abajo.
       else if (freeMode) { /* sin auto-avance */ }
-      else if (isRight && !currentProblem._isReveal) { setTimeout(() => { if (waitingForNext) nextProblem(); }, NEXT_DELAY_MS); }
+      // T25: Review. El acierto a la primera auto-avanza como siempre. Si hubo
+      // algun fallo en este problema (everWrong), el acierto NO auto-avanza: la
+      // posicion resuelta y el comentario se quedan para poder estudiarlos, y se
+      // avanza a mano con -> Next o tocando el tablero (mismo mecanismo
+      // tapToAdvance que usa Run en el fallo).
+      else if (isRight && !currentProblem._isReveal) {
+        if (everWrong) {
+          tapToAdvance = true;
+          const hint = document.getElementById('board-hint');
+          if (hint) hint.textContent = 'Solved — tap board or Next →';
+        } else { setTimeout(() => { if (waitingForNext) nextProblem(); }, NEXT_DELAY_MS); }
+      }
     }
     function togglePause() {
       if (!currentProblem || waitingForNext) return;

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'tsumevault-20260914-1029';
+const CACHE_VERSION = 'tsumevault-20260914-1358';
 
 const STATIC_ASSETS = [
   '/tsumevault/tsumevault.html',
@@ -8,6 +8,7 @@ const STATIC_ASSETS = [
   '/tsumevault/audio/stone.mp3',
   '/tsumevault/audio/right.mp3',
   '/tsumevault/audio/wrong.mp3',
+  '/tsumevault/audio/variant.mp3',
   '/tsumevault/img/icons/icon-192.png',
   '/tsumevault/img/icons/icon-512.png',
 ];
