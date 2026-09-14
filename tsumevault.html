@@ -1730,7 +1730,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260914-0749';
+	const SW_VERSION = 'tsumevault-20260914-1029';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -5501,6 +5501,7 @@
     function setupInteractiveMode(root, playerC) {
       let firstMoveDone = false, currentNode = root, attemptRecorded = false, answered = false, hadWrong = false, hintMarker = null;
       const history = []; let lastMoveMarker = null;
+      const owed = []; const branchSeen = new Set(); let branchTimer = null; // T24: alternativas del oponente pendientes {node, idx, snap} (LIFO), puntos de rama ya registrados, timer de la transicion
       const { black: setupB, white: setupW } = getSetupStones(root);
       let game = new WGo.Game(boardSize); game.allow_rewrite = true;
       for (const s of setupB) game.setStone(s.x, s.y, WGo.B);
@@ -5536,13 +5537,58 @@
       }
       function checkResult(node) {
         const comment = (node.comment || '').trim().toUpperCase();
-        if (comment.startsWith('RIGHT')) { showResult(true, node.comment); if (!hadWrong) { recordAttempt('correct'); } updateSessionUI(); return true; }
+        if (comment.startsWith('RIGHT')) { finishCorrect(node.comment); return true; } // T24: cierre centralizado (puede ser un ✓ intermedio)
         if (comment.startsWith('WRONG')) { showResult(false, node.comment); if (!hadWrong) { recordAttempt('wrong'); } hadWrong = true; updateSessionUI(); return true; }
         return false;
       }
-      function playOpponent(node) {
-        if (!node.children || !node.children.length) { showResult(true, ''); if (!hadWrong) { recordAttempt('correct'); /* T1/3.5: recordAttempt ya incrementa sessionOk cuando !runMode; el sessionOk++ extra de esta rama duplicaba el contador de sesion */ } updateSessionUI(); return; }
-        const oppNode = node.children[0];
+      // T24: cierre correcto centralizado. Si quedan alternativas del oponente
+      // pendientes (owed), el ✓ es intermedio: NO se registra el intento y NO se
+      // llama a showResult (pondria waitingForNext y auto-avanzaria en Run/Review);
+      // se salta al punto de rama y se juega la siguiente alternativa. El intento
+      // ('correct' o 'wrong') es uno solo y abarca todas las ramas (SM-2/racha/time_ms).
+      function finishCorrect(comment) {
+        if (owed.length) { branchTransition(comment); return; }
+        // T24.1: hubo ramas y ya estan todas resueltas -> cierre explicito. Si el nodo
+        // final trae texto se muestra ese; si viene vacio ('RIGHT' a secas o hoja sin
+        // hijos) se escribe el cierre propio, porque showResult no tocaria la caja.
+        if (branchSeen.size) { const cb = document.getElementById('comment-box'); const clean = (comment || '').replace(/^RIGHT\s*/i, '').trim(); cb.textContent = clean || 'Correct — all variations solved'; cb.style.display = 'block'; }
+        showResult(true, comment); if (!hadWrong) { recordAttempt('correct'); /* T1/3.5: recordAttempt ya incrementa sessionOk cuando !runMode */ } updateSessionUI();
+      }
+      function branchTransition(comment) {
+        answered = true; hintMarker = null; playSound('right');
+        const flash = document.getElementById('result-flash');
+        flash.textContent = '✓'; flash.style.color = 'var(--ok-bright)'; flash.className = 'show';
+        setTimeout(() => { flash.className = 'hide'; }, 800);
+        const cb = document.getElementById('comment-box');
+        const clean = (comment || '').replace(/^RIGHT\s*/i, '').trim();
+        cb.textContent = (clean ? clean + ' — ' : 'Correct — ') + 'but what if the opponent plays elsewhere?'; cb.style.display = 'block';
+        branchTimer = setTimeout(() => {
+          branchTimer = null;
+          if (!currentProblem || currentProblem.tree !== root) return; // el problema ya cambio (Next en Free): timer obsoleto
+          const e = owed.pop();
+          restoreSnapshot(e.snap); history.length = 0; answered = true; waitingForNext = false; // D6: Back hace suelo en el punto de rama
+          cb.textContent = ''; // T24.1: el mensaje de transicion no sobrevive al salto. showResult solo sobrescribe comment-box si el comentario trae texto (guarda 'if (clean)'), asi que un nodo final 'RIGHT' a secas o un WRONG sin texto dejaban el mensaje pegado
+          const bw = document.querySelector('#board-wrap'); if (bw) bw.classList.remove('board-ok', 'board-bad');
+          const hintEl = document.getElementById('board-hint');
+          if (hintEl) hintEl.textContent = (playerC === 1 ? '● Black' : '○ White') + ' to play — variation ' + (e.idx + 1) + '/' + e.node.children.length;
+          playOpponent(e.node, e.idx);
+        }, Math.max(NEXT_DELAY_MS, 700));
+      }
+      function playOpponent(node, idx) {
+        if (!node.children || !node.children.length) { finishCorrect(''); return; }
+        if (idx === undefined) {
+          idx = 0;
+          // T24: punto de rama — el nodo del jugador tiene >1 respuestas del oponente.
+          // Se apilan las alternativas 1..n-1 (se hace push en orden inverso para que
+          // la 1 salga primero de la pila) con la foto de la posicion tras la jugada del
+          // jugador. branchSeen evita duplicados si en Free se hace Back y se repite la jugada.
+          if (node.children.length > 1 && !branchSeen.has(node)) {
+            branchSeen.add(node);
+            const snap = gameSnapshot();
+            for (let i = node.children.length - 1; i >= 1; i--) owed.push({ node, idx: i, snap });
+          }
+        }
+        const oppNode = node.children[idx];
         setTimeout(() => { if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
       }
       function resetGame() { game = new WGo.Game(boardSize); game.allow_rewrite = true; for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
@@ -5551,8 +5597,8 @@
       // sin re-entrar en setupInteractiveMode: currentNode, hadWrong,
       // attemptRecorded, history y el intento en curso sobreviven intactos.
       window._studyRedraw = () => { redrawFromGame(); renderLabels(currentNode); };
-      window._studyRestart = () => { history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
-      window._studyBack = () => { if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
+      window._studyRestart = () => { if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } owed.length = 0; branchSeen.clear(); /* T24: intento nuevo, sin ramas pendientes */ history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
+      window._studyBack = () => { if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } /* T24: cancela la transicion en curso; la alternativa sigue en owed y se exigira al siguiente ✓ */ if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
       // F8: pista (solo Free) — señala el hijo 'correcto' de currentNode
       // (el que no arranca con WRONG) sin jugarlo ni registrar ningún intento.
       window._studyHint = () => {
