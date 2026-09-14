@@ -1527,6 +1527,178 @@ def handle_admin_import_games(body):
     }
 
 
+def handle_admin_import_my_collection(body):
+    """Incremental upsert for a hand-curated local problem source (e.g.
+    'my_collection'). Unlike handle_admin_import_games (full wipe+reinsert),
+    this MUST preserve existing collections/chapters/problems identity,
+    because chapters.id and problem_id are referenced by attempts,
+    sm2_state and runs.chapter_id -- a wipe here would orphan study history.
+    Nothing is ever deleted; re-running with the same folder contents is
+    idempotent.
+
+    Body:
+        {"source": "my_collection", "collections": [
+            {"folder": str, "chapters": [
+                {"folder": str, "difficulty_raw": str|None,
+                 "difficulty_num": int|None, "problems": [
+                    {"problem_id": str, "sgf_path": str,
+                     "order_in_chapter": int, "color_to_play": "B"|"W"|None}
+                 ]}
+            ]}
+        ]}
+
+    Identity / matching rules:
+      - collection matched by (source, folder) -> reuses set_id, else the
+        next free integer for that source.
+      - chapter matched by (source, set_id, name) -> reuses id/chapter_num,
+        else inserted fresh. New chapters default to mostrar=1; an existing
+        chapter's mostrar is never touched (same convention as the client's
+        own importSnapshot()).
+      - problem matched by (source, problem_id) -> upserted. hidden is never
+        touched here either, preserving any local hide/unhide decision.
+
+    Aggregates (chapters.problem_count, collections.num_problems/
+    chapter_count/difficulty_num) are computed here from the DB state after
+    the upsert, not trusted from the payload.
+    """
+    source = body.get("source")
+    collections_in = body.get("collections")
+    if not source or not isinstance(source, str):
+        return {"error": "source required"}, 400
+    if not isinstance(collections_in, list):
+        return {"error": "collections must be a list"}, 400
+    for col in collections_in:
+        if (not isinstance(col, dict) or "folder" not in col
+                or not isinstance(col.get("chapters"), list)):
+            return {"error": "invalid collections entry"}, 400
+        for ch in col["chapters"]:
+            if (not isinstance(ch, dict) or "folder" not in ch
+                    or not isinstance(ch.get("problems"), list)):
+                return {"error": "invalid chapters entry"}, 400
+            for p in ch["problems"]:
+                if (not isinstance(p, dict) or "problem_id" not in p
+                        or "sgf_path" not in p or "order_in_chapter" not in p):
+                    return {"error": "invalid problems entry"}, 400
+                if p.get("color_to_play") not in (None, "B", "W"):
+                    return {"error": "color_to_play must be B, W or null"}, 400
+
+    stats = {"collections": 0, "chapters_new": 0, "chapters_updated": 0,
+             "problems_upserted": 0}
+
+    with db_connect() as con:
+        for col in collections_in:
+            col_folder = col["folder"]
+            row = con.execute(
+                "SELECT set_id FROM collections WHERE source=? AND folder=?",
+                (source, col_folder),
+            ).fetchone()
+            if row:
+                set_id = row["set_id"]
+            else:
+                set_id = con.execute(
+                    "SELECT COALESCE(MAX(set_id), 0) + 1 AS n FROM collections WHERE source=?",
+                    (source,),
+                ).fetchone()["n"]
+                # Some deployments have chapters(source,set_id) -> collections
+                # FK'd; insert a placeholder row now so the chapter inserts
+                # below don't violate it. Real aggregates are filled in by
+                # the upsert at the end of this collection's loop.
+                con.execute(
+                    """INSERT INTO collections
+                       (source, set_id, name, folder, difficulty_raw, difficulty_num,
+                        num_problems, on_disk, chapter_count)
+                       VALUES (?, ?, ?, ?, NULL, NULL, 0, 1, 0)""",
+                    (source, set_id, col_folder, col_folder),
+                )
+
+            for ch in col["chapters"]:
+                ch_folder = ch["folder"]
+                diff_num = ch.get("difficulty_num")
+                row = con.execute(
+                    "SELECT id FROM chapters WHERE source=? AND set_id=? AND name=?",
+                    (source, set_id, ch_folder),
+                ).fetchone()
+                if row:
+                    chapter_id = row["id"]
+                    con.execute(
+                        "UPDATE chapters SET diff_min=?, diff_max=?, diff_avg=? WHERE id=?",
+                        (diff_num, diff_num, diff_num, chapter_id),
+                    )
+                    stats["chapters_updated"] += 1
+                else:
+                    chapter_num = con.execute(
+                        "SELECT COALESCE(MAX(chapter_num), 0) + 1 AS n FROM chapters "
+                        "WHERE source=? AND set_id=?",
+                        (source, set_id),
+                    ).fetchone()["n"]
+                    cur = con.execute(
+                        """INSERT INTO chapters
+                           (source, set_id, chapter_num, name, diff_min, diff_max,
+                            diff_avg, problem_count, mostrar)
+                           VALUES (?, ?, ?, ?, ?, ?, ?, 0, 1)""",
+                        (source, set_id, chapter_num, ch_folder, diff_num, diff_num, diff_num),
+                    )
+                    chapter_id = cur.lastrowid
+                    stats["chapters_new"] += 1
+
+                for p in ch["problems"]:
+                    con.execute(
+                        """INSERT INTO problems
+                           (source, problem_id, set_id, chapter_id, order_in_chapter,
+                            sgf_path, sgf_exists, difficulty_raw, difficulty_num,
+                            color_to_play, hidden)
+                           VALUES (?, ?, ?, ?, ?, ?, 1, ?, ?, ?, 0)
+                           ON CONFLICT(source, problem_id) DO UPDATE SET
+                             set_id=excluded.set_id,
+                             chapter_id=excluded.chapter_id,
+                             order_in_chapter=excluded.order_in_chapter,
+                             sgf_path=excluded.sgf_path,
+                             sgf_exists=excluded.sgf_exists,
+                             difficulty_raw=excluded.difficulty_raw,
+                             difficulty_num=excluded.difficulty_num,
+                             color_to_play=excluded.color_to_play""",
+                        # hidden intentionally NOT in the UPDATE SET above:
+                        # preserves any local hide/unhide decision, same
+                        # convention as tsumevault.html's importSnapshot().
+                        (source, p["problem_id"], set_id, chapter_id,
+                         p["order_in_chapter"], p["sgf_path"],
+                         ch.get("difficulty_raw"), diff_num, p.get("color_to_play")),
+                    )
+                    stats["problems_upserted"] += 1
+
+                n = con.execute(
+                    "SELECT COUNT(*) AS n FROM problems WHERE chapter_id=?", (chapter_id,)
+                ).fetchone()["n"]
+                con.execute("UPDATE chapters SET problem_count=? WHERE id=?", (n, chapter_id))
+
+            agg = con.execute(
+                """SELECT COUNT(*) AS chapter_count, SUM(problem_count) AS num_problems,
+                          AVG(diff_avg) AS avg_diff
+                   FROM chapters WHERE source=? AND set_id=?""",
+                (source, set_id),
+            ).fetchone()
+            avg_diff = round(agg["avg_diff"]) if agg["avg_diff"] is not None else None
+            con.execute(
+                """INSERT INTO collections
+                   (source, set_id, name, folder, difficulty_raw, difficulty_num,
+                    num_problems, on_disk, chapter_count)
+                   VALUES (?, ?, ?, ?, NULL, ?, ?, 1, ?)
+                   ON CONFLICT(source, set_id) DO UPDATE SET
+                     name=excluded.name, folder=excluded.folder,
+                     difficulty_num=excluded.difficulty_num,
+                     num_problems=excluded.num_problems,
+                     on_disk=excluded.on_disk,
+                     chapter_count=excluded.chapter_count""",
+                (source, set_id, col_folder, col_folder, avg_diff,
+                 agg["num_problems"] or 0, agg["chapter_count"] or 0),
+            )
+            stats["collections"] += 1
+
+        con.commit()
+
+    return stats
+
+
 def handle_sync_sm2_pull(qs):
     """Devuelve registros sm2_state actualizados desde el timestamp indicado.
 
@@ -2066,6 +2238,7 @@ POST_ROUTES = {
     "/db/runs/delete": handle_delete_runs,
     "/sync/check_runs": handle_sync_check_runs,
     "/admin/import_games": handle_admin_import_games,
+    "/admin/import_my_collection": handle_admin_import_my_collection,
     "/sync/sm2/push": handle_sync_sm2_push,
     "/sync/tags/delete": handle_sync_tags_delete,  # T23
     "/sync/problem_tags/push": handle_sync_problem_tags_push,  # T23
