@@ -535,6 +535,9 @@
       color: var(--gold);
     }
 
+    .ctrl-btn:disabled { opacity: .35; cursor: default; }  /* T31: botones bloqueados en Explorar */
+    .ctrl-btn:disabled:hover { border-color: var(--border2); color: var(--dim); }
+
     #sidebar {
       grid-area: side;
       border-left: 1px solid var(--border);
@@ -1372,9 +1375,14 @@
 				  style="font-family:var(--mono);font-size:11px;background:var(--gold);color:#000;border:none;padding:5px 12px;cursor:pointer;border-radius:2px;">
 				  Descargar pendientes
 				</button>
-				<button id="cfg-cache-force-btn" onclick="cfgForcePrecache()" title="Borra los SGF cacheados de los capítulos visibles y los vuelve a descargar del origen"
+			  </div>
+			  <!-- T27: redescarga por source (sustituye a 'Redescargar todo') -->
+			  <div style="font-family:var(--mono);font-size:10px;color:var(--dim);margin:4px 0 2px;">Redescargar del origen solo las sources marcadas:</div>
+			  <div id="cfg-cache-src-list" style="display:flex;flex-wrap:wrap;gap:4px 14px;margin:2px 0 6px;font-family:var(--mono);font-size:10px;color:var(--dim);"></div>
+			  <div style="display:flex;gap:8px;margin-bottom:6px;">
+				<button id="cfg-cache-force-btn" onclick="cfgForcePrecache()" title="Borra de la caché los SGF de las sources marcadas y los vuelve a descargar del origen"
 				  style="font-family:var(--mono);font-size:11px;background:var(--panel2,#333);color:var(--gold);border:1px solid var(--gold-dim,var(--gold));padding:5px 12px;cursor:pointer;border-radius:2px;">
-				  ⟳ Redescargar todo
+				  ⟳ Redescargar seleccionadas
 				</button>
 			  </div>
 			  <div id="cfg-cache-progress" style="font-family:var(--mono);font-size:9px;color:var(--dim2);display:none;"></div>
@@ -1627,6 +1635,7 @@
           <button class="ctrl-btn" id="btn-restart">↺ Restart</button>
           <button class="ctrl-btn" id="btn-pause">⏸ Pause</button>
           <button class="ctrl-btn" id="btn-hint" style="display:none" title="Muestra el siguiente movimiento correcto (solo Free)">💡 Hint</button>
+          <button class="ctrl-btn" id="btn-explore" style="display:none" title="Explore: free play on the current position with real rules; ↺ resets, 🔍 again to return (Free only) — T31">🔍 Explore</button>
           <button class="ctrl-btn" id="btn-hide-problem" style="display:none" title="Hide this problem everywhere (history kept; reversible only in the server DB) — T13">🚫 Hide</button>
           <button class="ctrl-btn" id="btn-next">→ Next</button>
         </div>
@@ -1730,7 +1739,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20260914-1358';
+	const SW_VERSION = 'tsumevault-20260916-1127';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2357,7 +2366,12 @@
       dbExec('INSERT INTO tags (tag, synced) VALUES (?,0)', [t]);
       return t;
     }
-    function localTagInUse(tag) { return dbQueryOne('SELECT COUNT(*) AS c FROM problem_tags WHERE tag=? AND active=1', [tag])?.c || 0; }
+    // T28: cuenta solo problemas VISIBLES (hidden=0). Las asignaciones a problemas
+    // ocultos (hidden 1/2) no cuentan ni bloquean el borrado (ver cfgDeleteTag). La
+    // JOIN hace que una asignacion cuyo problema no exista en `problems` tampoco
+    // cuente: no puede verse ni retirarse desde la UI.
+    function localTagInUse(tag) { return dbQueryOne('SELECT COUNT(*) AS c FROM problem_tags pt JOIN problems p ON p.source=pt.source AND p.problem_id=pt.problem_id WHERE pt.tag=? AND pt.active=1 AND p.hidden=0', [tag])?.c || 0; }
+    function localTagHiddenUses(tag) { return dbQuery('SELECT pt.source, pt.problem_id FROM problem_tags pt JOIN problems p ON p.source=pt.source AND p.problem_id=pt.problem_id WHERE pt.tag=? AND pt.active=1 AND p.hidden<>0', [tag]); }
     function localGetProblemTags(source, problem_id) {
       return dbQuery('SELECT tag FROM problem_tags WHERE source=? AND problem_id=? AND active=1 ORDER BY tag COLLATE NOCASE', [source, String(problem_id)]).map(r => r.tag);
     }
@@ -3496,6 +3510,7 @@
         const chip = document.createElement('span'); chip.className = 'tag-chip';
         const name = document.createElement('span'); name.textContent = t;
         const n = localTagInUse(t); if (n) { const c = document.createElement('span'); c.style.color = 'var(--dim2)'; c.textContent = `×${n}`; name.appendChild(c); }
+        const nh = localTagHiddenUses(t).length; if (nh) chip.title = `+${nh} en problemas ocultos (no cuentan ni bloquean el borrado)`;   // T28
         const x = document.createElement('span'); x.className = 'tag-x'; x.textContent = '✕'; x.title = 'Borrar etiqueta';
         x.addEventListener('click', () => cfgDeleteTag(t));
         chip.appendChild(name); chip.appendChild(x); box.appendChild(chip);
@@ -3514,6 +3529,19 @@
       const n = localTagInUse(tag);
       if (n) { alert(`"${tag}" está asignada a ${n} problema(s). Retírala antes de borrarla.`); return; }
       if (!confirm(`¿Borrar la etiqueta "${tag}"?`)) return;
+      // T28: las asignaciones a problemas ocultos no bloquean el borrado. Se retiran
+      // como tombstones LWW y se empujan ANTES de pedir el borrado al servidor (que
+      // sigue devolviendo 409 si ve la etiqueta en uso). El push de tags no hace
+      // fallar el sync (console.warn), asi que la prueba fiable es que no quede
+      // ninguna fila synced=0 de esta etiqueta.
+      const hiddenUses = localTagHiddenUses(tag);
+      if (hiddenUses.length) {
+        for (const h of hiddenUses) localSetProblemTag(h.source, h.problem_id, tag, false);
+        saveDB().catch(() => { });
+        await tryAutoSync(true).catch(() => { });
+        const left = dbQueryOne('SELECT COUNT(*) AS c FROM problem_tags WHERE tag=? AND synced=0', [tag])?.c || 0;
+        if (left) { alert(`"${tag}" estaba asignada a ${hiddenUses.length} problema(s) oculto(s); se han retirado pero no se pudieron sincronizar. Comprueba la conexión e inténtalo de nuevo.`); refreshTagViews(); return; }
+      }
       const local = dbQueryOne('SELECT synced FROM tags WHERE tag=?', [tag]);
       if (local && local.synced === 1) {
         // confirmada por el servidor: borrar alli primero (409 si en uso en otro dispositivo)
@@ -3585,6 +3613,7 @@
       loadSyncPresets();
       // T23: etiquetas (listeners con guard dataset.bound: el modal persiste)
       renderCfgTags();
+      renderCfgCacheSources();   // T27
       const tagAdd = document.getElementById('cfg-tag-add'), tagNew = document.getElementById('cfg-tag-new');
       if (!tagAdd.dataset.bound) { tagAdd.dataset.bound = '1'; tagAdd.addEventListener('click', cfgAddTag); }
       if (!tagNew.dataset.bound) { tagNew.dataset.bound = '1'; tagNew.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') { ev.preventDefault(); cfgAddTag(); } }); }
@@ -5338,6 +5367,35 @@
       return 1;
     }
     function getMarkup(node) { return node.markup ? node.markup.map(m => ({ ...m })) : []; }
+    // T29: ¿puede una jugada cerrar el problema en RIGHT? Espeja EXACTAMENTE al motor
+    // (setupInteractiveMode) con el criterio estricto de T24 (todas las respuestas del
+    // oponente deben ser resolubles). Solo dependen del nodo: se prueban en Node
+    // (extract_hint.py + test_hint.js).
+    //  - jugada del JUGADOR: RIGHT -> gana; WRONG -> no; sin hijos -> gana (playOpponent
+    //    sin hijos llama a finishCorrect); si no, TODAS sus respuestas del oponente ganan.
+    //  - respuesta del OPONENTE: RIGHT -> gana (checkResult cierra); WRONG -> no; sin hijos
+    //    -> no (callejon: el jugador no tiene jugada en el arbol); si no, ALGUNA jugada
+    //    real del jugador bajo ella gana.
+    function hintTag(node) { return String(node && node.comment || '').trim().toUpperCase(); }
+    function hintIsRealMove(c) { return !!(c && c.move && !c.move.pass && c.move.x !== undefined); }
+    function hintWinsPlayer(m) {
+      const t = hintTag(m);
+      if (t.startsWith('RIGHT')) return true;
+      if (t.startsWith('WRONG')) return false;
+      const kids = m.children || [];
+      if (!kids.length) return true;
+      return kids.every(o => hintWinsOpp(o));
+    }
+    function hintWinsOpp(o) {
+      const t = hintTag(o);
+      if (t.startsWith('RIGHT')) return true;
+      if (t.startsWith('WRONG')) return false;
+      const kids = o.children || [];
+      if (!kids.length) return false;
+      return kids.some(c => hintIsRealMove(c) && hintWinsPlayer(c));
+    }
+    // Primer hijo del nodo actual que es jugada real del jugador y gana; null si ninguno.
+    function hintPickMove(node) { return (node && node.children || []).find(c => hintIsRealMove(c) && hintWinsPlayer(c)) || null; }
 
 	async function updateSwVersionLabel() {
 	  if (!('serviceWorker' in navigator)) return;
@@ -5499,11 +5557,18 @@
       document.getElementById('btn-restart').style.display = runMode ? 'none' : '';
       document.getElementById('btn-hint').style.display = freeMode ? '' : 'none'; // F8: pista solo en Free
       document.getElementById('btn-hide-problem').style.display = freeMode ? '' : 'none'; // T13: ocultar solo en Free
+      // T31: Explorar solo en Free. Reset incondicional del aspecto del boton y de los
+      // botones que Explorar deshabilita (por si se cambio de problema explorando).
+      const bex = document.getElementById('btn-explore'); bex.style.display = freeMode ? '' : 'none'; bex.classList.remove('active'); bex.textContent = '🔍 Explore'; bex.style.background = ''; bex.style.color = '';
+      for (const id of ['btn-hint', 'btn-hide-problem', 'btn-next', 'btn-pause']) document.getElementById(id).disabled = false;
     }
     function setupInteractiveMode(root, playerC) {
       let firstMoveDone = false, currentNode = root, attemptRecorded = false, answered = false, hadWrong = false, hintMarker = null;
       const history = []; let lastMoveMarker = null;
       const owed = []; const branchSeen = new Set(); let branchTimer = null; // T24: alternativas del oponente pendientes {node, idx, snap} (LIFO), puntos de rama ya registrados, timer de la transicion
+      let branchPending = null; // T30: en Free la transicion a variante NO usa timer: se guarda aqui el salto y lo dispara el usuario (tocar tablero o -> Next)
+      let oppPending = false; // T31: true mientras la respuesta del oponente (setTimeout 400 ms de playOpponent) esta en vuelo; Explorar no entra en esa ventana
+      let explore = null; // T31: modo Explorar (solo Free): {entrySnap, entryState, game, turn, moves, lastMark, pausedAt}; null = modo normal
       const { black: setupB, white: setupW } = getSetupStones(root);
       let game = new WGo.Game(boardSize); game.allow_rewrite = true;
       for (const s of setupB) game.setStone(s.x, s.y, WGo.B);
@@ -5516,7 +5581,8 @@
       // contra ellas (posicion repetida) devolviendo un codigo de error que placeStone()
       // ignoraba -> la piedra no se pintaba aunque la logica del puzzle seguia normal.
       function restoreSnapshot(snap) { game = new WGo.Game(boardSize); game.allow_rewrite = true; for (const { x, y, v } of snap.stones) game.setStone(x, y, v); lastMoveMarker = snap.marker; redrawFromGame(); }
-      function redrawFromGame() { clearBoard(); const pos = game.getPosition(); for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 }); else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 }); } if (lastMoveMarker) wgoBoard.addObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); }
+      function redrawFrom(g, marker) { clearBoard(); const pos = g.getPosition(); for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 }); else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 }); } if (marker) wgoBoard.addObject({ x: marker.x, y: marker.y, type: 'CR' }); } // T31: parametrizada (Explorar pinta su propio game)
+      function redrawFromGame() { redrawFrom(game, lastMoveMarker); }
       function placeStone(x, y, c) { game.play(x, y, c === 1 ? WGo.B : WGo.W); redrawFromGame(); hintMarker = null; }
       function drawLastMoveDot(x, y) { if (lastMoveMarker) wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); wgoBoard.addObject({ x, y, type: 'CR' }); lastMoveMarker = { x, y }; }
       function recordAttempt(result) {
@@ -5564,17 +5630,29 @@
         const cb = document.getElementById('comment-box');
         const clean = (comment || '').replace(/^RIGHT\s*/i, '').trim();
         cb.textContent = (clean ? clean + ' — ' : 'Correct — ') + 'but what if the opponent plays elsewhere?'; cb.style.display = 'block';
-        branchTimer = setTimeout(() => {
-          branchTimer = null;
-          if (!currentProblem || currentProblem.tree !== root) return; // el problema ya cambio (Next en Free): timer obsoleto
-          const e = owed.pop();
-          restoreSnapshot(e.snap); history.length = 0; answered = true; waitingForNext = false; // D6: Back hace suelo en el punto de rama
-          cb.textContent = ''; // T24.1: el mensaje de transicion no sobrevive al salto. showResult solo sobrescribe comment-box si el comentario trae texto (guarda 'if (clean)'), asi que un nodo final 'RIGHT' a secas o un WRONG sin texto dejaban el mensaje pegado
-          const bw = document.querySelector('#board-wrap'); if (bw) bw.classList.remove('board-ok', 'board-bad');
+        if (freeMode) {
+          // T30: Free nunca auto-avanza (F7): la posicion resuelta se queda hasta que el
+          // usuario toca el tablero o pulsa -> Next (misma logica que T25 en Review).
+          branchPending = doBranchJump;
           const hintEl = document.getElementById('board-hint');
-          if (hintEl) hintEl.textContent = (playerC === 1 ? '● Black' : '○ White') + ' to play — variation ' + (e.idx + 1) + '/' + e.node.children.length;
-          playOpponent(e.node, e.idx);
-        }, Math.max(NEXT_DELAY_MS, 700));
+          if (hintEl) hintEl.textContent = 'Tap board or Next → to see the variation';
+          return;
+        }
+        branchTimer = setTimeout(() => { branchTimer = null; doBranchJump(); }, Math.max(NEXT_DELAY_MS, 700));
+      }
+      // T24/T30: el salto al punto de rama (antes cuerpo del timer de branchTransition).
+      function doBranchJump() {
+        branchPending = null;
+        if (!currentProblem || currentProblem.tree !== root) return; // el problema ya cambio (Next en Free): salto obsoleto
+        if (!owed.length) return; // T30: Restart vacio owed mientras se esperaba
+        const cb = document.getElementById('comment-box');
+        const e = owed.pop();
+        restoreSnapshot(e.snap); history.length = 0; answered = true; waitingForNext = false; // D6: Back hace suelo en el punto de rama
+        cb.textContent = ''; // T24.1: el mensaje de transicion no sobrevive al salto. showResult solo sobrescribe comment-box si el comentario trae texto (guarda 'if (clean)'), asi que un nodo final 'RIGHT' a secas o un WRONG sin texto dejaban el mensaje pegado
+        const bw = document.querySelector('#board-wrap'); if (bw) bw.classList.remove('board-ok', 'board-bad');
+        const hintEl = document.getElementById('board-hint');
+        if (hintEl) hintEl.textContent = (playerC === 1 ? '● Black' : '○ White') + ' to play — variation ' + (e.idx + 1) + '/' + e.node.children.length;
+        playOpponent(e.node, e.idx);
       }
       function playOpponent(node, idx) {
         if (!node.children || !node.children.length) { finishCorrect(''); return; }
@@ -5591,24 +5669,98 @@
           }
         }
         const oppNode = node.children[idx];
-        setTimeout(() => { if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
+        oppPending = true; // T31
+        setTimeout(() => { oppPending = false; if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
       }
       function resetGame() { game = new WGo.Game(boardSize); game.allow_rewrite = true; for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
       // T5/3.9: rehidratacion tras resize. Repinta la posicion ACTUAL desde el
       // objeto game del closure (setup + jugadas) y las labels del nodo actual,
       // sin re-entrar en setupInteractiveMode: currentNode, hadWrong,
       // attemptRecorded, history y el intento en curso sobreviven intactos.
-      window._studyRedraw = () => { redrawFromGame(); renderLabels(currentNode); };
-      window._studyRestart = () => { if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } owed.length = 0; branchSeen.clear(); /* T24: intento nuevo, sin ramas pendientes */ history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
-      window._studyBack = () => { if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } /* T24: cancela la transicion en curso; la alternativa sigue en owed y se exigira al siguiente ✓ */ if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
-      // F8: pista (solo Free) — señala el hijo 'correcto' de currentNode
-      // (el que no arranca con WRONG) sin jugarlo ni registrar ningún intento.
+      window._studyRedraw = () => { if (explore) { exploreRedraw(); return; } /* T31 */ redrawFromGame(); renderLabels(currentNode); };
+      window._studyRestart = () => { if (explore) { exploreReset(); return; } /* T31: en Explorar, Restart vuelve a la posicion de entrada */ if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } branchPending = null; /* T30 */ owed.length = 0; branchSeen.clear(); /* T24: intento nuevo, sin ramas pendientes */ history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
+      window._studyBack = () => { if (explore) { exploreUndo(); return; } /* T31: en Explorar, Back deshace la ultima piedra explorada */ if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } branchPending = null; /* T24/T30: cancela la transicion en curso (timer o espera); la alternativa sigue en owed y se exigira al siguiente ✓ */ if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
+      // F8: pista (solo Free) — señala un hijo de currentNode sin jugarlo ni registrar
+      // ningún intento. T29: antes bastaba con que no empezara por WRONG y a veces
+      // señalaba una rama sin ningún RIGHT debajo; ahora exige que la jugada pueda
+      // cerrar en RIGHT (hintWinsPlayer, criterio estricto T24). Si ninguna cumple, no
+      // marca nada y lo dice en comment-box.
+      // T30: -> Next durante la espera de variante dispara el salto en vez de cambiar de problema.
+      window._studyBranchGo = () => { if (explore) return true; /* T31: Next esta disabled en Explorar; por si acaso, no hace nada */ if (!branchPending) return false; const f = branchPending; branchPending = null; f(); return true; };
+      // ── T31: modo Explorar (solo Free) ──
+      // Juego libre sobre la posicion actual con reglas reales (captura, ko, suicidio y
+      // punto ocupado los resuelve un WGo.Game propio con las reglas por defecto; el del
+      // motor esta en allow_rewrite). Alternancia estricta desde quien tiene el turno al
+      // entrar. No toca el motor: currentNode, history, owed, branchSeen, hadWrong,
+      // attemptRecorded quedan intactos; al salir se restaura la foto de entrada y el
+      // estado de UI guardado. El cronometro se pausa (totalPaused, como togglePause).
+      const EXPLORE_DISABLED = ['btn-hint', 'btn-hide-problem', 'btn-next', 'btn-pause'];
+      function exploreNewGame(snap, moves) {
+        const g = new WGo.Game(boardSize); // reglas por defecto: sin rewrite, sin suicidio, ko
+        for (const { x, y, v } of snap.stones) g.setStone(x, y, v);
+        for (const m of moves) g.play(m.x, m.y, m.c === 1 ? WGo.B : WGo.W);
+        return g;
+      }
+      function exploreRedraw() { if (!explore) return; redrawFrom(explore.game, explore.lastMark); }
+      function exploreSetHint() { const h = document.getElementById('board-hint'); if (h) h.textContent = '🔍 Exploring — ' + (explore.turn === 1 ? '● Black' : '○ White') + ' to play · ↺ resets · 🔍 to return'; }
+      function exploreReset() { explore.moves = []; explore.turn = explore.turn0; explore.lastMark = explore.entrySnap.marker ? { ...explore.entrySnap.marker } : null; explore.game = exploreNewGame(explore.entrySnap, []); exploreRedraw(); exploreSetHint(); }
+      function exploreUndo() {
+        if (!explore.moves.length) return;
+        explore.moves.pop(); explore.turn = -explore.turn;
+        // Reconstruccion desde la foto de entrada (no depende de popPosition de WGo)
+        explore.game = exploreNewGame(explore.entrySnap, explore.moves);
+        const last = explore.moves[explore.moves.length - 1];
+        explore.lastMark = last ? { x: last.x, y: last.y } : (explore.entrySnap.marker ? { ...explore.entrySnap.marker } : null);
+        exploreRedraw(); exploreSetHint();
+      }
+      function exploreClick(x, y) {
+        const r = explore.game.play(x, y, explore.turn === 1 ? WGo.B : WGo.W);
+        if (!Array.isArray(r)) return; // WGo.Game.play: array de capturas si legal; codigo numerico (fuera, ocupado, suicidio, ko) si no
+        explore.moves.push({ x, y, c: explore.turn }); explore.lastMark = { x, y }; explore.turn = -explore.turn;
+        playSound('stone'); exploreRedraw(); exploreSetHint();
+      }
+      window._studyExploring = () => !!explore; // T31: consultado por los atajos de teclado globales
+      window._studyExploreToggle = () => {
+        if (!freeMode) return;
+        if (!explore && oppPending) return; // la respuesta del oponente esta a punto de caer: no entrar ahora
+        const btn = document.getElementById('btn-explore'), cb = document.getElementById('comment-box'), hintEl = document.getElementById('board-hint'), bw = document.querySelector('#board-wrap'), flash = document.getElementById('result-flash');
+        if (!explore) {
+          // ── entrar ──
+          clearGhost(); clearPending();
+          if (hintMarker) { wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'CR' }); wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'LB' }); hintMarker = null; }
+          const entrySnap = gameSnapshot();
+          const entryState = { answered, waitingForNext, branchPending, commentText: cb.textContent, commentDisplay: cb.style.display, hintText: hintEl ? hintEl.textContent : '', hintClass: hintEl ? hintEl.className : '', flashClass: flash ? flash.className : '', boardOk: !!(bw && bw.classList.contains('board-ok')), boardBad: !!(bw && bw.classList.contains('board-bad')) };
+          const turn0 = answered ? -playerC : playerC;
+          explore = { entrySnap, entryState, game: exploreNewGame(entrySnap, []), turn: turn0, turn0, moves: [], lastMark: entrySnap.marker ? { ...entrySnap.marker } : null, pausedAt: Date.now() };
+          waitingForNext = false; // durante la exploracion ni el toque ni Enter/Espacio avanzan; se restaura al salir
+          if (flash) flash.className = '';
+          if (bw) bw.classList.remove('board-ok', 'board-bad');
+          cb.textContent = '';
+          for (const id of EXPLORE_DISABLED) document.getElementById(id).disabled = true;
+          btn.classList.add('active'); btn.textContent = '🔍 Exploring…'; btn.style.background = 'var(--gold)'; btn.style.color = '#000';
+          exploreRedraw(); exploreSetHint();
+        } else {
+          // ── salir: restaurar exactamente el estado de entrada ──
+          const st = explore.entryState, snap = explore.entrySnap;
+          totalPaused += Date.now() - explore.pausedAt;
+          explore = null;
+          clearGhost(); clearPending();
+          restoreSnapshot(snap);          // recrea `game` (allow_rewrite) + lastMoveMarker y repinta piedras
+          renderLabels(currentNode);      // mismo criterio de rehidratacion que _studyRedraw (T5/3.9); pisa comment-box ->
+          cb.textContent = st.commentText; cb.style.display = st.commentDisplay;   // <- se restaura despues
+          answered = st.answered; waitingForNext = st.waitingForNext; branchPending = st.branchPending; hintMarker = null;
+          if (hintEl) { hintEl.textContent = st.hintText; hintEl.className = st.hintClass; }
+          if (flash) flash.className = st.flashClass === 'show' ? 'hide' : st.flashClass;
+          if (bw) { bw.classList.toggle('board-ok', st.boardOk); bw.classList.toggle('board-bad', st.boardBad); }
+          for (const id of EXPLORE_DISABLED) document.getElementById(id).disabled = false;
+          btn.classList.remove('active'); btn.textContent = '🔍 Explore'; btn.style.background = ''; btn.style.color = '';
+        }
+      };
       window._studyHint = () => {
-        if (!freeMode || answered || waitingForNext) return;
+        if (explore || !freeMode || answered || waitingForNext) return; // T31: sin pista en Explorar
         if (hintMarker) { wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'CR' }); wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'LB' }); hintMarker = null; }
-        const children = currentNode.children || [];
-        const correct = children.find(c => c.move && !c.move.pass && c.move.x !== undefined && !(c.comment || '').trim().toUpperCase().startsWith('WRONG'));
-        if (!correct) return;
+        const correct = hintPickMove(currentNode);
+        if (!correct) { const cb = document.getElementById('comment-box'); cb.textContent = 'Hint: no continuation from here reaches RIGHT'; cb.style.display = 'block'; return; }
         const { x, y } = correct.move;
         const hintC = '#1a1aff';
         wgoBoard.addObject({ x, y, type: 'CR', c: hintC });
@@ -5617,13 +5769,20 @@
       };
       let ghostPos = null; let pendingTap = null; const boardEl = wgoBoard.element;
       function clearPending() { if (pendingTap) { wgoBoard.removeObject({ x: pendingTap.x, y: pendingTap.y, type: 'outline' }); pendingTap = null; } }
-      function updateGhost(e) { if (answered || waitingForNext) return; const rect = boardEl.getBoundingClientRect(); const mx = (e.clientX - rect.left) * wgoBoard.pixelRatio; const my = (e.clientY - rect.top) * wgoBoard.pixelRatio; const x = Math.round((mx - wgoBoard.left) / wgoBoard.fieldWidth); const y = Math.round((my - wgoBoard.top) / wgoBoard.fieldHeight); if (x < 0 || y < 0 || x >= boardSize || y >= boardSize) { clearGhost(); return; } if (ghostPos && ghostPos.x === x && ghostPos.y === y) return; clearGhost(); if (wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1)) return; ghostPos = { x, y }; wgoBoard.addObject({ x, y, c: playerC, type: 'outline' }); }
+      function updateGhost(e) { if (!explore && (answered || waitingForNext)) return; /* T31 */ const rect = boardEl.getBoundingClientRect(); const mx = (e.clientX - rect.left) * wgoBoard.pixelRatio; const my = (e.clientY - rect.top) * wgoBoard.pixelRatio; const x = Math.round((mx - wgoBoard.left) / wgoBoard.fieldWidth); const y = Math.round((my - wgoBoard.top) / wgoBoard.fieldHeight); if (x < 0 || y < 0 || x >= boardSize || y >= boardSize) { clearGhost(); return; } if (ghostPos && ghostPos.x === x && ghostPos.y === y) return; clearGhost(); if (wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1)) return; ghostPos = { x, y }; wgoBoard.addObject({ x, y, c: explore ? explore.turn : playerC, type: 'outline' }); }
       function clearGhost() { if (ghostPos) { wgoBoard.removeObject({ x: ghostPos.x, y: ghostPos.y, type: 'outline' }); ghostPos = null; } }
       if (wgoBoard._ghostListener) { wgoBoard.element.removeEventListener('mousemove', wgoBoard._ghostListener); wgoBoard.element.removeEventListener('mouseleave', wgoBoard._clearGhost); }
       wgoBoard._ghostListener = updateGhost; wgoBoard._clearGhost = clearGhost;
       boardEl.addEventListener('mousemove', updateGhost); boardEl.addEventListener('mouseleave', clearGhost);
       window._boardClickHandler = function(x, y) {
         clearGhost();
+        if (explore) { // T31: juego libre; respeta el doble toque de tapConfirm
+          if (wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => (o.c === 1 || o.c === -1) && o.type !== 'outline')) return;
+          if (tapConfirm) { if (pendingTap && pendingTap.x === x && pendingTap.y === y) { clearPending(); exploreClick(x, y); } else { clearPending(); pendingTap = { x, y }; wgoBoard.addObject({ x, y, c: explore.turn, type: 'outline' }); } }
+          else exploreClick(x, y);
+          return;
+        }
+        if (branchPending) { const f = branchPending; branchPending = null; f(); return; } // T30: tocar el tablero dispara la variante pendiente (answered=true, asi que sin esto se ignoraria)
         if (waitingForNext) { if (currentProblem && (currentProblem._isReveal || tapToAdvance || freeMode)) { tapToAdvance = false; nextProblem(); } return; } // F11: en Free, tocar el tablero tras resolver == Next
         if (answered) return;
         if (wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => (o.c === 1 || o.c === -1) && o.type !== 'outline')) return;
@@ -5729,12 +5888,14 @@
       document.getElementById('st-seen').textContent = seen;
       document.getElementById('st-pct').textContent = seen > 0 ? Math.round(ok / seen * 100) + '%' : '—';
     }
-    document.getElementById('btn-next').addEventListener('click', () => { if (runMode) return; nextProblem(); });
+    document.getElementById('btn-next').addEventListener('click', () => { if (runMode) return; if (window._studyBranchGo && window._studyBranchGo()) return; /* T30 */ nextProblem(); });
     document.getElementById('btn-restart').addEventListener('click', () => { if (window._studyRestart) window._studyRestart(); });
     document.getElementById('btn-back').addEventListener('click', () => { if (window._studyBack) window._studyBack(); });
     document.getElementById('btn-hint').addEventListener('click', () => { if (window._studyHint) window._studyHint(); });
+    document.getElementById('btn-explore').addEventListener('click', () => { if (window._studyExploreToggle) window._studyExploreToggle(); }); // T31
     document.getElementById('btn-hide-problem').addEventListener('click', hideCurrentProblem); // T13
     window.addEventListener('keydown', e => {
+      if (e.code !== 'Escape' && window._studyExploring && window._studyExploring()) return; // T31: en Explorar solo Escape (cerrar modales)
       if ((e.code === 'Enter' || e.code === 'Space') && waitingForNext && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.altKey && e.code === 'KeyN' && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.code === 'KeyP') { e.preventDefault(); togglePause(); }
@@ -6132,15 +6293,32 @@
 	  }
 	}
 
-	// R2: modo force — el precache vive en el service worker (que salta los ya
-	// cacheados); en vez de tocar el SW, la pagina borra esas URLs de TODAS las
-	// caches (Cache API) antes de relanzar el precache normal, que asi las
-	// vuelve a bajar del origen. Util cuando un SGF se corrige en origen.
-	function cfgForcePrecache() {
-	  if (!confirm('Se borrarán de la caché los SGF de los capítulos visibles y se volverán a descargar del origen.\n¿Continuar?')) return;
-	  cfgStartPrecache(true);
+	// R2/T27: modo force — el precache vive en el service worker (que salta los ya
+	// cacheados); en vez de tocar el SW, la pagina borra de TODAS las caches (Cache
+	// API) las URLs de los SGF de las SOURCES marcadas (todos sus problemas, visibles
+	// u ocultos: borrar de mas es inocuo) antes de relanzar el precache normal, que
+	// asi solo vuelve a bajar del origen lo borrado. Util cuando un SGF se corrige
+	// en origen (en la practica, my_collections).
+	function renderCfgCacheSources() {
+	  const box = document.getElementById('cfg-cache-src-list'); if (!box) return;
+	  box.innerHTML = '';
+	  const sources = db ? dbQuery('SELECT DISTINCT source FROM problems ORDER BY source', []).map(r => r.source) : [];
+	  if (!sources.length) { box.textContent = '—'; return; }
+	  for (const s of sources) {
+		const lab = document.createElement('label'); lab.style.cssText = 'display:flex;align-items:center;gap:4px;cursor:pointer;';
+		const chk = document.createElement('input'); chk.type = 'checkbox'; chk.className = 'cfg-cache-src'; chk.value = s;
+		lab.appendChild(chk); lab.appendChild(document.createTextNode(s)); box.appendChild(lab);
+	  }
 	}
-	function cfgStartPrecache(force = false) {
+	function cfgForcePrecache() {
+	  const sources = [...document.querySelectorAll('.cfg-cache-src:checked')].map(c => c.value);
+	  if (!sources.length) { alert('Marca al menos una source.'); return; }
+	  if (!confirm('Se borrarán de la caché los SGF de: ' + sources.join(', ') + '\ny se volverán a descargar del origen.\n¿Continuar?')) return;
+	  cfgStartPrecache(sources);
+	}
+	// forceSources: null = solo descargar pendientes; array de sources = borrar antes
+	// de la cache los SGF de esas sources (T27).
+	function cfgStartPrecache(forceSources = null) {
 	  if (!('serviceWorker' in navigator)) return;
 	  const btn = document.getElementById('cfg-cache-btn');
 	  const btnF = document.getElementById('cfg-cache-force-btn');
@@ -6148,22 +6326,41 @@
 	  btn.disabled = true; if (btnF) btnF.disabled = true;
 	  btn.textContent = 'Descargando...';
 	  progress.style.display = 'block';
-	  progress.textContent = force ? 'Borrando caché…' : 'Iniciando...';
-	  const urls = dbQuery('SELECT p.sgf_path FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE ch.mostrar=1 AND p.sgf_path IS NOT NULL', []).map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
+	  const force = Array.isArray(forceSources) && forceSources.length > 0;
+	  const toUrl = r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/');
+	  const rows = dbQuery('SELECT p.sgf_path, p.source FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE ch.mostrar=1 AND p.sgf_path IS NOT NULL', []);
+	  const urls = rows.map(toUrl), urlSrc = rows.map(r => r.source);   // T27.1: source paralelo a cada url, para el desglose
+	  const delUrls = force ? dbQuery(`SELECT p.sgf_path FROM problems p WHERE p.sgf_path IS NOT NULL AND p.source IN (${forceSources.map(() => '?').join(',')})`, forceSources).map(toUrl) : [];
+	  progress.textContent = force ? `Borrando caché de ${delUrls.length} SGF…` : 'Iniciando...';
 	  const total = urls.length;
 	  const sessionId = Date.now();
 	  const prep = force && ('caches' in window)
 		? caches.keys().then(keys => Promise.all(keys.map(k =>
-			caches.open(k).then(c => Promise.all(urls.map(u => c.delete(u)))))))
+			caches.open(k).then(c => Promise.all(delUrls.map(u => c.delete(u)))))))
 		  .catch(e => { console.warn('[precache] no se pudo limpiar la caché', e); })
 		: Promise.resolve();
-	  prep.then(() => navigator.serviceWorker.ready).then(reg => {
+	  // T27.1: diagnostico — cuantos de los `urls` estan ya en alguna cache (el SW los
+	  // saltara) y cuantos va a descargar de verdad. El progreso del SW cuenta `done`
+	  // tambien para los saltados, asi que sin esto parece que se redescarga todo.
+	  let pendingN = null, pendingBy = '';
+	  const diag = ('caches' in window)
+		? prep.then(() => caches.keys()).then(keys => Promise.all(keys.map(k => caches.open(k).then(c => c.keys()))))
+		  .then(lists => {
+			const have = new Set(); for (const l of lists) for (const r of l) have.add(r.url);
+			const by = {}; pendingN = 0;
+			urls.forEach((u, i) => { if (!have.has(new URL(u, location.href).href)) { pendingN++; by[urlSrc[i]] = (by[urlSrc[i]] || 0) + 1; } });
+			pendingBy = Object.entries(by).sort((a, b) => b[1] - a[1]).map(([s, n]) => `${s} ${n}`).join(', ');
+		  })
+		  .catch(e => { console.warn('[precache] no se pudo inspeccionar la caché', e); })
+		: prep;
+	  const label = () => pendingN == null ? '' : ` (ya en caché: ${total - pendingN} · por descargar: ${pendingN}${pendingBy ? ' → ' + pendingBy : ''})`;
+	  diag.then(() => { progress.textContent = 'Iniciando...' + label(); return navigator.serviceWorker.ready; }).then(reg => {
 		reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls, sessionId });
 	  });
 	  const handler = e => {
 		if (e.data?.sessionId !== sessionId) return;
 		if (e.data?.type === 'PRECACHE_PROGRESS') {
-		  progress.textContent = `${e.data.done} / ${total}`;
+		  progress.textContent = `${e.data.done} / ${total}` + label();
 		}
 		if (e.data?.type === 'PRECACHE_DONE') {
 		  navigator.serviceWorker.removeEventListener('message', handler);
