@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Where should Black play to win the capturing race?",
+ "id": "9c75e98c-7cc8-4338-b4d0-58d8050efc58",
+ "variations": "{:children [{:move [[4 12] :black], :id \"dd565d82-4504-4d3e-9116-63e7e220b3a7\", :children [{:move [[6 12] :white], :id \"60618dc6-3132-43ee-9896-1f49f9a2993b\", :children [{:move [[3 12] :black], :id \"686b2430-e34e-4784-b9f9-06ce343e7dc3\", :children [{:move [[2 12] :white], :id \"d9dd3562-7482-4416-9224-ecd1730f14e5\", :children [{:move [[0 11] :black], :id \"5183ac03-8c55-4f1f-93e4-7ecf9d0e1f29\"}]}]}]}]} {:move [[3 12] :black], :id \"e88072f3-2fb6-4e8b-bd96-08a0130e13b1\", :children [{:move [[4 12] :white], :id \"587fff80-d8ad-4c35-ad7f-0dd7ead51f7d\", :comment \"Kosumi, Diagonal move\"}]}], :stones {[1 10] :black, [6 9] :white, [5 9] :white, [1 11] :black, [4 10] :black, [2 11] :white, [2 9] :black, [4 9] :white, [2 7] :black, [1 12] :white, [3 11] :white, [6 11] :black, [3 9] :white, [3 10] :black, [1 9] :black, [2 10] :white, [5 10] :black, [5 11] :black, [7 11] :white, [6 10] :white, [8 10] :white}, :board-size 13}",
+ "to-play": "black"
+}

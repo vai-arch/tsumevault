@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Find the place which can't be cut by Black (A or B)",
+ "id": "4dcbdb4d-8821-42c0-a0db-1ec8ce8d88d8",
+ "variations": "{:labels {[2 6] \"A\", [5 6] \"B\"}, :children [{:move [[5 6] :black], :id \"04b31577-78d2-40fc-9038-86352bfc1ea6\"}], :stones {[6 9] :white, [5 7] :white, [5 9] :black, [0 8] :white, [4 11] :white, [4 6] :white, [1 11] :black, [0 7] :white, [2 12] :black, [4 10] :white, [0 9] :black, [4 7] :black, [4 9] :black, [2 7] :white, [3 11] :black, [1 7] :white, [4 8] :black, [1 8] :black, [3 12] :white, [3 10] :black, [1 9] :black, [5 10] :white, [7 8] :white, [3 6] :white, [5 8] :white, [6 10] :white, [3 7] :black, [4 12] :white, [2 8] :black, [7 6] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

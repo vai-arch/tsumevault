@@ -1,0 +1,6 @@
+{
+ "description": "Attack white stones from outside and capture.",
+ "variations": "{:children [{:move [[5 1] :black], :id \"e4b7909c-cb5e-4fa4-aa63-743c0318b18b\", :children [{:move [[5 0] :white], :id \"2f2ef693-887e-4624-a47f-72c58b0ae587\", :children [{:move [[7 0] :black], :id \"eb67cd65-fa5f-406b-8306-d03d165f500c\", :children [{:move [[3 0] :white], :id \"905a8805-5df9-4073-a379-b545353e36b1\"}]}]}]} {:move [[7 0] :black], :id \"666c3424-ba27-469c-9a7b-34c007178ecc\", :children [{:move [[5 0] :white], :id \"e1dc325c-d473-4a76-a588-a375b8e63f22\", :children [{:move [[3 0] :black], :id \"ec7ed034-1f3f-4f30-91df-2180b9f88c7e\", :children [{:move [[1 0] :white], :id \"b7e9cbce-5092-45d1-afed-00f1714c86eb\", :children [{:move [[5 1] :black], :id \"051b9ffd-4a91-4463-b673-f9835eadf9f3\"}]}]}]}]} {:move [[3 0] :black], :id \"219e6398-a664-4f5e-8ef0-edd29af28c20\", :children [{:move [[5 1] :white], :id \"93f6b732-f17b-43f5-9a4a-f908b14d931b\", :comment \"Ko is not the best result.\"}]}], :stones {[4 3] :white, [5 3] :black, [3 2] :white, [7 1] :black, [7 2] :black, [4 2] :black, [5 2] :white, [3 1] :black, [1 1] :white, [6 0] :white, [3 3] :white, [6 3] :black, [2 1] :white, [4 1] :black, [6 1] :white, [7 3] :black, [2 0] :black, [4 0] :white, [6 2] :white}, :board-size 13}",
+ "to-play": "black",
+ "id": "aZug58IjxhM3nbgfwzLW"
+}

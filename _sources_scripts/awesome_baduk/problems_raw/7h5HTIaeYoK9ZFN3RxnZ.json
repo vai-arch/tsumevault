@@ -1,0 +1,6 @@
+{
+ "description": "Which move is correct?",
+ "variations": "{:stones {[15 14] :black, [13 2] :white, [16 13] :black, [2 14] :black, [2 13] :black, [15 3] :black, [15 16] :black, [4 13] :white, [5 16] :black, [3 16] :white, [2 15] :black, [16 15] :white, [16 16] :white, [3 3] :white, [6 15] :black, [3 15] :white, [15 15] :black, [16 14] :white, [3 12] :black, [3 13] :white, [2 16] :white, [16 5] :black, [17 13] :white}, :to-play :white, :board-size 19, :labels {[2 16] \"1\", [2 14] \"2\", [3 16] \"3\", [6 15] \"4\", [3 14] \"A\", [6 13] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[6 13] :white], :id \"e31ea616-8ddb-4e0b-92bc-86fbca2dd7b7\", :children [{:move [[2 11] :black], :id \"f412292d-1fd7-4b9e-8fe5-dd14d2864ab2\", :children [{:move [[9 15] :white], :id \"8b0ccb01-0cc7-4da8-af46-49349c2c0ac5\"}]}]} {:move [[3 14] :white], :id \"004a388b-7c90-450f-b580-c0d5f55bc488\", :children [{:move [[2 11] :black], :id \"aa2ef9a0-e616-41e9-9b40-96ee23b16974\"}]}]}",
+ "id": "7h5HTIaeYoK9ZFN3RxnZ",
+ "to-play": "white"
+}

@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "id": "1Z2r8FjfZ7jbWZZJZBRe",
+ "variations": "{:stones {[2 13] :white, [15 3] :black, [5 16] :black, [8 15] :black, [3 3] :white, [10 16] :white, [6 15] :black, [3 17] :black, [3 15] :white, [7 15] :black, [15 15] :black, [2 16] :white, [13 16] :black, [8 16] :white, [7 16] :white}, :to-play :white, :board-size 19, :labels {}, :marks {:circle nil, :square nil, :triangle #{[7 16] [8 16] [10 16]}}, :children [{:move [[9 15] :white], :id \"fa26f8dd-5db2-4d8b-8066-e4274422d01b\"} {:move [[10 14] :white], :id \"9593b690-427f-494d-98ba-c603c96d22b4\", :children [{:move [[9 15] :black], :id \"c23c2550-6b99-4f40-b761-8462fa52257b\", :labels {[10 15] \"A\", [9 16] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}]} {:move [[11 17] :white], :id \"73fe5183-cb84-42de-b64a-111354916b76\", :children [{:move [[10 14] :black], :id \"9a86275d-490e-4751-883c-42c8ac0c7c45\"}]} {:move [[12 17] :white], :id \"0fd7b8ff-094d-442d-a84c-799aa0abb3cb\", :children [{:move [[9 15] :black], :id \"86c14cd3-732d-4180-aeb7-8fe4fdd20bb0\"}]}]}",
+ "description": "What's the best spot to look after the marked stones?"
+}

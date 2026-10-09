@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Cut off the marked White chain",
+ "to-play": "black",
+ "variations": "{:labels nil, :children [{:move [[4 8] :black], :id \"5edfbf6b-a2f5-4ad2-ac3b-c5b30c7c723a\", :children [{:move [[3 8] :white], :id \"d7aae8a4-3b2b-4796-a81d-8c280249fd19\", :children [{:move [[5 8] :black], :id \"3bd6a9ac-2b9f-42df-a7e4-6d9afe639b44\", :children [{:move [[5 9] :white], :id \"1754cd4b-77ef-4842-a708-88e5c09b2737\", :children [{:move [[3 9] :black], :id \"293cbf91-743d-4932-abb7-86b59e43c02e\"}]}]}]}]}], :stones {[1 10] :white, [4 11] :white, [4 6] :black, [1 11] :white, [4 10] :black, [5 6] :black, [4 7] :white, [2 9] :black, [4 9] :white, [2 7] :white, [2 6] :black, [6 7] :white, [1 7] :black, [1 8] :black, [3 10] :black, [1 9] :white, [2 10] :black, [5 10] :white, [7 8] :white, [5 11] :white, [3 6] :black, [2 8] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[2 7] [2 8]}}}",
+ "id": "56fc75c3-8f9c-4554-9565-116943cfe640"
+}

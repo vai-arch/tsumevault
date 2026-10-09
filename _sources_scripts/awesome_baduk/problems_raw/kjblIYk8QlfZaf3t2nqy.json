@@ -1,0 +1,6 @@
+{
+ "description": "How can Black respond, if White plays at 8?",
+ "variations": "{:stones {[13 2] :black, [4 3] :black, [4 11] :white, [5 12] :black, [2 2] :white, [2 14] :white, [16 2] :black, [2 4] :white, [2 12] :white, [2 13] :white, [2 3] :white, [15 3] :white, [8 3] :black, [15 2] :white, [15 4] :black, [16 4] :white, [3 16] :black, [4 5] :white, [16 3] :black, [2 15] :white, [14 4] :white, [16 1] :black, [3 3] :black, [5 4] :black, [3 11] :white, [3 15] :white, [4 16] :black, [15 15] :black, [3 12] :black, [2 10] :white, [3 14] :black, [3 13] :black, [2 16] :black, [15 1] :white, [4 4] :white, [4 12] :black, [11 2] :white, [4 15] :black}, :to-play :black, :board-size 19, :labels {[16 2] \"1\", [15 2] \"2\", [16 3] \"3\", [16 4] \"4\", [16 1] \"5\", [15 1] \"6\", [15 4] \"7\", [14 4] \"8\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 5] :black], :id \"8b62e1ae-2928-4471-afee-c3a2a23719dd\", :children [{:move [[13 3] :white], :id \"6d0b71fd-37ed-483c-89a5-2a55d3c4a06f\", :children [{:move [[16 5] :black], :id \"d4756cd6-ab01-47a6-b9fe-f345e95ebccc\"}]}]}]}",
+ "id": "kjblIYk8QlfZaf3t2nqy",
+ "to-play": "black"
+}

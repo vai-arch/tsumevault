@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "White 2 is a wrong answer. How can Black punish it?",
+ "id": "wxTymefBuD18G2Cv4qvu",
+ "variations": "{:stones {[12 2] :black, [11 3] :black, [9 3] :white, [15 2] :white, [14 2] :black, [11 4] :black, [16 4] :white, [3 3] :black, [14 1] :white, [10 3] :white, [11 1] :white, [10 2] :black, [11 2] :white, [6 2] :black, [8 2] :white}, :to-play :black, :labels {[14 2] \"1\", [14 1] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[10 1] :black], :id \"7e118069-5e49-42cd-9491-1132a3faa36a\", :children [{:move [[12 1] :white], :id \"218e257b-0a90-4a97-ba6a-9611088920f2\", :children [{:move [[13 1] :black], :id \"38c1f57b-f1c6-4c3b-b2c4-f0a917243753\", :children [{:move [[13 0] :white], :id \"ae286cd9-999b-484e-b1ab-8866d02ccc48\", :children [{:move [[13 2] :black], :id \"404558a5-eb08-4053-a417-1c1a422a11c4\"}]}]}]}]} {:move [[13 1] :black], :id \"4d1180ef-d1ac-4cb4-97bf-0ee04a5ea00f\", :children [{:move [[10 1] :white], :id \"d2b2a4f2-407f-44be-a637-c50bef32da9d\", :comment \"This is not the best way for Black.\"}]}]}"
+}

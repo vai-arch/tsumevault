@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "description": "How do you continue for White?",
+ "variations": "{:stones {[13 2] :white, [16 13] :black, [16 2] :white, [2 13] :white, [15 3] :black, [5 2] :black, [15 2] :black, [5 16] :black, [15 4] :black, [3 16] :black, [16 3] :white, [13 1] :black, [4 17] :black, [16 1] :white, [3 3] :white, [5 15] :black, [3 17] :black, [14 1] :black, [3 15] :white, [1 16] :white, [4 16] :white, [15 15] :black, [6 17] :white, [2 17] :black, [2 16] :white, [15 1] :white, [16 5] :white, [11 2] :black, [4 15] :white, [7 16] :black, [2 5] :white}, :to-play :white, :board-size 19, :labels {[7 16] \"A\"}, :marks {:triangle #{}, :circle nil, :square nil}, :children [{:move [[5 17] :white], :id \"d6fc7308-3fb9-4abe-b314-2418ba29e160\", :children [{:move [[7 17] :black], :id \"92984c9c-3ba0-428a-abff-daf0be4fbd98\", :children [{:move [[1 17] :white], :id \"6b09e95b-7b06-4baf-a227-0669040b77f3\", :children [{:move [[6 16] :black], :id \"728481a4-8879-4a18-a438-3c38d40d178b\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[5 17] [6 17]}}}]}]}]} {:move [[7 17] :white], :id \"d37a0281-83cc-4c62-b916-614114eb1ffd\", :children [{:move [[9 16] :black], :id \"b0afdb49-1fd5-4fc2-90b2-10ed52904b1f\", :children [{:move [[6 16] :white], :id \"83857f90-ed05-4950-82a3-11ec7ea5ef71\"}]}]}]}",
+ "id": "TMLwXVCVUjSWidpouZE5"
+}

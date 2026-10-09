@@ -1,0 +1,6 @@
+{
+ "description": "The ladder is good for Black.\nHow can Black settle his stones?",
+ "id": "jSVKOntL1EYubhWFLC6z",
+ "variations": "{:stones {[14 3] :black, [16 7] :white, [17 6] :black, [15 4] :white, [16 3] :white, [14 4] :black, [15 6] :white, [16 6] :black, [14 5] :black, [15 5] :black, [16 5] :white, [17 5] :white}, :labels {[17 5] \"1\"}, :marks {:triangle #{[17 6] [16 6]}, :circle nil, :square nil}, :children [{:move [[15 7] :black], :id \"c7bd0e32-1f88-4d6b-95ed-72ee48bd0fc1\", :children [{:move [[14 6] :white], :id \"61b958e9-2687-4c20-a545-a36faa767cc6\", :children [{:move [[17 7] :black], :id \"2b696efc-41f8-456a-8068-df48b58e733d\", :children [{:move [[16 8] :white], :id \"8c2ecf08-b637-47a3-870e-c101d36dbecf\", :children [{:move [[15 8] :black], :id \"c429e828-5858-4356-91a7-bc5bc2fb1735\", :labels {[16 9] \"A\", [13 6] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[17 8] :white], :id \"d8444fb7-3206-4b8f-8112-0ba57b27cb12\", :children [{:move [[13 6] :black], :id \"6a748c46-d219-40a3-ad61-9a9a86a90960\"}]}]}]}]}]}]}]}",
+ "to-play": "black"
+}

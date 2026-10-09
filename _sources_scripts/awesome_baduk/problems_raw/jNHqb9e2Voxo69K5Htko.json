@@ -1,0 +1,6 @@
+{
+ "id": "jNHqb9e2Voxo69K5Htko",
+ "description": "Punish Black's greedy move A.",
+ "variations": "{:stones {[13 2] :white, [16 2] :white, [14 3] :black, [15 3] :black, [17 2] :black, [15 2] :white, [14 2] :black, [16 4] :white, [16 3] :black, [15 9] :black, [12 3] :black, [12 5] :black, [16 1] :white, [3 3] :white, [13 0] :white, [15 0] :white, [17 4] :black, [14 1] :white, [3 15] :white, [16 6] :white, [12 1] :white, [15 15] :black, [13 3] :white, [16 8] :black, [17 3] :white, [13 4] :black, [11 2] :black}, :to-play :white, :labels {[17 2] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 4] :white], :id \"6b4384c3-1b4d-40b9-a9ed-30261d123837\", :children [{:move [[18 3] :black], :id \"959676a0-0ae9-4f04-94ff-d10bbaf46558\", :children [{:move [[15 4] :white], :id \"be93445b-667b-4a44-a2dd-56942fc8bc06\", :children [{:move [[17 3] :black], :id \"4694dcd9-bd08-4cb6-bf98-4b8a43e6f34e\", :children [{:move [[17 5] :white], :id \"93657ad8-5a2f-4524-bbb3-66018cc2984a\", :comment \"Black all died.\"}]}]}]}]}]}",
+ "to-play": "white"
+}

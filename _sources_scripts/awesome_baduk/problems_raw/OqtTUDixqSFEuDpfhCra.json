@@ -1,0 +1,6 @@
+{
+ "id": "OqtTUDixqSFEuDpfhCra",
+ "description": "Which move is better? Aggressive or Defensive?",
+ "variations": "{:stones {[13 2] :black, [2 14] :white, [14 3] :black, [15 3] :white, [14 2] :white, [13 5] :black, [15 4] :white, [16 3] :white, [12 3] :black, [14 4] :white, [6 16] :white, [4 16] :black, [2 16] :black, [13 4] :black, [4 15] :white}, :board-size 19, :labels {[13 3] \"A\", [14 1] \"B\", [15 2] \"C\"}, :marks {:circle nil, :square nil, :triangle #{[13 2] [12 3] [14 3] [13 4] [13 5]}}, :children [{:move [[14 1] :black], :id \"cd0fb600-f2a2-49cb-a18d-852283e380f7\"} {:move [[13 3] :black], :id \"d9beff5e-d636-4d5d-861d-47b49ca6b4f5\", :children [{:move [[14 1] :white], :id \"289c9a38-52b6-43b3-8808-a6339f865383\"}]} {:move [[15 2] :black], :id \"81653cb2-7b23-462d-b9bf-33d4d7db8aea\", :children [{:move [[14 1] :white], :id \"3f903649-1c5f-432f-adae-1f47ae7e5707\"}]}]}",
+ "to-play": "black"
+}

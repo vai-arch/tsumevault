@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / The marked White stone has just been played. Capture the White group with double throw-in",
+ "variations": "{:labels nil, :children [{:move [[3 12] :black], :id \"1a5b7ec2-a9e2-46b5-b6d2-743c06ff79da\", :children [{:move [[2 11] :white], :id \"ed45c710-08e3-4a74-9019-82db520ab472\", :children [{:move [[3 12] :black], :id \"157bfec4-fc10-4607-81b8-c3f5315b9c3e\"}]}]}], :stones {[1 10] :black, [4 11] :black, [0 11] :white, [1 11] :white, [2 12] :black, [2 9] :black, [4 9] :black, [1 12] :white, [3 11] :white, [3 9] :black, [3 10] :white, [1 9] :black, [2 10] :white, [5 11] :black, [4 12] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[1 12]}}}",
+ "to-play": "black",
+ "id": "ace9d8d9-9337-461a-bafc-d66ba3e7a677"
+}

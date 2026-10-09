@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "variations": "{:stones {[13 2] :white, [16 13] :black, [15 3] :black, [9 3] :white, [15 16] :black, [15 8] :black, [14 2] :black, [15 9] :white, [3 3] :white, [3 15] :white, [15 10] :white, [13 3] :white, [14 9] :black, [15 5] :black}, :to-play :black, :board-size 19, :labels {[13 8] \"1\", [14 8] \"2\", [14 7] \"3\", [15 10] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 8] :black], :id \"0adc897d-9c9c-4380-9ef7-4e288c617703\"} {:move [[13 8] :black], :id \"43ddda9a-8e36-4b6c-9a19-28e81ba2c577\", :children [{:move [[16 8] :white], :id \"f253502b-c954-4420-aac1-cd47e03b588d\", :labels {[15 7] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}}]} {:move [[14 7] :black], :id \"2c473472-f5c9-4652-b4e3-3b2e2c75a45e\", :children [{:move [[14 10] :white], :id \"c563d89f-dad7-4ad3-a759-89da3befb3f1\", :labels {[13 9] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}}]}]}",
+ "description": "Which connection is best in this case?",
+ "id": "shIhnN587ljTojYPCOZs"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / The marked White stone has just been played. Capture the White chain with hoidori(oiotoshi)",
+ "id": "a4eee60f-2db3-4591-9c78-b855f8632275",
+ "variations": "{:labels nil, :children [{:move [[3 8] :black], :id \"dc9731e5-0d87-4ec3-bac0-0e357ab5ecea\", :children [{:move [[4 8] :white], :id \"96d4d86a-6127-451e-8484-a274b2f7b6cc\", :children [{:move [[5 10] :black], :id \"85b49691-c563-4ff0-b51b-1b62ca0d37ed\"}]}]}], :stones {[1 10] :black, [6 8] :black, [6 9] :black, [5 9] :white, [4 11] :black, [4 10] :white, [5 6] :white, [2 11] :black, [2 9] :black, [4 9] :black, [2 7] :white, [3 11] :black, [3 9] :white, [3 10] :white, [2 10] :white, [5 11] :black, [3 6] :white, [6 10] :black}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[3 9]}}}",
+ "to-play": "black"
+}

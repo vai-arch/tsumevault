@@ -1,0 +1,6 @@
+{
+ "variations": "{:labels {[3 9] \"1\", [5 4] \"A\", [7 4] \"B\"}, :children [{:move [[5 4] :black], :id \"746a879c-6fb0-41be-8886-f77537cb8c3e\", :children [{:move [[4 10] :white], :id \"64c7b072-40ee-4907-b926-c8125a1c61e4\", :children [{:move [[4 11] :black], :id \"93c4bfcb-2dd9-4e63-a40a-dafda7a8984e\", :children [{:move [[3 10] :white], :id \"3226e1a4-ea61-452d-8232-b17bd5ef1872\", :children [{:move [[2 10] :black], :id \"bc200312-9387-4901-8148-543a9c08f540\", :children [{:move [[3 11] :white], :id \"b11a9070-2505-47c8-bd91-7818316f8c38\", :children [{:move [[3 12] :black], :id \"51831fb9-4e50-4140-a466-b258b895e974\", :children [{:move [[2 11] :white], :id \"d66c7740-28cc-48e0-9c53-0261ef2b720b\", :children [{:move [[1 11] :black], :id \"d97a87f3-401b-473b-a9eb-d18ecf0e4668\"}]}]} {:move [[2 11] :black], :id \"3b0becb6-afb9-4870-a54c-0dbbde91ff7a\"}]}]}]}]}]}]}], :stones {[6 8] :black, [6 9] :black, [5 7] :black, [5 9] :white, [4 7] :black, [4 9] :white, [2 7] :black, [3 9] :black, [6 6] :white, [6 7] :white, [4 8] :white, [1 8] :black, [5 10] :black, [3 6] :white, [5 8] :white, [3 8] :black, [3 7] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[3 7]}}}",
+ "to-play": "black",
+ "description": "If the ladder works, mark A, otherwise B",
+ "id": "d7bde0ae-3322-452a-9359-907d6a4c7628"
+}

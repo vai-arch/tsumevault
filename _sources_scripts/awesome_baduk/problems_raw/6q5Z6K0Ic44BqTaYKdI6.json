@@ -1,0 +1,6 @@
+{
+ "description": "Which option should White choose in this Joseki?",
+ "to-play": "white",
+ "id": "6q5Z6K0Ic44BqTaYKdI6",
+ "variations": "{:stones {[2 14] :white, [2 12] :white, [2 13] :black, [15 3] :black, [4 13] :black, [3 16] :white, [2 15] :white, [1 12] :white, [16 15] :black, [3 3] :white, [1 13] :black, [3 15] :black, [1 16] :white, [4 16] :black, [3 14] :black, [2 17] :black, [3 13] :white, [2 16] :black, [1 14] :white}, :to-play :white, :board-size 19, :labels {[3 12] \"A\", [0 13] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[3 12] :white], :id \"010f8183-3eca-46d9-909f-56627cf8ac94\"} {:move [[0 13] :white], :id \"639f1ea1-b5ac-4d25-8e3b-3570a58cdb04\", :children [{:move [[3 12] :black], :id \"f002de7c-5e64-42c5-93c7-5c895a806c6a\", :children [{:move [[2 13] :white], :id \"41cc91ef-1131-4e22-b851-8cacc16a8585\", :children [{:move [[5 14] :black], :id \"df703ca2-4bd2-44b9-bbd4-f8cbe079be01\"}]} {:move [[3 11] :white], :id \"1e17bace-112d-42a6-8108-8d709db6dfe4\", :children [{:move [[2 13] :black], :id \"87629996-2096-4d67-8673-9d46de602efc\"}]}]}]}]}"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "What is the best way for black to go out?",
+ "id": "VVNJm2G6ihm7UTbjUHAW",
+ "variations": "{:stones {[11 3] :black, [9 3] :white, [9 5] :black, [7 4] :white, [8 4] :white, [3 3] :white, [6 3] :black, [3 5] :white, [11 5] :black, [7 5] :white, [7 3] :black, [6 4] :black}, :board-size 19, :labels {[6 5] \"A\", [6 6] \"B\", [5 6] \"C\", [5 5] \"D\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[6 5] :black], :id \"b60ee3f4-ef02-4453-93ba-53cb2af26b25\", :children [{:move [[7 6] :white], :id \"3bf2a6f2-703d-455d-82fe-385198639a9f\"}]} {:move [[6 6] :black], :id \"519c3bad-c9e4-49da-a8e1-27789731ce40\", :children [{:move [[6 5] :white], :id \"33d433ab-4b21-4f46-8b09-16e9554db38a\", :children [{:move [[5 5] :black], :id \"a2e6cfed-b240-493f-8c04-71337c1107a8\", :children [{:move [[5 4] :white], :id \"cbafc54a-51ef-4393-892e-93d2124a3683\"}]}]}]} {:move [[5 6] :black], :id \"cda9ac44-981e-4781-bb81-7447f0f68a95\"} {:move [[5 5] :black], :id \"30fbf402-9aeb-4150-8a29-afbff25dd0db\", :children [{:move [[7 7] :white], :id \"5aea05d1-6e05-432c-bc14-3c361e96479b\"}]}]}",
+ "to-play": "black"
+}

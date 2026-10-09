@@ -1,0 +1,6 @@
+{
+ "description": "How to capture black 2 stones?",
+ "variations": "{:stones {[16 13] :white, [13 17] :white, [14 16] :white, [15 16] :black, [17 15] :black, [17 16] :black, [10 14] :black, [16 15] :white, [16 16] :black, [10 16] :black, [14 14] :white, [12 16] :white, [15 15] :white, [15 17] :black, [13 16] :white, [17 14] :white, [13 15] :black, [14 15] :black, [14 17] :black}, :to-play :white, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[13 15] [14 15]}}, :children [{:move [[12 14] :white], :id \"062fa090-07ed-41cd-9a3f-1c46976c6ad9\", :children [{:move [[15 14] :black], :id \"3cd070ab-77d6-4496-a8aa-3d2c58a6281f\", :children [{:move [[16 14] :white], :id \"25389b09-8832-4f85-8676-c1d0f162f6a6\", :children [{:move [[13 14] :black], :id \"7e7cab0c-aaf0-4da9-870f-05043ed16d7c\", :children [{:move [[13 13] :white], :id \"1124f0f2-c3aa-426e-88a8-a75fbbe7644f\", :children [{:move [[14 13] :black], :id \"381f5492-a053-4ae6-ad40-3ae3427d6953\", :children [{:move [[12 15] :white], :id \"107d6824-4ba7-4aaa-ba48-7f6315ae9606\", :children [{:move [[14 14] :black], :id \"9334c0df-2976-4cb2-b852-8ffb38a99c17\", :children [{:move [[14 12] :white], :id \"e0a5175e-1686-4b7c-986c-84a892948e36\"}]}]}]}]}]}]}]}]}]}",
+ "to-play": "white",
+ "id": "65r8mAYOH5m0qENivMnt"
+}

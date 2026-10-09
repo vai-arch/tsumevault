@@ -1,0 +1,6 @@
+{
+ "description": "Connect and save black's 3 stones.",
+ "to-play": "black",
+ "id": "2ecFfSrQJ6MzXyKZ6DLm",
+ "variations": "{:stones {[14 16] :black, [12 17] :white, [15 16] :white, [17 16] :white, [17 17] :black, [16 15] :black, [16 16] :white, [14 14] :black, [16 17] :black, [12 16] :white, [15 15] :black, [15 17] :black, [13 16] :black, [13 15] :white, [15 13] :black, [14 15] :white, [14 17] :white}, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[15 17] [16 17] [17 17]}}, :children [{:move [[18 16] :black], :id \"2e7e9c35-931f-4e65-8570-2398670c3c35\", :children [{:move [[17 15] :white], :id \"bedc42d1-f1d7-4f47-846b-08a4d8115e0a\", :children [{:move [[17 14] :black], :id \"2ed52d7b-87c7-43a2-ba58-68e8ab01c303\", :children [{:move [[13 17] :white], :id \"5523df92-d666-47d2-befd-79e4dc5ece69\", :children [{:move [[18 15] :black], :id \"772da6ed-b6f8-433f-b697-22a3aa13271c\", :children [{:move [[14 16] :white], :id \"324c9b40-c804-4607-bf38-d6f654f90039\", :children [{:move [[16 14] :black], :id \"e1fc68b1-83ca-4293-b291-1ea2e024a4c7\"} {:move [[16 13] :black], :id \"3a980434-773e-4186-a910-a02d013161a3\"} {:move [[16 12] :black], :id \"41affe13-39cf-4d51-968f-c7aa82e7f1bd\"}]}]}]}]}]}]}]}"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "What is the best way for Black, if White has more Ko-threat?",
+ "id": "a5FALb9zLAQXjhmuPGqN",
+ "variations": "{:stones {[13 2] :black, [16 2] :white, [14 3] :black, [15 3] :black, [12 0] :black, [14 2] :white, [16 4] :black, [13 1] :black, [16 9] :white, [13 0] :white, [15 0] :white, [17 4] :black, [14 1] :white, [13 3] :black, [15 5] :white, [16 5] :white, [11 2] :white}, :to-play :black, :labels {[13 0] \"1\", [12 0] \"2\", [15 0] \"3\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 2] :black], :id \"bc201dba-d953-4b87-a00d-9479cb0c3f2d\", :children [{:move [[15 1] :white], :id \"e81dcedb-43cb-4bf2-94a9-1947946936af\", :children [{:move [[17 1] :black], :id \"a938e400-1776-4dfa-bc5c-9dc2f7fad6c9\", :children [{:move [[12 1] :white], :id \"3b297225-3999-4838-8680-e6e6551496c7\", :children [{:move [[14 0] :black], :id \"c2e46c95-face-478a-83c0-1cc861539175\"} {:move [[16 1] :black], :id \"014788c2-537d-4ebf-b859-b58d0cc228c6\"}]}]}]}]} {:move [[11 1] :black], :id \"2335eaf1-f730-4b85-80ad-36c043b726c4\", :children [{:move [[17 1] :white], :id \"680c3535-201d-4369-a5b1-bbc7596271af\"}]}]}",
+ "to-play": "black"
+}

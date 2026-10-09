@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1. Where should Black play?",
+ "id": "bb80194f-1523-4a26-b831-620fca360800",
+ "variations": "{:labels {[6 8] \"1\"}, :children [{:move [[6 7] :black], :id \"abeecd1d-4b29-4fb9-8f1b-bb9155e8cc73\", :children [{:move [[5 9] :white], :id \"fde7dcf3-2a15-41b7-87e9-5a018fe62bf1\", :children [{:move [[5 8] :black], :id \"b742a20c-c66d-495e-9954-4e24e8f6ac07\"}]}]}], :stones {[6 8] :white, [6 9] :black, [4 11] :white, [1 11] :white, [7 9] :white, [4 10] :black, [5 5] :white, [4 7] :black, [2 9] :white, [4 9] :black, [8 8] :black, [3 11] :white, [3 5] :white, [3 9] :black, [1 8] :black, [3 10] :white, [1 9] :white, [7 10] :white, [5 10] :black, [7 8] :black, [5 11] :white, [6 10] :white, [2 8] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

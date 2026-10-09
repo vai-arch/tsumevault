@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / The marked White stone has just been played. Capture the White chain with hoidori(oiotoshi)",
+ "to-play": "black",
+ "id": "e5753f95-f303-4c73-b8db-94fd154ce842",
+ "variations": "{:labels nil, :children [{:move [[4 7] :black], :id \"c9723303-33f1-46cd-8bbb-d44e2b575a27\", :children [{:move [[3 7] :white], :id \"d3a0c690-565c-46de-ba22-94dc6aec5096\", :children [{:move [[5 8] :black], :id \"12439ffd-71ff-4bb6-9940-5295e767f500\"}]}]} {:move [[5 8] :black], :id \"fb0693ff-6fd3-4144-84f9-888eb603acba\", :children [{:move [[3 7] :white], :id \"86703c9e-6da3-4754-b43b-92614929559a\", :children [{:move [[4 7] :black], :id \"0df79fb0-d2d1-453e-9f59-5d93fd5d043a\"}]}]}], :stones {[1 10] :white, [5 7] :black, [5 9] :black, [1 5] :white, [4 6] :black, [4 10] :black, [2 11] :white, [2 9] :black, [4 9] :white, [2 7] :white, [3 11] :black, [2 6] :black, [3 9] :white, [4 8] :white, [3 10] :black, [1 9] :black, [2 10] :white, [3 6] :black, [3 8] :black, [1 6] :white, [2 8] :white, [2 5] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[4 8]}}}"
+}

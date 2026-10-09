@@ -1,0 +1,6 @@
+{
+ "description": "A is a bad move. Punish A for white.",
+ "to-play": "white",
+ "variations": "{:stones {[16 15] :white, [12 16] :black, [10 15] :white, [14 15] :white, [14 16] :white, [11 14] :black}, :to-play :white, :board-size 19, :labels {[11 14] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[11 15] :white], :id \"67f2c28b-c0f1-4ac3-8407-be3adf8998b1\", :children [{:move [[12 15] :black], :id \"e2464064-4a1e-438e-a295-1abb7683bdaa\", :children [{:move [[12 14] :white], :id \"bb4cae5a-b12e-4fbd-bb35-1c01462ae50f\", :children [{:move [[13 14] :black], :id \"09c48c24-591e-4468-b040-1301d638bda1\", :children [{:move [[12 13] :white], :id \"20d2e613-6102-47eb-90a3-bdaa6afbe440\", :children [{:move [[13 15] :black], :id \"26af6635-6669-4173-8e57-428379e64589\", :children [{:move [[13 12] :white], :id \"4a5890a8-3150-4a73-93b4-0e99b1e2c316\"}]}]}]}]}]}]}]}",
+ "id": "QmrWJj5yHqPWatng0YW9"
+}

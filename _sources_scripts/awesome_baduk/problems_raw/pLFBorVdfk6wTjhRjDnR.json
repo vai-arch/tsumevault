@@ -1,0 +1,6 @@
+{
+ "description": "How can White rescue his stone?",
+ "to-play": "white",
+ "variations": "{:stones {[13 2] :black, [16 2] :white, [15 3] :black, [16 4] :black, [16 9] :white, [13 3] :black, [15 5] :white, [16 5] :white, [17 3] :black, [11 2] :white}, :to-play :white, :labels {[16 2] \"1\", [17 3] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[17 2] :white], :id \"3abfa487-f503-4aeb-988d-801332240c1e\", :children ({:move [[17 5] :black], :id \"4a403df0-b021-4a5d-a318-552a776cb6a2\", :children [{:move [[14 1] :white], :id \"b6f89bb9-e587-44e9-89f8-7fd0e5135c87\", :children [{:move [[13 1] :black], :id \"358b1783-c5db-4190-82ba-08b6802c3152\", :children [{:move [[14 2] :white], :id \"85b8dd3d-6090-4cc5-9a89-c4baf894da9b\", :children [{:move [[14 3] :black], :id \"252de992-268a-4c39-842b-a5fbab0a841a\", :children [{:move [[15 2] :white], :id \"47d864a2-1329-4039-99c3-7aaa6c2d1031\"}]}]}]}]}]})} {:move [[15 2] :white], :id \"b1de113a-e735-4e0d-97af-2acad14619ba\", :children [{:move [[17 2] :black], :id \"add04014-1fdc-4d69-8ba3-5db1d61f98cc\"}]}]}",
+ "id": "pLFBorVdfk6wTjhRjDnR"
+}

@@ -1,0 +1,6 @@
+{
+ "id": "iOZm0CRKi3AZgKgzx0JN",
+ "description": "What happens, if White answers at 4?\n",
+ "to-play": "black",
+ "variations": "{:stones {[13 2] :white, [17 1] :white, [18 2] :white, [16 2] :white, [15 3] :black, [15 2] :black, [14 2] :black, [16 4] :white, [18 4] :black, [16 3] :black, [16 1] :white, [17 4] :black, [18 0] :white, [14 1] :black, [17 0] :black, [15 1] :white, [15 5] :black, [17 3] :white, [17 5] :black}, :to-play :black, :labels {[17 0] \"1\", [17 1] \"2\", [18 4] \"3\", [18 0] \"4\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[18 3] :black], :id \"1e842115-8c17-4986-bd99-6f0d1f25900f\", :children [{:move [[17 2] :white], :id \"b9044c3e-4c32-465d-8067-ac4ee05e7d4a\", :children [{:move [[18 1] :black], :id \"f6482d12-a6f3-42bb-9e94-51f8ce1863da\", :comment \"Black takes Ko first!\"}]}]} {:move [[18 1] :black], :id \"013ffac9-b45f-408d-86b1-35b4b8caf348\", :children [{:move [[16 0] :white], :id \"2e4a779d-c256-42a8-a9a6-961346cd19e2\", :children [{:move [[18 3] :black], :id \"4b60def5-a2bb-4fbe-b0a9-d0e9f42f78c9\", :children [{:move [[18 0] :white], :id \"dbcab110-a7f7-4024-96fa-b55c38cee0b6\", :children [{:move [[17 2] :black], :id \"e764761f-98de-42a8-b5d8-9fc4fa3eef57\"}]}]}]}]}]}"
+}

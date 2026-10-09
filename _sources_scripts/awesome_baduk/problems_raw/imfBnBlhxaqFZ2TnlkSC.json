@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "How do you cut off A?",
+ "variations": "{:stones {[15 14] :black, [9 1] :black, [16 2] :black, [3 2] :white, [7 2] :black, [5 2] :white, [9 3] :white, [15 16] :black, [11 4] :black, [2 15] :white, [9 5] :white, [8 4] :black, [16 9] :black, [10 16] :white, [5 15] :black, [3 11] :white, [9 4] :white, [4 16] :black, [13 3] :black, [3 14] :white, [2 17] :black, [11 2] :white, [7 16] :white, [2 5] :white}, :to-play :black, :board-size 19, :labels {[11 2] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[10 2] :black], :id \"27b74baf-7f1c-4dd9-8e01-f78e40bbb9d4\", :labels {[10 3] \"A\", [11 3] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"This attachment is the right answer. A and B are miai next.\"} {:move [[10 3] :black], :id \"30ceafaa-ece9-456b-b58d-5287a2aadb51\", :children [{:move [[10 2] :white], :id \"f12fd0ec-2990-44b6-b586-0e4c8b8bdacc\", :children [{:move [[9 2] :black], :id \"e66cf72e-8360-4014-b9e5-f38fb009d9e6\", :children [{:move [[12 4] :white], :id \"89af8e14-85ff-4671-9f60-fe388ad4215c\", :children nil, :labels {[10 3] \"1\", [12 3] \"A\", [11 5] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"Attaching at 1 is wrong. White can escape since A and B are miai next.\"}]}]}], :comment \"\"}]}",
+ "id": "imfBnBlhxaqFZ2TnlkSC"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / who will win this capturing race? If Black will wins, mark A, otherwise mark B",
+ "id": "aae725c1-3300-48c7-99f7-bbc411331843",
+ "to-play": "black",
+ "variations": "{:board-size 13, :stones {[6 8] :black, [6 9] :black, [5 9] :white, [0 10] :white, [5 12] :white, [8 12] :white, [1 11] :white, [2 12] :white, [4 10] :black, [2 11] :white, [4 7] :black, [2 9] :black, [4 9] :white, [8 11] :white, [3 11] :black, [6 11] :black, [7 12] :black, [3 9] :white, [1 8] :black, [3 12] :black, [3 10] :black, [1 9] :white, [2 10] :white, [7 10] :white, [5 10] :black, [5 11] :black, [7 11] :black, [6 10] :white, [8 10] :white, [4 12] :white, [2 8] :black}, :labels {[5 4] \"A\", [7 4] \"B\"}, :marks {:circle nil, :square #{[4 10] [3 11] [6 11] [7 12] [3 12] [3 10] [5 10] [5 11] [7 11]}, :triangle #{[3 9] [4 9] [5 9]}}, :children [{:move [[5 4] :black], :id \"21b2a2b5-5b9e-4f89-9584-27c81df860d4\"}]}"
+}

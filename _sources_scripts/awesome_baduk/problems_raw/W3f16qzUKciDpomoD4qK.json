@@ -1,0 +1,6 @@
+{
+ "id": "W3f16qzUKciDpomoD4qK",
+ "description": "Rescue black 3 stones by connecting.",
+ "to-play": "black",
+ "variations": "{:stones {[15 14] :white, [13 17] :black, [14 16] :black, [15 16] :white, [17 15] :white, [17 16] :white, [16 15] :black, [16 16] :black, [14 14] :white, [16 17] :black, [16 14] :white, [15 17] :white, [13 16] :black, [13 15] :black, [14 15] :white, [14 17] :white, [17 13] :white}, :board-size 19, :children [{:move [[15 18] :black], :id \"cc675306-4867-4c05-bb5b-6ebba708bee0\", :children [{:move [[14 18] :white], :id \"b47b0499-7f68-471a-b581-5c89cf2d90d7\", :children [{:move [[15 15] :black], :id \"ebb2612c-fb49-4b8d-b1b2-340fec4f9486\", :children [{:move [[16 18] :white], :id \"49421406-3d67-4161-bde2-dcf96ff64cc7\"}]}]}]} {:move [[14 18] :black], :id \"4b24ee26-4228-4dbb-b1e7-928140b9f1aa\", :children [{:move [[16 18] :white], :id \"d804c48a-6e05-4568-aa3d-02f115a67929\", :children [{:move [[17 18] :black], :id \"ff385d4c-5b8d-4920-a509-d09af0362dba\", :children [{:move [[17 17] :white], :id \"ac72b97a-c669-40e3-80dd-941b39cfa78f\", :children [{:move [[15 18] :black], :id \"cf65416e-0bc4-4500-96bd-0facb6c9b7db\"}]}]}]}]}]}"
+}

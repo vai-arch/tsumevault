@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White has just played at 1. Respond with one-point jump move towards the center",
+ "id": "30cc3bae-e3ab-4c3e-994e-ffed3f39cb46",
+ "to-play": "black",
+ "variations": "{:labels {[3 7] \"1\"}, :children [{:move [[5 4] :black], :id \"b9e516c6-0e71-48ff-96a8-f9eccdac47be\"}], :stones {[3 2] :white, [3 4] :black, [3 7] :white, [15 3] :black, [15 9] :black, [15 15] :black, [2 15] :white, [4 16] :white}, :board-size 19, :marks {:triangle nil, :square nil, :circle #{[3 4]}}}"
+}

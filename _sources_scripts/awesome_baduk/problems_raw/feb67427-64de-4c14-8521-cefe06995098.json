@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Black to play / White just played at 1. Find the best sequence for Black",
+ "id": "feb67427-64de-4c14-8521-cefe06995098",
+ "variations": "{:labels {[4 10] \"1\"}, :children [{:move [[5 10] :black], :id \"e886ae57-5688-4692-8d3e-44ef6544bd63\", :children [{:move [[4 8] :white], :id \"c45922f5-7466-4b32-b1df-6cbe20458996\", :children [{:move [[5 8] :black], :id \"2044b7fa-1a09-4d0a-b62b-1d00f4e4d5b3\"}]}]}], :stones {[1 10] :white, [6 8] :white, [5 7] :black, [0 11] :white, [1 11] :black, [7 9] :white, [4 10] :white, [2 11] :black, [4 7] :black, [2 9] :black, [4 9] :black, [2 7] :white, [3 11] :black, [2 6] :white, [3 9] :white, [1 8] :white, [3 10] :white, [1 9] :white, [2 10] :black, [7 10] :white, [3 8] :white, [3 7] :black, [2 8] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

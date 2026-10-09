@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "kWCCXa60nDjQ8nYmqcHO",
+ "description": "Continue as black after 1, 2 and 3.",
+ "variations": "{:stones {[15 14] :white, [13 2] :black, [14 16] :white, [15 3] :black, [15 16] :black, [16 15] :black, [16 16] :white, [3 3] :white, [3 15] :white, [15 15] :white, [16 14] :black, [15 17] :black, [13 15] :black, [14 15] :white}, :to-play :black, :board-size 19, :labels {[14 16] \"1\", [15 17] \"2\", [14 15] \"3\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 17] :black], :id \"22f02094-687d-4899-9d6c-1c0368ece29e\", :children [{:move [[13 16] :white], :id \"a260efd9-3d63-486b-ad48-edf17728d734\", :children [{:move [[17 16] :black], :id \"ed885516-ec89-4eb8-b37c-4ebaf70bf9ee\", :children [{:move [[16 13] :white], :id \"34224c02-e03a-4298-b2eb-e1bf99d6f090\", :children [{:move [[15 13] :black], :id \"6f34dec3-377a-41d1-bb4a-fbb1ec2e3a9c\"}]}]}]}]}]}"
+}

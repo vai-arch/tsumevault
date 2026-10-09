@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Escape the black stones",
+ "to-play": "black",
+ "variations": "{:labels {[4 8] \"1\"}, :children [{:move [[4 9] :black], :id \"032b0628-bc13-4b37-9a5a-c0305ef2c486\", :children [{:move [[5 9] :white], :id \"e3aed0a1-489d-40b6-b1d8-f0efaf63f5cb\", :children [{:move [[3 11] :black], :id \"33c95a50-7905-4378-bd64-65ef8dc04170\"}]}]} {:move [[3 8] :black], :id \"3e4aaa4a-a8c3-4150-b185-4a5c0c2beb6b\", :children [{:move [[3 7] :white], :id \"4a085325-d3b9-49db-91fd-2308eb8cb0b0\"}]}], :stones {[1 10] :black, [4 11] :black, [1 11] :black, [4 10] :white, [2 11] :black, [2 9] :black, [3 9] :black, [4 8] :white, [1 8] :white, [3 10] :white, [1 9] :white, [2 10] :white, [5 10] :black, [5 11] :black, [2 8] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "id": "02c0f32f-1e22-4cd9-ae7c-dc206b074107"
+}

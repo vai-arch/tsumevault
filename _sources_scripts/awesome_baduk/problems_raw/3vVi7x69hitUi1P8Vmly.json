@@ -1,0 +1,6 @@
+{
+ "description": "Where is Black's correct answer?",
+ "variations": "{:stones {[15 3] :black, [13 2] :white, [9 3] :black, [16 5] :white, [14 4] :black, [16 2] :white, [15 2] :black, [16 3] :white}, :to-play :black, :labels {[13 2] \"1\", [16 2] \"5\", [9 3] \"2\", [15 2] \"6\", [16 4] \"D\", [16 3] \"7\", [14 4] \"4\", [3 3] \"C\", [15 6] \"B\", [14 6] \"A\", [16 5] \"3\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 6] :black], :id \"9f492b1f-1785-4fda-a344-fd37d578423f\"} {:move [[15 6] :black], :id \"bca0462a-e43e-4172-8219-117740b5562a\"} {:move [[16 4] :black], :id \"1cd8f73a-a996-476e-a6a4-46c51b9a4db2\", :children [{:move [[17 4] :white], :id \"23f30b6b-6b4a-4c4e-9080-c0dd2cdc2ea4\", :children [{:move [[15 4] :black], :id \"68df7fb1-f992-47ed-8bb7-31d41e6b6688\", :children [{:move [[17 6] :white], :id \"8b75179a-0f76-4c2c-8bb7-012ce31eb50e\"}]}]}]} {:move [[3 3] :black], :id \"1be94d33-63f5-4c4d-a297-f457f264aa95\", :children [{:move [[15 4] :white], :id \"231b78ac-4218-49c1-bc90-601c1193132f\", :comment \"This is the vital point.\"}]}]}",
+ "to-play": "black",
+ "id": "3vVi7x69hitUi1P8Vmly"
+}

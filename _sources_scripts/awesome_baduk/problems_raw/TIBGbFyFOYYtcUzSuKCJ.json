@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "What is a proper move for black?",
+ "variations": "{:stones {[13 2] :white, [16 2] :white, [11 3] :black, [14 3] :white, [15 3] :black, [17 2] :white, [15 2] :white, [14 2] :white, [16 3] :black, [12 3] :black, [14 4] :black, [16 15] :black, [3 3] :white, [3 15] :black, [13 3] :black, [17 3] :white, [2 8] :white}, :board-size 19, :labels {[16 5] \"A\", [17 4] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 5] :black], :id \"05277aaf-b4cd-4f95-8677-510446a6615b\", :children [{:move [[16 4] :white], :id \"a73abc24-d061-45cf-af0b-3b6a4ed990a5\", :children [{:move [[15 4] :black], :id \"961517d0-5035-470f-90cf-abbe27ed9d9f\", :children [{:move [[17 4] :white], :id \"adaf7e3b-5e84-434c-8ea5-8d335c5a58a7\", :children [{:move [[15 6] :black], :id \"8061e528-fa4f-46a2-a90d-bc33812ade83\"}]}]}]}]} {:move [[17 4] :black], :id \"8b594ba3-b5b5-4a20-864b-580ebdf4f246\", :children [{:move [[16 4] :white], :id \"07e4e84b-bb47-48da-ad23-10420723d0dc\"}]}]}",
+ "id": "TIBGbFyFOYYtcUzSuKCJ"
+}

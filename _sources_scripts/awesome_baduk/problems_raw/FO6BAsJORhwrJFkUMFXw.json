@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[15 3] :black, [9 3] :white, [15 2] :black, [14 2] :white, [16 4] :black, [12 4] :black, [13 1] :white, [16 9] :white, [13 3] :black, [15 1] :black, [15 5] :white, [16 5] :white, [11 2] :white}, :labels {[15 1] \"1\", [14 2] \"2\", [15 2] \"3\"}, :marks {:triangle nil, :circle nil, :square nil}, :to-play :white, :children [{:move [[17 4] :white], :id \"1088f6ce-b1c9-4695-bf74-05a5376ee3ef\", :children [{:move [[17 3] :black], :id \"8a0fe935-cf7c-49e8-9300-daecfc820a9c\", :children [{:move [[15 4] :white], :id \"8ad60321-4a56-4077-a14e-87eb2e3ea8aa\", :labels {[14 3] \"A\", [16 3] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"A and B are Miai. \"}]}]} {:move [[14 3] :white], :id \"0cb9739b-0429-4997-bcc5-c997c896e948\", :children [{:move [[14 4] :black], :id \"3ef68883-7db0-4b16-b67f-c0b08e4c0ffe\", :children [{:move [[15 4] :white], :id \"37551451-6885-4f81-a807-f14177b1e090\", :children [{:move [[12 1] :black], :id \"63c144ff-2e60-4091-8d5a-9e9f4c6de4c0\", :children [{:move [[12 2] :white], :id \"7b7e6554-83d2-4d53-b911-20616cad5aad\", :children [{:move [[13 2] :black], :id \"8e2c93a4-073a-4b71-ba11-6ee4fa504c94\"}]}]}]}]}]}]}",
+ "description": "How can White continue, if Black connects at 3?",
+ "to-play": "white",
+ "id": "FO6BAsJORhwrJFkUMFXw"
+}

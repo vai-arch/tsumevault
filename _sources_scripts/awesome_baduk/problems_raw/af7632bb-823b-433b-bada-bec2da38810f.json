@@ -1,0 +1,6 @@
+{
+ "description": "Black to play /  play dansu(atari) the maked stones",
+ "id": "af7632bb-823b-433b-bada-bec2da38810f",
+ "variations": "{:labels nil, :children [{:move [[3 12] :black], :id \"d7785aae-87f2-4ac1-a7a7-cfe30219215a\", :children [{:move [[2 11] :white], :id \"fa357395-71bd-4eca-8127-7975199844dd\", :children [{:move [[1 12] :black], :id \"b29b8377-c5f1-47a9-ad91-323b145aaa1b\", :children nil} {:move [[2 12] :black], :id \"ea61d172-803d-461f-bb91-fca46642b438\"}]}]} {:move [[1 12] :black], :id \"d08c9c31-14bb-4f02-8d89-d89c6356f654\", :children [{:move [[6 12] :white], :id \"e31d8a4f-550d-45e4-ab16-4982bd778f4d\", :children [{:move [[2 11] :black], :id \"6678e8ca-ed75-4ec0-85d1-30acdf440418\", :children [{:move [[5 12] :white], :id \"1537ec8b-30cf-4cf2-811b-3cfc3ca858d2\"}]}]}]}], :stones {[1 10] :white, [0 10] :black, [4 11] :white, [0 11] :black, [1 11] :white, [4 10] :black, [2 9] :black, [3 11] :white, [6 11] :black, [3 10] :black, [1 9] :black, [2 10] :white, [7 10] :white, [5 10] :white, [5 11] :black, [7 11] :white, [6 10] :white, [4 12] :black}, :board-size 13, :marks {:triangle nil, :square nil, :circle #{[6 11] [5 11] [4 12]}}}",
+ "to-play": "black"
+}

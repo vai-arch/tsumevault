@@ -1,0 +1,6 @@
+{
+ "description": "Connect all black stones.",
+ "variations": "{:stones {[16 13] :white, [12 17] :white, [17 15] :black, [17 16] :black, [11 16] :black, [12 14] :white, [12 15] :black, [16 15] :white, [16 16] :black, [11 15] :white, [9 16] :black, [12 16] :white, [15 15] :white, [11 17] :black, [10 15] :black, [13 14] :white, [13 16] :black, [17 14] :white, [13 15] :black, [11 14] :white, [14 15] :white}, :board-size 19, :children [{:move [[14 17] :black], :id \"1cd6f3ff-2254-4e68-a193-06e6d2a2d6fa\", :children [{:move [[15 17] :white], :id \"42dc34c0-8926-44cf-84d7-fec0c6fd4c94\", :children [{:move [[15 16] :black], :id \"07252fc9-7a1d-4bc0-b4e7-cea09f0b98f5\", :children [{:move [[14 16] :white], :id \"15aef12c-b775-4427-b845-73a7ffd959b5\", :children [{:move [[13 17] :black], :id \"ab6dca68-cefc-451f-b9b0-cf1fa5fd907d\"}]}]}]}]} {:move [[13 17] :black], :id \"c7089f23-ad14-4a44-8b51-242b471373c2\", :children [{:move [[14 17] :white], :id \"a5f9a5b0-500f-47dc-a7cd-c30d7e7da4c6\"}]} {:move [[14 16] :black], :id \"a835e0a2-2799-4e92-8e5f-9f3de9cd8eec\", :children [{:move [[15 16] :white], :id \"0610aff8-13c8-4180-b1c4-a253fbfd3cba\"}]} {:move [[15 17] :black], :id \"2a6e7cd6-c03c-44b9-bba7-21a0eef8ecd2\", :children [{:move [[14 17] :white], :id \"81a3799b-056b-42a7-9c5b-bd92b61c8d37\"}]}]}",
+ "to-play": "black",
+ "id": "bnyOGI0uX4GBj1tQxUpa"
+}

@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "White 6 is a mistake. How can Black punish this?",
+ "variations": "{:stones {[15 14] :white, [13 2] :black, [16 13] :white, [4 3] :white, [3 4] :black, [2 2] :black, [3 2] :white, [4 2] :black, [2 3] :black, [5 2] :white, [3 1] :white, [15 16] :black, [2 9] :white, [4 5] :black, [16 3] :black, [16 15] :black, [16 9] :white, [3 3] :black, [2 6] :white, [3 15] :white, [16 14] :black, [2 1] :white, [4 1] :black, [13 16] :black, [15 13] :white, [6 2] :white}, :to-play :black, :board-size 19, :labels {[4 1] \"1\", [3 1] \"2\", [4 2] \"3\", [4 3] \"4\", [3 3] \"5\", [5 2] \"6\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[4 0] :black], :id \"2f6514cf-b44f-43f6-aa31-837395505308\", :children [{:move [[5 4] :white], :id \"6bbae93e-9201-4de3-9889-5d534a11b7ed\", :children [{:move [[1 1] :black], :id \"a29e0f6b-851c-4b23-a402-4b0df10d123c\"}]}]} {:move [[5 3] :black], :id \"5d6eec93-39c6-48eb-902c-d3b431827655\", :children [{:move [[4 0] :white], :id \"325b97a9-4186-416b-a002-2ea512b46b50\", :children [{:move [[4 4] :black], :id \"f751180d-3a0e-4ed5-a113-694bebe47a10\", :children [{:move [[5 1] :white], :id \"3da0b7f1-56fc-48e7-b721-8f55345069b0\"}]}]}]}]}",
+ "id": "tvu49ajIeF8MkYdZ8lnr"
+}

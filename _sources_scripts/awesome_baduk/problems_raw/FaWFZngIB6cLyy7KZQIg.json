@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[2 14] :white, [2 12] :white, [2 13] :black, [15 3] :black, [5 16] :black, [3 16] :white, [2 15] :white, [16 15] :black, [3 3] :white, [1 13] :white, [3 17] :white, [3 15] :black, [1 16] :white, [1 17] :white, [3 14] :black, [2 17] :black, [3 13] :black, [2 16] :black}, :to-play :black, :board-size 19, :labels {[1 17] \"A\", [1 14] \"B\", [4 16] \"1\", [1 12] \"2\", [3 12] \"3\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[1 12] :black], :id \"42233969-b249-48d1-b131-fc5848d25d65\", :children [{:move [[1 14] :white], :id \"5b64423f-ceed-43ca-bf96-3f853af14de9\", :children [{:move [[2 11] :black], :id \"88f470f5-76cf-4fb5-9267-df32bd61ee81\", :labels {[2 12] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}}]}]} {:move [[4 16] :black], :id \"95def8f4-d2c9-445c-9620-889374b01666\", :children [{:move [[3 12] :white], :id \"231fed54-740f-45e0-9165-8dfb0b9f1667\"}]} {:move [[3 12] :black], :id \"93b9fd84-a671-4f75-bc29-20bc4b6a1ca7\", :children [{:move [[1 12] :white], :id \"23cc271e-f9e5-477b-9256-60e0a1400a90\"}]}]}",
+ "to-play": "black",
+ "description": "If White responds at A instead of B, how should Black play next?",
+ "id": "FaWFZngIB6cLyy7KZQIg"
+}

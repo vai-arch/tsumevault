@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "If white plays A.",
+ "id": "dper6Dig89SAUaAeEguE",
+ "variations": "{:stones {[13 2] :white, [16 13] :black, [2 13] :white, [15 3] :black, [9 3] :white, [5 16] :black, [3 3] :white, [3 17] :black, [3 15] :white, [15 15] :black, [15 17] :white, [2 16] :white, [16 5] :black, [8 16] :black}, :to-play :black, :board-size 19, :labels {[15 17] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"what is most simplest respond?\", :children [{:move [[15 16] :black], :id \"fcce6c91-fd12-4484-93a8-bf41ec1be23d\", :children [{:move [[14 17] :white], :id \"426c6d39-ec5e-4367-9411-2d288326cfbe\", :children [{:move [[16 17] :black], :id \"ba453cb9-fba2-48c9-a1d8-42c1078caa50\"} {:move [[13 16] :black], :id \"56dbd3b0-075f-4418-90e5-7739e06bd5bb\", :children [{:move [[16 16] :white], :id \"33b4a528-0025-4da6-95f0-d94d01b56d82\"}]}]}]} {:move [[14 16] :black], :id \"c640dc57-5caa-42ef-9bb4-25c532a62985\", :children [{:move [[14 17] :white], :id \"29286dcd-70a6-41c3-8364-409472c60624\"}]} {:move [[13 16] :black], :id \"1292fd47-a362-417b-b2d0-001a9bec1ebe\", :children [{:move [[13 17] :white], :id \"b782a979-ab20-4e87-919b-21e4c30b2b6c\"}]} {:move [[16 16] :black], :id \"23d1035e-347a-4f1d-833c-c001728bfd75\", :children [{:move [[12 16] :white], :id \"2a2d4e21-ceae-4d69-bd38-b5b4adbcd62a\"}]}]}"
+}

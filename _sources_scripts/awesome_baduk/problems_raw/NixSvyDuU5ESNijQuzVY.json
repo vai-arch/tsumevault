@@ -1,0 +1,6 @@
+{
+ "description": "If Black cuts at 1, White can choose A or B.\nLet's try A first!",
+ "id": "NixSvyDuU5ESNijQuzVY",
+ "to-play": "white",
+ "variations": "{:stones {[13 2] :white, [11 3] :black, [15 3] :black, [11 4] :black, [16 4] :black, [16 9] :white, [10 3] :white, [13 3] :black, [10 2] :black, [15 5] :white, [16 5] :white, [11 2] :white}, :to-play :white, :labels {[10 2] \"1\", [9 2] \"A\", [12 2] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[9 2] :white], :id \"d17544d4-dc90-4464-a3ac-9ccfb9c34da5\", :children [{:move [[12 2] :black], :id \"71ed3f02-4b59-42ed-b3f5-63347559b4cc\", :children [{:move [[10 1] :white], :id \"536c2e2f-2095-402f-b7f8-5b837ad6c14c\", :labels {[12 1] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"Black will cut with A.\"}]}]}]}"
+}

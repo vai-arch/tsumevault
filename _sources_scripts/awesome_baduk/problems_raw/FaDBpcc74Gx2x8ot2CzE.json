@@ -1,0 +1,6 @@
+{
+ "description": "White extends at 1. How can Black attack this?",
+ "variations": "{:stones {[12 2] :black, [15 3] :black, [16 4] :black, [10 2] :white, [3 3] :white, [14 1] :white, [14 2] :black, [15 1] :white}, :to-play :black, :labels {[15 1] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[13 1] :black], :id \"f02a871a-6fe7-427c-971f-028fc6a35ced\", :children [{:move [[16 2] :white], :id \"ed04ed0f-9579-49b2-bc29-e861ac08105b\", :children [{:move [[17 3] :black], :id \"e990fb71-d125-48cd-bc28-b99ef1f53b89\", :children [{:move [[17 2] :white], :id \"25880df6-013a-4955-80f3-5982c1aac326\", :children [{:move [[14 0] :black], :id \"4444a048-ef85-44b5-b781-108956905f49\"} {:move [[17 1] :black], :id \"7f0eb1c6-f174-4452-8ba6-d3a6817fd9ac\", :children [{:move [[18 1] :white], :id \"a02e216c-202a-462b-84a8-fa131ba12524\", :children [{:move [[17 0] :black], :id \"6d49ebbc-58ec-45ab-a590-639d686f05ee\", :children [{:move [[14 0] :white], :id \"a9d46901-778a-47b4-a996-c7e4de77ebe1\", :children [{:move [[16 0] :black], :id \"e1ac4270-0824-4495-a6eb-21998c8e83cc\", :comment \"This is also possible, but White has much more liberties. \"}]}]}]}]}]}]}]}]}]}",
+ "id": "FaDBpcc74Gx2x8ot2CzE",
+ "to-play": "black"
+}

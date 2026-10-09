@@ -1,0 +1,6 @@
+{
+ "description": "If black plays A",
+ "variations": "{:stones {[3 4] :black, [3 2] :white, [2 4] :white, [15 3] :black, [3 3] :black, [3 15] :white, [1 4] :white, [15 15] :black, [2 5] :black}, :to-play :white, :board-size 19, :labels {[3 3] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"How should white answer?\", :children [{:move [[2 2] :white], :id \"d076f2a4-dffa-427d-a127-16a433ea3649\", :children [{:move [[3 5] :black], :id \"e8debde6-225e-4399-8f6b-1cd3eb347e31\", :children ({:move [[5 2] :white], :id \"aa5a7e44-c2b3-4967-8618-de522df292f1\"})}]} {:move [[2 3] :white], :id \"beabe838-06e4-4349-a13e-e74b22eb1937\", :children [{:move [[4 2] :black], :id \"1f759bf3-cbe5-48e3-9175-22d79561a8c4\"}]} {:move [[3 5] :white], :id \"c75a04e3-4149-4417-85ab-8cbc951d1527\", :children [{:move [[2 3] :black], :id \"0d0ea7c9-fd71-444a-bbe5-76ee841c95bb\"}]}]}",
+ "id": "Ws7MVrCqHA4Axez7x2gV",
+ "to-play": "white"
+}

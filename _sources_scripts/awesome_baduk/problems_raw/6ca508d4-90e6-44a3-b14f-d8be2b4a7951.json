@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / If Black wins the capturing race, mark A, otherwise mark B \n(If it is seki, mark C)\n",
+ "variations": "{:labels {[5 4] \"A\", [7 4] \"B\", [9 4] \"C\"}, :children [{:move [[9 4] :black], :id \"b1e6be3d-747f-4769-89c0-77efd7af7670\"}], :stones {[1 10] :black, [6 9] :black, [5 9] :white, [0 10] :black, [0 8] :white, [4 11] :white, [0 11] :white, [5 12] :black, [4 6] :white, [1 11] :white, [0 7] :black, [2 12] :black, [4 10] :white, [2 11] :white, [4 7] :white, [2 9] :black, [4 9] :black, [2 7] :black, [0 6] :white, [1 12] :black, [3 11] :white, [2 6] :white, [3 9] :black, [1 7] :black, [4 8] :white, [1 8] :white, [1 9] :black, [7 10] :black, [5 10] :black, [7 8] :black, [5 11] :black, [3 6] :white, [5 8] :white, [3 8] :black, [1 6] :white, [3 7] :black, [4 12] :white, [2 8] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black",
+ "id": "6ca508d4-90e6-44a3-b14f-d8be2b4a7951"
+}

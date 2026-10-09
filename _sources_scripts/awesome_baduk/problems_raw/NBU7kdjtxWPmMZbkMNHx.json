@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "variations": "{:stones {[16 13] :white, [13 13] :white, [16 11] :black, [13 12] :white, [14 16] :white, [15 16] :black, [14 11] :black, [17 15] :black, [17 16] :black, [15 11] :black, [16 15] :white, [16 16] :black, [14 14] :black, [16 17] :black, [12 16] :white, [17 12] :black, [15 15] :white, [15 17] :white, [13 14] :white, [17 14] :white, [13 15] :white, [17 18] :black, [18 17] :black, [14 15] :black, [14 17] :white}, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[16 13] [17 14] [16 15] [15 15]}}, :children [{:move [[14 13] :black], :id \"a334ffab-1e04-4aa5-a7a8-3f48fdef7e3c\", :children [{:move [[14 12] :white], :id \"08860b57-bb28-46fa-80c2-4c8b379c4a9e\"}]} {:move [[15 14] :black], :id \"0b58bf44-1be4-41e7-bc6d-eaafd39bd690\", :children [{:move [[16 14] :white], :id \"48aba574-ae08-4548-8401-8246faeca605\"}]} {:move [[15 13] :black], :id \"7662ee6c-cb10-4e7e-ad2f-e2ab9a60be47\", :children [{:move [[15 12] :white], :id \"a80948ad-3d86-48e6-a26f-2d380cd3ce25\", :children [{:move [[16 14] :black], :id \"6bdcd733-c2d1-4b72-b853-fd366a5013b0\", :children [{:move [[14 13] :white], :id \"7ab83c1c-7190-40af-95f2-5034f1c2a95b\", :children [{:move [[15 14] :black], :id \"32c5ef83-8c14-4915-bf31-e723eb79e512\"}]}]}]}]}]}",
+ "description": "Capture white's triangles.",
+ "id": "NBU7kdjtxWPmMZbkMNHx"
+}

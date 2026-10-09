@@ -1,0 +1,6 @@
+{
+ "description": "There is Aji in the corner. How can White move?",
+ "to-play": "white",
+ "variations": "{:stones {[15 14] :white, [16 13] :white, [16 7] :black, [15 16] :black, [14 2] :black, [16 4] :black, [16 3] :black, [15 9] :white, [16 15] :black, [3 3] :white, [3 15] :white, [16 14] :black, [13 16] :black, [17 3] :white, [15 13] :white}, :to-play :white, :board-size 19, :labels {[17 3] \"1\", [16 4] \"2\", [15 13] \"3\", [13 16] \"4\", [15 9] \"5\", [16 7] \"6\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 2] :white], :id \"e0fbb738-4820-49fc-9759-16be442c9b6b\", :children [{:move [[15 2] :black], :id \"36c3eb91-fcd9-4061-9cdb-204a184d4292\", :children [{:move [[17 4] :white], :id \"a35600f6-cdb2-47e2-8609-4abfc704cc27\", :children [{:move [[16 5] :black], :id \"fd9e31ad-778b-4ee2-bc9a-0ab494ba9699\", :children [{:move [[16 1] :white], :id \"91cdfdf3-99fa-44e5-97d4-e1642e871c08\"}]}]}]}]}]}",
+ "id": "L2jupYvwuyN3XFITESYU"
+}

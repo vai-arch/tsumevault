@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "description": "How can White attack Black's three stones?",
+ "variations": "{:stones {[13 2] :white, [13 11] :white, [16 13] :white, [4 3] :black, [13 13] :white, [2 14] :black, [3 2] :white, [16 11] :white, [14 12] :white, [4 2] :black, [12 2] :white, [2 3] :white, [15 12] :white, [11 3] :white, [15 3] :black, [16 7] :black, [12 13] :white, [8 3] :black, [15 16] :black, [2 9] :white, [14 2] :black, [11 16] :white, [12 14] :black, [3 16] :white, [12 15] :white, [15 7] :black, [12 3] :black, [2 15] :white, [11 12] :black, [14 13] :black, [8 15] :black, [11 15] :white, [12 10] :black, [9 16] :black, [11 13] :white, [2 6] :white, [6 16] :white, [16 14] :black, [13 3] :black, [3 10] :black, [1 9] :white, [10 2] :white, [2 10] :black, [3 14] :black, [10 15] :black, [16 8] :white, [13 14] :black, [13 16] :black, [17 14] :black, [13 15] :black, [11 14] :white, [15 13] :black, [12 11] :black, [17 13] :white, [10 13] :white}, :labels {[12 11] \"1\", [13 11] \"2\", [12 10] \"3\"}, :marks {:triangle #{[8 15] [9 16] [10 15]}, :circle nil, :square nil}, :to-play :white, :children [{:move [[7 14] :white], :id \"2b849fdf-900b-49c1-9580-6489353a615f\"} {:move [[8 13] :white], :id \"b74b32c2-b25f-4e6c-9508-1ee68dd21223\", :children [{:move [[6 15] :black], :id \"71406fb7-2289-485e-ae95-d1b5951caace\"}]}]}",
+ "id": "qRjDFGun55FvdPwZ7Ztp"
+}

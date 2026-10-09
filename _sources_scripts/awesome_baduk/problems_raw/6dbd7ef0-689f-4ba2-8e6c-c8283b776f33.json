@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / If you can capture the White group with a throw-in, mark A, otherwise, mark B",
+ "to-play": "black",
+ "id": "6dbd7ef0-689f-4ba2-8e6c-c8283b776f33",
+ "variations": "{:labels {[5 5] \"A\", [7 5] \"B\"}, :children [{:move [[5 5] :black], :id \"b364e17c-9113-4f2b-a0a4-522a8cf3ddaf\"}], :stones {[1 10] :black, [0 10] :black, [4 11] :black, [0 11] :white, [1 11] :white, [2 11] :white, [1 12] :white, [3 11] :white, [3 10] :black, [2 10] :black, [5 11] :black, [4 12] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[1 10] :black, [5 9] :white, [4 11] :black, [5 12] :white, [1 11] :black, [2 12] :white, [4 10] :black, [2 11] :white, [2 9] :black, [4 9] :black, [2 7] :black, [1 12] :white, [2 6] :white, [3 9] :black, [1 7] :black, [4 8] :white, [3 12] :white, [3 10] :white, [2 10] :black, [5 10] :white, [5 11] :white, [3 6] :white, [5 8] :white, [3 8] :white, [1 6] :white, [3 7] :white, [4 12] :white, [2 8] :black}, :labels {[3 10] \"A\", [9 16] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[3 11] :black], :id \"8566f7e5-8a3c-47da-8bfd-e43933f8009d\", :comment \"Super key stone! black is alive now.\"} {:move [[9 16] :black], :id \"93e45b44-532b-470e-8285-03d78a591f64\", :children [{:move [[3 11] :white], :id \"4eaed6fa-6cc7-4daf-a9a9-2787de99e958\", :comment \"All black died :(\"}]}]}",
+ "to-play": "black",
+ "id": "z25rUQf8AJTVmUae1Vmp",
+ "description": "Capture A if that is a key stone. If that is not key stone, play B."
+}

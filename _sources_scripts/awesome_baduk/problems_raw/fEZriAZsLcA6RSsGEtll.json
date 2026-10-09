@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[16 13] :black, [15 16] :black, [16 3] :white, [2 15] :black, [16 12] :black, [16 15] :white, [16 16] :white, [3 3] :white, [6 16] :white, [15 15] :black, [16 14] :black, [17 14] :white, [4 15] :black, [17 13] :white}, :to-play :black, :board-size 19, :labels {[5 17] \"A\", [8 16] \"B\", [9 16] \"C\"}, :marks {:triangle #{[6 16]}, :circle nil, :square nil}, :children [{:move [[8 16] :black], :id \"533bee9b-4e91-47ac-93a6-8571b13c237c\", :children [{:move [[6 14] :white], :id \"4631034e-6e2e-4576-94dc-9534aaae43fa\", :children [{:move [[8 14] :black], :id \"7181c241-3c2a-4876-bf65-7a7eb2aa4e31\"}]}]} {:move [[9 16] :black], :id \"82523e46-9129-4b35-a36d-668f757b51af\", :children [{:move [[8 15] :white], :id \"39f558aa-e64d-4742-a808-86c3e202fa04\", :children [{:move [[9 15] :black], :id \"e466739f-2eec-42e1-91e1-8d6945b7dcfb\", :children [{:move [[8 13] :white], :id \"6d4bd6cb-8da8-411b-afa3-f5de9a7f2839\"}]}]}]} {:move [[5 17] :black], :id \"0070693f-ed19-4824-b7b7-381c6a89aa2c\", :children [{:move [[9 16] :white], :id \"36b827d3-eaa7-4d62-8259-06aa26e7ac99\", :labels {[12 16] \"A\", [6 17] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}]}]}",
+ "description": "How do you attack White's marked stone?",
+ "to-play": "black",
+ "id": "fEZriAZsLcA6RSsGEtll"
+}

@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Black to play / Capture the marked stone(s) after playing dansu(atari) twice",
+ "id": "1e2d6120-b594-4b4f-9870-b12a5785fdc8",
+ "variations": "{:labels nil, :children [{:move [[4 8] :black], :id \"b323850b-36d2-44f6-94a2-59e22bc95856\", :children [{:move [[3 7] :white], :id \"43c63241-8896-485b-a962-a0401403f58b\", :children [{:move [[4 10] :black], :id \"7580a877-bba2-4ec6-9aee-7527d01e22a5\", :children [{:move [[5 9] :white], :id \"f12f9377-2447-4b22-aaf9-bcd643fcc338\", :children [{:move [[4 11] :black], :id \"9cd23b90-4f0c-4974-915a-8a0fdeb8e4bf\"}]}]}]}]}], :stones {[2 11] :black, [2 9] :black, [4 9] :white, [2 7] :white, [3 11] :white, [3 9] :black, [3 10] :white, [2 10] :black, [3 6] :white, [3 8] :white, [6 10] :white, [2 8] :black}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[3 10] [3 11]}}}"
+}

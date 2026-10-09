@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "If you have to choose between A and B?",
+ "id": "zaFGdPu7ja9Lg6V7Badt",
+ "variations": "{:stones {[13 2] :black, [16 13] :black, [2 13] :white, [15 3] :black, [5 16] :black, [3 3] :white, [3 17] :black, [3 15] :white, [15 15] :black, [2 16] :white, [16 5] :white, [17 3] :white}, :to-play :black, :board-size 19, :labels {[9 15] \"A\", [8 16] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[8 16] :black], :id \"2cf0ecb5-4cd3-44ed-9a7a-1fd03fdec778\", :labels nil, :marks {:circle nil, :square #{[8 16] [5 16] [3 17]}, :triangle #{}}} {:move [[9 15] :black], :id \"fcdab52e-dc15-4cd1-840d-e4676a0365a1\", :children [{:move [[7 16] :white], :id \"5bd4be1c-02c5-4ff1-80c6-bdf6bf0385ff\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[5 16] [3 17]}}}]}]}"
+}

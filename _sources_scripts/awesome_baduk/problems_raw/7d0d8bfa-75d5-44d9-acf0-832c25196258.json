@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Save the marked Black stones",
+ "id": "7d0d8bfa-75d5-44d9-acf0-832c25196258",
+ "to-play": "black",
+ "variations": "{:labels nil, :children [{:move [[3 9] :black], :id \"60faf4bd-cf4d-4938-b615-8bd0df22a008\", :children [{:move [[0 8] :white], :id \"f0f04ea2-8a29-4b86-9cf3-62e0d37749be\", :children [{:move [[4 8] :black], :id \"cbc9551e-7f5a-4300-9a3e-8ba7eb4e9ba1\"}]}]}], :stones {[1 10] :black, [6 8] :black, [5 7] :white, [0 10] :black, [4 11] :black, [0 7] :white, [7 9] :white, [4 10] :white, [0 9] :white, [2 11] :black, [4 7] :white, [2 9] :white, [4 9] :white, [2 7] :black, [7 7] :white, [2 6] :white, [6 7] :white, [1 7] :black, [1 8] :black, [3 12] :black, [3 10] :black, [1 9] :white, [2 10] :black, [7 8] :white, [5 11] :white, [5 8] :black, [3 8] :black, [6 10] :white, [1 6] :white, [3 7] :white, [2 8] :white}, :board-size 13, :marks {:triangle nil, :square nil, :circle #{[5 8] [6 8]}}}"
+}

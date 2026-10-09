@@ -1,0 +1,6 @@
+{
+ "description": "If white 1 is needed after 2 (filled with black), \nMark A, otherwise mark B",
+ "id": "1d7842ec-e1cc-47ba-9f83-b4d1d6f61952",
+ "variations": "{:labels {[3 4] \"A\", [5 4] \"B\", [3 8] \"1\", [5 7] \"2\"}, :children [{:move [[3 4] :black], :id \"7d5a1a40-6359-457e-bffb-210f518ff32d\"}], :stones {[6 8] :black, [4 6] :black, [4 7] :black, [2 7] :white, [2 6] :white, [6 7] :black, [4 8] :white, [3 6] :black, [5 8] :white, [3 7] :white, [2 8] :white, [2 5] :white}, :board-size 9, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

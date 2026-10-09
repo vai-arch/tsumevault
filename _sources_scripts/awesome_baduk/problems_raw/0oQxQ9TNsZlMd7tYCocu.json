@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "id": "0oQxQ9TNsZlMd7tYCocu",
+ "description": "Black extended at 1, how should White continue? A or B?",
+ "variations": "{:stones {[3 4] :white, [16 2] :black, [3 2] :white, [2 12] :black, [7 2] :white, [15 12] :white, [15 3] :white, [9 3] :black, [17 2] :black, [2 9] :black, [5 16] :white, [14 2] :black, [16 4] :white, [16 3] :black, [2 15] :white, [12 5] :white, [14 4] :white, [18 3] :black, [14 13] :black, [16 9] :black, [2 6] :black, [17 4] :black, [15 15] :black, [13 3] :black, [10 15] :white, [13 16] :white, [15 13] :black, [17 5] :white}, :labels {[14 13] \"1\", [15 10] \"A\", [14 9] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :to-play :white, :children [{:move [[14 9] :white], :id \"b9b531ec-f906-4bed-bdc0-80cef84234f3\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[17 5] [16 4] [14 4] [15 3] [12 5]}}} {:move [[15 10] :white], :id \"9404e5f6-37e3-40af-8bd9-b94a88ce6f92\", :children [{:move [[15 9] :black], :id \"057bf39b-ad94-4904-99ad-b3976f60fed0\", :children [{:move [[13 10] :white], :id \"2128e36b-ac5a-4a92-a1eb-4baae74ef8dc\", :children [{:move [[14 9] :black], :id \"a20ade65-27c1-45ad-b5fe-d772027f3450\", :children [{:move [[13 12] :white], :id \"1d8a3a85-a081-4143-b021-3d2793c0bfbf\", :children [{:move [[12 8] :black], :id \"11d9ae25-fcb8-4d02-8da2-aa96b057ff8a\"}]}]}]}]}]}]}"
+}

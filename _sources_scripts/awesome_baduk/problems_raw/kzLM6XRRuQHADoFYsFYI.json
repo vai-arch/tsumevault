@@ -1,0 +1,6 @@
+{
+ "description": "White 1 is a mistake. How can Black kill this corner?",
+ "to-play": "black",
+ "id": "kzLM6XRRuQHADoFYsFYI",
+ "variations": "{:stones {[13 2] :black, [16 2] :white, [12 2] :black, [14 3] :white, [15 3] :black, [15 2] :white, [14 2] :black, [16 3] :black, [13 1] :black, [14 1] :white, [15 1] :white}, :labels {[15 1] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[17 3] :black], :id \"620c71c3-465f-4074-8bad-22b11764ca55\", :children [{:move [[17 2] :white], :id \"5acda8a4-a7c5-42b5-8d62-a1331212b3fe\", :children [{:move [[14 0] :black], :id \"4a615985-607d-45ca-a893-e5d5a2fd5fb1\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[17 2] [16 2] [15 2] [15 1]}}, :comment \"L-Shape\"}]} {:move [[17 1] :white], :id \"052ef059-5f12-43f3-84b4-232af261277a\", :children [{:move [[16 0] :black], :id \"392f623e-8c87-424b-a05b-672aa40fb6e4\"}]}]} {:move [[17 2] :black], :id \"1272aba5-1e49-42f6-af92-5bde7c3f1ceb\", :children [{:move [[17 1] :white], :id \"1e6d7715-531a-48a9-a022-ef957466dc21\", :children [{:move [[17 3] :black], :id \"f41ddd56-82d4-4cf4-870d-d1a0094903e6\", :children [{:move [[18 1] :white], :id \"b0344177-b225-47e9-b715-bf788ef91f0b\", :comment \"White is alive.\"}]}]}]}]}"
+}

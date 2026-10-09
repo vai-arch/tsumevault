@@ -1,0 +1,6 @@
+{
+ "description": "White just played at A which is a wrong move. What would be black's next move?",
+ "to-play": "black",
+ "id": "26wIvuoDsoVI4cGgSKca",
+ "variations": "{:stones {[3 3] :black, [2 5] :white, [3 5] :black, [3 6] :white, [2 4] :black, [2 6] :white}, :to-play :black, :labels {[2 6] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[4 5] :black], :id \"6274723a-d655-450b-81ad-f5643f91aed6\"} {:move [[4 6] :black], :id \"64f8c9d4-8660-4d92-81e9-04b45b88d730\", :children [{:move [[4 5] :white], :id \"89b3fed0-9240-4810-bd2c-8918357844ec\"}]}]}"
+}

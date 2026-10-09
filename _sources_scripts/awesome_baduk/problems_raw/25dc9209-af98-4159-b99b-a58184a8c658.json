@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White played at 1, capture the white stone(s) with a ladder or a net",
+ "id": "25dc9209-af98-4159-b99b-a58184a8c658",
+ "variations": "{:labels {[4 10] \"1\"}, :children [{:move [[4 11] :black], :id \"820a3a06-ef21-47c1-ba60-0474dd374108\"} {:move [[5 11] :black], :id \"17d9073d-3421-4014-94de-5cf6fa262c5b\", :children [{:move [[4 11] :white], :id \"e395ec44-5764-4076-998a-f713ca144fc5\"}]}], :stones {[1 10] :white, [5 9] :black, [1 11] :white, [2 12] :white, [4 10] :white, [2 11] :black, [2 9] :white, [4 9] :black, [3 11] :black, [3 9] :black, [3 10] :white, [2 10] :black, [2 8] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

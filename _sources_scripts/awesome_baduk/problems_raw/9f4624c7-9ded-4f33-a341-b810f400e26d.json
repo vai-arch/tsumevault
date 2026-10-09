@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Black to play / White just played at 1. Make a bad shape for White by using snapback",
+ "id": "9f4624c7-9ded-4f33-a341-b810f400e26d",
+ "variations": "{:labels {[4 8] \"1\"}, :children [{:move [[4 7] :black], :id \"faea0a60-7adf-44c7-8612-d40d33a1361b\", :children [{:move [[3 7] :white], :id \"24e5d9e2-b64c-4fbb-85ed-136e9268bcda\", :children [{:move [[5 8] :black], :id \"5ecfebf4-cc77-419f-b4fd-cbd3894c9c6d\"}]}]}], :stones {[6 8] :white, [6 9] :white, [5 9] :white, [7 9] :black, [4 10] :black, [5 6] :black, [2 9] :black, [4 9] :black, [2 7] :white, [7 7] :black, [3 5] :white, [6 6] :black, [6 7] :white, [4 8] :white, [5 10] :black, [7 8] :black, [3 6] :white, [3 8] :white, [6 10] :black, [2 8] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

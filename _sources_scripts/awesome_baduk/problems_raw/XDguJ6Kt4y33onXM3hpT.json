@@ -1,0 +1,6 @@
+{
+ "description": "How can White continue, if Black blocks at 4?",
+ "id": "XDguJ6Kt4y33onXM3hpT",
+ "to-play": "white",
+ "variations": "{:stones {[14 2] :black, [16 3] :black, [15 9] :black, [17 3] :white, [16 4] :black, [17 4] :white, [17 5] :black}, :to-play :white, :board-size 19, :labels {[17 3] \"1\", [16 4] \"2\", [17 4] \"3\", [17 5] \"4\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 5] :white], :id \"1e167baf-820f-411f-bc83-4224c6c8c873\", :children [{:move [[17 6] :black], :id \"3d3e644f-c17e-4a51-b1d4-0e2459e8854d\", :children [{:move [[16 2] :white], :id \"968397f7-9188-4466-9683-4b0a6b914a67\", :children [{:move [[15 2] :black], :id \"4de87538-db1c-4b3b-8d94-c5a01fde6994\", :children [{:move [[16 1] :white], :id \"fda83691-f8f3-406c-b824-5813193a2c66\"}]}]}]}]} {:move [[16 2] :white], :id \"7d4c56f9-b612-453c-a4a2-dfaa57a40bbd\", :children [{:move [[15 2] :black], :id \"1779f498-0139-4086-b3fe-5e96e683fc09\", :children [{:move [[16 5] :white], :id \"f6aec603-b8ae-44be-a049-a9524a2248e7\", :children [{:move [[17 6] :black], :id \"8504002a-fb04-4376-b4f9-b7aa1ccd02bb\", :children [{:move [[16 1] :white], :id \"ca2731f1-c514-4f60-a728-e4de790af489\"}]}]} {:move [[16 1] :white], :id \"2c02f906-f9ec-4b72-8c54-8d830194f595\", :children [{:move [[16 5] :black], :id \"f786ddaf-81e4-471b-ac80-1c8f23ce199e\"}]}]}]}]}"
+}

@@ -1,0 +1,7 @@
+{
+ "description": "Use a tight connection and connect black stones.",
+ "id": "0ZdTpKsmSgUPMTSyVn7F",
+ "public": true,
+ "to-play": "black",
+ "variations": "{:stones {[5 3] :black, [5 5] :black, [4 5] :black, [3 4] :white, [4 4] :white, [6 4] :white, [6 5] :white}, :board-size 9, :children [{:move [[5 4] :black], :id \"4d423b64-7067-4d78-b90f-e3d9b1fd2693\"} {:move [[6 3] :black], :id \"ae65f664-9186-4fde-8ffa-8d53d6727b85\", :children [{:move [[5 4] :white], :id \"682bec24-0eea-469c-9f85-29e9746112b9\"}]}]}"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "How to capture black's 3 stones?",
+ "variations": "{:stones {[13 17] :white, [14 16] :white, [12 17] :white, [15 16] :white, [17 15] :white, [17 16] :black, [11 16] :black, [17 17] :black, [16 15] :black, [16 16] :white, [12 16] :black, [15 15] :black, [11 17] :black, [15 17] :white, [18 16] :black, [13 14] :white, [13 16] :black, [17 14] :white, [13 15] :white, [11 14] :black, [15 13] :black, [14 15] :black, [14 17] :black}, :to-play :white, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[14 15] [15 15] [16 15]}}, :children [{:move [[15 14] :white], :id \"baa6115b-e6ae-473e-b898-52251bc452d4\", :children [{:move [[16 14] :black], :id \"98ac6d6a-c816-4d9a-a700-8b0e7c9c7250\", :children [{:move [[16 13] :white], :id \"503dbe28-0a35-49a0-b3f8-8b9538c6cfd8\", :children [{:move [[14 14] :black], :id \"a942aad9-8178-49ec-acf5-077d027ff5f3\", :children [{:move [[14 13] :white], :id \"c8d66836-2cbc-48db-969c-12a419e3e34b\", :children [{:move [[15 14] :black], :id \"fc30b6f7-06c3-4cfe-a384-b4ed0c6de610\", :children [{:move [[15 12] :white], :id \"9bc33a3c-80be-4fd2-9d6f-f57056fa3eb2\"}]}]}]}]}]}]}]}",
+ "id": "vj3gWAYpJWbhvYfFk0Cn",
+ "to-play": "white"
+}

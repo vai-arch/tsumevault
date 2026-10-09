@@ -1,0 +1,6 @@
+{
+ "description": "Which one is right?",
+ "id": "aCcYQH32HmNgLlYdQzSN",
+ "to-play": "white",
+ "variations": "{:stones {[13 2] :black, [16 13] :black, [9 15] :black, [2 13] :white, [15 3] :black, [8 14] :white, [5 16] :black, [8 15] :white, [3 3] :white, [9 16] :black, [7 17] :black, [6 15] :white, [3 17] :black, [3 15] :white, [7 15] :black, [15 15] :black, [2 16] :white, [16 5] :white, [17 3] :white, [8 16] :black, [7 16] :white}, :to-play :white, :board-size 19, :labels {[6 16] \"A\", [7 14] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[7 14] :white], :id \"ab000216-df93-4390-a7d6-59c5f2cb540a\", :labels {[6 17] \"A\", [6 16] \"B\", [8 17] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}} {:move [[6 16] :white], :id \"3d7319a9-cab9-4954-bfa4-30c5101f7061\", :children [{:move [[6 17] :black], :id \"b9285c80-4d62-450e-a7d7-359d0959aa4e\", :children [{:move [[7 14] :white], :id \"bde0ea4e-8f8f-4257-8b36-a41bfc611555\", :children [{:move [[2 5] :black], :id \"842c8e4f-edb9-4af8-b0c3-856f42c6f998\", :labels {[6 16] \"A\", [6 17] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}]}]}]}]}"
+}

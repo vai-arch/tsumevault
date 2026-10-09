@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "id": "3V7UEfK2pA2SYISZobgt",
+ "description": "Can black go out at A? answer for white.",
+ "variations": "{:stones {[15 14] :white, [16 13] :white, [14 16] :white, [18 15] :white, [15 16] :white, [17 15] :white, [17 16] :black, [16 15] :white, [16 16] :black, [11 13] :black, [10 16] :black, [14 14] :black, [12 16] :black, [15 15] :black, [15 17] :black, [15 18] :black, [13 15] :white, [11 14] :black, [17 18] :black, [18 17] :black, [14 15] :black, [14 17] :white}, :to-play :white, :board-size 19, :labels {[14 14] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 13] :white], :id \"c31d4cdb-aae0-4102-a925-3eaa39ef5585\", :children [{:move [[13 14] :black], :id \"c54be77b-b0c6-474e-931c-2f62f92880ee\"}]} {:move [[13 13] :white], :id \"b0b21111-30a0-48ff-957b-d07cec5c1c1c\", :children [{:move [[14 13] :black], :id \"a719a827-bcab-449c-91cb-443461733d87\", :children [{:move [[14 12] :white], :id \"636ef65c-93bc-435a-89fb-4b3c4c0ada95\", :children [{:move [[15 13] :black], :id \"a0bfe0d5-c258-4590-b9f2-c28a3e662ba3\", :children [{:move [[15 12] :white], :id \"0ff74a8a-8a40-4804-8cc5-f69005236e8f\", :children [{:move [[16 14] :black], :id \"53732b71-1747-4963-8124-169b28b74169\", :children [{:move [[13 14] :white], :id \"674f0344-5964-43bf-9c77-74761e4830a2\"}]}]}]}]}]}]}]}"
+}

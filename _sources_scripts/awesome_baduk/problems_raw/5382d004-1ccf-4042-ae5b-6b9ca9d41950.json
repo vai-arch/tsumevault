@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White has just played at 1. Escape the Black chain after playing dansu(atari) twice",
+ "id": "5382d004-1ccf-4042-ae5b-6b9ca9d41950",
+ "to-play": "black",
+ "variations": "{:children [{:move [[2 9] :black], :id \"1dfce956-11e9-4fd1-994b-0340be27995b\", :children [{:move [[1 9] :white], :id \"33fca4e8-eb18-4139-b6e3-eb3b2acafa84\", :children [{:move [[4 8] :black], :id \"02c349ef-2f1f-4c06-a54e-380012184eb8\", :children [{:move [[3 8] :white], :id \"aa288f19-aa51-41ab-adde-45cfeee648b0\", :children [{:move [[6 8] :black], :id \"976c9420-81ac-41a1-8c15-bf52f92e14ca\"}]}]}]}]}], :stones {[1 10] :white, [5 9] :black, [0 10] :white, [4 11] :white, [0 11] :black, [1 11] :black, [7 9] :white, [2 12] :black, [4 10] :black, [0 9] :black, [2 11] :black, [4 9] :white, [3 11] :black, [3 9] :white, [1 8] :white, [3 12] :white, [3 10] :black, [2 10] :white, [5 10] :black, [5 11] :white, [0 12] :white, [5 8] :white, [7 11] :white, [6 10] :white}, :board-size 13, :labels {[5 8] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}}"
+}

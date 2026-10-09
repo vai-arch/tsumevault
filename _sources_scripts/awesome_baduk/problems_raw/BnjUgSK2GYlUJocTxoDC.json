@@ -1,0 +1,6 @@
+{
+ "description": "If Black responds at A, where does White need to play next?",
+ "variations": "{:stones {[2 14] :white, [2 12] :white, [2 13] :black, [15 3] :black, [2 11] :black, [15 2] :black, [14 2] :white, [3 16] :white, [2 15] :white, [1 12] :black, [16 15] :black, [3 3] :white, [1 13] :white, [3 17] :white, [3 15] :black, [1 16] :white, [3 14] :black, [2 17] :black, [3 13] :black, [2 16] :black, [1 14] :white}, :to-play :white, :board-size 19, :labels {[15 2] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 3] :white], :id \"92f621c7-239e-4f90-90ba-3987cc505c31\", :children [{:move [[3 12] :black], :id \"43f01527-d211-48c3-871f-2ba8ac6af53c\", :children [{:move [[15 4] :white], :id \"ac72961a-9834-41c9-bdb0-8e204c28c0e2\", :children [{:move [[16 4] :black], :id \"11b2440a-162e-4330-83ca-99ea04b8df68\"}]}]}]} {:move [[15 1] :white], :id \"bdd3716b-ff47-4e88-ab22-2b789061d03a\", :children [{:move [[3 12] :black], :id \"2c19fb15-a59e-444c-8b87-3b254a05ebb3\"}]} {:move [[3 12] :white], :id \"e9a5025e-cc76-47a2-9ca4-cd88411d6a52\", :labels {[4 12] \"A\", [3 11] \"B\"}, :marks {:circle nil, :square nil, :triangle #{[14 2]}}, :children nil}]}",
+ "to-play": "white",
+ "id": "BnjUgSK2GYlUJocTxoDC"
+}

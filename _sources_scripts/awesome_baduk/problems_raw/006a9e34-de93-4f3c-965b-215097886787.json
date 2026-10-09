@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / The marked stone has just been played. Capture some White stone(s) with a double-dansu after playing dansu",
+ "to-play": "black",
+ "variations": "{:labels nil, :children [{:move [[5 10] :black], :id \"12a3673b-5417-418a-8a2e-58d7c3a03dfe\", :children ({:move [[4 11] :white], :id \"d201eeeb-b7f5-49af-92e8-2bf5bcb43518\", :children [{:move [[5 8] :black], :id \"eeaaadf7-37df-4002-9148-d69883c1c1bf\"}]})} {:move [[5 8] :black], :id \"e0d29321-5094-4600-8aa4-cb62611c9d6c\", :children [{:move [[4 7] :white], :id \"afc4e7f8-940a-44a2-a9cb-fd984f60121c\", :children [{:move [[5 10] :black], :id \"b5ab9768-7e75-4ef2-b7cf-e0fa1d932a8d\"}]}]}], :stones {[5 9] :white, [1 11] :white, [4 10] :white, [2 11] :white, [2 9] :black, [4 9] :black, [2 7] :white, [3 11] :black, [3 9] :black, [1 7] :white, [4 8] :white, [3 10] :white, [2 10] :black, [3 8] :white, [3 7] :black, [2 8] :black}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[5 9]}}}",
+ "id": "006a9e34-de93-4f3c-965b-215097886787"
+}

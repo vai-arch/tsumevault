@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White played at 1 . Increase the liberties of the marked Black chain",
+ "id": "eb506e7f-57c9-45f4-8e59-41b15222caec",
+ "variations": "{:labels {[3 10] \"1\"}, :children [{:move [[4 9] :black], :id \"5c9e3d02-30c6-41ff-8428-e84d40788416\"}], :stones {[1 9] :white, [2 10] :white, [3 10] :white, [2 8] :white, [1 7] :white, [2 9] :black, [3 9] :black}, :board-size 13, :marks {:triangle nil, :circle #{[2 9] [3 9]}, :square nil}}",
+ "to-play": "black"
+}

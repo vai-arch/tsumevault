@@ -1,0 +1,6 @@
+{
+ "description": "What is the next sequence?",
+ "id": "MpmNvsjrobUg7pWt4cbX",
+ "variations": "{:stones {[13 2] :white, [2 14] :white, [16 2] :white, [2 13] :black, [14 16] :white, [15 3] :black, [5 2] :black, [15 2] :black, [5 16] :white, [14 2] :black, [15 4] :black, [3 16] :white, [16 3] :white, [2 15] :white, [16 15] :black, [16 1] :white, [3 3] :white, [17 4] :white, [14 1] :black, [3 12] :black, [3 14] :black, [15 1] :white, [16 5] :white, [2 8] :black, [11 2] :black, [15 13] :black, [17 5] :black, [2 5] :white}, :to-play :black, :board-size 19, :labels nil, :marks {:triangle nil, :square nil, :circle #{[17 4]}}, :children [{:move [[15 5] :black], :id \"b4271d72-c00d-4e30-8c82-908a4f6619c3\", :children [{:move [[16 6] :white], :id \"58779ee0-3616-462e-9bc4-0fbf367d1297\"}]} {:move [[16 6] :black], :id \"6fb05b7e-84b7-4190-833c-476ffc6f3278\", :children [{:move [[15 5] :white], :id \"1de281d9-02b9-4f5a-865c-9df5e7b12ca3\"}]} {:move [[17 6] :black], :id \"381e727b-17d1-4819-becd-1831e763b578\", :children [{:move [[16 4] :white], :id \"f039dec3-8722-4757-b81c-510a01967615\", :children [{:move [[16 9] :black], :id \"bc721925-9f22-464b-923e-74b1862eee32\"}]}]}]}",
+ "to-play": "black"
+}

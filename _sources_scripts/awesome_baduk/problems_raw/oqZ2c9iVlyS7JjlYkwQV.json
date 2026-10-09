@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "oqZ2c9iVlyS7JjlYkwQV",
+ "description": "What's your choice between A and B?",
+ "variations": "{:stones {[13 2] :black, [4 3] :white, [2 14] :white, [3 2] :black, [4 2] :white, [2 3] :black, [15 3] :black, [17 6] :black, [15 16] :white, [17 2] :white, [15 2] :white, [5 16] :black, [14 2] :black, [16 4] :black, [16 3] :white, [15 11] :black, [2 15] :white, [8 4] :white, [16 1] :white, [17 4] :white, [3 15] :black, [16 6] :black, [1 16] :white, [16 14] :black, [10 2] :black, [3 14] :white, [2 17] :black, [2 16] :black, [16 5] :black, [17 3] :white, [8 16] :white, [14 15] :white, [17 5] :white, [8 2] :white, [2 5] :black}, :to-play :black, :board-size 19, :children [{:move [[4 15] :black], :id \"9bf05d05-b1cb-4f77-a53d-3ddca5f5ba5b\", :children [{:move [[1 17] :white], :id \"6070f367-e394-4d12-981c-443d600c2c36\", :children [{:move [[5 13] :black], :id \"962afd60-99ad-41dd-81c3-4478c27c9dbc\"}]}]} {:move [[1 17] :black], :id \"747b0ea9-c7de-4a5b-86bc-ae02b36ad309\", :children [{:move [[4 15] :white], :id \"b7373bd8-a43a-4ef9-96ef-a62a3f0d1758\", :labels {[4 16] \"A\"}, :marks {:triangle #{[3 15]}, :circle nil, :square nil}}]}], :labels {[4 15] \"A\", [1 17] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}"
+}

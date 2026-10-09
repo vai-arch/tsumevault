@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Capture White with pae(ko)",
+ "to-play": "black",
+ "id": "344cefe1-22d2-4b58-b4cb-dc892efbfb74",
+ "variations": "{:children [{:move [[1 12] :black], :id \"56fb19c1-f1e6-4bad-9c6d-16125271a515\", :children [{:move [[1 11] :white], :id \"2f30777e-41b7-4d55-bc1a-0b5bdf127711\", :children [{:move [[4 12] :black], :id \"01ea3116-1bb5-41a3-8b31-db9b1704ccdd\", :children [{:move [[0 12] :white], :id \"a5ef4fbd-8aed-4978-819f-814dc7859b0b\", :children [{:move [[0 11] :black], :id \"64c27dd4-5886-40d4-a962-eaff8c01a50a\"}]}]}]}]}], :stones {[1 10] :white, [0 10] :white, [4 11] :black, [2 9] :black, [3 11] :white, [3 9] :black, [3 12] :white, [3 10] :black, [1 9] :black, [2 10] :white, [5 10] :black}, :board-size 13}"
+}

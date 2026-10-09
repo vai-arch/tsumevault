@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / The marked White stone has just been played. Capture some White stones",
+ "id": "d499f758-7daa-4e9c-891b-418591b64d39",
+ "variations": "{:labels nil, :children [{:move [[3 12] :black], :id \"9a9f2cf0-6a59-4e6a-aa18-09a445bc5daf\", :children [{:move [[2 12] :white], :id \"2a1a4129-9fac-426c-b9ba-fba9fa4df26b\", :children [{:move [[6 12] :black], :id \"6a5c9f4b-158d-4b5e-a370-d836a6c5786c\"}]}]}], :stones {[1 10] :black, [6 9] :white, [5 9] :black, [4 11] :black, [5 12] :white, [4 6] :black, [1 11] :white, [7 9] :white, [4 10] :black, [2 11] :white, [2 9] :white, [4 9] :black, [2 7] :black, [8 11] :white, [3 11] :white, [6 11] :black, [3 9] :black, [3 10] :white, [2 10] :black, [7 10] :white, [5 10] :white, [5 11] :white, [6 10] :black, [3 7] :black, [4 12] :white, [2 8] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[1 11]}}}",
+ "to-play": "black"
+}

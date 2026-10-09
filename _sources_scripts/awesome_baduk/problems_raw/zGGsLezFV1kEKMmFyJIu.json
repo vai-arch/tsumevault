@@ -1,0 +1,7 @@
+{
+ "description": "Escape black 3 stones.",
+ "to-play": "black",
+ "variations": "{:labels nil, :children [{:move [[4 5] :black], :id \"36503746-7dd4-4479-8999-c1b77642a858\"} {:move [[4 6] :black], :id \"6b69fe84-65bf-4378-9332-4aed72744be5\", :children [{:move [[4 5] :white], :id \"9b202010-f6b0-46bc-b84a-dc8a98a3b3ca\"}]} {:move [[5 3] :black], :id \"6da5790d-ee87-4c14-bc05-e9542820cd4e\", :children [{:move [[4 5] :white], :id \"b8bb2ab1-e513-42a5-b0af-6cf5117ef38d\"}]}], :stones {[4 3] :white, [3 4] :black, [2 4] :black, [5 5] :black, [2 3] :white, [3 3] :white, [5 4] :white, [3 5] :white, [1 4] :white, [4 4] :black, [2 5] :white}, :board-size 9, :marks {:circle nil, :square nil, :triangle #{[2 4] [3 4] [4 4]}}}",
+ "public": true,
+ "id": "zGGsLezFV1kEKMmFyJIu"
+}

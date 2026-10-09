@@ -1,0 +1,6 @@
+{
+ "id": "QHcm3x3cp6rNVKHjvzeW",
+ "variations": "{:stones {[13 2] :white, [16 13] :white, [9 15] :black, [15 3] :black, [9 3] :white, [15 9] :black, [3 3] :white, [3 15] :white, [15 15] :black, [16 14] :black, [15 5] :black, [15 13] :white}, :to-play :black, :board-size 19, :labels {[13 15] \"A\", [13 16] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[13 15] :black], :id \"0a5b0901-c8d8-4bcf-a61b-8a4f6de693d9\", :comment \"This is better when you're in attacking position.\"} {:move [[13 16] :black], :id \"2db166b6-1076-4742-a5c2-3f46faeebd41\", :children [{:move [[12 14] :white], :id \"9040113e-a059-49fb-9413-a7f82902521c\", :labels {[13 16] \"A\", [14 15] \"B\", [14 16] \"C\", [16 16] \"D\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"A is passive. White can play some sente moves from the centre. B to D is also annoying for Black later on.\"}]}]}",
+ "to-play": "black",
+ "description": "What's your choice?"
+}

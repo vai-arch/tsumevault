@@ -1,0 +1,6 @@
+{
+ "description": "If you think A is a key stone, play C. If you think A is useless stone play B.",
+ "id": "PiDXhTRk0Hy7gqPRyV6b",
+ "variations": "{:stones {[3 4] :white, [2 2] :black, [16 2] :white, [3 2] :white, [2 4] :white, [4 2] :black, [2 3] :white, [15 3] :black, [3 1] :white, [15 2] :white, [14 2] :white, [16 4] :white, [16 3] :white, [3 3] :black, [6 2] :black}, :labels {[15 3] \"A\", [16 9] \"B\", [14 3] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 9] :black], :id \"5b63f6f2-4777-4f32-9cfc-ec00eace51c3\"} {:move [[14 3] :black], :id \"8462ea86-b0b1-499f-ab1d-8049754f819f\", :children [{:move [[13 3] :white], :id \"67ac6d3f-3d16-4a51-972e-4b6016eb31b0\", :children [{:move [[14 4] :black], :id \"25fc479a-7634-45cc-bbfe-c98228df0b33\", :children [{:move [[13 4] :white], :id \"11070808-9b76-47bc-946b-055ccaeb717d\", :children [{:move [[14 5] :black], :id \"cd7f2329-d73d-45df-9e80-a60b6d1af346\", :children [{:move [[15 6] :white], :id \"d915339d-a76f-4b95-921b-749ec0082c91\"}]}]}]}]}]}]}",
+ "to-play": "black"
+}

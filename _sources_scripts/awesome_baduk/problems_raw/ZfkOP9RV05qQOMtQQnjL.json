@@ -1,0 +1,6 @@
+{
+ "description": "",
+ "id": "ZfkOP9RV05qQOMtQQnjL",
+ "to-play": "black",
+ "variations": "{:stones {[13 2] :white, [3 4] :black, [2 2] :white, [3 2] :white, [2 4] :white, [2 12] :white, [4 2] :black, [2 13] :white, [2 3] :white, [15 3] :black, [2 11] :white, [3 16] :white, [2 15] :black, [1 12] :black, [3 3] :black, [1 13] :black, [3 15] :white, [3 5] :black, [15 15] :black, [2 16] :black}, :to-play :black, :board-size 19, :children [{:move [[2 5] :black], :id \"13d53f9b-7c95-4ea2-8255-09809cb7bf63\", :children [{:move [[4 1] :white], :id \"e0e74a02-9f44-4d35-a03b-2b8a0418e077\", :children [{:move [[5 2] :black], :id \"0c1288a9-6e5d-4ad4-a7db-da948167edd1\", :children [{:move [[5 1] :white], :id \"fde6c7fd-ff43-4b93-9833-ac651b23ce32\", :children [{:move [[7 2] :black], :id \"53a920d7-36f5-46df-abe2-944cdd09010f\", :children [{:move [[16 5] :white], :id \"1b77b55d-6831-4846-9923-f5b8f1bc2df0\", :comment \"White is happy with the result.\"}]}]}]}]}], :comment \"Blocking here is a wrong choice.\"} {:move [[4 1] :black], :id \"73239c1f-5910-4a86-a8c7-1a24efa74787\", :comment \"This is the right place to continue. Responding at A is necessary for White, and Black will continue with B or C next.\", :labels {[2 6] \"A\", [8 2] \"B\", [11 2] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}}]}"
+}

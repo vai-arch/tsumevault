@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "5ac30178-3c00-499b-b5f0-fb73315e8dd3",
+ "description": "Black to play / Black's marked chain has only two liberties. \nConsidering with which group to fight.",
+ "variations": "{:labels nil, :children [{:move [[4 7] :black], :id \"7245d0eb-59ed-4c25-b9ba-26d0d48323ae\", :children [{:move [[4 12] :white], :id \"b79cf3e6-f511-4264-882c-1a52fa7e6cba\", :children [{:move [[3 8] :black], :id \"5cdc4075-1f64-495e-83bc-e577098d27a6\"}]}]} {:move [[3 11] :black], :id \"b522fc5e-107a-4686-9483-edf6dfc0df3a\", :children [{:move [[4 12] :white], :id \"e4c74027-3b50-463a-abfe-698629099fab\", :children [{:move [[1 12] :black], :id \"8f540d48-1d9e-40b3-b2e9-a943bdb809a9\", :children [{:move [[3 12] :white], :id \"7b1fe36b-455a-4314-bdba-9197076aedfb\"}]}]}]}], :stones {[1 10] :black, [5 9] :black, [4 11] :black, [0 11] :black, [1 11] :white, [4 10] :black, [2 11] :white, [2 9] :black, [4 9] :white, [3 9] :black, [4 8] :white, [1 8] :black, [3 10] :white, [2 10] :white, [7 10] :white, [5 10] :white, [5 11] :white, [5 8] :black}, :board-size 13, :marks {:circle #{[4 10] [4 11]}, :square #{[4 9] [4 8]}, :triangle #{[1 11] [2 11] [2 10] [3 10]}}}"
+}

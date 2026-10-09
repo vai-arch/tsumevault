@@ -1,0 +1,6 @@
+{
+ "description": "Which move is better in this position?",
+ "variations": "{:stones {[13 17] :black, [14 16] :white, [15 3] :black, [15 16] :black, [16 15] :white, [16 16] :black, [3 3] :white, [14 14] :black, [12 16] :white, [15 15] :white, [13 16] :white, [14 15] :black, [14 17] :black}, :to-play :white, :labels {[17 16] \"A\", [17 15] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[17 15] :white], :id \"50d5f1a2-8b3d-46cb-b540-769734cea4e7\"} {:move [[17 16] :white], :id \"bf8d9918-afe3-418d-af29-95c9600a5b35\", :children [{:move [[17 17] :black], :id \"ff6b4a1b-9598-478f-8805-4f1f1a2ab46b\", :children [{:move [[17 15] :white], :id \"3f44ba0f-da6d-41ef-806c-ed5c1772e4c7\", :children [{:move [[12 17] :black], :id \"16691b32-6ca5-454a-aecd-dbced59597cc\", :children [{:move [[11 16] :white], :id \"fcef40e6-d174-4b7e-b34f-3163351c1086\", :children [{:move [[15 12] :black], :id \"882a02e0-e4e7-48d8-a601-586075bf836b\"}]}]}]}]}]}]}",
+ "id": "uJ8VnKDZYMalDeDP07wr",
+ "to-play": "white"
+}

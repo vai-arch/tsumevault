@@ -1,0 +1,6 @@
+{
+ "description": "If Black controls 1, mark A, if White controls 1 mark B, if both can play at 1, mark C",
+ "variations": "{:labels {[2 11] \"1\", [4 5] \"A\", [6 5] \"B\", [8 5] \"C\"}, :children [{:move [[4 5] :black], :id \"ace516b1-7fe1-4006-ace1-917ac67d49d7\"}], :stones {[1 10] :black, [0 10] :black, [4 11] :white, [1 11] :black, [4 10] :white, [1 12] :black, [3 11] :black, [3 9] :white, [1 8] :white, [3 12] :black, [3 10] :black, [1 9] :white, [3 8] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black",
+ "id": "092a3a00-b35e-42ad-b8ba-d06c60278f3d"
+}

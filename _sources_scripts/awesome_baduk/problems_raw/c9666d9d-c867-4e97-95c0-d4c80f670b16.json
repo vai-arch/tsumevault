@@ -1,0 +1,6 @@
+{
+ "id": "c9666d9d-c867-4e97-95c0-d4c80f670b16",
+ "to-play": "black",
+ "description": "Black to play / If the shape is alive, mark A, otherwise, mark B",
+ "variations": "{:labels {[5 5] \"A\", [7 5] \"B\"}, :children [{:move [[5 5] :black], :id \"c33b5d0f-edf5-4b95-98fb-5b3cdb9142c1\"}], :stones {[1 10] :black, [4 11] :black, [2 11] :black, [2 9] :white, [4 9] :white, [3 9] :white, [1 9] :white, [2 10] :black, [5 10] :white, [5 11] :white, [4 12] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

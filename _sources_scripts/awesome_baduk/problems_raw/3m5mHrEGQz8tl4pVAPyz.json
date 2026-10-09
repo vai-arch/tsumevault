@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "variations": "{:stones {[15 14] :black, [13 2] :white, [9 15] :black, [3 4] :black, [9 14] :black, [5 3] :white, [3 2] :white, [16 11] :white, [2 4] :white, [2 3] :white, [14 16] :white, [15 3] :black, [9 3] :white, [2 11] :white, [15 16] :black, [17 15] :white, [5 16] :black, [15 4] :white, [3 16] :white, [10 14] :black, [16 15] :black, [16 16] :white, [9 16] :black, [3 5] :black, [3 9] :black, [17 12] :black, [3 14] :white, [10 15] :white, [15 17] :white, [13 16] :black, [16 5] :black, [13 15] :black, [11 14] :white, [15 13] :black, [14 15] :black, [2 5] :black, [10 13] :white}, :to-play :black, :board-size 19, :labels {[16 4] \"A\", [14 17] \"B\", [15 4] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 4] :black], :id \"1bdb35c7-c4ce-4afb-90db-7e604d977e89\", :children [{:move [[15 15] :white], :id \"851dc1a3-2e05-470f-a5b3-a72c8301c3e6\", :children [{:move [[16 14] :black], :id \"c13f351f-8e30-4320-8be2-f78150782a48\"}]}]} {:move [[14 17] :black], :id \"95c8fb21-b13f-4d12-909a-166c8e660c03\", :children [{:move [[16 4] :white], :id \"d313b989-5838-42fb-988b-f5af2ccf8451\", :labels {[17 17] \"A\"}, :marks {:triangle #{[17 15] [16 16] [15 17]}, :circle nil, :square nil}}]}]}",
+ "description": "Should Black answer the Ko threat at 1?",
+ "id": "3m5mHrEGQz8tl4pVAPyz"
+}

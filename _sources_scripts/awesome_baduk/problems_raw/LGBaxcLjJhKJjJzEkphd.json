@@ -1,0 +1,6 @@
+{
+ "id": "LGBaxcLjJhKJjJzEkphd",
+ "variations": "{:stones {[3 4] :black, [2 2] :white, [16 2] :white, [3 2] :white, [2 4] :white, [2 3] :white, [14 3] :black, [14 16] :white, [15 3] :black, [15 16] :white, [15 2] :white, [14 2] :white, [3 16] :white, [16 3] :black, [2 15] :black, [16 15] :black, [16 16] :white, [3 3] :black, [3 15] :white, [3 5] :black, [15 15] :black, [2 16] :black, [13 15] :white, [14 15] :black, [2 5] :black}, :board-size 19, :labels {[4 2] \"A\", [4 3] \"B\", [5 3] \"C\"}, :marks {:circle nil, :square nil, :triangle #{[3 2] [2 2] [2 3] [2 4]}}, :children [{:move [[4 2] :black], :id \"67903dd6-6aa7-459d-9058-869d8d387958\", :children [{:move [[4 1] :white], :id \"c113d1e0-9245-4274-bde8-4b0d0f19be56\", :children [{:move [[5 2] :black], :id \"e812c0ce-3a0e-467e-81d8-dd13ecd129b7\", :children [{:move [[5 1] :white], :id \"9de09cf9-700e-4bac-ab24-ba8d8bd79cfd\", :children [{:move [[6 2] :black], :id \"f73f55e6-4a91-4140-8f5f-329910ac2320\"}]}]}]}]} {:move [[4 3] :black], :id \"cdd6589c-0f1e-4c8b-925e-c19ca4b4b61e\", :children [{:move [[5 2] :white], :id \"35ee8cb6-f4d9-47bf-adc9-373c2b029880\"}]} {:move [[5 3] :black], :id \"53707b6f-e2cb-4020-ac1f-ea4e3f621cfd\", :children [{:move [[5 1] :white], :id \"575a1efb-e46d-4aa0-a45d-b6d232a41ae9\"}]}]}",
+ "description": "Which move is correct? ",
+ "to-play": "black"
+}

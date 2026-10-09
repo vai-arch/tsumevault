@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1. Make a bad shape for White by playing throw-in and spin around",
+ "to-play": "black",
+ "id": "4cc56be1-aec0-4d58-bb5e-c4b7f64bfd3e",
+ "variations": "{:labels {[2 8] \"1\"}, :children [{:move [[3 9] :black], :id \"ad48a378-a4f2-42af-a403-4a868060eefe\", :children [{:move [[3 8] :white], :id \"7c8f43d1-4eb0-4d4b-b479-1e32fca490af\", :children [{:move [[3 7] :black], :id \"c29b4289-90a7-49ad-9f45-df64d3ab7d47\", :children [{:move [[3 9] :white], :id \"4a741b6a-ea73-462d-834d-f5163d277ed1\", :children [{:move [[5 9] :black], :id \"a60c1a19-ef6e-4440-816f-70952b25599e\"}]}]}]}]}], :stones {[4 11] :white, [1 5] :black, [4 6] :black, [2 11] :black, [2 9] :white, [4 9] :white, [2 7] :white, [0 6] :black, [3 11] :black, [2 6] :white, [1 7] :black, [4 8] :black, [1 8] :black, [3 10] :white, [1 9] :black, [2 10] :black, [5 10] :white, [3 6] :black, [1 6] :white, [2 8] :white, [2 5] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

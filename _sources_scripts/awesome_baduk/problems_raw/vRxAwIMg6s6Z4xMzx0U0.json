@@ -1,0 +1,6 @@
+{
+ "description": "How do you attack Black's marked stones next?",
+ "id": "vRxAwIMg6s6Z4xMzx0U0",
+ "to-play": "white",
+ "variations": "{:stones {[5 7] :black, [16 13] :white, [2 2] :black, [3 2] :black, [14 16] :black, [15 3] :black, [5 2] :black, [16 4] :black, [15 9] :white, [16 15] :white, [16 16] :white, [3 3] :white, [10 16] :white, [3 15] :white, [12 16] :black, [3 9] :white, [15 15] :black, [13 3] :black, [15 5] :white, [4 4] :white, [13 16] :white, [16 5] :white, [13 15] :black, [3 7] :black, [2 5] :black}, :to-play :white, :board-size 19, :labels {[10 14] \"A\", [13 17] \"B\", [15 14] \"C\"}, :marks {:triangle #{[13 15] [12 16] [14 16] [15 15]}, :circle nil, :square nil}, :children [{:move [[10 14] :white], :id \"d1b7b279-0429-42f1-84fe-c89314780ca5\", :children [{:move [[15 17] :black], :id \"f74dc0c6-d956-4dc8-8c46-b26594d415c3\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[13 16]}}}]} {:move [[15 14] :white], :id \"fd1931cd-be49-4414-a1a4-d3a8678acb51\", :children [{:move [[13 17] :black], :id \"97568366-97dc-4493-ab3c-7cef975f3a27\", :labels {[11 17] \"A\", [15 17] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}]} {:move [[13 17] :white], :id \"ffb60883-950d-4643-bfc8-74c632bf3242\", :labels {[14 17] \"A\", [12 17] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}]}"
+}

@@ -1,0 +1,6 @@
+{
+ "id": "cadfd42a-ee4a-49ea-8754-9b9eb267d0c5",
+ "description": "Black to play /  answer between A and B",
+ "to-play": "black",
+ "variations": "{:labels {[3 12] \"A\", [7 10] \"B\"}, :children [{:move [[7 10] :black], :id \"871b189e-d3b9-4ad9-a55d-99afbf153aef\", :children [{:move [[3 10] :white], :id \"c8d75808-bb6b-4944-a5d4-20a149309c67\", :children [{:move [[6 12] :black], :id \"80a86b48-ad27-4bd2-918b-dbb23488bbe1\", :children [{:move [[2 12] :white], :id \"a6da569e-b892-496a-890e-8bdebba61c1f\", :children [{:move [[5 12] :black], :id \"88166412-6ee1-41c4-8534-adcc2aa2e336\"}]}]}]}]} {:move [[3 12] :black], :id \"e52095d3-9d31-42c4-835e-4338f42495b9\", :children [{:move [[3 10] :white], :id \"63648861-b03b-4ead-9435-57bda4744eb7\", :children [{:move [[5 12] :black], :id \"dbf0da5f-4e8e-4ad6-b7ec-f4dff42d9903\", :children [{:move [[2 12] :white], :id \"527067d3-0194-42e1-986c-3d185b6a6c08\"}]}]}]}], :stones {[1 10] :white, [6 9] :black, [5 9] :black, [4 11] :black, [1 11] :white, [7 9] :black, [4 10] :white, [2 11] :black, [4 9] :white, [1 12] :white, [3 11] :black, [6 11] :white, [2 10] :white, [5 10] :black, [5 11] :white, [7 11] :black, [6 10] :white, [4 12] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[5 11] [6 11] [6 10]}}}"
+}

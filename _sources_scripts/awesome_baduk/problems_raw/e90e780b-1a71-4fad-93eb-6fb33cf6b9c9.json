@@ -1,0 +1,6 @@
+{
+ "variations": "{:labels {[3 8] \"1\", [4 12] \"A\", [6 12] \"B\"}, :children [{:move [[6 12] :black], :id \"a096b4db-88b4-4baf-b51e-c38814f2f7f8\", :children [{:move [[4 8] :white], :id \"2db145ab-95bb-477f-9867-ccedf053f448\", :children [{:move [[4 7] :black], :id \"819bf208-a4fc-40d9-88fc-0c476bf4614b\", :children nil}]}]}], :stones {[2 9] :black, [3 10] :black, [4 10] :black, [5 9] :black, [3 8] :black, [3 9] :white, [4 9] :white, [5 10] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[5 10]}}}",
+ "description": "If the ladder works, mark A, otherwise B",
+ "to-play": "black",
+ "id": "e90e780b-1a71-4fad-93eb-6fb33cf6b9c9"
+}

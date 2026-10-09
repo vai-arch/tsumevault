@@ -1,0 +1,6 @@
+{
+ "id": "cIQpUZHBIX6XTKeVE0ZT",
+ "variations": "{:stones {[5 3] :black, [2 2] :white, [2 4] :white, [7 2] :white, [2 3] :white, [14 16] :white, [15 16] :white, [15 11] :white, [16 16] :white, [3 3] :black, [3 5] :black, [15 15] :black, [16 14] :black, [13 15] :black, [8 16] :white}, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[3 3] [3 5] [5 3]}}, :children [{:move [[3 4] :black], :id \"f5f4667f-f9b6-46e0-b457-c286a7a956d2\", :children [{:move [[2 6] :white], :id \"f34c4aed-2d2c-4220-9a06-e2873a7512bd\"}]} {:move [[5 6] :black], :id \"972520d3-3a47-4e81-9ef3-4d8d6d7df23c\", :children [{:move [[3 4] :white], :id \"7bd91d77-dbd6-48c5-8935-c11d4ea70a5b\", :children [{:move [[4 4] :black], :id \"5c155260-7fbb-4faa-b355-a92fe8b4cf9f\", :children [{:move [[4 5] :white], :id \"74fade7f-fcb8-4a85-b3d9-23917c883c18\", :children [{:move [[4 6] :black], :id \"a237b6f3-77e5-412e-bcc9-fa64772e91d0\", :children [{:move [[5 5] :white], :id \"bc8c8544-84e2-4bcb-a420-6d3832200a5a\", :children [{:move [[6 5] :black], :id \"1dee17cb-fff3-4621-8442-64d2bc6f4a83\"}]}]}]}]}]}]}]}",
+ "description": "Connect black stones nicely.",
+ "to-play": "black"
+}

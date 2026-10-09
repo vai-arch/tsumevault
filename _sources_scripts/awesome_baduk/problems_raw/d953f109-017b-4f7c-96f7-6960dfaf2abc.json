@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Which side has the initiative for the place at A? \nIf Black has, Mark B, otherwise, mark C",
+ "id": "d953f109-017b-4f7c-96f7-6960dfaf2abc",
+ "to-play": "black",
+ "variations": "{:labels {[1 11] \"A\", [5 6] \"B\", [7 6] \"C\"}, :children [{:move [[5 6] :black], :id \"d85b40ae-6430-495e-88a0-07e795122f11\"}], :stones {[3 9] :black, [2 10] :black, [3 11] :black, [2 7] :black, [4 11] :white, [5 10] :white, [7 9] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

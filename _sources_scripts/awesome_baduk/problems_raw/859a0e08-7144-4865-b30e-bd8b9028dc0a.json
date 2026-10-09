@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Capture some White stones with throw-in",
+ "to-play": "black",
+ "id": "859a0e08-7144-4865-b30e-bd8b9028dc0a",
+ "variations": "{:children [{:move [[3 8] :black], :id \"551d09af-df23-4031-8982-6126d001634c\", :children [{:move [[3 9] :white], :id \"4a48a8b6-d15d-462e-83a1-cff8498d8d22\", :children [{:move [[2 10] :black], :id \"fa62f97f-b002-4090-bcdb-83c72214e11f\"}]}]} {:move [[2 10] :black], :id \"c4ea3555-41d7-46ad-8b79-4cbf04205e24\", :children [{:move [[3 8] :white], :id \"a3ec8573-732c-4e6b-8b70-83b2c2e49b1a\"}]}], :stones {[1 10] :black, [5 7] :black, [5 9] :black, [4 11] :black, [4 6] :white, [4 10] :white, [2 11] :black, [4 7] :black, [2 9] :white, [4 9] :white, [2 7] :black, [3 11] :black, [2 6] :white, [3 5] :white, [1 7] :black, [4 8] :white, [1 8] :black, [3 10] :white, [1 9] :black, [5 10] :black, [5 8] :black, [3 7] :white, [2 8] :white}, :board-size 13}"
+}

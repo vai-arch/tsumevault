@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "57eea964-95ee-4838-b68a-af72aed45c0b",
+ "description": "Black to play / Play reduction toward to the marked White stone",
+ "variations": "{:labels nil, :children [{:move [[3 10] :black], :id \"fedb1b52-5059-4c43-92b3-c7e4965f9557\", :children [{:move [[2 10] :white], :id \"78bfa576-6d10-4aff-aa06-b30e72ae7a29\", :children [{:move [[3 11] :black], :id \"b01fe1f5-74e4-4abf-834a-654e5c59b3e5\", :children [{:move [[3 9] :white], :id \"7ba95d12-0909-4b0d-a3fb-3c7410334bdd\", :children [{:move [[5 10] :black], :id \"e8b53ee8-ff59-48e8-a683-92f6cc241a72\", :children [{:move [[4 9] :white], :id \"9615efbe-b82d-4e41-9556-92f9ae25ef40\", :children [{:move [[6 12] :black], :id \"40caeb7f-c1de-477f-8b52-9598aed010dd\"}]}]}]}]}]}]}], :stones {[2 15] :white, [4 16] :white, [8 15] :white, [2 9] :white}, :board-size 19, :marks {:circle nil, :square nil, :triangle #{[2 9]}}}"
+}

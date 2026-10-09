@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White 1 is a bad haengma. Find the weakness in White's shape",
+ "id": "23a5bfd3-3601-403c-be4e-d514022ec8c3",
+ "to-play": "black",
+ "variations": "{:labels {[4 10] \"1\"}, :children [{:move [[3 10] :black], :id \"d82bbe39-fbb6-4fc3-b9f5-1a39881faff6\", :children [{:move [[3 11] :white], :id \"57a97832-58b3-44cd-b40d-a4d684427ec1\", :children [{:move [[4 11] :black], :id \"27a538d3-5679-4e3b-8acb-8ad4d3dab7f6\", :children [{:move [[5 11] :white], :id \"6a944054-b39e-46c3-9ac4-25bfb1beac05\", :children [{:move [[2 11] :black], :id \"9ed6dbc0-be91-496e-8fed-372a017f577f\"}]}]}]}]}], :stones {[3 9] :black, [5 9] :black, [2 8] :black, [2 10] :white, [4 10] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

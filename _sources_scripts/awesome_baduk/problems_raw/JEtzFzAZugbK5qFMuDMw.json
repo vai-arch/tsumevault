@@ -1,0 +1,6 @@
+{
+ "description": "How can Black respond to White 1?",
+ "to-play": "black",
+ "id": "JEtzFzAZugbK5qFMuDMw",
+ "variations": "{:stones {[3 4] :black, [3 2] :white, [2 4] :white, [2 3] :white, [15 3] :black, [15 9] :black, [3 15] :white, [3 5] :white, [15 15] :black, [6 5] :black, [15 17] :white, [13 16] :white, [15 13] :black, [2 5] :black}, :to-play :black, :labels {[3 5] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[3 6] :black], :id \"5a360f13-1c95-4b60-8619-a6ace28f7ef8\", :children [{:move [[4 5] :white], :id \"36897c30-482c-4fbb-9cef-9391040dcf25\", :children [{:move [[4 6] :black], :id \"e34b79ef-8be0-4c7f-96a0-c5ad657d4106\", :children [{:move [[2 6] :white], :id \"434d7a2a-f515-4268-80e6-8105788ac1f6\", :children [{:move [[1 5] :black], :id \"7058ba79-1db5-4c0b-b76c-365f10e8287b\", :children [{:move [[2 7] :white], :id \"ef5405a4-838a-40f3-9394-4c2e08704caa\", :children [{:move [[4 4] :black], :id \"9cb8d9e3-e7d7-43b2-b16b-38a775c66e91\"}]}]}]}]}]}]} {:move [[4 4] :black], :id \"c4f71c4d-bdf1-480b-ba3d-4bf0653a0d89\", :children [{:move [[2 6] :white], :id \"2279630a-c631-4a7c-b24e-2f80a4665442\"}]} {:move [[2 6] :black], :id \"d617c89f-ea0b-47a3-a7d8-cf0b7a0a88e0\", :children [{:move [[4 5] :white], :id \"b76a1630-9702-479a-a8fd-994256061a35\"}]}]}"
+}

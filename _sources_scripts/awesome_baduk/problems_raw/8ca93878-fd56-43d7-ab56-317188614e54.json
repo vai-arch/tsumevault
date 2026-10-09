@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Capture the marked white stones",
+ "to-play": "black",
+ "variations": "{:labels nil, :children [{:move [[4 8] :black], :id \"38bdeb4e-e2ab-46d9-8b45-143228fa10de\", :children [{:move [[3 8] :white], :id \"116647a4-50f6-416a-bebb-42d5deca2fa7\", :children [{:move [[2 8] :black], :id \"01d3a68d-6a6d-498d-947a-09ccd060c149\"}]}]} {:move [[2 8] :black], :id \"64a80184-3935-4a53-bd1d-6b04a827d6be\", :children [{:move [[4 8] :white], :id \"2abae9fa-b6c5-4015-8e61-aaa5ed30e33c\"}]}], :stones {[5 7] :black, [4 6] :black, [5 6] :black, [4 7] :white, [2 7] :white, [2 6] :black, [6 6] :white, [6 7] :white, [1 7] :black, [1 8] :black, [3 6] :black, [5 8] :white, [3 7] :white}, :board-size 9, :marks {:circle nil, :square nil, :triangle #{[2 7] [3 7] [4 7]}}}",
+ "id": "8ca93878-fd56-43d7-ab56-317188614e54"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "what is the best way for black to capture the single white stone?",
+ "to-play": "black",
+ "variations": "{:stones {[16 13] :white, [2 13] :white, [15 3] :black, [5 2] :white, [15 16] :white, [5 16] :white, [4 5] :black, [12 15] :white, [16 16] :white, [3 3] :black, [5 15] :black, [3 15] :black, [3 5] :black, [15 15] :black, [16 14] :black, [13 3] :white, [3 6] :white, [15 5] :black, [16 5] :white, [15 13] :black, [2 5] :white}, :to-play :black, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[16 13]}}, :children [{:move [[16 12] :black], :id \"311fe865-ee0b-44de-b153-1acee5bffeaf\"} {:move [[16 10] :black], :id \"49a076c1-9b44-4ab9-ab9a-17e20de609fb\", :children [{:move [[16 12] :white], :id \"3a773dab-498a-458e-9474-d1c68c77142c\", :children [{:move [[17 14] :black], :id \"e32c610b-4a41-446c-9100-5f911f66a1e2\", :children [{:move [[15 12] :white], :id \"459e71ce-a870-45bb-8b2a-638742bb6ea5\"}]}]}]}]}",
+ "id": "FSxJXG6P3BTUEj02QPF9"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "How do you continue for White after the exchange A for B?",
+ "id": "qldayXVG8u2wepblp6hG",
+ "variations": "{:stones {[13 2] :white, [16 13] :black, [16 2] :white, [2 13] :white, [15 3] :black, [5 2] :black, [15 2] :black, [5 16] :black, [15 4] :black, [3 16] :black, [16 3] :white, [13 1] :black, [4 17] :black, [16 1] :white, [3 3] :white, [5 15] :black, [3 17] :black, [14 1] :black, [3 15] :white, [1 16] :white, [4 16] :white, [15 15] :black, [5 17] :black, [6 17] :white, [2 17] :black, [2 16] :white, [15 1] :white, [16 5] :white, [11 2] :black, [4 15] :white, [2 5] :white}, :to-play :white, :board-size 19, :labels {[6 17] \"A\", [5 17] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[10 16] :white], :id \"c93ec123-10dd-4bb3-acac-3908aaa7e39d\", :labels {[13 16] \"A\", [7 16] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}} {:move [[7 16] :white], :id \"68eb1382-8410-4a78-92a5-9da55ab81aec\", :children [{:move [[9 16] :black], :id \"650a41f0-0a9c-4f83-80ef-efe15db09d84\", :children [{:move [[7 14] :white], :id \"7dae5f83-3091-462d-8002-69f6f32b10b3\", :children [{:move [[5 13] :black], :id \"ce726da4-5509-470c-8b61-34174b9cbb56\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[7 14] [7 16] [6 17]}}}]}]}]}]}",
+ "to-play": "white"
+}

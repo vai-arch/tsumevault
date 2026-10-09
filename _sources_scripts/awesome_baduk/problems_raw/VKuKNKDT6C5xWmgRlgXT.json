@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[13 2] :white, [15 3] :black, [17 2] :black, [15 2] :black, [14 2] :white, [16 4] :black, [18 4] :white, [14 4] :white, [18 3] :white, [16 1] :black, [17 4] :black, [16 6] :white, [15 1] :white, [15 5] :white, [17 3] :white, [11 2] :white, [17 5] :white, [8 2] :white}, :children [{:move [[14 1] :black], :id \"106ac1ba-7e75-4abf-819d-419a66932314\", :children [{:move [[13 1] :white], :id \"3c2c32be-b154-41e3-acee-7c50d500d1a6\", :children [{:move [[15 0] :black], :id \"4bffea6b-9028-4478-b584-d8dad31fa58b\"}]}]} {:move [[15 15] :black], :id \"63cc897e-9843-49d8-a869-30fa702f37e1\", :children [{:move [[14 1] :white], :id \"14430802-78b2-4a38-92a8-040b82a00f5f\", :comment \"Black's corner all died so A is super key stone.\", :labels {[15 1] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}}]}], :labels {[15 1] \"A\", [15 15] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}",
+ "description": "Capture A if you think A is a key stone. Play at B if you think A is useless stone.",
+ "to-play": "black",
+ "id": "VKuKNKDT6C5xWmgRlgXT"
+}

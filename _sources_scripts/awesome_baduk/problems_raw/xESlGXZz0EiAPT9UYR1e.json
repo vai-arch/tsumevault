@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "White tries to attack Black 1. How can Black escape?",
+ "variations": "{:stones {[13 2] :white, [3 4] :white, [2 2] :black, [16 2] :black, [1 5] :black, [3 2] :white, [4 6] :white, [2 3] :black, [15 3] :black, [9 3] :black, [2 7] :white, [9 5] :white, [16 15] :black, [3 3] :white, [3 15] :white, [10 2] :white, [15 1] :white, [13 16] :black, [16 5] :black, [2 5] :black}, :to-play :black, :labels {[9 3] \"1\", [9 5] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[10 3] :black], :id \"7d54aaba-837a-4ac5-8fb5-c12d7d76ef7c\", :children [{:move [[11 2] :white], :id \"e9973c6a-0a0b-4876-a865-f1672b7ae55f\", :children [{:move [[10 5] :black], :id \"c4ba7175-9c3d-4e1b-a33e-cb1172c66e46\", :children [{:move [[10 6] :white], :id \"e6acd811-dadf-49c3-a1c3-cb496bd015a0\", :children [{:move [[11 5] :black], :id \"4d926313-0909-4833-884f-59d430627f24\", :children [{:move [[9 6] :white], :id \"ddb8db49-b56c-40c7-9492-4d09aa40ccca\", :children [{:move [[11 3] :black], :id \"d06c6724-ad89-4d07-af5b-c1387695f606\"} {:move [[11 6] :black], :id \"085f3f71-1610-44b0-93bf-96ba77745ae2\"}]}]}]}]}]}]} {:move [[9 2] :black], :id \"5bd26977-6cb1-4db7-b519-9dc7aec777b2\", :children [{:move [[10 3] :white], :id \"6714b051-af00-4f19-8166-a2a2d2699c9a\"}]}]}",
+ "id": "xESlGXZz0EiAPT9UYR1e"
+}

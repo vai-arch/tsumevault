@@ -1,0 +1,6 @@
+{
+ "description": "What's the right next move for White?",
+ "to-play": "white",
+ "id": "7aKkdfMYsd13svtPdAh3",
+ "variations": "{:stones {[13 2] :black, [16 13] :black, [2 14] :white, [14 3] :black, [5 2] :black, [15 16] :black, [17 15] :black, [17 16] :black, [11 16] :black, [3 16] :white, [12 15] :white, [16 3] :black, [16 15] :white, [16 16] :black, [16 10] :white, [3 3] :black, [12 16] :black, [15 15] :white, [16 14] :white, [13 16] :black, [16 5] :white, [17 14] :white, [13 15] :white, [15 13] :white, [14 15] :white, [8 2] :white, [2 5] :black}, :to-play :white, :board-size 19, :labels {[16 5] \"A\", [14 3] \"B\", [16 7] \"1\", [15 7] \"2\", [14 5] \"3\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 7] :white], :id \"8ed45cac-8c9d-4f11-924f-f9569934a055\", :children nil} {:move [[14 5] :white], :id \"411ebb3a-8423-47da-a067-fdb62d5dddb6\"} {:move [[16 7] :white], :id \"635233d1-7f6e-47a5-b054-877045b5dd3d\", :children [{:move [[10 2] :black], :id \"62429ecc-40b2-4573-9783-87452c494feb\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[16 5] [16 7] [16 10]}}}]}]}"
+}

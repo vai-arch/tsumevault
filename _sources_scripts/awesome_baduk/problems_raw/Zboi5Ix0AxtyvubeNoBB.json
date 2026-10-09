@@ -1,0 +1,6 @@
+{
+ "description": "Black 1 and 3 were wrong. How can White answer?",
+ "variations": "{:stones {[13 2] :white, [16 13] :black, [5 3] :white, [2 4] :white, [4 10] :white, [15 3] :black, [9 3] :white, [15 16] :black, [11 16] :white, [6 14] :black, [3 16] :black, [2 15] :white, [8 15] :black, [3 3] :white, [10 16] :white, [3 15] :white, [3 5] :black, [6 16] :black, [5 17] :black, [2 10] :white, [10 15] :black, [2 16] :black, [13 16] :black, [16 5] :black, [5 13] :white, [8 16] :white, [2 8] :black, [4 15] :white, [2 5] :black}, :to-play :white, :board-size 19, :labels {[10 15] \"1\", [10 16] \"2\", [8 15] \"3\"}, :marks {:triangle #{}, :circle nil, :square nil}, :children [{:move [[11 15] :white], :id \"3f810117-f1a9-42cb-902a-6a20a75e3b9d\", :children [{:move [[9 15] :black], :id \"553058e2-35eb-4f9f-9bb1-042ad7ac35b9\", :children [{:move [[7 16] :white], :id \"f15b8c90-8112-4d73-98e9-bd8d44e95231\", :children [{:move [[7 15] :black], :id \"594e5c3a-2c53-481e-abff-3d263d0fd129\", :children [{:move [[11 13] :white], :id \"3cd68cdb-8afd-4eab-b329-1fbed72aae53\"}]}]} {:move [[11 13] :white], :id \"891cdbf3-d95b-4b04-87ab-2051bee9aa5e\"}]}]}]}",
+ "to-play": "white",
+ "id": "Zboi5Ix0AxtyvubeNoBB"
+}

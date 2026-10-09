@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "RFSdbgCLNahNZfogCEC7",
+ "variations": "{:stones {[13 2] :white, [5 14] :black, [17 1] :white, [16 2] :white, [2 12] :black, [2 13] :white, [14 3] :black, [15 3] :black, [17 2] :black, [4 13] :black, [15 2] :black, [14 2] :white, [6 13] :white, [16 4] :black, [3 16] :black, [16 3] :white, [12 3] :white, [2 15] :white, [4 14] :white, [1 12] :white, [5 15] :black, [14 5] :black, [4 16] :black, [16 0] :white, [2 16] :white, [15 1] :white, [5 13] :white, [4 12] :black, [4 15] :white, [7 16] :black}, :to-play :black, :board-size 19, :children [{:move [[1 13] :black], :id \"96886eca-7646-4544-8f3c-aa70e56ae3b3\", :children [{:move [[1 14] :white], :id \"ab5a50a0-aa8f-4ded-81fd-8226499084b9\", :children [{:move [[3 13] :black], :id \"6a7e23b6-5cd7-4c73-9812-323bd05146f4\", :children [{:move [[2 14] :white], :id \"1d04fc1c-0b4b-4610-b989-76bdb8e739f5\", :children [{:move [[1 11] :black], :id \"9b5968dd-c86d-4028-862c-8bd2efa9f658\", :children [{:move [[0 13] :white], :id \"c391043d-598b-473e-8b14-52aeb2b942af\", :children [{:move [[2 11] :black], :id \"dd28f39d-bd5f-4fd8-9dfc-1caa43a6c49d\"} {:move [[2 10] :black], :id \"0347fece-80e7-40db-abfa-f1a29938d05b\"}]}]}]}]}]}]}]}",
+ "description": "Fix Black's shape on lower left corner."
+}

@@ -1,0 +1,6 @@
+{
+ "id": "EeVhaU6bIUfZX36K1E3F",
+ "variations": "{:stones {[16 13] :black, [2 14] :black, [16 2] :white, [12 2] :white, [15 12] :white, [14 3] :white, [15 3] :white, [9 3] :white, [15 16] :white, [17 2] :black, [17 15] :black, [15 2] :black, [14 2] :white, [11 16] :white, [15 4] :black, [3 16] :black, [16 3] :black, [16 12] :white, [16 15] :white, [14 13] :black, [16 16] :black, [3 3] :white, [14 14] :black, [16 17] :black, [14 1] :black, [15 15] :white, [16 14] :black, [15 17] :white, [15 1] :black, [16 5] :black, [17 14] :white, [13 15] :white, [2 5] :white}, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[17 14]}}, :children [{:move [[17 16] :black], :id \"b9315bb1-d58d-4fcb-8f56-3af1ea269663\", :children [{:move [[17 13] :white], :id \"a93946fc-3a5d-4348-b791-32321b07d002\"}]} {:move [[17 13] :black], :id \"aa7c0b5b-eaef-401c-92bc-c610f1deaa0a\", :children [{:move [[17 16] :white], :id \"59633486-3099-4e68-909b-e0193c4b456f\", :children [{:move [[18 14] :black], :id \"e563a4e0-fb31-4c96-9620-7178825e0338\"}]}]}]}",
+ "description": "When white cuts at triangle, how black should play?",
+ "to-play": "black"
+}

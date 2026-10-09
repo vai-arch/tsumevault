@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[13 2] :black, [16 13] :black, [2 13] :white, [14 3] :black, [14 16] :white, [5 2] :white, [8 3] :white, [15 16] :black, [15 2] :white, [5 16] :black, [14 2] :white, [11 16] :white, [3 16] :white, [16 3] :white, [2 15] :white, [16 15] :black, [3 3] :black, [9 16] :black, [5 15] :black, [4 16] :white, [13 3] :black, [10 2] :black, [4 15] :black, [14 15] :white, [2 5] :black}, :to-play :white, :labels {[9 16] \"1\"}, :marks {:triangle #{[4 15] [5 15] [5 16]}, :circle nil, :square nil}, :children [{:move [[7 16] :white], :id \"64c8b7ba-ea73-4fc2-bb81-e9fb6534c8fc\", :children [{:move [[7 15] :black], :id \"8b1cedbc-2552-41f2-8a6b-70a448d81f9b\", :children [{:move [[8 16] :white], :id \"9419814f-83ae-4f28-a512-0e20091f3362\", :children [{:move [[8 15] :black], :id \"cc932d80-612f-4678-bfda-d855c7224669\", :children [{:move [[9 17] :white], :id \"ab1cf469-f029-4642-86c8-1094ecd1f88a\"}]}]}]}]} {:move [[7 17] :white], :id \"bc18daa0-b58a-47cc-819a-042d727f8527\", :children [{:move [[7 16] :black], :id \"19fc45e6-1bb9-4c08-896e-7ce61c33e67f\", :comment \"too flat\"}]}]}",
+ "to-play": "white",
+ "id": "uTPCrbVQKiF37xH9VeoN",
+ "description": "If Black extends at 1, which Aji (invasion) is there?"
+}

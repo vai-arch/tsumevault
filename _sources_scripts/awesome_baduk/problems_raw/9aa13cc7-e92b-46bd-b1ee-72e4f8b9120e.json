@@ -1,0 +1,6 @@
+{
+ "id": "9aa13cc7-e92b-46bd-b1ee-72e4f8b9120e",
+ "to-play": "black",
+ "description": "Black to play / White has just cut at the marked stone. Capture the stone cut by making full use of the marked Black stone",
+ "variations": "{:labels nil, :children [{:move [[3 7] :black], :id \"b0ebe042-eb1b-4a1c-a01e-99097c46ab3a\", :children [{:move [[4 8] :white], :id \"2584cc19-4b88-42fd-912b-08b8431517d1\", :children [{:move [[5 8] :black], :id \"d8484dee-aed9-4250-95ee-82a4c7f66757\"}]}]} {:move [[4 8] :black], :id \"b669e02e-24f8-4f55-b3b9-dd0b3ae21b53\", :children [{:move [[3 7] :white], :id \"e62335c5-59b0-47cb-ac57-a3720820f529\"}]}], :stones {[0 10] :white, [1 11] :white, [2 11] :black, [4 7] :black, [2 9] :white, [1 12] :white, [3 11] :black, [2 6] :white, [3 9] :black, [1 8] :black, [3 10] :black, [1 9] :white, [2 10] :white, [3 8] :white, [2 8] :black}, :board-size 13, :marks {:circle #{[4 7]}, :square nil, :triangle #{[3 8]}}}"
+}

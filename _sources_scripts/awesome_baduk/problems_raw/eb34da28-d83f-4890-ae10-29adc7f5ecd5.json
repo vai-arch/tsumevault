@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Black to play / White just played at 1. Where should Black play to win the capturing race?",
+ "id": "eb34da28-d83f-4890-ae10-29adc7f5ecd5",
+ "variations": "{:labels {[4 8] \"1\"}, :children [{:move [[0 11] :black], :id \"a20c9ac0-196b-48b4-840e-8197683d44a4\", :children [{:move [[2 11] :white], :id \"7343ab34-7e8d-49ef-ae4e-b9ed6bb619b0\", :children [{:move [[2 12] :black], :id \"b5c73b18-3a43-43af-9316-fe79b9cb8ff3\"} {:move [[4 12] :black], :id \"1b2bdcbc-fbf6-481f-9038-d83f97b879c8\"} {:move [[3 12] :black], :id \"e184be9f-2c30-4153-8537-dbf3cc38dcd3\"}]}]}], :stones {[1 10] :white, [5 9] :black, [0 10] :black, [4 11] :white, [1 11] :black, [4 10] :black, [0 9] :black, [2 9] :black, [4 9] :white, [3 11] :white, [3 9] :black, [4 8] :white, [1 8] :white, [3 10] :white, [1 9] :black, [2 10] :white, [5 10] :black, [5 11] :black, [3 8] :white, [2 8] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

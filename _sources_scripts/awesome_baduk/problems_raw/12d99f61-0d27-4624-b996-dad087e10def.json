@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Black to play / If Black is alive(or Black needs a move to live), mark A, otherwise, mark B",
+ "variations": "{:labels {[5 5] \"A\", [7 5] \"B\"}, :children [{:move [[7 5] :black], :id \"7c474c56-1d7d-4f12-8241-0a9923a1a7dd\"}], :stones {[1 10] :black, [4 11] :white, [0 11] :black, [2 12] :black, [4 10] :white, [0 9] :white, [2 11] :black, [2 9] :white, [4 9] :white, [2 7] :white, [1 12] :white, [3 11] :white, [3 9] :black, [1 7] :white, [4 8] :white, [1 8] :white, [3 10] :black, [1 9] :black, [3 7] :white, [2 8] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "id": "12d99f61-0d27-4624-b996-dad087e10def"
+}

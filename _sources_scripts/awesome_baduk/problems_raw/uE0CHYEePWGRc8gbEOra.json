@@ -1,0 +1,6 @@
+{
+ "id": "uE0CHYEePWGRc8gbEOra",
+ "variations": "{:stones {[2 14] :white, [2 12] :white, [2 13] :black, [15 3] :black, [3 16] :white, [2 15] :white, [16 15] :black, [3 3] :white, [3 15] :black, [1 16] :white, [3 14] :black, [2 17] :white, [3 13] :black}, :to-play :black, :board-size 19, :labels {[1 14] \"A\", [1 13] \"B\", [1 12] \"C\", [3 9] \"D\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[1 14] :black], :id \"7331551f-4404-4391-92b9-cfdf0c86350c\", :children [{:move [[1 12] :white], :id \"9f9adf5b-0620-4a45-a16a-60699cf2dd39\", :labels {[1 13] \"A\", [2 9] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}]} {:move [[1 13] :black], :id \"a0460721-d670-410f-9b93-062ad67a6efb\", :children [{:move [[3 9] :white], :id \"42709f5f-3cdf-4bbb-9a42-e5449295b9c7\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[2 12]}}}]} {:move [[1 12] :black], :id \"ea3e54de-0e53-478b-ad0a-75c6b9e4140e\"} {:move [[3 9] :black], :id \"b0f3ebe5-9358-40df-876e-fdd9390cf0ae\", :children [{:move [[1 13] :white], :id \"89760ba4-a802-4525-aad3-724f660def48\"}]}]}",
+ "to-play": "black",
+ "description": "What's Black's best next move?"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Capture the White group (make a ko)",
+ "to-play": "black",
+ "id": "5d3d3149-6ff8-4760-96e0-1512630c4740",
+ "variations": "{:children [{:move [[3 12] :black], :id \"48c9e7e4-05d1-4203-8522-b6bd10a26fdc\", :children [{:move [[3 11] :white], :id \"98c93a3e-3e39-4f18-88be-46036189ccab\", :children [{:move [[6 11] :black], :id \"416da011-2765-464c-ba67-f38610ff8e95\", :children [{:move [[5 11] :white], :id \"c2a0ef98-9250-4301-84aa-df8a6103f22d\", :children [{:move [[7 12] :black], :id \"06fd9cf4-d2df-453d-92d8-96a929a8a25f\", :children [{:move [[4 12] :white], :id \"72e43f70-a302-4983-9e4a-be9681b22f35\", :children [{:move [[6 11] :black], :id \"f9b238e7-7802-493d-9f60-cdaccb4e3de9\"}]}]}]}]}]}]}], :stones {[1 10] :black, [6 9] :black, [5 9] :black, [4 11] :white, [8 12] :black, [1 11] :black, [7 9] :black, [2 12] :white, [4 10] :white, [2 11] :white, [4 9] :black, [6 12] :white, [1 12] :black, [8 11] :black, [3 9] :black, [3 10] :white, [2 10] :black, [7 10] :black, [5 10] :white, [7 11] :white, [6 10] :white}, :board-size 13}"
+}

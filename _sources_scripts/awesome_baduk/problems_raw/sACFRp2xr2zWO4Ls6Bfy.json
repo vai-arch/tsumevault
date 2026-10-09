@@ -1,0 +1,6 @@
+{
+ "description": "Which move is the best for White?",
+ "id": "sACFRp2xr2zWO4Ls6Bfy",
+ "to-play": "white",
+ "variations": "{:stones {[14 2] :black, [16 3] :black, [17 3] :black, [16 8] :black, [15 4] :white, [16 4] :white, [17 4] :white}, :labels {[13 4] \"A\", [15 3] \"B\", [15 2] \"C\", [13 3] \"D\"}, :marks {:circle nil, :square nil, :triangle #{[17 3] [16 3] [14 2]}}, :to-play :white, :children [{:move [[15 2] :white], :id \"a1a035c2-11fa-4d4e-b6b6-446c4001d1fa\"} {:move [[15 3] :white], :id \"cee323ad-9a63-4832-8c19-7b8dacc4dc2f\", :children [{:move [[15 2] :black], :id \"5e82007c-174e-47b7-962d-af89b34877cf\"}]} {:move [[13 3] :white], :id \"559cd9ad-c36e-4024-91b9-51a6cd292d19\", :children [{:move [[14 3] :black], :id \"d903a8d2-dc16-4aa9-9c76-05b44f238dd8\", :children [{:move [[14 4] :white], :id \"e3c872f3-dc88-4114-98f0-cb709b3cb877\", :children [{:move [[13 4] :black], :id \"84bb560a-5176-415c-b1be-851fb07ff7bc\"}]}]}]} {:move [[13 4] :white], :id \"c402dbb6-e60d-427e-906b-7a4cdbb42387\", :children [{:move [[14 3] :black], :id \"6c16f435-cc98-4d08-bea9-33dfe68dc599\"}]}]}"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1. Block White",
+ "to-play": "black",
+ "id": "7e0fcc21-8adf-4271-94dd-860cbf666c52",
+ "variations": "{:labels {[4 10] \"1\"}, :children [{:move [[3 10] :black], :id \"f1c42062-e793-4d4a-95b2-e6aa5b00dd08\", :children [{:move [[3 9] :white], :id \"15d548fa-7799-42c8-b860-afff4d79e869\", :children [{:move [[4 9] :black], :id \"05f99124-9693-4816-b374-46945e41ea8e\", :children [{:move [[3 11] :white], :id \"06e0d8e0-2b45-4f36-84ee-7c5cab4b714e\", :children [{:move [[5 10] :black], :id \"3a5f110c-7363-4cb4-bf46-96829a180f81\"}]}]}]}]}], :stones {[4 10] :white, [2 9] :white, [1 8] :black, [1 9] :white, [3 8] :black, [2 8] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

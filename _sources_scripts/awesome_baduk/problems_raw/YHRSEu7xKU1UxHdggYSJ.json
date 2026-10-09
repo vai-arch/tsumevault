@@ -1,0 +1,6 @@
+{
+ "description": "If Black cut with 3, how should White continue?",
+ "to-play": "white",
+ "variations": "{:stones {[15 14] :black, [16 13] :white, [16 11] :white, [14 3] :black, [14 16] :black, [16 3] :black, [16 12] :black, [16 15] :white, [3 3] :white, [3 15] :white, [17 12] :black, [16 14] :white, [15 13] :black}, :to-play :white, :labels {[16 12] \"1\", [16 11] \"2\", [17 12] \"3\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 12] :white], :id \"268c3111-4217-4a44-b8e3-416591e48f4e\", :children [{:move [[15 11] :black], :id \"55a7018b-986d-4172-b502-e5d2149f7f07\", :children [{:move [[14 12] :white], :id \"9781632e-25a9-486f-a061-eb6e2488ca24\", :children [{:move [[14 11] :black], :id \"cc049b4c-406a-471a-8694-c94fd9bb03a9\", :children [{:move [[13 12] :white], :id \"b2775b48-7f9d-4c4e-b4a4-ce8e6f1ef27e\", :children [{:move [[16 10] :black], :id \"5cef0f66-39bc-4709-a64a-a0eb06f53575\", :children [{:move [[15 15] :white], :id \"0060d98d-62dd-4b3f-be97-c703ef130faf\"}]}]} {:move [[17 11] :white], :id \"8698f814-bb36-45ae-bcc7-346ee4f74aac\", :children [{:move [[13 12] :black], :id \"060bd879-75de-476c-82b0-c0af8519a6a7\"}]}]}]}]}]}]}",
+ "id": "YHRSEu7xKU1UxHdggYSJ"
+}

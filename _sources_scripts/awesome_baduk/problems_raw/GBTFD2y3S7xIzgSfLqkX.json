@@ -1,0 +1,6 @@
+{
+ "description": "When the A stone is in place, how should Black respond?",
+ "variations": "{:stones {[16 3] :black, [14 3] :white, [14 2] :black, [13 2] :white, [15 2] :black, [13 3] :white, [16 9] :white}, :labels {[16 9] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 5] :black], :id \"e6e416c0-e3aa-40fc-9b36-38970f2ed925\"} {:move [[15 4] :black], :id \"503769f7-355d-4d3c-9ea7-d5126a9aff41\", :children [{:move [[16 5] :white], :id \"e71dcc98-ae08-46fa-a16a-41c82dc3ce6e\"}]} {:move [[15 5] :black], :id \"8d272a2f-0d4b-43e6-a7eb-c0511f2ba12a\", :children [{:move [[16 4] :white], :id \"d40383aa-6130-422f-a102-be0d5d79e994\", :children [{:move [[15 4] :black], :id \"93942e95-fece-4dc1-9b37-df0220f5c699\", :children [{:move [[15 3] :white], :id \"3f952960-da30-4a2c-9eff-908873eadcd4\", :children [{:move [[16 2] :black], :id \"49df9740-c9eb-4e47-9472-010678be24ef\", :children [{:move [[16 5] :white], :id \"20a9a2be-ff81-4839-8651-18b39b972148\"}]}]}]}]}]}]}",
+ "id": "GBTFD2y3S7xIzgSfLqkX",
+ "to-play": "black"
+}

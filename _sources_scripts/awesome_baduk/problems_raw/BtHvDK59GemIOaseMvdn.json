@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "id": "BtHvDK59GemIOaseMvdn",
+ "description": "When black plays at A, how white should answer?",
+ "variations": "{:stones {[15 14] :white, [13 2] :black, [13 17] :black, [15 12] :black, [14 16] :white, [15 3] :black, [15 16] :black, [17 16] :white, [16 15] :black, [14 13] :white, [16 16] :white, [3 3] :white, [3 15] :white, [15 15] :white, [16 14] :black, [15 17] :black, [13 15] :black, [15 13] :black, [14 17] :white}, :to-play :white, :board-size 19, :labels {[13 17] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 15] :white], :id \"b1762288-1a1b-484b-a372-164b750dc047\", :children [{:move [[14 18] :black], :id \"c197fefd-c517-41c4-8588-7aff7297b64a\"}]} {:move [[13 16] :white], :id \"54f07135-bed5-41ad-9e6c-28f9c8afdb41\", :children [{:move [[14 15] :black], :id \"f9940a0d-0e39-4802-8eb8-c9770e050058\"}]} {:move [[16 17] :white], :id \"d8521600-f76b-48e3-aa98-ce344215f8c0\", :children [{:move [[14 14] :black], :id \"349b8748-3c0a-482d-be85-983223996d27\", :children [{:move [[15 18] :white], :id \"a6bd82fe-2d24-44f2-8012-3bae27d891b4\"}]}]}]}"
+}

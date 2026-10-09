@@ -1,0 +1,6 @@
+{
+ "id": "4bsZGj2ip906NkOLwtjk",
+ "to-play": "black",
+ "description": "Where is the vital point around the marked stones?",
+ "variations": "{:stones {[13 11] :black, [16 13] :white, [14 10] :white, [16 2] :black, [14 12] :white, [13 12] :white, [10 6] :white, [11 3] :black, [15 3] :black, [12 13] :white, [15 8] :black, [12 12] :black, [12 14] :white, [15 9] :white, [12 5] :white, [11 12] :black, [16 15] :black, [12 8] :black, [16 10] :white, [3 3] :white, [12 10] :black, [11 13] :black, [3 15] :white, [14 5] :white, [13 3] :black, [14 9] :black, [16 8] :black, [13 16] :black, [14 8] :black, [16 5] :white, [17 3] :white, [11 14] :white, [13 7] :white, [10 8] :black}, :to-play :black, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[14 12] [13 12] [12 13] [12 14]}}, :children ({:move [[13 13] :black], :id \"8e68a207-6187-4e20-b88e-fd0fbfdb59cb\", :children [{:move [[14 14] :white], :id \"da4de79d-2d24-486b-b228-417ab3ba8c43\"}]} {:move [[14 14] :black], :id \"03e61380-93fb-4f7a-96ea-3711ba8c7f18\", :children ({:move [[14 13] :white], :id \"787f4530-a5c1-464d-8220-b3fe8b3d9774\", :children [{:move [[13 14] :black], :id \"04eec916-086c-4424-b016-19560ad66bbd\", :labels {[13 13] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}}]})})}"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "Black 1 is too passive. How can White continue?",
+ "variations": "{:stones {[15 14] :white, [16 13] :white, [9 15] :black, [2 13] :white, [14 16] :white, [15 3] :black, [15 16] :black, [17 16] :black, [5 16] :black, [16 15] :black, [3 3] :white, [3 15] :white, [15 10] :black, [16 14] :black, [15 13] :white}, :to-play :white, :board-size 19, :labels {[17 16] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 17] :white], :id \"6cf6b399-84ae-485a-8bfa-9d03a5ab5235\", :children [{:move [[15 15] :black], :id \"d2a2bf42-c342-40e4-8081-aa49dfaa687a\", :children [{:move [[14 15] :white], :id \"6101a815-96f3-4ef8-9dde-d08890e05f1b\", :children [{:move [[16 17] :black], :id \"eefe4724-723e-4812-b662-ca06dbc1f8a3\", :children [{:move [[11 16] :white], :id \"73040738-5bf8-419e-bbab-e867bfefe295\"} {:move [[12 13] :white], :id \"f4982b7c-a2b9-4dd6-a808-d8156e693451\"} {:move [[12 14] :white], :id \"0afeeec9-270c-43e1-a979-69db79f2b6df\"}]}]}]}]} {:move [[15 15] :white], :id \"2ce96dc9-a343-40cb-9d62-a75f576c24cf\", :children [{:move [[15 17] :black], :id \"2a9409fb-1715-49c9-9434-2ed2738bc64f\"}]}]}",
+ "id": "42wW3ERTf9TCWOgODEIB",
+ "to-play": "white"
+}

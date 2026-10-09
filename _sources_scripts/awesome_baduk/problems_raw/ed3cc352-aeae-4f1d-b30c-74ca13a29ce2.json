@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / The marked White stone has just been played. Extend Black's territory by using a nobi play from the marked Black stone",
+ "to-play": "black",
+ "id": "ed3cc352-aeae-4f1d-b30c-74ca13a29ce2",
+ "variations": "{:labels nil, :children [{:move [[1 9] :black], :id \"a3b21804-4f7d-40d1-9318-25be7fe1d66b\"}], :stones {[2 9] :black, [3 10] :black, [4 10] :black, [5 10] :black, [3 9] :white, [4 9] :white, [2 8] :white}, :board-size 13, :marks {:circle #{[2 9]}, :square nil, :triangle #{[2 8]}}}"
+}

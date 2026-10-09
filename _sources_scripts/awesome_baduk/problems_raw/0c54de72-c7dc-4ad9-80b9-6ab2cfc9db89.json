@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1.  what is the best endgame for Black?",
+ "to-play": "black",
+ "id": "0c54de72-c7dc-4ad9-80b9-6ab2cfc9db89",
+ "variations": "{:labels {[3 11] \"1\"}, :children [{:move [[3 12] :black], :id \"050c553b-581a-458d-afaf-07dd6c49332b\", :children [{:move [[4 11] :white], :id \"79fb3108-6fe5-46fb-9524-c9f7f88a8999\", :children [{:move [[4 12] :black], :id \"00c18c3d-d8ce-4a03-8f8c-1134be932c6a\", :children [{:move [[5 12] :white], :id \"72d087eb-a94a-4298-ba53-5e808b04984f\", :children [{:move [[2 12] :black], :id \"f0170114-d51f-45d0-93bb-167721394eb1\"}]}]}]}]}], :stones {[5 9] :white, [3 4] :white, [4 6] :white, [7 9] :white, [2 4] :black, [2 11] :black, [4 7] :white, [2 9] :black, [4 9] :black, [3 11] :white, [3 5] :white, [3 9] :white, [4 8] :white, [3 10] :white, [2 10] :black, [3 6] :black, [3 8] :black, [3 7] :black, [8 10] :white, [2 5] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

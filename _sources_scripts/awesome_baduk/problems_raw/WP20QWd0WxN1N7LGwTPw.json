@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Which move is better when you're in attacking position?",
+ "variations": "{:stones {[2 14] :white, [16 2] :white, [2 4] :black, [2 13] :black, [14 3] :black, [15 3] :black, [15 2] :white, [15 8] :black, [5 16] :white, [3 16] :white, [16 3] :black, [2 15] :white, [16 15] :white, [13 1] :white, [3 3] :black, [3 5] :white, [3 9] :black, [3 14] :black, [3 13] :black, [2 5] :white}, :to-play :black, :board-size 19, :labels {[5 3] \"A\", [5 2] \"B\"}, :marks {:triangle #{[2 5] [3 5]}, :circle nil, :square nil}, :children [{:move [[5 3] :black], :id \"075e7a58-8fe6-4616-809a-31eeea5807f4\"} {:move [[5 2] :black], :id \"022ca3c5-1d52-435e-9227-21f5e3eefa92\", :children [{:move [[6 5] :white], :id \"8404a613-76aa-476e-bc98-c2e18449595f\", :labels {[4 3] \"A\", [4 2] \"B\", [2 2] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}}]}]}",
+ "id": "WP20QWd0WxN1N7LGwTPw"
+}

@@ -1,0 +1,6 @@
+{
+ "id": "1e99bc17-f6d1-4c6f-9caa-cefab4006dda",
+ "description": "Black to play / Capture the marked stones with a pae (ko).",
+ "variations": "{:labels nil, :children [{:move [[5 8] :black], :id \"751b00ed-0be4-48d6-9945-f6be9299ab4b\"} {:move [[7 8] :black], :id \"2326618a-135b-4397-8d18-619f328a3b6a\", :children [{:move [[2 8] :white], :id \"83c8fa76-b36d-4e24-bb9c-c901f7cd672a\"}]} {:move [[2 8] :black], :id \"31d2c172-e5a4-42f8-b559-1fc7c11b39b4\", :children [{:move [[1 8] :white], :id \"61240ba5-4a7e-4c21-8257-bc05ec75f986\"}]}], :stones {[6 8] :white, [5 7] :white, [4 6] :white, [5 6] :black, [4 7] :black, [2 7] :white, [7 7] :black, [2 6] :white, [6 6] :black, [6 7] :white, [4 8] :white, [3 6] :white, [3 8] :black, [3 7] :black, [7 6] :black}, :board-size 9, :marks {:circle nil, :square nil, :triangle #{[4 8]}}}",
+ "to-play": "black"
+}

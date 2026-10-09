@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Black to play / White just played at 1. Find the best way to make blockade",
+ "id": "0eb31a8f-d966-4bf7-a8be-e826a57a84d9",
+ "variations": "{:labels {[4 10] \"1\"}, :children [{:move [[5 10] :black], :id \"7ec9beba-53fe-4c6f-ac0b-8d277ff697f0\", :children [{:move [[5 11] :white], :id \"f902c3b2-fbfb-4dd3-9d28-73e1620cc30e\", :children [{:move [[6 11] :black], :id \"34c19559-c0cf-464e-8ab4-7b042d47ce7b\"}]}]}], :stones {[1 10] :white, [6 8] :black, [6 9] :white, [4 11] :white, [1 11] :white, [7 9] :black, [4 10] :white, [2 11] :black, [2 9] :white, [4 9] :black, [3 11] :black, [3 9] :black, [1 8] :black, [3 10] :white, [1 9] :white, [2 10] :black, [5 8] :black, [2 8] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

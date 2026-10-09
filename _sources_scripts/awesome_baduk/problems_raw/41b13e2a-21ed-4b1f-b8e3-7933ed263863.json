@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1. Prevent White from making the double wing formation. Choose among A, B and C",
+ "variations": "{:labels {[10 3] \"1\", [8 3] \"A\", [5 16] \"C\", [2 9] \"B\"}, :children [{:move [[2 9] :black], :id \"a43c88d9-d89b-4598-ba9b-4bacd6fa2ec4\"}], :stones {[2 3] :white, [4 2] :white, [15 3] :black, [15 9] :black, [15 15] :black, [9 15] :black, [10 3] :white, [3 15] :white}, :board-size 19, :marks {:triangle nil, :circle nil, :square nil}}",
+ "id": "41b13e2a-21ed-4b1f-b8e3-7933ed263863",
+ "to-play": "black"
+}

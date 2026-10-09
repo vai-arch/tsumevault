@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / The marked White stone has just been played. Capture the whole group with throw-in",
+ "variations": "{:labels nil, :children [{:move [[1 11] :black], :id \"cf8f5f8a-361e-4969-9b3b-b0bd9189912b\", :children [{:move [[1 12] :white], :id \"4c3766c2-dce9-465f-955b-931663dd8d6f\", :children [{:move [[0 10] :black], :id \"9fb25470-7468-41c4-8884-bde5e6b24b2a\"}]}]}], :stones {[1 10] :white, [0 8] :black, [4 11] :white, [0 11] :white, [2 12] :white, [0 9] :black, [2 11] :white, [2 9] :white, [3 11] :white, [6 11] :white, [3 9] :black, [1 8] :black, [3 10] :black, [1 9] :white, [2 10] :black, [5 10] :black, [5 11] :white, [0 12] :white, [3 8] :black, [7 11] :black, [6 10] :black, [8 10] :black, [4 12] :black, [2 8] :black}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[0 12]}}}",
+ "to-play": "black",
+ "id": "b5f80a0f-9ac5-44fb-b9d1-41b887636d9f"
+}

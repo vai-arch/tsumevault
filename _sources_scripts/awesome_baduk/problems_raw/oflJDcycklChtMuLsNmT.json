@@ -1,0 +1,6 @@
+{
+ "description": "What is the best answer for white here?",
+ "variations": "{:stones {[2 14] :white, [4 2] :white, [2 3] :black, [15 3] :black, [2 7] :white, [2 15] :black, [3 15] :white, [3 5] :black, [15 15] :white, [2 16] :black, [16 5] :black}, :to-play :white, :labels {[3 14] \"A\", [1 14] \"B\", [3 16] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[3 14] :white], :id \"f9200647-e3ff-4489-a578-24f2f2dc490a\"} {:move [[1 14] :white], :id \"942e9ae9-a5c0-4153-8953-316b1625091d\", :children [{:move [[3 16] :black], :id \"9eb68b07-796e-43f2-a37c-88b1644761ed\"}]} {:move [[3 16] :white], :id \"3d620924-e0c3-4922-8482-53ee17407947\", :children [{:move [[1 14] :black], :id \"4a575836-9bb4-44a2-8b09-43f934cc1860\"}]}]}",
+ "id": "oflJDcycklChtMuLsNmT",
+ "to-play": "white"
+}

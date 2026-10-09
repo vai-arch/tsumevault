@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Mark the sente endgame among A, B or C",
+ "id": "ef5acff3-ef0e-488d-bb87-32ef0035a1a1",
+ "variations": "{:labels {[0 3] \"A\", [5 4] \"B\", [4 8] \"C\"}, :children [{:move [[4 8] :black], :id \"59da38ca-bdd9-47f4-9e10-6ec64b001c46\"}], :stones {[4 3] :black, [3 4] :black, [1 2] :white, [0 5] :black, [0 0] :white, [5 3] :white, [1 5] :black, [3 2] :white, [4 6] :white, [8 5] :white, [2 4] :white, [4 2] :white, [1 3] :white, [5 5] :white, [5 6] :white, [2 3] :white, [8 1] :white, [4 7] :white, [8 3] :white, [7 0] :white, [0 2] :white, [3 0] :white, [8 8] :white, [4 5] :black, [6 0] :white, [8 7] :white, [7 4] :white, [8 4] :white, [3 3] :black, [5 0] :white, [6 3] :white, [3 5] :black, [8 6] :white, [1 4] :black, [1 7] :black, [6 5] :white, [3 6] :black, [3 8] :black, [8 0] :white, [4 4] :white, [3 7] :black, [1 0] :white, [2 0] :white, [4 0] :white, [8 2] :white, [2 5] :black, [0 4] :white}, :board-size 9, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

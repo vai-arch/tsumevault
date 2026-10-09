@@ -1,0 +1,6 @@
+{
+ "description": "Which next move is correct?",
+ "to-play": "black",
+ "id": "4MSNwZmY9crEw80NkfWI",
+ "variations": "{:stones {[3 4] :white, [2 2] :black, [16 2] :black, [1 5] :black, [3 2] :white, [2 4] :black, [2 3] :black, [15 3] :white, [9 3] :black, [15 2] :white, [15 4] :white, [16 4] :black, [3 16] :black, [16 3] :black, [16 16] :white, [3 3] :white, [16 6] :white, [3 14] :white, [15 5] :black, [16 5] :white, [17 5] :black, [2 5] :white}, :to-play :black, :labels {[15 5] \"1\", [16 6] \"2\", [14 5] \"A\", [17 6] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[17 6] :black], :id \"bcf642fe-05b9-407b-bb5d-acd4f80fb4be\", :children [{:move [[16 7] :white], :id \"999302a2-3b30-49ec-ac22-6d2a68ce7cad\", :children [{:move [[14 5] :black], :id \"244fd430-4a4c-432b-9535-3442d477e247\"}]}]} {:move [[14 5] :black], :id \"70bdb29a-70ac-4435-b5fb-42a8e0d7a50a\", :children [{:move [[17 6] :white], :id \"9a6637d0-c92d-481c-8e6c-505c61d88bc4\"}]}]}"
+}

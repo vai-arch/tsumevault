@@ -1,0 +1,6 @@
+{
+ "description": "What happens if white goes out at A?",
+ "variations": "{:stones {[14 16] :black, [15 16] :white, [17 15] :black, [17 16] :black, [17 17] :white, [16 15] :black, [16 16] :white, [14 14] :white, [3 9] :black, [15 15] :black, [13 14] :black, [13 16] :black, [3 7] :white, [18 17] :white, [14 15] :white, [14 17] :white}, :to-play :black, :board-size 19, :labels {[14 14] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 13] :black], :id \"6e48e993-655f-43fa-8a35-3529b8a6e7c6\", :children [{:move [[15 14] :white], :id \"3844fcbd-d15f-44ee-a50a-1a6c61ea6c85\", :children [{:move [[15 13] :black], :id \"0086ad24-c08a-4b6a-bea1-900e264b1771\", :children [{:move [[16 14] :white], :id \"64a3778a-ebf1-4d0b-a0b2-8d9cdd474837\", :children [{:move [[17 14] :black], :id \"4b766e35-af2b-4c1b-a18a-d65dc0ded4be\", :children [{:move [[16 13] :white], :id \"5f460a19-6218-4269-b2e2-263a41231865\", :children [{:move [[16 12] :black], :id \"25eae7b4-706d-4d87-8e26-ee984490b29b\", :children [{:move [[17 13] :white], :id \"727382cf-90ab-45a1-9774-088665809d72\", :children [{:move [[17 12] :black], :id \"07cbf611-79ad-415f-9a35-2e726ae39c8f\"}]}]}]}]}]}]}]}]}]}",
+ "to-play": "black",
+ "id": "PB6fo82M6uEuDVgq5RwT"
+}

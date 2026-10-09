@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White has just played the marked stone. Choose the correct endgame play for Black",
+ "to-play": "black",
+ "id": "07e629fb-6faf-4d22-afda-9444faaa2d4a",
+ "variations": "{:labels nil, :children [{:move [[1 9] :black], :id \"bb420224-b113-4dda-a97d-3f92bb63f604\", :children [{:move [[1 8] :white], :id \"69876c91-c6fe-474e-8f58-284f8c73a8bf\", :children [{:move [[1 10] :black], :id \"8cbca8e2-27e6-4264-8231-9708fc738ece\"}]}]}], :stones {[4 11] :black, [4 10] :white, [2 9] :white, [6 11] :black, [3 9] :white, [3 10] :black, [2 10] :black, [7 10] :white, [5 10] :white, [5 11] :black, [3 6] :white, [7 11] :white, [6 10] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[7 11]}}}"
+}

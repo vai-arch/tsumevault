@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "variations": "{:stones {[3 4] :black, [3 2] :white, [2 4] :white, [2 12] :white, [2 13] :white, [2 3] :white, [15 3] :black, [5 2] :white, [2 11] :white, [3 16] :white, [2 15] :black, [1 12] :black, [1 13] :black, [3 15] :white, [3 5] :black, [15 15] :black, [2 16] :black, [2 5] :black}, :to-play :black, :board-size 19, :labels {[2 9] \"A\", [3 8] \"B\"}, :marks {:circle nil, :square nil, :triangle #{[3 4] [3 5] [2 5]}}, :children [{:move [[2 9] :black], :id \"e44b0966-34ba-4045-b1a5-c0ff743d7023\", :children [{:move [[1 11] :white], :id \"f4de5857-20fc-4afe-8bb8-af581ef9ed95\", :children [{:move [[2 14] :black], :id \"573ee549-0249-4395-aad0-b6e5d5c7ee9a\", :children [{:move [[3 14] :white], :id \"bc5df325-dce1-4712-b361-ad023c3110c5\", :labels {[2 7] \"A\"}, :marks {:circle nil, :square nil, :triangle #{[2 9] [2 5] [3 5] [3 4]}}, :comment \"A is always troublesome for Black afterwards.\"}]}]}], :comment \"This extension looks alright, but it's not.\"} {:move [[3 8] :black], :id \"b1217966-4429-4875-9a7a-ce8ed47d3215\", :comment \"This is the proper extension. Whenever the side is not valuable enough like this situation, playing on the 4th line is a better choice.\"}]}",
+ "description": "What's the proper extension for Black in this case? ",
+ "id": "h95t6suJPBph1JnKvVXk"
+}

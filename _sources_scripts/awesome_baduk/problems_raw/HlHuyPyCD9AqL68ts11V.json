@@ -1,0 +1,6 @@
+{
+ "id": "HlHuyPyCD9AqL68ts11V",
+ "description": "When black connects at A, what white can do?",
+ "to-play": "white",
+ "variations": "{:stones {[15 14] :white, [13 2] :white, [9 15] :black, [16 2] :black, [2 13] :white, [14 16] :black, [15 3] :black, [15 16] :black, [17 15] :black, [17 16] :black, [5 16] :black, [16 15] :black, [16 16] :white, [16 10] :black, [3 3] :white, [16 17] :white, [3 15] :white, [15 15] :white, [16 14] :white, [10 2] :white, [15 1] :white, [15 5] :black, [13 15] :black}, :to-play :white, :board-size 19, :labels {[17 15] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 11] :white], :id \"268a7d03-1e77-4aa5-8e41-54bfb29bcba0\", :children [{:move [[17 17] :black], :id \"52b78812-dbcb-4e7f-be81-0dd2befba2c6\", :children [{:move [[17 10] :white], :id \"34fe5d14-0cca-4817-aa5b-c8a925a7d09a\", :children [{:move [[16 9] :black], :id \"5f7b64e6-9eba-4998-b443-0d07292a0a67\", :children [{:move [[17 9] :white], :id \"e04f1479-cfe7-4365-80ba-c024f6570fb1\", :children [{:move [[16 8] :black], :id \"6387ab71-0ef8-4cab-850c-4a83be0da5d2\", :children [{:move [[17 8] :white], :id \"4b63f1d2-e595-4c05-9e7b-59f36dafde98\"}]}]}]}]}]}]}]}"
+}

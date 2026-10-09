@@ -1,0 +1,6 @@
+{
+ "description": "How does Black continue, if White captures at 4 ?",
+ "id": "Tzn3cFgi8LBESULOiI2h",
+ "variations": "{:stones {[13 2] :black, [8 17] :black, [16 2] :black, [15 3] :black, [9 17] :white, [5 16] :white, [11 16] :white, [3 16] :black, [2 15] :black, [16 10] :black, [7 17] :white, [16 6] :black, [15 15] :black, [3 12] :black, [16 8] :white, [13 16] :black, [16 5] :white, [17 3] :white, [8 16] :white, [7 16] :black}, :labels {[7 16] \"1\", [7 17] \"2\", [8 17] \"3\", [9 17] \"4\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[6 17] :black], :id \"8c1d47b5-d9ea-4032-aa40-1be9035e5a57\", :children [{:move [[8 18] :white], :id \"52a6eb07-c31a-47ca-a895-5031832d254c\", :children [{:move [[6 16] :black], :id \"fd4f3322-ba17-430c-9739-f55b10855e23\"}]}]} {:move [[8 15] :black], :id \"03953f17-2153-4781-aa81-986ee3e2aaf9\", :children [{:move [[8 18] :white], :id \"24dbcc82-da13-47fc-a04d-03da2136c892\"}]}]}",
+ "to-play": "black"
+}

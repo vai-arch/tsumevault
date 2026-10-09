@@ -1,0 +1,6 @@
+{
+ "variations": "{:labels {[3 6] \"A\", [4 4] \"B\", [6 5] \"C\"}, :children [{:move [[3 6] :black], :id \"ebb8c906-0b38-4ed7-8cb3-ec47aaa8cfa6\"} {:move [[4 4] :black], :id \"bb2c2dd0-a561-47f9-b821-3053d3a22e7f\", :children [{:move [[3 6] :white], :id \"46582bfa-c29b-450c-8277-5110b1bce798\"}]} {:move [[6 5] :black], :id \"07eb696a-ef4f-4f47-b26b-58cf03bd5833\", :children [{:move [[3 6] :white], :id \"c21e4495-2bda-493b-843b-562b9129481d\"}]}], :stones {[0 5] :black, [1 5] :black, [4 6] :black, [5 5] :white, [4 7] :black, [4 5] :white, [3 5] :white, [4 8] :black, [2 5] :black}, :board-size 9, :marks {:circle nil, :square nil, :triangle #{[3 5] [4 5] [5 5]}}}",
+ "description": "Black to play",
+ "id": "c4d30984-aeec-4bd6-a460-a27314f7dc34",
+ "to-play": "black"
+}

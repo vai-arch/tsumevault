@@ -1,0 +1,7 @@
+{
+ "to-play": "white",
+ "id": "FBv1FO9dp2iSaDEFjdtW",
+ "variations": "{:stones {[3 4] :black, [2 2] :white, [3 2] :black, [2 4] :black, [4 2] :white, [5 6] :black, [2 3] :white, [3 1] :white, [3 3] :black, [2 6] :white, [3 5] :black, [1 4] :white, [4 1] :black, [4 4] :black, [6 2] :black, [2 5] :white}, :to-play :white, :board-size 9, :labels {[4 1] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[5 1] :white], :id \"281f3e81-7252-442d-8ab8-875ac4ed2eca\", :children [{:move [[4 0] :black], :id \"1c1dc0c3-5637-42a6-934b-673c7a8260c2\", :children [{:move [[5 0] :white], :id \"3de70f9f-895b-4afa-a89c-d446e759f2d9\", :children [{:move [[3 0] :black], :id \"1d6442cf-c3a0-4a7f-817b-38132e65d53d\", :children [{:move [[2 0] :white], :id \"c137592a-4da2-4544-a76d-449ebbfbcb92\"}]}]} {:move [[3 0] :white], :id \"0d620acb-e0da-423c-bd9a-5d7be76ea9ac\", :children [{:move [[5 0] :black], :id \"697459a2-2802-4af1-b90f-b8d5b1e7f5e3\", :children [{:move [[6 0] :white], :id \"73d84d03-c903-44f2-a827-303b057692af\"}]}]}]}]}]}",
+ "public": true,
+ "description": "Punish black's overplay move at A."
+}

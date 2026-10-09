@@ -1,0 +1,1 @@
+python awesome_to_player.py lessons.json --out player_test\player --census census4\census_courses.csv --estado LISTO --audio-root out\cursos_final --convert-audio

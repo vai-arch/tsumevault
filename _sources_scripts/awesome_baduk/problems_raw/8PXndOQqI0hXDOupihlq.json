@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "description": "What is the best way for White?",
+ "variations": "{:stones {[4 3] :white, [17 1] :black, [1 2] :white, [2 2] :black, [16 2] :black, [13 17] :black, [3 2] :black, [2 3] :white, [14 3] :white, [15 3] :white, [15 16] :black, [17 2] :white, [15 2] :black, [5 1] :black, [3 16] :black, [16 3] :white, [1 1] :black, [15 9] :white, [2 15] :white, [16 15] :white, [13 1] :black, [16 16] :black, [3 3] :white, [6 15] :black, [3 15] :white, [1 16] :white, [3 9] :white, [1 17] :black, [15 15] :white, [5 17] :black, [2 16] :black, [17 3] :white, [4 15] :white, [14 15] :white}, :labels {[4 2] \"A\", [4 1] \"B\", [5 2] \"C\"}, :marks {:circle nil, :square nil, :triangle #{[2 2] [3 2] [5 1] [1 1]}}, :to-play :white, :children [{:move [[4 1] :white], :id \"7bc2d368-8c5a-433a-a7d3-e80a024aa045\"} {:move [[4 2] :white], :id \"0074ff53-cee4-4690-8741-dbb9c3f6d4be\", :children [{:move [[4 1] :black], :id \"bc6402c8-d4dd-482e-a028-38b425f407d4\"}]} {:move [[5 2] :white], :id \"c98bddab-d859-45cd-b0b2-5468bba9fa6a\", :children [{:move [[4 1] :black], :id \"03b81a06-bb7b-461b-9087-dffe88d709cb\"}]}]}",
+ "id": "8PXndOQqI0hXDOupihlq"
+}

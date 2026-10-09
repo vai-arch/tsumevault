@@ -1,0 +1,7 @@
+{
+ "id": "pvSGOnk74XPXZGVE6C2a",
+ "to-play": "black",
+ "public": true,
+ "variations": "{:labels {[2 3] \"A\", [5 3] \"B\"}, :children [{:move [[5 3] :black], :id \"14813ee3-c367-455b-ad86-c72ddb53f8d5\"} {:move [[2 3] :black], :id \"c75598b9-277c-4784-a1f0-8e0b8e61d6f5\", :children [{:move [[4 5] :white], :id \"26217493-0c65-4c4c-95b9-c193d8539147\"}]}], :stones {[4 3] :white, [3 4] :white, [2 2] :black, [3 2] :white, [2 4] :black, [4 2] :black, [5 5] :black, [5 2] :white, [3 3] :black, [5 4] :white, [2 1] :white, [4 4] :black, [2 5] :white}, :board-size 9, :marks {:triangle nil, :circle nil, :square nil}}",
+ "description": "If it is Ko, play A. If not play B."
+}

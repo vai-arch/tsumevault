@@ -1,0 +1,6 @@
+{
+ "id": "qhm7VywW57rs8u1YDPe8",
+ "description": "After White connects at 5, A bloking is bad. Which move is better?",
+ "to-play": "black",
+ "variations": "{:stones {[12 2] :black, [11 3] :white, [15 3] :black, [9 3] :black, [15 9] :white, [3 3] :black, [10 3] :white, [13 3] :black, [10 2] :white, [16 5] :white, [11 2] :black}, :to-play :black, :board-size 19, :labels {[9 2] \"A\", [11 3] \"1\", [11 2] \"2\", [10 2] \"3\", [12 2] \"4\", [10 3] \"5\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[8 2] :black], :id \"1918ee34-1e4a-4dc7-a6d2-c3e37135c734\"} {:move [[9 2] :black], :id \"a6c5d947-5cef-4ffb-ae12-f1271082274d\", :children [{:move [[9 1] :white], :id \"bf5bf50d-8c6e-48af-9828-584fac4491e6\", :children [{:move [[8 1] :black], :id \"f610ed09-ed1a-4aee-88d9-c2a2709f857f\", :children [{:move [[11 1] :white], :id \"c11d630f-481c-4e46-a970-0d4fb8a6578d\", :labels {[8 2] \"A\", [14 2] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}]}]}]}]}"
+}

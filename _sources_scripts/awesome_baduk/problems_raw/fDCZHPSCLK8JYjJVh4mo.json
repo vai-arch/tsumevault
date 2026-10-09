@@ -1,0 +1,6 @@
+{
+ "description": "Find a vital point on bottom right corner.",
+ "id": "fDCZHPSCLK8JYjJVh4mo",
+ "to-play": "black",
+ "variations": "{:stones {[4 3] :white, [3 4] :black, [2 2] :black, [3 2] :white, [2 3] :black, [5 2] :black, [15 16] :white, [17 16] :black, [17 17] :white, [16 16] :black, [3 3] :white, [16 17] :white, [6 3] :white, [12 16] :white, [16 14] :black, [4 4] :white, [13 16] :white, [18 17] :black, [14 15] :black, [2 5] :black, [9 2] :white, [17 13] :black}, :to-play :black, :children [{:move [[14 17] :black], :id \"7de20532-cf1f-4a25-a73e-eef390174410\", :children [{:move [[14 16] :white], :id \"2ed00ee9-5fa6-4f5e-b893-d33c67214b32\", :children [{:move [[15 17] :black], :id \"77dedf5f-4de8-43d0-84f8-a788952fa454\"}]}]} {:move [[14 16] :black], :id \"cd41761a-59cd-4e6c-8b3f-a814ba9552b1\", :children [{:move [[14 17] :white], :id \"23d4049e-fe8c-4507-bec1-a61b61b60a03\", :children [{:move [[15 15] :black], :id \"0ad22cd0-8cf0-49ad-97ea-d6c7bc57497a\", :children [{:move [[15 17] :white], :id \"c03214ea-d8d3-4620-8460-e4c759d07103\"}]}]}]}]}"
+}

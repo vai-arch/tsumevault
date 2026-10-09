@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / where should Black play to make A a false eye?",
+ "variations": "{:labels {[3 12] \"A\"}, :children [{:move [[4 11] :black], :id \"8a094881-760a-4f2e-8d96-c7d67a67c8bc\"} {:move [[5 12] :black], :id \"8eea1211-5e3a-4163-b986-32d5c6e3ed8b\", :children [{:move [[4 11] :white], :id \"f169e662-77af-431e-8ae8-7c2c131299d1\"}]}], :stones {[2 12] :white, [4 10] :black, [2 11] :white, [2 9] :white, [4 9] :black, [3 11] :white, [6 11] :black, [3 9] :white, [4 8] :black, [3 10] :black, [2 10] :white, [5 11] :black, [4 12] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "id": "8374b9d7-08cb-4ee3-b39e-0e05456634fa",
+ "to-play": "black"
+}

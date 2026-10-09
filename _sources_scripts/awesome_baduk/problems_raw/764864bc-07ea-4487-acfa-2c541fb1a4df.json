@@ -1,0 +1,6 @@
+{
+ "id": "764864bc-07ea-4487-acfa-2c541fb1a4df",
+ "description": "Black to play / Connect the Black group after playing dansu the marked white stone",
+ "variations": "{:labels nil, :children [{:move [[1 8] :black], :id \"d488dcfa-2b43-461d-aae4-cef8ea11d54d\", :children [{:move [[0 10] :white], :id \"c13dd124-2757-48ea-a555-2edfcba40e05\", :children [{:move [[3 8] :black], :id \"a38ba77d-43d7-44d4-9e57-40b74ad0b5a2\"} {:move [[3 9] :black], :id \"e9df2709-b208-4c58-b404-966e464bda73\"}]}]}], :stones {[1 10] :black, [1 11] :white, [2 12] :black, [2 11] :white, [2 9] :black, [1 12] :white, [3 11] :black, [2 6] :black, [3 12] :black, [3 10] :black, [1 9] :white, [2 10] :white, [5 10] :white, [5 8] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[1 9]}}}",
+ "to-play": "black"
+}

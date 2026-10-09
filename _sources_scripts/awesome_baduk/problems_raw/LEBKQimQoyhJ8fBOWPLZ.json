@@ -1,0 +1,6 @@
+{
+ "id": "LEBKQimQoyhJ8fBOWPLZ",
+ "variations": "{:stones {[13 2] :white, [9 15] :black, [15 3] :black, [9 3] :white, [11 16] :black, [15 9] :black, [3 3] :white, [3 15] :white, [15 15] :black, [15 5] :black, [13 16] :white}, :to-play :white, :board-size 19, :labels {[13 16] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[13 14] :white], :id \"cee62d49-a9a3-4657-afd4-1105cc399927\", :children [{:move [[15 13] :black], :id \"14fcd3f8-c903-4c9a-b635-11032c044ce5\", :children [{:move [[15 17] :white], :id \"de3dc47e-8372-4bed-a02f-d69fc86e7444\", :children [{:move [[16 16] :black], :id \"1b37012a-ecad-4ac4-b50a-483bd2034f96\", :comment \"White's group is unsettled.\"}]}]}]} {:move [[16 16] :white], :id \"3f5d85bd-5a2a-453b-98e7-54364468f951\", :comment \"Jump into the corner is right choice, and A and B are miai next.\", :labels {[16 15] \"A\", [15 16] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}]}",
+ "to-play": "white",
+ "description": "How do you continue from A?"
+}

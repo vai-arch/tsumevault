@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Capture the marked White stone(s) with a net after playing dansu",
+ "to-play": "black",
+ "id": "99aff65f-869b-4234-bba6-c7d15f82ef1e",
+ "variations": "{:labels nil, :children [{:move [[4 11] :black], :id \"dc85b320-83b5-434c-a5f1-4008f0b1397c\", :children [{:move [[5 12] :white], :id \"ce07da7f-1896-4535-ba38-2edd1bcb276d\", :children [{:move [[6 11] :black], :id \"09064f61-4ec1-4ed4-9af6-7ef044d004d2\"}]}]}], :stones {[1 10] :black, [6 9] :white, [1 11] :black, [2 12] :black, [2 11] :white, [4 9] :white, [1 12] :black, [8 11] :white, [3 11] :black, [3 9] :white, [3 12] :white, [1 9] :black, [2 10] :white, [7 10] :white, [4 12] :white, [2 8] :black}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[3 12] [4 12]}}}"
+}

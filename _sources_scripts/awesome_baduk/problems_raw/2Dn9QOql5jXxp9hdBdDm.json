@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[13 2] :white, [3 4] :white, [3 2] :black, [4 2] :white, [2 3] :black, [14 16] :white, [15 3] :white, [15 16] :black, [17 2] :black, [15 2] :black, [14 2] :white, [16 4] :white, [3 16] :black, [16 3] :black, [2 15] :black, [16 15] :black, [4 17] :white, [3 17] :white, [1 16] :white, [4 16] :black, [15 17] :white, [2 17] :black, [2 16] :white, [15 13] :white, [2 5] :white}, :board-size 19, :labels {[1 15] \"A\", [1 17] \"B\", [5 17] \"C\"}, :marks {:circle nil, :square nil, :triangle #{[4 16] [3 16] [2 15] [2 17]}}, :children [{:move [[1 17] :black], :id \"04bbda96-95c6-497c-bf48-f3de82be016d\", :children [{:move [[1 15] :white], :id \"94c231af-7eac-45df-9091-bd320c899787\", :children [{:move [[5 17] :black], :id \"e93ff6d6-67dc-4888-8b32-92d4bd8cefe7\"}]}]} {:move [[1 15] :black], :id \"fa5e3ac6-4d8a-4dad-9d4a-6d7f114235d1\", :children [{:move [[1 17] :white], :id \"b4172f82-c694-44dc-a519-b7e818c24633\"}]} {:move [[5 17] :black], :id \"6624c4db-bec7-41cf-bf6a-21bbfba114c4\", :children [{:move [[1 17] :white], :id \"7195ad89-22a4-4dd9-8347-9fe76be6c5d4\"}]}]}",
+ "to-play": "black",
+ "description": "Which move is better? Aggressive or Defensive?",
+ "id": "2Dn9QOql5jXxp9hdBdDm"
+}

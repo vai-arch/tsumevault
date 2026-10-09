@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[15 14] :white, [16 13] :white, [4 3] :white, [13 17] :black, [3 2] :white, [2 4] :black, [2 13] :black, [15 16] :black, [5 16] :white, [14 2] :black, [2 7] :black, [11 16] :white, [16 3] :black, [16 15] :black, [16 9] :white, [3 11] :black, [3 15] :white, [16 6] :white, [16 14] :black, [1 15] :black, [2 16] :white, [13 16] :black, [15 13] :white, [14 17] :white, [8 2] :white}, :board-size 19, :labels {[14 17] \"1\", [13 17] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :to-play :white, :children [{:move [[14 16] :white], :id \"f4475031-7b3b-4d59-b4da-e99155fefb86\", :children [{:move [[14 15] :black], :id \"172f703d-ab87-446d-8102-6e758a30c23e\", :children [{:move [[15 15] :white], :id \"861a21d3-ef64-4feb-975b-5dab180c8983\", :children [{:move [[16 16] :black], :id \"26045207-5a14-4b5d-993f-ff4044d71455\", :children [{:move [[13 15] :white], :id \"4f38c550-eb1b-4369-aa31-5588e7ac4ebd\", :children [{:move [[14 14] :black], :id \"95368aae-d8a2-4a53-8a52-a0b149492116\", :children [{:move [[13 14] :white], :id \"675d4b4b-a843-466e-96b8-565eef90a75f\", :comment \"Depends on the ladder\"}]}]}]}]}]}]}]}",
+ "id": "y3dygjX1ghKeKrSmap5J",
+ "description": "How can White continue, if Black blocks at 2?",
+ "to-play": "white"
+}

@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "4RoRntbNeDrTMvKgmxpw",
+ "description": "What's best response?",
+ "variations": "{:stones {[13 2] :white, [16 13] :white, [9 15] :black, [16 11] :white, [15 3] :black, [9 3] :white, [15 9] :black, [3 3] :white, [3 15] :white, [15 15] :black, [16 14] :black, [15 5] :black, [13 15] :black, [15 13] :white}, :to-play :black, :board-size 19, :labels {[16 9] \"A\", [16 10] \"B\", [17 10] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 10] :black], :id \"1fac0439-d81b-4482-b12f-5e4f3d447199\", :comment \"This is more active than other choices. White has to continue, and Black will have sente.\"} {:move [[16 9] :black], :id \"184542d3-3662-43cf-9aef-169e434ea744\", :comment \"\", :children [{:move [[14 10] :white], :id \"d7ead187-ab66-44e7-b195-e2e1210678ab\", :comment \"This is not bad for Black, but a little slack.\"}]} {:move [[17 10] :black], :id \"b2acf1ee-87dd-4bde-95a7-cb44b9137f7c\", :comment \"\", :children [{:move [[13 10] :white], :id \"f18d2ff0-0841-439a-aa32-5d3bc3a73fe3\", :comment \"This is also possible, but it will give White more options.\"}]}]}"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "White 1 is the vital point!\nIf Black connects at 2, how can White link up his stone?",
+ "to-play": "white",
+ "id": "rE9087OaXIMT3oo0nz0I",
+ "variations": "{:stones {[13 2] :white, [17 1] :black, [16 2] :black, [15 3] :black, [16 7] :white, [17 2] :black, [16 1] :white, [10 2] :white, [15 1] :white, [16 5] :black, [17 3] :white}, :to-play :white, :labels {[17 3] \"1\", [17 2] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 4] :white], :id \"1c690778-f5db-44c2-8110-fee01b48527f\", :children [{:move [[15 4] :black], :id \"5c2500b8-6d57-4716-9b58-7916f110f046\", :children [{:move [[17 5] :white], :id \"9806d23b-c953-4e26-9410-303b48e60137\"}]}]} {:move [[17 5] :white], :id \"c4c454fa-bff5-42cd-a15b-7f5ef466981c\", :children [{:move [[17 6] :black], :id \"561fc877-faa5-4dfe-af56-341c24774874\", :children [{:move [[16 4] :white], :id \"885278e0-7b7e-4505-a90e-467a7b6afe2e\", :children [{:move [[15 4] :black], :id \"7b14993d-a7ac-4edb-8d94-889cb8c8e579\", :children [{:move [[16 6] :white], :id \"f1d3de85-d533-4686-99e3-0c2026e26ff4\"}]}]}]}]}]}"
+}

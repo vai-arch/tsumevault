@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "WV4rRlEXDSS2CBJgOc6j",
+ "description": "How do you take care of the marked stones? A or B?",
+ "variations": "{:stones {[15 14] :black, [3 4] :white, [16 2] :black, [3 2] :white, [7 2] :black, [5 2] :black, [9 3] :white, [15 16] :black, [11 4] :black, [2 15] :white, [9 5] :white, [16 9] :black, [10 16] :white, [5 15] :black, [3 11] :white, [4 16] :black, [13 3] :black, [3 14] :white, [2 17] :black, [7 3] :black, [11 2] :white, [7 16] :white, [8 2] :white, [2 5] :white}, :to-play :black, :board-size 19, :labels {[6 6] \"A\", [5 4] \"B\"}, :marks {:circle nil, :square nil, :triangle #{[7 2] [7 3] [5 2]}}, :children [{:move [[6 6] :black], :id \"c0bdea67-5692-4103-9679-9a74d4b0e499\", :comment \"This is the right continuation. A is always sente for Black, so you don't need to worry about being cut off.\", :labels {[8 4] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}} {:move [[5 4] :black], :id \"cc86aac2-0648-47cd-8b3e-6a4755ef49c5\", :children [{:move [[14 9] :white], :id \"fedc0c97-4e4e-434c-95aa-4d18b1814e71\"}], :comment \"A is wrong direction because White's corner was already solid enough.\", :labels {[5 4] \"A\"}, :marks {:triangle #{[3 2] [3 4] [2 5]}, :circle nil, :square nil}}]}"
+}

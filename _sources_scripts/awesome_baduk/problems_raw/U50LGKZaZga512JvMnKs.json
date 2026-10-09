@@ -1,0 +1,6 @@
+{
+ "description": "Which move should Black make next?",
+ "to-play": "black",
+ "variations": "{:stones {[16 13] :white, [2 13] :white, [15 12] :white, [15 3] :black, [5 16] :black, [8 15] :black, [3 3] :white, [3 15] :white, [15 15] :black, [17 11] :black}, :to-play :black, :board-size 19, :labels {[15 10] \"A\", [13 15] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 10] :black], :id \"9e803c3a-1e10-4f22-9e04-4595d6e4e770\", :children [{:move [[13 12] :white], :id \"54b04884-f8de-489a-9f6d-2dacca5d9df5\", :children [{:move [[13 15] :black], :id \"964652c6-da37-46dd-a23a-6324873b823e\"} {:move [[13 10] :black], :id \"8eef9c9f-bd2f-4754-a237-96335f438978\", :children [{:move [[13 15] :white], :id \"24d1794c-4549-4526-a90c-8ed3c9acec12\", :labels {}, :marks {:triangle #{[15 15]}, :circle nil, :square nil}}]}]}]} {:move [[13 15] :black], :id \"963d570c-d080-453a-8733-efc696e9b277\", :children [{:move [[16 10] :white], :id \"a885fff2-99c7-4f32-bf25-e5d84f8e26b5\", :labels {}, :marks {:triangle #{[17 11]}, :circle nil, :square nil}}]}]}",
+ "id": "U50LGKZaZga512JvMnKs"
+}

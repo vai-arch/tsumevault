@@ -1,0 +1,6 @@
+{
+ "id": "KoMFTYtgYevHHZ3vlTdQ",
+ "description": "When white invades at A, what black can do?",
+ "to-play": "black",
+ "variations": "{:stones {[15 3] :black, [3 3] :white, [15 16] :black, [3 15] :white, [16 10] :black, [16 2] :white}, :to-play :black, :board-size 19, :labels {[16 2] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 3] :black], :id \"7f798b0a-0865-437f-bcbb-96fc518600de\", :children [{:move [[15 2] :white], :id \"3159a842-12f8-4b12-ac18-75ec874d2157\", :children [{:move [[13 2] :black], :id \"7307243c-6a60-41f1-a355-c296afdc3d10\", :children [{:move [[14 2] :white], :id \"2cc7b64e-6c43-435e-89b5-1880ddd3e562\", :children [{:move [[14 3] :black], :id \"d62860b2-429b-46d6-9113-a40f58e71453\", :children [{:move [[13 1] :white], :id \"9a195a2a-8224-4f67-8c42-2d8047fc8233\", :children [{:move [[15 14] :black], :id \"c4718b7f-dc5e-48a9-a451-a9387b4e9997\"}]}]}]}]} {:move [[14 3] :black], :id \"75870fdf-339b-46aa-ab59-aee04d51f3b9\", :children [{:move [[14 2] :white], :id \"cd88b553-4dd8-4225-9dfc-5f198c77e6f5\", :children [{:move [[13 2] :black], :id \"feea8a47-33eb-49bd-97db-61ec36b1535c\", :children [{:move [[13 1] :white], :id \"0cd3397e-e58e-4514-8837-d9ccb6040601\", :children [{:move [[15 14] :black], :id \"4d279483-6fee-4a92-af3e-efb2e50dd09e\"}]}]}]}]}]}]}]}"
+}

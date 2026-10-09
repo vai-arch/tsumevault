@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1. Choose the proper move among A, B or C",
+ "id": "d7bc2068-e4eb-440e-9c69-21c5fe20d18d",
+ "variations": "{:labels {[3 6] \"1\", [4 7] \"A\", [3 8] \"B\", [4 8] \"C\"}, :children [{:move [[4 7] :black], :id \"57ca8adb-24c6-4e8e-9136-d22761fc1e27\"}], :stones {[3 9] :black, [3 7] :black, [2 7] :white, [3 6] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

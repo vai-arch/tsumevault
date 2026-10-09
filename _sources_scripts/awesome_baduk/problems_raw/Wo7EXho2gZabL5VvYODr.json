@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[9 15] :white, [2 2] :white, [14 16] :white, [15 3] :black, [5 2] :black, [3 1] :black, [15 16] :black, [2 9] :black, [12 15] :white, [3 3] :white, [3 15] :white, [6 16] :white, [15 15] :black, [13 14] :black, [13 16] :white, [13 15] :black, [15 13] :black, [8 2] :black, [2 5] :white}, :board-size 19, :labels {[2 9] \"1\"}, :marks {:triangle #{}, :circle nil, :square nil}, :to-play :white, :children [{:move [[2 11] :white], :id \"1b2de38a-a5c0-4f8a-914e-2f66b4a748c8\"} {:move [[2 7] :white], :id \"702ebcef-e52c-424d-b3e8-7ab5944f2420\", :children [{:move [[2 12] :black], :id \"a4b599c2-9dc9-4ba0-b15b-f8dc339f0790\"} {:move [[2 13] :black], :id \"d560590f-896c-4564-9ee0-d0efb3fef05e\"}]}]}",
+ "description": "Black 1 is wrong. How can White attack this?",
+ "id": "Wo7EXho2gZabL5VvYODr",
+ "to-play": "white"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / The marked stone has just been played. Find a good move order",
+ "id": "68ecbce8-50d1-4b96-8592-14ead75119ba",
+ "to-play": "black",
+ "variations": "{:labels nil, :children [{:move [[5 8] :black], :id \"76b37e69-4d1e-48c2-bd55-1d9946b03a23\", :children [{:move [[6 9] :white], :id \"1cae2a5e-7268-4590-9872-3e51f5a420b1\", :children [{:move [[3 8] :black], :id \"8904df9f-7dfc-4f43-ad4c-91d115b5707a\"}]}]}], :stones {[5 9] :white, [4 10] :white, [4 9] :black, [2 7] :black, [3 9] :black, [4 8] :white, [3 10] :white, [2 10] :white, [5 10] :black, [6 10] :black, [2 8] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[2 8]}}}"
+}

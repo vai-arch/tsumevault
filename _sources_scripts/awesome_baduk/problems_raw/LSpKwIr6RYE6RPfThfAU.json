@@ -1,0 +1,6 @@
+{
+ "description": "How to attack the triangle-marked stones?",
+ "id": "LSpKwIr6RYE6RPfThfAU",
+ "variations": "{:stones {[5 14] :black, [9 15] :white, [2 14] :black, [8 14] :black, [15 16] :black, [4 9] :black, [6 14] :black, [3 16] :white, [16 3] :black, [4 14] :black, [8 15] :white, [3 3] :white, [5 15] :white, [7 14] :black, [6 15] :white, [7 15] :white, [15 10] :white, [16 14] :white, [13 3] :black, [3 12] :white, [5 11] :white, [13 15] :black, [2 8] :black, [2 5] :white}, :to-play :black, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[3 12] [5 11]}}, :children [{:move [[6 10] :black], :id \"0f183bbc-e745-43d7-b928-9f717f7c05bf\", :children [{:move [[6 11] :white], :id \"ad76bfbe-c266-4733-9a9b-48bad1acfc00\", :children [{:move [[7 11] :black], :id \"b0833457-74e2-4e62-bba2-c483e2c5949a\", :children [{:move [[7 12] :white], :id \"807b8e7c-ddf5-48cb-be47-727b0df36c27\", :children [{:move [[7 10] :black], :id \"3c8e402d-7b6f-490a-bce7-31d789fe6b08\", :children [{:move [[8 12] :white], :id \"5aebde20-be3d-4cfe-a9fe-fbadbca62140\", :children [{:move [[6 12] :black], :id \"40e631e9-5e98-46c7-9264-74c0d077ed6e\"}]}]}]}]}]}]}]}",
+ "to-play": "black"
+}

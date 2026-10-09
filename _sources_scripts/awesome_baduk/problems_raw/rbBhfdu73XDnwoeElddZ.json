@@ -1,0 +1,6 @@
+{
+ "description": "Where white should go between A and B?",
+ "variations": "{:stones {[15 14] :black, [13 2] :black, [9 1] :black, [9 15] :black, [16 2] :white, [10 1] :black, [7 2] :white, [12 2] :black, [8 1] :white, [14 3] :white, [15 3] :black, [9 0] :white, [8 3] :black, [15 16] :black, [17 2] :white, [7 0] :white, [15 2] :white, [12 9] :black, [5 16] :white, [14 2] :black, [16 3] :black, [12 4] :black, [14 4] :black, [8 4] :black, [13 1] :black, [16 10] :black, [3 3] :white, [17 4] :black, [14 1] :white, [3 15] :white, [11 0] :black, [13 3] :white, [3 10] :white, [10 2] :black, [15 1] :white, [6 1] :white, [8 0] :white, [10 0] :white, [16 5] :black, [17 3] :white, [7 3] :white, [8 2] :black, [2 5] :white, [9 2] :white}, :to-play :white, :labels {[11 1] \"A\", [10 10] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[10 10] :white], :id \"0c76fc45-fdf4-4ac2-939a-d500e1418bc6\"} {:move [[11 1] :white], :id \"a539f735-95c2-4bdb-9b9c-869789465f94\", :children [{:move [[11 2] :black], :id \"6bb00572-611a-4020-9470-269b1822cdd5\", :children [{:move [[12 0] :white], :id \"971faf9a-6bc4-4c7f-ba4b-edf6e3893395\", :children [{:move [[9 10] :black], :id \"afef09c2-ae0e-4278-ae99-455a76756a05\"}]}]}]}]}",
+ "id": "rbBhfdu73XDnwoeElddZ",
+ "to-play": "white"
+}

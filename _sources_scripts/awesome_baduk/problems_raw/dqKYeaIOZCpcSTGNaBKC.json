@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[15 14] :white, [13 2] :black, [16 13] :white, [2 2] :white, [16 2] :black, [2 13] :black, [15 3] :black, [5 2] :black, [3 1] :black, [15 16] :black, [5 16] :black, [3 16] :white, [15 7] :white, [2 15] :black, [16 15] :black, [4 17] :white, [16 9] :white, [3 3] :white, [3 17] :black, [3 15] :white, [4 16] :white, [16 14] :black, [3 14] :white, [2 17] :black, [2 16] :black, [13 16] :black, [16 5] :white, [17 3] :white, [15 13] :white, [7 16] :white, [8 2] :black, [2 5] :white}, :to-play :black, :board-size 19, :labels {[17 2] \"A\", [10 16] \"B\", [9 9] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[10 16] :black], :id \"2fabda5c-01ee-494a-820e-ef8eff2d0a5b\"} {:move [[17 2] :black], :id \"c1c63998-e9d8-41cd-8855-3049d8eb246e\", :children [{:move [[10 16] :white], :id \"ea14691a-2cfd-4790-ab84-2ab2cfd83b4f\"}]} {:move [[9 9] :black], :id \"a25356da-1e72-4c80-b788-7dab13cec38b\", :children [{:move [[10 16] :white], :id \"eb9e6626-4265-403b-9b6f-baaa9493c3f6\"}]}]}",
+ "to-play": "black",
+ "description": "What is the best move for black?",
+ "id": "dqKYeaIOZCpcSTGNaBKC"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "If the Black group is dead, mark A, otherwise B",
+ "variations": "{:labels {[3 4] \"A\", [5 4] \"B\"}, :children [{:move [[3 4] :black], :id \"229d941b-f2f5-47d4-b8b0-3be204f59e4e\"}], :stones {[0 5] :white, [1 5] :white, [2 7] :black, [0 6] :black, [2 6] :black, [3 5] :white, [3 6] :white, [3 8] :white, [1 6] :black, [3 7] :white, [2 8] :black, [2 5] :white}, :board-size 9, :marks {:triangle nil, :circle nil, :square nil}}",
+ "id": "67ee6082-ae4d-4573-ac84-bb52c41d74d3",
+ "to-play": "black"
+}

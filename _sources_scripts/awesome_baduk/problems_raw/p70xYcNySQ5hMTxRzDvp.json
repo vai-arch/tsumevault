@@ -1,0 +1,6 @@
+{
+ "description": "What plays at A. How black should play?",
+ "variations": "{:stones {[3 4] :black, [1 2] :white, [2 2] :white, [1 5] :black, [3 2] :black, [4 6] :black, [2 4] :black, [4 2] :black, [2 3] :white, [5 2] :white, [9 3] :black, [4 7] :black, [3 1] :white, [2 9] :white, [2 7] :white, [4 5] :black, [15 9] :white, [3 3] :black, [2 6] :white, [3 5] :black, [1 4] :white, [0 3] :white, [2 1] :white, [4 1] :black, [3 6] :white, [3 8] :white, [3 7] :black, [2 8] :black, [2 5] :white}, :to-play :black, :labels {[2 9] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[1 8] :black], :id \"f8405ab1-f137-4f77-aca5-2aa6b8eb76d1\", :children [{:move [[1 6] :white], :id \"cc977f19-9154-4034-a3c5-22b60031547d\", :children [{:move [[3 9] :black], :id \"f9d87dc3-24b2-4036-9cdd-9e64e2782e44\", :children [{:move [[4 8] :white], :id \"314d0487-a455-450f-ab8e-e8c9ee22eb9f\", :children [{:move [[2 10] :black], :id \"ffa41908-8f9b-4d1b-a030-4870da92d53b\"}]}]} {:move [[4 8] :black], :id \"9cbf2bcc-4b50-417a-a0de-2a70fecc7da4\", :children [{:move [[3 9] :white], :id \"f9af416b-daa4-45e6-8960-ba5c58248f88\"}]}]}]} {:move [[4 8] :black], :id \"e91dcb35-0813-40b6-9e9b-cbabde7cf5db\", :children [{:move [[1 8] :white], :id \"366679f9-6268-4492-a00a-9eaa50d5b00f\"}]}]}",
+ "to-play": "black",
+ "id": "p70xYcNySQ5hMTxRzDvp"
+}

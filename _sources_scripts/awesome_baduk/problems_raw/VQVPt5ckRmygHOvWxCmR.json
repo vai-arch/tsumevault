@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[4 3] :white, [16 2] :black, [3 2] :black, [4 2] :white, [2 3] :black, [14 16] :black, [16 7] :white, [15 16] :black, [2 15] :white, [16 15] :white, [16 16] :black, [4 16] :black, [15 15] :white, [13 3] :white, [3 13] :white, [15 5] :black, [13 16] :black, [13 15] :white, [14 15] :white, [7 16] :black, [2 5] :black, [9 2] :white}, :to-play :black, :board-size 19, :labels {[13 16] \"A\", [16 7] \"B\", [12 15] \"1\", [17 5] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[17 5] :black], :id \"164348bc-010f-4c34-81de-b03b494ee767\", :children [{:move [[12 15] :white], :id \"24f55ccf-5557-4e65-aec3-3686a333eeab\"}]} {:move [[12 15] :black], :id \"22a98f06-7b15-486e-a4e8-0087217717b1\", :children [{:move [[12 14] :white], :id \"c582f0da-769a-4992-b36e-d0600662efbd\", :children [{:move [[11 14] :black], :id \"a2e4fb4c-7390-4cff-a7b1-9926031b27be\"} {:move [[11 15] :black], :id \"d5d256b9-d862-4c1a-8f10-5c6e4747efd6\"}]}]}]}",
+ "id": "VQVPt5ckRmygHOvWxCmR",
+ "to-play": "black",
+ "description": "If White ignores Black's push at A, how should Black proceed?"
+}

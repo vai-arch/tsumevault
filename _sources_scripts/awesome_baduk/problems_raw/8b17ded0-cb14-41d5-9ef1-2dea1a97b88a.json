@@ -1,0 +1,6 @@
+{
+ "id": "8b17ded0-cb14-41d5-9ef1-2dea1a97b88a",
+ "description": "Click A if you can save the marked stone(s), otherwise, click B !",
+ "variations": "{:labels {[3 2] \"A\", [5 2] \"B\"}, :children [{:move [[3 2] :black], :id \"8bd51260-eba4-4021-9258-818c5dc460f5\"}], :stones {[4 5] :black, [4 6] :black, [4 7] :white, [3 6] :white, [3 5] :white, [5 6] :white, [5 5] :white}, :board-size 9, :marks {:circle nil, :square nil, :triangle #{[4 5] [4 6]}}}",
+ "to-play": "black"
+}

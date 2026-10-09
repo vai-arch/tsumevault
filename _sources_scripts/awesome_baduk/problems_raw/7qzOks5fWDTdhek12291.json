@@ -1,0 +1,6 @@
+{
+ "description": "Where would you like to play next for Black?",
+ "variations": "{:stones {[2 14] :white, [2 12] :white, [2 13] :black, [15 3] :black, [3 16] :white, [2 15] :white, [16 15] :black, [3 3] :white, [1 13] :black, [3 15] :black, [1 16] :white, [3 14] :black, [2 17] :white}, :to-play :black, :board-size 19, :labels {[3 13] \"A\", [3 12] \"B\", [2 10] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[3 12] :black], :id \"ab95f39e-b429-4abe-8b77-aaab329b3833\"} {:move [[3 13] :black], :id \"fd4718b0-066b-48ff-999e-cff9379cf63f\", :children [{:move [[3 9] :white], :id \"93682ba8-21f3-4ca7-8333-7b2a8e07c9b3\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[2 12]}}}]} {:move [[2 10] :black], :id \"ce7dcd3b-dd55-4c04-a952-bb8d83cc4a92\", :children [{:move [[3 13] :white], :id \"903a5754-fcd1-47c4-a6a2-9e7cb6cf87a4\", :labels nil, :marks {:circle nil, :square #{[2 13] [1 13]}, :triangle #{[3 14] [3 15]}}}]}]}",
+ "to-play": "black",
+ "id": "7qzOks5fWDTdhek12291"
+}

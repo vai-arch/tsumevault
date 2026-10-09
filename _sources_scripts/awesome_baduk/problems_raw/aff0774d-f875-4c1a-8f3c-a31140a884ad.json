@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / The marked White stone has just been played. Capture the chain with double throw-in",
+ "to-play": "black",
+ "id": "aff0774d-f875-4c1a-8f3c-a31140a884ad",
+ "variations": "{:labels nil, :children [{:move [[0 10] :black], :id \"d6e3b972-02b2-428b-b654-8268bffc6973\", :children [{:move [[0 12] :white], :id \"c4685e3c-dfd4-495d-b9d4-927b27535a59\", :children [{:move [[0 10] :black], :id \"631f41b6-4330-4bfe-bac6-11fe34e616d6\"}]}]}], :stones {[1 10] :white, [0 11] :black, [1 11] :white, [2 12] :black, [4 10] :black, [0 9] :white, [2 11] :black, [2 9] :black, [1 12] :white, [1 8] :white, [1 9] :black, [2 10] :black, [3 8] :white, [2 8] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[0 9]}}}"
+}

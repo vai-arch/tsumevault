@@ -1,0 +1,6 @@
+{
+ "description": "Before white connects at A, white want to do an exchange.",
+ "variations": "{:stones {[2 2] :black, [3 2] :white, [15 3] :black, [5 2] :black, [3 1] :black, [5 1] :white, [3 3] :white, [3 15] :white, [3 5] :white, [15 15] :black, [2 1] :black, [4 1] :white, [6 2] :black}, :labels {[4 2] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[7 2] :white], :id \"c7709af7-aa26-4e99-b538-e0b9470530be\", :children [{:move [[6 1] :black], :id \"42c05052-d215-4cbe-ae5a-22a9fdad6daa\", :children [{:move [[4 2] :white], :id \"bdf76e8f-6dda-4261-96ed-7a7c46f04e03\", :children [{:move [[1 4] :black], :id \"b4a62230-407d-4e76-ad7b-f38c48e32a60\", :children [{:move [[7 4] :white], :id \"0676e079-6ca9-437a-a237-f776c7f1e650\"}]}]}]}]} {:move [[4 2] :white], :id \"535ab3f4-8567-48f0-819f-12ba10dca257\", :children [{:move [[1 4] :black], :id \"9b2801e2-0ffc-43b7-b7db-770cb620349b\"}]} {:move [[6 1] :white], :id \"7bc7a60d-3b08-4641-94ea-e5858d070bf0\", :children [{:move [[7 2] :black], :id \"8e4062ce-5a66-4019-9fc4-7f1a297cf594\"}]}]}",
+ "id": "F2KWjhu0nNaXPNqpRVLG",
+ "to-play": "white"
+}

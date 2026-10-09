@@ -1,0 +1,6 @@
+{
+ "description": "How can Black continue, if White pushes at 4?",
+ "variations": "{:stones {[15 3] :black, [3 2] :white, [15 16] :black, [3 15] :white, [2 4] :black, [2 6] :white, [4 3] :black, [4 2] :white}, :to-play :black, :board-size 19, :labels {[2 4] \"1\", [2 6] \"2\", [4 3] \"3\", [4 2] \"4\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[5 3] :black], :id \"d48509a9-8c13-4bec-b55b-29cd0e334e99\", :children [{:move [[6 2] :white], :id \"7a5dbdd2-905e-4268-9ae9-56501ce3a60e\", :children [{:move [[6 3] :black], :id \"873d0140-fedc-48d5-8d78-88670c0961e7\", :children [{:move [[7 2] :white], :id \"83bd1e00-6458-4a9f-89a8-792d64565ea4\", :children [{:move [[7 3] :black], :id \"61dee453-ea27-4612-b051-93dac144ffe2\", :children [{:move [[8 3] :white], :id \"9c9c0799-8b5e-44b0-8bbd-b36d18241363\", :children [{:move [[8 4] :black], :id \"7db08e6c-5667-441a-a145-a8fc4035abb4\", :children [{:move [[9 4] :white], :id \"2c593ef6-e442-4c6a-b943-86a5a1aca3dd\", :children [{:move [[8 5] :black], :id \"30af5639-66fd-44ab-9eb1-40d31352c0a7\", :children [{:move [[9 3] :white], :id \"fb792d6c-445d-4b6f-ba8c-bc098132793c\", :children [{:move [[2 8] :black], :id \"2a615c81-7bcf-4f4e-95dd-004835d294d6\"}]}]}]}]}]}]}]}]}]}]}]}",
+ "id": "esxpyvvQtdQpefrPsmdp",
+ "to-play": "black"
+}

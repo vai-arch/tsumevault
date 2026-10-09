@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "variations": "{:stones {[15 14] :black, [16 13] :black, [18 15] :black, [15 16] :white, [16 15] :white, [16 9] :black, [16 14] :white, [18 16] :white, [13 16] :white, [15 13] :black, [17 13] :black}, :to-play :black, :labels {[18 16] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[17 16] :black], :id \"7c2d1b1e-7280-490d-9a1e-4c8f4d67b880\", :children [{:move [[18 14] :white], :id \"2f3f514a-87eb-4ced-a2d7-66537295636b\", :children [{:move [[18 17] :black], :id \"c319ce8f-d18c-4e73-b22e-8cec6fa5d642\", :children [{:move [[17 14] :white], :id \"e376a9e8-d7bb-4e00-ba4a-bf1c585e1d45\", :children [{:move [[16 17] :black], :id \"d08cd72e-ac56-40a2-95a9-c648b1a233d5\", :comment \"Whole white's corner is gone.\"}]}]}]}]} {:move [[18 14] :black], :id \"8f3f772e-8699-4916-b525-9cafa4eabdad\", :children [{:move [[17 16] :white], :id \"5dd48aca-9039-49ff-831d-bcfa1413ff81\"}]}]}",
+ "id": "XVuhW6QmYODy7FC4q3As",
+ "description": "A is a greedy move. Punish white."
+}

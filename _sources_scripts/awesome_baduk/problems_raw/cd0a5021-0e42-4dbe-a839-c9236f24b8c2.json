@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / What is the correct answer after White 1?",
+ "id": "cd0a5021-0e42-4dbe-a839-c9236f24b8c2",
+ "variations": "{:labels {[2 10] \"1\"}, :children [{:move [[3 10] :black], :id \"4f51fe8f-25a2-4b24-954c-b077115ae6f3\", :children [{:move [[3 11] :white], :id \"44ce5b3e-7c27-4e3d-b8f8-2477bd0aba0c\", :children [{:move [[3 9] :black], :id \"f3ade822-538a-4548-bba7-808ae12e8519\"}]}]}], :stones {[2 9] :black, [4 9] :black, [4 8] :black, [2 10] :white, [4 10] :white, [5 9] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

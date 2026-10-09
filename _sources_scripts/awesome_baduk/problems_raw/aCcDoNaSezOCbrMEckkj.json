@@ -1,0 +1,6 @@
+{
+ "description": "How to save black's 4 stones?",
+ "to-play": "black",
+ "variations": "{:stones {[15 14] :white, [14 16] :white, [12 17] :black, [15 16] :black, [17 16] :black, [12 14] :white, [12 15] :black, [17 17] :black, [16 12] :black, [16 15] :black, [16 17] :white, [12 16] :black, [15 15] :white, [16 14] :black, [10 15] :white, [15 17] :white, [10 17] :white, [13 14] :white, [13 15] :white, [11 14] :white, [15 13] :black, [14 17] :black}, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[12 15] [12 16] [12 17] [14 17]}}, :children [{:move [[14 18] :black], :id \"a6ed040c-f351-4203-8abd-66cbe1048874\", :children [{:move [[16 16] :white], :id \"b06c0fad-98bc-41b3-bfa7-8bf786a3aa28\", :children [{:move [[16 18] :black], :id \"a0df0486-748c-4be8-a718-b9d37d3eac73\"}]}]} {:move [[16 16] :black], :id \"b6a39e5e-6748-46ee-8902-77f351bb0c55\", :children [{:move [[13 17] :white], :id \"8e470ced-281f-477b-9d86-c3f6d1cbd0ef\"}]}]}",
+ "id": "aCcDoNaSezOCbrMEckkj"
+}

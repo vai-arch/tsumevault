@@ -1,0 +1,6 @@
+{
+ "description": "What's the right way of attacking the marked stones?",
+ "id": "ZdwVMSbHIF6T24CVTxyR",
+ "variations": "{:stones {[5 3] :black, [2 14] :white, [16 2] :white, [2 4] :black, [2 13] :black, [14 3] :black, [15 3] :black, [15 2] :white, [15 8] :black, [5 16] :white, [3 16] :white, [16 3] :black, [2 15] :white, [16 15] :white, [13 1] :white, [3 3] :black, [3 5] :white, [3 9] :black, [3 14] :black, [3 13] :black, [3 7] :white, [2 5] :white}, :to-play :black, :board-size 19, :labels {[5 8] \"A\", [2 8] \"B\"}, :marks {:triangle #{[2 5] [3 5] [3 7]}, :circle nil, :square nil}, :children [{:move [[5 8] :black], :id \"e6fd84f9-70e4-456f-98ee-984754599742\", :children [{:move [[2 9] :white], :id \"ffb2f877-ce52-40cd-ac68-4de34b0eabc0\", :children [{:move [[2 10] :black], :id \"5de31dd0-2292-406e-ab06-88a13728989d\", :children [{:move [[2 8] :white], :id \"825fcc85-9e97-4094-940f-d6bb0931fa29\"}]}]}]} {:move [[2 8] :black], :id \"83c95c5f-46e5-4169-ad6b-4defe74f5b71\"}]}",
+ "to-play": "black"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White 1 has just been played. Capture the White chain",
+ "to-play": "black",
+ "variations": "{:labels {[4 10] \"1\"}, :children [{:move [[4 11] :black], :id \"c0063a73-5fe5-4ad2-9d86-07c8595c1db1\", :children [{:move [[5 10] :white], :id \"42130af2-858b-44cc-886f-a6295d72e0a0\", :children [{:move [[6 10] :black], :id \"e91c48f6-0a85-45e5-bb04-d5598d852f13\"}]}]}], :stones {[1 10] :white, [5 9] :black, [0 11] :white, [1 11] :black, [4 10] :white, [4 7] :black, [2 9] :white, [4 9] :white, [2 7] :black, [1 12] :white, [3 11] :black, [3 5] :white, [3 9] :black, [1 7] :white, [4 8] :white, [1 8] :white, [3 10] :black, [1 9] :white, [2 10] :black, [3 6] :black, [5 8] :black, [3 8] :white, [1 6] :white, [2 8] :black, [2 5] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "id": "a8ac9260-8fd9-4d26-8c4e-0e4a260c85a6"
+}

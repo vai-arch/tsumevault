@@ -1,0 +1,6 @@
+{
+ "description": "Which move is better for white?",
+ "id": "AfiXfc9ZcGd7IxZJnygT",
+ "to-play": "white",
+ "variations": "{:stones {[16 13] :white, [9 15] :black, [14 12] :black, [2 13] :white, [15 12] :white, [15 3] :black, [15 16] :black, [17 15] :white, [17 16] :white, [5 16] :black, [15 9] :black, [16 15] :black, [14 13] :black, [16 16] :white, [16 10] :black, [3 3] :white, [3 15] :white, [15 10] :white, [15 15] :black}, :to-play :white, :board-size 19, :labels {[15 10] \"1\", [15 9] \"2\", [14 10] \"A\", [15 11] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 11] :white], :id \"5c756ee3-a1dd-4423-b317-53e6f2edfa0b\"} {:move [[14 10] :white], :id \"8308d50e-9fa8-4fd2-9a01-83d88b3d5fb8\", :children [{:move [[16 11] :black], :id \"4293868f-fb53-4f72-b985-b30411061d63\"}]}]}"
+}

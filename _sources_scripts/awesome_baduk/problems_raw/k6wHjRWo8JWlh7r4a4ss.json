@@ -1,0 +1,6 @@
+{
+ "description": "How can Black best respond?",
+ "id": "k6wHjRWo8JWlh7r4a4ss",
+ "to-play": "black",
+ "variations": "{:stones {[15 3] :black, [3 3] :white, [15 16] :black, [3 15] :white, [16 10] :black, [16 5] :white}, :to-play :black, :board-size 19, :labels {[16 5] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 4] :black], :id \"cfd8d83c-3f94-456f-bbad-9eb82969f989\", :children [{:move [[15 5] :white], :id \"ec7ab1dc-31eb-4944-83bc-1a4167a953c9\", :children [{:move [[13 3] :black], :id \"2e3ff50b-e591-458a-b7df-7a0ed1d93b0f\", :children [{:move [[16 8] :white], :id \"45ee54e5-010e-470a-889d-0083bda1047b\", :children [{:move [[15 14] :black], :id \"b58beadd-eb9c-4efa-99e0-a6511c736af7\"}]}]}]}]} {:move [[16 7] :black], :id \"c18bfed1-9f77-4663-8898-a50a511d90cd\", :children [{:move [[16 2] :white], :id \"80ccb0e3-0fae-4ce1-8e80-434a7b6c037e\"}]}]}"
+}

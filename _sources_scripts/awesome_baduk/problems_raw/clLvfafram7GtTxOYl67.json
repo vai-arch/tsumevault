@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Which move is correct? Nobi or Hane?",
+ "variations": "{:stones {[2 2] :white, [16 2] :white, [3 2] :white, [2 3] :black, [15 3] :black, [5 2] :white, [15 2] :black, [16 4] :black, [3 16] :white, [16 3] :white, [2 15] :black, [4 14] :white, [16 15] :white, [16 16] :white, [3 3] :black, [5 15] :white, [17 4] :white, [3 15] :white, [15 15] :black, [3 14] :black, [2 16] :black, [16 5] :black, [17 5] :white}, :board-size 19, :labels {[15 15] \"1\", [16 15] \"2\", [15 14] \"A\", [16 14] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 14] :black], :id \"202bf67b-0b4b-4602-b824-8aefc85b3a30\"} {:move [[16 14] :black], :id \"38567d28-755a-4d4e-bd18-91bc05a7ad57\", :children [{:move [[15 14] :white], :id \"41e57fa2-80c6-4e5b-ac1d-d0f214213e27\", :labels {[16 13] \"A\", [14 15] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"A and B are Miai. \"}]}]}",
+ "id": "clLvfafram7GtTxOYl67"
+}

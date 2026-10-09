@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "id": "WwLWq4w9FK19GMNCzMZH",
+ "variations": "{:stones {[13 2] :white, [9 15] :black, [15 3] :black, [9 3] :white, [15 16] :white, [15 9] :black, [16 16] :black, [3 3] :white, [3 15] :white, [15 15] :black, [15 5] :black, [13 16] :white, [15 13] :black}, :to-play :white, :board-size 19, :labels {[14 15] \"A\", [16 17] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 17] :white], :id \"24ccc983-dc2a-4c14-bf5b-8035db90db53\", :comment \"This is the right continuation. \", :children [{:move [[14 16] :black], :id \"20121a77-6b17-4129-b1cb-01bf73a71172\", :children [{:move [[15 17] :white], :id \"12eb259e-8d12-4c8b-9c2e-8003e95eec20\", :children [{:move [[14 15] :black], :id \"9cb79bc4-69fb-443e-aba9-201fa1586a3c\", :children [{:move [[14 17] :white], :id \"a537c11b-6c81-46cd-b4db-c928d0f50501\", :comment \"White is already settled.\"}]}]}]}]} {:move [[14 15] :white], :id \"fcce5a62-6de5-42dc-a968-6958e703cc04\", :children [{:move [[15 17] :black], :id \"f4c0735b-15cf-437c-94aa-d5f1bfa812b4\", :comment \"White's marked stones will be under attack.\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[13 16] [14 15] [15 16]}}}]}]}",
+ "description": "How do you continue for White?"
+}

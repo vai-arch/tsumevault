@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / The marked White stone has just been played. How should Black respond against it?",
+ "to-play": "black",
+ "id": "d3200c3c-9260-461a-98bd-8ed3ce376784",
+ "variations": "{:labels nil, :children [{:move [[6 12] :black], :id \"fe6ad98e-1b8c-4522-b4bd-0b376bca470f\", :children [{:move [[3 12] :white], :id \"28b98e72-2c11-4325-bf9e-65ac5dd96659\", :children [{:move [[6 11] :black], :id \"dc7ce226-23bc-46df-a4e8-5bf87a8c9edd\"}]}]}], :stones {[5 9] :black, [4 11] :black, [3 4] :white, [5 12] :white, [4 6] :black, [2 11] :white, [4 7] :black, [2 9] :white, [4 5] :black, [3 11] :white, [3 5] :white, [3 9] :black, [3 10] :black, [2 10] :white, [7 10] :black, [5 11] :black, [3 6] :white, [3 8] :black, [4 4] :black, [3 7] :white, [4 12] :white, [2 8] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[5 12]}}}"
+}

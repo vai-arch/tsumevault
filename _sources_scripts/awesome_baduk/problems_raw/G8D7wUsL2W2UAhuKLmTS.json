@@ -1,0 +1,6 @@
+{
+ "description": "Can black play double hane at A?",
+ "id": "G8D7wUsL2W2UAhuKLmTS",
+ "variations": "{:stones {[15 14] :black, [13 2] :white, [16 13] :black, [2 2] :white, [16 2] :white, [3 2] :black, [2 4] :black, [12 2] :black, [2 3] :white, [14 3] :black, [15 3] :white, [3 1] :black, [15 16] :black, [17 2] :white, [15 2] :black, [5 16] :black, [14 2] :white, [15 4] :black, [16 4] :black, [3 16] :white, [16 3] :white, [2 15] :black, [16 15] :white, [16 16] :white, [3 3] :black, [17 4] :black, [16 17] :white, [3 15] :black, [1 16] :black, [1 4] :white, [12 1] :white, [4 16] :white, [1 17] :white, [15 15] :black, [5 17] :white, [16 14] :white, [13 3] :black, [15 17] :black, [2 1] :white, [1 15] :black, [2 16] :white, [17 3] :black, [4 15] :black, [17 13] :white}, :labels {[11 1] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[11 1] :black], :id \"1e46c6c8-3add-4513-a3ef-c36b9f4bccf7\", :comment \"Yes!\", :children [{:move [[11 2] :white], :id \"d461257d-dde1-4be2-80ae-a68b692040d1\", :children [{:move [[12 3] :black], :id \"ab9a7ac2-838c-4c72-a68d-b6e3bf2f02a8\", :children [{:move [[13 1] :white], :id \"31ab6d03-43f4-4953-af65-d16ec35c4688\", :children [{:move [[10 1] :black], :id \"300f04c5-f7ca-49a1-9150-d7d2b0ec942c\"} {:move [[10 2] :black], :id \"53070b9f-31cd-4182-a250-bfb76e89c54e\"}]}]}]}]}]}",
+ "to-play": "black"
+}

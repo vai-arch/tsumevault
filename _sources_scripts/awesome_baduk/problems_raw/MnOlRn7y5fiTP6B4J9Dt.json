@@ -1,0 +1,7 @@
+{
+ "public": true,
+ "id": "MnOlRn7y5fiTP6B4J9Dt",
+ "variations": "{:stones {[14 3] :black, [16 7] :white, [17 6] :black, [15 4] :white, [16 3] :white, [15 7] :black, [14 4] :black, [15 6] :white, [16 6] :black, [17 7] :black, [14 5] :black, [16 8] :white, [14 6] :white, [15 5] :black, [16 5] :white, [17 5] :white}, :labels {[15 6] \"A\", [16 7] \"B\"}, :marks {:triangle #{[16 6] [17 6] [17 7]}, :circle nil, :square nil}, :children [{:move [[15 8] :black], :id \"a10a3989-7c99-4b08-ba2f-dcb55bffebcc\", :children [{:move [[17 8] :white], :id \"eb51d0a8-5242-46e0-8e4f-d26afb866514\", :children [{:move [[13 6] :black], :id \"299b0ab0-bab4-4d4d-aa87-5835cb51f237\"}]}]} {:move [[14 7] :black], :id \"637922de-9be3-43f8-bd01-22180a862e84\", :children [{:move [[13 6] :white], :id \"15b75434-e172-46dc-a42c-f4436d91daa1\"}]} {:move [[17 8] :black], :id \"ede2a4ff-a95c-4b42-a0d7-2768b8b40ae1\", :children [{:move [[16 9] :white], :id \"b3bdc811-e6dc-417e-860d-531a105e672d\", :children nil}]} {:move [[13 6] :black], :id \"e329abee-0047-42f2-9905-3148e5d7537c\", :children [{:move [[14 7] :white], :id \"5ec5a4dc-0c1a-4262-af24-1079e702eb3a\", :children [{:move [[15 8] :black], :id \"62574c24-60b8-4365-89b1-b8172e4b4677\", :children [{:move [[14 8] :white], :id \"b7944ae7-a3bf-4076-a59d-c656b1ccbd2b\", :children [{:move [[15 9] :black], :id \"bbda42df-4cee-46dd-94b4-ce2e15777719\", :children [{:move [[17 8] :white], :id \"924daf66-e2e0-452c-a3ce-aea2eb911066\"}]}]}]}]}]}]}",
+ "description": "Capture A or B ! The ladder is good for Black.",
+ "to-play": "black"
+}

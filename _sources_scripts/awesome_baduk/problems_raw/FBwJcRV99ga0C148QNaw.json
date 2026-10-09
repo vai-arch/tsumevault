@@ -1,0 +1,6 @@
+{
+ "description": "When white peeped at A, Black cuts at B which is a mistake. How to continue as white?",
+ "to-play": "white",
+ "variations": "{:stones {[16 3] :black, [13 3] :black, [15 3] :white, [15 4] :black, [16 2] :white, [17 4] :black, [16 5] :white, [15 2] :black}, :to-play :white, :labels {[16 5] \"A\", [15 2] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 3] :white], :id \"c4cdf9fa-e4ff-444e-8574-06a0a7f9b774\", :children [{:move [[14 2] :black], :id \"851bf03a-31b3-405a-a66c-26d915de60ab\", :children [{:move [[14 4] :white], :id \"9a2ba97d-7399-4238-a883-aace7f8987e0\", :children [{:move [[16 4] :black], :id \"1f395816-1940-47bc-8b09-f39f85ed4a1e\", :children [{:move [[15 5] :white], :id \"8e163e82-1032-4a9e-b141-6d33048fec5b\", :children [{:move [[12 2] :black], :id \"2b4270fd-d1cf-4780-b8fd-c80a17bdd418\", :children [{:move [[17 5] :white], :id \"a54305ed-6534-4ec5-b1a9-f169ef02d353\", :children [{:move [[17 2] :black], :id \"571a9966-8b28-4366-87fe-f3bddac1c923\", :children [{:move [[13 4] :white], :id \"ec9f8b6e-36e6-4ac8-851a-6cb62b09c346\"}]}]}]}]}]}]}]}]}]}",
+ "id": "FBwJcRV99ga0C148QNaw"
+}

@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "description": "Which answer is better for White?",
+ "variations": "{:stones {[15 14] :black, [5 2] :black, [9 3] :black, [15 16] :black, [15 2] :black, [5 16] :white, [16 3] :black, [16 10] :black, [3 3] :white, [3 15] :white, [14 5] :black, [10 15] :white, [16 8] :white, [16 5] :white, [2 5] :white}, :labels {[14 5] \"1\", [14 9] \"B\", [14 8] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :to-play :white, :children [{:move [[14 8] :white], :id \"325586be-c2f2-4c98-b692-cb2d70cac5fb\"} {:move [[14 9] :white], :id \"5c6ea683-e616-4a7f-b2df-6dcf6a006488\", :children [{:move [[15 8] :black], :id \"a0651b5b-9e4f-4d1e-a677-c929031abc68\", :children [{:move [[15 9] :white], :id \"98e77578-8068-4c2c-88e3-83c39a0ccc00\", :children [{:move [[16 9] :black], :id \"71096b7e-dd02-44c4-8c6e-d7e3787a3789\", :children [{:move [[16 7] :white], :id \"bd533e62-3142-4f24-8363-8f169f9641c6\", :children [{:move [[14 8] :black], :id \"bec1580e-f218-4c16-b5ab-1a85221e4241\"}]} {:move [[15 7] :white], :id \"49fdd432-9545-40d8-8eaf-3ce18a0c6085\", :children [{:move [[14 8] :black], :id \"01c869ce-b56b-4da4-ad48-4ddccd1c9d37\"}]}]}]}]}]}]}",
+ "id": "UFsQxiXRtLNZig6psWsk"
+}

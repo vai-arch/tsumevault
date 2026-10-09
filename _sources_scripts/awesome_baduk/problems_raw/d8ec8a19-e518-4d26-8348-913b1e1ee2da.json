@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1. Connect the Black stones",
+ "id": "d8ec8a19-e518-4d26-8348-913b1e1ee2da",
+ "variations": "{:labels {[4 10] \"1\"}, :children [{:move [[5 11] :black], :id \"39b0ee1b-9c29-43bd-8273-6d065966f749\", :children [{:move [[5 10] :white], :id \"b5e8a0d1-2e48-430d-b988-191b537bc981\", :children [{:move [[6 11] :black], :id \"1ec9b42e-9f38-4848-9398-a6d562ee2e5e\"}]}]}], :stones {[1 10] :white, [6 9] :black, [0 10] :white, [4 11] :black, [1 11] :black, [7 9] :black, [2 12] :black, [4 10] :white, [2 11] :white, [1 12] :black, [3 11] :black, [3 10] :white, [2 10] :white, [0 12] :black, [4 12] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

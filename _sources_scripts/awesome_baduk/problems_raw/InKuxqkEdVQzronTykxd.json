@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[2 14] :white, [2 12] :white, [2 13] :black, [15 3] :black, [2 11] :black, [3 16] :white, [2 15] :white, [1 12] :black, [16 15] :black, [3 3] :white, [1 13] :white, [3 17] :white, [3 15] :black, [1 16] :white, [3 14] :black, [2 17] :black, [3 13] :black, [2 16] :black, [1 14] :white}, :to-play :white, :board-size 19, :labels {[13 2] \"A\", [13 3] \"B\", [14 2] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[13 2] :white], :id \"d6ba6ef8-2cef-4ce0-bf59-c021eeec852b\", :children [{:move [[3 12] :black], :id \"75079fd9-2bf9-45ca-9ea2-0e9cbc692736\"}]} {:move [[13 3] :white], :id \"7fa43504-d64b-47c9-a7aa-6a6a8d0af586\", :children [{:move [[3 12] :black], :id \"24167120-cee4-42ae-af6d-b12fccc00d50\"}]} {:move [[14 2] :white], :id \"8ae06543-592a-4912-984f-7f816d4883db\", :children [{:move [[3 12] :black], :id \"59374899-0928-4eb0-9da8-e650e6d2e913\", :children [{:move [[15 2] :white], :id \"ec593dd0-a35d-4c5f-9400-a3ca024203b6\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[15 3]}}}]}]}]}",
+ "description": "What is the most effective ladder breaker?",
+ "id": "InKuxqkEdVQzronTykxd",
+ "to-play": "white"
+}

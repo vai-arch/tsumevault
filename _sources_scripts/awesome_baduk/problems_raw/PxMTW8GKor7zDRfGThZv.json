@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "variations": "{:stones {[14 16] :black, [15 3] :black, [15 16] :white, [11 16] :black, [15 9] :black, [16 15] :black, [16 16] :white, [3 3] :white, [3 15] :white, [15 15] :black, [13 16] :white, [13 15] :white, [14 15] :black, [14 17] :white}, :to-play :black, :board-size 19, :labels {[15 17] \"A\", [13 17] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"Black should cut\", :children [{:move [[15 17] :black], :id \"f6760237-58c9-4bf2-a931-bec6dde32c8f\", :children [{:move [[16 17] :white], :id \"d923c225-ea96-4f59-9560-3abb39bc0753\", :children [{:move [[13 17] :black], :id \"74b51246-f96b-4cda-9194-f36448dd70d7\"}]}]} {:move [[13 17] :black], :id \"e0e50f4d-0faf-4dee-89e3-43d307ee8651\", :children [{:move [[12 17] :white], :id \"889e37b5-e6ed-4c4c-946a-20d7685a7d91\", :children [{:move [[15 17] :black], :id \"8039adcd-e32f-4ad6-924e-7da32e3054dd\", :children [{:move [[13 18] :white], :id \"aa297623-9273-4db6-922b-1985e818b097\", :children [{:move [[16 17] :black], :id \"85c0c64c-19be-420a-b1ef-4bd29fd72a6c\", :children [{:move [[13 13] :white], :id \"340158f8-74c8-4701-8066-6de293ba56f1\"}]}]}]}]}]}]}",
+ "description": "White side black should sut? (A or B)",
+ "id": "PxMTW8GKor7zDRfGThZv"
+}

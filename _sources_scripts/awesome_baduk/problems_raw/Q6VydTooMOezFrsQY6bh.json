@@ -1,0 +1,6 @@
+{
+ "id": "Q6VydTooMOezFrsQY6bh",
+ "description": "Which move is the best in this case?",
+ "to-play": "white",
+ "variations": "{:stones {[15 14] :black, [5 2] :white, [9 3] :black, [15 16] :black, [5 16] :white, [14 2] :black, [16 3] :black, [15 9] :black, [16 10] :black, [3 3] :white, [3 15] :white, [10 15] :white, [16 8] :white}, :board-size 19, :labels {[16 8] \"1\", [15 9] \"2\", [14 7] \"A\", [16 5] \"B\", [16 4] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}, :to-play :white, :children [{:move [[16 4] :white], :id \"5daabc12-5363-4c37-8877-e522a24eb16d\"} {:move [[14 7] :white], :id \"9d322afe-5453-4039-90ea-5bee7573efc7\", :children [{:move [[16 6] :black], :id \"9e861760-05e8-4389-8a3c-542947d67a95\"}]} {:move [[16 5] :white], :id \"a8a437db-bffc-4156-a22f-acf49db1481f\", :children [{:move [[15 8] :black], :id \"21a31bf9-f474-4df0-9ec2-b82126ff3ead\", :children [{:move [[16 7] :white], :id \"012a88b5-c03a-487e-b54e-d06feffd3771\", :children [{:move [[14 6] :black], :id \"7d0ae0d0-684c-49c6-948f-ffa7a6daec66\"}]}]}]}]}"
+}

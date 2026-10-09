@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "White 1 is too close to thickness. How can Black attack this?",
+ "variations": "{:stones {[13 2] :white, [9 15] :white, [16 2] :white, [14 3] :black, [15 3] :black, [5 2] :black, [15 2] :white, [5 16] :white, [12 15] :black, [16 3] :black, [12 4] :black, [13 1] :white, [3 3] :white, [5 4] :black, [3 15] :white, [15 15] :black, [16 14] :black, [16 8] :white, [11 2] :black, [2 5] :white}, :board-size 19, :labels {[16 8] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 10] :black], :id \"98e9e4b4-4e2a-4e6e-903e-2682ab28aa16\", :children [{:move [[16 5] :white], :id \"196e03c2-ba47-4cce-9677-da87876d74b9\", :children [{:move [[17 2] :black], :id \"94fc54c9-4829-4d06-83a2-6c6a18f109a1\", :children [{:move [[17 1] :white], :id \"3daff174-c3ef-43f6-8902-af2c0b1a22c5\", :children [{:move [[17 4] :black], :id \"0141b14f-6385-404d-9e37-49345b0e76e9\", :labels {[18 1] \"A\", [17 5] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"A and B are Miai. \"}]}]}]}]} {:move [[16 6] :black], :id \"f32fc4f3-5e8c-42b7-bb20-95b2eee05147\", :children [{:move [[16 11] :white], :id \"002c8ea7-cea2-4625-87b5-508c179f0a58\", :comment \"\"}]}]}",
+ "id": "TBSZlmI0LrMSZaRcV0bt"
+}

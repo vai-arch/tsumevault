@@ -1,0 +1,6 @@
+{
+ "description": "If Black's endgame play(s) is/are good, mark A, otherwise, mark B",
+ "id": "511a8112-fd57-4e70-8f5b-1fc81cfc1095",
+ "variations": "{:labels {[5 11] \"1\", [6 11] \"2\", [5 12] \"3\", [9 4] \"A\", [9 6] \"B\"}, :children [{:move [[9 6] :black], :id \"8629c68e-1c46-4133-8a7b-7bd4141e83e8\"}], :stones {[5 7] :white, [5 9] :white, [5 12] :black, [4 6] :black, [7 9] :white, [4 10] :black, [5 5] :black, [5 6] :white, [4 7] :white, [2 9] :black, [4 9] :white, [5 4] :black, [6 11] :white, [3 9] :white, [4 8] :black, [3 10] :black, [6 5] :white, [2 10] :black, [5 10] :white, [5 11] :black, [3 6] :black, [5 8] :white, [3 8] :black, [3 7] :black, [6 4] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

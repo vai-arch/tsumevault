@@ -1,0 +1,6 @@
+{
+ "description": "where is black's proper move?",
+ "variations": "{:stones {[14 0] :white, [9 15] :white, [9 14] :white, [16 2] :white, [12 2] :white, [2 13] :white, [14 3] :white, [15 3] :white, [8 14] :white, [15 2] :black, [5 16] :black, [14 2] :white, [16 4] :black, [3 16] :black, [16 3] :black, [2 15] :white, [8 15] :black, [13 1] :white, [4 17] :black, [0 15] :white, [9 16] :black, [10 16] :black, [5 15] :white, [7 14] :white, [6 15] :white, [14 1] :black, [3 15] :white, [7 15] :black, [1 16] :black, [6 16] :black, [4 16] :white, [5 17] :white, [1 15] :black, [2 16] :black, [15 1] :black, [15 5] :black, [1 14] :white, [4 15] :white}, :board-size 19, :labels {[17 2] \"A\", [16 1] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[17 2] :black], :id \"5b11a22c-d569-4731-81ee-4a1ea7677edb\", :children [{:move [[16 1] :white], :id \"0d358b98-7143-44f7-8db6-5355ddf8ca59\"}]} {:move [[16 1] :black], :id \"00232e44-b917-4fc6-8db8-653763618966\", :children [{:move [[17 2] :white], :id \"8896a038-2c65-4cba-abf5-f0af1519654e\", :children [{:move [[17 1] :black], :id \"b99685a3-4610-48b6-b9a1-9beb47c14e69\"} {:move [[17 3] :black], :id \"9450c8ed-9b41-45d4-b3bf-cb466a34649a\", :children [{:move [[17 1] :white], :id \"d08838b4-cfc3-483a-a67a-f97d65c6e186\"}]}]}]}]}",
+ "id": "qNJjmT6ZkcbtFyeET5Pz",
+ "to-play": "black"
+}

@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Which response is better? A or B?",
+ "variations": "{:stones {[15 14] :black, [16 13] :white, [9 15] :black, [16 11] :black, [14 12] :black, [2 13] :white, [15 3] :black, [15 16] :black, [5 16] :black, [16 15] :white, [16 16] :white, [3 3] :white, [3 15] :white, [7 15] :black, [15 15] :black, [8 16] :white, [7 16] :white, [17 13] :white}, :to-play :black, :labels {[8 16] \"1\", [8 15] \"A\", [9 16] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[8 15] :black], :id \"bdb14710-4073-4807-bbf6-4b693344647d\"} {:move [[9 16] :black], :id \"899c1636-4232-4534-84a5-76d7e01a133e\", :children [{:move [[8 15] :white], :id \"4d2befcb-4735-4797-9acd-4f5322cfbe4e\", :children [{:move [[8 14] :black], :id \"7dd781ec-de53-4b04-b847-3388615349f4\", :children [{:move [[6 15] :white], :id \"5e77d9d9-56fd-483a-a8b8-51bfe9400a6f\", :children [{:move [[7 14] :black], :id \"5c8a4ff1-134b-46b1-ab16-50b73013446c\", :children [{:move [[6 16] :white], :id \"edfedec0-73ad-42ab-a04e-b21e62375b7e\", :labels {[9 14] \"A\", [5 15] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}]}]}]}]}]}]}",
+ "id": "bO14GAgUCnfgxcX6OQc8"
+}

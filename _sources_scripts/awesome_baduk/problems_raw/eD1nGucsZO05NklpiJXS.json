@@ -1,0 +1,6 @@
+{
+ "description": "White 3 is a nice attachment.  How can White respond, if Black plays Hane at 4?",
+ "variations": "{:stones {[13 2] :white, [3 2] :white, [2 4] :white, [5 2] :black, [9 3] :black, [14 2] :black, [16 3] :black, [13 3] :black, [10 2] :white, [8 2] :black}, :board-size 19, :labels {[10 2] \"1\", [9 3] \"2\", [13 2] \"3\", [13 3] \"4\"}, :marks {:triangle nil, :circle nil, :square nil}, :to-play :white, :children [{:move [[12 2] :white], :id \"a213a7f4-0604-4144-b384-227a7d4f3acd\", :children [{:move [[14 1] :black], :id \"003dbd32-9ec3-4dba-8d5d-c13702a5b262\", :children [{:move [[11 4] :white], :id \"fb5b24b0-7970-4ebd-b6bb-333804787d5e\"} {:move [[12 3] :white], :id \"67f1b5e1-2c7e-453e-97ad-b1c9a8c31440\", :children [{:move [[13 4] :black], :id \"f8306573-3228-44a0-b8cd-40ead51338a4\"}]}]}]}]}",
+ "id": "eD1nGucsZO05NklpiJXS",
+ "to-play": "white"
+}

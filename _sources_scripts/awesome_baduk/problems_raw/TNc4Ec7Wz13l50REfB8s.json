@@ -1,0 +1,6 @@
+{
+ "description": "백이 2로 받았을 때 흑이 계속 막아가고 싶다면 어디를 둬야 할까요?",
+ "variations": "{:stones {[3 4] :black, [1 2] :white, [2 2] :white, [1 5] :black, [3 2] :black, [4 6] :black, [2 4] :black, [4 2] :black, [2 3] :white, [15 3] :white, [5 2] :white, [9 3] :black, [3 1] :white, [4 5] :black, [3 3] :black, [2 6] :white, [3 5] :black, [1 4] :white, [1 7] :white, [0 3] :white, [2 1] :white, [4 1] :black, [3 6] :white, [3 7] :black, [2 5] :white}, :to-play :black, :board-size 19, :labels {[3 7] \"1\", [1 7] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[2 9] :black], :id \"34b49874-df01-48c6-935b-68e0d9306fe4\"} {:move [[2 7] :black], :id \"83247720-6188-4f81-bb7d-3fee8c84b724\", :children [{:move [[1 6] :white], :id \"b2291304-5562-453a-a593-18bcf25ae3f5\"}]} {:move [[1 6] :black], :id \"6be08cf2-b596-4a3c-a607-ed8b53d34f78\", :children [{:move [[2 7] :white], :id \"69103fed-c75f-4085-abb6-0ced9081eaf0\"}]} {:move [[1 8] :black], :id \"f806466d-1f5a-473a-b2db-cef23a385823\", :children [{:move [[2 8] :white], :id \"b0c1bf13-fc8e-4979-862c-96f88f767b07\"}]} {:move [[2 8] :black], :id \"91527c6b-04de-48ba-b666-900ba3cecc82\", :children [{:move [[1 8] :white], :id \"04c428f4-af49-4deb-9bfd-afc605c2cb63\"}]}]}",
+ "to-play": "black",
+ "id": "TNc4Ec7Wz13l50REfB8s"
+}

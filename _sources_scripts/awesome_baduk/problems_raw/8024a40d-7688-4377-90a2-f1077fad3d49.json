@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "8024a40d-7688-4377-90a2-f1077fad3d49",
+ "description": "If Black can capture the marked stones, mark A, otherwise, mark B",
+ "variations": "{:labels {[5 5] \"A\", [7 5] \"B\"}, :children [{:move [[7 5] :black], :id \"b5ae8523-69ec-4211-a3a3-dee37177e8f3\"}], :stones {[1 10] :white, [6 8] :black, [6 9] :black, [5 7] :black, [5 9] :white, [4 11] :white, [1 11] :white, [7 9] :white, [2 12] :white, [4 10] :white, [2 11] :black, [4 7] :black, [2 9] :black, [2 7] :black, [6 12] :white, [1 12] :white, [7 7] :white, [3 11] :black, [6 11] :black, [7 12] :white, [3 9] :white, [6 7] :black, [1 7] :white, [4 8] :white, [1 8] :white, [3 10] :white, [1 9] :white, [2 10] :black, [7 10] :white, [5 10] :white, [7 8] :white, [5 11] :black, [5 8] :white, [3 8] :white, [7 11] :white, [6 10] :black, [3 7] :black, [4 12] :white, [2 8] :black}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[5 9] [4 11] [4 10] [3 9] [4 8] [3 10] [5 10] [5 8] [3 8] [4 12]}}}"
+}

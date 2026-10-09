@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1. Play double hane with Black",
+ "id": "f55d4301-38bb-44da-88d9-ec0abb61b8f0",
+ "variations": "{:labels {[3 9] \"1\"}, :children [{:move [[3 10] :black], :id \"033b9f91-7c07-482c-9073-0cd6ec728009\", :children [{:move [[4 10] :white], :id \"da54c6d6-a7ab-4dfa-a1f7-f1f4c41cb8fc\", :children [{:move [[4 11] :black], :id \"eda96dc2-4a5b-43ca-9520-1fcbbe815ff8\"}]}]}], :stones {[5 7] :white, [4 6] :black, [4 7] :white, [2 9] :black, [3 9] :white, [3 6] :black, [3 8] :white, [3 7] :black, [2 8] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

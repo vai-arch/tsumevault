@@ -1,0 +1,6 @@
+{
+ "id": "D22Nso1L4HXL75evCLxr",
+ "to-play": "white",
+ "description": "How should White answer, if Black cuts at 2?",
+ "variations": "{:stones {[15 14] :white, [16 13] :white, [16 2] :black, [15 3] :white, [15 16] :black, [17 2] :black, [14 2] :black, [16 4] :white, [16 3] :black, [15 9] :white, [16 15] :black, [18 3] :black, [3 3] :white, [17 4] :black, [3 15] :white, [16 14] :black, [13 16] :black, [16 5] :black, [15 13] :white, [17 5] :white}, :to-play :white, :board-size 19, :labels {[15 9] \"1\", [16 5] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 6] :white], :id \"0f86ff62-edbe-4686-a208-157006b02253\", :children [{:move [[15 4] :black], :id \"9dfeb8f4-0a20-4536-b022-d38fd4404dca\", :children [{:move [[5 2] :white], :id \"bfbae034-69e2-4db8-864d-5ed9804c88da\"} {:move [[5 16] :white], :id \"212576d7-9bfc-462b-9e06-bff91b315f46\"} {:move [[6 2] :white], :id \"4e948b1a-5947-4f68-a13b-fab3e24d5751\"}]}]} {:move [[15 4] :white], :id \"3277746f-020b-4af1-bfcd-2b88ba77fd78\", :children [{:move [[16 6] :black], :id \"5386a454-9547-463a-8c49-77a72a0a0dd7\"}]}]}"
+}

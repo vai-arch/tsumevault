@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "variations": "{:stones {[1 2] :white, [2 2] :white, [3 2] :black, [4 2] :black, [5 2] :black, [3 1] :white, [5 1] :white, [2 7] :black, [3 3] :white, [5 4] :black, [2 1] :black, [4 1] :white, [6 1] :black, [8 2] :black, [2 5] :white}, :to-play :black, :board-size 19, :labels {[1 2] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[1 1] :black], :id \"ba5c4d18-5ec2-4d8b-932a-b494237d5336\", :children [{:move [[0 1] :white], :id \"2b515f08-6611-46fb-95e3-bf1bf3c235f5\", :children [{:move [[1 0] :black], :id \"8dcf3a92-9ac8-4477-82d6-96d777c1907a\", :children [{:move [[0 2] :white], :id \"a089b0b6-b7a7-4538-a3a6-0a56c9f0ce34\"}]}]}]} {:move [[3 0] :black], :id \"3c67cf76-fbfe-457f-ac30-0d9c23827dc0\", :children [{:move [[1 1] :white], :id \"c6606300-2b6f-42dd-ba73-4679e744442c\", :children [{:move [[1 0] :black], :id \"7f11d0e1-77bc-4572-a7f6-b90737ed9b72\"}]}]}]}",
+ "description": "When white plays at A, what black can do?",
+ "id": "crwT3I1TvFTr7wD5ylDG"
+}

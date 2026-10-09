@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Which direction is better?",
+ "variations": "{:stones {[9 15] :black, [3 4] :white, [3 2] :white, [15 3] :black, [9 3] :white, [15 16] :black, [2 9] :white, [5 16] :white, [7 14] :black, [9 9] :black, [3 15] :white, [15 10] :black, [13 3] :white, [15 5] :black, [14 15] :black, [7 16] :white}, :labels {[13 5] \"A\", [7 2] \"B\", [8 11] \"C\", [8 17] \"D\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[13 5] :black], :id \"8a299dbe-bac0-40e7-b6aa-7949ed661777\"} {:move [[7 2] :black], :id \"2065d17c-e0c5-487d-a22f-02a4aac55ae1\", :children [{:move [[8 2] :white], :id \"792b673f-a012-4235-9324-1e36678f9547\", :children [{:move [[7 3] :black], :id \"585e13ac-d4a5-4efd-a439-c2add9a47e1b\", :children [{:move [[8 5] :white], :id \"18744177-4efa-4bd8-b3ed-e46d0fd81fe8\"}]}]}]} {:move [[8 11] :black], :id \"b8761ea0-df8b-408e-947d-8a3a8f76f173\", :children [{:move [[13 5] :white], :id \"6625a51d-fa19-4eff-ad12-e9c4cb987ce0\"}]} {:move [[8 17] :black], :id \"62035be6-074a-440b-b829-1396087abc42\", :children [{:move [[13 5] :white], :id \"07d6302f-963a-4662-843e-372e8ff0a25e\"}]}]}",
+ "id": "C7HoeOsjLn4YBBmcbXR6"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "What is the most effective move for White?",
+ "id": "VD04g9meszMBaxTUMenr",
+ "variations": "{:stones {[13 2] :black, [5 3] :black, [16 2] :white, [4 2] :white, [12 2] :black, [15 3] :black, [5 2] :black, [9 3] :black, [15 2] :white, [14 2] :black, [3 16] :white, [16 3] :black, [13 1] :white, [3 3] :white, [14 1] :white, [12 1] :white, [15 15] :black, [11 2] :black, [2 5] :white}, :labels {[16 13] \"A\", [16 10] \"B\", [16 8] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}, :to-play :white, :children [{:move [[16 10] :white], :id \"6eb64c9a-ea1b-4636-95e4-be970da15327\"} {:move [[16 8] :white], :id \"1c68e45b-1c42-44b7-85e4-4e4abb28132f\", :children [{:move [[16 10] :black], :id \"401c20de-657d-4ce6-84f4-94bdee783934\"}]} {:move [[16 13] :white], :id \"c26f97e4-b097-42cf-bbd3-50bef311e5a8\", :children [{:move [[16 11] :black], :id \"f9690e84-baf0-4e27-8816-f12da0938c75\"}]}]}",
+ "to-play": "white"
+}

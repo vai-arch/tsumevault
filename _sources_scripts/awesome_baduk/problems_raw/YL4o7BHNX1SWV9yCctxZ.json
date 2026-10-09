@@ -1,0 +1,6 @@
+{
+ "id": "YL4o7BHNX1SWV9yCctxZ",
+ "to-play": "white",
+ "description": "How can  White save, if Black plays at 2?",
+ "variations": "{:stones {[18 2] :white, [16 2] :white, [15 2] :black, [14 2] :black, [16 4] :black, [16 3] :black, [15 9] :black, [16 1] :white, [17 4] :black, [17 0] :black, [17 3] :white}, :to-play :white, :board-size 19, :labels {[18 2] \"1\", [17 0] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[17 1] :white], :id \"fd8df49b-8263-41f1-895f-8fc1f5ca9194\", :children [{:move [[18 4] :black], :id \"7681f53b-2000-4b8d-a6b0-70d2c970a749\", :children [{:move [[18 0] :white], :id \"3b226fb1-7424-4c4f-9299-c1de7e196dc6\", :children [{:move [[18 3] :black], :id \"473bfabb-b77b-400d-a51a-118098f6beef\", :children [{:move [[17 2] :white], :id \"9bab3709-16be-4736-8178-d668f308b808\", :children [{:move [[18 1] :black], :id \"b8dfd337-9e32-4bb5-91f2-38f06f54b2a7\", :children [{:move [[16 0] :white], :id \"6ec9adb3-1e28-46be-aa0b-2b340690c7c4\"}]}]} {:move [[16 0] :white], :id \"b6230ce5-086c-41c9-87ea-9299d6e9b155\", :children [{:move [[17 2] :black], :id \"3f5d8ff7-ab02-4231-b286-5b26f5a3dafa\", :comment \"Ko\"}]}]}]} {:move [[18 3] :white], :id \"02ee25f0-82f5-4d51-a34c-b43003ee158f\", :children [{:move [[18 1] :black], :id \"40b45af9-f17c-4f51-8e05-6f7a1a77f790\", :comment \"Ko\"}]}]}]}]}"
+}

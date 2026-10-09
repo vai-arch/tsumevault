@@ -1,0 +1,6 @@
+{
+ "id": "XIlJQxXX2ZDK02qhtHpa",
+ "description": "If black plays at A,",
+ "variations": "{:stones {[15 14] :white, [16 13] :black, [13 13] :black, [2 13] :black, [15 12] :white, [14 16] :black, [15 3] :black, [5 2] :black, [15 16] :black, [5 16] :white, [16 15] :white, [14 13] :black, [16 16] :white, [3 3] :black, [14 14] :black, [16 17] :white, [3 15] :black, [15 15] :black, [16 14] :black, [15 17] :white, [13 14] :white, [13 16] :white, [15 13] :white, [14 17] :black}, :to-play :white, :board-size 19, :labels {[13 13] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 12] :white], :id \"f438eb32-65b1-4b1b-ae60-952eced60ec6\"} {:move [[13 17] :white], :id \"aaeafa38-1a4f-4217-b6cc-d7731efba4df\", :children [{:move [[16 12] :black], :id \"ee56964a-cd9e-47cb-89f3-12aedaf3b66a\"}]} {:move [[12 14] :white], :id \"628320b1-c5bf-4940-bf9f-b5a4a99ba883\", :children [{:move [[16 12] :black], :id \"12ab6353-68d1-4153-bdfb-147a22b1aed7\"}]} {:move [[13 15] :white], :id \"21f9a208-4835-46b6-bc2c-e7f9d9c60ae0\", :children [{:move [[14 15] :black], :id \"751cf57e-88af-4536-a07a-cf6350cababa\", :children [{:move [[16 12] :white], :id \"91a06393-b688-44cc-ad0f-757de06857ed\"}]}]}]}",
+ "to-play": "white"
+}

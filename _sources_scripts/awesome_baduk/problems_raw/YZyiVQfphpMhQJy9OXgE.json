@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "variations": "{:stones {[13 2] :white, [16 13] :black, [2 13] :white, [15 3] :black, [9 3] :white, [15 16] :black, [5 16] :black, [17 17] :white, [3 3] :white, [16 17] :black, [3 17] :black, [3 15] :white, [15 15] :black, [15 17] :white, [2 16] :white, [16 5] :black, [8 16] :black, [14 17] :white}, :to-play :black, :board-size 19, :labels {[17 17] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"How should black plays?\", :children [{:move [[16 16] :black], :id \"3d373e35-584f-4c34-8f10-125551dbcd46\"} {:move [[17 16] :black], :id \"e8df91b2-ccda-47ea-8630-ebf329941fc1\", :children [{:move [[16 18] :white], :id \"7f941584-319e-4598-92d6-03399c80e4b4\", :children [{:move [[16 16] :black], :id \"7fbb4e04-1b8f-4dd1-9efc-33da19741f47\", :children [{:move [[11 16] :white], :id \"1213c440-4995-48e1-917d-e9dcd923506d\"}]}]}]} {:move [[16 18] :black], :id \"d7f13c72-b20e-4e86-bbf3-64820290fff0\", :children [{:move [[11 16] :white], :id \"66742c3d-3355-40e8-8e2d-2ec651bc0f07\"}]} {:move [[17 18] :black], :id \"d15a543c-2e08-412c-b83b-1e7735d16da3\", :children [{:move [[16 16] :white], :id \"8f891dc6-1f4c-4c6b-a392-adaacc7f2bb2\"}]}]}",
+ "description": "If white attach at A,",
+ "id": "YZyiVQfphpMhQJy9OXgE"
+}

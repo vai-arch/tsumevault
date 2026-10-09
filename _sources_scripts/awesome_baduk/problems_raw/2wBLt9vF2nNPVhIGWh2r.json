@@ -1,0 +1,6 @@
+{
+ "description": "If white like to fight, where can white play?",
+ "id": "2wBLt9vF2nNPVhIGWh2r",
+ "variations": "{:stones {[13 2] :black, [14 16] :black, [15 16] :white, [16 3] :black, [16 15] :black, [16 16] :white, [3 3] :white, [3 15] :white, [15 15] :black, [15 17] :black, [14 17] :white}, :to-play :white, :board-size 19, :labels nil, :marks {:triangle nil, :square nil, :circle #{[15 17]}}, :children [{:move [[13 16] :white], :id \"a07df4dc-398c-42f1-b151-bd06ec652d38\", :children [{:move [[14 15] :black], :id \"a6ccc6ff-8e60-4537-8d16-2cb79ed6a12b\", :children [{:move [[16 17] :white], :id \"b3a9a56c-19da-4de6-9d15-2dc49f38c262\"}]}]} {:move [[14 15] :white], :id \"f6a78bfb-d2b1-43f9-9540-679ca5b933e5\", :children [{:move [[13 16] :black], :id \"bde4ef22-989d-48f5-85fe-e19cfd48beb1\", :children [{:move [[16 17] :white], :id \"3443af2b-59b6-4e43-a272-3374ade09182\"}]}]}]}",
+ "to-play": "white"
+}

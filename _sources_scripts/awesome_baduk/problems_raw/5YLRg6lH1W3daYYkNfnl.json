@@ -1,0 +1,6 @@
+{
+ "description": "How can White continue, if Black pushes at 6?",
+ "to-play": "white",
+ "id": "5YLRg6lH1W3daYYkNfnl",
+ "variations": "{:stones {[15 14] :white, [9 15] :black, [13 17] :black, [16 11] :white, [2 13] :white, [14 16] :white, [15 3] :black, [15 16] :black, [5 16] :black, [15 11] :black, [16 16] :white, [3 3] :white, [16 17] :black, [3 15] :white, [15 10] :black, [15 15] :white, [15 17] :black, [14 15] :white, [14 17] :black}, :to-play :white, :board-size 19, :labels {[16 16] \"1\", [16 17] \"2\", [15 15] \"3\", [15 17] \"4\", [16 11] \"5\", [15 11] \"6\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[16 12] :white], :id \"d1052fe4-144c-4af7-a42e-d5c202403fcb\", :children [{:move [[16 10] :black], :id \"36eebb21-610e-424f-8c16-19b76848bcfd\", :children [{:move [[17 16] :white], :id \"5beaae72-5e03-4da2-934e-b75d7f3c447e\", :children [{:move [[12 15] :black], :id \"078b0329-cc9c-4799-8536-1b93d8f5f3f4\", :children [{:move [[16 2] :white], :id \"72305a5e-c38b-4d0c-b4ee-f2467dc0f202\"}]}]}]}]} {:move [[15 12] :white], :id \"8ef2809e-a8bf-4ec8-b190-825c8534b756\", :children [{:move [[16 10] :black], :id \"c7f8ec33-7175-4c71-86a6-31689789a1bc\"}]}]}"
+}

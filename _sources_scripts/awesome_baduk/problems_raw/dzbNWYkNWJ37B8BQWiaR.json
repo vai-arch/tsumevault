@@ -1,0 +1,6 @@
+{
+ "id": "dzbNWYkNWJ37B8BQWiaR",
+ "description": "If white block A",
+ "variations": "{:stones {[15 3] :black, [5 16] :black, [3 16] :white, [4 14] :white, [3 3] :white, [5 15] :white, [3 15] :white, [4 16] :black, [15 15] :black, [4 15] :black}, :to-play :black, :board-size 19, :labels {[3 16] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"How should Black play?\", :children [{:move [[3 14] :black], :id \"d6dc7765-df2f-4892-b79f-c94d78eeae0f\"} {:move [[6 15] :black], :id \"de9a8147-4799-496d-aade-a94459d89aa5\", :children [{:move [[5 14] :white], :id \"aa1a328d-13d8-48fe-960c-9c0df90eb2e8\"}]} {:move [[5 14] :black], :id \"49185752-c4d8-4635-b0f4-ea04695fd5a3\", :children [{:move [[6 15] :white], :id \"45495f70-a097-4df4-9581-e5ec5d8760cf\"}]} {:move [[7 16] :black], :id \"263358ef-fad3-46c3-882e-b2357fc34e40\", :children [{:move [[3 13] :white], :id \"d98bd597-2af9-4f90-97c0-9c26cf1f71bd\"}]}]}",
+ "to-play": "black"
+}

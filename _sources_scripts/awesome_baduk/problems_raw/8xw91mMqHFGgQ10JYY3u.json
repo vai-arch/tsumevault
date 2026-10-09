@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "description": "How can White respond, if Black pushes at 2?",
+ "id": "8xw91mMqHFGgQ10JYY3u",
+ "variations": "{:stones {[15 14] :white, [13 2] :white, [16 13] :white, [9 15] :black, [2 13] :white, [15 3] :black, [15 16] :black, [14 11] :white, [5 16] :black, [15 11] :black, [16 15] :black, [3 3] :white, [3 15] :white, [15 10] :black, [16 14] :black, [15 1] :white, [15 5] :black}, :to-play :white, :labels {[14 11] \"1\", [15 11] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 12] :white], :id \"d64a5dbd-677a-43ca-af8a-d67a517a7975\", :children [{:move [[15 12] :black], :id \"0d1cafdd-1a79-49db-99ed-8381ea5dc764\", :children [{:move [[15 13] :white], :id \"e7cdbe2d-f1f7-4e67-b466-1acc204d473b\", :children [{:move [[14 13] :black], :id \"da41877b-41ee-4e41-a41a-b3cc566c8fb8\", :children [{:move [[13 13] :white], :id \"3f3abcda-f85c-4835-930b-a77697a728df\"}]}]}]}]} {:move [[15 12] :white], :id \"be05dc83-18db-4621-ac90-d2c1cd317138\", :children [{:move [[14 12] :black], :id \"940514d1-108c-4865-8ecb-4087e17ee214\"}]}]}"
+}

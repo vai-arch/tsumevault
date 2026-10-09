@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[15 14] :black, [2 2] :black, [3 2] :black, [7 2] :black, [4 2] :white, [5 5] :white, [2 13] :white, [2 3] :white, [15 3] :black, [5 2] :white, [15 16] :black, [15 2] :white, [5 1] :black, [14 2] :black, [2 7] :black, [11 16] :black, [16 15] :white, [16 16] :white, [3 3] :white, [3 11] :white, [3 9] :black, [6 16] :white, [15 15] :black, [4 1] :black, [2 16] :white, [6 1] :black, [13 16] :white, [16 5] :black, [8 16] :black, [7 3] :black, [6 2] :white, [6 4] :white, [17 13] :white}, :to-play :white, :labels {[15 2] \"1\", [14 2] \"2\", [14 3] \"A\", [16 2] \"B\", [14 1] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 1] :white], :id \"05548c7b-6315-4432-8c20-c871d7a4af8d\"} {:move [[14 3] :white], :id \"e883f56b-a49d-4ad6-aee1-4c9aa4154ce0\", :children [{:move [[16 2] :black], :id \"e6481f18-6c12-4e41-9027-da4ca69c5a4b\"}]} {:move [[16 2] :white], :id \"e73cb6f3-21d3-47dc-8e84-d68fb3a9e1a4\", :children [{:move [[14 1] :black], :id \"cb0066aa-9b3b-437a-8d06-5b30509f2c29\"}]}]}",
+ "id": "dzt51uTDfgRzPjQEIMEG",
+ "description": "Which move is correct in this situation?",
+ "to-play": "white"
+}

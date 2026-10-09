@@ -1,0 +1,6 @@
+{
+ "description": "Save key stones.",
+ "variations": "{:stones {[3 4] :black, [1 2] :black, [2 2] :white, [2 4] :white, [1 3] :black, [2 3] :black, [5 2] :white, [3 3] :white, [1 4] :white, [2 5] :black}, :to-play :white, :labels {[3 2] \"A\", [1 5] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[1 5] :white], :id \"70a9bd18-9b41-4e9a-a094-e5b5fce4d8e5\", :children [{:move [[3 2] :black], :id \"e70f41b7-9e8f-401a-9aea-68fe27099063\", :children [{:move [[4 3] :white], :id \"92d18b62-a104-4c84-90f8-cae1f64a127b\", :children [{:move [[3 1] :black], :id \"cb7e59c8-ed2d-49ed-890f-ddf0c71ecc61\", :children [{:move [[2 6] :white], :id \"fdb78c6c-26e9-4cfb-9ea2-cac400db7dc7\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[1 4] [2 4]}}, :comment \"Triangles are key stones.\"}]}]}]}]} {:move [[3 2] :white], :id \"4f33e911-5b90-4742-ab66-75a3750854fe\", :children [{:move [[1 5] :black], :id \"be82d35b-ed94-4b92-b9f1-4b91ac542946\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[1 4] [2 4]}}}]}]}",
+ "id": "JTjib5To8CTDf2HIqdDs",
+ "to-play": "white"
+}

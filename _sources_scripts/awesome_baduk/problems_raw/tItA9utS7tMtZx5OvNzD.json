@@ -1,0 +1,6 @@
+{
+ "description": "Which move is better?",
+ "to-play": "white",
+ "id": "tItA9utS7tMtZx5OvNzD",
+ "variations": "{:stones {[13 2] :white, [16 2] :white, [12 2] :black, [15 3] :black, [14 2] :black, [16 3] :white, [12 3] :white, [13 3] :black, [16 5] :white, [11 2] :black}, :to-play :white, :labels {[13 4] \"A\", [13 1] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[13 1] :white], :id \"dc5f055f-fde3-486a-b92b-614f1a0c264b\", :children [{:move [[14 1] :black], :id \"77af56c6-2313-4fd5-a365-9e8917baecdb\", :children [{:move [[13 4] :white], :id \"9a00aceb-eef0-45e6-9aec-866624d2fbd9\", :children [{:move [[14 3] :black], :id \"373a974a-eb5f-4e09-b9f9-e2d64bbe7b81\", :children [{:move [[15 1] :white], :id \"482989c2-469f-44c3-af5f-681dc78f583a\", :children nil}], :labels {}, :marks {:triangle nil, :circle nil, :square nil}}]}]}]} {:move [[13 4] :white], :id \"39323e4c-7565-4b5c-9b18-0879b1da888f\", :children [{:move [[13 1] :black], :id \"f1cd429f-d7cf-4edd-8959-2bd648ad644e\"}]}]}"
+}

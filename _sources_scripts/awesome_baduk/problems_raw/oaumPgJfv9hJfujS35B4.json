@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[2 14] :white, [2 12] :white, [2 13] :black, [15 3] :black, [3 16] :white, [2 15] :white, [16 15] :black, [3 3] :white, [1 13] :white, [3 17] :white, [3 15] :black, [1 16] :white, [3 14] :black, [2 17] :black, [3 13] :black, [2 16] :black}, :to-play :black, :board-size 19, :labels {[1 17] \"A\", [1 12] \"B\", [5 16] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[5 16] :black], :id \"a785987f-e791-4b3e-b54f-3912908faffa\", :children [{:move [[1 14] :white], :id \"7e8743ab-b8b3-4b38-93fd-d472d335bd96\", :children [{:move [[4 16] :black], :id \"3578dad4-74eb-4d97-9ba2-fdd4f886dc0a\", :children nil, :labels {[1 17] \"A\", [9 15] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}]}]} {:move [[1 12] :black], :id \"8b3b08d9-3b2f-4332-8070-e4733bce52eb\", :children [{:move [[1 14] :white], :id \"f63fbc61-9263-435b-9317-908f861fd3ed\", :labels {[2 11] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}}]} {:move [[1 17] :black], :id \"f27d423f-c008-4467-8268-0fc624707e77\", :children [{:move [[1 15] :white], :id \"3b850a97-4691-43e8-bd83-9a27b38635e3\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[2 16] [2 17] [1 17]}}}]}]}",
+ "to-play": "black",
+ "description": "According to A.I., what's the best follow-up for Black?",
+ "id": "oaumPgJfv9hJfujS35B4"
+}

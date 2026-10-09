@@ -1,0 +1,6 @@
+{
+ "description": "If you think can save white's 2 stones then click A, if not click B.",
+ "id": "G4Nil1op0oX7tl6jocH4",
+ "variations": "{:stones {[16 11] :black, [14 16] :white, [18 15] :black, [15 16] :white, [17 15] :black, [17 16] :white, [12 12] :white, [16 15] :black, [16 16] :black, [11 15] :white, [11 13] :white, [16 17] :white, [9 9] :black, [15 15] :black, [11 17] :white, [15 17] :black, [18 16] :white, [13 16] :black, [17 18] :white, [18 17] :white, [14 17] :black}, :to-play :white, :board-size 19, :labels {[14 15] \"A\", [13 15] \"B\"}, :marks {:circle nil, :square nil, :triangle #{[14 16] [15 16]}}, :children [{:move [[13 15] :white], :id \"c1b87e11-9fde-4180-9d86-becb1b2f4a8a\"} {:move [[14 15] :white], :id \"506f177b-f3ab-4d90-9d74-7e23e89976c2\"}]}",
+ "to-play": "white"
+}

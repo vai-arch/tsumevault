@@ -1,0 +1,6 @@
+{
+ "id": "KzpyIxjkFOCNo8MlPpRt",
+ "description": "What's the correct follow-up in the centre?",
+ "variations": "{:stones {[14 10] :black, [16 2] :black, [12 6] :white, [14 16] :black, [15 3] :white, [5 2] :black, [15 16] :black, [12 7] :black, [17 16] :white, [15 2] :black, [13 5] :black, [16 3] :black, [2 15] :white, [12 5] :black, [16 16] :white, [16 10] :black, [3 3] :white, [14 7] :white, [16 17] :black, [14 5] :black, [15 15] :white, [16 14] :white, [13 3] :black, [16 8] :white, [14 6] :white, [15 5] :white, [13 6] :black, [13 15] :black, [11 6] :white, [13 4] :black, [11 2] :white, [4 15] :white, [13 7] :white}, :to-play :black, :board-size 19, :labels {[12 7] \"A\", [11 7] \"1\", [12 8] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[11 7] :black], :id \"377dcf5d-8918-4178-9d62-167a03505f3f\", :labels {[10 6] \"A\", [12 9] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}} {:move [[12 8] :black], :id \"cb43316a-bbd9-4af2-8d07-e7d939b36804\", :children [{:move [[13 9] :white], :id \"eca4ce82-ea6c-4a5a-a71f-8d2e44c81c28\", :labels nil, :marks {:circle nil, :square #{[14 10] [16 10]}, :triangle #{[12 7] [12 8]}}}]}]}",
+ "to-play": "black"
+}

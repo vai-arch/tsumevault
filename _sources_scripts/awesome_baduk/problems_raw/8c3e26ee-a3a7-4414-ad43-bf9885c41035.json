@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1. Make bad shape for White",
+ "id": "8c3e26ee-a3a7-4414-ad43-bf9885c41035",
+ "variations": "{:labels {[2 8] \"1\"}, :children [{:move [[3 9] :black], :id \"4644a61b-2a2e-4a42-9825-c49f0d8c879d\", :children [{:move [[3 8] :white], :id \"a9203b42-ded5-4ea9-a2be-82632beedfdc\", :children [{:move [[4 8] :black], :id \"e56f743b-887e-483d-bdbb-5dfdbe250ff5\", :children [{:move [[3 9] :white], :id \"5b45545a-bc6b-43fa-9808-a2db98bdb972\", :children [{:move [[5 9] :black], :id \"91167a39-2337-494e-bfd2-b9117333a547\"}]}]}]}]}], :stones {[4 11] :white, [4 6] :black, [2 11] :black, [2 9] :white, [4 9] :white, [2 7] :white, [3 11] :black, [2 6] :black, [1 7] :black, [1 8] :black, [3 10] :white, [1 9] :black, [2 10] :black, [5 10] :white, [3 7] :black, [2 8] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

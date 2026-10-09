@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1. Play the correct extension for Black considering the marked White stone ",
+ "id": "54b04fd4-aae6-4008-b597-28af8248d8f2",
+ "to-play": "black",
+ "variations": "{:labels {[5 3] \"1\"}, :children [{:move [[1 2] :black], :id \"a25d305a-fbc2-4956-89d7-90c93092b597\"}], :stones {[15 14] :white, [16 13] :white, [5 3] :white, [3 2] :white, [2 4] :black, [15 12] :white, [15 16] :black, [14 2] :black, [3 16] :white, [16 3] :black, [16 15] :black, [3 5] :black, [16 14] :black, [16 8] :white, [13 16] :black, [3 7] :white}, :board-size 19, :marks {:circle nil, :square nil, :triangle #{[3 2]}}}"
+}

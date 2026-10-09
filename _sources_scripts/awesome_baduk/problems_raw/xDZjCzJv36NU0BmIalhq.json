@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[2 2] :white, [16 2] :white, [3 2] :white, [2 3] :black, [15 3] :black, [5 2] :white, [15 2] :black, [16 4] :black, [3 16] :white, [16 3] :white, [2 15] :black, [4 14] :white, [16 15] :white, [16 16] :white, [3 3] :black, [5 15] :white, [17 4] :white, [3 15] :white, [15 15] :black, [3 14] :black, [2 16] :black, [16 5] :black, [17 5] :white}, :board-size 19, :labels {[4 3] \"A\", [4 2] \"B\"}, :marks {:triangle #{[3 2] [2 2] [5 2]}, :circle nil, :square nil}, :children [{:move [[4 3] :black], :id \"0264e0db-3368-4c1f-9622-791013719bb1\"} {:move [[4 2] :black], :id \"808c2cc1-7e5f-4863-96f7-1380aa0f30d4\", :children [{:move [[4 3] :white], :id \"446a5d66-0638-436e-b6b5-3d9884bfc67b\", :children [{:move [[4 1] :black], :id \"e135fe97-4fc7-443e-9336-61572e1f3494\", :children [{:move [[5 1] :white], :id \"8337d633-ae5c-4d7b-b00d-78280f0ec27a\"}]}]}]}]}",
+ "id": "xDZjCzJv36NU0BmIalhq",
+ "description": "Which move is correct? ",
+ "to-play": "black"
+}

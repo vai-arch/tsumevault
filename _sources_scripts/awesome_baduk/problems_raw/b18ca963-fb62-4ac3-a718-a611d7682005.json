@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "variations": "{:labels nil, :children [{:move [[1 11] :black], :id \"5f9bf968-165f-42d9-9d10-fe4bdcd44299\", :children [{:move [[0 11] :white], :id \"c5e011c3-ead1-4f99-bea7-9625451cd7cd\", :children [{:move [[2 12] :black], :id \"8acbc613-2230-4357-8c6c-9ab753fdc867\", :children [{:move [[1 11] :white], :id \"c4d40881-98b9-4446-b498-710522031440\", :children [{:move [[0 9] :black], :id \"42ec955c-985d-4333-a955-740253966cde\"}]}]}]}]} {:move [[2 12] :black], :id \"4731e1cd-3756-451a-8c91-637230c2c42a\", :children [{:move [[1 11] :white], :id \"a970767c-32e5-4a84-8ac9-8111e4eaddd6\", :children [{:move [[0 9] :black], :id \"afe9d3b9-138b-48e3-bd5d-e4c83eb3757e\", :children [{:move [[5 11] :white], :id \"7e941c7d-6530-475a-9e5d-8f1060a9566a\"}]}]}]}], :stones {[1 10] :white, [5 9] :white, [0 10] :white, [4 11] :black, [4 10] :black, [2 11] :white, [2 9] :black, [4 9] :white, [1 12] :white, [3 11] :white, [6 11] :white, [3 9] :black, [3 12] :black, [3 10] :white, [1 9] :black, [2 10] :black, [5 10] :white, [4 12] :black}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[2 11] [3 11] [3 10]}}}",
+ "id": "b18ca963-fb62-4ac3-a718-a611d7682005",
+ "description": "Black to play / capture the marked white stones"
+}

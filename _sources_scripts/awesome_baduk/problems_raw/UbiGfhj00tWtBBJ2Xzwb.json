@@ -1,0 +1,6 @@
+{
+ "description": "Which Atari should White play next?",
+ "id": "UbiGfhj00tWtBBJ2Xzwb",
+ "to-play": "white",
+ "variations": "{:stones {[2 13] :white, [14 16] :white, [15 3] :black, [5 2] :white, [15 16] :black, [5 16] :black, [11 16] :white, [3 3] :white, [9 16] :black, [16 17] :black, [3 15] :white, [16 14] :black, [10 15] :black, [15 17] :white, [13 16] :white, [14 15] :black, [14 17] :black}, :to-play :white, :board-size 19, :labels {[15 15] \"A\", [13 17] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[13 17] :white], :id \"1da574f3-e0d8-4bb5-98d2-02307591722a\", :children [{:move [[15 18] :black], :id \"5f18ac6e-935a-4277-b32b-d788cce8489c\"}]} {:move [[15 15] :white], :id \"b192c692-7107-4100-9f4a-1e5ea5cae1da\", :children [{:move [[16 16] :black], :id \"efb36bbd-d2b3-4b73-ac7e-64f7ac77528d\", :children [{:move [[14 14] :white], :id \"f8e786de-bb6b-456d-b4df-882a56231197\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[14 15]}}, :children [{:move [[13 17] :black], :id \"6a3aa916-1803-4626-b974-1c1c735ecf3d\", :children [{:move [[13 15] :white], :id \"000a75f2-7d93-4021-a419-3f5f30faa0d8\"}]}]} {:move [[13 17] :white], :id \"888bc7f0-b46c-4fe0-bde4-0d38f00ad4cc\", :labels {[14 14] \"A\", [14 18] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}}]}]}]}"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "How many liberties has the marked Black chain got? \n(mark the number)",
+ "id": "33fd224a-8845-4fec-8007-64946d74ee15",
+ "to-play": "black",
+ "variations": "{:labels {[4 7] \"1\", [6 7] \"2\", [8 7] \"3\"}, :children [{:move [[4 7] :black], :id \"e1402d47-c7c0-474d-b8fa-a76c91f99ad6\"}], :stones {[5 9] :white, [4 11] :white, [5 12] :black, [1 11] :black, [4 10] :black, [2 11] :white, [2 9] :black, [4 9] :white, [1 12] :black, [8 11] :white, [3 11] :white, [6 11] :black, [3 9] :black, [3 10] :white, [2 10] :black, [7 10] :white, [5 10] :black, [5 11] :black, [7 11] :white, [6 10] :white, [4 12] :white}, :board-size 13, :marks {:triangle nil, :square nil, :circle #{[4 10] [5 10] [5 11] [6 11] [5 12]}}}"
+}

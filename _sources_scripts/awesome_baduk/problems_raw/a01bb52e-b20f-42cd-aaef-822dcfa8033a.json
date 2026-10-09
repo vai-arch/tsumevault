@@ -1,0 +1,6 @@
+{
+ "id": "a01bb52e-b20f-42cd-aaef-822dcfa8033a",
+ "to-play": "black",
+ "description": "Black to play / White has just played at the marked stone. Which Black's chain is more important? choose the answer between A and B",
+ "variations": "{:labels {[2 8] \"A\", [6 8] \"B\"}, :children [{:move [[2 8] :black], :id \"eed30d2a-6608-4d22-a504-ce5d0ec1065e\"}], :stones {[1 10] :black, [6 9] :black, [5 9] :black, [1 11] :black, [7 9] :white, [4 10] :white, [4 7] :black, [2 9] :black, [4 9] :white, [3 9] :black, [6 7] :black, [4 8] :black, [1 8] :black, [3 10] :white, [1 9] :white, [2 10] :white, [7 10] :white, [5 10] :white, [5 8] :white, [3 8] :white, [6 10] :white}, :board-size 13, :marks {:triangle #{[4 9]}, :circle #{[2 9] [3 9]}, :square #{[6 9] [5 9]}}}"
+}

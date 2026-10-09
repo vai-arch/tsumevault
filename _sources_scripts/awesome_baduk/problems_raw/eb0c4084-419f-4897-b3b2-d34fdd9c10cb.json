@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Capture the White group\n(make a double ko)",
+ "id": "eb0c4084-419f-4897-b3b2-d34fdd9c10cb",
+ "to-play": "black",
+ "variations": "{:children [{:move [[1 11] :black], :id \"58bc37b4-36e0-4397-a849-731f4032ca33\", :children [{:move [[2 11] :white], :id \"62bea263-8a26-453d-ab6e-f21a2c4244c1\", :children [{:move [[2 12] :black], :id \"8627a046-0717-4785-8743-3bd3f65f3b46\", :children [{:move [[0 9] :white], :id \"f9e76069-4025-4eac-9662-b1fff891cc65\", :children [{:move [[0 7] :black], :id \"a52da52f-b2be-44a6-88d7-56b7a8f94c89\", :children [{:move [[1 12] :white], :id \"888d4445-9289-45c0-b766-b27226a79193\", :children [{:move [[0 12] :black], :id \"d045c4bb-d348-426a-873b-6a5616d85fb0\", :children [{:move [[0 11] :white], :id \"63ed078e-12d6-42b7-a778-364051e915a4\", :children [{:move [[0 10] :black], :id \"50fb0cef-4636-45d0-904b-8d20ad550313\"}]}]}]}]}]}]}]}]}], :stones {[1 10] :white, [5 9] :black, [4 11] :black, [2 9] :white, [2 7] :black, [3 11] :black, [2 6] :black, [3 9] :white, [1 7] :white, [4 8] :black, [1 8] :white, [3 10] :white, [1 9] :black, [2 10] :black, [5 10] :black, [3 8] :black, [1 6] :black, [2 8] :white}, :board-size 13}"
+}

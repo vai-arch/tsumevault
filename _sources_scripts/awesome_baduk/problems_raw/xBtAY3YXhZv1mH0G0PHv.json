@@ -1,0 +1,6 @@
+{
+ "id": "xBtAY3YXhZv1mH0G0PHv",
+ "description": "How can White continue, if Black cuts at 4?",
+ "to-play": "white",
+ "variations": "{:stones {[11 3] :white, [15 3] :black, [9 3] :black, [11 4] :black, [15 9] :white, [12 4] :white, [12 3] :black, [3 3] :black, [13 3] :black, [16 5] :white}, :to-play :white, :board-size 19, :labels {[11 3] \"1\", [11 4] \"2\", [12 4] \"3\", [12 3] \"4\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[10 4] :white], :id \"4b476892-d0c8-48ec-bb4c-5942adef20c5\", :children [{:move [[11 2] :black], :id \"4b6ca5d2-46d0-4f5f-b4d7-c19292d93439\", :children [{:move [[11 5] :white], :id \"5380c848-383b-4457-b2ff-9317fd2f06c7\", :children [{:move [[10 3] :black], :id \"f68a084c-bbbe-4870-8401-538cb2d56939\", :children [{:move [[14 5] :white], :id \"2eef02c7-9f7f-4808-bf53-1b0edc3aba3d\"}]}]}]}]} {:move [[10 3] :white], :id \"d7510eeb-ab6b-4c38-84e1-737df358bfa2\", :children [{:move [[10 4] :black], :id \"01b100a5-b0ff-43a9-a005-66188dc4a5b8\"}]} {:move [[11 2] :white], :id \"9540fadb-35f0-48a5-ade1-21598eed4765\", :children [{:move [[10 4] :black], :id \"5559ce7a-99f6-4210-86a4-71ef247b0353\"}]}]}"
+}

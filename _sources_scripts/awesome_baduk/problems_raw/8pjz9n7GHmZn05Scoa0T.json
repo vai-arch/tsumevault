@@ -1,0 +1,6 @@
+{
+ "id": "8pjz9n7GHmZn05Scoa0T",
+ "description": "where is best move for black?",
+ "to-play": "black",
+ "variations": "{:stones {[13 2] :white, [2 14] :white, [15 3] :black, [5 2] :white, [9 3] :white, [3 16] :white, [3 3] :black, [15 15] :black, [16 5] :black, [2 5] :black}, :to-play :black, :board-size 19, :labels {[13 16] \"A\", [9 16] \"B\", [16 13] \"C\", [15 9] \"D\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"where is the best move?\", :children [{:move [[13 16] :black], :id \"f9bc3660-c41b-40e2-9b4d-a14c44a22428\"} {:move [[16 13] :black], :id \"ce75c922-b777-4eae-94b7-91b78d43c59e\", :children [{:move [[9 16] :white], :id \"556bb354-dd5b-42a0-a376-0ad207adf6fc\"}]} {:move [[15 9] :black], :id \"547c7ca7-1a78-4aa5-b9e5-6a4b2bde68f7\", :children [{:move [[13 16] :white], :id \"79decb78-e36d-4a59-859e-64fa95ed85b0\"}]} {:move [[9 16] :black], :id \"79420e7b-4515-4290-acf3-0bc830c75f40\", :children [{:move [[16 13] :white], :id \"e635c808-92f6-4aab-af3c-bcda509f7aea\"}]}]}"
+}

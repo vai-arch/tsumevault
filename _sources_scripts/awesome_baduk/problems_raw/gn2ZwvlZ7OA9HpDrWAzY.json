@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[15 14] :black, [16 13] :white, [9 15] :black, [16 11] :black, [14 12] :black, [2 13] :white, [15 3] :black, [8 14] :black, [15 16] :black, [5 16] :black, [16 15] :white, [8 15] :white, [16 16] :white, [3 3] :white, [9 16] :black, [7 14] :black, [6 15] :white, [3 15] :white, [7 15] :black, [6 16] :white, [15 15] :black, [8 16] :white, [7 16] :white, [17 13] :white}, :to-play :black, :labels {[9 14] \"B\", [8 14] \"3\", [6 14] \"A\", [8 15] \"2\", [9 16] \"5\", [7 14] \"7\", [6 15] \"6\", [7 15] \"1\", [6 16] \"8\", [8 16] \"4\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[9 14] :black], :id \"b11c6d37-12ff-4b58-8e3c-5bb0cdb953b4\", :labels {[5 15] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}} {:move [[6 14] :black], :id \"cc793719-e1fd-41d1-b5c1-bb916d78fe67\", :children [{:move [[5 15] :white], :id \"64e95fe5-61d0-475a-a88f-3d4ce3120ca2\", :labels {[9 12] \"A\", [9 14] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"Black needs to answer at A, because of B cutting. \"}]}]}",
+ "to-play": "black",
+ "description": "Which move is better after White 8? ",
+ "id": "gn2ZwvlZ7OA9HpDrWAzY"
+}

@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[15 14] :black, [16 2] :white, [14 16] :white, [15 3] :black, [15 16] :black, [15 2] :black, [16 4] :black, [16 3] :white, [16 10] :black, [3 3] :white, [9 16] :white, [17 4] :white, [3 15] :white, [15 17] :black, [16 5] :black, [13 15] :white, [9 2] :black}, :to-play :white, :board-size 19, :labels {[16 2] \"1\", [15 2] \"2\", [16 3] \"3\", [16 4] \"4\", [17 4] \"5\", [16 5] \"6\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[17 5] :white], :id \"f6cc45c6-257b-4591-adb2-354728de372b\", :children [{:move [[16 6] :black], :id \"6bcbd8a8-52bc-46f4-80e8-57d8e9aec724\", :children [{:move [[17 6] :white], :id \"e0e1924a-e59b-4875-bc97-17935144ceb2\", :children [{:move [[16 7] :black], :id \"60b7b924-0337-4b9b-a7f5-d1109ab5cb04\", :children [{:move [[2 13] :white], :id \"96a5f90e-75fc-491a-9702-4e34c489b968\"}]}]}]}]} {:move [[15 1] :white], :id \"6612d347-fe1c-4a14-ba76-baedbd11a9ba\", :children [{:move [[14 1] :black], :id \"2eca9b28-a739-4631-b82c-e2decbafa73a\", :children [{:move [[16 1] :white], :id \"718eeec1-e4e4-41e8-9722-62ebfa70436e\", :children [{:move [[17 5] :black], :id \"a6479234-ac5c-4684-8a24-63d0b88dcc94\"}]}]}]}]}",
+ "description": "How can White continue, if Black extends at 6?",
+ "id": "5fG8fC6z0UaXKcHMNwpu",
+ "to-play": "white"
+}

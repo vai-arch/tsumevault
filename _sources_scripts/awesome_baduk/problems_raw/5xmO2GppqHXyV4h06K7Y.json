@@ -1,0 +1,6 @@
+{
+ "id": "5xmO2GppqHXyV4h06K7Y",
+ "to-play": "white",
+ "variations": "{:stones {[13 2] :white, [16 11] :white, [15 3] :black, [5 2] :white, [9 3] :white, [15 16] :black, [5 16] :white, [17 17] :white, [16 15] :white, [16 16] :white, [3 3] :black, [10 16] :black, [16 17] :black, [3 15] :black, [15 15] :white, [15 17] :black, [16 8] :black, [13 16] :black, [16 5] :black, [2 5] :black}, :to-play :white, :board-size 19, :labels {[5 16] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[2 13] :white], :id \"931ecbdc-fe8c-4ba3-8ede-b0c4c16ea96d\", :comment \"This double-apprach is a most common continuation. Black will continue with A or B next.\", :labels {[5 15] \"A\", [3 13] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}} {:move [[8 16] :white], :id \"38b54cad-0c7b-4940-a3d0-3a7b04f0cfed\", :children [{:move [[4 16] :black], :id \"5181dc49-c458-42d9-acda-a27393623d91\", :children [{:move [[5 15] :white], :id \"be56efb0-be76-4b08-bd04-572646c1b772\", :children [{:move [[3 13] :black], :id \"2f3abd95-8543-424a-8fb6-6ebb0fe8108e\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[5 15] [5 16] [8 16]}}, :comment \"White's marked group is weak and limited.\"}]}]}], :comment \"Extending here is not ideal because...\"}]}",
+ "description": "How do you continue from A?"
+}

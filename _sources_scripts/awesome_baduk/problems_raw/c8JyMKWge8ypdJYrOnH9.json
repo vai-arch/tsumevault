@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[13 2] :white, [16 13] :black, [2 14] :white, [15 3] :black, [5 2] :white, [9 3] :white, [3 1] :black, [2 7] :white, [3 16] :white, [3 3] :black, [15 15] :black, [16 5] :black, [2 5] :black}, :to-play :white, :board-size 19, :comment \"choose A~D\", :labels {[13 16] \"A\", [9 16] \"B\", [4 7] \"C\", [15 9] \"D\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[9 16] :white], :id \"23db0670-620f-4ebc-9938-37ba2c6d3c6d\"} {:move [[13 16] :white], :id \"9a99198d-e89c-4a71-a320-930bcf92c7a3\", :children [{:move [[9 16] :black], :id \"8e8b9451-82c9-4517-9625-c8d3e141560f\"}]} {:move [[4 7] :white], :id \"fdc64d28-a731-431b-9cf2-21feea5b3756\", :children [{:move [[9 16] :black], :id \"177a2c8c-de74-4086-9d41-4e2a09a42385\"}]} {:move [[15 9] :white], :id \"f9c7af81-0234-4628-a753-89a5a20531be\", :children [{:move [[9 16] :black], :id \"1ec7617d-06ae-4785-b67c-931c2b2d731a\"}]}]}",
+ "description": "where white should play now?",
+ "id": "c8JyMKWge8ypdJYrOnH9",
+ "to-play": "white"
+}

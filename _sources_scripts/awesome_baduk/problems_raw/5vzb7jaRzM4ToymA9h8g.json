@@ -1,0 +1,6 @@
+{
+ "id": "5vzb7jaRzM4ToymA9h8g",
+ "description": "A is a greedy move. Punish white.",
+ "variations": "{:stones {[16 2] :black, [15 3] :black, [18 6] :white, [17 2] :black, [15 8] :white, [14 2] :black, [15 4] :black, [16 4] :white, [16 3] :white, [15 7] :white, [16 10] :white, [15 6] :white, [18 5] :black, [15 5] :black, [16 5] :white}, :to-play :black, :labels {[18 6] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[17 6] :black], :id \"b19982ed-34fb-45b0-a343-fa53a46db57e\", :children [{:move [[18 4] :white], :id \"37f8eae1-fbda-48e3-9df0-449198ec053a\", :children [{:move [[18 7] :black], :id \"800a1d09-b545-4d40-b08c-d9a625f21694\", :children [{:move [[17 5] :white], :id \"f4cf8e00-be3c-45f9-94de-c4272e34b6a8\", :children [{:move [[16 6] :black], :id \"572f9ad7-86b2-472f-95ef-96da74a2d165\"}]}]}]} {:move [[16 6] :white], :id \"8bc51734-aea2-43f0-8dc1-a84e056e9307\", :children [{:move [[18 7] :black], :id \"4979df53-ebbe-473c-a610-765fa8d13191\"}]}]}]}",
+ "to-play": "black"
+}

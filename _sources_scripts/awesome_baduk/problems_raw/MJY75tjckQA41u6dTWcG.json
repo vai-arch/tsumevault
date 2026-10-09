@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "MJY75tjckQA41u6dTWcG",
+ "description": "White 3 is slow. How can Black attack this group?",
+ "variations": "{:stones {[3 2] :white, [2 4] :white, [12 2] :white, [5 2] :black, [9 3] :black, [14 2] :black, [16 3] :black, [10 2] :white, [8 2] :black}, :board-size 19, :labels {[10 2] \"1\", [9 3] \"2\", [12 2] \"3\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[11 4] :black], :id \"f7ce0244-3e91-491b-84ff-9ecb1b1a97c5\"} {:move [[13 4] :black], :id \"3e2990a2-e396-4cb4-85d5-ce4b08793dbc\", :children [{:move [[11 4] :white], :id \"34269dc4-fc11-44d8-9303-e31f00309e2d\"}]} {:move [[13 3] :black], :id \"791905d5-6910-41f0-97b7-77bad7b9ad1d\", :children [{:move [[11 4] :white], :id \"1330c870-9892-417a-a9e1-34e03a8e4fd3\"}]}]}"
+}

@@ -1,0 +1,6 @@
+{
+ "id": "mXwdIgC75ngr5EzSZxkA",
+ "variations": "{:stones {[15 14] :black, [9 1] :black, [16 2] :black, [3 2] :white, [10 1] :black, [7 2] :black, [9 3] :white, [15 16] :black, [11 4] :black, [2 15] :white, [8 4] :white, [16 9] :black, [10 16] :white, [5 15] :black, [3 11] :white, [4 16] :black, [11 1] :white, [13 3] :black, [3 14] :white, [2 17] :black, [11 2] :white, [7 16] :white, [2 5] :white, [9 2] :white}, :to-play :black, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[7 2] [9 1] [10 1]}}, :children [{:move [[5 2] :black], :id \"5a48ca0c-6563-4b5f-97a1-89187c750e8b\", :comment \"Extending here is the best way to settle them down.\"} {:move [[8 1] :black], :id \"0e41142d-1e58-4525-803d-c0b45930c9f4\", :children [{:move [[11 3] :white], :id \"96d86e49-6915-49f6-9106-b524a3ff2933\", :comment \"This sort of exchange is unnecessary. A is damaged due to the exchange.\", :labels {[11 4] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}}]} {:move [[6 3] :black], :id \"50c8b92b-182d-46f7-8bb8-9b317e702b26\", :children [{:move [[5 2] :white], :id \"96658c7f-3d46-4cbb-a12e-183e3bdc5e61\", :labels {[5 2] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"A is the vital point for both Black and White.\"}]}]}",
+ "description": "How do you settle the marked stones?",
+ "to-play": "black"
+}

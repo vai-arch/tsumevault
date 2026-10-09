@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Are Black groups inside alive(mark A) or dead(mark B)?",
+ "variations": "{:labels {[5 6] \"A\", [7 6] \"B\"}, :children [{:move [[7 6] :black], :id \"75a66dfb-d292-4ee0-be92-8eb84b3bb16a\"}], :stones {[10 1] :black, [12 2] :black, [8 1] :white, [9 3] :white, [12 0] :white, [11 4] :white, [12 4] :white, [11 0] :white, [12 1] :white, [10 4] :white, [8 0] :white, [10 0] :black, [11 2] :black, [8 2] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black",
+ "id": "4ad9ffae-3430-4d9c-a313-8223a288b46a"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "Connect and save black's 3 stones.",
+ "id": "d4XI36vvkP4SpdTyaPVJ",
+ "variations": "{:labels nil, :children [{:move [[16 17] :black], :id \"994b0046-7dfb-4be0-a1e5-5ac466b91924\", :children [{:move [[15 18] :white], :id \"7b7c913b-e1e0-42b3-900b-adf19f1722b4\"}]} {:move [[15 18] :black], :id \"9b063f1c-1594-4098-94cb-3cd5f52405fc\", :children [{:move [[16 17] :white], :id \"7843f8d7-59df-4881-b8eb-9217bcb4792e\", :children [{:move [[16 18] :black], :id \"fc13d966-94dd-4fb7-9281-86cc7c7458d0\", :children [{:move [[17 17] :white], :id \"1b185988-61a2-4433-a2f0-40b08a8d439f\"}]} {:move [[17 17] :black], :id \"487e91f1-384c-4773-b304-a5deb18b94cf\", :children [{:move [[15 14] :white], :id \"5e367f76-6c4c-42ae-83e0-9cd4a580395b\", :children [{:move [[16 18] :black], :id \"fa074e0c-bfd0-4719-a655-7fc6bf6c63f1\"}]}]}]}]}], :stones {[14 16] :black, [18 15] :white, [15 16] :white, [17 15] :black, [17 16] :black, [16 15] :white, [16 16] :black, [14 14] :white, [12 16] :black, [15 15] :black, [16 14] :white, [15 17] :white, [17 14] :white, [13 15] :black, [15 13] :white, [14 15] :white, [14 17] :black}, :marks {:circle nil, :square nil, :triangle #{[16 16] [17 16] [17 15]}}}",
+ "to-play": "black"
+}

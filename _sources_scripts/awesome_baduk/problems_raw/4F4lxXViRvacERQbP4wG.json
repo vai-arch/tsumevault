@@ -1,0 +1,6 @@
+{
+ "description": "Which is the right choice for White, A or B? ",
+ "id": "4F4lxXViRvacERQbP4wG",
+ "variations": "{:stones {[5 14] :black, [6 8] :black, [6 9] :black, [9 15] :black, [2 14] :black, [7 9] :white, [8 14] :black, [15 16] :black, [4 9] :black, [6 14] :black, [3 16] :white, [16 3] :black, [4 14] :black, [8 15] :white, [7 7] :black, [3 3] :white, [9 16] :white, [10 16] :black, [5 15] :white, [7 14] :black, [6 15] :white, [7 15] :white, [15 10] :white, [6 7] :black, [16 14] :white, [13 3] :black, [3 12] :white, [2 10] :white, [7 10] :white, [7 8] :white, [5 11] :white, [6 10] :white, [13 15] :black, [2 8] :black, [2 5] :white}, :to-play :white, :board-size 19, :labels {[10 15] \"A\", [10 17] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[10 17] :white], :id \"dc58c8f0-76db-4149-af80-45080ff9bc81\", :children [{:move [[10 15] :black], :id \"cc54d5ae-500a-40b9-ade8-feeb04b837de\", :children [{:move [[11 17] :white], :id \"68e87f41-c233-4cdf-bef3-e7a313297e02\"}]}]}]}",
+ "to-play": "white"
+}

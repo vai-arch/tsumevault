@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / How should Black play after White 1?",
+ "id": "afcae8a7-4401-4149-988a-267a3965e242",
+ "variations": "{:labels {[6 12] \"1\"}, :children [{:move [[5 11] :black], :id \"295ec5c8-3f5f-4eb0-9070-dd810fe959be\", :children [{:move [[5 12] :white], :id \"ad83199d-cc79-4578-81b3-b6bd307cfe93\", :children [{:move [[4 12] :black], :id \"eb20f065-ffa6-4c28-bbf6-4f35d1b82af7\"}]}]}], :stones {[1 10] :white, [5 9] :white, [4 11] :black, [0 11] :black, [1 11] :black, [2 11] :black, [2 9] :white, [4 9] :white, [6 12] :white, [3 11] :black, [6 11] :black, [3 9] :white, [7 10] :white, [5 10] :black, [7 11] :white, [6 10] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

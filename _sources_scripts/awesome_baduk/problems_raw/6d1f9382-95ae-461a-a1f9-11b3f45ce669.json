@@ -1,0 +1,6 @@
+{
+ "description": "If the White group is alive, mark A, otherwise B",
+ "variations": "{:labels {[3 4] \"A\", [5 4] \"B\"}, :children [{:move [[5 4] :black], :id \"da3f7344-29c6-4269-9df1-4654eececb4e\"}], :stones {[6 8] :black, [5 7] :white, [4 6] :black, [0 7] :black, [5 6] :black, [4 7] :white, [2 7] :white, [0 6] :black, [2 6] :black, [6 6] :black, [6 7] :black, [1 7] :white, [1 8] :white, [3 6] :black, [5 8] :white, [3 8] :black, [1 6] :black, [3 7] :white, [2 8] :black}, :board-size 9, :marks {:triangle nil, :circle nil, :square nil}}",
+ "id": "6d1f9382-95ae-461a-a1f9-11b3f45ce669",
+ "to-play": "black"
+}

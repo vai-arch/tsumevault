@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Capture White by using throw-in",
+ "id": "9803311f-61a6-40fc-aca3-90be408a99f8",
+ "variations": "{:children [{:move [[0 9] :black], :id \"399f4228-38ee-4b18-87c7-c3caa7d09cae\", :children [{:move [[0 8] :white], :id \"97593450-0a81-4caf-8c33-ed7037287429\", :children [{:move [[1 9] :black], :id \"1dc70053-15bb-48a7-9e47-b622766c3f61\", :children [{:move [[0 10] :white], :id \"c1c54769-b2fb-4b63-83a8-ba0eeada2b25\", :children [{:move [[1 9] :black], :id \"fd45ae9d-eb91-41f8-8c62-b397f57579a9\"}]}]}]}]}], :stones {[1 10] :white, [0 11] :white, [0 7] :black, [2 12] :white, [2 11] :white, [2 9] :white, [2 7] :black, [1 12] :black, [3 11] :black, [3 9] :black, [1 7] :black, [1 8] :white, [3 10] :black, [2 10] :black, [3 8] :black}, :board-size 13}",
+ "to-play": "black"
+}

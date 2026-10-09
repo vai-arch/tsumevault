@@ -1,0 +1,6 @@
+{
+ "id": "PuEVpaqxeS219Ew2aNI2",
+ "to-play": "white",
+ "variations": "{:stones {[3 4] :white, [3 2] :black, [2 4] :black, [2 3] :black, [15 3] :white, [3 16] :black, [3 5] :black, [15 15] :white, [2 5] :white}, :to-play :white, :labels {[2 5] \"A\", [3 4] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[2 6] :white], :id \"bc62345d-ed4b-4eaa-9e37-3cc58d5c80c3\", :children [{:move [[4 4] :black], :id \"8239143d-077c-42bd-9f1e-0c68614a56a3\", :children [{:move [[3 6] :white], :id \"883eca7b-1b2c-41ff-958a-bf283c477876\", :children [{:move [[4 5] :black], :id \"2455dfb9-b0f2-4318-acff-31a9b79dfdb6\", :children [{:move [[2 10] :white], :id \"e52756a1-5c94-4048-9e9d-e3356948185a\", :labels {[2 5] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"A is a key stone!\"}]}]}]}]} {:move [[4 4] :white], :id \"a7e38401-c95c-4a5c-b24d-383f50849f41\", :children [{:move [[2 6] :black], :id \"4d19604e-183a-49d2-b935-37b321a7242d\"}]}]}",
+ "description": "Save a key stone."
+}

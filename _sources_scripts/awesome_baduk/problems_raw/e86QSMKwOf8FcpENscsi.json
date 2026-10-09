@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "variations": "{:stones {[15 14] :white, [13 2] :black, [16 13] :white, [15 12] :white, [15 16] :black, [16 3] :black, [16 15] :black, [3 3] :white, [3 15] :white, [16 6] :black, [16 14] :black, [16 8] :white, [13 16] :black, [14 8] :white}, :to-play :black, :board-size 19, :labels nil, :marks {:triangle nil, :square nil, :circle #{[14 8]}}, :children [{:move [[15 9] :black], :id \"562a189c-6e9c-45fb-b9e3-544203376139\"} {:move [[16 11] :black], :id \"4d266bdc-abb6-4628-a60e-3a9965d4b174\", :children [{:move [[17 12] :white], :id \"d0ccf5eb-808f-4642-8405-7dcf1f192137\", :children [{:move [[15 9] :black], :id \"a2028a1a-27ad-4c4e-aa0e-042803e5cb2e\"}]}]} {:move [[13 11] :black], :id \"721dcbd0-98bf-4808-9b94-34b4b7c8849a\", :children [{:move [[14 10] :white], :id \"5a7d95e2-13de-4bfa-a8ab-1d00eaade116\"}]}]}",
+ "description": "if Black wants to invade...where would Black play?",
+ "id": "e86QSMKwOf8FcpENscsi"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "1 is a bad move. Answer for white.",
+ "variations": "{:stones {[15 14] :white, [16 13] :white, [13 17] :white, [15 16] :white, [17 15] :white, [16 15] :white, [14 13] :black, [16 16] :white, [14 14] :white, [12 16] :black, [15 15] :black, [16 14] :black, [13 16] :black, [17 14] :black, [15 13] :black, [14 15] :black, [14 17] :white, [17 13] :black}, :to-play :white, :board-size 19, :labels {[14 13] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[13 14] :white], :id \"2f7d9b48-6094-454d-b2e5-20fc359196bc\", :children [{:move [[13 13] :black], :id \"2c1854f8-1738-440a-9eb5-f1c5b6684c60\", :children [{:move [[12 14] :white], :id \"e53ea98b-dc28-41b5-962f-d7de0626fda4\", :children [{:move [[16 12] :black], :id \"33871adf-2614-4fd8-ae48-1a27c9235e57\", :children [{:move [[10 15] :white], :id \"7800656d-3802-4a96-ae91-13294d4773e3\"}]}]}]}]}]}",
+ "to-play": "white",
+ "id": "GDoTwRGWwa303ac0A7B8"
+}

@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Which move is correct? Nobi or Hane?",
+ "id": "ZbCBSpebdIPNekGVVlrB",
+ "variations": "{:stones {[2 2] :white, [16 2] :white, [3 2] :white, [2 3] :black, [15 3] :black, [5 2] :white, [15 2] :black, [16 4] :black, [3 16] :white, [16 3] :white, [2 15] :black, [4 14] :white, [16 15] :white, [16 16] :white, [3 3] :black, [5 15] :white, [17 4] :white, [3 15] :white, [15 15] :black, [3 14] :black, [2 16] :black, [16 5] :black, [17 5] :white}, :board-size 19, :labels {[3 13] \"A\", [4 13] \"B\", [4 14] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[3 13] :black], :id \"139e2d5f-a889-49bf-b34d-5fe9cc7ed1aa\"} {:move [[4 13] :black], :id \"fcd0f60b-dee3-463b-a2b5-42b3a77e3bf7\", :children [{:move [[3 13] :white], :id \"394e18b1-747d-4d36-ab93-7b0b57b109c5\", :children [{:move [[2 14] :black], :id \"ff86f027-b76b-4cc3-80af-b7447ab991b0\", :children [{:move [[3 12] :white], :id \"6778f054-f1ed-4c20-874c-5a1e53a2126d\"}]}]}]}]}"
+}

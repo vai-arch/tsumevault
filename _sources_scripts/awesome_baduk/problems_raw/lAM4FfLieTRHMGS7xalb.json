@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "lAM4FfLieTRHMGS7xalb",
+ "description": "Which move is efficient?",
+ "variations": "{:stones {[15 3] :black, [3 16] :white, [3 3] :white, [3 15] :black, [4 16] :white, [15 15] :black, [3 13] :black, [2 16] :white, [1 14] :white, [4 15] :black}, :to-play :black, :labels {[4 16] \"1\", [5 15] \"A\", [6 15] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[6 15] :black], :id \"15a6be5a-9741-4723-bd1a-721598ea5d06\", :children [{:move [[5 15] :white], :id \"66d22770-ab31-48b3-b83c-16c4147bf181\", :children [{:move [[5 14] :black], :id \"e3da0e8f-0ae4-478b-a265-40197982b717\", :children [{:move [[5 16] :white], :id \"4157a5dd-613c-4dcc-b1a1-4e2f14a290fa\", :children [{:move [[6 14] :black], :id \"664cd117-7a20-4757-a642-1a716eea24b9\"}]}]}]}]} {:move [[5 15] :black], :id \"187071d8-db0c-4561-a8b3-2852397c377e\", :children [{:move [[6 16] :white], :id \"3c9d740d-176b-4afe-a374-8ee5fe88ce64\"}]}]}"
+}

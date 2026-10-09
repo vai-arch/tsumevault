@@ -1,0 +1,6 @@
+{
+ "variations": "{:labels nil, :children [{:move [[5 10] :black], :id \"9510f1ca-99f8-4f4f-881c-14bd09dfcb4a\", :children [{:move [[3 12] :white], :id \"1c4c8cea-05ab-436c-8c20-58853454b571\", :children [{:move [[5 12] :black], :id \"b9baac24-574e-4896-8cdd-c2650646de87\"}]}]} {:move [[2 12] :black], :id \"4f715af2-26d3-460c-bf78-103f9b79b27f\", :children [{:move [[4 12] :white], :id \"bba59e27-03d1-4734-ba00-a860df894608\", :children [{:move [[1 12] :black], :id \"5af637d2-89a4-4793-8cbc-bdec10a00eac\", :children [{:move [[3 12] :white], :id \"6d377790-dc36-4501-adba-4e78b729252b\"}]}]}]}], :stones {[1 10] :black, [0 10] :black, [4 11] :black, [0 11] :white, [1 11] :white, [4 10] :white, [2 11] :white, [3 11] :black, [6 11] :black, [4 8] :white, [3 10] :white, [2 10] :black, [5 11] :white, [6 10] :black, [2 8] :black}, :board-size 13, :marks {:circle #{[3 11] [4 11]}, :square #{[5 11]}, :triangle #{[0 11] [1 11] [2 11]}}}",
+ "description": "Black to play / Black's marked chain has only two liberties. \nConsidering with which group to fight.",
+ "id": "ae1a1fc7-c6ca-4e30-8e63-53ba4fe1a5b0",
+ "to-play": "black"
+}

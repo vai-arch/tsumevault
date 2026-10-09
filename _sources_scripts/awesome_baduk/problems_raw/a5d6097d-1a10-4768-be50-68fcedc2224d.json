@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1. Save the Black group",
+ "to-play": "black",
+ "id": "a5d6097d-1a10-4768-be50-68fcedc2224d",
+ "variations": "{:labels {[5 7] \"1\"}, :children [{:move [[3 6] :black], :id \"40b45948-92cc-4925-8253-a6d9475ea534\", :children [{:move [[3 7] :white], :id \"af8787ae-ca60-4fdf-9e62-005ec69d3cfc\", :children [{:move [[4 7] :black], :id \"666ff72c-9c3e-49ff-935f-bec382ea9845\"}]}]} {:move [[6 9] :black], :id \"54fed3ff-4ada-4bf9-9f7a-e5896faaa35a\", :children [{:move [[5 9] :white], :id \"b30b0412-21e2-4955-b288-290c769fa1f2\", :children [{:move [[5 8] :black], :id \"2f4cce9c-f233-44ba-9f30-217ea291a7f8\", :children [{:move [[6 8] :white], :id \"37a77424-b816-4610-87cb-902df885523d\", :children [{:move [[6 7] :black], :id \"2c92aa54-25b4-40dd-a0dc-ba9d2db2341f\"}]}]}]}]}], :stones {[5 7] :white, [1 11] :white, [2 4] :black, [4 10] :white, [2 9] :black, [4 9] :black, [2 7] :white, [8 8] :black, [3 11] :white, [8 6] :black, [3 9] :black, [4 8] :black, [3 10] :black, [1 9] :white, [2 10] :white, [5 10] :white, [3 8] :black, [4 4] :black, [8 10] :black, [2 8] :white, [6 4] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

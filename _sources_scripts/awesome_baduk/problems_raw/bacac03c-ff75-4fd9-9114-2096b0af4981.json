@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White 1 has just been played. Against the marked White stone, play the knight's move in the second line",
+ "id": "bacac03c-ff75-4fd9-9114-2096b0af4981",
+ "to-play": "black",
+ "variations": "{:labels {[5 16] \"1\"}, :children [{:move [[11 17] :black], :id \"d0850d3b-86f2-4936-8b1c-eccca00e9345\"}], :stones {[15 3] :black, [5 16] :white, [15 9] :black, [16 16] :black, [11 15] :white, [3 3] :white, [9 16] :black, [3 15] :white, [15 15] :black, [15 17] :white, [13 16] :white, [15 13] :black}, :board-size 19, :marks {:circle nil, :square nil, :triangle #{[11 15]}}}"
+}

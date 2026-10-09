@@ -1,0 +1,6 @@
+{
+ "description": "What would be black's good continuation?",
+ "variations": "{:stones {[15 14] :white, [16 13] :white, [9 15] :black, [15 12] :white, [16 15] :black, [14 13] :black, [15 15] :black, [16 14] :white, [13 16] :white, [15 13] :black}, :to-play :black, :children [{:move [[14 14] :black], :id \"65440b7d-d8be-4e33-8de0-b6582290af47\", :children [{:move [[14 15] :white], :id \"f21b7dc8-8a63-4180-8404-56a98b9294d3\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[14 13] [14 14] [15 13] [15 15] [16 15]}}, :comment \"black's groups are disconnected and they became weak.\"}]} {:move [[14 15] :black], :id \"69a8d1e5-e4e8-4612-8b9b-4d7360fd9c25\", :comment \"Cool to sacrifice like this.\", :children [{:move [[14 14] :white], :id \"24367c9c-aea7-469c-8051-def8627bec06\", :children [{:move [[13 15] :black], :id \"3577d89a-5ce3-4a07-a6bf-1612c9fde18d\", :children [{:move [[13 14] :white], :id \"69163c3b-1d0c-414c-8696-514ad6d9aed5\", :children [{:move [[12 15] :black], :id \"482c3158-5812-4d40-a2a4-29b2cea067b9\"}]}]}]}]}]}",
+ "id": "DhsHjMlmk3AfrGb8VbKz",
+ "to-play": "black"
+}

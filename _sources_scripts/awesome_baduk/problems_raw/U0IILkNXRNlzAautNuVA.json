@@ -1,0 +1,6 @@
+{
+ "description": "If White cuts at1 outside, how should Black answer?",
+ "variations": "{:stones {[9 15] :white, [2 14] :white, [2 13] :black, [15 3] :black, [2 11] :white, [15 16] :black, [3 16] :white, [2 15] :black, [3 3] :white, [1 13] :white, [3 15] :white, [16 14] :black, [3 14] :white, [3 13] :black, [2 16] :black, [1 14] :black}, :to-play :black, :children [{:move [[1 12] :black], :id \"abce6c74-4c40-468f-b951-84b95073c4df\", :children [{:move [[1 15] :white], :id \"0cd926b3-4e20-46bf-a6ab-84d8778f30c6\", :children [{:move [[0 13] :black], :id \"75da333d-423d-44c6-95e4-5fb444d75790\", :children [{:move [[1 16] :white], :id \"46c299ec-6390-49fc-8b76-3b51965060f8\", :children [{:move [[5 13] :black], :id \"de4c20af-722b-48b9-82d8-f2b961578fe2\"}]}]}]}]} {:move [[1 15] :black], :id \"717d8a16-7eef-458b-8952-b68976f3a55e\", :children [{:move [[1 12] :white], :id \"8886a19d-51a5-4b1b-875c-ab82824aa379\", :labels nil, :marks {:circle nil, :square nil, :triangle #{[2 16] [2 15] [1 15] [1 14]}}, :comment \"The four stones in the corner are not alive. \"}]}], :labels {[1 13] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black",
+ "id": "U0IILkNXRNlzAautNuVA"
+}

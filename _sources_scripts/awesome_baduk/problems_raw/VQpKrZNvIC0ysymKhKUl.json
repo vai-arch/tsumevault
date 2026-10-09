@@ -1,0 +1,6 @@
+{
+ "description": "How white should answer if black cuts at A?",
+ "id": "VQpKrZNvIC0ysymKhKUl",
+ "to-play": "white",
+ "variations": "{:stones {[16 13] :black, [15 3] :black, [15 16] :black, [11 16] :black, [3 16] :white, [12 15] :white, [2 15] :black, [16 15] :white, [16 16] :white, [3 3] :white, [9 16] :white, [1 13] :black, [3 15] :white, [12 16] :black, [15 15] :black, [3 14] :white, [2 16] :black, [13 16] :white, [13 15] :black}, :to-play :white, :board-size 19, :labels {[12 16] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[13 17] :white], :id \"01bc8942-40e0-4fd2-af6a-9d9f66f5261d\", :children [{:move [[15 17] :black], :id \"8c3bba6a-7e30-4ca9-8fe0-f6d0e66e9001\", :children [{:move [[13 14] :white], :id \"054352fb-3a41-4cfa-ab8b-252142ff76ed\", :children [{:move [[14 15] :black], :id \"4ea36875-dc22-45fe-a580-45bf7bb9070b\", :children [{:move [[11 15] :white], :id \"a3ef23a5-1735-49b4-8769-c2cae0482ea1\"}]}]}]}]}]}"
+}

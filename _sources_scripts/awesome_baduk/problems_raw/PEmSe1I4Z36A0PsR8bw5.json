@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "PEmSe1I4Z36A0PsR8bw5",
+ "description": "If white blocks at A, answer for black.",
+ "variations": "{:stones {[16 3] :white, [9 2] :black, [12 2] :black, [16 5] :black, [16 8] :black, [14 2] :white, [15 2] :black, [16 2] :white}, :to-play :black, :board-size 19, :labels {[16 2] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 3] :black], :id \"98106dcb-9737-450f-ac0c-05636ef9e322\", :children [{:move [[15 1] :white], :id \"3a9ccc38-e8c6-4af3-b4ad-64314f083a3f\", :children [{:move [[14 3] :black], :id \"a627fd2e-2998-44ac-afeb-dbdc03e13ddc\", :children [{:move [[14 1] :white], :id \"d8f019ad-1633-4426-9a95-2a0abeaa504c\"}]}]}]} {:move [[15 1] :black], :id \"3528d4d8-114d-4106-baf8-4c8e06f5e856\", :children [{:move [[15 3] :white], :id \"4d1ffded-915a-4ac7-a52e-f1d8894d4a35\", :children [{:move [[14 1] :black], :id \"aed30a4e-5cae-440f-bb87-4c3ffde056f1\"}]}]}]}"
+}

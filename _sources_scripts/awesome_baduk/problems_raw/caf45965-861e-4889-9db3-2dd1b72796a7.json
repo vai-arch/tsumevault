@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White 1 has just been played. Find the best move for Black ",
+ "id": "caf45965-861e-4889-9db3-2dd1b72796a7",
+ "to-play": "black",
+ "variations": "{:labels {[2 12] \"1\"}, :children [{:move [[1 8] :black], :id \"2884d9bd-ea1c-4306-95f3-e9680bfeb050\", :children [{:move [[1 7] :white], :id \"4d9db399-63ed-40b9-a102-5f3411a1c7b8\", :children [{:move [[4 11] :black], :id \"427c7414-8671-4034-b0df-707e1e7a6a51\"} {:move [[4 10] :black], :id \"282babbd-f092-4215-ae24-569fa0e1b416\"}]}]}], :stones {[1 10] :white, [0 11] :black, [1 11] :black, [2 12] :white, [2 11] :white, [2 9] :black, [4 9] :black, [2 7] :white, [1 12] :black, [3 11] :white, [3 9] :black, [3 10] :white, [1 9] :white, [2 10] :black, [5 10] :black, [5 11] :black, [2 8] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

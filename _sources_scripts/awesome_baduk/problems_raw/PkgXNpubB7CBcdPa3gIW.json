@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[16 13] :black, [15 16] :black, [16 3] :white, [2 15] :black, [16 12] :black, [16 15] :white, [16 16] :white, [3 3] :white, [15 15] :black, [16 14] :black, [17 14] :white, [4 15] :black, [17 13] :white}, :to-play :white, :board-size 19, :labels {[6 16] \"A\", [9 16] \"B\", [12 16] \"C\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[9 16] :white], :id \"ece786d1-57b7-4f78-887d-acb39da23ac3\", :labels {[12 16] \"A\", [6 16] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}} {:move [[6 16] :white], :id \"e19ed5a3-6ea8-4838-a67d-fc5a5b561db2\", :children [{:move [[8 16] :black], :id \"22cc74b5-d21d-48aa-80ed-c8e00ddc4cfd\", :children [{:move [[6 14] :white], :id \"db79f6dc-9c6a-4536-958d-8fad42b150d5\", :children [{:move [[8 14] :black], :id \"ce863131-f24f-4322-8aaa-d1e55892eb02\"}]}]}]} {:move [[12 16] :white], :id \"0e86a9e7-b0b7-4a9b-93b8-7b53be641ebc\", :children [{:move [[10 16] :black], :id \"54717119-b11e-4fe0-afa2-557c7d52119f\", :children [{:move [[12 14] :white], :id \"5a0f36df-6feb-490f-a10c-6fac302293f1\", :children [{:move [[10 14] :black], :id \"d60c1b18-e666-419d-a3f4-11b2f31ceab9\"}]}]}]}]}",
+ "to-play": "white",
+ "id": "PkgXNpubB7CBcdPa3gIW",
+ "description": "Where is the proper place to go for White?"
+}

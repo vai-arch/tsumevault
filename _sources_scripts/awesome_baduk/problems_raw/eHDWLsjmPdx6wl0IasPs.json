@@ -1,0 +1,6 @@
+{
+ "id": "eHDWLsjmPdx6wl0IasPs",
+ "description": "Which moves can White think about instead of A?",
+ "to-play": "white",
+ "variations": "{:stones {[13 2] :white, [16 2] :white, [15 3] :black, [5 2] :white, [15 2] :black, [5 16] :white, [3 16] :black, [3 3] :black, [10 16] :black, [5 15] :white, [10 3] :white, [3 15] :black, [4 16] :black, [15 15] :black, [3 13] :black, [2 16] :white, [15 5] :black, [8 16] :white, [2 5] :black}, :to-play :white, :board-size 19, :labels {[2 16] \"1\", [3 16] \"2\", [1 15] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children ({:move [[1 14] :white], :id \"19f1bd97-8736-486f-b810-13e9b2ec00b4\", :children [{:move [[2 15] :black], :id \"f5aea3db-9dfe-4571-8853-1ea33e088bda\", :children [{:move [[2 12] :white], :id \"d56eab35-3bd5-48b4-987c-202173a4c702\"}]}]} {:move [[1 13] :white], :id \"d839dfb8-180d-4b27-9a2b-eb83bd5bac1a\", :children [{:move [[2 15] :black], :id \"c3709dd7-c503-4b21-984b-a038ebd388ec\", :children [{:move [[2 11] :white], :id \"39be3cc2-94bc-4706-8e3b-8e826c446831\"} {:move [[2 10] :white], :id \"207b0588-96d7-4ad9-be53-cd36b9ea950c\"}]}]})}"
+}

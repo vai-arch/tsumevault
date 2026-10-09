@@ -1,0 +1,6 @@
+{
+ "description": "How can White escape?",
+ "to-play": "white",
+ "variations": "{:stones {[6 8] :black, [6 9] :white, [5 9] :black, [16 13] :white, [4 11] :white, [9 15] :black, [4 10] :black, [2 13] :white, [15 3] :white, [8 14] :black, [8 8] :white, [7 7] :black, [3 3] :black, [5 15] :black, [3 15] :black, [7 15] :white, [15 15] :white, [3 10] :black, [7 10] :white, [5 10] :white, [7 8] :white, [5 11] :white, [5 8] :black, [13 14] :black, [13 16] :black}, :labels {[7 15] \"1\", [8 14] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[7 14] :white], :id \"392c4731-478f-4b32-9104-c18ef279a21c\", :children [{:move [[7 13] :black], :id \"39f63abf-c12c-44b8-a3dd-3a817b8c711d\", :children [{:move [[6 14] :white], :id \"85e30278-a6c8-4d62-bafa-92aad88af8eb\", :comment \"Black can not block.\"} {:move [[6 13] :white], :id \"f6003086-fb2c-4b33-bde2-d42afc524aa1\", :children [{:move [[6 14] :black], :id \"c5324b35-1daa-458a-be37-8069d5a472fd\", :children [{:move [[8 13] :white], :id \"7c8438ca-f4c0-437d-974d-75af43154583\", :children [{:move [[7 12] :black], :id \"47c06c2a-493b-4033-96ed-568143d1e23e\", :children [{:move [[8 12] :white], :id \"6e520735-fe68-4843-b48c-b601ce8789af\"}]}]}]}]}]}]}], :to-play :white}",
+ "id": "JHyZVDV5ZDmg8CG1hZEZ"
+}

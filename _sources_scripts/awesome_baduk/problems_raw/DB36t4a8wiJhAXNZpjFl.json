@@ -1,0 +1,6 @@
+{
+ "description": "White just attached at A. What's your next move?",
+ "variations": "{:stones {[16 2] :white, [3 2] :black, [14 2] :white, [15 4] :white, [16 4] :black, [16 3] :black, [3 15] :white, [16 6] :black, [3 5] :black, [15 15] :white, [15 5] :white, [11 2] :black}, :to-play :black, :board-size 19, :labels {[16 2] \"A\", [15 3] \"1\", [15 6] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 6] :black], :id \"ae4bebb4-d487-4083-8d15-3d9ca892c240\", :children [{:move [[15 3] :white], :id \"b52445f8-469d-45ee-8535-436804549e9c\"}]} {:move [[15 3] :black], :id \"5fb7ac78-1734-4a4b-a50f-9f0337da36d2\", :children [{:move [[14 3] :white], :id \"62dfcede-a94d-43da-8d83-872f76da8dfa\", :children [{:move [[15 2] :black], :id \"4ba11123-4d9b-408d-bcc6-824ea70b6e71\", :labels {[16 2] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}} {:move [[16 5] :black], :id \"991a3694-0cf2-4f85-a5e7-4fcd9be3d211\", :children [{:move [[15 2] :white], :id \"ca62c548-3634-4f73-a77e-b0db3047cfe9\"}]} {:move [[15 6] :black], :id \"6af451fb-cd9b-4a9d-a5d1-0147f64b8b34\", :children [{:move [[15 2] :white], :id \"b266bedb-4971-4cfc-a3ba-8521fcc01cf4\"}]}]}]}]}",
+ "id": "DB36t4a8wiJhAXNZpjFl",
+ "to-play": "black"
+}

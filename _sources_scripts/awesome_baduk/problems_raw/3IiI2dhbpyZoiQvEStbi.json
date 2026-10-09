@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "id": "3IiI2dhbpyZoiQvEStbi",
+ "description": "Black chose to take the corner. What would be white's next move?",
+ "variations": "{:stones {[16 3] :black, [13 3] :black, [11 2] :white, [3 15] :black, [15 3] :white, [16 2] :black}, :to-play :white, :labels {[16 2] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 5] :white], :id \"9200c035-1d5d-4fda-8d1e-a2f3627e03c1\"} {:move [[15 2] :white], :id \"a11101b7-81e4-4730-bf6b-10e7cf395c28\", :children [{:move [[15 4] :black], :id \"3b34dafb-7a3a-49f2-9138-715ef1019ebf\", :children [{:move [[16 1] :white], :id \"56aa6bf4-b811-4ddf-bad2-bf8accd1fc64\", :comment \"It goes back to the same when black hane A.\", :labels {[15 4] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}}]}]}]}"
+}

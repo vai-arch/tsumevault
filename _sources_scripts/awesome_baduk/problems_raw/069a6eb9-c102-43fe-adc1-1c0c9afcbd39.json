@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Black to play / White just played at 1. Play the correct sequence",
+ "id": "069a6eb9-c102-43fe-adc1-1c0c9afcbd39",
+ "variations": "{:labels {[4 11] \"1\"}, :children [{:move [[3 11] :black], :id \"105f0823-8aed-480e-a5db-60ff9ff7f568\", :children [{:move [[3 10] :white], :id \"ac6d6187-a53f-47ca-82c6-7d5c94237390\", :children [{:move [[4 10] :black], :id \"d8902f64-235d-4e43-b870-d48b7f2a41be\", :children [{:move [[2 11] :white], :id \"8d023ab8-7776-46d2-8104-d33b6178a3e3\", :children [{:move [[5 11] :black], :id \"058d7672-24f9-4a81-8f1b-55872b284aa0\"}]}]}]}]}], :stones {[0 8] :black, [4 11] :white, [2 9] :white, [3 9] :black, [1 8] :black, [1 9] :white, [2 10] :white, [3 8] :black, [2 8] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

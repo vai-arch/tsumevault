@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "description": "Black to play / After capturing the White stone, if it is a false eye, mark A, otherwise, mark B",
+ "id": "c26f9ef8-4d0b-43da-bb45-03b1767aaf6c",
+ "variations": "{:labels {[5 3] \"A\", [7 3] \"B\"}, :children [{:move [[5 3] :black], :id \"4366a512-bc50-4cc4-a039-d1db5cd091f7\"}], :stones {[6 8] :white, [6 9] :white, [5 7] :black, [5 9] :black, [4 11] :white, [5 12] :black, [4 6] :white, [4 10] :black, [5 6] :white, [2 11] :white, [4 7] :black, [2 9] :white, [4 9] :black, [2 7] :white, [3 11] :black, [6 11] :white, [3 9] :black, [6 6] :white, [6 7] :white, [3 12] :black, [3 10] :white, [2 10] :white, [5 10] :white, [5 11] :black, [3 6] :white, [5 8] :black, [3 8] :black, [6 10] :white, [2 8] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[4 11]}}}"
+}

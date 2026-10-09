@@ -1,0 +1,6 @@
+{
+ "description": "What is the best way to capture white stones?",
+ "id": "V1dQ9Iev1UgIfrzLh3Kn",
+ "variations": "{:stones {[4 3] :white, [3 4] :black, [5 3] :black, [3 2] :black, [4 2] :white, [5 5] :white, [5 2] :black, [4 5] :white, [3 3] :black, [5 4] :white, [2 6] :white, [6 3] :white, [4 1] :white, [4 4] :black}, :board-size 19, :children [{:move [[5 1] :black], :id \"7f2f433d-5993-4e96-82fe-47c72bbfa7d1\", :children [{:move [[6 1] :white], :id \"f0aeae60-c1a7-4d74-9508-aded34ed9705\", :children [{:move [[3 1] :black], :id \"9da67a1d-8634-4220-ba7a-50717510187c\", :children [{:move [[6 2] :white], :id \"cd75021b-5013-4367-9841-7c4d00815fa2\"}]}]}]} {:move [[6 1] :black], :id \"ed54ce59-278b-424e-a0bc-cc00806928e2\", :children [{:move [[6 2] :white], :id \"e15d7673-1573-45a8-9c4f-bd439c8e9774\", :children [{:move [[5 1] :black], :id \"ff82ef52-9dd9-4cc0-afd3-f91b900eab98\", :children [{:move [[7 1] :white], :id \"369c8e47-8b33-4322-bd6e-2ae44b06b534\", :children [{:move [[3 1] :black], :id \"88408550-1c99-433b-8120-5b28da0a45bb\"}]}]}]}]}]}",
+ "to-play": "black"
+}

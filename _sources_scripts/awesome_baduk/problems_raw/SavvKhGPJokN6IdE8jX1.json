@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[2 14] :white, [4 2] :white, [2 13] :black, [2 3] :black, [15 3] :black, [4 13] :white, [5 16] :white, [2 7] :white, [3 16] :black, [2 15] :black, [4 14] :white, [5 15] :black, [3 15] :white, [3 5] :black, [6 16] :white, [4 16] :black, [15 15] :white, [3 12] :white, [3 14] :black, [3 13] :black, [2 16] :black, [1 14] :white, [16 5] :black, [4 15] :white}, :to-play :black, :labels nil, :marks {:circle nil, :square nil, :triangle #{[2 14] [1 14]}}, :children [{:move [[1 12] :black], :id \"bf56cb30-de0b-4e7a-8e74-bcf30f65d096\", :children [{:move [[2 12] :white], :id \"e5bee7c7-2ea1-49b1-ae5b-60d05e044ad4\", :children [{:move [[1 13] :black], :id \"85eca818-2660-4e66-856e-778aa4cf75e8\", :children [{:move [[1 11] :white], :id \"6e563a13-96e1-40cd-a350-913310361a03\", :children [{:move [[1 15] :black], :id \"dae84efe-4433-4940-b11c-056d6865360a\"}]}]}]}]} {:move [[1 13] :black], :id \"7ead6873-d2d4-4ec0-87de-aaebad41e0c3\", :children [{:move [[1 12] :white], :id \"7dc2ecf7-05fd-4b2c-a987-eeaf8c281537\", :children [{:move [[1 15] :black], :id \"84358186-cc49-4b7f-ac7f-5515e19e33b0\", :children [{:move [[2 12] :white], :id \"0964fafb-58bb-4f4b-98b3-84d9b9931e8f\"}]}]}]}]}",
+ "to-play": "black",
+ "description": "What is the best way to capture white's triangle stones?",
+ "id": "SavvKhGPJokN6IdE8jX1"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "Connect and save black's 3 stones.",
+ "to-play": "black",
+ "variations": "{:stones {[13 17] :black, [17 15] :white, [17 16] :black, [11 16] :black, [12 15] :black, [16 15] :black, [16 16] :black, [15 15] :white, [16 14] :white, [13 16] :black, [17 14] :white, [13 15] :white, [15 13] :white, [14 15] :white, [14 17] :white}, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[16 15] [16 16] [17 16]}}, :children [{:move [[15 17] :black], :id \"078a32c7-719b-40cb-8d93-396ef91d63f9\", :children [{:move [[14 16] :white], :id \"be1a0c42-2ebf-4083-a480-1bbaa3faade9\", :children [{:move [[14 18] :black], :id \"5c3d18d8-e8cd-4859-b7a4-755b145cd13b\"}]}]}]}",
+ "id": "pKrJljwv3bSCe82Hxhg4"
+}

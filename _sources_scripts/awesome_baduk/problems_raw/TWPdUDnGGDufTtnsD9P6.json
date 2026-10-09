@@ -1,0 +1,6 @@
+{
+ "description": "How can Black use the White's weakness to make a nice shape?",
+ "variations": "{:stones {[12 2] :black, [11 3] :black, [9 3] :white, [15 2] :white, [11 4] :black, [16 4] :white, [3 3] :black, [10 3] :white, [11 1] :white, [10 2] :black, [11 2] :white, [6 2] :black, [8 2] :white}, :to-play :black, :labels {[11 4] \"1\", [10 3] \"2\", [11 3] \"3\", [11 2] \"4\", [12 2] \"5\", [11 1] \"6\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[14 2] :black], :id \"c36d1f73-b3f2-4960-933f-5cbe94722d32\", :children [{:move [[10 1] :white], :id \"050d118f-35b9-453b-9c8e-f75cbf541aa9\", :children [{:move [[15 1] :black], :id \"980ab81e-74e7-4e8a-a829-9d0ac7805232\", :children [{:move [[16 2] :white], :id \"2e7f41dc-0010-4f23-9ba8-39ff1bec40c2\", :children [{:move [[14 3] :black], :id \"cd400ae4-7d8e-4ada-bd1a-9f4afcbd21cc\"} {:move [[16 1] :black], :id \"4d0ca305-9941-46e3-afba-d217c33eac87\"}]}]}]}]} {:move [[12 1] :black], :id \"e1fa881b-e199-4f78-8c64-8f1889843fb7\", :children [{:move [[10 1] :white], :id \"2beb7ab6-7648-4baf-8e56-226e97b768ed\"}]} {:move [[13 3] :black], :id \"41a51b14-d82c-4a98-ad50-a463ef0adcb5\", :children [{:move [[10 1] :white], :id \"b2f8ddfe-ce9b-4c00-a706-b2e050d5a503\"}]}]}",
+ "id": "TWPdUDnGGDufTtnsD9P6",
+ "to-play": "black"
+}

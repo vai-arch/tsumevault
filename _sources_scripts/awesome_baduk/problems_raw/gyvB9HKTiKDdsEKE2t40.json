@@ -1,0 +1,6 @@
+{
+ "description": "Black 2 isn't correct. How should White respond?",
+ "variations": "{:stones {[12 2] :black, [11 3] :white, [15 3] :black, [5 2] :black, [9 3] :black, [15 9] :white, [3 3] :white, [9 16] :black, [5 4] :black, [3 15] :black, [15 15] :white, [13 3] :black, [13 16] :black, [16 5] :white, [15 13] :white, [2 5] :white}, :to-play :white, :labels {[11 3] \"1\", [12 2] \"2\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[11 2] :white], :id \"ddcf7440-94e0-4af3-a51b-9808c959f07b\", :labels {[14 2] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"There is Aji at A.\"} {:move [[11 5] :white], :id \"4b3e8fb5-8a8d-4410-8e7c-3ff9f7b0991d\", :children [{:move [[11 2] :black], :id \"5f7f6349-539f-4507-8d3f-d0d6558f6c99\"}]}]}",
+ "id": "gyvB9HKTiKDdsEKE2t40",
+ "to-play": "white"
+}

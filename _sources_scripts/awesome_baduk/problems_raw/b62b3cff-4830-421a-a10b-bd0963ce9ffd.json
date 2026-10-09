@@ -1,0 +1,6 @@
+{
+ "id": "b62b3cff-4830-421a-a10b-bd0963ce9ffd",
+ "description": "Black to play / Capture the marked stones with Hoidori(Oiotoshi)",
+ "to-play": "black",
+ "variations": "{:labels nil, :children [{:move [[4 9] :black], :id \"f903bf52-ab51-4de7-878e-95f70a9e304b\", :children [{:move [[3 9] :white], :id \"dda8d3fd-b5b9-4858-893e-e6cf3df8dbc1\", :children [{:move [[3 8] :black], :id \"11a45a3e-7c65-40ff-816d-9e84c8e7f33c\", :children [{:move [[5 9] :white], :id \"72bceedc-65a9-4174-945d-0631f3a1257d\", :children [{:move [[5 8] :black], :id \"e4fb26c0-7186-4a0e-9007-8d8b5f3e74c5\"}]}]}]}]}], :stones {[6 9] :black, [4 11] :black, [4 10] :white, [2 9] :black, [3 11] :black, [4 8] :white, [3 10] :white, [2 10] :black, [5 10] :white, [5 11] :black, [6 10] :black}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[3 10] [4 10] [5 10]}}}"
+}

@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[13 2] :white, [16 2] :white, [15 3] :black, [5 2] :white, [15 2] :black, [5 16] :white, [3 16] :black, [3 3] :black, [10 16] :black, [5 15] :white, [10 3] :white, [3 15] :black, [4 16] :black, [15 15] :black, [3 13] :black, [2 16] :white, [15 5] :black, [8 16] :white, [2 5] :black}, :board-size 19, :labels {[16 2] \"1\", [15 2] \"2\", [15 1] \"A\", [16 3] \"B\"}, :marks {:triangle #{[15 5] [15 3]}, :circle nil, :square nil}, :to-play :white, :children [{:move [[15 1] :white], :id \"cfb46b89-deb0-4b13-b6b6-356b93dba73e\"} {:move [[16 3] :white], :id \"8c69e243-33d7-4759-8a99-f275d6751689\", :children [{:move [[16 4] :black], :id \"6e3a9191-a4c5-4f11-a152-ab3ae44697a1\"}]}]}",
+ "description": "What is the better move?",
+ "id": "SXZxuduklObQo7lsn5sf",
+ "to-play": "white"
+}

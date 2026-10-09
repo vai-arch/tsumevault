@@ -1,0 +1,6 @@
+{
+ "id": "ce6e7e46-2a8f-419e-ad4d-391a695e9b58",
+ "to-play": "black",
+ "description": "Black to play / White just played at 1. How to capture White?",
+ "variations": "{:labels {[5 10] \"1\"}, :children [{:move [[5 11] :black], :id \"dcab7fe1-720a-4e72-abc0-a5611c5a44aa\", :children [{:move [[6 10] :white], :id \"7b45d22e-9200-4db6-ac37-196ef61c689a\", :children [{:move [[6 9] :black], :id \"433ade7a-b3a5-45c3-9380-bdff363f40dd\", :children [{:move [[6 11] :white], :id \"88a7aefa-c746-455f-a356-26292fba570f\", :children [{:move [[7 10] :black], :id \"ac17c78b-e2b5-45ba-af37-267afa2e9ca3\"}]}]}]}]}], :stones {[1 10] :white, [5 9] :black, [1 11] :white, [4 10] :black, [2 11] :white, [2 9] :white, [4 9] :white, [3 11] :black, [6 7] :white, [4 8] :white, [3 10] :black, [2 10] :black, [5 10] :white, [8 10] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

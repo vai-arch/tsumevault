@@ -1,0 +1,6 @@
+{
+ "description": "How do you attack White's marked group?",
+ "variations": "{:stones {[13 2] :white, [9 15] :black, [2 13] :white, [14 16] :black, [15 3] :black, [9 3] :white, [5 16] :black, [15 9] :black, [11 15] :white, [3 3] :white, [3 15] :white, [15 15] :black, [15 5] :black, [13 16] :white, [13 15] :white, [15 13] :black}, :to-play :black, :board-size 19, :labels {[10 16] \"A\", [10 13] \"B\"}, :marks {:triangle #{[13 16] [13 15] [11 15]}, :circle nil, :square nil}, :children [{:move [[10 16] :black], :id \"8f8942d3-7b1d-40c2-a55c-dcb1417c5a8e\", :comment \"You'd better force White to run away towards the center. White might have to take care of the group with A, and Black will get sente.\", :labels {[12 12] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}} {:move [[10 13] :black], :id \"e0791e26-6896-46e2-b347-f055c14028ce\", :children [{:move [[9 16] :white], :id \"e4e65750-ad47-4c0c-8fd3-4706158914cd\", :children [{:move [[8 16] :black], :id \"5b39c086-39c9-4bfb-8ac9-24ef22b70e76\", :children [{:move [[10 16] :white], :id \"115cd0e0-738b-4da6-9dcc-cb1dfc243485\", :comment \"If Black plays at A instead, White would easily settle inside.\", :labels {[10 13] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}}]}]}]}]}",
+ "to-play": "black",
+ "id": "9XoGtwPPAtR2hvN3k35d"
+}

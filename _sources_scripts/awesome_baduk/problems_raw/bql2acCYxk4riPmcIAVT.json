@@ -1,0 +1,6 @@
+{
+ "description": "Which is better?",
+ "variations": "{:stones {[5 16] :white, [3 16] :black, [5 15] :black, [3 17] :white, [3 15] :black, [6 16] :black, [4 16] :white, [6 17] :white, [2 17] :white, [4 15] :black}, :to-play :black, :labels {[7 16] \"A\", [7 17] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[7 16] :black], :id \"3f0697e2-18a1-4532-9b6f-c402ac85cb25\", :children [{:move [[7 17] :white], :id \"006e6cc0-e579-4065-8039-c6c73b8ec4d2\"}]} {:move [[7 17] :black], :id \"c439a80f-dc88-47ce-b2d1-fde86530b8be\", :children [{:move [[7 16] :white], :id \"c8c279ea-adb9-42cb-808a-3804f93e978b\", :children [{:move [[6 15] :black], :id \"9f6edbc7-c68b-4e60-bfde-b4ba20951490\", :children [{:move [[5 17] :white], :id \"dd6851b6-ddc4-4d29-be1b-a2f587e351b4\", :children [{:move [[8 16] :black], :id \"d71b04ca-4aba-40cc-9963-4325d11f1441\"} {:move [[8 17] :black], :id \"529a4931-d541-4b97-8a12-b7e1855d944a\"}]}]}]}]}]}",
+ "id": "bql2acCYxk4riPmcIAVT",
+ "to-play": "black"
+}

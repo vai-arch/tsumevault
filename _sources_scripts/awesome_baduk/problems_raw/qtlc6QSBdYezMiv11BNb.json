@@ -1,0 +1,6 @@
+{
+ "to-play": "white",
+ "description": "Where is the next important move?",
+ "variations": "{:stones {[16 13] :black, [9 15] :white, [3 4] :black, [2 2] :white, [16 2] :white, [3 2] :black, [16 11] :white, [2 4] :white, [2 13] :black, [2 3] :white, [15 3] :black, [15 16] :white, [15 2] :white, [5 16] :white, [16 3] :black, [16 15] :black, [16 16] :black, [3 3] :black, [3 15] :black, [15 15] :white}, :labels {[16 13] \"1\", [16 11] \"2\", [16 16] \"3\", [15 16] \"4\", [16 15] \"5\"}, :marks {:triangle nil, :circle nil, :square nil}, :to-play :white, :children [{:move [[15 14] :white], :id \"b847e4fd-9aca-4cf5-bd2d-8c2bbdf9a881\", :children [{:move [[17 13] :black], :id \"67128133-5f54-48a2-a102-27e8571c27a8\", :children [{:move [[14 12] :white], :id \"3e50c718-4952-4d44-9591-18bd0886df2e\", :comment \"Jeong-Seock\"}]}]} {:move [[15 13] :white], :id \"e4ca60d0-0341-4b1a-ac21-7b0cef8054d3\", :children [{:move [[15 12] :black], :id \"a29f97ea-14e4-401d-973e-c787fffe9373\", :labels {[16 12] \"A\", [15 14] \"B\"}, :marks {:triangle nil, :circle nil, :square nil}, :comment \"A and B are Miai.\"}]}]}",
+ "id": "qtlc6QSBdYezMiv11BNb"
+}

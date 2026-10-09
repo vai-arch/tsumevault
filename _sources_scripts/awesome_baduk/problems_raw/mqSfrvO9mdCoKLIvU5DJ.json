@@ -1,0 +1,6 @@
+{
+ "variations": "{:stones {[15 14] :black, [16 13] :black, [13 13] :white, [13 17] :black, [14 16] :white, [15 16] :white, [17 16] :black, [12 14] :white, [12 15] :black, [17 17] :black, [16 15] :black, [14 13] :black, [16 16] :black, [11 15] :white, [10 16] :white, [14 14] :white, [16 17] :white, [12 16] :black, [15 15] :white, [16 14] :white, [10 17] :white, [13 16] :black, [13 15] :white, [11 14] :white, [15 13] :black, [17 13] :black}, :board-size 19, :labels nil, :marks {:circle nil, :square nil, :triangle #{[12 15] [12 16] [13 16] [13 17]}}, :children [{:move [[16 18] :black], :id \"4b856d52-49ff-4478-88fe-705b4ecc5c51\", :children [{:move [[15 17] :white], :id \"4d27bc72-2d32-4718-bc44-6f5527b2c005\", :children [{:move [[15 18] :black], :id \"fc62c43a-f307-4c7e-aa8f-8abbe4c52862\", :children [{:move [[14 18] :white], :id \"ea39ee01-c27b-43e6-ab23-9dc00d532239\", :children [{:move [[17 18] :black], :id \"95c10ece-5a73-4fd7-a266-93a7d0f1950e\", :children [{:move [[14 17] :white], :id \"be048c99-c006-48db-9746-9a3642a70ac7\", :children [{:move [[13 18] :black], :id \"f003cf71-4a90-4d87-9a06-78d7dc0c38b4\"}]}]}]}]}]}]}]}",
+ "description": "Rescue black 4 stones by connecting.",
+ "id": "mqSfrvO9mdCoKLIvU5DJ",
+ "to-play": "black"
+}

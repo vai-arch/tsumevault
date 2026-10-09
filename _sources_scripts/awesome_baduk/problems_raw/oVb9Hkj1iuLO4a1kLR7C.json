@@ -1,0 +1,6 @@
+{
+ "id": "oVb9Hkj1iuLO4a1kLR7C",
+ "description": "If white plays at 1, what black can do?",
+ "to-play": "black",
+ "variations": "{:stones {[16 18] :white, [13 17] :black, [14 16] :black, [12 13] :black, [15 16] :black, [14 18] :black, [17 16] :black, [12 15] :black, [17 17] :black, [16 16] :black, [11 15] :white, [16 17] :white, [12 16] :white, [11 17] :white, [10 15] :white, [15 17] :white, [13 16] :white, [13 15] :black, [11 14] :black, [17 18] :white, [14 17] :white}, :to-play :black, :board-size 19, :labels {[16 18] \"1\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[12 17] :black], :id \"c2049546-bfc3-4756-910c-57312defb422\", :children [{:move [[11 16] :white], :id \"c61a376d-5b8c-460c-b4c7-922c674681fe\", :children [{:move [[13 18] :black], :id \"c9b03e44-b336-4830-b127-4775b4bc1064\", :children [{:move [[11 18] :white], :id \"51be2e93-bed3-4832-9d07-588446aae528\", :children [{:move [[18 17] :black], :id \"65993820-4a60-4b2b-b49c-3bf0be884800\", :children [{:move [[12 18] :white], :id \"b4c5e660-7a14-4a73-90eb-e6dde3b272a9\", :children [{:move [[18 18] :black], :id \"1a59c746-b41a-4419-b7fb-8863003ea2e9\", :children [{:move [[15 18] :white], :id \"d0b2ba56-16e7-4375-92f5-0be25dbc2dae\", :children [{:move [[13 17] :black], :id \"2dc017a0-0bb9-47bd-879c-7eb2858b67f8\"}]}]}]}]}]}]}]}]}]}"
+}

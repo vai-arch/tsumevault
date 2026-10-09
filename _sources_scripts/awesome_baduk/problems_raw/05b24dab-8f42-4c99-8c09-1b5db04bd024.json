@@ -1,0 +1,6 @@
+{
+ "id": "05b24dab-8f42-4c99-8c09-1b5db04bd024",
+ "description": "Black to play / Kill the White group by reducing the eye space",
+ "variations": "{:children [{:move [[5 6] :black], :id \"49feea27-dce8-455b-91c5-9dc787fbd9ee\", :children [{:move [[5 7] :white], :id \"375a822d-64d7-4ea4-b211-2fcf9070c947\", :children [{:move [[4 8] :black], :id \"5d112390-9dcf-4a64-a974-03bd807c8632\"}]}]} {:move [[4 8] :black], :id \"06657cde-7928-45f2-9ce0-d1da10feb5e8\", :children [{:move [[5 6] :white], :id \"52d991a2-556b-44ae-ad2e-489fab906fc1\", :children [{:move [[5 8] :black], :id \"84959276-4d4b-4785-9d14-31b9b7e62bfb\"}]}]}], :stones {[6 8] :white, [4 6] :white, [5 5] :black, [4 7] :white, [2 7] :white, [4 5] :black, [7 7] :black, [2 6] :black, [6 6] :white, [6 7] :white, [1 7] :black, [1 8] :black, [6 5] :black, [7 8] :black, [7 5] :black, [3 6] :black, [1 6] :black, [3 7] :white, [2 8] :white, [7 6] :black}, :board-size 9}",
+ "to-play": "black"
+}

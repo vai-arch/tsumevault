@@ -1,0 +1,6 @@
+{
+ "to-play": "black",
+ "id": "97e72c6d-1639-4437-8cf4-972a9e618ff6",
+ "description": "Black to play / White just played at 1. Play the territorial joseki until the sequence ends",
+ "variations": "{:labels {[15 14] \"1\"}, :children [{:move [[16 14] :black], :id \"abbd7af0-07ef-40c3-a8cd-07924a07fc54\", :children [{:move [[16 13] :white], :id \"c8320331-5ceb-49f0-9a51-3f7a5c849406\", :children [{:move [[16 15] :black], :id \"ce82b4ff-16b1-44dd-8f6d-fe8f20275986\", :children [{:move [[15 13] :white], :id \"4c8c10a3-f934-4f71-be4c-fc96afe1dc47\", :children [{:move [[13 16] :black], :id \"7fbbdf93-98d7-4ff6-97a0-5a35ffe9d3f2\", :children nil}]}]}]}]}], :stones {[3 3] :white, [3 15] :white, [15 3] :black, [15 16] :black, [15 14] :white}, :board-size 19, :marks {:triangle nil, :circle nil, :square nil}}"
+}

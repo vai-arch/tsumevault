@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / White just played at 1. Make bad shape for White",
+ "to-play": "black",
+ "id": "52c8f547-1d6e-4248-a9d8-8c3c59d4d967",
+ "variations": "{:labels {[4 10] \"1\"}, :children [{:move [[4 11] :black], :id \"ffad8ae9-4288-406f-be78-e3fc64f70ec7\", :children [{:move [[5 11] :white], :id \"27cb4eb0-a055-40b3-b4b1-0abe58133f32\", :children [{:move [[5 10] :black], :id \"0e062e30-e67d-4b40-950a-c0373a4e4520\", :children [{:move [[5 9] :white], :id \"839b52df-b463-4c98-9429-67675d737863\", :children [{:move [[6 9] :black], :id \"94bd6344-2742-4654-a083-0e1b85bbd7ac\", :children [{:move [[6 10] :white], :id \"1883ad39-94d6-4942-940d-aca7091d00de\", :children [{:move [[5 8] :black], :id \"da89d4da-f9de-4004-8d3d-ce5a077b8eee\", :children [{:move [[5 10] :white], :id \"4f9d4e19-a330-4242-ae09-51ea23025fe8\", :children [{:move [[3 11] :black], :id \"477092c0-4a32-440f-9ae0-abf096827c44\"}]}]}]}]}]}]}]}]}], :stones {[1 11] :white, [4 10] :white, [4 7] :black, [4 9] :white, [3 9] :black, [6 7] :black, [4 8] :black, [3 10] :black, [1 9] :white, [7 8] :black, [3 6] :white, [3 8] :white, [7 11] :black, [3 7] :white, [8 9] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}"
+}

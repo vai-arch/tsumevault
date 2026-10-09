@@ -1,0 +1,6 @@
+{
+ "variations": "{:labels {[3 3] \"A\", [5 3] \"B\"}, :children [{:move [[5 3] :black], :id \"a8fba8df-be2a-4fbe-a689-d40f8c284944\"}], :stones {[6 8] :black, [4 6] :white, [5 5] :black, [5 6] :black, [4 7] :white, [2 7] :black, [4 5] :black, [2 6] :black, [3 5] :white, [6 7] :black, [1 7] :white, [4 8] :white, [1 8] :white, [3 6] :black, [1 6] :white, [2 8] :black, [2 5] :white}, :board-size 9, :marks {:triangle #{[4 6] [4 7] [4 8]}, :square nil, :circle #{[3 6] [2 6] [2 7] [2 8]}}}",
+ "description": "Mark A if it is a bik (seki), otherwise, mark B.",
+ "to-play": "black",
+ "id": "79c169bb-c00b-4ad2-97da-f35156c2106e"
+}

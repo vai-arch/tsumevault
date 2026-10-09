@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Find the attachment across the knight's move among A, B and C",
+ "variations": "{:labels {[2 10] \"A\", [4 10] \"B\", [4 11] \"C\"}, :children [{:move [[4 11] :black], :id \"e86f9a80-a3f6-416f-99d2-3141c62fe9cb\"}], :stones {[1 10] :white, [6 9] :black, [5 9] :black, [7 9] :black, [4 9] :black, [2 7] :black, [8 11] :black, [3 11] :white, [2 6] :black, [3 9] :black, [1 7] :white, [1 8] :white, [1 9] :white, [7 10] :white, [5 10] :white, [7 11] :white, [6 10] :white, [1 6] :black, [8 10] :black, [2 8] :black, [8 9] :black}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "id": "a02825f2-2a99-4127-9a57-d8e508ab0ce6",
+ "to-play": "black"
+}

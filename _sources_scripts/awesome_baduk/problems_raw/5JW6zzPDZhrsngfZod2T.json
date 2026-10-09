@@ -1,0 +1,6 @@
+{
+ "description": "If black chooses A, where white should go?",
+ "to-play": "white",
+ "variations": "{:stones {[15 13] :black, [14 14] :black, [15 15] :black, [13 13] :white, [13 14] :white, [13 15] :white, [14 15] :white, [15 11] :black}, :to-play :white, :board-size 19, :labels {[15 11] \"A\"}, :marks {:triangle nil, :circle nil, :square nil}, :children [{:move [[15 16] :white], :id \"0b211499-219c-4589-a004-cfca1f4f4154\", :children [{:move [[16 15] :black], :id \"ef0da452-4684-4943-bfab-025b6039323f\", :children [{:move [[16 16] :white], :id \"f448c695-ef77-4d0e-adfd-9de8c6125dc9\"}]}]}]}",
+ "id": "5JW6zzPDZhrsngfZod2T"
+}

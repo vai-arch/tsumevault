@@ -1,0 +1,6 @@
+{
+ "id": "8ddc2750-ade3-4bec-a723-71c1b5e064b6",
+ "description": "Black to play / play dansu(atari) to capture the white stone(s)",
+ "variations": "{:labels {[4 9] \"1\"}, :children [{:move [[4 8] :black], :id \"1e85e772-97aa-4686-a288-ee6999a6e802\"} {:move [[3 8] :black], :id \"35e8f14d-d6cb-4bc4-a44d-2c68dcca815d\", :children [{:move [[4 8] :white], :id \"a0c290cc-4b4c-4271-a0dc-be539deaefac\"}]}], :stones {[5 7] :white, [5 9] :black, [7 9] :white, [4 10] :black, [2 9] :black, [4 9] :white, [2 7] :black, [3 9] :white, [3 10] :black, [5 10] :white, [6 10] :white}, :board-size 13, :marks {:triangle nil, :circle nil, :square nil}}",
+ "to-play": "black"
+}

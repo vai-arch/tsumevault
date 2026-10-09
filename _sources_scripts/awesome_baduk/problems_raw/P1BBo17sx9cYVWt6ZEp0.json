@@ -1,0 +1,6 @@
+{
+ "description": "Black's best move is?",
+ "to-play": "black",
+ "variations": "{:stones {[13 2] :black, [16 13] :black, [15 3] :black, [5 16] :black, [6 13] :black, [3 16] :white, [2 15] :white, [4 14] :white, [3 3] :white, [6 15] :black, [3 15] :white, [3 9] :white, [4 16] :white, [15 15] :black, [3 14] :black, [10 15] :white, [13 16] :white, [4 15] :black}, :to-play :black, :board-size 19, :comment \"Let's squeeze white! \", :children [{:move [[4 13] :black], :id \"a537e56a-7093-4e52-a890-d00951499fbb\", :children [{:move [[5 15] :white], :id \"e250f399-9f3e-4f75-b9b2-2e79313b84e4\", :children [{:move [[5 14] :black], :id \"f889323f-cfe5-46bf-8d65-edfa3baca83f\", :children [{:move [[4 15] :white], :id \"2d4a23ca-2d7d-4671-9f04-cd76e171974b\", :children [{:move [[9 13] :black], :id \"16c560e0-c8c7-4c9b-891f-883b3367ac7e\"}]}]}]}]} {:move [[5 15] :black], :id \"f71bfc8e-bad2-4a61-bec9-b313563e99fb\", :children [{:move [[4 13] :white], :id \"2881355e-3b78-4614-bdae-f8f8b86dd571\"}]} {:move [[5 14] :black], :id \"e568a2a8-19e6-4834-922e-84bff43f91af\", :children [{:move [[4 13] :white], :id \"d6a000d0-0e41-4108-b818-28d4232c831c\"}]}]}",
+ "id": "P1BBo17sx9cYVWt6ZEp0"
+}

@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / Capture the White group or Save the Black group\n(make a ko)",
+ "variations": "{:children [{:move [[2 11] :black], :id \"7d9ce25f-78ab-4940-a96f-2c58f019a421\", :children [{:move [[3 11] :white], :id \"3e407f31-d7c7-43ef-bac4-b63c4f9d1b0f\", :children [{:move [[1 12] :black], :id \"23f63ccb-85cc-44c2-9a9d-d1a9fb898a5d\", :children [{:move [[7 12] :white], :id \"c47fc9fd-fe9a-45f4-aeae-10e5ebc950e4\", :children [{:move [[2 11] :black], :id \"fa5ea346-c217-4aef-aa48-61c9fd67a2b3\"}]}]}]}]}], :stones {[1 10] :black, [6 9] :black, [5 9] :black, [0 10] :black, [4 11] :white, [0 11] :black, [8 12] :black, [1 11] :white, [2 12] :white, [2 9] :black, [4 9] :black, [8 11] :black, [6 11] :white, [3 9] :black, [1 8] :black, [3 10] :white, [2 10] :white, [7 10] :black, [5 11] :white, [0 12] :black, [7 11] :white, [8 10] :black}, :board-size 13}",
+ "id": "d1ee4abb-dbb2-48cd-b154-12118f0fbc15",
+ "to-play": "black"
+}

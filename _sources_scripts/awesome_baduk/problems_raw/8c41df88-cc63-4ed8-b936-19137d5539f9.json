@@ -1,0 +1,6 @@
+{
+ "description": "Black to play / If Black 1 against the marked stone is correct , choose A, otherwise, \nchoose B ",
+ "variations": "{:labels {[2 12] \"1\", [5 6] \"A\", [7 6] \"B\"}, :children [{:move [[7 6] :black], :id \"46897100-5d08-4513-9695-4005e1d86278\"}], :stones {[6 8] :white, [4 11] :black, [2 12] :black, [4 10] :black, [2 7] :black, [3 12] :white, [3 10] :black, [5 10] :black, [5 11] :white, [3 8] :black, [7 11] :white, [6 10] :white, [4 12] :white}, :board-size 13, :marks {:circle nil, :square nil, :triangle #{[3 12]}}}",
+ "id": "8c41df88-cc63-4ed8-b936-19137d5539f9",
+ "to-play": "black"
+}
