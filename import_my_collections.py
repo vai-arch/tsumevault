@@ -24,6 +24,10 @@ Options:
                        (default: http://localhost:3002)
     --token TOKEN      X-Auth-Token header value, if the server requires one.
                        Defaults to the TSUMEVAULT_TOKEN environment variable.
+    --source NAME      DB source name (default: my_collections).
+    --sgf-prefix NAME  Folder under which the .sgf files are published; it
+                       becomes the start of every sgf_path (default:
+                       my_collections).
     --validate-only    Only run validation and print the report; never
                        contacts the server.
     --force            Load anyway even if BROKEN problems were found.
@@ -80,7 +84,7 @@ def find_difficulty_marker(chapter_dir, report, ctx):
     return raw, kyu_dan_to_num(matches[0])
 
 
-def scan(root_dir):
+def scan(root_dir, sgf_prefix='my_collections'):
     """Walks root_dir and returns (collections_payload, report). report has
     'errors' / 'broken' / 'warnings' / 'cosmetic' lists of human-readable
     strings. collections_payload is None if the root itself is unusable."""
@@ -152,7 +156,7 @@ def scan(root_dir):
                 fpath = os.path.join(chap_dir, fname)
                 rel = os.path.relpath(fpath, root_dir).replace('\\', '/')
                 problem_id = os.path.splitext(rel)[0]
-                sgf_path = 'my_collections/' + rel
+                sgf_path = sgf_prefix.strip('/') + '/' + rel
 
                 try:
                     with open(fpath, 'rb') as fh:
@@ -238,15 +242,21 @@ def main():
                           "row this script writes (default: my_collections). "
                           "Must exactly match the value used in tsumevault.html's "
                           "source dropdown <option value=\"...\">.")
+    ap.add_argument('--sgf-prefix', default='my_collections',
+                     help="Folder name, relative to the web root, under which "
+                          "the .sgf files are published. It is stored as the "
+                          "start of every problem's sgf_path (default: "
+                          "my_collections).")
     ap.add_argument('--validate-only', action='store_true')
     ap.add_argument('--force', action='store_true',
                      help='Load anyway even if BROKEN problems were found '
                           '(those specific problems are still excluded)')
     args = ap.parse_args()
 
-    print(f"Using source='{args.source}' (change with --source if this is wrong)\n")
+    print(f"Using source='{args.source}' (change with --source if this is wrong)")
+    print(f"Using sgf prefix='{args.sgf_prefix}' (change with --sgf-prefix)\n")
 
-    collections, report = scan(args.root)
+    collections, report = scan(args.root, args.sgf_prefix)
     print_report(report)
 
     if collections is None:

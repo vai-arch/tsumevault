@@ -208,10 +208,12 @@ def validate_problem(root):
                 issues.append(('WARNING',
                                 f'depth {depth}: has a {status} comment but still has '
                                 f'children -- those children are unreachable'))
+            """
             if role == 'opponent' and len(node.children) > 1:
                 issues.append(('WARNING',
                                 f'depth {depth}: opponent-slot node has {len(node.children)} '
                                 f'children -- only the first is ever auto-played'))
+                                """
         else:
             if status is None:
                 if role == 'player':

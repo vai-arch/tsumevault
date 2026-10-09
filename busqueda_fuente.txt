@@ -1,0 +1,48 @@
+﻿tsumevault.html:1190: <option value="my_collections">my_collections</option>
+tsumevault.html:1988: try { dbExec("CREATE TABLE IF NOT EXISTS games (id INTEGER PRIMARY KEY AUTOINCREMENT, game_collection_id INTEGER NOT NULL, name TEXT NOT NULL, sgf_path TEXT NOT NULL)"); } catch (e) { }
+tsumevault.html:2103: chapter_id INTEGER, order_in_chapter INTEGER, sgf_path TEXT NOT NULL,
+tsumevault.html:2150: sgf_path TEXT NOT NULL,
+tsumevault.html:2192: INSERT INTO problems (source,problem_id,set_id,chapter_id,order_in_chapter,sgf_path,sgf_exists,difficulty_raw,difficulty_num,color_to_play,hidden)
+tsumevault.html:2196: order_in_chapter=excluded.order_in_chapter, sgf_path=excluded.sgf_path,
+tsumevault.html:2203: r.order_in_chapter ?? null, r.sgf_path, r.sgf_exists ?? 0,
+tsumevault.html:2227: ins('games', ['id', 'game_collection_id', 'name', 'sgf_path'], snap.games);
+tsumevault.html:2487: p.sgf_path, p.sgf_exists, p.difficulty_raw, p.difficulty_num,
+tsumevault.html:2725: return dbQuery(`SELECT ri.*, p.sgf_path, p.difficulty_raw, p.difficulty_num, p.color_to_play FROM run_items ri JOIN problems p ON p.source=ri.source AND p.problem_id=ri.problem_id WHERE ri.run_id=? ORDER BY ri.order_in_run ASC`, [run_id]);
+tsumevault.html:3083: try { dbExec('INSERT INTO games (id, game_collection_id, name, sgf_path) VALUES (?,?,?,?)', [g.id, g.game_collection_id, g.name, g.sgf_path]); } catch(e) {}
+tsumevault.html:5306: if (!prob || !prob.sgf_path) { nextProblem(); return; }
+tsumevault.html:5307: const sgfPath = SGF_BASE + prob.sgf_path.replace(/\\/g, '/');
+tsumevault.html:5907: let gmCurrentGame = null;   // { id, name, sgf_path }
+tsumevault.html:5938: rows = dbQuery('SELECT g.id, g.name, g.sgf_path, gc.name AS col_name FROM games g JOIN game_collections gc ON gc.id=g.game_collection_id WHERE g.game_collection_id=? ORDER BY g.name ASC', [parseInt(colId)]);
+tsumevault.html:5940: rows = dbQuery('SELECT g.id, g.name, g.sgf_path, gc.name AS col_name FROM games g JOIN game_collections gc ON gc.id=g.game_collection_id ORDER BY gc.name ASC, g.name ASC', []);
+tsumevault.html:5966: const sgfPath = SGF_BASE + gameRow.sgf_path.replace(/\\/g, '/');
+tsumevault.html:6275: 'SELECT p.sgf_path FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE ch.mostrar=1 AND p.sgf_path IS NOT NULL',
+tsumevault.html:6277: ).map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
+tsumevault.html:6285: const total = dbQuery('SELECT COUNT(*) as n FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE ch.mostrar=1 AND p.sgf_path IS NOT NULL', [])[0]?.n || 0;
+tsumevault.html:6301: // en origen (en la practica, my_collections).
+tsumevault.html:6330: const toUrl = r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/');
+tsumevault.html:6331: const rows = dbQuery('SELECT p.sgf_path, p.source FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE ch.mostrar=1 AND p.sgf_path IS NOT NULL', []);
+tsumevault.html:6333: const delUrls = force ? dbQuery(`SELECT p.sgf_path FROM problems p WHERE p.sgf_path IS NOT NULL AND p.source IN (${forceSources.map(() => '?').join(',')})`, forceSources).map(toUrl) : [];
+import_my_collections.bat:1: python import_my_collections.py my_collections --server https://tsumevault.duckdns.org
+import_my_collections.bat:5: call subir_my_collections.bat
+subir_my_collections.bat:3: echo subiendo my_collections
+subir_my_collections.bat:4: git add -f my_collections
+import_games.py:74: "sgf_path": sgf_rel,
+import_my_collections.py:6: (default: my_collections) and must match the value used in tsumevault.html's
+import_my_collections.py:20: python import_my_collection.py <path-to-my_collections-folder> [options]
+import_my_collections.py:54: """Tool/editor-generated folders that can end up inside my_collections
+import_my_collections.py:155: sgf_path = 'my_collections/' + rel
+import_my_collections.py:177: 'sgf_path': sgf_path,
+import_my_collections.py:233: ap.add_argument('root', help='Path to the my_collections folder')
+import_my_collections.py:236: ap.add_argument('--source', default='my_collections',
+import_my_collections.py:238: "row this script writes (default: my_collections). "
+test.py:8: "FROM collections WHERE source='my_collections'"
+test.py:15: "FROM chapters WHERE source='my_collections' ORDER BY set_id, chapter_num"
+tsumevault_server.py:1307: SELECT ri.*, p.sgf_path, p.difficulty_raw, p.difficulty_num, p.color_to_play
+tsumevault_server.py:1490: or "sgf_path" not in game
+tsumevault_server.py:1518: "INSERT INTO games (game_collection_id, name, sgf_path) VALUES (?, ?, ?)",
+tsumevault_server.py:1519: (col_id, game["name"], game["sgf_path"]),
+tsumevault_server.py:1544: {"problem_id": str, "sgf_path": str,
+tsumevault_server.py:1580: or "sgf_path" not in p or "order_in_chapter" not in p):
+tsumevault_server.py:1648: sgf_path, sgf_exists, difficulty_raw, difficulty_num,
+tsumevault_server.py:1655: sgf_path=excluded.sgf_path,
+tsumevault_server.py:1664: p["order_in_chapter"], p["sgf_path"],
