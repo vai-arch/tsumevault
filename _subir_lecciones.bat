@@ -36,5 +36,14 @@ if errorlevel 1 (
 )
 
 echo.
+echo Ajustando permisos para que Caddy pueda leer las carpetas ^(scp desde Windows las deja en 700 y daria 403^)...
+ssh %SSH_OPTS% %HOST% "chmod -R a+rX /opt/tsumevault/player/lessons"
+if errorlevel 1 (
+  echo.
+  echo AVISO: no se pudieron ajustar los permisos. Lanza a mano en el servidor:
+  echo   chmod -R a+rX /opt/tsumevault/player/lessons
+)
+
+echo.
 echo Listo de verdad esta vez. NOTA: studied.json y recorded.json NO se suben ^(uso solo local^).
 pause

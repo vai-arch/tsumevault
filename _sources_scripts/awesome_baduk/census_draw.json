@@ -1,0 +1,241 @@
+{
+ "cursos_totales": 474,
+ "clips_totales": 1557,
+ "cursos_con_draw_events": 161,
+ "clips_con_draw_events": 298,
+ "clips_con_tinta": 283,
+ "trazos": 2122,
+ "borrados": 860,
+ "tipos_de_evento": {
+  ":draw-move": 175179,
+  ":start-drawing": 2122,
+  ":stop-drawing": 2120,
+  ":delete-drawing": 860,
+  ":set-color": 123
+ },
+ "formas_de_argumentos": {
+  ":draw-move": {
+   "(vec2)": 175179
+  },
+  ":start-drawing": {
+   "(vec2)": 2122
+  },
+  ":stop-drawing": {
+   "()": 2120
+  },
+  ":delete-drawing": {
+   "()": 860
+  },
+  ":set-color": {
+   "(str)": 123
+  }
+ },
+ "colores": {
+  "#e91e63": 14,
+  "#f44336": 87,
+  "#03a9f4": 7,
+  "#b80000": 4,
+  "#2196f3": 3,
+  "#004dcf": 1,
+  "#9c27b0": 1,
+  "#db3e00": 2,
+  "#fccb00": 1,
+  "#673ab7": 1,
+  "#00bcd4": 1,
+  "#ff9800": 1
+ },
+ "tinta_x": {
+  "min": -1.269218921661377,
+  "p1": 18.227415084838867,
+  "p50": 366.4404296875,
+  "p99": 590.88427734375,
+  "max": 599.6392211914062,
+  "n": 86230
+ },
+ "tinta_y": {
+  "min": -0.9310210347175598,
+  "p1": 11.164825439453125,
+  "p50": 251.12686157226562,
+  "p99": 583.9984741210938,
+  "max": 599.1396484375,
+  "n": 86230
+ },
+ "sin_tinta_x": {
+  "min": -3.9356720447540283,
+  "p1": 26.898080825805664,
+  "p50": 401.0699768066406,
+  "p99": 594.5880737304688,
+  "max": 599.6392211914062,
+  "n": 91071
+ },
+ "sin_tinta_y": {
+  "min": -2.1298205852508545,
+  "p1": 14.187228202819824,
+  "p50": 261.7644958496094,
+  "p99": 578.5111694335938,
+  "max": 599.1396484375,
+  "n": 91071
+ },
+ "trazos_por_clip_max": 69,
+ "duracion_trazo_ms": {
+  "min": 0,
+  "p1": 0,
+  "p50": 889,
+  "p99": 3418,
+  "max": 7379,
+  "n": 2114
+ },
+ "puntos_por_trazo": {
+  "min": 1,
+  "p1": 1,
+  "p50": 30,
+  "p99": 153,
+  "max": 281,
+  "n": 2114
+ },
+ "top_mayores_coordenadas_tinta": [
+  {
+   "valor": 599.6392211914062,
+   "curso": "courses/Z0N6JZiXE1beAwhMJxMn",
+   "clip": 0,
+   "titulo": "4 corner patterns you must know to be 9kyu 4"
+  },
+  {
+   "valor": 599.6392211914062,
+   "curso": "courses/U08kQVWQL95D4QO98l0h",
+   "clip": 1,
+   "titulo": "Let's master 3-3 invasion during Jeong-seok 2"
+  },
+  {
+   "valor": 599.6392211914062,
+   "curso": "courses/U08kQVWQL95D4QO98l0h",
+   "clip": 1,
+   "titulo": "Let's master 3-3 invasion during Jeong-seok 2"
+  },
+  {
+   "valor": 599.6392211914062,
+   "curso": "courses/SXgRQH5sACx1EVZ6UdvM",
+   "clip": 15,
+   "titulo": "The 3-star opening"
+  },
+  {
+   "valor": 599.6383666992188,
+   "curso": "courses/xia2NDkdV9eQTt6vmJ5C",
+   "clip": 2,
+   "titulo": "Ask before Denfence!"
+  },
+  {
+   "valor": 599.6228637695312,
+   "curso": "courses/nM6lfcXkzSfEfiJib2nF",
+   "clip": 1,
+   "titulo": "The Basics of the Bent Four"
+  },
+  {
+   "valor": 599.6228637695312,
+   "curso": "courses/nM6lfcXkzSfEfiJib2nF",
+   "clip": 1,
+   "titulo": "The Basics of the Bent Four"
+  },
+  {
+   "valor": 599.4371948242188,
+   "curso": "courses/P63bpj7PRju362cReSyi",
+   "clip": 0,
+   "titulo": "All About The L-Shape + One Leg 2"
+  },
+  {
+   "valor": 599.4371337890625,
+   "curso": "courses/Vy96K82g0V3ZZQUcvblf",
+   "clip": 2,
+   "titulo": "the shapes are all related! End Game lecture!"
+  },
+  {
+   "valor": 599.4371337890625,
+   "curso": "courses/3M543FsyhkNyi9Du8pCv",
+   "clip": 2,
+   "titulo": "What is this move?"
+  }
+ ],
+ "anomalias": {
+  "trazo_abierto_al_final": [
+   [
+    "courses/3M543FsyhkNyi9Du8pCv",
+    2
+   ]
+  ],
+  "start_sin_stop": [
+   [
+    "courses/Ly5UNCIwQk6jK73PY9hs",
+    1,
+    40329
+   ],
+   [
+    "courses/QONobjmPiOflXocx73RT",
+    1,
+    951047
+   ],
+   [
+    "courses/RaC6X6gRU818Riy4kMzb",
+    1,
+    232112
+   ],
+   [
+    "courses/WQ0BXVACwdnIuv7UHYlu",
+    1,
+    373077
+   ],
+   [
+    "courses/r1pGXBp8Tp4OhJutJ3Ci",
+    2,
+    197450
+   ],
+   [
+    "courses/r1pGXBp8Tp4OhJutJ3Ci",
+    2,
+    200309
+   ],
+   [
+    "courses/sWVI1Gcy9EaRLzWLfbWq",
+    1,
+    729117
+   ]
+  ],
+  "stop_sin_start": [
+   [
+    "courses/P63bpj7PRju362cReSyi",
+    0,
+    34838
+   ],
+   [
+    "courses/QONobjmPiOflXocx73RT",
+    2,
+    281408
+   ],
+   [
+    "courses/TwvuSCeflpLacSAsK81E",
+    1,
+    315413
+   ],
+   [
+    "courses/Vy96K82g0V3ZZQUcvblf",
+    2,
+    65189
+   ],
+   [
+    "courses/dtUFXt7ucy0GTw9zrM6w",
+    1,
+    77849
+   ],
+   [
+    "courses/nM6lfcXkzSfEfiJib2nF",
+    1,
+    204054
+   ]
+  ]
+ },
+ "anomalias_conteo": {
+  "trazo_abierto_al_final": 1,
+  "start_sin_stop": 7,
+  "stop_sin_start": 6
+ },
+ "errores_de_parseo": []
+}

@@ -218,6 +218,8 @@ let wgoBoard = null, boardSize = 19;
 let padding = 0.6;
 let liveKifu = null;
 let changeList = [], rawEvents = [], isReady = false, currentIdx = -1;
+let drawData = null;                       // <id>_draw.json (dibujo a mano del profesor) o null
+let drawCanvas = null, drawRef = null, drawSig = null, drawRAF = null;
 const audio = document.getElementById('audio');
 // player.html se sirve desde GitHub Pages (vai-arch.github.io) pero el audio
 // viene de tsumevault.duckdns.org — origen distinto. Sin crossOrigin, el
@@ -499,6 +501,7 @@ function initBoard() {
   if (sub) sub.style.width = size + 'px';
   const hdr = document.getElementById('lesson-header');
   if (hdr) hdr.style.width = size + 'px';
+  createDrawCanvas();
 }
 
 // ── Clear board ──
@@ -652,6 +655,84 @@ function showPointer(px, py) {
 }
 function hidePointer() { document.getElementById('ptr').classList.remove('visible'); }
 
+// ── Dibujo a mano del profesor (<id>_draw.json) ──
+// Formato: {size, strokes:[{t, c, p:[[dt,x,y],...]}], clears:[t,...]}. t en segundos (mismo eje que el audio),
+// x/y en px de un lienzo original de size x size que ocupa TODO el tablero. Se pinta en un canvas propio,
+// encima de los de WGo y dentro de #board, para que el grabador (que copia '#board canvas') lo incluya.
+function syncDrawLayout() {
+  if (!drawCanvas || !drawRef) return;
+  const st = drawCanvas.style;
+  st.left = drawRef.offsetLeft + 'px';  st.top = drawRef.offsetTop + 'px';
+  st.width = drawRef.offsetWidth + 'px'; st.height = drawRef.offsetHeight + 'px';
+}
+function createDrawCanvas() {
+  drawCanvas = null; drawRef = null; drawSig = null;
+  const first = document.querySelector('#board canvas');
+  if (!first || !first.parentNode) return;
+  drawRef = first;
+  drawCanvas = document.createElement('canvas');
+  drawCanvas.id = 'draw-canvas';
+  drawCanvas.style.cssText = 'position:absolute;pointer-events:none;z-index:1000;';   // WGo usa z-index inline 100/200/300 en sus capas
+  first.parentNode.appendChild(drawCanvas);
+  drawCanvas.width = first.width; drawCanvas.height = first.height;
+  syncDrawLayout();
+  renderDraw(audio.currentTime || 0);
+}
+function renderDraw(t) {
+  if (!drawCanvas || !drawRef) return;
+  const W = drawRef.width, H = drawRef.height;
+  if (!W || !H) return;
+  if (drawCanvas.width !== W || drawCanvas.height !== H) {
+    drawCanvas.width = W; drawCanvas.height = H; drawSig = null; syncDrawLayout();
+  }
+  const par = drawCanvas.parentNode;                // WGo puede anadir capas despues: mantener el dibujo encima
+  if (par && par.lastElementChild !== drawCanvas) par.appendChild(drawCanvas);
+  const d = drawData;
+  const vis = [];                                   // [trazo, nº de puntos ya alcanzados]
+  let lastClear = -1, total = 0;
+  if (d && Array.isArray(d.strokes)) {
+    for (const c of (d.clears || [])) if (c <= t && c > lastClear) lastClear = c;
+    for (const s of d.strokes) {
+      if (s.t > t) break;                           // ordenados por inicio
+      if (s.t < lastClear) continue;                // borrado despues de empezar este trazo
+      let n = 0;
+      while (n < s.p.length && s.t + s.p[n][0] <= t) n++;
+      if (n) { vis.push([s, n]); total += n; }
+    }
+  }
+  const sig = lastClear + '|' + vis.length + '|' + total;
+  if (sig === drawSig) return;                      // nada nuevo que pintar
+  drawSig = sig;
+  const ctx = drawCanvas.getContext('2d');
+  ctx.clearRect(0, 0, W, H);
+  if (!vis.length) return;
+  const k = W / ((d && d.size) || 600);
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.lineWidth = Math.max(2, W * 0.0045);
+  for (const [s, n] of vis) {
+    const p = s.p;
+    ctx.strokeStyle = ctx.fillStyle = s.c || '#f44336';
+    if (n === 1) {                                  // un solo punto: marca redonda
+      ctx.beginPath(); ctx.arc(p[0][1] * k, p[0][2] * k, ctx.lineWidth / 2, 0, 2 * Math.PI); ctx.fill();
+      continue;
+    }
+    ctx.beginPath(); ctx.moveTo(p[0][1] * k, p[0][2] * k);
+    for (let i = 1; i < n - 1; i++) {               // curva suave por los puntos medios
+      ctx.quadraticCurveTo(p[i][1] * k, p[i][2] * k, (p[i][1] + p[i + 1][1]) / 2 * k, (p[i][2] + p[i + 1][2]) / 2 * k);
+    }
+    ctx.lineTo(p[n - 1][1] * k, p[n - 1][2] * k);
+    ctx.stroke();
+  }
+}
+// Mientras suena: bucle propio a ~60 fps (syncToAudio solo corre cada 250 ms y un trazo dura ~2 s).
+// Solo arranca en lecciones que tienen dibujo; el resto no paga nada.
+function drawLoop() {
+  drawRAF = null;
+  renderDraw(audio.currentTime || 0);
+  if (!audio.paused && !audio.ended) drawRAF = requestAnimationFrame(drawLoop);
+}
+function startDrawLoop() { if (drawData && !drawRAF) drawRAF = requestAnimationFrame(drawLoop); }
+
 // ── Sync audio → board ──
 function syncToAudio(forceT) {
   if (!isReady || !changeList.length) return;
@@ -663,6 +744,7 @@ function syncToAudio(forceT) {
   }
   if (idx !== currentIdx) renderSnapshot(idx);
   updateProgress(t);
+  renderDraw(t);
 
   let lastPtr=null;
   for (const ev of rawEvents) {
@@ -754,7 +836,9 @@ audio.addEventListener('canplaythrough', () => {
   document.getElementById('t-tot').textContent=fmtTime(audio.duration);
   buildTicks();
 });
-audio.addEventListener('playing', () => { setStatus('PLAYING'); document.getElementById('btn-play').textContent='⏸'; });
+audio.addEventListener('playing', () => { setStatus('PLAYING'); document.getElementById('btn-play').textContent='⏸'; startDrawLoop(); });
+audio.addEventListener('pause',  () => renderDraw(audio.currentTime || 0));
+audio.addEventListener('seeked', () => renderDraw(audio.currentTime || 0));
 audio.addEventListener('pause',   () => { setStatus('PAUSED');  document.getElementById('btn-play').textContent='▶'; });
 audio.addEventListener('ended',   () => { setStatus('ENDED');   document.getElementById('btn-play').textContent='▶'; });
 
@@ -882,7 +966,7 @@ async function loadLesson(forcedId) {
   }
   setStatus('LOADING...');
   isReady = false; currentIdx = -1; changeList = []; rawEvents = [];
-  loadedSgf = null; loadedJson = null;
+  loadedSgf = null; loadedJson = null; drawData = null;
   try {
     if (!allLessons.length) {
       const allRes = await fetch(PLAYER_DATA_BASE + 'all_lessons.json');
@@ -939,6 +1023,14 @@ async function loadLesson(forcedId) {
         subtitles = (subData.rows || []);
       } else { subtitles = []; }
     } catch { subtitles = []; }
+    drawData = null;                       // dibujo a mano: fichero opcional, como los subtitulos
+    try {
+      const drRes = await fetch(dir + id + '_draw.json');
+      if (drRes.ok) {
+        const dd = await drRes.json();
+        if (dd && Array.isArray(dd.strokes) && dd.strokes.length) drawData = dd;
+      }
+    } catch { drawData = null; }
     tryInit();
   } catch(err) {
     setStatus('ERROR: ' + err.message.slice(0,50));

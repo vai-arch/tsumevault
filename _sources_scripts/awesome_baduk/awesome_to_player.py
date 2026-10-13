@@ -28,7 +28,7 @@ import sys
 from pathlib import Path
 
 sys.setrecursionlimit(20000)
-VERSION = 'v20 - lessonLength en minutos, dificultad 0-5, marcas persistentes, lista de carpetas de curso al terminar'
+VERSION = 'v22 - dibujo a mano: <id>_draw.json por clip, --draw-only, --ids, proteccion --new-ids (lessonLength en minutos, dificultad 0-5, marcas persistentes)'
 B, W = 1, -1
 FLAG_MODE = 'ignore'        # flag=true en :move: 'ignore' (decidido con datos: invertir da mas anomalias) | 'invert'
 ADD_MODE = 'child'          # :add -> 'child': nodo hijo nuevo con la piedra | 'inplace': piedra en el nodo actual
@@ -335,6 +335,81 @@ def _parse_markup(prop):
     m = re.match(r'^([A-Z]{2})\[([a-z]{2})(?::(.*))?\]$', prop)
     k, c, t = m.groups()
     return k, (ord(c[0]) - 97, ord(c[1]) - 97), t
+
+
+# ------------------------------------------------------- dibujo a mano (draw-events)
+DRAW_SIZE = 600                 # lado (px) del lienzo original; verificado con el censo (max 599.6)
+DRAW_DEFAULT_COLOR = '#f44336'  # color si un trazo empieza sin :set-color previo en el clip
+
+
+def translate_draw(raw, warn):
+    """draw-events (EDN) de un clip -> dict para <id>_draw.json, o None si no hay tinta.
+
+    Mismo eje de tiempos que translate(): ms/1000 redondeado a 3 decimales, sin desplazamiento.
+    Solo se guardan los puntos CON tinta (entre :start-drawing y :stop-drawing); los
+    :draw-move con el boton arriba se descartan. :delete-drawing borra todo lo anterior.
+    Los avisos se anotan en `warn` (Counter) con el prefijo 'draw:'.
+    """
+    if not isinstance(raw, str) or raw.strip() in ('', 'nil'):
+        return None
+    try:
+        evs = edn(raw)
+        if not isinstance(evs, list):
+            raise ValueError('draw-events no es una lista')
+    except Exception as e:  # noqa: BLE001
+        warn[f'draw: draw-events ilegible ({type(e).__name__}), dibujo omitido'] += 1
+        return None
+
+    strokes, clears = [], []
+    color, color_seen, cur = DRAW_DEFAULT_COLOR, False, None
+
+    def close():
+        nonlocal cur
+        strokes.append(cur)
+        cur = None
+
+    def pt(t_ms, p):
+        return [round((t_ms - cur['t0']) / 1000.0, 3), round(float(p[0]), 1), round(float(p[1]), 1)]
+
+    for ev in evs:
+        try:
+            t, body = ev[0], ev[1]
+            kind = str(body[0])
+        except (IndexError, TypeError):
+            warn['draw: evento malformado ignorado'] += 1
+            continue
+        if kind == 'set-color':
+            color, color_seen = str(body[1]), True
+        elif kind == 'start-drawing':
+            if cur is not None:
+                warn['draw: start-drawing sin stop previo (trazo anterior cerrado)'] += 1
+                close()
+            if not color_seen:
+                warn[f'draw: trazo sin set-color previo (usa {DRAW_DEFAULT_COLOR})'] += 1
+            cur = {'t0': t, 'c': color, 'p': []}
+            cur['p'].append(pt(t, body[1]))
+        elif kind == 'draw-move':
+            if cur is not None:
+                cur['p'].append(pt(t, body[1]))
+        elif kind == 'stop-drawing':
+            if cur is None:
+                warn['draw: stop-drawing sin start (ignorado)'] += 1
+            else:
+                close()
+        elif kind == 'delete-drawing':
+            if cur is not None:
+                close()
+            clears.append(round(t / 1000.0, 3))
+        else:
+            warn[f'draw: evento desconocido {kind}'] += 1
+    if cur is not None:
+        warn['draw: trazo abierto al final del clip (cerrado en su ultimo punto)'] += 1
+        close()
+    if not strokes:
+        return None
+    out = [{'t': round(st['t0'] / 1000.0, 3), 'c': st['c'], 'p': st['p']} for st in strokes]
+    out.sort(key=lambda st: st['t'])
+    return {'size': DRAW_SIZE, 'strokes': out, 'clears': sorted(clears)}
 
 
 def translate(events, root, byid, start, n_nodes, forwards_mode, warn, size=19, uid_sigs=None, persisted=None):
@@ -796,6 +871,14 @@ def main():
                     help='escribe tambien all_lessons.json (la copia que lee el player de prueba) con las mismas filas')
     ap.add_argument('--only', action='append', default=[],
                     help='convertir solo cursos cuyo titulo contenga este texto (o cuyo id coincida); repetible')
+    ap.add_argument('--draw-only', action='store_true',
+                    help='solo genera los <id>_draw.json de los clips YA publicados (usa lesson_ids.json); '
+                         'no toca .sgf, .json, .ogg, manifests ni informes, y no necesita audio')
+    ap.add_argument('--ids', default=None,
+                    help='ruta de lesson_ids.json (por defecto OUT\\lesson_ids.json); permite usar el de otra carpeta')
+    ap.add_argument('--new-ids', action='store_true',
+                    help='confirma que se empieza SIN lesson_ids.json (IDs nuevos desde --id-start). '
+                         'Sin esto, si falta o esta vacio, el conversor se detiene para no repetir IDs ya publicados')
     ap.add_argument('--census', default=None, help='census_courses.csv: convertir solo cursos con ese Estado')
     ap.add_argument('--estado', default='LISTO', help='estados del censo a convertir, separados por comas (LISTO,REVISAR)')
     ap.add_argument('--forwards', choices=['first', 'last'], default='first')
@@ -827,8 +910,16 @@ def main():
     MARK_REPEAT, LABEL_SCOPE, LABEL_REPEAT = args.mark_repeat, args.label_scope, args.label_repeat
     out = Path(args.out)
     out.mkdir(parents=True, exist_ok=True)
-    ids_path = out / 'lesson_ids.json'
+    ids_path = Path(args.ids) if args.ids else out / 'lesson_ids.json'
     ids = json.loads(ids_path.read_text(encoding='utf-8')) if ids_path.exists() else {}
+    if not ids and not args.new_ids:
+        if args.draw_only:
+            sys.exit(f'--draw-only necesita un lesson_ids.json con contenido: {ids_path} no existe o esta vacio. '
+                     f'Indica el correcto con --ids RUTA.')
+        sys.exit(f'No hay lesson_ids.json con contenido en {ids_path}. Sin el, los lessonId se repartirian desde '
+                 f'{args.id_start} y chocarian con los ya publicados. Restauralo (--ids RUTA, o rebuild_lesson_ids.py); '
+                 f'si de verdad empiezas desde cero, anade --new-ids.')
+    draw_stats = collections.Counter()
     rows_path = out / 'all_lessons.new.json'
     rep_path = out / 'convert_report.json'
     rows_by_id = ({r['lessonId']: r for r in json.loads(rows_path.read_text(encoding='utf-8'))['rows']}
@@ -860,7 +951,7 @@ def main():
             continue
         try:
             bd = course.get('board') or {}
-            if bd.get('variations'):
+            if bd.get('variations') and not args.draw_only:   # en --draw-only el arbol no hace falta
                 tree = edn(bd['variations'])
             else:                                   # curso solo-audio: tablero vacio
                 tree = {'id': 'root', 'children': []}
@@ -879,11 +970,30 @@ def main():
             persisted = {}                # marcas/etiquetas por nodo (persisten entre clips)
             for ci, clip in enumerate(course.get('clips') or [], 1):
                 key = f'{cid}/{clip.get("video-id")}'
+                if args.draw_only:
+                    lid = ids.get(key)
+                    if lid is None:
+                        draw_stats['clips sin ID (no publicados, se omiten)'] += 1
+                        continue
+                    w = collections.Counter()
+                    doc = translate_draw(clip.get('draw-events'), w)
+                    for k, v in w.items():
+                        draw_stats['aviso ' + k] += v
+                    if not doc:
+                        draw_stats['clips sin dibujo'] += 1
+                        continue
+                    d = (out / 'lessons' / player_sanitize(args.type_name) / player_sanitize(title)
+                         / player_sanitize(f'Clip {ci:02d}'))
+                    d.mkdir(parents=True, exist_ok=True)
+                    (d / f'{lid}_draw.json').write_text(json.dumps(doc, separators=(',', ':')) + '\n',
+                                                        encoding='utf-8')
+                    draw_stats['_draw.json escritos'] += 1
+                    course_dirs[d.parent.name] = title
+                    continue
                 ev_raw = clip.get('events')
                 events = edn(ev_raw) if isinstance(ev_raw, str) and ev_raw != 'nil' else []
                 warn = collections.Counter()
-                if clip.get('draw-events') not in (None, 'nil'):
-                    warn['draw-events ignorados (fase 2)'] += 1
+                draw_doc = translate_draw(clip.get('draw-events'), warn)
 
                 root, byid = build_tree(tree)
                 start = resolve(root, byid, sig)
@@ -909,9 +1019,9 @@ def main():
                     if old is not None:                       # limpiar restos de ejecuciones anteriores
                         rows_by_id.pop(old, None)
                         report.pop(str(old), None)
-                        for ext in ('sgf', 'json'):
+                        for fname in (f'{old}.sgf', f'{old}.json', f'{old}_draw.json'):
                             try:
-                                (d / f'{old}.{ext}').unlink()
+                                (d / fname).unlink()
                             except OSError:
                                 pass
                         try:
@@ -927,6 +1037,11 @@ def main():
                 (d / f'{lid}.sgf').write_text(sgf, encoding='utf-8')
                 (d / f'{lid}.json').write_text(json.dumps(events_out, separators=(',', ':')) + '\n',
                                                encoding='utf-8')
+                draw_path = d / f'{lid}_draw.json'
+                if draw_doc:
+                    draw_path.write_text(json.dumps(draw_doc, separators=(',', ':')) + '\n', encoding='utf-8')
+                elif draw_path.exists():                   # el clip ya no tiene dibujo: quitar el anterior
+                    draw_path.unlink()
                 course_dirs[d.parent.name] = title
 
                 audio_status = 'sin --audio-root'
@@ -950,14 +1065,27 @@ def main():
                                     'events_out': len(events_out), 'nodes_sgf': n_nodes,
                                     'audio': audio_status, 'selfcheck': problems or 'OK',
                                     'warnings': dict(warn)}
+                if draw_doc:
+                    report[str(lid)]['draw'] = {'strokes': len(draw_doc['strokes']),
+                                                'points': sum(len(st['p']) for st in draw_doc['strokes']),
+                                                'clears': len(draw_doc['clears'])}
                 flag = 'OK ' if not problems else '!! '
                 print(f'{flag}{lid} {title[:30]:30} {name} vimeo {vid}  eventos {len(events)}->{len(events_out)}'
-                      f'  nodos {n_nodes}  audio: {audio_status}  avisos {sum(warn.values())}')
+                      f'  nodos {n_nodes}  audio: {audio_status}  avisos {sum(warn.values())}'
+                      + (f'  dibujo {len(draw_doc["strokes"])} trazos' if draw_doc else ''))
 
         except Exception as e:  # noqa: BLE001
             errors.append({'curso': title, 'id': cid, 'error': f'{type(e).__name__}: {e}'})
             print(f'!! ERROR en el curso "{title}": {type(e).__name__}: {e}  (se omite y se continua)')
 
+    if args.draw_only:
+        print('\n==== --draw-only ====')
+        for k, v in sorted(draw_stats.items()):
+            print(f'  {k}: {v}')
+        if errors:
+            print(f'  cursos omitidos por error: {len(errors)} (primero: {errors[0]["curso"]}: {errors[0]["error"]})')
+        print(f'\nSolo se han escrito ficheros *_draw.json bajo {out}\\lessons\\{player_sanitize(args.type_name)}\\')
+        return
     if unmapped_groups:
         print(f'\nCursos sin nivel de dificultad (target-group no reconocido): {dict(unmapped_groups)}')
     if errors:
