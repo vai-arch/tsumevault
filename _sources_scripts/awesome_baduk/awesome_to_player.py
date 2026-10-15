@@ -28,17 +28,18 @@ import sys
 from pathlib import Path
 
 sys.setrecursionlimit(20000)
-VERSION = 'v22 - dibujo a mano: <id>_draw.json por clip, --draw-only, --ids, proteccion --new-ids (lessonLength en minutos, dificultad 0-5, marcas persistentes)'
+VERSION = 'v27 - :navigate nil = ir a la raiz (tablero vacio sin arbol); v26: :add auto2; v25: :add quita cualquier piedra; v24: color por alternancia; v23: flag=true = blanca'
 B, W = 1, -1
-FLAG_MODE = 'ignore'        # flag=true en :move: 'ignore' (decidido con datos: invertir da mas anomalias) | 'invert'
-ADD_MODE = 'child'          # :add -> 'child': nodo hijo nuevo con la piedra | 'inplace': piedra en el nodo actual
+FLAG_MODE = 'white'         # flag=true en :move: 'white' (piedra blanca, validado en video, como :add) | 'ignore' | 'invert'
+ADD_MODE = 'auto2'          # :add -> 'auto2' (v26): en el nodo si no tiene jugada, si no nodo hijo; retroceder salta los retoques | 'auto' | 'child' (v22-v25) | 'inplace'
 ADD_FLAG_TRUE = 'white'     # color de :add con flag=true ('white' | 'black'); con flag=false el otro
 MARKS_PERSIST = 'clip'      # marcas y etiquetas de un nodo se conservan al pasar al clip siguiente ('clip') o no ('none')
 MARK_REPEAT = 'toggle'      # marca repetida en el mismo nodo: 'toggle' (la quita) | 'keep' (se queda)
 LABEL_REPEAT = 'toggle'      # etiqueta sobre un punto ya etiquetado: 'toggle' (la quita) | 'keep' (se superpone)
 LABEL_SCOPE = 'node'        # contador de etiquetas A,B,C / 1,2,3: 'node' (reinicia en cada nodo) | 'clip' (continua en todo el clip)
-ADD_SEM = 'toggle'         # :add 'toggle': si ya hay una piedra del mismo color la quita (por defecto) | 'place': siempre pone
+ADD_SEM = 'remove'         # :add 'remove': si hay CUALQUIER piedra la quita, si no pone (validado: reproduce la captura) | 'toggle': solo quita si es del mismo color (v22-v24) | 'place': siempre pone
 SUICIDE_MODE = 'remove'     # jugada suicida: 'remove' quita el grupo | 'keep' deja la piedra
+NAV_NIL = 'root'            # :navigate nil -> 'root' (v27: va a la raiz, validado con captura) | 'ignore' (v22-v26: nodo desconocido)
 DIAG = None                 # si es una lista, translate() anota ahi las anomalias (para el censo)
 
 
@@ -412,6 +413,11 @@ def translate_draw(raw, warn):
     return {'size': DRAW_SIZE, 'strokes': out, 'clears': sorted(clears)}
 
 
+def _is_live_add(n):
+    """Nodo creado en vivo solo con retoques (:add), sin jugada."""
+    return n is not None and not n.base and not n.move and bool(n.adds) and n.stones is None
+
+
 def translate(events, root, byid, start, n_nodes, forwards_mode, warn, size=19, uid_sigs=None, persisted=None):
     out = []
     uid_map = {}
@@ -429,7 +435,10 @@ def translate(events, root, byid, start, n_nodes, forwards_mode, warn, size=19, 
     # decision 4: t=0 muestra el primer nodo al que se navega
     initial = start
     if events and str(events[0][1][0]) == 'navigate':
-        tgt = byid.get(events[0][1][1])
+        if events[0][1][1] is None and NAV_NIL == 'root':
+            tgt = root                      # v27: navigate nil = raiz
+        else:
+            tgt = byid.get(events[0][1][1]) if events[0][1][1] is not None else None
         if tgt:
             initial = tgt
     cur = initial
@@ -529,7 +538,12 @@ def translate(events, root, byid, start, n_nodes, forwards_mode, warn, size=19, 
     for ms, ev in events:
         op = str(ev[0])
         if op == 'navigate':
-            tgt = uid_map.get(ev[1]) or byid.get(ev[1])
+            if ev[1] is None and NAV_NIL == 'root':
+                cur = root                  # v27: navigate nil = ir a la raiz (tablero vacio si no hay arbol)
+                add(ms, activate=cur.nn)
+                mark(len(out) - 1)
+                continue
+            tgt = (uid_map.get(ev[1]) or byid.get(ev[1])) if ev[1] is not None else None
             if tgt is None and uid_sigs is not None and ev[1] in uid_sigs:
                 tgt = realize(uid_sigs[ev[1]], ms)
                 if tgt is not None:
@@ -545,17 +559,34 @@ def translate(events, root, byid, start, n_nodes, forwards_mode, warn, size=19, 
         elif op == 'move':
             (x, y), flag, uid = ev[1], ev[2], ev[3]
             if flag:
-                warn['move con flag=true (semantica NO validada)'] += 1
-            col = next_color(cur)
-            if flag and FLAG_MODE == 'invert':
-                col = -col
+                warn['move con flag=true (blanca)'] += 1
+            if FLAG_MODE == 'white':
+                # v24: flag=true -> blanca; si no, alterna respecto a la ultima jugada del camino.
+                # Los hijos solo deciden si no hay jugada previa (inicio o justo tras un diagrama).
+                if flag:
+                    col = W
+                else:
+                    lc = last_color(cur)
+                    col = next_color(cur) if lc is None else -lc
+                    if lc is None and not any(c.move for c in cur.children):
+                        _diag('turno_supuesto', ms, pt=(x, y), color=col, node=cur)   # sin dato: negra por defecto
+            else:                        # modos antiguos (v22): color segun los hijos
+                col = next_color(cur)
+                if flag and FLAG_MODE == 'invert':
+                    col = -col
             match = [c for c in cur.children if c.move and c.move[0] == (x, y)]
             # el arbol puede tener hermanos en el mismo punto con colores distintos
             # (p. ej. B[12 4] y W[12 4] bajo W[12 3]): preferir el de color esperado
             same_col = [c for c in match if c.move[1] == col]
             if len(match) > 1:
                 warn['move con hermanos de mismo punto y distinto color'] += 1
-            if match:
+            # v24: si el hijo de ese punto es una jugada EN VIVO de otro color, se crea una variacion
+            # hermana con el color correcto; si es del arbol original, se respeta el arbol (y se avisa)
+            new_sibling = (FLAG_MODE == 'white' and match and not same_col
+                           and not any(c.base for c in match))
+            if new_sibling:
+                warn['move: variacion nueva junto a jugada en vivo de otro color'] += 1
+            if match and not new_sibling:
                 nxt = (same_col or match)[0]
                 if not same_col:
                     warn['move existente con color distinto al esperado (revisar)'] += 1
@@ -587,8 +618,10 @@ def translate(events, root, byid, start, n_nodes, forwards_mode, warn, size=19, 
             eff = col
             if ADD_SEM == 'toggle' and position(cur, size).g.get((x, y)) == col:
                 eff = 0                      # ya habia una piedra de ese color: se quita
+            elif ADD_SEM == 'remove' and position(cur, size).g.get((x, y)):
+                eff = 0                      # v25: habia una piedra (de cualquier color): se quita
             aprop = f"AE[{co((x, y))}]" if eff == 0 else f"{'AB' if eff == B else 'AW'}[{co((x, y))}]"
-            if ADD_MODE == 'inplace':
+            if ADD_MODE == 'inplace' or (ADD_MODE in ('auto', 'auto2') and not cur.move):
                 cur.adds.append(((x, y), eff))
                 add(ms, addProp=[cur.nn, aprop])
                 uid_map[uid] = cur
@@ -610,6 +643,11 @@ def translate(events, root, byid, start, n_nodes, forwards_mode, warn, size=19, 
         elif op == 'backwards':
             if cur.parent is None:
                 continue
+            if ADD_MODE == 'auto2':
+                # los retoques (:add) en vivo cuentan como parte del nodo al que se aplicaron:
+                # retroceder desde ellos sube hasta ese nodo y luego un paso mas
+                while _is_live_add(cur) and cur.parent is not None and cur.parent.parent is not None:
+                    cur = cur.parent
             lastvisit[cur.parent] = cur
             cur = cur.parent
             add(ms, activate=cur.nn)
@@ -882,11 +920,13 @@ def main():
     ap.add_argument('--census', default=None, help='census_courses.csv: convertir solo cursos con ese Estado')
     ap.add_argument('--estado', default='LISTO', help='estados del censo a convertir, separados por comas (LISTO,REVISAR)')
     ap.add_argument('--forwards', choices=['first', 'last'], default='first')
-    ap.add_argument('--flag-mode', choices=['invert', 'ignore'], default='ignore',
-                    help="flag=true en :move se ignora (por defecto, validado con datos) o invierte el color")
-    ap.add_argument('--add-mode', choices=['child', 'inplace'], default='child')
+    ap.add_argument('--flag-mode', choices=['white', 'invert', 'ignore'], default='white',
+                    help="flag=true en :move: piedra blanca (por defecto, validado en video), se ignora o invierte el color")
+    ap.add_argument('--add-mode', choices=['auto2', 'auto', 'child', 'inplace'], default='auto2',
+                    help=':add: auto2 (por defecto: dentro del nodo si no tiene jugada y retroceder salta los retoques), auto, nodo hijo (v22-v25) o dentro del nodo')
     ap.add_argument('--add-flag-true', choices=['white', 'black'], default='white')
-    ap.add_argument('--add-sem', choices=['place', 'toggle'], default='toggle')
+    ap.add_argument('--add-sem', choices=['remove', 'toggle', 'place'], default='remove',
+                    help=':add sobre una piedra: la quita sea del color que sea (por defecto), solo si es del mismo color, o siempre pone')
     ap.add_argument('--marks-persist', choices=['clip', 'none'], default='clip',
                     help='marcas y etiquetas de un nodo se conservan al pasar al clip siguiente (por defecto) o no')
     ap.add_argument('--mark-repeat', choices=['toggle', 'keep'], default='toggle',

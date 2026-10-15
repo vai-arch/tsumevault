@@ -218,6 +218,9 @@ let wgoBoard = null, boardSize = 19;
 let padding = 0.6;
 let liveKifu = null;
 let changeList = [], rawEvents = [], isReady = false, currentIdx = -1;
+// Ficheros de lecciones y catalogo: el navegador pregunta al servidor si cambiaron (304 si no),
+// asi una leccion re-subida nunca se ve con la version antigua de la cache.
+const NOCACHE = { cache: 'no-cache' };
 let drawData = null;                       // <id>_draw.json (dibujo a mano del profesor) o null
 let drawCanvas = null, drawRef = null, drawSig = null, drawRAF = null;
 const audio = document.getElementById('audio');
@@ -957,7 +960,7 @@ async function loadLesson(forcedId) {
   const id = forcedId || new URLSearchParams(location.search).get('id') || localStorage.getItem('go_last_id');
   if (!id) {
     setStatus('NO ID');
-    const allRes = await fetch(PLAYER_DATA_BASE + 'all_lessons.json');
+    const allRes = await fetch(PLAYER_DATA_BASE + 'all_lessons.json', NOCACHE);
     const allData = await allRes.json();
     allLessons = allData.rows.filter(Boolean);
     navWire(allLessons);
@@ -969,7 +972,7 @@ async function loadLesson(forcedId) {
   loadedSgf = null; loadedJson = null; drawData = null;
   try {
     if (!allLessons.length) {
-      const allRes = await fetch(PLAYER_DATA_BASE + 'all_lessons.json');
+      const allRes = await fetch(PLAYER_DATA_BASE + 'all_lessons.json', NOCACHE);
       const allData = await allRes.json();
       allLessons = allData.rows.filter(Boolean);
       navWire(allLessons);
@@ -1009,7 +1012,7 @@ async function loadLesson(forcedId) {
     };
 
     const dir = lessonDir(row);
-    const [sgfRes, jsonRes] = await Promise.all([fetch(dir+id+'.sgf'), fetch(dir+id+'.json')]);
+    const [sgfRes, jsonRes] = await Promise.all([fetch(dir+id+'.sgf', NOCACHE), fetch(dir+id+'.json', NOCACHE)]);
     if (!sgfRes.ok)  throw new Error('SGF not found');
     if (!jsonRes.ok) throw new Error('JSON not found');
     loadedSgf  = await sgfRes.text();
@@ -1017,7 +1020,7 @@ async function loadLesson(forcedId) {
     audio.src = dir + id + '.ogg';
     audio.load();
     try {
-      const subRes = await fetch(dir + id + '_subtitles.json');
+      const subRes = await fetch(dir + id + '_subtitles.json', NOCACHE);
       if (subRes.ok) {
         const subData = await subRes.json();
         subtitles = (subData.rows || []);
@@ -1025,7 +1028,7 @@ async function loadLesson(forcedId) {
     } catch { subtitles = []; }
     drawData = null;                       // dibujo a mano: fichero opcional, como los subtitulos
     try {
-      const drRes = await fetch(dir + id + '_draw.json');
+      const drRes = await fetch(dir + id + '_draw.json', NOCACHE);
       if (drRes.ok) {
         const dd = await drRes.json();
         if (dd && Array.isArray(dd.strokes) && dd.strokes.length) drawData = dd;
