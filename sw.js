@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'tsumevault-20261015-1800';
+const CACHE_VERSION = 'tsumevault-20261016-1743';
 
 const STATIC_ASSETS = [
   '/tsumevault/tsumevault.html',
@@ -43,6 +43,46 @@ self.addEventListener('fetch', e => {
 
   // API del servidor — nunca cachear
   if (url.port === '3002' || url.pathname.startsWith('/db/') || url.pathname.startsWith('/sync/')) {
+    return;
+  }
+
+  // J3: josekis — manifiesto network-first con copia de respaldo (offline usa
+  // la última conocida). Se guarda por ruta, sin query.
+  if (url.pathname.endsWith('/joseki/manifest.json')) {
+    e.respondWith(
+      caches.open(CACHE_VERSION).then(async cache => {
+        try {
+          const response = await fetch(e.request, { cache: 'no-store' });
+          if (response.ok) await cache.put(url.pathname, response.clone());
+          return response;
+        } catch {
+          const cached = await cache.match(url.pathname);
+          return cached || new Response('manifest not available offline', { status: 503 });
+        }
+      })
+    );
+    return;
+  }
+
+  // J3: josekis compilados — direccionados por contenido (?h=<hash>): cache-first.
+  // Un fichero cambiado trae otro hash (otra URL) y se descarga; al guardarlo se
+  // borran las versiones de la misma ruta con otro hash.
+  if (url.pathname.includes('/joseki/') && url.pathname.endsWith('.json')) {
+    e.respondWith(
+      caches.open(CACHE_VERSION).then(async cache => {
+        const cached = await cache.match(e.request);
+        if (cached) return cached;
+        const response = await fetch(e.request);
+        if (response.ok) {
+          await cache.put(e.request, response.clone());
+          for (const k of await cache.keys()) {
+            const ku = new URL(k.url);
+            if (ku.pathname === url.pathname && ku.search !== url.search) await cache.delete(k);
+          }
+        }
+        return response;
+      })
+    );
     return;
   }
 

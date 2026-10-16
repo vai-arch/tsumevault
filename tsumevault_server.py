@@ -20,6 +20,12 @@ Endpoints:
     POST /db/attempt   { source, problem_id, run_id?, result, time_ms? }
     POST /db/run       { source, set_id?, chapter_id?, vc_id?, type }
     PUT  /db/run       { id, status? }
+
+    J2 (josekis — solo progreso; el contenido vive en joseki/*.json):
+    GET  /sync/joseki_sm2/pull?since=ISO
+    POST /sync/joseki_sm2/push        { joseki_sm2: [...] }
+    GET  /sync/joseki_attempts/pull?since_id=N
+    POST /sync/joseki_attempts/push   { joseki_attempts: [...] }
 """
 
 import gzip
@@ -529,6 +535,41 @@ def run_audit(con, limit=20, skip_integrity=False):
         rows = q("SELECT source, problem_id, tag, active, updated_at FROM problem_tags WHERE active NOT IN (0,1)")
         add("T23c", "TAGS", "problem_tags.active fuera de {0,1}", rows, "ERROR", t=t)
 
+    # ── [JOSEKI] (J2) ──
+    if _audit_has_table(con, "joseki_sm2"):
+        t = time.perf_counter()
+        sosp_j = []
+        for s in q("SELECT card_id, due_date, interval, easiness, repetitions, updated_at FROM joseki_sm2"):
+            reasons = []
+            if s["interval"] is None or s["interval"] < 0:
+                reasons.append("interval < 0")
+            if s["repetitions"] is None or s["repetitions"] < 0:
+                reasons.append("repetitions < 0")
+            if s["easiness"] is None or s["easiness"] < 1.3 - 1e-9:
+                reasons.append("easiness < 1.3")
+            if not s["due_date"] or not _AUDIT_DATE_RE.match(str(s["due_date"])):
+                reasons.append("due_date vacío o inválido")
+            if not s["updated_at"] or not _AUDIT_ISO_RE.match(str(s["updated_at"])):
+                reasons.append("updated_at vacío o inválido")
+            if reasons:
+                s["reasons"] = reasons
+                sosp_j.append(s)
+        add("J2a", "JOSEKI", "valores sospechosos en joseki_sm2", sosp_j, "ERROR",
+            note="mismos límites que el check 12 (el SM-2 de josekis es el mismo algoritmo)", t=t)
+    if _audit_has_table(con, "joseki_attempts"):
+        t = time.perf_counter()
+        rows = q("""SELECT id, uuid, card_id, result, hint, created_at FROM joseki_attempts
+                    WHERE result NOT IN ('correct','wrong') OR hint NOT IN (0,1)""")
+        add("J2b", "JOSEKI", "joseki_attempts con result o hint fuera de dominio", rows, "ERROR",
+            note="el push valida ambos campos: indicaría edición manual", t=t)
+        if _audit_has_table(con, "joseki_sm2"):
+            t = time.perf_counter()
+            rows = q("""SELECT ja.card_id, COUNT(*) AS attempts, MAX(ja.created_at) AS last_attempt
+                        FROM joseki_attempts ja LEFT JOIN joseki_sm2 js ON js.card_id = ja.card_id
+                        WHERE js.card_id IS NULL GROUP BY ja.card_id""")
+            add("J2c", "JOSEKI", "tarjeta con intentos y SIN joseki_sm2", rows, "WARNING",
+                note="los intentos y el estado SM-2 viajan en pushes distintos: puede ser ventana de sync", t=t)
+
     # ── [VIRTUAL] ──
     if _audit_has_table(con, "virtual_items"):
         t = time.perf_counter()
@@ -817,6 +858,46 @@ def _migrate_v3_tags(con):
     con.execute("PRAGMA user_version = 3")  # T23: sellar la version
     con.commit()
     log.info("[migrate] Migraciones completadas (schema_version=3).")
+    _migrate_v4_joseki(con)  # J2: encadenar v4
+
+
+def _migrate_v4_joseki(con):
+    """J2: schema v4 — progreso de josekis (REQUISITOS_JOSEKI.md J-52..J-54).
+
+    Solo PROGRESO: el contenido (árbol y tarjetas) vive en joseki/*.json y no
+    entra en la BD. joseki_sm2 se sincroniza con LWW por updated_at (igual
+    que sm2_state); joseki_attempts es historial con dedupe por uuid.
+    Nunca se borran filas: una card_id que ya no está en ningún JSON se
+    considera archivada en el cliente (J-15). Idempotente.
+    """
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS joseki_sm2 (
+            card_id     TEXT PRIMARY KEY,
+            due_date    TEXT NOT NULL,
+            interval    REAL NOT NULL DEFAULT 6,
+            easiness    REAL NOT NULL DEFAULT 2.5,
+            repetitions INTEGER NOT NULL DEFAULT 0,
+            updated_at  TEXT NOT NULL)"""
+    )
+    con.execute(
+        "CREATE INDEX IF NOT EXISTS idx_joseki_sm2_updated ON joseki_sm2(updated_at)"
+    )
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS joseki_attempts (
+            id         INTEGER PRIMARY KEY AUTOINCREMENT,
+            uuid       TEXT NOT NULL UNIQUE,
+            card_id    TEXT NOT NULL,
+            result     TEXT NOT NULL,
+            hint       INTEGER NOT NULL DEFAULT 0,
+            time_ms    INTEGER,
+            created_at TEXT NOT NULL)"""
+    )
+    con.execute(
+        "CREATE INDEX IF NOT EXISTS idx_joseki_attempts_card ON joseki_attempts(card_id, created_at)"
+    )
+    con.execute("PRAGMA user_version = 4")  # J2: sellar la version
+    con.commit()
+    log.info("[migrate] Migraciones completadas (schema_version=4).")
 
 
 def migrate_db():
@@ -826,8 +907,12 @@ def migrate_db():
         # CREATE ... IF NOT EXISTS y dedup re-ejecutable) quedan bajo la
         # version 1. Migraciones futuras: "if version < N: ...; sellar N".
         version = con.execute("PRAGMA user_version").fetchone()[0]
-        if version >= 3:
+        if version >= 4:
             log.info("[migrate] schema_version=%d — nada que migrar.", version)
+            return
+        if version >= 3:
+            # J2: v3 ya aplicada — solo falta v4 (josekis).
+            _migrate_v4_joseki(con)
             return
         if version >= 2:
             # T23: v2 ya aplicada — solo falta v3 (tags).
@@ -2210,6 +2295,103 @@ def handle_sync_problem_tags_push(body):
     return {"ok": True, "applied": applied}
 
 
+# ── J2: progreso de josekis ──────────────────────────────────────────────────
+
+
+def handle_sync_joseki_sm2_pull(qs):
+    """J2: estado SM-2 de tarjetas de josekis desde el cursor (>=, igual que
+    sm2: el registro frontera se reenvía y el LWW del cliente lo hace inocuo)."""
+    since = qs.get("since", ["1970-01-01T00:00:00Z"])[0]
+    with db_connect() as con:
+        rows = rows_to_list(
+            con.execute(
+                "SELECT * FROM joseki_sm2 WHERE updated_at >= ? ORDER BY updated_at ASC",
+                (since,),
+            ).fetchall()
+        )
+    return {"joseki_sm2": rows}
+
+
+def handle_sync_joseki_sm2_push(body):
+    """J2: recibe estado SM-2 de tarjetas y aplica LWW por updated_at."""
+    records = body.get("joseki_sm2", [])
+    if not isinstance(records, list):
+        return {"error": "joseki_sm2 must be a list"}, 400
+    required = ("card_id", "due_date", "interval", "easiness", "repetitions", "updated_at")
+    for r in records:
+        if not isinstance(r, dict) or any(f not in r for f in required):
+            return {"error": "invalid joseki_sm2 entry"}, 400
+        if not isinstance(r["card_id"], str) or not r["card_id"] or not isinstance(r["updated_at"], str):
+            return {"error": "invalid joseki_sm2 entry"}, 400
+    applied = 0
+    with db_connect() as con:
+        for r in records:
+            existing = con.execute(
+                "SELECT updated_at FROM joseki_sm2 WHERE card_id=?", (r["card_id"],)
+            ).fetchone()
+            if existing is None or r["updated_at"] > existing[0]:
+                con.execute(
+                    """INSERT INTO joseki_sm2 (card_id, due_date, interval, easiness, repetitions, updated_at)
+                       VALUES (?, ?, ?, ?, ?, ?)
+                       ON CONFLICT(card_id) DO UPDATE SET
+                         due_date=excluded.due_date, interval=excluded.interval,
+                         easiness=excluded.easiness, repetitions=excluded.repetitions,
+                         updated_at=excluded.updated_at""",
+                    (r["card_id"], r["due_date"], r["interval"], r["easiness"],
+                     r["repetitions"], r["updated_at"]),
+                )
+                applied += 1
+        con.commit()
+    return {"ok": True, "count": len(records), "applied": applied}
+
+
+def handle_sync_joseki_attempts_pull(qs):
+    """J2: historial de intentos de josekis con id > since_id."""
+    since_id = int(qs.get("since_id", ["0"])[0])
+    with db_connect() as con:
+        rows = rows_to_list(
+            con.execute(
+                "SELECT * FROM joseki_attempts WHERE id > ? ORDER BY id ASC", (since_id,)
+            ).fetchall()
+        )
+    return {"joseki_attempts": rows}
+
+
+def handle_sync_joseki_attempts_push(body):
+    """J2: inserta intentos nuevos (dedupe por uuid: re-enviar es inocuo).
+    result 'correct'|'wrong' (J-26: pista o fallo = wrong); hint 0/1."""
+    records = body.get("joseki_attempts", [])
+    if not isinstance(records, list):
+        return {"error": "joseki_attempts must be a list"}, 400
+    normalized = []
+    for a in records:
+        if not isinstance(a, dict):
+            return {"error": "invalid joseki_attempts entry"}, 400
+        for f in ("uuid", "card_id", "result", "created_at"):
+            if not isinstance(a.get(f), str) or not a.get(f):
+                return {"error": f"joseki attempt missing field: {f}"}, 400
+        if a["result"] not in ("correct", "wrong"):
+            return {"error": "invalid joseki attempt result"}, 400
+        hint = a.get("hint", 0)
+        if hint not in (0, 1):
+            return {"error": "invalid joseki attempt hint"}, 400
+        tm = a.get("time_ms")
+        if tm is not None and (isinstance(tm, bool) or not isinstance(tm, int)):
+            return {"error": "invalid joseki attempt time_ms"}, 400
+        normalized.append((a["uuid"], a["card_id"], a["result"], int(hint), tm, a["created_at"]))
+    inserted = 0
+    with db_connect() as con:
+        for row in normalized:
+            cur = con.execute(
+                """INSERT OR IGNORE INTO joseki_attempts (uuid, card_id, result, hint, time_ms, created_at)
+                   VALUES (?, ?, ?, ?, ?, ?)""",
+                row,
+            )
+            inserted += cur.rowcount
+        con.commit()
+    return {"ok": True, "inserted": inserted, "skipped": len(normalized) - inserted}
+
+
 GET_ROUTES = {
     "/db/collections": handle_get_collections,
     "/db/chapters": handle_get_chapters,
@@ -2228,6 +2410,8 @@ GET_ROUTES = {
     "/sync/games": handle_sync_games,
     "/sync/sm2/pull": handle_sync_sm2_pull,
     "/sync/problem_tags/pull": handle_sync_problem_tags_pull,  # T23
+    "/sync/joseki_sm2/pull": handle_sync_joseki_sm2_pull,  # J2
+    "/sync/joseki_attempts/pull": handle_sync_joseki_attempts_pull,  # J2
 }
 
 
@@ -2242,6 +2426,8 @@ POST_ROUTES = {
     "/sync/sm2/push": handle_sync_sm2_push,
     "/sync/tags/delete": handle_sync_tags_delete,  # T23
     "/sync/problem_tags/push": handle_sync_problem_tags_push,  # T23
+    "/sync/joseki_sm2/push": handle_sync_joseki_sm2_push,  # J2
+    "/sync/joseki_attempts/push": handle_sync_joseki_attempts_push,  # J2
 }
 
 PUT_ROUTES = {

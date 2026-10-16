@@ -1472,6 +1472,7 @@
         <div class="tab" data-tab="free">Free</div>
         <div class="tab" data-tab="review">Review</div>
         <div class="tab" data-tab="games">Games</div>
+        <div class="tab" data-tab="josekis">Joseki</div> <!-- J3 -->
       </div>
 
       <div class="tab-pane active" id="tab-collections">
@@ -1621,6 +1622,12 @@
           <div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--dim2);text-align:center">Select a collection</div>
         </div>
       </div>
+      <!-- J3: pestaña Josekis (lista de ficheros de joseki/manifest.json) -->
+      <div class="tab-pane" id="tab-josekis">
+        <div id="js-list" style="flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;padding:4px 0;">
+          <div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--dim2);text-align:center">Loading…</div>
+        </div>
+      </div>
     </div>
 
     <div id="main">
@@ -1653,6 +1660,20 @@
             <option value="8000">8s</option>
             <option value="10000">10s</option>
           </select>
+        </div>
+        <!-- J3: controles del modo aprender de josekis -->
+        <div id="js-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
+          <button class="ctrl-btn" id="js-btn-back">← Back</button>
+          <button class="ctrl-btn" id="js-btn-restart">↺ Restart</button>
+          <button class="ctrl-btn" id="js-btn-rotate" title="Rotate / mirror the board (8 orientations)">⟳ Rotate</button>
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);" title="Show the teacher's what-if branches">
+            <input type="checkbox" id="js-whatif" checked style="accent-color:var(--gold);cursor:pointer;"> what-if
+          </label>
+          <!-- J3.1: desmarcado, los fantasmas solo se ven con 2+ opciones -->
+          <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);" title="Show ghosts even when there is a single continuation">
+            <input type="checkbox" id="js-allghosts" checked style="accent-color:var(--gold);cursor:pointer;"> all ghosts
+          </label>
+          <span id="js-choices" style="display:flex;gap:6px;flex-wrap:wrap;"></span>
         </div>
       </div>
       <div id="comment-box"></div>
@@ -1741,7 +1762,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261015-1800';
+	const SW_VERSION = 'tsumevault-20261016-1743';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -5898,6 +5919,7 @@
     document.getElementById('btn-hide-problem').addEventListener('click', hideCurrentProblem); // T13
     window.addEventListener('keydown', e => {
       if (e.code !== 'Escape' && window._studyExploring && window._studyExploring()) return; // T31: en Explorar solo Escape (cerrar modales)
+      if (e.code !== 'Escape' && jsActive) return; // J3: en Josekis no aplican Enter/Espacio/Alt+N/P de problemas
       if ((e.code === 'Enter' || e.code === 'Space') && waitingForNext && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.altKey && e.code === 'KeyN' && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.code === 'KeyP') { e.preventDefault(); togglePause(); }
@@ -6171,15 +6193,330 @@
       });
     }
 
+    // ══ J3: JOSEKIS — pestaña y modo aprender (REQUISITOS_JOSEKI.md J-30..J-43) ══
+    // El contenido llega compilado por import_joseki.py (joseki/<fichero>.json +
+    // manifest.json). Bloque 1: funciones PURAS (sin DOM ni estado global),
+    // extraídas y probadas en Node por extract_joseki.py + test_joseki.js.
+    // Bloque 2: UI al estilo del visor de partidas (gm*).
+
+    // J3: simetrías del tablero 19x19 (J-40). t en 0..7: bit 4 = transponer,
+    // bit 1 = espejo horizontal, bit 2 = espejo vertical. Los pases no cambian.
+    function jsXform(m, t) {
+      if (m === 'pass') return m;
+      let x = m.charCodeAt(0) - 97, y = m.charCodeAt(1) - 97;
+      if (t & 4) { const s = x; x = y; y = s; }
+      if (t & 1) x = 18 - x;
+      if (t & 2) y = 18 - y;
+      return String.fromCharCode(97 + x) + String.fromCharCode(97 + y);
+    }
+    function jsXformInv(m, t) {
+      if (m === 'pass') return m;
+      let x = m.charCodeAt(0) - 97, y = m.charCodeAt(1) - 97;
+      if (t & 2) y = 18 - y;
+      if (t & 1) x = 18 - x;
+      if (t & 4) { const s = x; x = y; y = s; }
+      return String.fromCharCode(97 + x) + String.fromCharCode(97 + y);
+    }
+    // J3: símbolo + color de un fantasma (J-31: color Y forma, no solo tono).
+    function jsMarkInfo(n) {
+      if (n.it && !n.implicit) return { sym: '?', color: '#4a8fe7', kind: 'whatif' };
+      if (n.q === 'bad') return { sym: '✕', color: '#d45030', kind: 'bad' };
+      if (n.q === 'doubtful') return { sym: '▲', color: '#e0a030', kind: 'doubtful' };
+      if (n.te) return { sym: '★', color: '#5cb868', kind: 'tesuji' };
+      return { sym: '●', color: '#5cb868', kind: 'good' };
+    }
+    // J3: opciones visibles en un nodo. El pase implícito (rama ¿y si? del mismo
+    // color, J-75) no se muestra como opción: se aplanan sus hijos IT y se
+    // recuerda en "via" para que el sistema lo juegue antes de la piedra.
+    function jsOptions(node, showWhatif) {
+      const out = [];
+      for (const k of (node.ch || [])) {
+        if (k.it && !showWhatif) continue;
+        if (k.implicit) {
+          for (const g of (k.ch || [])) out.push(Object.assign({ m: g.m, c: g.c, pass: g.m === 'pass', node: g, via: k }, jsMarkInfo(g)));
+        } else {
+          out.push(Object.assign({ m: k.m, c: k.c, pass: k.m === 'pass', node: k, via: null }, jsMarkInfo(k)));
+        }
+      }
+      return out;
+    }
+    // J3: final de línea = sin hijos que no sean ramas ¿y si? (J-71). Mismo
+    // criterio que is_endpoint() de joseki_lib.py; un pase implícito nunca lo es.
+    function jsIsEndpoint(node) {
+      if (node.implicit) return false;
+      return !(node.ch || []).some(k => !k.it);
+    }
+    // J3: señal tras jugar un nodo (J-34): mala -> rojo; final de línea -> verde.
+    function jsSignal(node) {
+      return { bad: node.q === 'bad', end: jsIsEndpoint(node) };
+    }
+    // J3: ruta de nombres de variante recorrida (para #board-hint).
+    function jsNamePath(stack) {
+      return stack.filter(n => n.name).map(n => n.name).join(' · ');
+    }
+    // J3.1: ¿se dibujan los fantasmas? Siempre con "all ghosts"; si no, solo
+    // cuando hay 2+ opciones visibles (pases incluidos, what-if ya filtrado).
+    function jsGhostsVisible(opts, showAll) {
+      return !!showAll || opts.length >= 2;
+    }
+
+    // ── J3: UI ──
+    let jsActive = false;       // true con la pestaña Josekis activa (análogo a gmActive)
+    let jsManifest = null;      // { format, files: [{ file, json, hash, cards }] }
+    let jsEntry = null;         // entrada del manifiesto abierta
+    let jsData = null;          // JSON compilado del fichero abierto
+    let jsStack = [];           // nodos recorridos desde la raíz (la raíz no entra)
+    let jsSym = 0;              // orientación actual (0 = la del fichero)
+    let jsShowWhatif = true;    // mostrar ramas ¿y si?
+    let jsShowAll = true;       // J3.1: fantasmas también con una sola continuación
+    let jsNotice = '';          // aviso de un solo render (p. ej. tenuki implícito)
+
+    function jsNode() { return jsStack.length ? jsStack[jsStack.length - 1] : jsData.root; }
+    // J3.1: preferencias de los checks, por navegador (localStorage protegido)
+    function jsPrefGet(k, d) { try { const v = localStorage.getItem(k); return v === null ? d : v === '1'; } catch (e) { return d; } }
+    function jsPrefSet(k, v) { try { localStorage.setItem(k, v ? '1' : '0'); } catch (e) { } }
+    function jsXy(m) { return { x: m.charCodeAt(0) - 97, y: m.charCodeAt(1) - 97 }; }
+
+    async function jsLoadManifest() {
+      const list = document.getElementById('js-list');
+      const msg = t => { list.innerHTML = ''; const d = document.createElement('div'); d.style.cssText = 'padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--dim2);text-align:center'; d.textContent = t; list.appendChild(d); };
+      try {
+        const r = await fetch(SGF_BASE + 'joseki/manifest.json', { cache: 'no-store' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const man = await r.json();
+        if (!man || man.format !== 1 || !Array.isArray(man.files)) throw new Error('manifest format');
+        jsManifest = man;
+      } catch (e) {
+        console.warn('jsLoadManifest', e);
+        if (!jsManifest) { msg('No joseki files available (offline or not published yet)'); return; }
+      }
+      if (!jsManifest.files.length) { msg('No joseki files'); return; }
+      list.innerHTML = '';
+      for (const f of jsManifest.files) {
+        const div = document.createElement('div');
+        div.style.cssText = 'padding:7px 14px;font-family:var(--mono);font-size:9px;color:var(--text);cursor:pointer;border-bottom:1px solid var(--border);transition:background .1s;';
+        div.textContent = f.file;
+        const sub = document.createElement('div');
+        sub.style.cssText = 'font-size:8px;color:var(--dim2);margin-top:2px;';
+        sub.textContent = f.cards + ' cards';
+        div.appendChild(sub);
+        div.addEventListener('mouseenter', () => div.style.background = 'var(--hover)');
+        div.addEventListener('mouseleave', () => div.style.background = '');
+        div.addEventListener('click', () => jsOpenFile(f));
+        list.appendChild(div);
+      }
+    }
+
+    async function jsOpenFile(entry) {
+      try {
+        const url = SGF_BASE + 'joseki/' + encodeURIComponent(entry.json) + '?h=' + encodeURIComponent(entry.hash);
+        const r = await fetch(url);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const data = await r.json();
+        if (!data || data.format !== 1 || !data.root) throw new Error('joseki format');
+        jsEntry = entry; jsData = data; jsStack = []; jsSym = 0; jsNotice = '';
+        if (!wgoBoard || boardSize !== 19) initBoard(19);
+        jsRender(null);
+        switchToBoard();
+      } catch (e) { console.warn('jsOpenFile', e); alert('Error loading joseki file: ' + e.message); }
+    }
+
+    function jsRender(signal) {
+      if (!jsData || !wgoBoard) return;
+      const node = jsNode();
+      clearBoard();
+      // Posición: WGo.Game aplica capturas; la legalidad ya la validó el importador.
+      const game = new WGo.Game(19, 'NONE', true, false);
+      for (const n of jsStack) {
+        if (n.m === 'pass') continue;
+        const p = jsXy(jsXform(n.m, jsSym));
+        game.play(p.x, p.y, n.c === 'B' ? WGo.B : WGo.W);
+      }
+      const pos = game.getPosition();
+      for (let x = 0; x < 19; x++) for (let y = 0; y < 19; y++) {
+        const v = pos.get(x, y);
+        if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 });
+        else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 });
+      }
+      const stoneAt = (x, y) => { const v = pos.get(x, y); return v === WGo.B ? 1 : v === WGo.W ? -1 : 0; };
+      // Último movimiento (como en Games)
+      if (jsStack.length && node.m !== 'pass') { const p = jsXy(jsXform(node.m, jsSym)); wgoBoard.addObject({ x: p.x, y: p.y, type: 'CR' }); }
+      // Marcas del nodo (J-76), rotadas con el tablero
+      for (const [t, list] of Object.entries(node.marks || {})) {
+        const h = WGo.Board.drawHandlers[t];
+        if (!h) continue;
+        for (const m of list) {
+          const p = jsXy(jsXform(m, jsSym)), sc = stoneAt(p.x, p.y);
+          wgoBoard.addObject({ x: p.x, y: p.y, type: h, c: sc === 1 ? 'white' : sc === -1 ? 'black' : '#333' });
+        }
+      }
+      // Opciones: fantasmas en el tablero; pases como chips (J-31, J-74)
+      const opts = jsOptions(node, jsShowWhatif);
+      const drawGhosts = jsGhostsVisible(opts, jsShowAll);   // J3.1
+      jsClosePop();
+      const seen = new Set();
+      for (const o of opts) {
+        if (o.pass || !drawGhosts) continue;
+        const p = jsXy(jsXform(o.m, jsSym)), key = p.x + ',' + p.y;
+        if (seen.has(key)) continue;   // varias opciones en el mismo punto: se elige al pulsar
+        seen.add(key);
+        wgoBoard.addObject({ x: p.x, y: p.y, c: o.c === 'B' ? 1 : -1, type: 'outline' });
+        wgoBoard.addObject({ x: p.x, y: p.y, type: WGo.Board.drawHandlers['LB'], text: o.sym, c: o.color });
+      }
+      if (drawGhosts) jsRenderChoices(opts.filter(o => o.pass));
+      else jsRenderNeutralPass(opts.filter(o => o.pass));   // J3.1: sin pistas, pero se puede pasar
+      // Comentario (J-35: siempre visible en modo aprender)
+      const cb = document.getElementById('comment-box');
+      cb.textContent = jsStack.length ? (node.comment || '') : (jsData.description || '');
+      // Señal (J-34)
+      const bw = document.getElementById('board-wrap');
+      bw.classList.remove('board-ok', 'board-bad');
+      if (signal && signal.bad) { bw.classList.add('board-bad'); playSound('wrong'); }
+      else if (signal && signal.end) { bw.classList.add('board-ok'); playSound('right'); }
+      else if (signal && signal.moved) playSound('stone');
+      // Cabecera: fichero + ruta de nombres + estado
+      const parts = [jsData.file];
+      const names = jsNamePath(jsStack);
+      if (names) parts.push(names);
+      if (jsStack.length && jsIsEndpoint(node)) parts.push('End of line');
+      if (jsNotice) parts.push(jsNotice);
+      const hint = document.getElementById('board-hint');
+      hint.textContent = parts.join(' · ');
+      hint.className = '';
+      jsNotice = '';
+      jsSetupBoardClick();
+      jsUpdateControls();
+    }
+
+    // J3: chips bajo el tablero (pases, o la elección cuando varias opciones
+    // comparten punto). Cada chip lleva el mismo símbolo/color que los fantasmas.
+    function jsChoiceButton(o) {
+      const b = document.createElement('button');
+      b.className = 'ctrl-btn';
+      const s = document.createElement('span');
+      s.style.color = o.color; s.textContent = o.sym + ' ';
+      b.appendChild(s);
+      b.appendChild(document.createTextNode((o.pass ? 'Pass' : o.m.toUpperCase()) + ' (' + o.c + ')' + (o.node.name ? ' · ' + o.node.name : '')));
+      b.addEventListener('click', () => jsPlay(o));
+      return b;
+    }
+    function jsRenderChoices(opts) {
+      const zone = document.getElementById('js-choices');
+      zone.innerHTML = '';
+      for (const o of opts) zone.appendChild(jsChoiceButton(o));
+    }
+    // J3.1: con los fantasmas ocultos, un botón Pass sin símbolo (no desvela si
+    // pasar es una opción); si el nodo no tiene pase, no hace nada.
+    function jsRenderNeutralPass(passOpts) {
+      const zone = document.getElementById('js-choices');
+      zone.innerHTML = '';
+      const b = document.createElement('button');
+      b.className = 'ctrl-btn';
+      b.textContent = 'Pass';
+      b.addEventListener('click', () => { if (passOpts.length === 1) jsPlay(passOpts[0]); });
+      zone.appendChild(b);
+    }
+    // J3.1: menú flotante anclado a la intersección (varias opciones en el
+    // mismo punto). Se cierra al elegir, al pulsar fuera, con Escape o al repintar.
+    function jsShowPop(hits, x, y) {
+      let pop = document.getElementById('js-pop');
+      if (!pop) {
+        pop = document.createElement('div');
+        pop.id = 'js-pop';
+        pop.style.cssText = 'position:fixed;z-index:1200;display:none;flex-direction:column;gap:4px;padding:6px;background:var(--panel);border:1px solid var(--border2);border-radius:3px;box-shadow:0 8px 24px rgba(0,0,0,.6);';
+        document.body.appendChild(pop);
+      }
+      pop.innerHTML = '';
+      for (const o of hits) pop.appendChild(jsChoiceButton(o));
+      const rect = wgoBoard.element.getBoundingClientRect();
+      const px = rect.left + (wgoBoard.left + x * wgoBoard.fieldWidth) / wgoBoard.pixelRatio;
+      const py = rect.top + (wgoBoard.top + y * wgoBoard.fieldHeight) / wgoBoard.pixelRatio;
+      pop.style.display = 'flex';
+      const w = pop.offsetWidth || 160, h = pop.offsetHeight || 60;
+      const vw = window.innerWidth || 1024, vh = window.innerHeight || 768;
+      let left = px + 10, top = py + 10;
+      if (left + w > vw - 4) left = Math.max(4, px - w - 10);
+      if (top + h > vh - 4) top = Math.max(4, py - h - 10);
+      pop.style.left = left + 'px'; pop.style.top = top + 'px';
+    }
+    function jsClosePop() {
+      const pop = document.getElementById('js-pop');
+      if (pop) pop.style.display = 'none';
+    }
+
+    function jsPlay(opt) {
+      if (opt.via) { jsStack.push(opt.via); jsNotice = 'tenuki by ' + opt.via.c; }
+      jsStack.push(opt.node);
+      const sig = jsSignal(opt.node);
+      sig.moved = !opt.pass;
+      jsRender(sig);
+    }
+
+    function jsSetupBoardClick() {
+      window._boardClickHandler = (x, y) => {
+        if (!jsActive || !jsData) return;
+        const m = jsXformInv(String.fromCharCode(97 + x) + String.fromCharCode(97 + y), jsSym);
+        const hits = jsOptions(jsNode(), jsShowWhatif).filter(o => !o.pass && o.m === m);
+        if (hits.length === 1) jsPlay(hits[0]);
+        else if (hits.length > 1) jsShowPop(hits, x, y);   // J3.1: menú junto al punto
+      };
+    }
+
+    function jsBack() {
+      if (!jsStack.length) return;
+      jsStack.pop();
+      if (jsStack.length && jsStack[jsStack.length - 1].implicit) jsStack.pop();   // el pase implícito no es una parada
+      jsRender(null);
+    }
+    function jsRestart() { if (!jsData) return; jsStack = []; jsRender(null); }
+    function jsRotate() { if (!jsData) return; jsSym = (jsSym + 1) % 8; jsRender(null); }
+
+    function jsUpdateControls() {
+      document.getElementById('js-btn-back').disabled = !jsStack.length;
+    }
+
+    function jsInitControls() {
+      document.getElementById('js-btn-back').addEventListener('click', jsBack);
+      document.getElementById('js-btn-restart').addEventListener('click', jsRestart);
+      document.getElementById('js-btn-rotate').addEventListener('click', jsRotate);
+      document.getElementById('js-whatif').addEventListener('change', e => { jsShowWhatif = e.target.checked; jsPrefSet('joseki_show_whatif', jsShowWhatif); if (jsData) jsRender(null); });
+      // J3.1: check 'all ghosts' y preferencias recordadas
+      jsShowWhatif = jsPrefGet('joseki_show_whatif', true);
+      jsShowAll = jsPrefGet('joseki_show_all', true);
+      document.getElementById('js-whatif').checked = jsShowWhatif;
+      document.getElementById('js-allghosts').checked = jsShowAll;
+      document.getElementById('js-allghosts').addEventListener('change', e => { jsShowAll = e.target.checked; jsPrefSet('joseki_show_all', jsShowAll); if (jsData) jsRender(null); });
+      // Cierre del menú flotante: pulsar fuera (pointerdown: el clic que lo abre ya pasó) o Escape
+      document.addEventListener('pointerdown', e => { const pop = document.getElementById('js-pop'); if (pop && pop.style.display !== 'none' && !pop.contains(e.target)) jsClosePop(); });
+      document.addEventListener('keydown', e => { if (e.code === 'Escape') jsClosePop(); });
+    }
+
+    // J3: entrada en la pestaña: refresca la lista y, si había un joseki
+    // abierto, lo vuelve a pintar (el tablero es compartido con otros modos).
+    function jsEnterTab() {
+      jsLoadManifest();
+      if (jsData) { if (!wgoBoard || boardSize !== 19) initBoard(19); jsRender(null); }
+    }
+
     function switchTab(name) {
       document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === `tab-${name}`));
+      // J3: los controles de josekis solo existen dentro de su pestaña
+      if (name !== 'josekis') { jsActive = false; document.getElementById('js-controls').style.display = 'none'; jsClosePop(); /* J3.1 */ }
       if (name === 'games') {
         gmActive = true;
         gmLoadCollections();
         // Mostrar controles de games, ocultar los de problemas
         document.getElementById('board-controls').style.display = 'none';
         document.getElementById('gm-controls').style.display = 'flex';
+      } else if (name === 'josekis') { // J3
+        gmActive = false;
+        gmStopTimer();
+        jsActive = true;
+        document.getElementById('board-controls').style.display = 'none';
+        document.getElementById('gm-controls').style.display = 'none';
+        document.getElementById('js-controls').style.display = 'flex';
+        jsEnterTab();
       } else {
         gmActive = false;
         gmStopTimer();
@@ -6202,7 +6539,7 @@
     function switchToBoard() { if (isMobilePortrait()) document.getElementById('app').classList.add('mob-board'); }
     function switchToPanel() { if (isMobilePortrait()) document.getElementById('app').classList.remove('mob-board'); }
     function toggleMobilePanel() {
-      if (isMobilePortrait()) { const inBoard = document.getElementById('app').classList.contains('mob-board'); if (inBoard) switchToPanel(); else if (currentProblem) switchToBoard(); }
+      if (isMobilePortrait()) { const inBoard = document.getElementById('app').classList.contains('mob-board'); if (inBoard) switchToPanel(); else if (currentProblem || (jsActive && jsData)) switchToBoard(); /* J3 */ }
       else if (isTablet()) { const left = document.getElementById('left'), ov = document.getElementById('mob-overlay'); const open = left.classList.toggle('mob-visible'); ov.classList.toggle('mob-visible', open); document.getElementById('board-wrap').style.pointerEvents = open ? 'none' : ''; document.querySelectorAll('#board-wrap canvas').forEach(c => c.style.zIndex = open ? '1' : ''); }
     }
     function closeMobilePanel() { document.getElementById('left').classList.remove('mob-visible'); document.getElementById('mob-overlay').classList.remove('mob-visible'); document.getElementById('board-wrap').style.pointerEvents = ''; document.querySelectorAll('#board-wrap canvas').forEach(c => c.style.zIndex = ''); }
@@ -6229,6 +6566,7 @@
     // (gmActive) se excluye: repintarle un problema encima seria peor que
     // conservar el tamano anterior hasta la proxima interaccion.
     window.addEventListener('resize', () => { clearTimeout(rsTO); rsTO = setTimeout(() => {
+      if (wgoBoard && jsActive && jsData) { initBoard(19); jsRender(null); return; } // J3
       if (!wgoBoard || !currentProblem || gmActive) return;
       initBoard(currentProblem.size || 19);
       if (window._studyRedraw) window._studyRedraw(); else renderProblem(currentProblem);
@@ -6261,6 +6599,7 @@
       // aún no habían tenido oportunidad de enviarse.
       tryAutoSync(true).then(async ok => { if (ok) await syncDeletedRuns(); loadCollections(); });
       gmInitControls();
+      jsInitControls(); // J3
 	  if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('/tsumevault/sw.js?' + SW_VERSION).then(() => {
 		  updateSwVersionLabel();

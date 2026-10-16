@@ -1,0 +1,151 @@
+2026-10-16 13:16:21,532 INFO TsumeVault API → http://localhost:3477
+2026-10-16 13:16:21,533 INFO Red local      → http://10.103.40.36:3477
+2026-10-16 13:16:21,533 INFO DB             → C:\Users\victor.diaz\Documents\All\Go\tsumevault\t_run\tsumeVault.db
+2026-10-16 13:16:21,533 WARNING Auth: TSUMEVAULT_TOKEN no definido — autenticación DESACTIVADA (modo compatibilidad)
+2026-10-16 13:16:21,533 INFO Orígenes permitidos: http://127.0.0.1:3000, http://localhost:3000, https://vai-arch.github.io
+2026-10-16 13:16:21,546 INFO [migrate] 1 attempts duplicados por uuid eliminados.
+2026-10-16 13:16:21,546 INFO [migrate] run uuid=run-dup: 1 duplicados fusionados en id=1.
+2026-10-16 13:16:21,558 INFO [migrate] Columna hidden añadida a problems.
+2026-10-16 13:16:21,561 INFO [migrate] Migraciones completadas (schema_version=2).
+2026-10-16 13:16:21,573 INFO [migrate] Migraciones completadas (schema_version=3).
+2026-10-16 13:16:21,587 INFO [migrate] Migraciones completadas (schema_version=4).
+2026-10-16 13:16:21,741 INFO 127.0.0.1 "GET /sync/static_version HTTP/1.1" 200 -
+2026-10-16 13:16:21,750 INFO 127.0.0.1 "GET /sync/pull?since_attempt_id=0&since_run_id=0 HTTP/1.1" 200 -
+2026-10-16 13:16:21,752 INFO sync/push: 1 runs, 1 attempts
+2026-10-16 13:16:21,761 INFO 127.0.0.1 "POST /sync/push HTTP/1.1" 200 -
+2026-10-16 13:16:21,781 INFO sync/push: 1 runs, 1 attempts
+2026-10-16 13:16:21,783 INFO 127.0.0.1 "POST /sync/push HTTP/1.1" 200 -
+2026-10-16 13:16:21,798 INFO sync/push: 0 runs, 1 attempts
+2026-10-16 13:16:21,803 INFO 127.0.0.1 "POST /sync/push HTTP/1.1" 200 -
+2026-10-16 13:16:21,813 INFO delete_runs: 1 ids, 0 uuids
+2026-10-16 13:16:21,813 INFO 127.0.0.1 "POST /db/runs/delete HTTP/1.1" 200 -
+2026-10-16 13:16:21,823 INFO delete_runs: 0 ids, 1 uuids
+2026-10-16 13:16:21,823 INFO 127.0.0.1 "POST /db/runs/delete HTTP/1.1" 200 -
+2026-10-16 13:16:21,861 INFO delete_runs: 0 ids, 1 uuids
+2026-10-16 13:16:21,861 INFO 127.0.0.1 "POST /db/runs/delete HTTP/1.1" 200 -
+2026-10-16 13:16:21,877 INFO delete_runs: 0 ids, 1 uuids
+2026-10-16 13:16:21,877 INFO 127.0.0.1 "POST /db/runs/delete HTTP/1.1" 200 -
+2026-10-16 13:16:21,903 INFO delete_runs: 0 ids, 1 uuids
+2026-10-16 13:16:21,903 INFO 127.0.0.1 "POST /db/runs/delete HTTP/1.1" 200 -
+2026-10-16 13:16:21,916 INFO check_runs: recibidos=2 existentes=0 missing=2
+2026-10-16 13:16:21,916 INFO 127.0.0.1 "POST /sync/check_runs HTTP/1.1" 200 -
+2026-10-16 13:16:21,918 INFO 127.0.0.1 "POST /sync/push HTTP/1.1" 400 -
+2026-10-16 13:16:21,932 INFO 127.0.0.1 "POST /sync/push HTTP/1.1" 400 -
+2026-10-16 13:16:21,949 INFO 127.0.0.1 "PUT /db/run HTTP/1.1" 400 -
+2026-10-16 13:16:21,965 INFO 127.0.0.1 "POST /sync/sm2/push HTTP/1.1" 400 -
+2026-10-16 13:16:21,969 INFO 127.0.0.1 "PUT /sync/chapters_mostrar HTTP/1.1" 400 -
+2026-10-16 13:16:21,987 INFO problems_hidden: 1 problemas ocultados; total ocultos=1
+2026-10-16 13:16:21,987 INFO 127.0.0.1 "PUT /sync/problems_hidden HTTP/1.1" 200 -
+2026-10-16 13:16:21,991 INFO 127.0.0.1 "PUT /sync/problems_hidden HTTP/1.1" 200 -
+2026-10-16 13:16:21,994 INFO 127.0.0.1 "PUT /sync/problems_hidden HTTP/1.1" 200 -
+2026-10-16 13:16:22,016 INFO 127.0.0.1 "PUT /sync/problems_hidden HTTP/1.1" 200 -
+2026-10-16 13:16:22,032 INFO 127.0.0.1 "PUT /sync/problems_hidden HTTP/1.1" 400 -
+2026-10-16 13:16:22,047 INFO 127.0.0.1 "PUT /sync/problems_hidden HTTP/1.1" 400 -
+2026-10-16 13:16:22,067 INFO 127.0.0.1 "GET /db/problems?source=th HTTP/1.1" 200 -
+2026-10-16 13:16:22,086 INFO 127.0.0.1 "POST /db/run HTTP/1.1" 200 -
+2026-10-16 13:16:22,093 INFO problems_hidden: 1 problemas ocultados; total ocultos=1
+2026-10-16 13:16:22,093 INFO 127.0.0.1 "PUT /sync/problems_hidden HTTP/1.1" 200 -
+2026-10-16 13:16:22,096 INFO 127.0.0.1 "GET /db/problems?source=th HTTP/1.1" 200 -
+2026-10-16 13:16:22,103 INFO 127.0.0.1 "POST /db/run HTTP/1.1" 200 -
+2026-10-16 13:16:22,112 INFO 127.0.0.1 "GET /db/collections?source=th HTTP/1.1" 200 -
+2026-10-16 13:16:22,117 INFO 127.0.0.1 "GET /db/chapters?source=th&set_id=1 HTTP/1.1" 200 -
+2026-10-16 13:16:22,124 INFO tags: 2 tags nuevos; total=2
+2026-10-16 13:16:22,124 INFO 127.0.0.1 "PUT /sync/tags HTTP/1.1" 200 -
+2026-10-16 13:16:22,128 INFO 127.0.0.1 "PUT /sync/tags HTTP/1.1" 200 -
+2026-10-16 13:16:22,133 INFO 127.0.0.1 "PUT /sync/tags HTTP/1.1" 200 -
+2026-10-16 13:16:22,135 INFO 127.0.0.1 "PUT /sync/tags HTTP/1.1" 400 -
+2026-10-16 13:16:22,148 INFO 127.0.0.1 "PUT /sync/tags HTTP/1.1" 400 -
+2026-10-16 13:16:22,158 INFO 127.0.0.1 "POST /sync/problem_tags/push HTTP/1.1" 200 -
+2026-10-16 13:16:22,162 INFO 127.0.0.1 "POST /sync/problem_tags/push HTTP/1.1" 200 -
+2026-10-16 13:16:22,172 INFO 127.0.0.1 "POST /sync/problem_tags/push HTTP/1.1" 200 -
+2026-10-16 13:16:22,178 INFO 127.0.0.1 "POST /sync/problem_tags/push HTTP/1.1" 200 -
+2026-10-16 13:16:22,188 INFO 127.0.0.1 "POST /sync/problem_tags/push HTTP/1.1" 200 -
+2026-10-16 13:16:22,193 INFO 127.0.0.1 "GET /sync/problem_tags/pull?since=2026-09-02T10:00:00Z HTTP/1.1" 200 -
+2026-10-16 13:16:22,195 INFO 127.0.0.1 "POST /sync/problem_tags/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,198 INFO 127.0.0.1 "POST /sync/problem_tags/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,201 INFO 127.0.0.1 "POST /sync/problem_tags/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,204 INFO 127.0.0.1 "POST /sync/tags/delete HTTP/1.1" 409 -
+2026-10-16 13:16:22,210 INFO tags: borrado 'ko' (1 filas)
+2026-10-16 13:16:22,210 INFO 127.0.0.1 "POST /sync/tags/delete HTTP/1.1" 200 -
+2026-10-16 13:16:22,214 INFO 127.0.0.1 "POST /sync/tags/delete HTTP/1.1" 400 -
+2026-10-16 13:16:22,235 INFO 127.0.0.1 "POST /sync/joseki_sm2/push HTTP/1.1" 200 -
+2026-10-16 13:16:22,239 INFO 127.0.0.1 "POST /sync/joseki_sm2/push HTTP/1.1" 200 -
+2026-10-16 13:16:22,247 INFO 127.0.0.1 "POST /sync/joseki_sm2/push HTTP/1.1" 200 -
+2026-10-16 13:16:22,265 INFO 127.0.0.1 "GET /sync/joseki_sm2/pull?since=2026-10-15T10:00:00Z HTTP/1.1" 200 -
+2026-10-16 13:16:22,283 INFO 127.0.0.1 "GET /sync/joseki_sm2/pull?since=2026-10-16T10:00:01Z HTTP/1.1" 200 -
+2026-10-16 13:16:22,286 INFO 127.0.0.1 "POST /sync/joseki_sm2/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,298 INFO 127.0.0.1 "POST /sync/joseki_sm2/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,314 INFO 127.0.0.1 "POST /sync/joseki_sm2/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,322 INFO 127.0.0.1 "POST /sync/joseki_attempts/push HTTP/1.1" 200 -
+2026-10-16 13:16:22,337 INFO 127.0.0.1 "POST /sync/joseki_attempts/push HTTP/1.1" 200 -
+2026-10-16 13:16:22,343 INFO 127.0.0.1 "GET /sync/joseki_attempts/pull?since_id=0 HTTP/1.1" 200 -
+2026-10-16 13:16:22,386 INFO 127.0.0.1 "GET /sync/joseki_attempts/pull?since_id=2 HTTP/1.1" 200 -
+2026-10-16 13:16:22,388 WARNING bad request /sync/joseki_attempts/pull?since_id=abc: ValueError("invalid literal for int() with base 10: 'abc'")
+2026-10-16 13:16:22,388 INFO 127.0.0.1 "GET /sync/joseki_attempts/pull?since_id=abc HTTP/1.1" 400 -
+2026-10-16 13:16:22,391 INFO 127.0.0.1 "POST /sync/joseki_attempts/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,397 INFO 127.0.0.1 "POST /sync/joseki_attempts/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,399 INFO 127.0.0.1 "POST /sync/joseki_attempts/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,401 INFO 127.0.0.1 "POST /sync/joseki_attempts/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,403 INFO 127.0.0.1 "POST /sync/joseki_attempts/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,407 INFO 127.0.0.1 "POST /sync/joseki_sm2/push HTTP/1.1" 403 -
+2026-10-16 13:16:22,419 INFO 127.0.0.1 "POST /sync/push HTTP/1.1" 400 -
+2026-10-16 13:16:22,428 INFO 127.0.0.1 "POST /sync/push HTTP/1.1" 413 -
+2026-10-16 13:16:22,434 INFO 127.0.0.1 "GET /sync/pull?since_attempt_id=0&since_run_id=0 HTTP/1.1" 200 -
+2026-10-16 13:16:22,437 WARNING bad request /sync/pull?since_attempt_id=abc&since_run_id=0: ValueError("invalid literal for int() with base 10: 'abc'")
+2026-10-16 13:16:22,438 INFO 127.0.0.1 "GET /sync/pull?since_attempt_id=abc&since_run_id=0 HTTP/1.1" 400 -
+2026-10-16 13:16:22,450 WARNING bad request /db/last_run_stats?source=tsumego_hero&set_id=abc: ValueError("invalid literal for int() with base 10: 'abc'")
+2026-10-16 13:16:22,450 INFO 127.0.0.1 "GET /db/last_run_stats?source=tsumego_hero&set_id=abc HTTP/1.1" 400 -
+2026-10-16 13:16:22,465 INFO 127.0.0.1 "GET /sync/sm2/pull?since=2026-07-05T09:00:00Z HTTP/1.1" 200 -
+2026-10-16 13:16:22,468 INFO 127.0.0.1 "POST /sync/check_runs HTTP/1.1" 403 -
+2026-10-16 13:16:22,470 INFO 127.0.0.1 "POST /sync/check_runs HTTP/1.1" 200 -
+2026-10-16 13:16:22,483 INFO 127.0.0.1 "GET /sync/static_version HTTP/1.1" 200 -
+2026-10-16 13:16:22,499 INFO 127.0.0.1 "GET /sync/static_version HTTP/1.1" 200 -
+2026-10-16 13:16:22,694 INFO TsumeVault API → http://localhost:3477
+2026-10-16 13:16:22,695 INFO Red local      → http://10.103.40.36:3477
+2026-10-16 13:16:22,695 INFO DB             → C:\Users\victor.diaz\Documents\All\Go\tsumevault\t_run\tsumeVault.db
+2026-10-16 13:16:22,695 INFO Auth: X-Auth-Token ACTIVADO
+2026-10-16 13:16:22,695 INFO Orígenes permitidos: http://127.0.0.1:3000, http://localhost:3000, https://vai-arch.github.io
+2026-10-16 13:16:22,697 INFO [migrate] schema_version=4 — nada que migrar.
+2026-10-16 13:16:23,021 INFO 127.0.0.1 "GET /sync/static_version HTTP/1.1" 401 -
+2026-10-16 13:16:23,024 INFO 127.0.0.1 "GET /sync/pull?since_attempt_id=0&since_run_id=0 HTTP/1.1" 401 -
+2026-10-16 13:16:23,026 INFO 127.0.0.1 "GET /sync/pull?since_attempt_id=0&since_run_id=0 HTTP/1.1" 401 -
+2026-10-16 13:16:23,031 INFO 127.0.0.1 "GET /sync/pull?since_attempt_id=0&since_run_id=0 HTTP/1.1" 200 -
+2026-10-16 13:16:23,034 INFO sync/push: 0 runs, 0 attempts
+2026-10-16 13:16:23,036 INFO 127.0.0.1 "POST /sync/push HTTP/1.1" 200 -
+2026-10-16 13:16:23,038 INFO 127.0.0.1 "OPTIONS /sync/push HTTP/1.1" 200 -
+2026-10-16 13:16:23,313 INFO TsumeVault API → http://localhost:3477
+2026-10-16 13:16:23,314 INFO Red local      → http://10.103.40.36:3477
+2026-10-16 13:16:23,314 INFO DB             → C:\Users\victor.diaz\Documents\All\Go\tsumevault\t_run\tsumeVault.db
+2026-10-16 13:16:23,314 WARNING Auth: TSUMEVAULT_TOKEN no definido — autenticación DESACTIVADA (modo compatibilidad)
+2026-10-16 13:16:23,314 INFO Orígenes permitidos: http://127.0.0.1:3000, http://localhost:3000, https://vai-arch.github.io
+2026-10-16 13:16:23,316 INFO [migrate] schema_version=4 — nada que migrar.
+2026-10-16 13:16:23,653 INFO 127.0.0.1 "GET /sync/static_version HTTP/1.1" 200 -
+2026-10-16 13:16:23,661 INFO 127.0.0.1 "GET /db/audit HTTP/1.1" 200 -
+2026-10-16 13:16:23,686 INFO 127.0.0.1 "GET /db/audit?summary=1 HTTP/1.1" 200 -
+2026-10-16 13:16:23,693 INFO 127.0.0.1 "GET /db/audit?check=13,6c HTTP/1.1" 200 -
+2026-10-16 13:16:23,701 INFO 127.0.0.1 "GET /db/audit?verbose=1&skip_integrity=1 HTTP/1.1" 200 -
+2026-10-16 13:16:23,725 INFO 127.0.0.1 "GET /db/audit?verbose=1 HTTP/1.1" 200 -
+2026-10-16 13:16:23,921 INFO TsumeVault API → http://localhost:3477
+2026-10-16 13:16:23,921 INFO Red local      → http://10.103.40.36:3477
+2026-10-16 13:16:23,921 INFO DB             → C:\Users\victor.diaz\Documents\All\Go\tsumevault\t_run\tsumeVault.db
+2026-10-16 13:16:23,921 INFO Auth: X-Auth-Token ACTIVADO
+2026-10-16 13:16:23,921 INFO Orígenes permitidos: http://127.0.0.1:3000, http://localhost:3000, https://vai-arch.github.io
+2026-10-16 13:16:23,923 INFO [migrate] schema_version=4 — nada que migrar.
+2026-10-16 13:16:24,252 INFO 127.0.0.1 "GET /sync/static_version HTTP/1.1" 401 -
+2026-10-16 13:16:24,255 INFO 127.0.0.1 "GET /db/audit HTTP/1.1" 401 -
+2026-10-16 13:16:24,265 INFO 127.0.0.1 "GET /db/audit HTTP/1.1" 200 -
+2026-10-16 13:16:24,477 INFO TsumeVault API → http://localhost:3477
+2026-10-16 13:16:24,477 INFO Red local      → http://10.103.40.36:3477
+2026-10-16 13:16:24,478 INFO DB             → C:\Users\victor.diaz\Documents\All\Go\tsumevault\t_run\tsumeVault.db
+2026-10-16 13:16:24,478 WARNING Auth: TSUMEVAULT_TOKEN no definido — autenticación DESACTIVADA (modo compatibilidad)
+2026-10-16 13:16:24,478 INFO Orígenes permitidos: http://127.0.0.1:3000, http://localhost:3000, https://vai-arch.github.io
+2026-10-16 13:16:24,504 INFO [migrate] Migraciones completadas (schema_version=4).
+2026-10-16 13:16:24,847 INFO 127.0.0.1 "GET /sync/static_version HTTP/1.1" 200 -
+2026-10-16 13:16:24,870 INFO 127.0.0.1 "POST /sync/joseki_sm2/push HTTP/1.1" 200 -
+2026-10-16 13:16:25,051 INFO TsumeVault API → http://localhost:3477
+2026-10-16 13:16:25,052 INFO Red local      → http://10.103.40.36:3477
+2026-10-16 13:16:25,052 INFO DB             → C:\Users\victor.diaz\Documents\All\Go\tsumevault\t_run\tsumeVault.db
+2026-10-16 13:16:25,052 WARNING Auth: TSUMEVAULT_TOKEN no definido — autenticación DESACTIVADA (modo compatibilidad)
+2026-10-16 13:16:25,052 INFO Orígenes permitidos: http://127.0.0.1:3000, http://localhost:3000, https://vai-arch.github.io
+2026-10-16 13:16:25,054 INFO [migrate] schema_version=4 — nada que migrar.
+2026-10-16 13:16:25,402 INFO 127.0.0.1 "GET /sync/static_version HTTP/1.1" 200 -

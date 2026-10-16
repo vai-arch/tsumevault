@@ -1,0 +1,2619 @@
+"""
+tsumevault_server.py — Servidor API para TsumeVault.
+
+Uso:
+    python tsumevault_server.py [puerto]
+
+Por defecto puerto: 3002
+DB: tsumeVault.db (mismo directorio que este script)
+
+Endpoints:
+    GET  /db/collections
+    GET  /db/chapters?set_id=X&source=X
+    GET  /db/problems?chapter_id=X
+    GET  /db/problem?source=X&problem_id=Y
+    GET  /db/runs?source=X&status=X
+    GET  /db/run/items?run_id=X
+    GET  /db/last_run_stats?source=X&set_id=X
+    GET  /db/last_run_stats_all?source=X
+    GET  /db/struggling?source=X[&set_id=X][&chapter_id=X]
+    POST /db/attempt   { source, problem_id, run_id?, result, time_ms? }
+    POST /db/run       { source, set_id?, chapter_id?, vc_id?, type }
+    PUT  /db/run       { id, status? }
+
+    J2 (josekis — solo progreso; el contenido vive en joseki/*.json):
+    GET  /sync/joseki_sm2/pull?since=ISO
+    POST /sync/joseki_sm2/push        { joseki_sm2: [...] }
+    GET  /sync/joseki_attempts/pull?since_id=N
+    POST /sync/joseki_attempts/push   { joseki_attempts: [...] }
+"""
+
+import gzip
+import json
+import logging
+import math
+import os
+import random
+import re
+import signal
+import sqlite3
+import sys
+import threading
+import time
+from datetime import datetime, timedelta, timezone
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from urllib.parse import parse_qs, urlparse
+
+# ── Config ────────────────────────────────────────────────────────────────────
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 3002
+DB_PATH = os.path.join(SCRIPT_DIR, "tsumeVault.db")
+
+# Token estático de autenticación (Fase 1, §4.1). Si la variable de entorno
+# TSUMEVAULT_TOKEN no está definida, la autenticación queda DESACTIVADA
+# (modo compatibilidad: clientes antiguos siguen funcionando).
+AUTH_TOKEN = os.environ.get("TSUMEVAULT_TOKEN", "").strip()
+
+# Orígenes permitidos para CORS y para la verificación de Origin en escrituras.
+# Sobreescribible con TSUMEVAULT_ORIGINS (lista separada por comas).
+ALLOWED_ORIGINS = {
+    o.strip()
+    for o in os.environ.get(
+        "TSUMEVAULT_ORIGINS",
+        "https://vai-arch.github.io,http://localhost:3000,http://127.0.0.1:3000",
+    ).split(",")
+    if o.strip()
+}
+
+# Límite de tamaño del body (Fase 1, §4.2): rechaza payloads absurdos con 413.
+MAX_BODY_BYTES = 10 * 1024 * 1024  # 10 MB
+
+# El servidor pasa a ThreadingHTTPServer (una conexión lenta ya no bloquea el
+# servicio). Este lock serializa TODO el acceso a SQLite, preservando
+# exactamente la semántica single-thread previa: cero carreras SQL nuevas.
+DB_LOCK = threading.Lock()
+
+log = logging.getLogger("tsumevault")
+
+
+class _BodyError(Exception):
+    """Body HTTP inválido (demasiado grande o JSON malformado)."""
+
+    def __init__(self, code, msg):
+        super().__init__(msg)
+        self.code = code
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def handle_delete_runs(body):
+    ids = body.get("ids", [])
+    uuids = body.get("uuids", [])
+    if not isinstance(ids, list) or not isinstance(uuids, list):
+        return {"error": "ids/uuids must be lists"}, 400
+    if not ids and not uuids:
+        return {"error": "ids or uuids required"}, 400
+    with db_connect() as con:
+        # T19: pares (source, problem_id) con attempts afectados por el
+        # borrado, capturados ANTES de desvincularlos (UPDATE de T18) para
+        # poder recalcular sm2_state con el historial que queda.
+        affected_pairs = set()
+        if ids:
+            # TODO(Fase 2): retirar la ruta por ids locales cuando todos los
+            # clientes usen uuids (bug 3.3 de la auditoría: los ids del cliente
+            # no se corresponden con los del servidor). Se mantiene solo por
+            # compatibilidad con clientes antiguos durante la transición.
+            try:
+                ids = [int(i) for i in ids]
+            except (TypeError, ValueError):
+                return {"error": "invalid ids"}, 400
+            placeholders = ",".join("?" * len(ids))
+            # T19: capturar pares afectados ANTES del UPDATE de T18.
+            rows = con.execute(
+                f"SELECT DISTINCT source, problem_id FROM attempts WHERE run_id IN (SELECT id FROM runs WHERE id IN ({placeholders}))",
+                ids,
+            ).fetchall()
+            affected_pairs.update((r["source"], r["problem_id"]) for r in rows)
+            # T18: los attempts de un run borrado NO se eliminan (perderian
+            # historial real de seen/correct/streak); se desvinculan a NULL y
+            # pasan a contar como Free Practice. Decision de producto: T18.
+            con.execute(
+                f"UPDATE attempts SET run_id=NULL WHERE run_id IN (SELECT id FROM runs WHERE id IN ({placeholders}))",
+                ids,
+            )
+            con.execute(
+                f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE id IN ({placeholders}))",
+                ids,
+            )
+            con.execute(f"DELETE FROM runs WHERE id IN ({placeholders})", ids)
+        if uuids:
+            placeholders = ",".join("?" * len(uuids))
+            # T19: capturar pares afectados ANTES del UPDATE de T18.
+            rows = con.execute(
+                f"SELECT DISTINCT source, problem_id FROM attempts WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))",
+                uuids,
+            ).fetchall()
+            affected_pairs.update((r["source"], r["problem_id"]) for r in rows)
+            # T18: mismo tratamiento que arriba para la rama por uuids.
+            con.execute(
+                f"UPDATE attempts SET run_id=NULL WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))",
+                uuids,
+            )
+            con.execute(
+                f"DELETE FROM run_items WHERE run_id IN (SELECT id FROM runs WHERE uuid IN ({placeholders}))",
+                uuids,
+            )
+            con.execute(f"DELETE FROM runs WHERE uuid IN ({placeholders})", uuids)
+        # T19: recalcular sm2_state para los pares afectados, coherente con
+        # los attempts que quedan (run_id IS NOT NULL) tras el borrado. Dentro
+        # de la MISMA transaccion que el borrado (atomicidad).
+        if affected_pairs:
+            _recalc_sm2_for_pairs(con, affected_pairs)
+        con.commit()
+    log.info("delete_runs: %d ids, %d uuids", len(ids), len(uuids))
+    return {"ok": True}
+
+
+def _js_round(x):
+    """T19: replica Math.round de JS (redondeo .5 siempre hacia arriba, no
+    banker's rounding como el round() nativo de Python). Portado literal de
+    sm2_replay.py::js_round (T17) -- NO modificar sin re-validar contra
+    updateSm2() real en tsumevault.html."""
+    return math.floor(x + 0.5)
+
+
+def _replay_sm2(results, rand_source):
+    """T19: portado VERBATIM de sm2_replay.py::replay_sm2 (T17, ya validado
+    campo a campo contra updateSm2() real). results: lista de
+    'correct'/'wrong' en orden cronologico (created_at ASC, id ASC como
+    desempate). rand_source: funcion sin argumentos que devuelve un float en
+    [0,1), llamada una vez por cada resultado 'correct'. Devuelve
+    (interval, easiness, repetitions, days_until_due)."""
+    interval = 6.0
+    easiness = 2.5
+    repetitions = 0
+    days_until_due = 6.0
+    for result in results:
+        if result == "correct":
+            repetitions += 1
+            next_base = 6.0 if repetitions == 1 else _js_round(interval * easiness)
+            next_next = _js_round(next_base * easiness)
+            span = max(1, next_next - next_base)
+            jitter = next_base + math.floor(rand_source() * span)
+            days_until_due = jitter
+            interval = next_base
+        else:
+            repetitions = 0
+            interval = 1.0
+            days_until_due = interval
+            easiness = max(1.3, easiness - 0.2)
+    return interval, easiness, repetitions, days_until_due
+
+
+def _recalc_sm2_for_pairs(con, pairs):
+    """T19: recalcula sm2_state para cada (source, problem_id) en `pairs`,
+    reproduciendo _replay_sm2 sobre el historial COMPLETO que queda
+    (attempts WHERE run_id IS NOT NULL), igual que recalc_sm2.py (T17). Debe
+    llamarse DENTRO de la misma transaccion que el borrado de runs que la
+    origina (atomicidad: si el recalculo fallara, el borrado no debe quedar
+    a medias).
+
+    Si un par se queda sin ningun attempt con run_id IS NOT NULL tras el
+    borrado, su fila en sm2_state NO se toca (ni se borra ni se resetea) --
+    mismo criterio que recalc_sm2.py, que simplemente nunca la visita.
+
+    Filtro anti-churn (igual que recalc_sm2.py): due_date solo se re-sortea
+    si repetitions/interval/easiness cambian de verdad respecto al valor ya
+    guardado; si no, se deja la fila tal cual (evita barajar fechas de
+    repaso que nunca estuvieron mal solo porque el jitter aleatorio dio un
+    numero distinto)."""
+    rng = random.Random()
+    now = now_iso()
+    for source, problem_id in pairs:
+        rows = con.execute(
+            """SELECT result, created_at FROM attempts
+               WHERE source=? AND problem_id=? AND run_id IS NOT NULL
+               ORDER BY created_at ASC, id ASC""",
+            (source, problem_id),
+        ).fetchall()
+        if not rows:
+            continue  # T19: sin historial restante -> no tocar sm2_state
+
+        results = [r["result"] for r in rows]
+        # T19: aproximacion UTC (created_at[:10]), igual que recalc_sm2.py --
+        # el margen de error frente a la fecha local exacta es insignificante
+        # frente a intervalos de 6+ dias.
+        last_date = rows[-1]["created_at"][:10]
+
+        interval, easiness, repetitions, days_until_due = _replay_sm2(results, rng.random)
+        # T19: el ancla de due_date es la fecha del ULTIMO intento real que
+        # queda, no "hoy" (recalc_sm2.py documenta que anclar en "hoy" fue un
+        # bug real detectado antes).
+        anchor = datetime.strptime(last_date, "%Y-%m-%d")
+        due_date = (anchor + timedelta(days=round(days_until_due))).strftime("%Y-%m-%d")
+
+        current = con.execute(
+            "SELECT due_date, interval, easiness, repetitions FROM sm2_state WHERE source=? AND problem_id=?",
+            (source, problem_id),
+        ).fetchone()
+
+        needs_fix = (
+            current is None
+            or current["repetitions"] != repetitions
+            or abs((current["interval"] or 0) - interval) > 0.01
+            or abs((current["easiness"] or 0) - easiness) > 0.001
+        )
+        if not needs_fix:
+            continue
+
+        con.execute(
+            """INSERT INTO sm2_state (source, problem_id, due_date, interval, easiness, repetitions, updated_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?)
+               ON CONFLICT(source, problem_id) DO UPDATE SET
+                   due_date=excluded.due_date, interval=excluded.interval,
+                   easiness=excluded.easiness, repetitions=excluded.repetitions,
+                   updated_at=excluded.updated_at""",
+            (source, problem_id, due_date, interval, easiness, repetitions, now),
+        )
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# T20: Auditoría de integridad — GET /db/audit
+#
+# Solo lectura: el handler abre su PROPIA conexión en modo ro (file:...?mode=ro,
+# nunca db_connect) y run_audit solo ejecuta SELECT/PRAGMA. Reutiliza
+# _replay_sm2 (T17/T19) para verificar sm2_state contra el historial real de
+# attempts de run, de modo que auditor y código de producción no puedan
+# divergir. Corre bajo DB_LOCK vía _dispatch como cualquier ruta (decisión T20).
+#
+# Severidades: ERROR (inconsistencia real), WARNING (anomalía probablemente
+# histórica o ventana de sync), INFO (diagnóstico, no es fallo), PASS (sin
+# hallazgos), SKIP (check omitido por parámetro).
+
+_AUDIT_DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+_AUDIT_ISO_RE = re.compile(r"^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}")
+_AUDIT_RUN_STATUS = ("open", "closed")
+# 'review' es un tipo REAL creado por startReview() en el cliente (corrección
+# T20 sobre el spec original, que solo listaba chapter/collection/virtual).
+_AUDIT_RUN_TYPES = ("chapter", "collection", "virtual", "review")
+
+
+def _audit_has_table(con, name):
+    return bool(
+        con.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?", (name,)
+        ).fetchone()
+    )
+
+
+def run_audit(con, limit=20, skip_integrity=False):
+    """T20: ejecuta todas las comprobaciones de integridad y devuelve un dict
+    JSON-able. `con` debe ser una conexión de SOLO LECTURA. `limit` acota los
+    ejemplos por check (None = todos, modo verbose). Los ejemplos se diseñan
+    autosuficientes: deben bastar para diagnosticar sin volver a la BD."""
+    t_all = time.perf_counter()
+    checks = []
+
+    def _ms(t):
+        return round((time.perf_counter() - t) * 1000.0, 1)
+
+    def add(check_id, section, title, findings, severity, note="", t=None, skipped=False):
+        entry = {
+            "id": check_id,
+            "section": section,
+            "title": title,
+            "severity": "SKIP" if skipped else (severity if findings else "PASS"),
+            "count": len(findings),
+            "examples": findings if limit is None else findings[:limit],
+            "note": note,
+            "elapsed_ms": _ms(t) if t is not None else 0.0,
+        }
+        checks.append(entry)
+        return entry
+
+    def q(sql, params=()):
+        return [dict(r) for r in con.execute(sql, params).fetchall()]
+
+    has_collections = _audit_has_table(con, "collections")
+
+    # ── [DB] integridad física ──
+    t = time.perf_counter()
+    if skip_integrity:
+        add("A1", "DB", "PRAGMA integrity_check", [], "ERROR",
+            note="omitido (skip_integrity=1)", t=t, skipped=True)
+    else:
+        rows = [r[0] for r in con.execute("PRAGMA integrity_check").fetchall()]
+        bad = [] if rows == ["ok"] else [{"detail": r} for r in rows]
+        add("A1", "DB", "PRAGMA integrity_check", bad, "ERROR",
+            note="corrupción física del fichero SQLite", t=t)
+
+    t = time.perf_counter()
+    fk = q("PRAGMA foreign_key_check")
+    add("A2", "DB", "PRAGMA foreign_key_check", fk, "ERROR",
+        note="violaciones de claves foráneas declaradas en el esquema", t=t)
+
+    # ── [PROBLEMS] ──
+    if has_collections:
+        t = time.perf_counter()
+        rows = q("""SELECT p.source, p.set_id, COUNT(*) AS problems
+                    FROM problems p LEFT JOIN collections c
+                      ON c.source=p.source AND c.set_id=p.set_id
+                    WHERE c.set_id IS NULL GROUP BY p.source, p.set_id""")
+        add(20, "PROBLEMS", "problems(source,set_id) sin collection", rows, "ERROR", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT p.source, p.problem_id, p.chapter_id
+                FROM problems p LEFT JOIN chapters ch ON ch.id=p.chapter_id
+                WHERE p.chapter_id IS NOT NULL AND ch.id IS NULL""")
+    add(19, "PROBLEMS", "problems.chapter_id sin chapter", rows, "ERROR", t=t)
+
+    t = time.perf_counter()
+    rows = q("SELECT source, problem_id, hidden FROM problems WHERE hidden NOT IN (0,1)")
+    add("A3", "PROBLEMS", "problems.hidden fuera de {0,1} en servidor", rows, "ERROR",
+        note="hidden=2 es estado transitorio SOLO de cliente (T13); en servidor indica bug de sync", t=t)
+
+    # ── [CHAPTERS] ──
+    if has_collections:
+        t = time.perf_counter()
+        rows = q("""SELECT ch.id, ch.source, ch.set_id, ch.chapter_num
+                    FROM chapters ch LEFT JOIN collections c
+                      ON c.source=ch.source AND c.set_id=ch.set_id
+                    WHERE c.set_id IS NULL""")
+        add("19b", "CHAPTERS", "chapters(source,set_id) sin collection", rows, "ERROR", t=t)
+
+    t = time.perf_counter()
+    rows = q("SELECT id, source, set_id, chapter_num, mostrar FROM chapters WHERE mostrar NOT IN (0,1)")
+    add("A4", "CHAPTERS", "chapters.mostrar fuera de {0,1}", rows, "ERROR", t=t)
+
+    # ── [ATTEMPTS] ──
+    t = time.perf_counter()
+    rows = q("""SELECT a.source, a.problem_id, COUNT(*) AS attempts
+                FROM attempts a LEFT JOIN problems p
+                  ON p.source=a.source AND p.problem_id=a.problem_id
+                WHERE p.problem_id IS NULL GROUP BY a.source, a.problem_id""")
+    add(1, "ATTEMPTS", "attempts sin problem", rows, "WARNING",
+        note="pueden ser históricos de problemas eliminados de la BD; hidden=1 NO produce esto (la fila sigue en problems)", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT a.id, a.source, a.problem_id, a.run_id, a.result, a.created_at
+                FROM attempts a LEFT JOIN runs r ON r.id=a.run_id
+                WHERE a.run_id IS NOT NULL AND r.id IS NULL""")
+    add(4, "ATTEMPTS", "attempts de run sin run", rows, "ERROR",
+        note="T18 desvincula (run_id=NULL) al borrar runs, así que esto no debería existir", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT a.id, a.source, a.problem_id, a.run_id, a.result, a.created_at
+                FROM attempts a JOIN runs r ON r.id=a.run_id
+                LEFT JOIN run_items ri ON ri.run_id=a.run_id
+                  AND ri.source=a.source AND ri.problem_id=a.problem_id
+                WHERE ri.run_id IS NULL""")
+    add(5, "ATTEMPTS", "attempt de run sin run_item correspondiente", rows, "ERROR",
+        note="T20.1: posible cicatriz de colisión de ids pre-fix: el run referido puede no ser el run real del attempt (p.ej. source distinto). Reparable con repair_t21.py", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT id, source, problem_id, run_id, result, created_at
+                FROM attempts WHERE result NOT IN ('correct','wrong')""")
+    add("A5", "ATTEMPTS", "attempts.result fuera de {'correct','wrong'}", rows, "ERROR",
+        note="detectaría filas legacy con 1/0 (el comentario del esquema es engañoso: los datos reales son TEXT)", t=t)
+
+    t = time.perf_counter()
+    bad_dates = []
+    for r in con.execute("SELECT id, source, problem_id, created_at FROM attempts"):
+        ca = r["created_at"]
+        if not ca or not _AUDIT_ISO_RE.match(str(ca)):
+            bad_dates.append(dict(r))
+    add("A6", "ATTEMPTS", "attempts.created_at vacío o con formato inválido", bad_dates, "WARNING", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT uuid, COUNT(*) AS n, GROUP_CONCAT(id) AS ids FROM attempts
+                WHERE uuid IS NOT NULL GROUP BY uuid HAVING n > 1""")
+    add("17a", "UUIDS", "attempts.uuid duplicado", rows, "ERROR",
+        note="el índice único parcial idx_attempts_uuid debería impedirlo", t=t)
+
+    # ── [RUNS] ──
+    t = time.perf_counter()
+    ph_s = ",".join("?" * len(_AUDIT_RUN_STATUS))
+    rows = q("SELECT id, uuid, type, status, started_at FROM runs WHERE status NOT IN (%s)" % ph_s,
+             _AUDIT_RUN_STATUS)
+    add("9a", "RUNS", "runs.status con valor inesperado", rows, "ERROR",
+        note="valores conocidos: open, closed", t=t)
+
+    t = time.perf_counter()
+    ph_t = ",".join("?" * len(_AUDIT_RUN_TYPES))
+    rows = q("SELECT id, uuid, type, status, started_at FROM runs WHERE type NOT IN (%s)" % ph_t,
+             _AUDIT_RUN_TYPES)
+    add("9b", "RUNS", "runs.type con valor inesperado", rows, "WARNING",
+        note="valores conocidos: chapter, collection, virtual, review", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT id, uuid, type, status, started_at, closed_at FROM runs
+                WHERE status='closed' AND (closed_at IS NULL OR closed_at='')""")
+    add("9c", "RUNS", "run closed sin closed_at", rows, "ERROR", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT id, uuid, type, status, started_at, closed_at FROM runs
+                WHERE status='open' AND closed_at IS NOT NULL""")
+    add("9d", "RUNS", "run open con closed_at", rows, "WARNING", t=t)
+
+    t = time.perf_counter()
+    mism = q("""SELECT r.id, r.uuid, r.type, r.status, r.total, r.done,
+                       COUNT(ri.run_id) AS run_items
+                FROM runs r LEFT JOIN run_items ri ON ri.run_id=r.id
+                GROUP BY r.id HAVING r.total <> COUNT(ri.run_id)""")
+    add(7, "RUNS", "runs.total ≠ COUNT(run_items) (runs no-review)",
+        [m for m in mism if m["type"] != "review"], "ERROR", t=t)
+    add("7r", "RUNS", "runs.total ≠ COUNT(run_items) (runs de review)",
+        [m for m in mism if m["type"] == "review"], "WARNING",
+        note="los run_items de reviews pre-T19 se crearon retroactivamente desde attempts: reviews parciales pueden tener menos items que total", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT r.id, r.uuid, r.type, r.status, r.total, r.done,
+                       SUM(CASE WHEN ri.result IS NOT NULL THEN 1 ELSE 0 END) AS answered
+                FROM runs r LEFT JOIN run_items ri ON ri.run_id=r.id
+                GROUP BY r.id
+                HAVING r.done <> SUM(CASE WHEN ri.result IS NOT NULL THEN 1 ELSE 0 END)""")
+    add(8, "RUNS", "runs.done ≠ run_items contestados", rows, "WARNING",
+        note="un run parcial (done<total) es VÁLIDO; esto compara done contra items con result", t=t)
+
+    t = time.perf_counter()
+    rows = q("SELECT id, uuid, type, status, total, done FROM runs WHERE done > total")
+    add("A8", "RUNS", "runs.done > runs.total", rows, "WARNING",
+        note="bug histórico T4/3.8 (reviews con total=0); filas antiguas pueden persistir", t=t)
+
+    t = time.perf_counter()
+    bad_dates = []
+    for r in con.execute("SELECT id, uuid, type, started_at, closed_at FROM runs"):
+        sa, ca = r["started_at"], r["closed_at"]
+        if not sa or not _AUDIT_ISO_RE.match(str(sa)):
+            d = dict(r); d["campo"] = "started_at"; bad_dates.append(d)
+        if ca is not None and not _AUDIT_ISO_RE.match(str(ca)):
+            d = dict(r); d["campo"] = "closed_at"; bad_dates.append(d)
+    add("A6r", "RUNS", "runs.started_at/closed_at con formato inválido", bad_dates, "WARNING", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT uuid, COUNT(*) AS n, GROUP_CONCAT(id) AS ids FROM runs
+                WHERE uuid IS NOT NULL GROUP BY uuid HAVING n > 1""")
+    add("17b", "UUIDS", "runs.uuid duplicado", rows, "ERROR",
+        note="el índice único parcial idx_runs_uuid debería impedirlo", t=t)
+
+    t = time.perf_counter()
+    a_no = con.execute("SELECT COUNT(*) FROM attempts WHERE uuid IS NULL").fetchone()[0]
+    r_no = con.execute("SELECT COUNT(*) FROM runs WHERE uuid IS NULL").fetchone()[0]
+    inf = [{"attempts_sin_uuid": a_no, "runs_sin_uuid": r_no}] if (a_no or r_no) else []
+    add("A7", "UUIDS", "filas legacy sin uuid", inf, "INFO",
+        note="anteriores al sync por uuid; no es un fallo, solo inventario", t=t)
+
+    # ── [RUN_ITEMS] ──
+    t = time.perf_counter()
+    rows = q("""SELECT ri.run_id, ri.source, ri.problem_id, ri.result
+                FROM run_items ri LEFT JOIN runs r ON r.id=ri.run_id
+                WHERE r.id IS NULL""")
+    add(2, "RUN_ITEMS", "run_items sin run", rows, "ERROR", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT ri.run_id, ri.source, ri.problem_id, ri.result
+                FROM run_items ri LEFT JOIN problems p
+                  ON p.source=ri.source AND p.problem_id=ri.problem_id
+                WHERE p.problem_id IS NULL""")
+    add(3, "RUN_ITEMS", "run_items sin problem", rows, "WARNING",
+        note="pueden ser históricos de problemas eliminados", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT ri.run_id, ri.source, ri.problem_id, ri.result,
+                       EXISTS(SELECT 1 FROM attempts ax WHERE ax.source=ri.source
+                              AND ax.problem_id=ri.problem_id) AS attempt_elsewhere
+                FROM run_items ri LEFT JOIN attempts a ON a.run_id=ri.run_id
+                  AND a.source=ri.source AND a.problem_id=ri.problem_id
+                WHERE ri.result IS NOT NULL AND a.id IS NULL""")
+    add(6, "RUN_ITEMS", "run_item contestado sin attempt en NINGUNA parte",
+        [r for r in rows if not r["attempt_elsewhere"]], "ERROR",
+        note="basta existencia; NO se exige 1:1. Esperado 0: indicaría pérdida real de historial", t=t)
+    add("6c", "RUN_ITEMS", "run_item contestado cuyo attempt vive en OTRO run",
+        [r for r in rows if r["attempt_elsewhere"]], "WARNING",
+        note="T20.1: cicatriz de la colisión de ids de sync pre-fix (runs mayo-2026): el historial existe, colgado de otro run_id. Reparable con repair_t21.py")
+
+    t = time.perf_counter()
+    rows = q("""SELECT run_id, source, problem_id, result FROM run_items
+                WHERE result IS NOT NULL AND result NOT IN ('correct','wrong')""")
+    add("A9", "RUN_ITEMS", "run_items.result fuera de {NULL,'correct','wrong'}", rows, "ERROR", t=t)
+
+    # ── [TAGS] (T23) ──
+    if _audit_has_table(con, "problem_tags"):
+        t = time.perf_counter()
+        rows = q("""SELECT pt.source, pt.problem_id, pt.tag, pt.active FROM problem_tags pt
+                    LEFT JOIN tags tg ON tg.tag = pt.tag COLLATE NOCASE WHERE tg.tag IS NULL""")
+        add("T23a", "TAGS", "problem_tags.tag sin fila en tags (etiqueta huérfana)", rows, "ERROR",
+            note="el push la auto-crea y el borrado exige in_use=0: indicaría edición manual", t=t)
+        t = time.perf_counter()
+        rows = q("""SELECT pt.source, pt.problem_id, pt.tag, pt.active FROM problem_tags pt
+                    LEFT JOIN problems p ON p.source = pt.source AND CAST(p.problem_id AS TEXT) = pt.problem_id
+                    WHERE p.source IS NULL""")
+        add("T23b", "TAGS", "problem_tags apunta a un problem inexistente", rows, "WARNING",
+            note="el push ignora problems desconocidos: indicaría borrado físico de problems", t=t)
+        t = time.perf_counter()
+        rows = q("SELECT source, problem_id, tag, active, updated_at FROM problem_tags WHERE active NOT IN (0,1)")
+        add("T23c", "TAGS", "problem_tags.active fuera de {0,1}", rows, "ERROR", t=t)
+
+    # ── [JOSEKI] (J2) ──
+    if _audit_has_table(con, "joseki_sm2"):
+        t = time.perf_counter()
+        sosp_j = []
+        for s in q("SELECT card_id, due_date, interval, easiness, repetitions, updated_at FROM joseki_sm2"):
+            reasons = []
+            if s["interval"] is None or s["interval"] < 0:
+                reasons.append("interval < 0")
+            if s["repetitions"] is None or s["repetitions"] < 0:
+                reasons.append("repetitions < 0")
+            if s["easiness"] is None or s["easiness"] < 1.3 - 1e-9:
+                reasons.append("easiness < 1.3")
+            if not s["due_date"] or not _AUDIT_DATE_RE.match(str(s["due_date"])):
+                reasons.append("due_date vacío o inválido")
+            if not s["updated_at"] or not _AUDIT_ISO_RE.match(str(s["updated_at"])):
+                reasons.append("updated_at vacío o inválido")
+            if reasons:
+                s["reasons"] = reasons
+                sosp_j.append(s)
+        add("J2a", "JOSEKI", "valores sospechosos en joseki_sm2", sosp_j, "ERROR",
+            note="mismos límites que el check 12 (el SM-2 de josekis es el mismo algoritmo)", t=t)
+    if _audit_has_table(con, "joseki_attempts"):
+        t = time.perf_counter()
+        rows = q("""SELECT id, uuid, card_id, result, hint, created_at FROM joseki_attempts
+                    WHERE result NOT IN ('correct','wrong') OR hint NOT IN (0,1)""")
+        add("J2b", "JOSEKI", "joseki_attempts con result o hint fuera de dominio", rows, "ERROR",
+            note="el push valida ambos campos: indicaría edición manual", t=t)
+        if _audit_has_table(con, "joseki_sm2"):
+            t = time.perf_counter()
+            rows = q("""SELECT ja.card_id, COUNT(*) AS attempts, MAX(ja.created_at) AS last_attempt
+                        FROM joseki_attempts ja LEFT JOIN joseki_sm2 js ON js.card_id = ja.card_id
+                        WHERE js.card_id IS NULL GROUP BY ja.card_id""")
+            add("J2c", "JOSEKI", "tarjeta con intentos y SIN joseki_sm2", rows, "WARNING",
+                note="los intentos y el estado SM-2 viajan en pushes distintos: puede ser ventana de sync", t=t)
+
+    # ── [VIRTUAL] ──
+    if _audit_has_table(con, "virtual_items"):
+        t = time.perf_counter()
+        rows = q("""SELECT vi.vc_id, vi.source, vi.problem_id
+                    FROM virtual_items vi LEFT JOIN virtual_collections vc ON vc.id=vi.vc_id
+                    WHERE vc.id IS NULL""")
+        add("18a", "VIRTUAL", "virtual_items sin virtual_collection", rows, "ERROR", t=t)
+
+        t = time.perf_counter()
+        rows = q("""SELECT vi.vc_id, vi.source, vi.problem_id
+                    FROM virtual_items vi LEFT JOIN problems p
+                      ON p.source=vi.source AND p.problem_id=vi.problem_id
+                    WHERE p.problem_id IS NULL""")
+        add("18b", "VIRTUAL", "virtual_items sin problem", rows, "WARNING", t=t)
+
+        t = time.perf_counter()
+        rows = q("""SELECT r.id, r.uuid, r.vc_id, r.status, r.started_at
+                    FROM runs r LEFT JOIN virtual_collections vc ON vc.id=r.vc_id
+                    WHERE r.type='virtual' AND (r.vc_id IS NULL OR vc.id IS NULL)""")
+        add("18c", "VIRTUAL", "run virtual sin vc_id válido", rows, "WARNING",
+            note="la VC pudo borrarse después del run; no se asume regla no demostrada", t=t)
+
+        t = time.perf_counter()
+        rows = q("SELECT id, uuid, type, vc_id FROM runs WHERE type<>'virtual' AND vc_id IS NOT NULL")
+        add("18d", "VIRTUAL", "run no-virtual con vc_id", rows, "INFO", t=t)
+
+    # ── [SM2] preparación compartida: historial de attempts de run ──
+    t_prep = time.perf_counter()
+    attempts_by_key = {}
+    for r in con.execute(
+        """SELECT source, problem_id, result, created_at, id, run_id FROM attempts
+           WHERE run_id IS NOT NULL ORDER BY created_at ASC, id ASC"""
+    ):
+        attempts_by_key.setdefault((r["source"], str(r["problem_id"])), []).append(
+            {"created_at": r["created_at"], "result": r["result"], "run_id": r["run_id"]}
+        )
+    sm2_rows = q("SELECT source, problem_id, due_date, interval, easiness, repetitions, updated_at FROM sm2_state")
+    sm2_keys = {(s["source"], str(s["problem_id"]).strip()) for s in sm2_rows}
+    prep_ms = _ms(t_prep)
+
+    # ── [SM2] ──
+    t = time.perf_counter()
+    faltan = []
+    for r in con.execute(
+        """SELECT p.source, p.problem_id FROM problems p
+           JOIN chapters ch ON ch.id=p.chapter_id
+           WHERE ch.mostrar=1 AND p.hidden=0"""
+    ):
+        key = (r["source"], str(r["problem_id"]))
+        hist = attempts_by_key.get(key)
+        if hist and key not in sm2_keys:
+            faltan.append({"source": r["source"], "problem_id": r["problem_id"],
+                           "run_attempts": len(hist), "last_attempt": hist[-1]})
+    add(10, "SM2", "problema activo con attempts de run y SIN sm2_state", faltan, "WARNING",
+        note="POST /db/attempt no toca sm2_state (llega por sync del cliente): puede ser ventana de sync. Se usan attempts de RUN (Free no crea sm2)", t=t)
+
+    t = time.perf_counter()
+    rows = q("""SELECT source, problem_id, COUNT(*) AS n FROM sm2_state
+                GROUP BY source, problem_id HAVING n > 1""")
+    add("10b", "SM2", "sm2_state con más de una fila por (source,problem_id)", rows, "ERROR",
+        note="el PRIMARY KEY debería impedirlo: si aparece, la BD está corrupta", t=t)
+
+    t = time.perf_counter()
+    # T20.2: el join SQL con CAST(... AS TEXT) impedía usar el índice (escaneo
+    # cruzado, ~14 s en la BD real). Misma semántica en Python con un set de
+    # claves: los ids de texto (p.ej. many_faces) casan igual, en milisegundos.
+    prob_keys = {(r[0], str(r[1]).strip())
+                 for r in con.execute("SELECT source, problem_id FROM problems")}
+    rows = [{"source": s["source"], "problem_id": s["problem_id"],
+             "repetitions": s["repetitions"], "interval": s["interval"],
+             "due_date": s["due_date"], "updated_at": s["updated_at"]}
+            for s in sm2_rows
+            if (s["source"], str(s["problem_id"]).strip()) not in prob_keys]
+    add(11, "SM2", "sm2_state sin problem", rows, "WARNING",
+        note="T20.1: comparación como TEXT en ambos lados (fuentes con ids de texto, p.ej. many_faces, son válidas; el CAST a INTEGER original las marcaba huérfanas falsamente)", t=t)
+
+    t = time.perf_counter()
+    sospechosos = []
+    for s in sm2_rows:
+        reasons = []
+        if s["interval"] is None or s["interval"] < 0:
+            reasons.append("interval < 0")
+        if s["repetitions"] is None or s["repetitions"] < 0:
+            reasons.append("repetitions < 0")
+        if s["easiness"] is None or s["easiness"] < 1.3 - 1e-9:
+            reasons.append("easiness < 1.3")
+        if not s["due_date"] or not _AUDIT_DATE_RE.match(str(s["due_date"])):
+            reasons.append("due_date vacío o inválido")
+        if not s["updated_at"] or not _AUDIT_ISO_RE.match(str(s["updated_at"])):
+            reasons.append("updated_at vacío o inválido")
+        if reasons:
+            d = dict(s); d["reasons"] = reasons; sospechosos.append(d)
+    add(12, "SM2", "valores sospechosos en sm2_state", sospechosos, "ERROR",
+        note="límites del propio algoritmo: easiness nunca baja de 1.3, interval/repetitions nunca negativos", t=t)
+
+    # ── [REPETITIONS] reconstrucción con _replay_sm2 REAL ──
+    t = time.perf_counter()
+    hist_cap = None if limit is None else 50
+
+    def _hist_view(hist):
+        if hist_cap is not None and len(hist) > hist_cap:
+            return {"attempt_history": hist[-hist_cap:], "history_truncated": True,
+                    "history_total": len(hist)}
+        return {"attempt_history": hist, "history_truncated": False,
+                "history_total": len(hist)}
+
+    err_reps, warn_ties, warn_ie, info_sin_hist = [], [], [], []
+    diag_wrong_pos, diag_correct_cero = [], []
+    for s in sm2_rows:
+        key = (s["source"], str(s["problem_id"]).strip())
+        hist = attempts_by_key.get(key)
+        stored = {"repetitions": s["repetitions"], "interval": s["interval"],
+                  "easiness": s["easiness"], "due_date": s["due_date"],
+                  "updated_at": s["updated_at"]}
+        if not hist:
+            info_sin_hist.append({"source": s["source"], "problem_id": s["problem_id"],
+                                  "stored": stored})
+            continue
+        results = [h["result"] for h in hist]
+        rng = random.Random(0)  # el jitter solo afecta a due_date, que no se compara
+        interval, easiness, repetitions, _ = _replay_sm2(results, rng.random)
+        recon = {"repetitions": repetitions, "interval": interval, "easiness": easiness}
+        # Desempate created_at+id: los ids del SERVIDOR se asignan en orden de
+        # push y pueden diferir del orden local si dos attempts comparten
+        # timestamp con resultados distintos -> el replay no es concluyente.
+        ts_seen, ties = {}, False
+        for h in hist:
+            prev = ts_seen.get(h["created_at"])
+            if prev is not None and prev != h["result"]:
+                ties = True
+                break
+            ts_seen[h["created_at"]] = h["result"]
+        base = {"source": s["source"], "problem_id": s["problem_id"],
+                "stored": stored, "reconstructed": recon}
+        base.update(_hist_view(hist))
+        if s["repetitions"] != repetitions:
+            base["timestamp_ties"] = ties
+            (warn_ties if ties else err_reps).append(base)
+        elif (abs((s["interval"] or 0) - interval) > 0.01
+              or abs((s["easiness"] or 0) - easiness) > 0.001):
+            base["note"] = "repetitions coincide; difieren interval/easiness"
+            warn_ie.append(base)
+        # Check 14: diagnóstico del último attempt relevante
+        last = hist[-1]
+        d14 = {"source": s["source"], "problem_id": s["problem_id"],
+               "last_attempt": last, "sm2_updated_at": s["updated_at"],
+               "repetitions": s["repetitions"]}
+        if last["result"] == "wrong" and (s["repetitions"] or 0) > 0:
+            diag_wrong_pos.append(d14)
+        elif last["result"] == "correct" and (s["repetitions"] or 0) == 0:
+            diag_correct_cero.append(d14)
+    add(13, "REPETITIONS", "repetitions ≠ reconstrucción del historial", err_reps, "ERROR",
+        note="reconstruido con _replay_sm2 REAL sobre attempts con run_id, orden created_at ASC, id ASC; racha, NO recuento total. elapsed incluye la preparación compartida (%.1f ms)" % prep_ms, t=t)
+    add("13t", "REPETITIONS", "repetitions ≠ reconstrucción, con empates de timestamp", warn_ties, "WARNING",
+        note="hay attempts con el mismo created_at y distinto result: el orden por id de servidor puede diferir del orden local real")
+    add("13i", "REPETITIONS", "interval/easiness ≠ reconstrucción (repetitions coincide)", warn_ie, "WARNING",
+        note="tolerancias 0.01/0.001 (las de _recalc_sm2_for_pairs); legado pre-T16 posible si recalc_sm2 no visitó la fila")
+    add("13n", "REPETITIONS", "sm2_state sin ningún attempt de run", info_sin_hist, "INFO",
+        note="herencia legítima de runs borrados (T18 desvincula attempts; T19 no toca sm2 si no queda historial): no verificable")
+    add("14a", "REPETITIONS", "último attempt = wrong con repetitions > 0", diag_wrong_pos, "WARNING",
+        note="diagnóstico del spec; si el check 13 coincide, no debería aparecer")
+    add("14b", "REPETITIONS", "último attempt = correct con repetitions = 0", diag_correct_cero, "INFO",
+        note="diagnóstico del spec; si el check 13 coincide, no debería aparecer")
+
+    # ── [LONG_INTERVALS] ──
+    t = time.perf_counter()
+    largos = []
+    for s in sorted((x for x in sm2_rows if (x["interval"] or 0) >= 90),
+                    key=lambda x: -(x["interval"] or 0)):
+        key = (s["source"], str(s["problem_id"]).strip())
+        hist = attempts_by_key.get(key, [])
+        d = {"source": s["source"], "problem_id": s["problem_id"],
+             "repetitions": s["repetitions"], "interval": s["interval"],
+             "easiness": s["easiness"], "due_date": s["due_date"],
+             "updated_at": s["updated_at"],
+             "last_attempt": hist[-1] if hist else None}
+        d.update(_hist_view(hist))
+        largos.append(d)
+    add(15, "LONG_INTERVALS", "sm2_state con interval >= 90 (investigación, no error)", largos, "INFO",
+        note="un intervalo largo puede ser correcto si la secuencia de aciertos lo justifica; se incluye el historial (check 16) para poder verificarlo a mano", t=t)
+
+    # ── Resumen ──
+    n_err = sum(1 for c in checks if c["severity"] == "ERROR")
+    n_warn = sum(1 for c in checks if c["severity"] == "WARNING")
+    n_info = sum(1 for c in checks if c["severity"] == "INFO")
+    n_pass = sum(1 for c in checks if c["severity"] == "PASS")
+    return {
+        "generated_at": now_iso(),
+        "elapsed_ms": _ms(t_all),
+        "limit_per_check": limit,
+        "checks": checks,
+        "summary": {"errors": n_err, "warnings": n_warn, "info": n_info,
+                    "pass": n_pass, "checks_total": len(checks)},
+        "ok": n_err == 0,
+    }
+
+
+def handle_get_audit(qs):
+    """T20: GET /db/audit[?verbose=1][&skip_integrity=1]. Auditoría de
+    integridad de solo lectura. Abre su propia conexión en modo ro: aunque
+    hubiera un bug, escribir es físicamente imposible."""
+    verbose = qs.get("verbose", ["0"])[0] == "1"
+    skip_integrity = qs.get("skip_integrity", ["0"])[0] == "1"
+    summary_only = qs.get("summary", ["0"])[0] == "1"
+    check_filter = qs.get("check", [""])[0].strip()
+    if not os.path.isfile(DB_PATH):
+        return {"error": "db not found"}, 500
+    con = sqlite3.connect("file:%s?mode=ro" % DB_PATH, uri=True)
+    con.row_factory = sqlite3.Row
+    try:
+        report = run_audit(con, limit=None if verbose else 20,
+                           skip_integrity=skip_integrity)
+    finally:
+        con.close()
+    # T20.1: ?check=6,11 filtra los checks devueltos (el summary global no cambia);
+    # ?summary=1 vacía los ejemplos para una vista de panorama ligera.
+    if check_filter:
+        wanted = {c.strip() for c in check_filter.split(",") if c.strip()}
+        report["checks"] = [c for c in report["checks"] if str(c["id"]) in wanted]
+    if summary_only:
+        for c in report["checks"]:
+            c["examples"] = []
+    report["db_path"] = DB_PATH
+    report["verbose"] = verbose
+    report["summary_only"] = summary_only
+    return report
+
+
+def db_connect():
+    con = sqlite3.connect(DB_PATH)
+    con.row_factory = sqlite3.Row
+    con.execute("PRAGMA journal_mode=WAL")
+    con.execute("PRAGMA foreign_keys=ON")
+    return con
+
+
+def now_iso():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def rows_to_list(rows):
+    return [dict(r) for r in rows]
+
+
+# ── Migration ────────────────────────────────────────────────────────────────
+
+
+def _migrate_v2_hidden(con):
+    """T13: schema v2 — borrado lógico de problemas (columna problems.hidden).
+
+    hidden=0 (default) => visible; hidden=1 => oculto en toda la app sin
+    borrar attempts/sm2_state/run_items. Idempotente (PRAGMA table_info).
+    """
+    cols_p = [r[1] for r in con.execute("PRAGMA table_info(problems)").fetchall()]
+    if "hidden" not in cols_p:
+        con.execute(
+            "ALTER TABLE problems ADD COLUMN hidden INTEGER NOT NULL DEFAULT 0"
+        )
+        log.info("[migrate] Columna hidden añadida a problems.")
+    con.execute("PRAGMA user_version = 2")  # T13: sellar la version
+    con.commit()
+    log.info("[migrate] Migraciones completadas (schema_version=2).")
+    _migrate_v3_tags(con)  # T23: encadenar v3
+
+
+def _migrate_v3_tags(con):
+    """T23: schema v3 — etiquetas de problemas.
+
+    tags: dominio global (clave = texto, case-insensitive).
+    problem_tags: asignaciones con LWW por updated_at (active 0/1; el 0 es
+    un tombstone que propaga la retirada entre dispositivos). Idempotente.
+    """
+    con.execute(
+        "CREATE TABLE IF NOT EXISTS tags (tag TEXT PRIMARY KEY COLLATE NOCASE, created_at TEXT NOT NULL)"
+    )
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS problem_tags (
+            source TEXT NOT NULL, problem_id TEXT NOT NULL,
+            tag TEXT NOT NULL COLLATE NOCASE,
+            active INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL,
+            PRIMARY KEY (source, problem_id, tag))"""
+    )
+    con.execute(
+        "CREATE INDEX IF NOT EXISTS idx_problem_tags_updated ON problem_tags(updated_at)"
+    )
+    con.execute("PRAGMA user_version = 3")  # T23: sellar la version
+    con.commit()
+    log.info("[migrate] Migraciones completadas (schema_version=3).")
+    _migrate_v4_joseki(con)  # J2: encadenar v4
+
+
+def _migrate_v4_joseki(con):
+    """J2: schema v4 — progreso de josekis (REQUISITOS_JOSEKI.md J-52..J-54).
+
+    Solo PROGRESO: el contenido (árbol y tarjetas) vive en joseki/*.json y no
+    entra en la BD. joseki_sm2 se sincroniza con LWW por updated_at (igual
+    que sm2_state); joseki_attempts es historial con dedupe por uuid.
+    Nunca se borran filas: una card_id que ya no está en ningún JSON se
+    considera archivada en el cliente (J-15). Idempotente.
+    """
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS joseki_sm2 (
+            card_id     TEXT PRIMARY KEY,
+            due_date    TEXT NOT NULL,
+            interval    REAL NOT NULL DEFAULT 6,
+            easiness    REAL NOT NULL DEFAULT 2.5,
+            repetitions INTEGER NOT NULL DEFAULT 0,
+            updated_at  TEXT NOT NULL)"""
+    )
+    con.execute(
+        "CREATE INDEX IF NOT EXISTS idx_joseki_sm2_updated ON joseki_sm2(updated_at)"
+    )
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS joseki_attempts (
+            id         INTEGER PRIMARY KEY AUTOINCREMENT,
+            uuid       TEXT NOT NULL UNIQUE,
+            card_id    TEXT NOT NULL,
+            result     TEXT NOT NULL,
+            hint       INTEGER NOT NULL DEFAULT 0,
+            time_ms    INTEGER,
+            created_at TEXT NOT NULL)"""
+    )
+    con.execute(
+        "CREATE INDEX IF NOT EXISTS idx_joseki_attempts_card ON joseki_attempts(card_id, created_at)"
+    )
+    con.execute("PRAGMA user_version = 4")  # J2: sellar la version
+    con.commit()
+    log.info("[migrate] Migraciones completadas (schema_version=4).")
+
+
+def migrate_db():
+    with db_connect() as con:
+        # T11: schema_version formal via PRAGMA user_version. Las migraciones
+        # historicas (todas idempotentes: comprobaciones de PRAGMA table_info,
+        # CREATE ... IF NOT EXISTS y dedup re-ejecutable) quedan bajo la
+        # version 1. Migraciones futuras: "if version < N: ...; sellar N".
+        version = con.execute("PRAGMA user_version").fetchone()[0]
+        if version >= 4:
+            log.info("[migrate] schema_version=%d — nada que migrar.", version)
+            return
+        if version >= 3:
+            # J2: v3 ya aplicada — solo falta v4 (josekis).
+            _migrate_v4_joseki(con)
+            return
+        if version >= 2:
+            # T23: v2 ya aplicada — solo falta v3 (tags).
+            _migrate_v3_tags(con)
+            return
+        if version >= 1:
+            # T13: v1 ya aplicada — solo falta v2 (problems.hidden) (+ v3 encadenada).
+            _migrate_v2_hidden(con)
+            return
+        cols = [r[1] for r in con.execute("PRAGMA table_info(runs)").fetchall()]
+        if "uuid" not in cols:
+            con.execute("ALTER TABLE runs ADD COLUMN uuid TEXT")
+            con.commit()
+            log.info("[migrate] Columna uuid añadida a runs.")
+        cols_a = [r[1] for r in con.execute("PRAGMA table_info(attempts)").fetchall()]
+        if "uuid" not in cols_a:
+            con.execute("ALTER TABLE attempts ADD COLUMN uuid TEXT")
+            con.commit()
+            log.info("[migrate] Columna uuid añadida a attempts.")
+
+        cols_ch = [r[1] for r in con.execute("PRAGMA table_info(chapters)").fetchall()]
+        if "mostrar" not in cols_ch:
+            con.execute(
+                "ALTER TABLE chapters ADD COLUMN mostrar INTEGER NOT NULL DEFAULT 0"
+            )
+            con.commit()
+            log.info("[migrate] Columna mostrar añadida a chapters.")
+
+        # ── Fase 1 (3.1/§6): dedup por uuid + índices ÚNICOS sobre uuid ──
+        # Attempts duplicados con el mismo uuid son copias del mismo intento:
+        # se conserva el más antiguo (MIN(id)).
+        cur = con.execute(
+            """
+            DELETE FROM attempts WHERE uuid IS NOT NULL AND id NOT IN (
+                SELECT MIN(id) FROM attempts WHERE uuid IS NOT NULL GROUP BY uuid)
+            """
+        )
+        if cur.rowcount:
+            log.info(
+                "[migrate] %d attempts duplicados por uuid eliminados.", cur.rowcount
+            )
+        # Runs duplicados por uuid: repuntar attempts al run conservado,
+        # eliminar run_items redundantes y borrar los duplicados.
+        dup_runs = con.execute(
+            """
+            SELECT uuid, MIN(id) AS keep_id FROM runs
+            WHERE uuid IS NOT NULL GROUP BY uuid HAVING COUNT(*) > 1
+            """
+        ).fetchall()
+        for row in dup_runs:
+            keep_id, run_uuid = row["keep_id"], row["uuid"]
+            extra = [
+                r[0]
+                for r in con.execute(
+                    "SELECT id FROM runs WHERE uuid=? AND id<>?", (run_uuid, keep_id)
+                ).fetchall()
+            ]
+            if not extra:
+                continue
+            ph = ",".join("?" * len(extra))
+            con.execute(
+                f"UPDATE attempts SET run_id=? WHERE run_id IN ({ph})",
+                [keep_id] + extra,
+            )
+            con.execute(f"DELETE FROM run_items WHERE run_id IN ({ph})", extra)
+            con.execute(f"DELETE FROM runs WHERE id IN ({ph})", extra)
+            log.info(
+                "[migrate] run uuid=%s: %d duplicados fusionados en id=%d.",
+                run_uuid,
+                len(extra),
+                keep_id,
+            )
+        # Índices únicos parciales: garantizan dedup por uuid y aceleran los
+        # lookups de handle_sync_push (antes eran full scans, §5.2).
+        con.execute(
+            "CREATE UNIQUE INDEX IF NOT EXISTS idx_attempts_uuid ON attempts(uuid) WHERE uuid IS NOT NULL"
+        )
+        con.execute(
+            "CREATE UNIQUE INDEX IF NOT EXISTS idx_runs_uuid ON runs(uuid) WHERE uuid IS NOT NULL"
+        )
+        con.commit()
+
+        # sm2_state
+        con.execute("""
+            CREATE TABLE IF NOT EXISTS sm2_state (
+                source      TEXT NOT NULL,
+                problem_id  TEXT NOT NULL,
+                due_date    TEXT NOT NULL,
+                interval    REAL NOT NULL DEFAULT 6,
+                easiness    REAL NOT NULL DEFAULT 2.5,
+                repetitions INTEGER NOT NULL DEFAULT 0,
+                updated_at  TEXT NOT NULL,
+                PRIMARY KEY (source, problem_id)
+            )
+        """)
+        con.execute(
+            "CREATE INDEX IF NOT EXISTS idx_sm2_updated ON sm2_state(updated_at)"
+        )
+        con.commit()
+        # T13: aplicar también v2 y sellar directamente en schema_version=2.
+        _migrate_v2_hidden(con)
+
+
+# ── GET handlers ──────────────────────────────────────────────────────────────
+
+
+def handle_get_collections(qs):
+    source = qs.get("source", ["tsumego_hero"])[0]
+    with db_connect() as con:
+        rows = con.execute(
+            """
+            SELECT c.*,
+                   COALESCE(s.total_attempts, 0) AS total_attempts,
+                   COALESCE(s.total_correct,  0) AS total_correct,
+                   COALESCE(v.visible_problems, 0) AS visible_problems
+            FROM collections c
+            LEFT JOIN (
+                SELECT source, set_id, COUNT(*) AS visible_problems
+                FROM problems WHERE hidden = 0
+                GROUP BY source, set_id
+            ) v ON c.source = v.source AND c.set_id = v.set_id
+            LEFT JOIN (
+                SELECT p.source, p.set_id,
+                       SUM(a.total_attempts) AS total_attempts,
+                       SUM(a.total_correct)  AS total_correct
+                FROM problems p
+                LEFT JOIN problem_stats a USING (source, problem_id)
+                WHERE p.hidden = 0
+                GROUP BY p.source, p.set_id
+            ) s ON c.source = s.source AND c.set_id = s.set_id
+            WHERE c.source = ?
+            ORDER BY c.difficulty_num ASC NULLS LAST, c.name ASC
+        """,
+            (source,),
+        ).fetchall()
+    return {"collections": rows_to_list(rows)}
+
+
+def handle_get_chapters(qs):
+    set_id = qs.get("set_id", [None])[0]
+    source = qs.get("source", ["tsumego_hero"])[0]
+    if not set_id:
+        return {"error": "set_id required"}, 400
+    with db_connect() as con:
+        rows = con.execute(
+            """
+            SELECT ch.*,
+                   COALESCE(s.total_attempts, 0) AS total_attempts,
+                   COALESCE(s.total_correct,  0) AS total_correct,
+                   COALESCE(v.visible_problems, 0) AS visible_problems
+            FROM chapters ch
+            LEFT JOIN (
+                SELECT chapter_id, COUNT(*) AS visible_problems
+                FROM problems WHERE hidden = 0
+                GROUP BY chapter_id
+            ) v ON ch.id = v.chapter_id
+            LEFT JOIN (
+                SELECT p.chapter_id,
+                       SUM(a.total_attempts) AS total_attempts,
+                       SUM(a.total_correct)  AS total_correct
+                FROM problems p
+                LEFT JOIN problem_stats a USING (source, problem_id)
+                WHERE p.hidden = 0
+                GROUP BY p.chapter_id
+            ) s ON ch.id = s.chapter_id
+            WHERE ch.source = ? AND ch.set_id = ?
+            ORDER BY ch.chapter_num ASC
+        """,
+            (source, int(set_id)),
+        ).fetchall()
+    return {"chapters": rows_to_list(rows)}
+
+
+def handle_get_problems(qs):
+    chapter_id = qs.get("chapter_id", [None])[0]
+    set_id = qs.get("set_id", [None])[0]
+    source = qs.get("source", ["tsumego_hero"])[0]
+    with db_connect() as con:
+        if chapter_id:
+            rows = con.execute(
+                """
+                SELECT p.*,
+                       COALESCE(s.total_attempts, 0) AS total_attempts,
+                       COALESCE(s.total_correct,  0) AS total_correct,
+                       COALESCE(s.pct_correct,    0) AS pct_correct,
+                       s.last_seen
+                FROM problems p
+                LEFT JOIN problem_stats s USING (source, problem_id)
+                WHERE p.chapter_id = ? AND p.hidden = 0
+                ORDER BY p.order_in_chapter ASC
+            """,
+                (int(chapter_id),),
+            ).fetchall()
+        elif set_id:
+            rows = con.execute(
+                """
+                SELECT p.*,
+                       COALESCE(s.total_attempts, 0) AS total_attempts,
+                       COALESCE(s.total_correct,  0) AS total_correct,
+                       COALESCE(s.pct_correct,    0) AS pct_correct,
+                       s.last_seen
+                FROM problems p
+                LEFT JOIN problem_stats s USING (source, problem_id)
+                WHERE p.source = ? AND p.set_id = ? AND p.hidden = 0
+                ORDER BY p.order_in_chapter ASC
+            """,
+                (source, int(set_id)),
+            ).fetchall()
+        else:
+            rows = con.execute(
+                """
+                SELECT p.*,
+                       COALESCE(s.total_attempts, 0) AS total_attempts,
+                       COALESCE(s.total_correct,  0) AS total_correct,
+                       COALESCE(s.pct_correct,    0) AS pct_correct,
+                       s.last_seen
+                FROM problems p
+                LEFT JOIN problem_stats s USING (source, problem_id)
+                WHERE p.source = ? AND p.hidden = 0
+                ORDER BY p.order_in_chapter ASC
+            """,
+                (source,),
+            ).fetchall()
+    return {"problems": rows_to_list(rows)}
+
+
+def handle_get_problem(qs):
+    source = qs.get("source", ["tsumego_hero"])[0]
+    problem_id = qs.get("problem_id", [None])[0]
+    if not problem_id:
+        return {"error": "problem_id required"}, 400
+    with db_connect() as con:
+        row = con.execute(
+            """
+            SELECT p.*,
+                   c.name   AS collection_name,
+                   ch.chapter_num,
+                   COALESCE(s.total_attempts, 0) AS total_attempts,
+                   COALESCE(s.total_correct,  0) AS total_correct,
+                   COALESCE(s.pct_correct,    0) AS pct_correct,
+                   COALESCE(s.avg_time_ms,    0) AS avg_time_ms,
+                   s.last_seen
+            FROM problems p
+            LEFT JOIN collections c  ON c.source=p.source AND c.set_id=p.set_id
+            LEFT JOIN chapters    ch ON ch.id=p.chapter_id
+            LEFT JOIN problem_stats s USING (source, problem_id)
+            WHERE p.source = ? AND p.problem_id = ?
+        """,
+            (source, problem_id),
+        ).fetchone()
+    if not row:
+        return {"error": "not found"}, 404
+    return {"problem": dict(row)}
+
+
+def handle_get_runs(qs):
+    source = qs.get("source", ["tsumego_hero"])[0]
+    status = qs.get("status", [None])[0]
+    with db_connect() as con:
+        base_sql = """
+            SELECT r.*,
+                   CASE
+                     WHEN r.chapter_id IS NOT NULL
+                       THEN c.name || ' · Ch ' || ch.chapter_num
+                     WHEN r.set_id IS NOT NULL
+                       THEN c.name
+                     ELSE 'Run #' || r.id
+                   END AS label
+            FROM runs r
+            LEFT JOIN collections c  ON c.source=r.source AND c.set_id=r.set_id
+            LEFT JOIN chapters    ch ON ch.id=r.chapter_id
+            WHERE r.source=?
+        """
+        if status:
+            rows = con.execute(
+                base_sql + " AND r.status=? ORDER BY r.started_at DESC",
+                (source, status),
+            ).fetchall()
+        else:
+            rows = con.execute(
+                base_sql + " ORDER BY r.started_at DESC", (source,)
+            ).fetchall()
+    return {"runs": rows_to_list(rows)}
+
+
+def handle_get_last_run_stats(qs):
+    source = qs.get("source", ["tsumego_hero"])[0]
+    set_id = qs.get("set_id", [None])[0]
+    if not set_id:
+        return {"error": "set_id required"}, 400
+    with db_connect() as con:
+        # Último run cerrado de colección completa (sin chapter_id)
+        col_run = con.execute(
+            """
+            SELECT id FROM runs
+            WHERE source=? AND set_id=? AND chapter_id IS NULL AND status='closed'
+            ORDER BY closed_at DESC LIMIT 1
+        """,
+            (source, int(set_id)),
+        ).fetchone()
+
+        # Último run cerrado por capítulo (T8/3.12: SQL estándar, sin bare columns)
+        chap_runs = con.execute(
+            """
+            SELECT chapter_id, MAX(id) AS id FROM runs
+            WHERE source=? AND set_id=? AND chapter_id IS NOT NULL AND status='closed'
+            GROUP BY chapter_id
+        """,
+            (source, int(set_id)),
+        ).fetchall()
+
+        by_chapter = {}
+        for row in chap_runs:
+            chapter_id, run_id = row[0], row[1]
+            items = con.execute(
+                """
+                SELECT COUNT(*) AS total,
+                       SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
+                FROM run_items WHERE run_id=?
+            """,
+                (run_id,),
+            ).fetchone()
+            total, ok = items[0] or 0, items[1] or 0
+            pct = round(ok / total * 100) if total > 0 else None
+            by_chapter[chapter_id] = {"ok": ok, "total": total, "pct": pct}
+
+        # Stats de colección completa
+        col_stats = {"ok": 0, "total": 0, "pct": None}
+        if col_run:
+            run_id = col_run[0]
+            items = con.execute(
+                """
+                SELECT COUNT(*) AS total,
+                       SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
+                FROM run_items WHERE run_id=?
+            """,
+                (run_id,),
+            ).fetchone()
+            total, ok = items[0] or 0, items[1] or 0
+            col_stats = {
+                "ok": ok,
+                "total": total,
+                "pct": round(ok / total * 100) if total > 0 else None,
+            }
+
+    return {"stats": {"by_chapter": by_chapter, "collection": col_stats}}
+
+
+def handle_get_last_run_stats_all(qs):
+    source = qs.get("source", ["tsumego_hero"])[0]
+    with db_connect() as con:
+        # Último run cerrado por set_id (runs de colección completa)
+        col_runs = con.execute(
+            """
+            SELECT set_id, MAX(id) AS id FROM runs
+            WHERE source=? AND status='closed' AND set_id IS NOT NULL AND chapter_id IS NULL
+            GROUP BY set_id
+        """,
+            (source,),
+        ).fetchall()
+
+        # Último run cerrado por chapter_id
+        chap_runs = con.execute(
+            """
+            SELECT chapter_id, set_id, id FROM (
+              SELECT chapter_id, set_id, id,
+                     ROW_NUMBER() OVER (PARTITION BY chapter_id ORDER BY id DESC) rn
+              FROM runs
+              WHERE source=? AND status='closed' AND chapter_id IS NOT NULL
+            ) WHERE rn=1
+        """,
+            (source,),
+        ).fetchall()
+
+        result = {}  # set_id → {collection: {pct}, by_chapter: {chapter_id: {pct}}}
+
+        for row in col_runs:
+            set_id, run_id = row[0], row[1]
+            items = con.execute(
+                """
+                SELECT COUNT(*) AS total,
+                       SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
+                FROM run_items WHERE run_id=?
+            """,
+                (run_id,),
+            ).fetchone()
+            total, ok = items[0] or 0, items[1] or 0
+            pct = round(ok / total * 100) if total > 0 else None
+            if set_id not in result:
+                result[set_id] = {"collection": None, "by_chapter": {}}
+            result[set_id]["collection"] = {"ok": ok, "total": total, "pct": pct}
+
+        for row in chap_runs:
+            chapter_id, set_id, run_id = row[0], row[1], row[2]
+            items = con.execute(
+                """
+                SELECT COUNT(*) AS total,
+                       SUM(CASE WHEN result='correct' THEN 1 ELSE 0 END) AS ok
+                FROM run_items WHERE run_id=?
+            """,
+                (run_id,),
+            ).fetchone()
+            total, ok = items[0] or 0, items[1] or 0
+            pct = round(ok / total * 100) if total > 0 else None
+            if set_id not in result:
+                result[set_id] = {"collection": None, "by_chapter": {}}
+            result[set_id]["by_chapter"][chapter_id] = {
+                "ok": ok,
+                "total": total,
+                "pct": pct,
+            }
+
+    return {"stats": result}
+
+
+def handle_get_struggling(qs):
+    source = qs.get("source", ["tsumego_hero"])[0]
+    set_id = qs.get("set_id", [None])[0]
+    chapter_id = qs.get("chapter_id", [None])[0]
+    n = int(qs.get("n", ["3"])[0])
+
+    with db_connect() as con:
+        # T12/P3: una sola query con window function en lugar de una query por
+        # problema del scope (mismo cambio y misma equivalencia verificada que
+        # en el cliente: compare_struggling.js).
+        scope = ""
+        params = [source]
+        if chapter_id:
+            scope = " AND p.chapter_id=?"
+            params.append(int(chapter_id))
+        elif set_id:
+            scope = " AND p.set_id=?"
+            params.append(int(set_id))
+        params.append(n)
+        rows = con.execute(
+            f"""
+            WITH ranked AS (
+              SELECT a.problem_id, a.result,
+                     ROW_NUMBER() OVER (PARTITION BY a.problem_id ORDER BY a.created_at DESC, a.id DESC) rn
+              FROM attempts a
+              JOIN problems p ON p.source = a.source AND p.problem_id = a.problem_id
+              WHERE a.source = ?{scope} AND p.hidden = 0
+            )
+            SELECT problem_id FROM ranked WHERE rn <= ?
+            GROUP BY problem_id
+            HAVING SUM(result = 'wrong') > 0
+        """,
+            params,
+        ).fetchall()
+        struggling = [r[0] for r in rows]
+    return {"problem_ids": struggling}
+
+
+def handle_get_difficulty_range(qs):
+    source = qs.get("source", ["tsumego_hero"])[0]
+    with db_connect() as con:
+        row = con.execute(
+            """
+            SELECT MIN(difficulty_num), MAX(difficulty_num)
+            FROM problems
+            WHERE source=? AND difficulty_num IS NOT NULL AND hidden=0
+        """,
+            (source,),
+        ).fetchone()
+    if not row or row[0] is None:
+        return {"min": None, "max": None}
+    return {"min": row[0], "max": row[1]}
+
+
+def handle_get_run_items(qs):
+    run_id = qs.get("run_id", [None])[0]
+    if not run_id:
+        return {"error": "run_id required"}, 400
+    with db_connect() as con:
+        rows = con.execute(
+            """
+            SELECT ri.*, p.sgf_path, p.difficulty_raw, p.difficulty_num, p.color_to_play
+            FROM run_items ri
+            JOIN problems p USING (source, problem_id)
+            WHERE ri.run_id = ?
+            ORDER BY ri.order_in_run ASC
+        """,
+            (int(run_id),),
+        ).fetchall()
+    return {"items": rows_to_list(rows)}
+
+
+# ── POST/PUT handlers ─────────────────────────────────────────────────────────
+
+
+def handle_post_attempt(body):
+    for f in ("source", "problem_id", "result"):
+        if f not in body:
+            return {"error": f"missing: {f}"}, 400
+    if body["result"] not in ("correct", "wrong"):
+        # Fase 1 (3.11): antes se insertaba cualquier valor sin validar.
+        return {"error": "result must be correct|wrong"}, 400
+    with db_connect() as con:
+        result = body["result"]
+        con.execute(
+            """
+            INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """,
+            (
+                body["source"],
+                int(body["problem_id"]),
+                body.get("run_id"),
+                result,
+                body.get("time_ms"),
+                now_iso(),
+            ),
+        )
+        run_id = body.get("run_id")
+        if run_id:
+            con.execute("UPDATE runs SET done=done+1 WHERE id=?", (int(run_id),))
+            con.execute(
+                """
+                UPDATE runs SET status='closed', closed_at=?
+                WHERE id=? AND done>=total AND status='open'
+            """,
+                (now_iso(), int(run_id)),
+            )
+            con.execute(
+                """
+                UPDATE run_items SET result=? WHERE run_id=? AND problem_id=?
+            """,
+                (result, int(run_id), int(body["problem_id"])),
+            )
+        con.commit()
+    return {"ok": True}
+
+
+def handle_post_run(body):
+    for f in ("source", "type"):
+        if f not in body:
+            return {"error": f"missing: {f}"}, 400
+    run_type = body["type"]
+    source = body["source"]
+    set_id = body.get("set_id")
+    chapter_id = body.get("chapter_id")
+    vc_id = body.get("vc_id")
+
+    with db_connect() as con:
+        if chapter_id and not set_id:
+            row = con.execute(
+                "SELECT set_id FROM chapters WHERE id=?", (int(chapter_id),)
+            ).fetchone()
+            if row:
+                set_id = row[0]
+        if run_type == "chapter" and chapter_id:
+            rows = con.execute(
+                "SELECT source, problem_id FROM problems WHERE chapter_id=? AND hidden=0 ORDER BY order_in_chapter",
+                (int(chapter_id),),
+            ).fetchall()
+        elif run_type == "collection" and set_id:
+            rows = con.execute(
+                "SELECT source, problem_id FROM problems WHERE source=? AND set_id=? AND hidden=0 ORDER BY order_in_chapter",
+                (source, int(set_id)),
+            ).fetchall()
+        elif run_type == "virtual" and vc_id:
+            rows = con.execute(
+                "SELECT source, problem_id FROM virtual_items WHERE vc_id=?",
+                (int(vc_id),),
+            ).fetchall()
+        else:
+            return {"error": "invalid type or missing id"}, 400
+
+        items = list(rows)
+        random.shuffle(items)
+        total = len(items)
+
+        cur = con.execute(
+            """
+            INSERT INTO runs (source, set_id, chapter_id, vc_id, type, status, total, done, started_at)
+            VALUES (?, ?, ?, ?, ?, 'open', ?, 0, ?)
+        """,
+            (source, set_id, chapter_id, vc_id, run_type, total, now_iso()),
+        )
+        run_id = cur.lastrowid
+
+        for order, row in enumerate(items, 1):
+            con.execute(
+                """
+                INSERT INTO run_items (run_id, source, problem_id, order_in_run, result)
+                VALUES (?, ?, ?, ?, NULL)
+            """,
+                (run_id, row[0], row[1], order),
+            )
+        con.commit()
+
+    return {"ok": True, "run_id": run_id, "total": total}
+
+
+def handle_put_run(body):
+    if "id" not in body:
+        return {"error": "id required"}, 400
+    if "status" not in body:
+        # Fase 1 (3.11): antes respondía {ok:true} sin hacer nada.
+        return {"error": "status required"}, 400
+    with db_connect() as con:
+        closed_at = now_iso() if body["status"] == "closed" else None
+        con.execute(
+            "UPDATE runs SET status=?, closed_at=? WHERE id=?",
+            (body["status"], closed_at, int(body["id"])),
+        )
+        con.commit()
+    return {"ok": True}
+
+
+# ── HTTP Handler ──────────────────────────────────────────────────────────────
+
+# ── SYNC handlers ────────────────────────────────────────────────────────────
+
+
+def handle_sync_snapshot(qs):
+    """Devuelve todas las tablas estáticas para inicializar el móvil."""
+    with db_connect() as con:
+        collections = rows_to_list(con.execute("SELECT * FROM collections").fetchall())
+        chapters = rows_to_list(con.execute("SELECT * FROM chapters").fetchall())
+        problems = rows_to_list(con.execute("SELECT * FROM problems").fetchall())
+        game_collections = rows_to_list(
+            con.execute("SELECT * FROM game_collections").fetchall()
+        )
+        games = rows_to_list(con.execute("SELECT * FROM games").fetchall())
+        sm2_state = rows_to_list(con.execute("SELECT * FROM sm2_state").fetchall())
+    return {
+        "collections": collections,
+        "chapters": chapters,
+        "problems": problems,
+        "game_collections": game_collections,
+        "games": games,
+        "sm2_state": sm2_state,
+    }
+
+
+def handle_admin_import_games(body):
+    """Recibe {game_collections: [...], games: [...]} y REEMPLAZA por completo
+    el contenido de game_collections/games.
+
+    T-games-1: antes era aditivo (insertaba solo lo que no existía ya), lo que
+    dejaba basura si una colección o partida se borraba en disco. games/
+    game_collections no se editan nunca desde el cliente (son de solo lectura
+    para tsumevault.html), así que un reemplazo total en cada import es seguro
+    y más simple que diffear. Ninguna otra tabla referencia estos ids (ver
+    db_schema.sql), por lo que no quedan huérfanos.
+    """
+    game_collections = body.get("game_collections", [])
+    games = body.get("games", [])
+    if not isinstance(game_collections, list) or not isinstance(games, list):
+        return {"error": "game_collections and games must be lists"}, 400
+    for col in game_collections:
+        if not isinstance(col, dict) or "name" not in col or "folder" not in col:
+            return {"error": "invalid game_collections entry"}, 400
+    for game in games:
+        if (
+            not isinstance(game, dict)
+            or "collection_name" not in game
+            or "name" not in game
+            or "sgf_path" not in game
+        ):
+            return {"error": "invalid games entry"}, 400
+
+    inserted_cols = 0
+    inserted_games = 0
+    skipped_games = 0
+    with db_connect() as con:
+        # Orden de borrado: games antes que game_collections (FK, PRAGMA
+        # foreign_keys=ON).
+        con.execute("DELETE FROM games")
+        con.execute("DELETE FROM game_collections")
+
+        col_ids = {}  # name -> id
+        for col in game_collections:
+            cur = con.execute(
+                "INSERT INTO game_collections (name, folder) VALUES (?, ?)",
+                (col["name"], col["folder"]),
+            )
+            col_ids[col["name"]] = cur.lastrowid
+            inserted_cols += 1
+
+        for game in games:
+            col_id = col_ids.get(game["collection_name"])
+            if col_id is None:
+                skipped_games += 1
+                continue
+            con.execute(
+                "INSERT INTO games (game_collection_id, name, sgf_path) VALUES (?, ?, ?)",
+                (col_id, game["name"], game["sgf_path"]),
+            )
+            inserted_games += 1
+        con.commit()
+    return {
+        "collections": inserted_cols,
+        "games": inserted_games,
+        "skipped_games": skipped_games,
+    }
+
+
+def handle_admin_import_my_collection(body):
+    """Incremental upsert for a hand-curated local problem source (e.g.
+    'my_collection'). Unlike handle_admin_import_games (full wipe+reinsert),
+    this MUST preserve existing collections/chapters/problems identity,
+    because chapters.id and problem_id are referenced by attempts,
+    sm2_state and runs.chapter_id -- a wipe here would orphan study history.
+    Nothing is ever deleted; re-running with the same folder contents is
+    idempotent.
+
+    Body:
+        {"source": "my_collection", "collections": [
+            {"folder": str, "chapters": [
+                {"folder": str, "difficulty_raw": str|None,
+                 "difficulty_num": int|None, "problems": [
+                    {"problem_id": str, "sgf_path": str,
+                     "order_in_chapter": int, "color_to_play": "B"|"W"|None}
+                 ]}
+            ]}
+        ]}
+
+    Identity / matching rules:
+      - collection matched by (source, folder) -> reuses set_id, else the
+        next free integer for that source.
+      - chapter matched by (source, set_id, name) -> reuses id/chapter_num,
+        else inserted fresh. New chapters default to mostrar=1; an existing
+        chapter's mostrar is never touched (same convention as the client's
+        own importSnapshot()).
+      - problem matched by (source, problem_id) -> upserted. hidden is never
+        touched here either, preserving any local hide/unhide decision.
+
+    Aggregates (chapters.problem_count, collections.num_problems/
+    chapter_count/difficulty_num) are computed here from the DB state after
+    the upsert, not trusted from the payload.
+    """
+    source = body.get("source")
+    collections_in = body.get("collections")
+    if not source or not isinstance(source, str):
+        return {"error": "source required"}, 400
+    if not isinstance(collections_in, list):
+        return {"error": "collections must be a list"}, 400
+    for col in collections_in:
+        if (not isinstance(col, dict) or "folder" not in col
+                or not isinstance(col.get("chapters"), list)):
+            return {"error": "invalid collections entry"}, 400
+        for ch in col["chapters"]:
+            if (not isinstance(ch, dict) or "folder" not in ch
+                    or not isinstance(ch.get("problems"), list)):
+                return {"error": "invalid chapters entry"}, 400
+            for p in ch["problems"]:
+                if (not isinstance(p, dict) or "problem_id" not in p
+                        or "sgf_path" not in p or "order_in_chapter" not in p):
+                    return {"error": "invalid problems entry"}, 400
+                if p.get("color_to_play") not in (None, "B", "W"):
+                    return {"error": "color_to_play must be B, W or null"}, 400
+
+    stats = {"collections": 0, "chapters_new": 0, "chapters_updated": 0,
+             "problems_upserted": 0}
+
+    with db_connect() as con:
+        for col in collections_in:
+            col_folder = col["folder"]
+            row = con.execute(
+                "SELECT set_id FROM collections WHERE source=? AND folder=?",
+                (source, col_folder),
+            ).fetchone()
+            if row:
+                set_id = row["set_id"]
+            else:
+                set_id = con.execute(
+                    "SELECT COALESCE(MAX(set_id), 0) + 1 AS n FROM collections WHERE source=?",
+                    (source,),
+                ).fetchone()["n"]
+                # Some deployments have chapters(source,set_id) -> collections
+                # FK'd; insert a placeholder row now so the chapter inserts
+                # below don't violate it. Real aggregates are filled in by
+                # the upsert at the end of this collection's loop.
+                con.execute(
+                    """INSERT INTO collections
+                       (source, set_id, name, folder, difficulty_raw, difficulty_num,
+                        num_problems, on_disk, chapter_count)
+                       VALUES (?, ?, ?, ?, NULL, NULL, 0, 1, 0)""",
+                    (source, set_id, col_folder, col_folder),
+                )
+
+            for ch in col["chapters"]:
+                ch_folder = ch["folder"]
+                diff_num = ch.get("difficulty_num")
+                row = con.execute(
+                    "SELECT id FROM chapters WHERE source=? AND set_id=? AND name=?",
+                    (source, set_id, ch_folder),
+                ).fetchone()
+                if row:
+                    chapter_id = row["id"]
+                    con.execute(
+                        "UPDATE chapters SET diff_min=?, diff_max=?, diff_avg=? WHERE id=?",
+                        (diff_num, diff_num, diff_num, chapter_id),
+                    )
+                    stats["chapters_updated"] += 1
+                else:
+                    chapter_num = con.execute(
+                        "SELECT COALESCE(MAX(chapter_num), 0) + 1 AS n FROM chapters "
+                        "WHERE source=? AND set_id=?",
+                        (source, set_id),
+                    ).fetchone()["n"]
+                    cur = con.execute(
+                        """INSERT INTO chapters
+                           (source, set_id, chapter_num, name, diff_min, diff_max,
+                            diff_avg, problem_count, mostrar)
+                           VALUES (?, ?, ?, ?, ?, ?, ?, 0, 1)""",
+                        (source, set_id, chapter_num, ch_folder, diff_num, diff_num, diff_num),
+                    )
+                    chapter_id = cur.lastrowid
+                    stats["chapters_new"] += 1
+
+                for p in ch["problems"]:
+                    con.execute(
+                        """INSERT INTO problems
+                           (source, problem_id, set_id, chapter_id, order_in_chapter,
+                            sgf_path, sgf_exists, difficulty_raw, difficulty_num,
+                            color_to_play, hidden)
+                           VALUES (?, ?, ?, ?, ?, ?, 1, ?, ?, ?, 0)
+                           ON CONFLICT(source, problem_id) DO UPDATE SET
+                             set_id=excluded.set_id,
+                             chapter_id=excluded.chapter_id,
+                             order_in_chapter=excluded.order_in_chapter,
+                             sgf_path=excluded.sgf_path,
+                             sgf_exists=excluded.sgf_exists,
+                             difficulty_raw=excluded.difficulty_raw,
+                             difficulty_num=excluded.difficulty_num,
+                             color_to_play=excluded.color_to_play""",
+                        # hidden intentionally NOT in the UPDATE SET above:
+                        # preserves any local hide/unhide decision, same
+                        # convention as tsumevault.html's importSnapshot().
+                        (source, p["problem_id"], set_id, chapter_id,
+                         p["order_in_chapter"], p["sgf_path"],
+                         ch.get("difficulty_raw"), diff_num, p.get("color_to_play")),
+                    )
+                    stats["problems_upserted"] += 1
+
+                n = con.execute(
+                    "SELECT COUNT(*) AS n FROM problems WHERE chapter_id=?", (chapter_id,)
+                ).fetchone()["n"]
+                con.execute("UPDATE chapters SET problem_count=? WHERE id=?", (n, chapter_id))
+
+            agg = con.execute(
+                """SELECT COUNT(*) AS chapter_count, SUM(problem_count) AS num_problems,
+                          AVG(diff_avg) AS avg_diff
+                   FROM chapters WHERE source=? AND set_id=?""",
+                (source, set_id),
+            ).fetchone()
+            avg_diff = round(agg["avg_diff"]) if agg["avg_diff"] is not None else None
+            con.execute(
+                """INSERT INTO collections
+                   (source, set_id, name, folder, difficulty_raw, difficulty_num,
+                    num_problems, on_disk, chapter_count)
+                   VALUES (?, ?, ?, ?, NULL, ?, ?, 1, ?)
+                   ON CONFLICT(source, set_id) DO UPDATE SET
+                     name=excluded.name, folder=excluded.folder,
+                     difficulty_num=excluded.difficulty_num,
+                     num_problems=excluded.num_problems,
+                     on_disk=excluded.on_disk,
+                     chapter_count=excluded.chapter_count""",
+                (source, set_id, col_folder, col_folder, avg_diff,
+                 agg["num_problems"] or 0, agg["chapter_count"] or 0),
+            )
+            stats["collections"] += 1
+
+        con.commit()
+
+    return stats
+
+
+def handle_sync_sm2_pull(qs):
+    """Devuelve registros sm2_state actualizados desde el timestamp indicado.
+
+    Fase 1 (3.10): se usa >= en lugar de > para que, con resolución de
+    segundo, un registro escrito en el mismo segundo que el cursor no quede
+    excluido para siempre. El cliente aplica LWW, así que re-recibir el
+    registro frontera es un no-op inocuo.
+    """
+    since = qs.get("since", ["1970-01-01T00:00:00Z"])[0]
+    with db_connect() as con:
+        rows = rows_to_list(
+            con.execute(
+                "SELECT * FROM sm2_state WHERE updated_at >= ? ORDER BY updated_at ASC",
+                (since,),
+            ).fetchall()
+        )
+    return {"sm2_state": rows}
+
+
+def handle_sync_sm2_push(body):
+    """Recibe registros sm2_state del cliente y los inserta/actualiza."""
+    records = body.get("sm2_state", [])
+    # ── Validación de entrada (Fase 1, 3.11) ──
+    if not isinstance(records, list):
+        return {"error": "sm2_state must be a list"}, 400
+    required = (
+        "source",
+        "problem_id",
+        "due_date",
+        "interval",
+        "easiness",
+        "repetitions",
+        "updated_at",
+    )
+    for r in records:
+        if not isinstance(r, dict) or any(f not in r for f in required):
+            return {"error": "invalid sm2_state entry"}, 400
+    with db_connect() as con:
+        for r in records:
+            existing = con.execute(
+                "SELECT updated_at FROM sm2_state WHERE source=? AND problem_id=?",
+                (r["source"], r["problem_id"]),
+            ).fetchone()
+            # Solo actualizar si el registro del cliente es mas reciente
+            if existing is None or r["updated_at"] > existing[0]:
+                con.execute(
+                    """
+                    INSERT INTO sm2_state (source, problem_id, due_date, interval, easiness, repetitions, updated_at)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                    ON CONFLICT(source, problem_id) DO UPDATE SET
+                        due_date    = excluded.due_date,
+                        interval    = excluded.interval,
+                        easiness    = excluded.easiness,
+                        repetitions = excluded.repetitions,
+                        updated_at  = excluded.updated_at
+                """,
+                    (
+                        r["source"],
+                        r["problem_id"],
+                        r["due_date"],
+                        r["interval"],
+                        r["easiness"],
+                        r["repetitions"],
+                        r["updated_at"],
+                    ),
+                )
+        con.commit()
+    return {"ok": True, "count": len(records)}
+
+
+def handle_sync_static_version(qs):
+    with db_connect() as con:
+        row = con.execute("SELECT MAX(rowid) FROM problems").fetchone()
+    return {"version": row[0] or 0}
+
+
+def handle_sync_games(qs):
+    """Devuelve todas las game_collections y games."""
+    with db_connect() as con:
+        game_collections = rows_to_list(
+            con.execute("SELECT * FROM game_collections").fetchall()
+        )
+        games = rows_to_list(con.execute("SELECT * FROM games").fetchall())
+    return {"game_collections": game_collections, "games": games}
+
+
+def handle_sync_pull(qs):
+    """Devuelve attempts y runs nuevos desde los IDs indicados."""
+    since_attempt_id = int(qs.get("since_attempt_id", ["0"])[0])
+    since_run_id = int(qs.get("since_run_id", ["0"])[0])
+    with db_connect() as con:
+        # run_uuid acompaña a cada attempt para que los clientes nuevos puedan
+        # remapear run_id a su id LOCAL (los ids del servidor ya no se reutilizan
+        # como PK local; ver colisión de ids en la auditoría). Los clientes
+        # antiguos ignoran la clave extra.
+        attempts = rows_to_list(
+            con.execute(
+                """SELECT a.*, r.uuid AS run_uuid FROM attempts a
+                   LEFT JOIN runs r ON r.id = a.run_id
+                   WHERE a.id > ? ORDER BY a.id ASC""",
+                (since_attempt_id,),
+            ).fetchall()
+        )
+        runs = rows_to_list(
+            con.execute(
+                "SELECT * FROM runs WHERE id > ? ORDER BY id ASC", (since_run_id,)
+            ).fetchall()
+        )
+        # run_items de los runs devueltos
+        run_ids = [r["id"] for r in runs]
+        run_items = []
+        if run_ids:
+            placeholders = ",".join("?" * len(run_ids))
+            run_items = rows_to_list(
+                con.execute(
+                    f"SELECT * FROM run_items WHERE run_id IN ({placeholders})", run_ids
+                ).fetchall()
+            )
+    return {"attempts": attempts, "runs": runs, "run_items": run_items}
+
+
+def handle_sync_push(body):
+    """
+    Recibe attempts y runs del móvil e inserta los que no existen.
+    - attempts: deduplicados por uuid (si existe) o por (source, problem_id, created_at)
+    - runs: deduplicados por uuid
+    Devuelve IDs asignados por el servidor para que el móvil actualice su DB.
+    """
+    attempts_in = body.get("attempts", [])
+    runs_in = body.get("runs", [])
+
+    # ── Validación de entrada (Fase 1, 3.11) ──
+    if not isinstance(attempts_in, list) or not isinstance(runs_in, list):
+        return {"error": "attempts/runs must be lists"}, 400
+    for a in attempts_in:
+        if not isinstance(a, dict):
+            return {"error": "invalid attempt entry"}, 400
+        for f in ("source", "problem_id", "result", "created_at"):
+            if f not in a:
+                return {"error": f"attempt missing field: {f}"}, 400
+        if a["result"] not in ("correct", "wrong"):
+            return {"error": "invalid attempt result"}, 400
+    for r in runs_in:
+        if not isinstance(r, dict):
+            return {"error": "invalid run entry"}, 400
+        if not r.get("uuid"):
+            continue  # los runs sin uuid se ignoran (comportamiento previo)
+        for f in ("source", "type", "status", "total", "done", "started_at"):
+            if f not in r:
+                return {"error": f"run missing field: {f}"}, 400
+        if not isinstance(r.get("run_items", []), list):
+            return {"error": "invalid run_items"}, 400
+
+    log.info("sync/push: %d runs, %d attempts", len(runs_in), len(attempts_in))
+
+    inserted_attempts = []  # {client_id, server_id}
+    inserted_runs = []  # {client_uuid, server_id}
+
+    with db_connect() as con:
+        # ── Runs primero (para poder mapear run_id en attempts) ──
+        client_to_server_run_id = {}  # client run_id → server run_id
+
+        # ── Runs ──
+        for r in runs_in:
+            uuid = r.get("uuid")
+            if not uuid:
+                continue
+            existing = con.execute(
+                "SELECT id FROM runs WHERE uuid=?", (uuid,)
+            ).fetchone()
+            if existing:
+                server_run_id = existing[0]
+                # Actualizar status/done/closed_at si ha cambiado
+                con.execute(
+                    """
+                    UPDATE runs SET status=?, done=?, closed_at=?
+                    WHERE id=?
+                """,
+                    (r["status"], r["done"], r.get("closed_at"), server_run_id),
+                )
+                # Actualizar resultados de run_items
+                for item in r.get("run_items", []):
+                    if item.get("result"):
+                        con.execute(
+                            "UPDATE run_items SET result=? WHERE run_id=? AND problem_id=?",
+                            (item["result"], server_run_id, item["problem_id"]),
+                        )
+            else:
+                cur = con.execute(
+                    """
+                    INSERT INTO runs (source, set_id, chapter_id, vc_id, type, status,
+                                      total, done, started_at, closed_at, uuid)
+                    VALUES (?,?,?,?,?,?,?,?,?,?,?)
+                """,
+                    (
+                        r["source"],
+                        r.get("set_id"),
+                        r.get("chapter_id"),
+                        r.get("vc_id"),
+                        r["type"],
+                        r["status"],
+                        r["total"],
+                        r["done"],
+                        r["started_at"],
+                        r.get("closed_at"),
+                        uuid,
+                    ),
+                )
+                server_run_id = cur.lastrowid
+
+                # run_items
+                for item in r.get("run_items", []):
+                    con.execute(
+                        """
+                        INSERT OR IGNORE INTO run_items (run_id, source, problem_id, order_in_run, result)
+                        VALUES (?,?,?,?,?)
+                    """,
+                        (
+                            server_run_id,
+                            item["source"],
+                            item["problem_id"],
+                            item["order_in_run"],
+                            item.get("result"),
+                        ),
+                    )
+
+            inserted_runs.append({"client_uuid": uuid, "server_id": server_run_id})
+            client_run_id = r.get("id") or r.get("client_id")
+            if client_run_id is not None:
+                client_to_server_run_id[int(client_run_id)] = server_run_id
+
+        # ── Attempts ──
+        for a in attempts_in:
+            uuid = a.get("uuid")
+            if uuid:
+                existing = con.execute(
+                    "SELECT id FROM attempts WHERE uuid=?", (uuid,)
+                ).fetchone()
+            else:
+                existing = con.execute(
+                    "SELECT id FROM attempts WHERE source=? AND problem_id=? AND created_at=?",
+                    (a["source"], a["problem_id"], a["created_at"]),
+                ).fetchone()
+            if existing:
+                inserted_attempts.append(
+                    {"client_id": a.get("client_id"), "server_id": existing[0]}
+                )
+                continue
+
+            # mapear run_id del cliente al del servidor
+            client_run_id = a.get("run_id")
+            if client_run_id is not None:
+                server_run_id = client_to_server_run_id.get(int(client_run_id))
+                if server_run_id is None:
+                    # El run ya existía en el servidor — buscarlo por uuid en el payload
+                    run_data = next(
+                        (
+                            r
+                            for r in runs_in
+                            if (r.get("id") or r.get("client_id")) == int(client_run_id)
+                        ),
+                        None,
+                    )
+                    if run_data and run_data.get("uuid"):
+                        row = con.execute(
+                            "SELECT id FROM runs WHERE uuid=?", (run_data["uuid"],)
+                        ).fetchone()
+                        if row:
+                            server_run_id = row[0]
+                if server_run_id is None and a.get("run_uuid"):
+                    # Fase 1 (3.1): los clientes nuevos adjuntan run_uuid a cada
+                    # attempt; permite resolver el run aunque ese run no viaje
+                    # en este push (p. ej. ya sincronizado). Los clientes
+                    # antiguos no envían run_uuid: se conserva el fallback previo.
+                    row = con.execute(
+                        "SELECT id FROM runs WHERE uuid=?", (a["run_uuid"],)
+                    ).fetchone()
+                    if row:
+                        server_run_id = row[0]
+            else:
+                server_run_id = None
+
+            cur = con.execute(
+                "INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at, uuid) VALUES (?,?,?,?,?,?,?)",
+                (
+                    a["source"],
+                    a["problem_id"],
+                    server_run_id,
+                    a["result"],
+                    a.get("time_ms"),
+                    a["created_at"],
+                    uuid,
+                ),
+            )
+            inserted_attempts.append(
+                {"client_id": a.get("client_id"), "server_id": cur.lastrowid}
+            )
+
+        con.commit()
+
+    return {"ok": True, "attempts": inserted_attempts, "runs": inserted_runs}
+
+
+def handle_put_chapter_mostrar(body):
+    chapter_id = body.get("chapter_id")
+    mostrar = body.get("mostrar")
+    if chapter_id is None or mostrar is None:
+        return {"error": "chapter_id y mostrar son requeridos"}, 400
+    with db_connect() as con:
+        con.execute(
+            "UPDATE chapters SET mostrar=? WHERE id=?",
+            (int(bool(mostrar)), int(chapter_id)),
+        )
+        con.commit()
+    return {"ok": True}
+
+
+def handle_sync_check_runs(body):
+    uuids = body.get("uuids", [])
+    if not isinstance(uuids, list):
+        return {"error": "uuids must be a list"}, 400
+    if not uuids:
+        return {"missing": []}
+    with db_connect() as con:
+        placeholders = ",".join("?" * len(uuids))
+        existing = con.execute(
+            f"SELECT uuid FROM runs WHERE uuid IN ({placeholders})", uuids
+        ).fetchall()
+    existing_set = {r[0] for r in existing}
+    missing = [u for u in uuids if u not in existing_set]
+    log.info(
+        "check_runs: recibidos=%d existentes=%d missing=%d",
+        len(uuids),
+        len(existing_set),
+        len(missing),
+    )
+    return {"missing": missing}
+
+
+def handle_sync_chapters_mostrar(body):
+    """Actualiza el flag mostrar de chapters (antes lógica inline en do_PUT)."""
+    chapters = body.get("chapters")
+    if not isinstance(chapters, list):
+        return {"error": "chapters (list) required"}, 400
+    normalized = []
+    for ch in chapters:
+        if not isinstance(ch, dict) or "id" not in ch or "mostrar" not in ch:
+            return {"error": "invalid chapter entry"}, 400
+        try:
+            # Fase 1 (§4.4): normalizar mostrar a 0/1 (antes se escribía tal cual).
+            normalized.append((int(bool(ch["mostrar"])), int(ch["id"])))
+        except (TypeError, ValueError):
+            return {"error": "invalid chapter entry"}, 400
+    with db_connect() as con:
+        for mostrar, chapter_id in normalized:
+            con.execute(
+                "UPDATE chapters SET mostrar=? WHERE id=?", (mostrar, chapter_id)
+            )
+        con.commit()
+    return {"ok": True}
+
+
+def handle_sync_problems_hidden(body):
+    """T13: merge de problemas ocultos (borrado lógico).
+
+    El cliente envía la lista de sus ocultos locales; el servidor marca
+    hidden=1 en esas filas (UNIÓN: este endpoint nunca pone 0 — des-ocultar
+    se hace manualmente en la BD) y responde con la lista completa de
+    ocultos resultante, que el cliente aplica como verdad absoluta. Así un
+    UPDATE manual hidden=0 en el servidor se propaga solo a los clientes.
+    No crea filas: un problem_id inexistente en el catálogo se ignora.
+    """
+    problems = body.get("problems")
+    if not isinstance(problems, list):
+        return {"error": "problems (list) required"}, 400
+    normalized = []
+    for pr in problems:
+        if not isinstance(pr, dict) or "source" not in pr or "problem_id" not in pr:
+            return {"error": "invalid problem entry"}, 400
+        normalized.append((str(pr["source"]), str(pr["problem_id"])))
+    updated = 0
+    with db_connect() as con:
+        for source, problem_id in normalized:
+            cur = con.execute(
+                "UPDATE problems SET hidden=1 WHERE source=? AND problem_id=? AND hidden=0",
+                (source, problem_id),
+            )
+            updated += cur.rowcount
+        con.commit()
+        rows = rows_to_list(
+            con.execute(
+                "SELECT source, problem_id FROM problems WHERE hidden=1"
+            ).fetchall()
+        )
+    if updated:
+        log.info("problems_hidden: %d problemas ocultados; total ocultos=%d", updated, len(rows))
+    return {"hidden": rows, "updated": updated}
+
+
+def _norm_tag(t):
+    """T23: normaliza un nombre de tag; None si no es válido."""
+    if not isinstance(t, str):
+        return None
+    t = " ".join(t.split())
+    if not t or len(t) > 40:
+        return None
+    return t
+
+
+def handle_sync_tags(body):
+    """T23: merge del dominio de tags (UNIÓN: nunca borra). El cliente envía
+    sus tags locales; el servidor inserta los que falten y responde con la
+    lista completa, que el cliente aplica como verdad (borrando solo tags
+    locales ya confirmados que hayan desaparecido, ver doSync)."""
+    tags = body.get("tags")
+    if not isinstance(tags, list):
+        return {"error": "tags (list) required"}, 400
+    normalized = []
+    for t in tags:
+        nt = _norm_tag(t)
+        if nt is None:
+            return {"error": "invalid tag"}, 400
+        normalized.append(nt)
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    added = 0
+    with db_connect() as con:
+        for t in normalized:
+            cur = con.execute("INSERT OR IGNORE INTO tags (tag, created_at) VALUES (?,?)", (t, now))
+            added += cur.rowcount
+        con.commit()
+        rows = [r[0] for r in con.execute("SELECT tag FROM tags ORDER BY tag COLLATE NOCASE").fetchall()]
+    if added:
+        log.info("tags: %d tags nuevos; total=%d", added, len(rows))
+    return {"tags": rows, "added": added}
+
+
+def handle_sync_tags_delete(body):
+    """T23: borra un tag del dominio. 409 si tiene asignaciones activas."""
+    tag = _norm_tag(body.get("tag"))
+    if tag is None:
+        return {"error": "tag required"}, 400
+    with db_connect() as con:
+        in_use = con.execute(
+            "SELECT COUNT(*) FROM problem_tags WHERE tag=? AND active=1", (tag,)
+        ).fetchone()[0]
+        if in_use:
+            return {"error": "tag in use", "in_use": in_use}, 409
+        con.execute("DELETE FROM problem_tags WHERE tag=?", (tag,))  # tombstones inactivos
+        cur = con.execute("DELETE FROM tags WHERE tag=?", (tag,))
+        con.commit()
+        rows = [r[0] for r in con.execute("SELECT tag FROM tags ORDER BY tag COLLATE NOCASE").fetchall()]
+    log.info("tags: borrado %r (%d filas)", tag, cur.rowcount)
+    return {"ok": True, "deleted": cur.rowcount, "tags": rows}
+
+
+def handle_sync_problem_tags_pull(qs):
+    """T23: asignaciones actualizadas desde el cursor (>=, igual que sm2)."""
+    since = qs.get("since", ["1970-01-01T00:00:00Z"])[0]
+    with db_connect() as con:
+        rows = rows_to_list(
+            con.execute(
+                "SELECT source, problem_id, tag, active, updated_at FROM problem_tags WHERE updated_at >= ? ORDER BY updated_at ASC",
+                (since,),
+            ).fetchall()
+        )
+    return {"problem_tags": rows}
+
+
+def handle_sync_problem_tags_push(body):
+    """T23: recibe asignaciones del cliente y aplica LWW por updated_at.
+    Inserta en tags el nombre si faltara (defensivo: nunca asignaciones
+    huérfanas). No crea problems: una asignación a un problem inexistente
+    se ignora (el audit T23b vigila los huérfanos)."""
+    records = body.get("problem_tags", [])
+    if not isinstance(records, list):
+        return {"error": "problem_tags must be a list"}, 400
+    required = ("source", "problem_id", "tag", "active", "updated_at")
+    normalized = []
+    for r in records:
+        if not isinstance(r, dict) or any(f not in r for f in required):
+            return {"error": "invalid problem_tags entry"}, 400
+        tag = _norm_tag(r["tag"])
+        if tag is None or r["active"] not in (0, 1) or not isinstance(r["updated_at"], str):
+            return {"error": "invalid problem_tags entry"}, 400
+        normalized.append((str(r["source"]), str(r["problem_id"]), tag, int(r["active"]), r["updated_at"]))
+    applied = 0
+    with db_connect() as con:
+        for source, problem_id, tag, active, updated_at in normalized:
+            exists_p = con.execute(
+                "SELECT 1 FROM problems WHERE source=? AND problem_id=?", (source, problem_id)
+            ).fetchone()
+            if not exists_p:
+                continue
+            existing = con.execute(
+                "SELECT updated_at FROM problem_tags WHERE source=? AND problem_id=? AND tag=?",
+                (source, problem_id, tag),
+            ).fetchone()
+            if existing is None or updated_at > existing[0]:
+                con.execute("INSERT OR IGNORE INTO tags (tag, created_at) VALUES (?,?)", (tag, updated_at))
+                con.execute(
+                    """INSERT INTO problem_tags (source, problem_id, tag, active, updated_at)
+                       VALUES (?,?,?,?,?)
+                       ON CONFLICT(source, problem_id, tag) DO UPDATE SET
+                         active=excluded.active, updated_at=excluded.updated_at""",
+                    (source, problem_id, tag, active, updated_at),
+                )
+                applied += 1
+        con.commit()
+    return {"ok": True, "applied": applied}
+
+
+# ── J2: progreso de josekis ──────────────────────────────────────────────────
+
+
+def handle_sync_joseki_sm2_pull(qs):
+    """J2: estado SM-2 de tarjetas de josekis desde el cursor (>=, igual que
+    sm2: el registro frontera se reenvía y el LWW del cliente lo hace inocuo)."""
+    since = qs.get("since", ["1970-01-01T00:00:00Z"])[0]
+    with db_connect() as con:
+        rows = rows_to_list(
+            con.execute(
+                "SELECT * FROM joseki_sm2 WHERE updated_at >= ? ORDER BY updated_at ASC",
+                (since,),
+            ).fetchall()
+        )
+    return {"joseki_sm2": rows}
+
+
+def handle_sync_joseki_sm2_push(body):
+    """J2: recibe estado SM-2 de tarjetas y aplica LWW por updated_at."""
+    records = body.get("joseki_sm2", [])
+    if not isinstance(records, list):
+        return {"error": "joseki_sm2 must be a list"}, 400
+    required = ("card_id", "due_date", "interval", "easiness", "repetitions", "updated_at")
+    for r in records:
+        if not isinstance(r, dict) or any(f not in r for f in required):
+            return {"error": "invalid joseki_sm2 entry"}, 400
+        if not isinstance(r["card_id"], str) or not r["card_id"] or not isinstance(r["updated_at"], str):
+            return {"error": "invalid joseki_sm2 entry"}, 400
+    applied = 0
+    with db_connect() as con:
+        for r in records:
+            existing = con.execute(
+                "SELECT updated_at FROM joseki_sm2 WHERE card_id=?", (r["card_id"],)
+            ).fetchone()
+            if existing is None or r["updated_at"] > existing[0]:
+                con.execute(
+                    """INSERT INTO joseki_sm2 (card_id, due_date, interval, easiness, repetitions, updated_at)
+                       VALUES (?, ?, ?, ?, ?, ?)
+                       ON CONFLICT(card_id) DO UPDATE SET
+                         due_date=excluded.due_date, interval=excluded.interval,
+                         easiness=excluded.easiness, repetitions=excluded.repetitions,
+                         updated_at=excluded.updated_at""",
+                    (r["card_id"], r["due_date"], r["interval"], r["easiness"],
+                     r["repetitions"], r["updated_at"]),
+                )
+                applied += 1
+        con.commit()
+    return {"ok": True, "count": len(records), "applied": applied}
+
+
+def handle_sync_joseki_attempts_pull(qs):
+    """J2: historial de intentos de josekis con id > since_id."""
+    since_id = int(qs.get("since_id", ["0"])[0])
+    with db_connect() as con:
+        rows = rows_to_list(
+            con.execute(
+                "SELECT * FROM joseki_attempts WHERE id > ? ORDER BY id ASC", (since_id,)
+            ).fetchall()
+        )
+    return {"joseki_attempts": rows}
+
+
+def handle_sync_joseki_attempts_push(body):
+    """J2: inserta intentos nuevos (dedupe por uuid: re-enviar es inocuo).
+    result 'correct'|'wrong' (J-26: pista o fallo = wrong); hint 0/1."""
+    records = body.get("joseki_attempts", [])
+    if not isinstance(records, list):
+        return {"error": "joseki_attempts must be a list"}, 400
+    normalized = []
+    for a in records:
+        if not isinstance(a, dict):
+            return {"error": "invalid joseki_attempts entry"}, 400
+        for f in ("uuid", "card_id", "result", "created_at"):
+            if not isinstance(a.get(f), str) or not a.get(f):
+                return {"error": f"joseki attempt missing field: {f}"}, 400
+        if a["result"] not in ("correct", "wrong"):
+            return {"error": "invalid joseki attempt result"}, 400
+        hint = a.get("hint", 0)
+        if hint not in (0, 1):
+            return {"error": "invalid joseki attempt hint"}, 400
+        tm = a.get("time_ms")
+        if tm is not None and (isinstance(tm, bool) or not isinstance(tm, int)):
+            return {"error": "invalid joseki attempt time_ms"}, 400
+        normalized.append((a["uuid"], a["card_id"], a["result"], int(hint), tm, a["created_at"]))
+    inserted = 0
+    with db_connect() as con:
+        for row in normalized:
+            cur = con.execute(
+                """INSERT OR IGNORE INTO joseki_attempts (uuid, card_id, result, hint, time_ms, created_at)
+                   VALUES (?, ?, ?, ?, ?, ?)""",
+                row,
+            )
+            inserted += cur.rowcount
+        con.commit()
+    return {"ok": True, "inserted": inserted, "skipped": len(normalized) - inserted}
+
+
+GET_ROUTES = {
+    "/db/collections": handle_get_collections,
+    "/db/chapters": handle_get_chapters,
+    "/db/problems": handle_get_problems,
+    "/db/problem": handle_get_problem,
+    "/db/runs": handle_get_runs,
+    "/db/last_run_stats": handle_get_last_run_stats,
+    "/db/last_run_stats_all": handle_get_last_run_stats_all,
+    "/db/struggling": handle_get_struggling,
+    "/db/run/items": handle_get_run_items,
+    "/db/difficulty_range": handle_get_difficulty_range,
+    "/db/audit": handle_get_audit,  # T20
+    "/sync/snapshot": handle_sync_snapshot,
+    "/sync/pull": handle_sync_pull,
+    "/sync/static_version": handle_sync_static_version,
+    "/sync/games": handle_sync_games,
+    "/sync/sm2/pull": handle_sync_sm2_pull,
+    "/sync/problem_tags/pull": handle_sync_problem_tags_pull,  # T23
+    "/sync/joseki_sm2/pull": handle_sync_joseki_sm2_pull,  # J2
+    "/sync/joseki_attempts/pull": handle_sync_joseki_attempts_pull,  # J2
+}
+
+
+POST_ROUTES = {
+    "/db/attempt": handle_post_attempt,
+    "/db/run": handle_post_run,
+    "/sync/push": handle_sync_push,
+    "/db/runs/delete": handle_delete_runs,
+    "/sync/check_runs": handle_sync_check_runs,
+    "/admin/import_games": handle_admin_import_games,
+    "/admin/import_my_collection": handle_admin_import_my_collection,
+    "/sync/sm2/push": handle_sync_sm2_push,
+    "/sync/tags/delete": handle_sync_tags_delete,  # T23
+    "/sync/problem_tags/push": handle_sync_problem_tags_push,  # T23
+    "/sync/joseki_sm2/push": handle_sync_joseki_sm2_push,  # J2
+    "/sync/joseki_attempts/push": handle_sync_joseki_attempts_push,  # J2
+}
+
+PUT_ROUTES = {
+    "/db/run": handle_put_run,
+    "/db/chapter/mostrar": handle_put_chapter_mostrar,
+    "/sync/chapters_mostrar": handle_sync_chapters_mostrar,
+    "/sync/problems_hidden": handle_sync_problems_hidden,  # T13
+    "/sync/tags": handle_sync_tags,  # T23
+}
+
+
+class Handler(BaseHTTPRequestHandler):
+    # Fase 1 (§4.2): timeout de socket — una conexión colgada no retiene el hilo.
+    timeout = 30
+
+    def log_message(self, fmt, *args):
+        # Log de acceso vía logging (sin bodies — Fase 1, §4.3).
+        log.info("%s %s", self.address_string(), fmt % args)
+
+    def _send_cors(self):
+        """Fase 1 (§4.1): CORS restringido — solo se refleja un Origin permitido."""
+        origin = self.headers.get("Origin", "")
+        if origin in ALLOWED_ORIGINS:
+            self.send_header("Access-Control-Allow-Origin", origin)
+            self.send_header("Vary", "Origin")
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self._send_cors()
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, PUT, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type, X-Auth-Token")
+        self.send_header("Access-Control-Max-Age", "86400")
+        self.send_header("Content-Length", "0")
+        self.end_headers()
+
+    def _gate(self, write=False):
+        """Auth por token + verificación de Origin en escrituras (Fase 1, §4.1).
+
+        Devuelve True si la petición puede continuar; si no, responde y
+        devuelve False. Con TSUMEVAULT_TOKEN sin definir la auth se omite
+        (modo compatibilidad).
+        """
+        if AUTH_TOKEN:
+            if self.headers.get("X-Auth-Token", "") != AUTH_TOKEN:
+                self._respond(401, {"error": "unauthorized"})
+                return False
+        if write:
+            origin = self.headers.get("Origin")
+            # Origin ausente = cliente no-navegador (curl, scripts propios): permitido.
+            if origin is not None and origin not in ALLOWED_ORIGINS:
+                self._respond(403, {"error": "forbidden origin"})
+                return False
+        return True
+
+    def _dispatch(self, handler, arg):
+        try:
+            with DB_LOCK:
+                result = handler(arg)
+        except (ValueError, TypeError, KeyError) as e:
+            # Parámetros/payload malformados → 400 (Fase 1, 3.11).
+            log.warning("bad request %s: %r", self.path, e)
+            self._respond(400, {"error": "bad request"})
+            return
+        except Exception:
+            # Fase 1 (§4.3): el detalle queda en el log, no en la respuesta.
+            log.exception("error handling %s", self.path)
+            self._respond(500, {"error": "internal server error"})
+            return
+        if isinstance(result, tuple):
+            self._respond(result[1], result[0])
+        else:
+            self._respond(200, result)
+
+    def do_GET(self):
+        parsed = urlparse(self.path)
+        handler = GET_ROUTES.get(parsed.path)
+        if not handler:
+            self._respond(404, {"error": "not found"})
+            return
+        if not self._gate(write=False):
+            return
+        self._dispatch(handler, parse_qs(parsed.query))
+
+    def do_POST(self):
+        self._handle_write(POST_ROUTES)
+
+    def do_PUT(self):
+        self._handle_write(PUT_ROUTES)
+
+    def _handle_write(self, routes):
+        parsed = urlparse(self.path)
+        handler = routes.get(parsed.path)
+        if not handler:
+            self._respond(404, {"error": "not found"})
+            return
+        if not self._gate(write=True):
+            return
+        try:
+            body = self._read_body()
+        except _BodyError as e:
+            self._respond(e.code, {"error": str(e)})
+            return
+        self._dispatch(handler, body)
+
+    def _read_body(self):
+        """Lee y parsea el body JSON. Lanza _BodyError si es inválido.
+
+        Fase 1 (3.11/§4.2): antes un JSON malformado explotaba fuera del try
+        del dispatcher (conexión colgada) y no había límite de tamaño.
+        """
+        try:
+            length = int(self.headers.get("Content-Length", 0) or 0)
+        except ValueError:
+            raise _BodyError(400, "invalid content-length")
+        if length > MAX_BODY_BYTES:
+            raise _BodyError(413, "body too large")
+        if not length:
+            return {}
+        raw = self.rfile.read(length)
+        try:
+            body = json.loads(raw)
+        except Exception:
+            raise _BodyError(400, "invalid json")
+        if not isinstance(body, dict):
+            raise _BodyError(400, "invalid json")
+        return body
+
+    def _respond(self, code, obj):
+        body = json.dumps(obj, ensure_ascii=False).encode()
+        accept_encoding = self.headers.get("Accept-Encoding", "")
+        self.send_response(code)
+        self._send_cors()
+        self.send_header("Content-Type", "application/json")
+        if "gzip" in accept_encoding and len(body) > 1024:
+            body = gzip.compress(body, compresslevel=6)
+            self.send_header("Content-Encoding", "gzip")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        try:
+            self.wfile.write(body)
+        except (BrokenPipeError, ConnectionResetError):
+            pass
+
+
+if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(message)s",
+    )
+    if not os.path.isfile(DB_PATH):
+        log.warning(
+            "DB no encontrada: %s — ejecuta tsumevault_init.py primero.", DB_PATH
+        )
+
+    try:
+        import socket
+
+        local_ip = socket.gethostbyname(socket.gethostname())
+    except Exception:
+        # Fase 1 (§4.6): un host sin resolución de hostname ya no impide arrancar.
+        local_ip = "?"
+    log.info("TsumeVault API → http://localhost:%d", PORT)
+    log.info("Red local      → http://%s:%d", local_ip, PORT)
+    log.info("DB             → %s", DB_PATH)
+    if AUTH_TOKEN:
+        log.info("Auth: X-Auth-Token ACTIVADO")
+    else:
+        log.warning(
+            "Auth: TSUMEVAULT_TOKEN no definido — autenticación DESACTIVADA (modo compatibilidad)"
+        )
+    log.info("Orígenes permitidos: %s", ", ".join(sorted(ALLOWED_ORIGINS)))
+    migrate_db()
+
+    server = ThreadingHTTPServer(("0.0.0.0", PORT), Handler)
+    server.daemon_threads = True
+
+    # T11: apagado limpio con SIGTERM/SIGINT (systemd/docker). shutdown() debe
+    # invocarse desde otro hilo: llamado desde el propio hilo de serve_forever
+    # se bloquearia. Tras serve_forever se cierra el socket y se sale con 0.
+    def _shutdown(signum, _frame):
+        log.info("Señal %d recibida — apagando limpiamente…", signum)
+        threading.Thread(target=server.shutdown, daemon=True).start()
+
+    signal.signal(signal.SIGTERM, _shutdown)
+    signal.signal(signal.SIGINT, _shutdown)
+    server.serve_forever()
+    server.server_close()
+    log.info("Servidor detenido.")
+    sys.exit(0)
