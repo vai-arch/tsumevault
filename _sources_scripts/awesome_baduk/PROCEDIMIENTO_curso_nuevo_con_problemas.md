@@ -1,6 +1,7 @@
 # Procedimiento: curso nuevo de Awesome Baduk, con lecciones y problemas, hasta la web
 
-Documento de trabajo (estado a 9 de octubre de 2026). Cubre todo el camino de un curso nuevo:
+Documento de trabajo (estado a 9 de octubre de 2026; actualizado el 19 de octubre de 2026 con el dibujo a mano,
+la corrección de lecciones ya publicadas y los permisos tras subir). Cubre todo el camino de un curso nuevo:
 bajarlo, convertir sus lecciones y sus problemas, corregir lo que haga falta, validarlo, probarlo en local
 y subirlo a producción.
 
@@ -31,6 +32,9 @@ es porque ese tramo no se repite aquí. **Si hay contradicción, manda este docu
 Orden obligatorio en producción: **primero los SGF y la web, después la importación en la base de datos**
 (si no, la base de datos apuntaría a ficheros que todavía no existen).
 
+Para **corregir lecciones ya publicadas** sin reconvertir el audio (tras arreglar el conversor), ver la
+sección 11.
+
 ---
 
 ## 1. Carpetas y ficheros
@@ -45,6 +49,7 @@ Raíz del proyecto: `C:\Users\victor.diaz\Documents\All\Go\tsumevault`
 | `awesome_lessons\` (raíz del proyecto) | Copia de la salida que se valida, se importa y se sube por git. |
 | `player\lessons\Awesome Baduk\` | Ficheros de las lecciones convertidas (`.sgf`, `.json`, `.ogg`). |
 | `player\lessons_sources\awesome_baduk_lessons.json` | Catálogo de las lecciones de Awesome Baduk (formato `{"rows": [...]}`). |
+| `player\lessons_sources\awesome_baduk_lessons_ids.json` | **`lesson_ids.json` de verdad** (curso/clip → `lessonId`). Se pasa al conversor con `--ids`. Si se pierde, cambian todos los `lessonId`: guardarlo en git. |
 | `player\all_lessons.json` | Catálogo unido que lee `player.html`. Se genera con `merge_lessons.py`. |
 | Servidor | `root@46.225.97.185`, ruta `/opt/tsumevault/player` |
 
@@ -52,7 +57,13 @@ Raíz del proyecto: `C:\Users\victor.diaz\Documents\All\Go\tsumevault`
 
 | Script | Para qué | Notas |
 |---|---|---|
-| `awesome_to_player.py` | Convierte lecciones del export al formato del player. Contiene `difficulty_from_group` (regla de niveles) y `load_course`. | Origen único de la regla de niveles. |
+| `awesome_to_player.py` | Convierte lecciones del export al formato del player (`.sgf`, `.json`, `.ogg` y `_draw.json`). Contiene `difficulty_from_group` (regla de niveles) y `load_course`. | Origen único de la regla de niveles. Versión v30. Modos `--draw-only` y `--board-only` en la sección 11. Se detiene si no hay `lesson_ids.json` con contenido (salvo `--new-ids`). |
+| `diag_ocupadas.py` | Solo lectura: lista las jugadas sobre punto ocupado de un curso (instante, punto, piedra que ya había, eventos previos). | Usa el `awesome_to_player.py` de la misma carpeta. |
+| `compare_board.py` | Solo lectura: compara lo que se ve en el tablero entre lo publicado y lo regenerado con `--board-only`. | Sección 11. |
+| `census_draw.py` | Censo de los `draw-events` de `lessons.json` (tipos, colores, rango de coordenadas). | Confirmó el lienzo de 600×600. |
+| `recorded_quitar_draw.py` | Quita de `recorded.json` las lecciones con dibujo, para volver a grabarlas en vídeo. | Hace copia `.bak`. |
+| `_subir_draw.bat` | Sube solo `*_draw.json` (se niega si hay otra cosa) y hace el `chmod`. | Origen por defecto `draw_out\lessons`; otro como argumento. |
+| `_subir_board.bat` | Sube solo `<id>.sgf` y `<id>.json` regenerados con `--board-only` y hace el `chmod`. | Origen por defecto `board_out\lessons`. |
 | `extract_lesson_problems.py` | De `lessons.json` saca `lesson_problems.json` (clip → ids de problemas). | |
 | `lecciones_problemas.py` | Descarga, convierte y organiza los problemas de las lecciones en la source `awesome_lessons`. | Modo `plan` sin red. |
 | `parchear_catalogo.py` | Rellena dificultades vacías y quita cursos/lecciones sobrantes del catálogo. | Idempotente. |
@@ -63,7 +74,7 @@ Raíz del proyecto: `C:\Users\victor.diaz\Documents\All\Go\tsumevault`
 | `..\..\import_my_collections.py` | Valida e importa una carpeta de colecciones en el servidor. | Opciones `--source`, `--sgf-prefix`, `--server`, `--token`, `--validate-only`. |
 | `importar_awesome_lessons_prod.bat` | Validar, pedir confirmación e importar en producción. | Ver sección 6. |
 | `..\..\player\merge_lessons.py` / `merge_lessons.bat` | Une los catálogos de las fuentes en `all_lessons.json`. | Hace copia con fecha del anterior. |
-| `_subir_lecciones_a_Hetzner.bat` | Sube las lecciones (carpeta `Awesome Baduk` o un curso) y `all_lessons.json`. | Ver el otro procedimiento. |
+| `_subir_lecciones_a_Hetzner.bat` | Sube las lecciones (carpeta `Awesome Baduk` o un curso) y `all_lessons.json`. | Ver el otro procedimiento. **Debe terminar con el `chmod` de la sección 6.** |
 | `remove_source.py` | Borra todas las filas de una source en la base de datos. | Marcha atrás de una importación. |
 | `download_vimeo_batch.py` | Baja los audios (`.m4a`) de Vimeo a `out\cursos\<curso>\`. | **Parcheado** con `--skip-catalog` (ver sección 3). |
 | `parche_download_vimeo.py` | Aplica ese parche a `download_vimeo_batch.py` (idempotente, con copia `.bak`). | Ya aplicado; se conserva por si se restaura el original. |
@@ -158,6 +169,20 @@ awesome_lessons\
 `vimeoId` y los problemas con el fichero SGF generado (`null` si se omitió). El player no lo usa todavía;
 se conserva por si se quiere un botón de la lección a sus problemas. No subir a git.
 
+### 2.6 Dibujo a mano del profesor
+
+- Cada clip con tinta lleva un `<id>_draw.json` junto a su `.json`. El player lo pide como los subtítulos: si
+  no existe, no pasa nada. 283 clips de 1.557 tienen dibujo.
+- Formato: `{"size": 600, "strokes": [{"t": s, "c": "#color", "p": [[dt, x, y], ...]}], "clears": [s, ...]}`.
+  `t` y `clears` en segundos, en el mismo eje que el audio; `x, y` en píxeles de un lienzo de 600×600 que ocupa
+  todo el tablero.
+- Solo se guardan los puntos con tinta (entre `start-drawing` y `stop-drawing`). Un trazo sin `set-color` previo
+  en su clip toma `#f44336` (el rojo, que es el color mayoritario).
+- Un trazo que empieza en el mismo instante que un borrado posterior no se guarda: es el dibujo del clip anterior,
+  que la web restaura en t=0 y borra en t=0 (v30).
+- En el player, el lienzo del dibujo va dentro de `#board` con `z-index: 1000` (WGo usa 100/200/300 en sus capas),
+  para quedar por encima de las piedras y entrar en el vídeo grabado.
+
 ---
 
 ## 3. Fase A. Lecciones (export, audio, conversión)
@@ -198,14 +223,20 @@ posteriores. `$W` = `_sources_scripts\awesome_baduk`, `$P` = `player` (ambos baj
 5. **Convertir el curso** (siempre con `--only`, siempre la misma carpeta de salida):
 
    ```powershell
-   python awesome_to_player.py lessons.json --out player_test\player --manifest-copy --audio-root out\cursos_final --convert-audio --require-audio --only "<título o id del curso>"
+   python awesome_to_player.py lessons.json --out player_test\player --ids ..\..\player\lessons_sources\awesome_baduk_lessons_ids.json --manifest-copy --audio-root out\cursos_final --convert-audio --require-audio --only "<título o id del curso>"
    ```
 
    - **`--only` es obligatorio**: sin él, el conversor intentaría procesar todo el export y los clips antiguos
      no tienen ya su `.m4a` en `cursos_final`.
-   - `--out player_test\player` es siempre el mismo: ahí viven `lesson_ids.json` (**no perderlo**: si se pierde,
-     cambian todos los `lessonId`) y `all_lessons.new.json`, que **acumula** (antiguas + nuevas).
-   - Salida: `player_test\player\lessons\Awesome Baduk\<Curso>\Clip NN\<id>.sgf|.json|.ogg`.
+   - `--ids` apunta al `lesson_ids.json` de verdad, en `player\lessons_sources\awesome_baduk_lessons_ids.json`. El
+     conversor le añade los clips nuevos al terminar. Sin `--ids` buscaría `player_test\player\lesson_ids.json`, y
+     esa carpeta ya se ha vaciado alguna vez: desde la v22 el conversor se **detiene** si no encuentra un
+     `lesson_ids.json` con contenido, en lugar de repartir IDs desde 900000 y chocar con los publicados.
+     `--new-ids` solo para empezar de cero.
+   - `--out player_test\player` es siempre el mismo: ahí vive `all_lessons.new.json`, que **acumula** (antiguas +
+     nuevas).
+   - Salida: `player_test\player\lessons\Awesome Baduk\<Curso>\Clip NN\<id>.sgf|.json|.ogg`, más `<id>_draw.json`
+     en los clips con dibujo.
    - `--ffmpeg "<ruta>"` si ffmpeg no está en el PATH.
 6. **Probar en local** (otro procedimiento, sección 6): carga, suena, el tablero sigue a la voz, dificultad no vacía.
 7. **Copiar a la carpeta real**:
@@ -240,7 +271,7 @@ Todos los comandos, desde `_sources_scripts\awesome_baduk`.
 ### B1. Generar `lesson_problems.json`
 
 ```powershell
-python extract_lesson_problems.py lessons.json --ids player_test\player\lesson_ids.json --out lesson_problems.json
+python extract_lesson_problems.py lessons.json --ids ..\..\player\lessons_sources\awesome_baduk_lessons_ids.json --out lesson_problems.json
 ```
 
 Imprime clips totales, clips con problemas, cursos, referencias, ids distintos y entradas sin `lessonId`.
@@ -408,6 +439,17 @@ Orden:
    Si el `scp` falla o el JSON no es válido, la cadena se corta antes del `mv` y el `all_lessons.json` del
    servidor no se toca. Debe imprimir `REEMPLAZADO`. Recargar la web con Ctrl+F5.
 
+5. **Permisos, siempre después de subir lecciones con `scp -r`.** Desde Windows, `scp -r` deja las carpetas que
+   toca en `700` (solo root) y Caddy, que corre como `caddy`, responde **403 a todas las lecciones** que cuelgan
+   de ellas, no solo a las nuevas:
+
+   ```powershell
+   ssh root@46.225.97.185 "chmod -R a+rX /opt/tsumevault/player/lessons"
+   ```
+
+   `a+rX` da lectura a todos y entrada solo a las carpetas. `_subir_draw.bat`, `_subir_board.bat` y
+   `_subir_lecciones.bat` ya lo hacen al final; `_subir_lecciones_a_Hetzner.bat` debe hacerlo también.
+
 ### Marcha atrás
 
 | Qué | Cómo |
@@ -434,7 +476,7 @@ Orden:
 10. Copia de seguridad de la base de datos de producción.
 11. Subir SGF por git y desplegar `tsumevault.html`.
 12. `importar_awesome_lessons_prod.bat`.
-13. Subir ficheros de lección y `all_lessons.json`; Ctrl+F5 y comprobar.
+13. Subir ficheros de lección y `all_lessons.json`; **`chmod -R a+rX`** en el servidor; Ctrl+F5 y comprobar.
 
 ---
 
@@ -451,6 +493,12 @@ Orden:
 | Dos cursos con el mismo título | Un curso regrabado o subido otra vez, uno con audio incompleto. | Comparar `vimeoId`; descartar el malo (`DESCARTAR` + `QUITAR_CURSOS`). |
 | Lecciones sin dificultad en el player | Curso sin `target-group`. | Tabla de excepciones y `parchear_catalogo.py`. |
 | Nombres de capítulo cortados | `limpiar()` de `niveles_academia.py` corta a 60 caracteres y pierde el número de la serie. | `lecciones_problemas.py` usa su propia limpieza con límite de 120. |
+| Todas las lecciones dan **403** tras subir | `scp -r` desde Windows deja las carpetas en `700`; Caddy no puede entrar. | `chmod -R a+rX /opt/tsumevault/player/lessons` (sección 6, paso 5). No es un baneo: `all_lessons.json` sigue dando 200. |
+| `lesson_ids.json` vacío (2 bytes) | El conversor lo creaba vacío si no lo encontraba en `--out`. | Desde la v22 se detiene; usar `--ids` con la ruta de verdad (sección 3, paso 5). |
+| Clip de un curso sin árbol con el tablero vacío todo el vídeo | Una sola jugada sobre punto ocupado hace que el conversor descarte el clip entero (solo audio). La causa: los `:add` hechos en la raíz se guardaban **en** la raíz, y tras un `:navigate nil` (que en el original deja el tablero vacío) la apertura nueva chocaba con ellos. | v28: en cursos sin árbol, un `:add` en la raíz crea un nodo hijo. Recuperó 900598 y 900817. Diagnóstico con `diag_ocupadas.py`. |
+| Un dibujo visible desde 0:00 que el original no muestra | La web restaura en t=0 el dibujo del clip anterior y lo borra en t=0; en el `_draw.json` se perdía ese orden. | v30: ese trazo no se guarda. Afectó a 4 clips (2 corregidos, 2 sin dibujo). |
+| El dibujo pasa por debajo de las piedras | Las capas de WGo llevan `z-index` 100/200/300. | `z-index: 1000` en el lienzo del dibujo (`player.html`). |
+| Los cambios hechos en local no se ven en el player | El player pide **siempre** al servidor (`LESSONS_BASE` apunta a producción) y el navegador cachea los `.json`. | Subir antes de probar; F12 → Network → «Disable cache» y Ctrl+F5. |
 
 ---
 
@@ -471,6 +519,10 @@ Orden:
   se añade al final antes de volver a importar.
 - Mejora pendiente: que `lecciones_problemas.py` omita por sí mismo los dos problemas rechazados
   (`Y1jrdM2g`, `KPYi1Doy`), para no tener que borrarlos a mano en cada regeneración.
+- Dibujo a mano: 1.139 trazos (54 %) empiezan sin `set-color` y se pintan en rojo `#f44336`. Si el original
+  recordara el color entre clips, alguno saldría de otro color: revisar si se ve alguno raro.
+- Vídeos grabados antes del dibujo: las lecciones con `_draw.json` que ya estaban en `recorded.json` hay que
+  grabarlas otra vez (`recorded_quitar_draw.py` las quita de la lista).
 
 ---
 
@@ -483,8 +535,11 @@ Orden:
 - Lecciones y audio: `awesome_to_player.py`, `download_vimeo_batch.py` (ya parcheado), `parche_download_vimeo.py`,
   `build_final_collection.py`, `find_chapters.py`, `census_courses.py`, `inspect_clip.py`, `convertir_audios.bat`, `bajar_academia.bat`,
   `_subir_lecciones_a_Hetzner.bat`.
+- Dibujo y correcciones: `census_draw.py`, `diag_ocupadas.py`, `compare_board.py`, `recorded_quitar_draw.py`,
+  `_subir_draw.bat`, `_subir_board.bat`, `_subir_lecciones.bat`.
 - `PROCEDIMIENTO_curso_nuevo_awesome_baduk.md` y este documento.
-- `player_test\player\lesson_ids.json` (**imprescindible**) y `player\lessons_sources\*.json`.
+- `player\lessons_sources\awesome_baduk_lessons_ids.json` (**imprescindible**: es el `lesson_ids.json`) y el resto de
+  `player\lessons_sources\*.json`.
 - `list_inventory.py` **solo si se saca antes la clave de API** (el repositorio es público).
 - Scripts de colecciones anteriores (`convertir_libro.py`, `generar_sgfs*.bat`, `download_days.py`, etc.): opcionales;
   mejor en una subcarpeta `_historico`.
@@ -496,6 +551,9 @@ awesomebaduk_rt
 lessons.json
 lesson_problems.json
 awesome_lessons_links.json
+draw_out*/
+board_out/
+prueba_*/
 problems_raw/
 out/
 player_test/
@@ -505,9 +563,73 @@ __pycache__/
 *.bak
 ```
 
-(`player_test/` entra solo si `lesson_ids.json` se guarda en otro sitio versionado; si no, sacarlo del ignore o
-copiarlo a `player\lessons_sources\`.)
+(`player_test/` puede ignorarse porque `lesson_ids.json` vive ya en `player\lessons_sources\`.)
 
 **Se puede borrar sin riesgo** (se regenera): `__pycache__`, `salida_*`, los `.txt` de informes y planes, y los
 ficheros de datos del primer import (`challenge.json`, `days.json`). Conservar `problems_raw` (caché de más de 5.500
 problemas, que requiere login para volver a bajarse) y `awesomebaduk_rt`.
+
+---
+
+## 11. Corregir lecciones ya publicadas (sin reconvertir el audio)
+
+Cuando se arregla el conversor, las lecciones publicadas no cambian solas. Los `.m4a` ya no están en disco, así
+que **no** se reconvierten: se regeneran solo el tablero o solo el dibujo, se comparan con lo publicado y se sube
+únicamente lo que cambia. Todo desde `_sources_scripts\awesome_baduk`, con estas dos variables en la ventana de
+PowerShell:
+
+```powershell
+$IDS = "..\..\player\lessons_sources\awesome_baduk_lessons_ids.json"
+$PUB = "..\..\player\lessons\Awesome Baduk"
+```
+
+### 11.1 Tablero (`.sgf` + `.json`)
+
+```powershell
+python awesome_to_player.py lessons.json --board-only --ids $IDS --published-dir $PUB --out board_out
+python compare_board.py board_out $PUB
+```
+
+- `--board-only` escribe en `board_out\lessons\Awesome Baduk\...` solo las lecciones cuyo `.sgf` o `.json` cambia,
+  en la **misma ruta** que tienen publicadas, y deja la lista en `board_out\board_changes.json`. No toca `.ogg`,
+  dibujos, catálogos ni informes.
+- `compare_board.py` reproduce cada lección vieja y nueva como el player y compara las piedras instante a
+  instante: `IGUAL` (solo cambia la numeración interna de los nodos) o `DISTINTO` (con los instantes y las piedras
+  de más o de menos). Los `DISTINTO` se comprueban contra el vídeo original antes de subir.
+- Referencia (v28, 19-oct-2026): 1.542 publicadas, 1.515 sin cambios, 27 cambiadas: 25 `IGUAL` y 2 recuperadas.
+
+### 11.2 Dibujo (`_draw.json`)
+
+```powershell
+python awesome_to_player.py lessons.json --draw-only --ids $IDS --published-dir $PUB --out draw_out2
+```
+
+- Con `--published-dir` escribe solo los dibujos que cambian (o nuevos) y lista los `_draw.json` publicados que hay
+  que **borrar** (clips que se quedan sin dibujo), también en `draw_out2\draw_changes.json`.
+- Sin `--published-dir` escribe todos, como al principio.
+- Referencia (v30): 283 publicados, 279 sin cambios, 2 cambiados, 2 a borrar.
+
+### 11.3 Aplicar en local y en el servidor
+
+Primero la copia local (para que siga siendo un espejo del servidor y la próxima pasada no vuelva a dar estas
+lecciones como cambiadas), después el servidor y al final los permisos:
+
+```powershell
+robocopy "board_out\lessons\Awesome Baduk" "$PUB" *.sgf *.json /S
+robocopy "draw_out2\lessons\Awesome Baduk" "$PUB" *_draw.json /S
+scp -r "board_out\lessons" root@46.225.97.185:/opt/tsumevault/player/
+scp -r "draw_out2\lessons" root@46.225.97.185:/opt/tsumevault/player/
+ssh root@46.225.97.185 "chmod -R a+rX /opt/tsumevault/player/lessons"
+```
+
+(O `_subir_board.bat` y `_subir_draw.bat "draw_out2\lessons"`, que comprueban el contenido y hacen el `chmod`.)
+
+Los dibujos a borrar se quitan a mano en los dos sitios (`Remove-Item` en local, `ssh ... "rm -v '<ruta>'"` en
+el servidor) y se comprueba el total con `find /opt/tsumevault/player/lessons -name '*_draw.json' | wc -l`.
+
+### 11.4 Comprobar
+
+- El player pide al **servidor**: probar después de subir, con la caché desactivada (F12 → Network → «Disable
+  cache», Ctrl+F5).
+- Si alguna lección cambiada está en `recorded.json`, su vídeo grabado está desfasado: quitarla de la lista y
+  volver a grabarla.

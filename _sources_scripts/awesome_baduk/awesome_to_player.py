@@ -28,7 +28,7 @@ import sys
 from pathlib import Path
 
 sys.setrecursionlimit(20000)
-VERSION = 'v27 - :navigate nil = ir a la raiz (tablero vacio sin arbol); v26: :add auto2; v25: :add quita cualquier piedra; v24: color por alternancia; v23: flag=true = blanca'
+VERSION = 'v30 - dibujo: trazo borrado en su mismo instante no se guarda, --draw-only compara con --published-dir; v29: --board-only (regenera .sgf/.json de lo publicado, solo lo que cambia); v28: sin arbol: :add en la raiz crea nodo hijo (la raiz queda vacia, navigate nil = tablero vacio); v27: :navigate nil = ir a la raiz; v26: :add auto2; v25: :add quita cualquier piedra; v24: color por alternancia; v23: flag=true = blanca'
 B, W = 1, -1
 FLAG_MODE = 'white'         # flag=true en :move: 'white' (piedra blanca, validado en video, como :add) | 'ignore' | 'invert'
 ADD_MODE = 'auto2'          # :add -> 'auto2' (v26): en el nodo si no tiene jugada, si no nodo hijo; retroceder salta los retoques | 'auto' | 'child' (v22-v25) | 'inplace'
@@ -39,6 +39,9 @@ LABEL_REPEAT = 'toggle'      # etiqueta sobre un punto ya etiquetado: 'toggle' (
 LABEL_SCOPE = 'node'        # contador de etiquetas A,B,C / 1,2,3: 'node' (reinicia en cada nodo) | 'clip' (continua en todo el clip)
 ADD_SEM = 'remove'         # :add 'remove': si hay CUALQUIER piedra la quita, si no pone (validado: reproduce la captura) | 'toggle': solo quita si es del mismo color (v22-v24) | 'place': siempre pone
 SUICIDE_MODE = 'remove'     # jugada suicida: 'remove' quita el grupo | 'keep' deja la piedra
+ROOT_ADDS = 'child'         # v28: en cursos SIN arbol, :add estando en la raiz crea un nodo hijo ('child') en vez de
+                            # guardarse en la raiz ('inplace', v26-v27). Asi la raiz sigue vacia y :navigate nil muestra
+                            # el tablero vacio, como el original (validado: 9kyu 2 clip 2, 2:54). Cursos con arbol: sin cambios.
 NAV_NIL = 'root'            # :navigate nil -> 'root' (v27: va a la raiz, validado con captura) | 'ignore' (v22-v26: nodo desconocido)
 DIAG = None                 # si es una lista, translate() anota ahi las anomalias (para el censo)
 
@@ -400,6 +403,13 @@ def translate_draw(raw, warn):
         elif kind == 'delete-drawing':
             if cur is not None:
                 close()
+            # v30: los trazos que empezaron en ESTE mismo instante y van antes del borrado en la lista nunca se
+            # ven (p. ej. el dibujo del clip anterior que la web restaura en t=0 y borra en t=0). En el
+            # _draw.json el orden dentro de un instante se pierde, asi que se quitan aqui.
+            same = [st for st in strokes if st['t0'] == t]
+            if same:
+                warn['draw: trazo borrado en el mismo instante en que empieza (no se guarda)'] += len(same)
+                strokes[:] = [st for st in strokes if st['t0'] != t]
             clears.append(round(t / 1000.0, 3))
         else:
             warn[f'draw: evento desconocido {kind}'] += 1
@@ -411,6 +421,11 @@ def translate_draw(raw, warn):
     out = [{'t': round(st['t0'] / 1000.0, 3), 'c': st['c'], 'p': st['p']} for st in strokes]
     out.sort(key=lambda st: st['t'])
     return {'size': DRAW_SIZE, 'strokes': out, 'clears': sorted(clears)}
+
+
+def _is_synthetic_root(n):
+    """Raiz creada por el conversor para un curso sin arbol (id 'root', sin piedras ni jugada)."""
+    return n is not None and n.parent is None and n.id == 'root' and n.stones is None and not n.move
 
 
 def _is_live_add(n):
@@ -621,7 +636,8 @@ def translate(events, root, byid, start, n_nodes, forwards_mode, warn, size=19, 
             elif ADD_SEM == 'remove' and position(cur, size).g.get((x, y)):
                 eff = 0                      # v25: habia una piedra (de cualquier color): se quita
             aprop = f"AE[{co((x, y))}]" if eff == 0 else f"{'AB' if eff == B else 'AW'}[{co((x, y))}]"
-            if ADD_MODE == 'inplace' or (ADD_MODE in ('auto', 'auto2') and not cur.move):
+            keep_root_empty = ROOT_ADDS == 'child' and _is_synthetic_root(cur)
+            if not keep_root_empty and (ADD_MODE == 'inplace' or (ADD_MODE in ('auto', 'auto2') and not cur.move)):
                 cur.adds.append(((x, y), eff))
                 add(ms, addProp=[cur.nn, aprop])
                 uid_map[uid] = cur
@@ -912,6 +928,11 @@ def main():
     ap.add_argument('--draw-only', action='store_true',
                     help='solo genera los <id>_draw.json de los clips YA publicados (usa lesson_ids.json); '
                          'no toca .sgf, .json, .ogg, manifests ni informes, y no necesita audio')
+    ap.add_argument('--board-only', action='store_true',
+                    help='regenera solo <id>.sgf y <id>.json de las lecciones YA publicadas (usa lesson_ids.json) y escribe '
+                         'solo las que CAMBIAN respecto a --published-dir; no toca .ogg, _draw.json, manifests ni informes')
+    ap.add_argument('--published-dir', default=None,
+                    help='con --board-only o --draw-only: carpeta de las lecciones publicadas, p. ej. ..\\..\\player\\lessons\\"Awesome Baduk"')
     ap.add_argument('--ids', default=None,
                     help='ruta de lesson_ids.json (por defecto OUT\\lesson_ids.json); permite usar el de otra carpeta')
     ap.add_argument('--new-ids', action='store_true',
@@ -936,11 +957,15 @@ def main():
     ap.add_argument('--label-scope', choices=['node', 'clip'], default='node',
                     help='contador de etiquetas: reinicia en cada nodo (por defecto) o continua en todo el clip')
     ap.add_argument('--suicide-mode', choices=['remove', 'keep'], default='remove')
+    ap.add_argument('--root-adds', choices=['child', 'inplace'], default='child',
+                    help='cursos sin arbol: :add en la raiz crea nodo hijo (por defecto, v28) o se guarda en la raiz (v27)')
     ap.add_argument('--stones-mode', choices=['replace', 'add'], default='replace',
                     help=":stones reemplaza la posicion (por defecto) o se suma a la existente")
     args = ap.parse_args()
 
     print(f'awesome_to_player {VERSION}')
+    global ROOT_ADDS
+    ROOT_ADDS = args.root_adds
     global STONES_MODE, FLAG_MODE, ADD_MODE, ADD_FLAG_TRUE, SUICIDE_MODE, ADD_SEM, MARK_REPEAT, LABEL_SCOPE, LABEL_REPEAT, MARKS_PERSIST
     STONES_MODE = args.stones_mode
     FLAG_MODE = args.flag_mode
@@ -952,7 +977,32 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     ids_path = Path(args.ids) if args.ids else out / 'lesson_ids.json'
     ids = json.loads(ids_path.read_text(encoding='utf-8')) if ids_path.exists() else {}
+    if args.board_only and args.draw_only:
+        sys.exit('--board-only y --draw-only son excluyentes.')
+    pub_index = {}
+    if args.board_only:
+        if not args.published_dir or not Path(args.published_dir).is_dir():
+            sys.exit('--board-only necesita --published-dir con la carpeta de las lecciones publicadas '
+                     '(la que contiene una carpeta por curso).')
+        for p in Path(args.published_dir).rglob('*'):
+            if p.suffix in ('.sgf', '.json') and p.stem.isdigit():
+                pub_index[(int(p.stem), p.suffix)] = p
+        print(f'Publicadas en {args.published_dir}: {sum(1 for k in pub_index if k[1] == ".json")} lecciones')
+    pub_draw = {}
+    if args.draw_only and args.published_dir:
+        if not Path(args.published_dir).is_dir():
+            sys.exit(f'--published-dir no existe: {args.published_dir}')
+        for p in Path(args.published_dir).rglob('*_draw.json'):
+            stem = p.name[:-len('_draw.json')]
+            if stem.isdigit():
+                pub_draw[int(stem)] = p
+        print(f'Dibujos publicados en {args.published_dir}: {len(pub_draw)}')
+    draw_changes, draw_delete = [], []
+    board_changes = []
     if not ids and not args.new_ids:
+        if args.board_only:
+            sys.exit(f'--board-only necesita un lesson_ids.json con contenido: {ids_path} no existe o esta vacio. '
+                     f'Indica el correcto con --ids RUTA.')
         if args.draw_only:
             sys.exit(f'--draw-only necesita un lesson_ids.json con contenido: {ids_path} no existe o esta vacio. '
                      f'Indica el correcto con --ids RUTA.')
@@ -1019,15 +1069,35 @@ def main():
                     doc = translate_draw(clip.get('draw-events'), w)
                     for k, v in w.items():
                         draw_stats['aviso ' + k] += v
+                    old_p = pub_draw.get(lid)
                     if not doc:
-                        draw_stats['clips sin dibujo'] += 1
+                        if old_p is not None:                 # publicado, pero ya no debe haber dibujo
+                            draw_delete.append({'lessonId': lid, 'curso': title, 'clip': ci,
+                                                'ruta': str(old_p.relative_to(Path(args.published_dir))).replace('\\', '/')})
+                            draw_stats['_draw.json publicados que hay que BORRAR'] += 1
+                        else:
+                            draw_stats['clips sin dibujo'] += 1
                         continue
-                    d = (out / 'lessons' / player_sanitize(args.type_name) / player_sanitize(title)
-                         / player_sanitize(f'Clip {ci:02d}'))
+                    text = json.dumps(doc, separators=(',', ':')) + '\n'
+                    if old_p is not None:
+                        try:
+                            same = json.loads(old_p.read_text(encoding='utf-8-sig')) == doc
+                        except (OSError, ValueError):
+                            same = False
+                        if same:
+                            draw_stats['sin cambios'] += 1
+                            continue
+                        d = out / 'lessons' / player_sanitize(args.type_name) / old_p.parent.relative_to(Path(args.published_dir))
+                    else:
+                        d = (out / 'lessons' / player_sanitize(args.type_name) / player_sanitize(title)
+                             / player_sanitize(f'Clip {ci:02d}'))
                     d.mkdir(parents=True, exist_ok=True)
-                    (d / f'{lid}_draw.json').write_text(json.dumps(doc, separators=(',', ':')) + '\n',
-                                                        encoding='utf-8')
-                    draw_stats['_draw.json escritos'] += 1
+                    (d / f'{lid}_draw.json').write_text(text, encoding='utf-8')
+                    draw_stats['_draw.json escritos' + (' (cambian)' if old_p is not None
+                                                         else (' (nuevos)' if pub_draw else ''))] += 1
+                    if pub_draw:
+                        draw_changes.append({'lessonId': lid, 'curso': title, 'clip': ci,
+                                             'tipo': 'cambia' if old_p is not None else 'nuevo'})
                     course_dirs[d.parent.name] = title
                     continue
                 ev_raw = clip.get('events')
@@ -1048,6 +1118,44 @@ def main():
                     warn['curso sin arbol: eventos descartados (solo audio)'] += 1
                 problems = selfcheck(sgf, events_out, expected, size)
                 sig = signature(end)          # el estado avanza aunque el clip se omita
+
+                if args.board_only:
+                    lid = ids.get(key)
+                    if lid is None:
+                        draw_stats['clips sin ID (no publicados, se omiten)'] += 1
+                        continue
+                    pj, ps = pub_index.get((lid, '.json')), pub_index.get((lid, '.sgf'))
+                    if pj is None or ps is None:
+                        draw_stats['con ID pero sin .sgf/.json en --published-dir (se omiten)'] += 1
+                        continue
+                    new_json = json.dumps(events_out, separators=(',', ':')) + '\n'
+                    try:
+                        old_ev = json.loads(pj.read_text(encoding='utf-8-sig'))
+                    except (OSError, ValueError):
+                        old_ev = None
+                    old_sgf = ps.read_text(encoding='utf-8-sig')
+                    if old_ev == events_out and old_sgf == sgf:
+                        draw_stats['sin cambios'] += 1
+                        continue
+                    if old_ev is not None and len(old_ev) <= 1 < len(events_out):
+                        kind = 'RECUPERADA (antes tablero vacio)'
+                    elif old_ev == events_out:
+                        kind = 'cambia solo el .sgf'
+                    else:
+                        kind = 'cambian los eventos'
+                    rel = pj.parent.relative_to(Path(args.published_dir))
+                    d = out / 'lessons' / player_sanitize(args.type_name) / rel
+                    d.mkdir(parents=True, exist_ok=True)
+                    (d / f'{lid}.sgf').write_text(sgf, encoding='utf-8')
+                    (d / f'{lid}.json').write_text(new_json, encoding='utf-8')
+                    draw_stats['escritas: ' + kind] += 1
+                    if problems:
+                        draw_stats['escritas con selfcheck KO (revisar en board_changes.json)'] += 1
+                    board_changes.append({'lessonId': lid, 'curso': title, 'clip': ci, 'tipo': kind,
+                                          'eventos_antes': None if old_ev is None else len(old_ev),
+                                          'eventos_ahora': len(events_out), 'selfcheck': problems or 'OK',
+                                          'avisos': {k: v for k, v in warn.items() if not k.startswith('draw:')}})
+                    continue
 
                 name = f'Clip {ci:02d}'
                 vid = uuid2vid.get(clip.get('video-id'))
@@ -1118,6 +1226,23 @@ def main():
             errors.append({'curso': title, 'id': cid, 'error': f'{type(e).__name__}: {e}'})
             print(f'!! ERROR en el curso "{title}": {type(e).__name__}: {e}  (se omite y se continua)')
 
+    if args.board_only:
+        print('\n==== --board-only ====')
+        for k, v in sorted(draw_stats.items()):
+            print(f'  {k}: {v}')
+        if errors:
+            print(f'  cursos omitidos por error: {len(errors)} (primero: {errors[0]["curso"]}: {errors[0]["error"]})')
+        por_curso = collections.Counter(c['curso'] for c in board_changes)
+        if por_curso:
+            print('\nLecciones cambiadas por curso (las 25 con mas):')
+            for t, n in por_curso.most_common(25):
+                print(f'  {n:4}  {t[:70]}')
+        (out / 'board_changes.json').write_text(json.dumps(
+            {'changed': [c['lessonId'] for c in board_changes], 'detail': board_changes},
+            indent=1, ensure_ascii=False), encoding='utf-8')
+        print(f'\nSolo se han escrito <id>.sgf y <id>.json bajo {out}\\lessons\\{player_sanitize(args.type_name)}\\')
+        print(f'Lista: {out}\\board_changes.json ({len(board_changes)} lecciones)')
+        return
     if args.draw_only:
         print('\n==== --draw-only ====')
         for k, v in sorted(draw_stats.items()):
@@ -1125,6 +1250,13 @@ def main():
         if errors:
             print(f'  cursos omitidos por error: {len(errors)} (primero: {errors[0]["curso"]}: {errors[0]["error"]})')
         print(f'\nSolo se han escrito ficheros *_draw.json bajo {out}\\lessons\\{player_sanitize(args.type_name)}\\')
+        if args.published_dir:
+            (out / 'draw_changes.json').write_text(json.dumps(
+                {'changed': [c['lessonId'] for c in draw_changes], 'to_delete': draw_delete,
+                 'detail': draw_changes}, indent=1, ensure_ascii=False), encoding='utf-8')
+            print(f'Lista: {out}\\draw_changes.json ({len(draw_changes)} escritos, {len(draw_delete)} a borrar)')
+            for x in draw_delete:
+                print(f'  BORRAR: {x["ruta"]}')
         return
     if unmapped_groups:
         print(f'\nCursos sin nivel de dificultad (target-group no reconocido): {dict(unmapped_groups)}')
