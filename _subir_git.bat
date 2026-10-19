@@ -26,6 +26,7 @@ python bump_version.py
 
 echo Añadiendo base de datos...
 git add -f tsumeVault.db
+git add -f joseki_problems
 
 echo Commit y push...
 git add -A && git commit -m "update" && git push

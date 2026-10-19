@@ -132,6 +132,17 @@ def norm_comment(c):
     return "\n".join(line.rstrip() for line in c.split("\n")).strip()
 
 
+def split_ack(raw_comment):
+    """JP.7: una línea que sea solo «#ok» en un comentario acepta los avisos de esa
+    jugada (o de la raíz). Se quita del comentario en todos los modos, para que no
+    salga en la pestaña Joseki ni en los problemas, ni se tome como nombre.
+    Devuelve (comentario_limpio, había_ok)."""
+    c = norm_comment(raw_comment or "")
+    lines = c.split("\n")
+    keep = [l for l in lines if l.strip().lower() != "#ok"]
+    return norm_comment("\n".join(keep)), len(keep) != len(lines)
+
+
 def first_line(comment):
     for line in (comment or "").split("\n"):
         line = line.strip()
@@ -167,8 +178,9 @@ class _State:
 
 
 class _Compiler:
-    def __init__(self, file_name):
+    def __init__(self, file_name, extended=False):
         self.file_name = file_name
+        self.extended = extended  # JP.4/JP.5: contexto y letras (solo el generador de problemas)
         self.issues = []  # (severidad, ruta, mensaje)
 
     def issue(self, sev, tokens, msg):
@@ -224,9 +236,11 @@ class _Compiler:
                 self.issue(WARNING, here, "BM y TE en el mismo nodo")
         if "IT" in props:
             out["it"] = True
-        comment = norm_comment(src.comment)
+        comment, acked = split_ack(src.comment)   # JP.7
         if comment:
             out["comment"] = comment
+        if acked and self.extended:
+            out["ack"] = True
         marks = self.marks(props, here)
         if marks:
             out["marks"] = marks
@@ -248,7 +262,68 @@ class _Compiler:
                     good.append(v)
             if good:
                 marks[mp] = good
+        if self.extended:  # JP.5: letras. L[] (formato antiguo) -> A, B, C… por orden; LB[xx:texto] tal cual
+            labels = []
+            for i, v in enumerate(props.get("L") or []):
+                if parse_coord(v) is None:
+                    self.issue(WARNING, here, "letra L con coordenada no válida: %r (ignorada)" % v)
+                else:
+                    labels.append([v, chr(65 + i) if i < 26 else "?"])
+            for v in props.get("LB") or []:
+                xy, _, text = v.partition(":")
+                if parse_coord(xy) is None or not text:
+                    self.issue(WARNING, here, "etiqueta LB no válida: %r (ignorada)" % v)
+                else:
+                    labels.append([xy, text])
+            if labels:
+                marks["LB"] = labels
         return marks
+
+    def context(self, src, st):
+        """JP.4: nodo de contexto (sin jugada, con piedras AB/AW): todo lo que
+        cuelga de él supone esas piedras. No cambia el turno."""
+        props = src.props
+        stones = {"B": sorted(props.get("AB") or []), "W": sorted(props.get("AW") or [])}
+        token = "ctx-" + "".join(c + "".join(stones[c]) for c in ("B", "W") if stones[c])
+        here = st.tokens + [token]
+        if st.last_color is None:
+            self.issue(ERROR, here, "contexto antes de la primera jugada")
+            return None
+        if "AE" in props:
+            self.issue(ERROR, here, "contexto con AE (quitar piedras): no admitido")
+            return None
+        board = dict(st.board)
+        for c in ("B", "W"):
+            for v in stones[c]:
+                xy = parse_coord(v)
+                if xy is None:
+                    self.issue(ERROR, here, "coordenada no válida: %r" % v)
+                    return None
+                if xy in board:
+                    self.issue(ERROR, here, "piedra de contexto en un punto ocupado: %s" % human(v))
+                    return None
+                board[xy] = c
+        expected = other(st.last_color)
+        pl = (props.get("PL") or [""])[0].strip().upper()
+        if pl and pl != expected:
+            self.issue(WARNING, here, "PL[%s] en el contexto, pero juega %s" % (pl, expected))
+        out = {"m": token, "c": "", "ctx": stones}
+        comment, acked = split_ack(src.comment)   # JP.7
+        if comment:
+            out["comment"] = comment
+        if acked:
+            out["ack"] = True
+        nm = first_line(comment)
+        if nm:
+            out["name"] = nm
+        else:
+            self.issue(ERROR, here, "contexto sin nombre (primera línea del comentario)")
+        marks = self.marks(props, here)
+        if marks:
+            out["marks"] = marks
+        nst = _State(board, None, st.last_color, st.last_pass, here)
+        out["ch"] = self.children(src.children, nst)
+        return out
 
     # -- hijos --
 
@@ -264,6 +339,13 @@ class _Compiler:
                 self.issue(ERROR, st.tokens, "nodo con jugada de B y de W a la vez")
                 continue
             if not has_b and not has_w:
+                if "AB" in props or "AW" in props or "AE" in props:  # JP.4: nodo de contexto
+                    if self.extended:
+                        out.append(self.context(s, st))
+                    else:
+                        self.issue(WARNING, st.tokens,
+                                   "rama con piedras de contexto omitida: aún no disponible en el modo aprender")
+                    continue
                 self.issue(ERROR, st.tokens, "nodo sin jugada (solo comentario o propiedades)")
                 continue
             color = "B" if has_b else "W"
@@ -314,7 +396,7 @@ class _Compiler:
 
 def _assign_names(node, tokens, issues):
     kids = node["ch"]
-    good_main = [k for k in kids if not k.get("it") and "q" not in k]
+    good_main = [k for k in kids if not k.get("it") and "q" not in k and "ctx" not in k]
     needs = []
     if len(good_main) >= 2:
         needs += [(k, "rama de bifurcación") for k in good_main]
@@ -398,6 +480,9 @@ _KIND_LABEL = {"learn": "aprender", "punish": "castigo"}
 
 
 def _token(n, num):
+    if "ctx" in n:  # JP.4
+        st = " ".join("%s:%s" % (c, ",".join(human(v) for v in n["ctx"][c])) for c in ("B", "W") if n["ctx"][c])
+        return "%d.[contexto %s] [%s]" % (num, st, n.get("name", "?"))
     t = "%d.%s %s" % (num, n["c"], human(n["m"]))
     if n.get("implicit"):
         t += " (implícito)"
@@ -467,7 +552,7 @@ def _strip_private(node):
 # ── API pública ──────────────────────────────────────────────────────────────
 
 
-def compile_joseki(raw_bytes, file_name):
+def compile_joseki(raw_bytes, file_name, extended=False):
     """Compila los bytes de un SGF de josekis. Devuelve:
         {
           "ok": bool,               # False si hay algún ERROR
@@ -476,6 +561,9 @@ def compile_joseki(raw_bytes, file_name):
           "data": dict | None,      # JSON listo para serializar (None si no ok)
           "cards": int,
         }
+    extended=False (lo que usa import_joseki.py para la pestaña Joseki): igual que en J1;
+    las ramas con piedras de contexto se omiten con un aviso. extended=True (solo
+    generate_joseki_problems.py, JP.4/JP.5): nodos de contexto y letras L/LB.
     """
     issues = []
 
@@ -507,7 +595,8 @@ def compile_joseki(raw_bytes, file_name):
         issues.append((WARNING, "(raíz)",
                        "falta CA[UTF-8]: añádelo o los acentos de los comentarios pueden romperse"))
 
-    comp = _Compiler(file_name)
+    comp = _Compiler(file_name, extended)
+    root_ack = False
     start = _State({}, None, None, False, [])
     has_move = "B" in rp or "W" in rp
     if has_move:
@@ -518,7 +607,7 @@ def compile_joseki(raw_bytes, file_name):
         for sp in SETUP_PROPS:
             if sp in rp:
                 comp.issue(ERROR, [], "piedras de contexto (%s) en la raíz: no admitidas en la v1" % sp)
-        description = norm_comment(src_root.comment)
+        description, root_ack = split_ack(src_root.comment)   # JP.7
         top = comp.children(src_root.children, start)
     issues.extend(comp.issues)
 
@@ -543,6 +632,8 @@ def compile_joseki(raw_bytes, file_name):
         "root": root,
         "cards": cards,
     }
+    if extended:  # JP.7: «#ok» en el comentario de la raíz (o de la 1.ª jugada si va en la raíz)
+        data["ack_root"] = bool(root_ack or (has_move and top and top[0].get("ack")))
     return {"ok": True, "issues": issues, "tree": tree, "data": data, "cards": len(cards)}
 
 

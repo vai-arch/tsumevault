@@ -1641,6 +1641,13 @@ def handle_admin_import_my_collection(body):
         own importSnapshot()).
       - problem matched by (source, problem_id) -> upserted. hidden is never
         touched here either, preserving any local hide/unhide decision.
+      - JP: optional per-collection "retire_missing": true (used only by the
+        joseki problem generator, which always sends the COMPLETE list of a
+        collection). After the upserts, visible problems of that collection
+        (source + set_id) absent from the payload get hidden=1 ("retired");
+        nothing is deleted, so attempts/sm2_state survive, and T13's
+        /sync/problems_hidden propagates it to the clients. It never sets
+        hidden=0. Without the flag the behaviour is exactly the old one.
 
     Aggregates (chapters.problem_count, collections.num_problems/
     chapter_count/difficulty_num) are computed here from the DB state after
@@ -1656,6 +1663,8 @@ def handle_admin_import_my_collection(body):
         if (not isinstance(col, dict) or "folder" not in col
                 or not isinstance(col.get("chapters"), list)):
             return {"error": "invalid collections entry"}, 400
+        if "retire_missing" in col and not isinstance(col["retire_missing"], bool):  # JP
+            return {"error": "retire_missing must be a boolean"}, 400
         for ch in col["chapters"]:
             if (not isinstance(ch, dict) or "folder" not in ch
                     or not isinstance(ch.get("problems"), list)):
@@ -1668,7 +1677,7 @@ def handle_admin_import_my_collection(body):
                     return {"error": "color_to_play must be B, W or null"}, 400
 
     stats = {"collections": 0, "chapters_new": 0, "chapters_updated": 0,
-             "problems_upserted": 0}
+             "problems_upserted": 0, "problems_retired": 0}  # JP: problems_retired
 
     with db_connect() as con:
         for col in collections_in:
@@ -1755,6 +1764,29 @@ def handle_admin_import_my_collection(body):
                     "SELECT COUNT(*) AS n FROM problems WHERE chapter_id=?", (chapter_id,)
                 ).fetchone()["n"]
                 con.execute("UPDATE chapters SET problem_count=? WHERE id=?", (n, chapter_id))
+
+            # JP: retirada de los problemas de la coleccion que ya no vienen.
+            if col.get("retire_missing") is True:
+                keep = {str(p["problem_id"]) for ch in col["chapters"] for p in ch["problems"]}
+                visible = con.execute(
+                    "SELECT problem_id FROM problems WHERE source=? AND set_id=? AND hidden=0",
+                    (source, set_id),
+                ).fetchall()
+                for r in visible:
+                    if str(r["problem_id"]) not in keep:
+                        con.execute(
+                            "UPDATE problems SET hidden=1 WHERE source=? AND problem_id=?",
+                            (source, r["problem_id"]),
+                        )
+                        stats["problems_retired"] += 1
+                # Un problema que cambia de capitulo deja desfasado el contador
+                # del capitulo viejo: se recalculan todos los de la coleccion.
+                con.execute(
+                    """UPDATE chapters SET problem_count =
+                         (SELECT COUNT(*) FROM problems WHERE problems.chapter_id = chapters.id)
+                       WHERE source=? AND set_id=?""",
+                    (source, set_id),
+                )
 
             agg = con.execute(
                 """SELECT COUNT(*) AS chapter_count, SUM(problem_count) AS num_problems,
