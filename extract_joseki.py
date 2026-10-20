@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """J3: extrae del cliente real las funciones PURAS del modo aprender de josekis
 (jsXform, jsXformInv, jsMarkInfo, jsOptions, jsIsEndpoint, jsSignal,
-jsNamePath) para probarlas en Node con test_joseki.js, y el módulo J3 completo
+jsNamePath, jsGhostsVisible) para probarlas en Node con test_joseki.js, y el módulo J3 completo
 (joseki_ui_bundle.js) para su prueba de humo de UI. Mismo patrón que
 extract_tags.py: si algo no se encuentra, aborta.
 
@@ -31,7 +31,7 @@ def grab(marker):
     i = find_line(marker); block, _ = extract_block(i)
     chunks.append(f"// ── {marker} ──\n" + block)
 for m in ("function jsXform(", "function jsXformInv(", "function jsMarkInfo(", "function jsOptions(",
-          "function jsIsEndpoint(", "function jsSignal(", "function jsNamePath("):
+          "function jsIsEndpoint(", "function jsSignal(", "function jsNamePath(", "function jsGhostsVisible("):
     grab(m)
 bundle = "\n\n".join(chunks)
 io.open("joseki_bundle.js", "w", encoding="utf-8", newline="").write(bundle)

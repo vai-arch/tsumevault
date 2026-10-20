@@ -48,7 +48,6 @@ SOURCE = "joseki"
 SGF_PREFIX = "joseki_problems"
 DIFFICULTY_RAW = "10k"
 DIFFICULTY_NUM = kyu_dan_to_num("difficulty-" + DIFFICULTY_RAW)
-COLOR_NAME = {"B": "B", "W": "W"}
 
 
 class GeneratorError(Exception):
@@ -136,6 +135,37 @@ def quality_props(node):
     return out
 
 
+def all_lines(root):
+    """Líneas del maestro: listas de nodos raíz→final de línea, en orden DFS
+    (el orden del fichero)."""
+    lines = []
+
+    def walk(node, path):
+        if path and is_endpoint(node):
+            lines.append(path)
+        for k in node["ch"]:
+            walk(k, path + [k])
+    walk(root, [])
+    return lines
+
+
+def practice_colors(nodes):
+    """Colores (B y luego W) para los que la línea `nodes` da un problema «normal»:
+    tienen alguna jugada propia (no implícita) y todas buenas (sin BM ni DO). Las
+    líneas en que un color falla las trata JP.6 aparte."""
+    out = []
+    for color in ("B", "W"):
+        own = [n for n in nodes if n["c"] == color and not n.get("implicit")]
+        if own and not any("q" in n for n in own):
+            out.append(color)
+    return out
+
+
+def practice_lines(root):
+    """[(color, nodos)] de los problemas «normales», en el orden del fichero."""
+    return [(color, nodes) for nodes in all_lines(root) for color in practice_colors(nodes)]
+
+
 def resolve(root, tokens):
     nodes, cur = [], root
     for t in tokens:
@@ -203,8 +233,8 @@ def fmt_path(tokens, raw_root=None):
     return "  ".join(out)
 
 
-def _j1_issue(sev, path, msg, root_setup):
-    """Traduce un aviso/error del compilador J1 (joseki_lib) a issue()."""
+def _compiler_issue(sev, path, msg, root_setup):
+    """Traduce un aviso/error del compilador (joseki_lib) a issue()."""
     sev = "fix" if sev == ERROR else "warn"
     where = "fichero" if path == "(fichero)" else ("raiz" if path == "(raíz)" else path.split())
     m = re.match(r"piedras de contexto \((\w+)\) en la raíz", msg)
@@ -239,9 +269,6 @@ def _j1_issue(sev, path, msg, root_setup):
     if m:
         return issue(sev, where, "La primera línea del comentario es larga (%s caracteres) y se usa como nombre." % m.group(1),
                      "Pon solo el nombre en la línea 1 y la explicación en la línea 2.")
-    if msg.startswith("línea sin tarjetas"):
-        return issue(sev, where, "Esta línea no genera ningún problema: los dos colores juegan alguna jugada mala/dudosa (BM/DO).",
-                     "Normal si es un error de ambos; si no, revisa las marcas.")
     # JP.4/JP.5: contexto y letras
     if msg.startswith("contexto sin nombre"):
         return issue(sev, where, "Este nodo de contexto (piedras añadidas) no tiene nombre.",
@@ -319,14 +346,8 @@ def _apply_ack(items, data):
     return keep, len(hidden), unused
 
 
-def _explain_no_problem(it, data):
-    """JP.7: «línea sin problema» con el motivo concreto en vez del texto genérico de J1."""
-    if not (it["problem"].startswith("Esta línea no genera ningún problema") and isinstance(it["where"], list)):
-        return it
-    try:
-        nodes = resolve(data["root"], it["where"])
-    except StopIteration:
-        return it
+def _no_problem_warning(nodes):
+    """JP.7: aviso de una línea que no genera ningún problema, con su motivo concreto."""
     last = nodes[-1]
     if last.get("q") == "bad" and last["c"]:
         prob = ("Esta línea no añade ningún problema nuevo: las jugadas buenas de antes ya se practican en otras líneas "
@@ -337,7 +358,7 @@ def _explain_no_problem(it, data):
         prob = ("Esta línea no añade ningún problema nuevo: las jugadas buenas ya se practican en otras líneas "
                 "y lo demás son jugadas después de un error propio.")
         fix = "Normal en líneas de errores; para no ver este aviso, añade una línea «#ok» en el comentario de %s." % human(last["m"])
-    return dict(it, problem=prob, fix=fix, okable=True)   # JP.8: --aceptar-avisos puede ponerle #ok
+    return dict(issue("warn", [n["m"] for n in nodes], prob, fix), okable=True)   # JP.8: --aceptar-avisos puede ponerle #ok
 
 
 def print_report(out, items, raw_root):
@@ -431,7 +452,7 @@ def build_sgf(stem, color, nodes, s, e, cut, errors, where, note=None, tri=()):
             continue
         try:
             nb = play(board, n["c"], parse_coord(n["m"]), prev)
-        except IllegalMove as ex:  # pragma: no cover (J1 ya lo valida)
+        except IllegalMove as ex:  # pragma: no cover (joseki_lib ya lo valida)
             raise GeneratorError("%s: jugada ilegal en la posición inicial: %s" % (" ".join(where), ex))
         prev, board = board, nb
     ab = sorted("%s%s" % (chr(97 + x), chr(97 + y)) for (x, y), c in board.items() if c == "B")
@@ -548,7 +569,8 @@ def build_sgf(stem, color, nodes, s, e, cut, errors, where, note=None, tri=()):
 def generate_file(data, stem):
     """Problemas de un fichero maestro ya compilado por joseki_lib.
     Devuelve (problemas, errores, avisos); problemas = lista de dicts
-    {problem_id, color, chapter, rel_path, sgf, order}."""
+    {problem_id, color, chapter, rel_path, sgf, order}. Los avisos de líneas sin
+    ningún problema van primero, en el orden del fichero."""
     root = data["root"]
     errors, warnings, problems, seen = [], [], [], set()
     chap_count = {}
@@ -570,10 +592,8 @@ def generate_file(data, stem):
                              "rel_path": "%s/%s.sgf" % (stem, name), "sgf": sgf,
                              "order": chap_count[chapter], "tokens": pid_tokens, "line": line})
 
-    for card in data["cards"]:
-        color, tokens = card["color"], card["path"]
-        nodes = resolve(root, tokens)
-        where = list(tokens)
+    for color, nodes in practice_lines(root):
+        where = [n["m"] for n in nodes]
         if len(nodes) < 2:
             errors.append(issue("fix", where[:1], "Esta línea tiene una sola jugada: no hay familia ni problema.",
                                 "Añade la continuación o borra la línea."))
@@ -596,15 +616,8 @@ def generate_file(data, stem):
                                   "ver solo el error, añade una línea «#ok» en el comentario de %s." % human(last["m"]))))
         emit(nodes, color, family, segments(nodes, color), where)
 
-    # JP.6: líneas con errores de los dos colores (antes no generaban nada para el que falla).
-    lines = []
-
-    def walk(node, path):
-        if path and is_endpoint(node):
-            lines.append(path)
-        for k in node["ch"]:
-            walk(k, path + [k])
-    walk(root, [])
+    # JP.6: líneas en que un color juega alguna mala/dudosa (no dan problema normal a ese color).
+    lines = all_lines(root)
     normal = [p for p in problems]
     for nodes in lines:
         tokens = [n["m"] for n in nodes]
@@ -616,7 +629,7 @@ def generate_file(data, stem):
             own = [i for i, n in enumerate(nodes) if n["c"] == color and not n.get("implicit")]
             bad = [i for i in own if "q" in nodes[i]]
             if not bad:
-                continue          # línea normal: ya la cubren las tarjetas de J1
+                continue          # línea normal: ya la cubre practice_lines
             # A — castigo: tras TU ÚLTIMO error el rival también falla (justo después o más
             # tarde, JP.7); empiezas en tu primera jugada después de ese fallo del rival.
             lb = bad[-1]
@@ -642,7 +655,11 @@ def generate_file(data, stem):
                     if any(p["color"] == color and p["tokens"][:len(toks)] == toks for p in normal):
                         continue
                     emit(pre, color, family, [(s, e, cut)], tokens, line=tokens)
-    return problems, errors, warnings
+    # JP.6/JP.7: líneas que no dan ningún problema (ni normal ni A/C), con su motivo.
+    covered = {tuple(p["line"]) for p in problems if p.get("line")}
+    no_problem = [_no_problem_warning(nodes) for nodes in lines
+                  if not practice_colors(nodes) and tuple(n["m"] for n in nodes) not in covered]
+    return problems, errors, no_problem + warnings
 
 
 def self_validate(problems):
@@ -817,23 +834,18 @@ def insert_ok(text, nodes):
 
 def analyze(raw, stem):
     """Compila y genera un fichero maestro. Devuelve un dict con todo lo que usa run()."""
-    res = compile_joseki(raw, stem, extended=True)   # JP.4/JP.5
+    res = compile_joseki(raw, stem)
     try:
         raw_root = parse_sgf(raw.decode("utf-8").lstrip("\ufeff"))
         root_setup = {k: list(raw_root.props.get(k, [])) for k in ("AB", "AW", "AE")}
     except Exception:
         raw_root, root_setup = None, {}
-    items = [_j1_issue(sev, where, msg, root_setup) for sev, where, msg in res["issues"]]
+    items = [_compiler_issue(sev, where, msg, root_setup) for sev, where, msg in res["issues"]]
     out = {"res": res, "raw_root": raw_root, "items": items, "acked": 0, "unused": [],
            "problems": [], "errors": []}
     if not res["ok"]:
         return out
     problems, errors, warnings = generate_file(res["data"], stem)
-    # JP.6: el aviso de J1 «línea sin tarjetas» sobra si la línea ya genera problemas (A/C)
-    covered = {tuple(p["line"]) for p in problems if p.get("line")}
-    items = [it for it in items if not (it["problem"].startswith("Esta línea no genera ningún problema")
-                                        and isinstance(it["where"], list) and tuple(it["where"]) in covered)]
-    items = [_explain_no_problem(it, res["data"]) for it in items]   # JP.7: texto concreto
     items, acked, unused = _apply_ack(items + errors + warnings, res["data"])
     out.update(items=items, acked=acked, unused=unused, problems=problems, errors=errors)
     return out
@@ -936,8 +948,7 @@ def run(joseki_dir, out_dir, dry_run=False, publish=True, server="http://localho
             chapters = {}
             for p in problems:
                 chapters[p["chapter"]] = chapters.get(p["chapter"], 0) + 1
-            out("  %d líneas · %d problemas en %d capítulos" % (len({tuple(c["path"]) for c in res["data"]["cards"]}),
-                                                           len(problems), len(chapters)))
+            out("  %d líneas · %d problemas en %d capítulos" % (res["lines"], len(problems), len(chapters)))
             for ch, n in chapters.items():
                 out("    %-40s %d" % (ch, n))
             results.append((stem, problems))

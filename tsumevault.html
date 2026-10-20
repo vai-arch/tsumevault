@@ -1763,7 +1763,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261020-0912';
+	const SW_VERSION = 'tsumevault-20261020-1119';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -6240,6 +6240,7 @@
     }
     // J3: símbolo + color de un fantasma (J-31: color Y forma, no solo tono).
     function jsMarkInfo(n) {
+      if (n.ctx) return { sym: '◆', color: '#a07cd8', kind: 'context' };   // J3.2: nodo de contexto (piedras añadidas)
       if (n.it && !n.implicit) return { sym: '?', color: '#4a8fe7', kind: 'whatif' };
       if (n.q === 'bad') return { sym: '✕', color: '#d45030', kind: 'bad' };
       if (n.q === 'doubtful') return { sym: '▲', color: '#e0a030', kind: 'doubtful' };
@@ -6249,6 +6250,7 @@
     // J3: opciones visibles en un nodo. El pase implícito (rama ¿y si? del mismo
     // color, J-75) no se muestra como opción: se aplanan sus hijos IT y se
     // recuerda en "via" para que el sistema lo juegue antes de la piedra.
+    // J3.2: un nodo de contexto es una opción con ctx=true (chip, nunca fantasma).
     function jsOptions(node, showWhatif) {
       const out = [];
       for (const k of (node.ch || [])) {
@@ -6256,7 +6258,7 @@
         if (k.implicit) {
           for (const g of (k.ch || [])) out.push(Object.assign({ m: g.m, c: g.c, pass: g.m === 'pass', node: g, via: k }, jsMarkInfo(g)));
         } else {
-          out.push(Object.assign({ m: k.m, c: k.c, pass: k.m === 'pass', node: k, via: null }, jsMarkInfo(k)));
+          out.push(Object.assign({ m: k.m, c: k.c, pass: k.m === 'pass', ctx: !!k.ctx, node: k, via: null }, jsMarkInfo(k)));
         }
       }
       return out;
@@ -6277,8 +6279,9 @@
     }
     // J3.1: ¿se dibujan los fantasmas? Siempre con "all ghosts"; si no, solo
     // cuando hay 2+ opciones visibles (pases incluidos, what-if ya filtrado).
+    // J3.2: los contextos no cuentan: son escenarios, no alternativas que adivinar.
     function jsGhostsVisible(opts, showAll) {
-      return !!showAll || opts.length >= 2;
+      return !!showAll || opts.filter(o => !o.ctx).length >= 2;
     }
 
     // ── J3: UI ──
@@ -6348,7 +6351,16 @@
       clearBoard();
       // Posición: WGo.Game aplica capturas; la legalidad ya la validó el importador.
       const game = new WGo.Game(19, 'NONE', true, false);
+      const ctxPts = [];   // J3.2: piedras de contexto de la pila (para el cuadrado)
       for (const n of jsStack) {
+        if (n.ctx) {         // J3.2: el contexto añade piedras, sin capturas ni cambio de turno
+          for (const c of ['B', 'W']) for (const m of (n.ctx[c] || [])) {
+            const p = jsXy(jsXform(m, jsSym));
+            game.setStone(p.x, p.y, c === 'B' ? WGo.B : WGo.W);
+            ctxPts.push(p);
+          }
+          continue;
+        }
         if (n.m === 'pass') continue;
         const p = jsXy(jsXform(n.m, jsSym));
         game.play(p.x, p.y, n.c === 'B' ? WGo.B : WGo.W);
@@ -6361,15 +6373,25 @@
       }
       const stoneAt = (x, y) => { const v = pos.get(x, y); return v === WGo.B ? 1 : v === WGo.W ? -1 : 0; };
       // Último movimiento (como en Games)
-      if (jsStack.length && node.m !== 'pass') { const p = jsXy(jsXform(node.m, jsSym)); wgoBoard.addObject({ x: p.x, y: p.y, type: 'CR' }); }
-      // Marcas del nodo (J-76), rotadas con el tablero
+      if (jsStack.length && node.m !== 'pass' && !node.ctx) { const p = jsXy(jsXform(node.m, jsSym)); wgoBoard.addObject({ x: p.x, y: p.y, type: 'CR' }); }
+      // Marcas del nodo (J-76), rotadas con el tablero. J3.2: LB = [[coord, texto], ...]
+      const labelled = new Set();
       for (const [t, list] of Object.entries(node.marks || {})) {
         const h = WGo.Board.drawHandlers[t];
         if (!h) continue;
         for (const m of list) {
-          const p = jsXy(jsXform(m, jsSym)), sc = stoneAt(p.x, p.y);
-          wgoBoard.addObject({ x: p.x, y: p.y, type: h, c: sc === 1 ? 'white' : sc === -1 ? 'black' : '#333' });
+          const isLb = t === 'LB';
+          const p = jsXy(jsXform(isLb ? m[0] : m, jsSym)), sc = stoneAt(p.x, p.y);
+          const obj = { x: p.x, y: p.y, type: h, c: sc === 1 ? 'white' : sc === -1 ? 'black' : '#333' };
+          if (isLb) { obj.text = m[1]; labelled.add(p.x + ',' + p.y); }
+          wgoBoard.addObject(obj);
         }
+      }
+      // J3.2: cuadrado en las piedras de contexto que siguen en el tablero, salvo si llevan letra
+      for (const p of ctxPts) {
+        const sc = stoneAt(p.x, p.y);
+        if (!sc || labelled.has(p.x + ',' + p.y)) continue;
+        wgoBoard.addObject({ x: p.x, y: p.y, type: WGo.Board.drawHandlers['SQ'], c: sc === 1 ? 'white' : 'black' });
       }
       // Opciones: fantasmas en el tablero; pases como chips (J-31, J-74)
       const opts = jsOptions(node, jsShowWhatif);
@@ -6377,15 +6399,16 @@
       jsClosePop();
       const seen = new Set();
       for (const o of opts) {
-        if (o.pass || !drawGhosts) continue;
+        if (o.pass || o.ctx || !drawGhosts) continue;
         const p = jsXy(jsXform(o.m, jsSym)), key = p.x + ',' + p.y;
         if (seen.has(key)) continue;   // varias opciones en el mismo punto: se elige al pulsar
         seen.add(key);
         wgoBoard.addObject({ x: p.x, y: p.y, c: o.c === 'B' ? 1 : -1, type: 'outline' });
         wgoBoard.addObject({ x: p.x, y: p.y, type: WGo.Board.drawHandlers['LB'], text: o.sym, c: o.color });
       }
-      if (drawGhosts) jsRenderChoices(opts.filter(o => o.pass));
-      else jsRenderNeutralPass(opts.filter(o => o.pass));   // J3.1: sin pistas, pero se puede pasar
+      const ctxOpts = opts.filter(o => o.ctx);   // J3.2: los contextos, siempre visibles
+      if (drawGhosts) jsRenderChoices(opts.filter(o => o.pass).concat(ctxOpts));
+      else jsRenderNeutralPass(opts.filter(o => o.pass), ctxOpts);   // J3.1: sin pistas, pero se puede pasar
       // Comentario (J-35: siempre visible en modo aprender)
       const cb = document.getElementById('comment-box');
       cb.textContent = jsStack.length ? (node.comment || '') : (jsData.description || '');
@@ -6417,7 +6440,8 @@
       const s = document.createElement('span');
       s.style.color = o.color; s.textContent = o.sym + ' ';
       b.appendChild(s);
-      b.appendChild(document.createTextNode((o.pass ? 'Pass' : o.m.toUpperCase()) + ' (' + o.c + ')' + (o.node.name ? ' · ' + o.node.name : '')));
+      b.appendChild(document.createTextNode(o.ctx ? 'Context · ' + (o.node.name || '?')   // J3.2
+        : (o.pass ? 'Pass' : o.m.toUpperCase()) + ' (' + o.c + ')' + (o.node.name ? ' · ' + o.node.name : '')));
       b.addEventListener('click', () => jsPlay(o));
       return b;
     }
@@ -6428,7 +6452,8 @@
     }
     // J3.1: con los fantasmas ocultos, un botón Pass sin símbolo (no desvela si
     // pasar es una opción); si el nodo no tiene pase, no hace nada.
-    function jsRenderNeutralPass(passOpts) {
+    // J3.2: los chips de contexto se añaden detrás (siempre visibles).
+    function jsRenderNeutralPass(passOpts, ctxOpts) {
       const zone = document.getElementById('js-choices');
       zone.innerHTML = '';
       const b = document.createElement('button');
@@ -6436,6 +6461,7 @@
       b.textContent = 'Pass';
       b.addEventListener('click', () => { if (passOpts.length === 1) jsPlay(passOpts[0]); });
       zone.appendChild(b);
+      for (const o of (ctxOpts || [])) zone.appendChild(jsChoiceButton(o));
     }
     // J3.1: menú flotante anclado a la intersección (varias opciones en el
     // mismo punto). Se cierra al elegir, al pulsar fuera, con Escape o al repintar.
@@ -6469,7 +6495,7 @@
       if (opt.via) { jsStack.push(opt.via); jsNotice = 'tenuki by ' + opt.via.c; }
       jsStack.push(opt.node);
       const sig = jsSignal(opt.node);
-      sig.moved = !opt.pass;
+      sig.moved = !opt.pass && !opt.ctx;   // J3.2: el contexto no suena a piedra
       jsRender(sig);
     }
 
@@ -6477,7 +6503,7 @@
       window._boardClickHandler = (x, y) => {
         if (!jsActive || !jsData) return;
         const m = jsXformInv(String.fromCharCode(97 + x) + String.fromCharCode(97 + y), jsSym);
-        const hits = jsOptions(jsNode(), jsShowWhatif).filter(o => !o.pass && o.m === m);
+        const hits = jsOptions(jsNode(), jsShowWhatif).filter(o => !o.pass && !o.ctx && o.m === m);
         if (hits.length === 1) jsPlay(hits[0]);
         else if (hits.length > 1) jsShowPop(hits, x, y);   // J3.1: menú junto al punto
       };

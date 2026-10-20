@@ -1,28 +1,28 @@
 """
-joseki_lib.py — Validador y compilador de ficheros de josekis para TsumeVault
-(fase J1, ver REQUISITOS_JOSEKI.md y WORKPLAN_JOSEKI_J1.md).
+joseki_lib.py — Validador y compilador de ficheros maestros de josekis para
+TsumeVault. Lo usan import_joseki.py (JSON de la pestaña Joseki) y
+generate_joseki_problems.py (problemas de la source `joseki`).
 
-Convierte un SGF de josekis (árbol de variaciones editado con SmartGo/Drago)
-en un JSON normalizado que el cliente solo lee y juega:
+Convierte un SGF de josekis (árbol de variaciones editado con SmartGo, Drago o
+GoGrinari) en un JSON normalizado que el cliente solo lee y juega:
 
     {
       "format": 1, "file": <nombre>, "sgf_hash": <sha256 corto>,
       "size": 19, "description": <comentario raíz o "">,
-      "root": {"ch": [<nodo>, ...]},
-      "cards": [<tarjeta>, ...]
+      "root": {"ch": [<nodo>, ...]}, "ack_root": bool
     }
 
-    nodo    = {"m": "pd"|"pass", "c": "B"|"W", "ch": [...],
-               opcionales: "q": "bad"|"doubtful", "te": true, "it": true,
-               "implicit": true, "name": str, "comment": str,
-               "marks": {"TR": [...], ...}}
-    tarjeta = {"id": "<fichero>#<ruta>#<color>", "color": "B"|"W",
-               "kind": "learn"|"punish", "whatif": bool, "order": int,
-               "path": ["pd", "nc", ..., "pass", ...]}
+    nodo     = {"m": "pd"|"pass", "c": "B"|"W", "ch": [...],
+                opcionales: "q": "bad"|"doubtful", "te": true, "it": true,
+                "implicit": true, "name": str, "comment": str, "ack": true,
+                "marks": {"TR": [...], ..., "LB": [[coord, texto], ...]}}
+    contexto = {"m": "ctx-…", "c": "", "ctx": {"B": [...], "W": [...]},
+                "name": str, "ch": [...], opcionales: "comment", "marks", "ack"}
+
+"ack"/"ack_root" (línea «#ok») solo los usa el generador; el cliente los ignora.
 
 Coordenadas siempre en la orientación del fichero (la rotación es cosa del
-cliente y nunca altera ids ni rutas). Reutiliza parse_sgf/Node de sgf_lib.py
-sin modificarlo.
+cliente). Reutiliza parse_sgf/Node de sgf_lib.py sin modificarlo.
 """
 
 import hashlib
@@ -178,9 +178,8 @@ class _State:
 
 
 class _Compiler:
-    def __init__(self, file_name, extended=False):
+    def __init__(self, file_name):
         self.file_name = file_name
-        self.extended = extended  # JP.4/JP.5: contexto y letras (solo el generador de problemas)
         self.issues = []  # (severidad, ruta, mensaje)
 
     def issue(self, sev, tokens, msg):
@@ -239,7 +238,7 @@ class _Compiler:
         comment, acked = split_ack(src.comment)   # JP.7
         if comment:
             out["comment"] = comment
-        if acked and self.extended:
+        if acked:
             out["ack"] = True
         marks = self.marks(props, here)
         if marks:
@@ -262,21 +261,21 @@ class _Compiler:
                     good.append(v)
             if good:
                 marks[mp] = good
-        if self.extended:  # JP.5: letras. L[] (formato antiguo) -> A, B, C… por orden; LB[xx:texto] tal cual
-            labels = []
-            for i, v in enumerate(props.get("L") or []):
-                if parse_coord(v) is None:
-                    self.issue(WARNING, here, "letra L con coordenada no válida: %r (ignorada)" % v)
-                else:
-                    labels.append([v, chr(65 + i) if i < 26 else "?"])
-            for v in props.get("LB") or []:
-                xy, _, text = v.partition(":")
-                if parse_coord(xy) is None or not text:
-                    self.issue(WARNING, here, "etiqueta LB no válida: %r (ignorada)" % v)
-                else:
-                    labels.append([xy, text])
-            if labels:
-                marks["LB"] = labels
+        # JP.5: letras. L[] (formato antiguo) -> A, B, C… por orden; LB[xx:texto] tal cual
+        labels = []
+        for i, v in enumerate(props.get("L") or []):
+            if parse_coord(v) is None:
+                self.issue(WARNING, here, "letra L con coordenada no válida: %r (ignorada)" % v)
+            else:
+                labels.append([v, chr(65 + i) if i < 26 else "?"])
+        for v in props.get("LB") or []:
+            xy, _, text = v.partition(":")
+            if parse_coord(xy) is None or not text:
+                self.issue(WARNING, here, "etiqueta LB no válida: %r (ignorada)" % v)
+            else:
+                labels.append([xy, text])
+        if labels:
+            marks["LB"] = labels
         return marks
 
     def context(self, src, st):
@@ -340,11 +339,7 @@ class _Compiler:
                 continue
             if not has_b and not has_w:
                 if "AB" in props or "AW" in props or "AE" in props:  # JP.4: nodo de contexto
-                    if self.extended:
-                        out.append(self.context(s, st))
-                    else:
-                        self.issue(WARNING, st.tokens,
-                                   "rama con piedras de contexto omitida: aún no disponible en el modo aprender")
+                    out.append(self.context(s, st))
                     continue
                 self.issue(ERROR, st.tokens, "nodo sin jugada (solo comentario o propiedades)")
                 continue
@@ -421,7 +416,7 @@ def _assign_names(node, tokens, issues):
         _assign_names(k, tokens + [k["m"]], issues)
 
 
-# ── Tarjetas ─────────────────────────────────────────────────────────────────
+# ── Finales de línea ─────────────────────────────────────────────────────────
 
 
 def is_endpoint(node):
@@ -432,51 +427,12 @@ def is_endpoint(node):
     return not any(not k.get("it") for k in node["ch"])
 
 
-def line_cards(file_name, path):
-    """Tarjetas de la línea `path` (lista de nodos raíz->final)."""
-    tokens = [n["m"] for n in path]
-    whatif = any(n.get("it") for n in path)
-    cards = []
-    for color in ("B", "W"):
-        own = [n for n in path if n["c"] == color and not n.get("implicit")]
-        if not own or any("q" in n for n in own):
-            continue
-        punish = any(n.get("q") == "bad" for n in path if n["c"] != color)
-        cards.append({
-            "id": "%s#%s#%s" % (file_name, ".".join(tokens), color),
-            "color": color,
-            "kind": "punish" if punish else "learn",
-            "whatif": whatif,
-            "path": tokens,
-        })
-    return cards
-
-
-def _collect_cards(file_name, root, issues):
-    cards, order = [], [0]
-
-    def walk(node, path):
-        if path and is_endpoint(node):
-            order[0] += 1
-            lc = line_cards(file_name, path)
-            if not lc:
-                issues.append((WARNING, path_str([n["m"] for n in path]),
-                               "línea sin tarjetas (ningún color tiene todas sus jugadas buenas)"))
-            for c in lc:
-                c["order"] = order[0]
-            cards.extend(lc)
-            node["_cards"] = lc  # solo para el informe; se elimina antes de serializar
-        for k in node["ch"]:
-            walk(k, path + [k])
-
-    walk(root, [])
-    return cards
+def count_lines(root):
+    """Número de líneas (finales de línea) del árbol."""
+    return sum(is_endpoint(k) + count_lines(k) for k in root["ch"])
 
 
 # ── Informe del árbol ────────────────────────────────────────────────────────
-
-
-_KIND_LABEL = {"learn": "aprender", "punish": "castigo"}
 
 
 def _token(n, num):
@@ -502,18 +458,6 @@ def _token(n, num):
     return t
 
 
-def _cards_label(cards):
-    if not cards:
-        return "  => SIN TARJETAS"
-    parts = []
-    for c in cards:
-        lab = _KIND_LABEL[c["kind"]]
-        if c["whatif"]:
-            lab += " ¿y si?"
-        parts.append("%s:%s" % (c["color"], lab))
-    return "  => " + ", ".join(parts)
-
-
 def render_tree(root):
     lines = []
 
@@ -521,13 +465,12 @@ def render_tree(root):
         toks, n = [], node
         while True:
             toks.append(_token(n, num))
-            end = "_cards" in n
-            if end or len(n["ch"]) != 1 or n["ch"][0].get("it"):
+            if len(n["ch"]) != 1 or n["ch"][0].get("it"):   # un final de línea siempre corta aquí
                 break
             n, num = n["ch"][0], num + 1
         text = "  ".join(toks)
-        if "_cards" in n:
-            text += _cards_label(n["_cards"])
+        if is_endpoint(n):
+            text += "  => fin"
         return text, n, num
 
     def emit(kids, indent, num):
@@ -543,32 +486,25 @@ def render_tree(root):
     return lines
 
 
-def _strip_private(node):
-    node.pop("_cards", None)
-    for k in node["ch"]:
-        _strip_private(k)
-
-
 # ── API pública ──────────────────────────────────────────────────────────────
 
 
-def compile_joseki(raw_bytes, file_name, extended=False):
+def compile_joseki(raw_bytes, file_name):
     """Compila los bytes de un SGF de josekis. Devuelve:
         {
           "ok": bool,               # False si hay algún ERROR
           "issues": [(sev, ruta, msg), ...],
           "tree": [str, ...],       # informe del árbol (vacío si no compila)
           "data": dict | None,      # JSON listo para serializar (None si no ok)
-          "cards": int,
+          "lines": int,             # nº de líneas (finales de línea)
         }
-    extended=False (lo que usa import_joseki.py para la pestaña Joseki): igual que en J1;
-    las ramas con piedras de contexto se omiten con un aviso. extended=True (solo
-    generate_joseki_problems.py, JP.4/JP.5): nodos de contexto y letras L/LB.
+    Compila también los nodos de contexto (JP.4) y las letras L/LB (JP.5); lo mismo
+    para la pestaña Joseki y para el generador de problemas.
     """
     issues = []
 
     def fail():
-        return {"ok": False, "issues": issues, "tree": [], "data": None, "cards": 0}
+        return {"ok": False, "issues": issues, "tree": [], "data": None, "lines": 0}
 
     try:
         text = raw_bytes.decode("utf-8")
@@ -595,7 +531,7 @@ def compile_joseki(raw_bytes, file_name, extended=False):
         issues.append((WARNING, "(raíz)",
                        "falta CA[UTF-8]: añádelo o los acentos de los comentarios pueden romperse"))
 
-    comp = _Compiler(file_name, extended)
+    comp = _Compiler(file_name)
     root_ack = False
     start = _State({}, None, None, False, [])
     has_move = "B" in rp or "W" in rp
@@ -619,9 +555,7 @@ def compile_joseki(raw_bytes, file_name, extended=False):
         return fail()
 
     _assign_names(root, [], issues)
-    cards = _collect_cards(file_name, root, issues)
     tree = render_tree(root)
-    _strip_private(root)
 
     data = {
         "format": FORMAT,
@@ -630,11 +564,10 @@ def compile_joseki(raw_bytes, file_name, extended=False):
         "size": SIZE,
         "description": description,
         "root": root,
-        "cards": cards,
     }
-    if extended:  # JP.7: «#ok» en el comentario de la raíz (o de la 1.ª jugada si va en la raíz)
-        data["ack_root"] = bool(root_ack or (has_move and top and top[0].get("ack")))
-    return {"ok": True, "issues": issues, "tree": tree, "data": data, "cards": len(cards)}
+    # JP.7: «#ok» en el comentario de la raíz (o de la 1.ª jugada si va en la raíz)
+    data["ack_root"] = bool(root_ack or (has_move and top and top[0].get("ack")))
+    return {"ok": True, "issues": issues, "tree": tree, "data": data, "lines": count_lines(root)}
 
 
 def serialize(data):

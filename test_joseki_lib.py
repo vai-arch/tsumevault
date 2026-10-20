@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-test_joseki_lib.py — Tests de la fase J1 (importador de josekis).
+test_joseki_lib.py — Tests del compilador de ficheros maestros de josekis
+(joseki_lib.py) y del importador de la pestaña Joseki (import_joseki.py).
+Lo que decide qué línea da problema se prueba en test_generate_joseki.py.
 
     python test_joseki_lib.py
 
@@ -19,7 +21,7 @@ import unittest
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
-from joseki_lib import compile_joseki, serialize  # noqa: E402
+from joseki_lib import compile_joseki, is_endpoint, serialize  # noqa: E402
 
 HEAD = "(;GM[1]FF[4]CA[UTF-8]SZ[19]"
 
@@ -64,10 +66,6 @@ def kids(res):
     return res["data"]["root"]["ch"]
 
 
-def cards(res):
-    return res["data"]["cards"]
-
-
 class TestCoordsAndPass(unittest.TestCase):
     def test_pass_tt_and_empty(self):
         for p in ("tt", ""):
@@ -84,7 +82,8 @@ class TestCoordsAndPass(unittest.TestCase):
     def test_root_with_move(self):
         r = compile_joseki(b"(;GM[1]CA[UTF-8]SZ[19]B[pd];W[nc])", "t")
         self.assertTrue(r["ok"], r["issues"])
-        self.assertEqual([c["path"] for c in cards(r)], [["pd", "nc"], ["pd", "nc"]])
+        self.assertEqual((kids(r)[0]["m"], kids(r)[0]["ch"][0]["m"]), ("pd", "nc"))
+        self.assertEqual(r["tree"], ["  1.B Q16  2.W O17  => fin"])
 
 
 class TestGoRules(unittest.TestCase):
@@ -145,20 +144,17 @@ class TestAlternationAndTenuki(unittest.TestCase):
         self.assertEqual([k["m"] for k in passes[0]["ch"]], ["qf", "qh"])
 
     def test_implicit_pass_is_never_a_line_end(self):
-        # Regresión: el pase implícito solo tiene hijos IT y no debe generar
-        # tarjetas propias (fallo detectado al probar con 4-4 Joseki.sgf).
+        # Regresión: el pase implícito solo tiene hijos IT y no es un final de
+        # línea propio (fallo detectado al probar con 4-4 Joseki.sgf).
         r = run(";B[pd];W[nc](;W[qf]IT[]C[a])(;W[qh]IT[]C[b])")
-        paths = sorted(".".join(c["path"]) for c in cards(r))
-        self.assertNotIn("pd.nc.pass", paths)
-        self.assertIn("pd.nc", paths)               # la línea principal sigue teniendo tarjeta
-        self.assertIn("pd.nc.pass.qf", paths)
-        self.assertIn("pd.nc.pass.qh", paths)
-
-    def test_implicit_pass_not_required_from_player(self):
-        # La tarjeta de B en la rama ¿y si? existe aunque B "pase" implícitamente.
-        r = run(";B[pd];W[nc];W[qf]IT[]C[a];B[qh]")
-        colors = {(c["color"], c["whatif"]) for c in cards(r) if "qf" in c["path"]}
-        self.assertEqual(colors, {("B", True), ("W", True)})
+        nc = kids(r)[0]["ch"][0]
+        p = nc["ch"][0]
+        self.assertTrue(p.get("implicit"))          # anti-vacío: es el pase implícito
+        self.assertFalse(is_endpoint(p))
+        self.assertTrue(is_endpoint(nc))            # la línea principal sigue acabando en O17
+        self.assertEqual(r["lines"], 3)             # pd.nc, pd.nc.pass.qf, pd.nc.pass.qh
+        self.assertEqual(r["tree"], ["  1.B Q16  2.W O17  => fin", "  3.B pase (implícito)",
+                                     "  +- 4.W R14 IT [a]  => fin", "  +- 4.W R12 IT [b]  => fin"])
 
     def test_two_passes(self):
         r = run(";B[pd];W[tt];B[tt]")
@@ -256,51 +252,44 @@ class TestNames(unittest.TestCase):
         self.assertFalse(has(warnings(r), "sin nombre"))
 
 
-class TestCards(unittest.TestCase):
-    def test_learn_cards_per_line_and_colour(self):
+class TestLines(unittest.TestCase):
+    """Finales de línea: el contador `lines` y la marca «=> fin» del informe."""
+
+    def test_count_and_tree(self):
         r = run(";B[pd];W[nc](;B[qf]C[a])(;B[pf]C[b])")
-        self.assertEqual(len(cards(r)), 4)
-        self.assertTrue(all(c["kind"] == "learn" and not c["whatif"] for c in cards(r)))
-        self.assertEqual([c["order"] for c in cards(r)], [1, 1, 2, 2])
+        self.assertEqual(r["lines"], 2)
+        self.assertEqual(r["tree"], ["  1.B Q16  2.W O17", "  +- 3.B R14 [a]  => fin", "  +- 3.B Q14 [b]  => fin"])
 
-    def test_punish_card(self):
-        r = run(";B[pd];W[nc]BM[1];B[qc]")
-        self.assertEqual([(c["color"], c["kind"]) for c in cards(r)], [("B", "punish")])
-
-    def test_doubtful(self):
-        # Dudosa propia: no hay tarjeta; dudosa del rival: tarjeta normal, no castigo.
-        r = run(";B[pd];W[nc]DO[1];B[qc]")
-        self.assertEqual([(c["color"], c["kind"]) for c in cards(r)], [("B", "learn")])
-
-    def test_line_without_cards_warns(self):
+    def test_bad_lines_are_lines_too(self):
+        # Las líneas de errores de los dos colores también cuentan; ya no hay aviso por ellas.
         r = run(";B[pd]BM[1];W[nc]BM[1]")
-        self.assertEqual(cards(r), [])
-        self.assertTrue(has(warnings(r), "línea sin tarjetas"))
+        self.assertEqual(r["lines"], 1)
+        self.assertEqual(warnings(r), [])
+        self.assertEqual(r["tree"], ["  1.B Q16 BM  2.W O17 BM  => fin"])
 
-    def test_whatif_does_not_alter_main_line(self):
-        base = run(";B[pd];W[nc];B[qc]")
-        with_it = run(";B[pd];W[nc];B[qc];W[qd]IT[]C[Si corta]")
-        main = [c for c in cards(with_it) if not c["whatif"]]
-        self.assertEqual([c["id"] for c in main], [c["id"] for c in cards(base)])
-        self.assertEqual(len([c for c in cards(with_it) if c["whatif"]]), 2)
+    def test_whatif_branch_ends_its_own_line(self):
+        r = run(";B[pd];W[nc];B[qc];W[qd]IT[]C[Si corta]")
+        self.assertEqual(r["lines"], 2)       # la principal (acaba en R17) y la ¿y si?
+        self.assertEqual(r["tree"], ["  1.B Q16  2.W O17  3.B R17  => fin", "  4.W R16 IT [Si corta]  => fin"])
 
-    def test_id_format_and_determinism(self):
+    def test_json_without_cards_and_deterministic(self):
         r1 = run(";B[pd];W[nc];B[tt]C[tenuki]", name="4-4 Joseki")
         r2 = run(";B[pd];W[nc];B[tt]C[tenuki]", name="4-4 Joseki")
-        self.assertEqual(cards(r1)[0]["id"], "4-4 Joseki#pd.nc.pass#B")
         self.assertEqual(serialize(r1["data"]), serialize(r2["data"]))
-        self.assertNotIn(b"_cards", serialize(r1["data"]))
+        self.assertEqual(set(r1["data"]), {"format", "file", "sgf_hash", "size", "description", "root", "ack_root"})
+        self.assertNotIn(b"cards", serialize(r1["data"]))
 
     def test_sample_file(self):
         r = compile_joseki(SAMPLE.encode("utf-8"), "4-4 Joseki")
         self.assertTrue(r["ok"], r["issues"])
-        self.assertEqual(r["cards"], 13)
-        fixed = (SAMPLE.replace("(;B[qb]C[If we play", "(;B[qb]IT[]C[If we play")
-                       .replace("(;B[tt]C[If Tenuki]", "(;B[tt]BM[1]C[If Tenuki]"))
-        self.assertNotEqual(fixed, SAMPLE)  # anti-vacío: las correcciones se aplicaron
+        self.assertEqual(r["lines"], 8)
+        self.assertEqual(sum(l.endswith("=> fin") for l in r["tree"]), 8)
+        # Con IT en «B qb» la línea principal de Low Enclosure acaba en L17 y gana su final.
+        fixed = SAMPLE.replace("(;B[qb]C[If we play", "(;B[qb]IT[]C[If we play")
+        self.assertNotEqual(fixed, SAMPLE)  # anti-vacío: la corrección se aplicó
         r2 = compile_joseki(fixed.encode("utf-8"), "4-4 Joseki")
-        self.assertEqual(r2["cards"], 14)
-        self.assertIn("4-4 Joseki#pd.nc.qf.pb.qc.kc#B", [c["id"] for c in cards(r2)])
+        self.assertEqual(r2["lines"], 9)
+        self.assertIn("  +- 3.B R14 [Low Enclosure]  4.W Q18  5.B R17  6.W L17  => fin", r2["tree"])
 
 
 class TestImporterCli(unittest.TestCase):
@@ -338,7 +327,12 @@ class TestImporterCli(unittest.TestCase):
         self.assertEqual(code, 0)
         m = self.manifest()
         self.assertEqual(set(m), {"a", "b"})
+        self.assertEqual(set(m["a"]), {"file", "json", "hash", "lines"})   # sin «cards»
+        self.assertEqual(m["a"]["lines"], 1)
+        self.assertIn("1 líneas — nuevo", out)
         self.assertTrue(os.path.isfile(os.path.join(self.folder, "a.json")))
+        with open(os.path.join(self.folder, "a.json"), encoding="utf-8") as fh:
+            self.assertNotIn("cards", json.load(fh))
 
         code, out = self.cli()
         self.assertIn("sin cambios", out)
@@ -363,6 +357,164 @@ class TestImporterCli(unittest.TestCase):
         p = subprocess.run([sys.executable, os.path.join(HERE, "import_joseki.py"),
                             os.path.join(self.tmp, "no-existe")], capture_output=True, text=True)
         self.assertEqual(p.returncode, 2)
+
+
+
+# ── JP.4 / JP.5: contexto y letras (un solo modo: pestaña Joseki y generador) ──
+FIX = os.path.join(HERE, "jp_fixtures")
+
+CTX = ";B[pd];W[qc]C[Inv](;B[qd]C[Normal];W[pc])(;AB[jc]C[Breaker\nmore text];B[pc];W[qd]))"
+
+
+class TestPestanaConContexto(unittest.TestCase):
+    """J3.2: el JSON de la pestaña Joseki (import_joseki) lleva contexto y letras."""
+
+    def test_contexto_en_el_json_sin_aviso(self):
+        r = run(CTX[:-1])
+        self.assertTrue(r["ok"], r["issues"])
+        self.assertEqual(warnings(r), [])
+        self.assertEqual([k["m"] for k in kids(r)[0]["ch"][0]["ch"]], ["qd", "ctx-Bjc"])
+        self.assertEqual(r["lines"], 2)
+
+    def test_letras_en_el_json(self):
+        r = run(";B[pd]L[qq];W[qc]LB[dd:Z]")
+        self.assertEqual(kids(r)[0]["marks"], {"LB": [["qq", "A"]]})
+        self.assertEqual(kids(r)[0]["ch"][0]["marks"], {"LB": [["dd", "Z"]]})
+
+    def test_gogrinari_real_en_la_pestana(self):
+        with open(os.path.join(FIX, "report", "4-4 Joseki (GoGrinari).sgf"), "rb") as fh:
+            raw = fh.read()
+        r = compile_joseki(raw, "4-4 Joseki")
+        self.assertTrue(r["ok"], [i for i in r["issues"] if i[0] == "ERROR"])
+        self.assertFalse(has(warnings(r), "contexto"))
+        qc = next(k for k in kids(r)[0]["ch"] if k["m"] == "qc")
+        ctx = qc["ch"][0]
+        self.assertEqual((ctx["m"], ctx["ctx"], ctx["name"]), ("ctx-Bmc", {"B": ["mc"], "W": []}, "SAN-SAN with O-Keima Extension"))
+        self.assertEqual(qc["marks"]["LB"], [["mc", "A"]])                 # la letra A del 3-3, en la jugada que la pone
+
+
+class TestContexto(unittest.TestCase):
+    def test_nodo_de_contexto(self):
+        r = run(CTX[:-1])
+        self.assertTrue(r["ok"], r["issues"])
+        qc = kids(r)[0]["ch"][0]
+        ctx = qc["ch"][1]
+        self.assertEqual(ctx["m"], "ctx-Bjc")
+        self.assertEqual(ctx["ctx"], {"B": ["jc"], "W": []})
+        self.assertEqual(ctx["name"], "Breaker")
+        self.assertEqual(ctx["c"], "")
+        self.assertEqual([k["m"] for k in ctx["ch"]], ["pc"])
+
+    def test_no_cambia_el_turno(self):
+        r = run(";B[pd];W[qc](;AB[jc]C[X];W[pc]))")
+        self.assertTrue(has(errors(r), "alternancia rota"))
+        r = run(";B[pd];W[qc](;AB[jc]C[X];B[pc]))")
+        self.assertTrue(r["ok"], r["issues"])
+
+    def test_lineas_atraviesan_el_contexto(self):
+        r = run(CTX[:-1])
+        self.assertEqual(r["lines"], 2)
+        self.assertEqual(r["tree"], ["  1.B Q16  2.W R17", "  +- 3.B R16  4.W Q17  => fin",
+                                     "  +- 3.[contexto B:K17] [Breaker]  4.B Q17  5.W R16  => fin"])
+
+    def test_contexto_no_es_bifurcacion(self):
+        # la rama normal SIN nombre junto a un contexto: no es una bifurcación de jugadas buenas
+        r = run(";B[pd];W[qc](;B[qd];W[pc])(;AB[jc]C[Breaker];B[pc];W[qd]))")
+        self.assertTrue(r["ok"], r["issues"])
+        self.assertFalse(has(warnings(r), "bifurcación sin nombre"), r["issues"])
+        # anti-vacío: con dos jugadas buenas de verdad sí avisa
+        r = run(";B[pd];W[qc](;B[qd];W[pc])(;B[pc];W[qd]))")
+        self.assertTrue(has(warnings(r), "bifurcación sin nombre"))
+
+    def test_sin_nombre(self):
+        r = run(";B[pd];W[qc](;AB[jc];B[pc]))")
+        self.assertTrue(has(errors(r), "contexto sin nombre"))
+        self.assertTrue(run(";B[pd];W[qc](;AB[jc]C[N];B[pc]))")["ok"])
+
+    def test_punto_ocupado(self):
+        r = run(";B[pd];W[qc](;AB[pd]C[N];B[pc]))")
+        self.assertTrue(has(errors(r), "piedra de contexto en un punto ocupado: Q16"))
+
+    def test_ae_no_admitido(self):
+        r = run(";B[pd];W[qc](;AE[pd]C[N];B[pc]))")
+        self.assertTrue(has(errors(r), "contexto con AE"))
+
+    def test_raiz_sigue_siendo_error(self):
+        r = compile_joseki((HEAD + "AB[pd];W[qc];B[pc])").encode("utf-8"), "t")
+        self.assertTrue(has(errors(r), "piedras de contexto (AB) en la raíz"))
+
+    def test_pl_que_no_coincide(self):
+        r = run(";B[pd];W[qc](;AB[jc]PL[W]C[N];B[pc]))")
+        self.assertTrue(has(warnings(r), "PL[W] en el contexto, pero juega B"))
+        r = run(";B[pd];W[qc](;AB[jc]PL[B]C[N];B[pc]))")
+        self.assertFalse(has(warnings(r), "PL["))
+
+    def test_varios_contextos_acumulan(self):
+        r = run(";B[pd];W[qc];AB[jc]C[A];AW[cc]C[B];B[pc];W[qd])")
+        self.assertTrue(r["ok"], r["issues"])
+        path, n = [], kids(r)[0]
+        while True:
+            path.append(n["m"])
+            if not n["ch"]:
+                break
+            n = n["ch"][0]
+        self.assertEqual(path, ["pd", "qc", "ctx-Bjc", "ctx-Wcc", "pc", "qd"])
+        self.assertEqual(r["lines"], 1)
+
+    def test_gogrinari_real(self):
+        with open(os.path.join(FIX, "report", "4-4 Joseki (GoGrinari).sgf"), "rb") as fh:
+            raw = fh.read()
+        r = compile_joseki(raw, "4-4 Joseki")
+        self.assertTrue(r["ok"], [i for i in r["issues"] if i[0] == "ERROR"])
+        self.assertTrue(any("[contexto B:N17] [SAN-SAN with O-Keima Extension]" in l for l in r["tree"]))
+
+
+class TestLetras(unittest.TestCase):
+    def test_l_formato_antiguo(self):
+        r = run(";B[pd]C[x];W[qc]L[le][ne]")
+        self.assertEqual(kids(r)[0]["ch"][0]["marks"]["LB"], [["le", "A"], ["ne", "B"]])
+
+    def test_lb(self):
+        r = run(";B[pd]LB[dd:Z][dp:2]")
+        self.assertEqual(kids(r)[0]["marks"]["LB"], [["dd", "Z"], ["dp", "2"]])
+
+    def test_letra_no_valida(self):
+        r = run(";B[pd]L[zz]LB[dd]")
+        self.assertTrue(has(warnings(r), "letra L con coordenada no válida"))
+        self.assertTrue(has(warnings(r), "etiqueta LB no válida"))
+        self.assertNotIn("marks", kids(r)[0])
+
+    def test_letras_en_contexto(self):
+        r = run(";B[pd];W[qc];AB[jc]L[jc]C[N];B[pc])")
+        self.assertEqual(kids(r)[0]["ch"][0]["ch"][0]["marks"]["LB"], [["jc", "A"]])
+
+
+
+class TestOk(unittest.TestCase):
+    """JP.7: línea «#ok» en un comentario = avisos de esa jugada aceptados."""
+
+    def test_se_quita_y_marca(self):
+        r = run(";B[pd]C[Hola\n#ok];W[qc]C[#OK])")
+        b, w = kids(r)[0], kids(r)[0]["ch"][0]
+        self.assertEqual(b["comment"], "Hola")
+        self.assertTrue(b["ack"])
+        self.assertNotIn("comment", w)          # solo «#ok»: comentario vacío
+        self.assertTrue(w["ack"])
+
+    def test_no_es_nombre(self):
+        r = run(";B[pd];W[qc](;B[qd]C[#ok\nBlock];W[pc])(;B[pc]C[Top];W[qd]))")
+        self.assertEqual(kids(r)[0]["ch"][0]["ch"][0]["name"], "Block")
+
+    def test_raiz(self):
+        self.assertTrue(run(";B[pd])", head=HEAD + "C[#ok]")["data"]["ack_root"])
+        self.assertFalse(run(";B[pd])")["data"]["ack_root"])
+        r = compile_joseki(b"(;GM[1]FF[4]CA[UTF-8]SZ[19]B[pd]C[#ok];W[qc])", "t")
+        self.assertTrue(r["data"]["ack_root"])               # 1.ª jugada guardada en la raíz (GoGrinari)
+
+    def test_ok_dentro_de_una_frase_no_cuenta(self):
+        r = run(";B[pd]C[esto es #ok no])")
+        self.assertNotIn("ack", kids(r)[0])
+        self.assertEqual(kids(r)[0]["comment"], "esto es #ok no")
 
 
 if __name__ == "__main__":

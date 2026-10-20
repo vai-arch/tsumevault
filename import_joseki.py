@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-import_joseki.py — Valida y compila los ficheros de josekis de TsumeVault
-(fase J1, ver WORKPLAN_JOSEKI_J1.md).
+import_joseki.py — Valida y compila los ficheros maestros de josekis para la
+pestaña Joseki de TsumeVault (modo aprender: fantasmas y ramas ¿y si?).
 
 Lee <carpeta>/*.sgf (sin subcarpetas), imprime por cada fichero el informe
-del árbol con las tarjetas resultantes y los avisos, y escribe junto a cada
-SGF válido su <nombre>.json compilado, más <carpeta>/manifest.json con el
-hash de cada JSON (el cliente lo usa para descachear solo lo que cambia).
+del árbol y sus avisos, y escribe junto a cada SGF válido su <nombre>.json
+compilado, más <carpeta>/manifest.json con el hash de cada JSON (el cliente lo
+usa para descachear solo lo que cambia) y su número de líneas.
 
 No habla con el servidor: el despliegue es el .bat habitual.
 
@@ -88,7 +88,7 @@ def main():
 
     old = load_manifest(folder)
     new = {}
-    n_ok, n_err, n_cards, n_warn = 0, 0, 0, 0
+    n_ok, n_err, n_lines, n_warn = 0, 0, 0, 0
 
     for fname in sgfs:
         stem = os.path.splitext(fname)[0]
@@ -117,10 +117,10 @@ def main():
 
         if res["ok"]:
             n_ok += 1
-            n_cards += res["cards"]
+            n_lines += res["lines"]
             blob = serialize(res["data"])
             entry = {"file": stem, "json": stem + ".json",
-                     "hash": content_hash(blob), "cards": res["cards"]}
+                     "hash": content_hash(blob), "lines": res["lines"]}
             prev = old.get(stem)
             if prev and prev.get("hash") == entry["hash"]:
                 state = "sin cambios"
@@ -128,7 +128,7 @@ def main():
                 state = "actualizado"
             else:
                 state = "nuevo"
-            print("\n  %d tarjetas — %s" % (res["cards"], state))
+            print("\n  %d líneas — %s" % (res["lines"], state))
             if not args.validate_only:
                 write_atomic(os.path.join(folder, entry["json"]), blob)
             new[stem] = entry
@@ -151,8 +151,8 @@ def main():
         write_atomic(os.path.join(folder, MANIFEST), blob)
 
     print("\n" + "=" * 72)
-    print("RESUMEN: %d fichero(s) OK, %d con errores, %d tarjetas, %d aviso(s)"
-          % (n_ok, n_err, n_cards, n_warn))
+    print("RESUMEN: %d fichero(s) OK, %d con errores, %d líneas, %d aviso(s)"
+          % (n_ok, n_err, n_lines, n_warn))
     if args.validate_only:
         print("(--validate-only: no se ha escrito nada)")
     sys.exit(1 if n_err else 0)
