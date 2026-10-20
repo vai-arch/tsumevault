@@ -1763,7 +1763,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261019-1835';
+	const SW_VERSION = 'tsumevault-20261020-0912';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -6283,7 +6283,7 @@
 
     // ── J3: UI ──
     let jsActive = false;       // true con la pestaña Josekis activa (análogo a gmActive)
-    let jsManifest = null;      // { format, files: [{ file, json, hash, cards }] }
+    let jsManifest = null;      // { format, files: [{ file, json, hash, lines }] }
     let jsEntry = null;         // entrada del manifiesto abierta
     let jsData = null;          // JSON compilado del fichero abierto
     let jsStack = [];           // nodos recorridos desde la raíz (la raíz no entra)
@@ -6319,7 +6319,7 @@
         div.textContent = f.file;
         const sub = document.createElement('div');
         sub.style.cssText = 'font-size:8px;color:var(--dim2);margin-top:2px;';
-        sub.textContent = f.cards + ' cards';
+        sub.textContent = f.lines != null ? f.lines + ' lines' : '';   // manifiesto anterior (sin lines): nada
         div.appendChild(sub);
         div.addEventListener('mouseenter', () => div.style.background = 'var(--hover)');
         div.addEventListener('mouseleave', () => div.style.background = '');
