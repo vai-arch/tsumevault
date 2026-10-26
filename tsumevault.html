@@ -1770,7 +1770,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261026-1158';
+	const SW_VERSION = 'tsumevault-20261026-1242';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -4410,7 +4410,8 @@
         item.querySelector('.col-name').addEventListener('click', () => toggleCollection(col, item));
         list.appendChild(item); refreshColPct(col.set_id);
       }
-      applyCollectionFilters(); // ← añadir esta línea
+      applyCollectionFilters();
+      if (document.getElementById('cf-needs-work').checked) expandAllVisible();
     }
     function populateCollectionDiffFilter() {
       const sel = document.getElementById('cf-diff');
@@ -4575,6 +4576,10 @@
           const maxDiff = document.getElementById('cf-diff').value;
           if (filterMostrar && !chap.mostrar) { ci.style.display = 'none'; }
           else if (maxDiff !== '' && chap.diff_avg != null && chap.diff_avg > Number(maxDiff)) { ci.style.display = 'none'; }
+          else if (document.getElementById('cf-needs-work').checked) {
+            const csNw = runStats && runStats.by_chapter[chap.id];
+            if (csNw && csNw.pct != null && csNw.pct >= PCT_GREEN) ci.style.display = 'none';
+          }
           const diffStr = chap.diff_avg != null ? diffLabel(chap.diff_avg) : (chap.diff_min != null ? `${diffLabel(chap.diff_min)}–${diffLabel(chap.diff_max)}` : '—');
           const cs = runStats && runStats.by_chapter[chap.id];
           const chapSpp = (cs && cs.duration_ms != null && cs.total > 0) ? Math.round(cs.duration_ms / 1000 / cs.total) + 's' : '';
