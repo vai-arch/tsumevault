@@ -1190,6 +1190,7 @@
         <option value="my_collections">my_collections</option>
         <option value="awesome_baduk">awesome_baduk</option>
         <option value="awesome_lessons">awesome_lessons</option>
+        <option value="joseki">joseki</option><!-- JP: josekis como problemas (generate_joseki_problems.py) -->
       </select>
       <div style="flex:1"></div>
       <button id="stats-btn" onclick="openStats()" title="Statistics" style="background:transparent;border:1px solid var(--border2);color:var(--dim);font-size:15px;cursor:pointer;padding:4px 9px;border-radius:2px;transition:all .15s;margin-right:6px;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">📊</button>
@@ -1631,16 +1632,6 @@
       </div>
       <!-- J3: pestaña Josekis (lista de ficheros de joseki/manifest.json) -->
       <div class="tab-pane" id="tab-josekis">
-        <!-- J4: repaso SM-2 de tarjetas + ajustes -->
-        <div class="fp-section" id="jc-panel">
-          <div class="fp-label" style="margin-bottom:6px">Review</div>
-          <div id="jc-counts" style="font-family:var(--mono);font-size:10px;color:var(--text);margin-bottom:6px;">—</div>
-          <button class="fp-btn" id="jc-start">▶ Start review</button>
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px;font-family:var(--mono);font-size:9px;color:var(--dim);">
-            <label style="display:flex;align-items:center;gap:5px;">New/day <input type="number" id="jc-newlimit" min="0" max="500" value="10" style="width:46px;font-family:var(--mono);font-size:9px;background:var(--panel);color:var(--text);border:1px solid var(--border2);border-radius:2px;padding:2px 4px;"></label>
-            <label style="display:flex;align-items:center;gap:5px;cursor:pointer;"><input type="checkbox" id="jc-random" checked style="accent-color:var(--gold);cursor:pointer;"> random orientation</label>
-          </div>
-        </div>
         <div id="js-list" style="flex:1;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;padding:4px 0;">
           <div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--dim2);text-align:center">Loading…</div>
         </div>
@@ -1683,7 +1674,6 @@
           <button class="ctrl-btn" id="js-btn-back">← Back</button>
           <button class="ctrl-btn" id="js-btn-restart">↺ Restart</button>
           <button class="ctrl-btn" id="js-btn-rotate" title="Rotate / mirror the board (8 orientations)">⟳ Rotate</button>
-          <button class="ctrl-btn" id="js-btn-practice" title="Practice the cards of the lines through this position (no SM-2)">▶ Practice this branch</button> <!-- J4 -->
           <label style="display:flex;align-items:center;gap:5px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);" title="Show the teacher's what-if branches">
             <input type="checkbox" id="js-whatif" checked style="accent-color:var(--gold);cursor:pointer;"> what-if
           </label>
@@ -1692,14 +1682,6 @@
             <input type="checkbox" id="js-allghosts" checked style="accent-color:var(--gold);cursor:pointer;"> all ghosts
           </label>
           <span id="js-choices" style="display:flex;gap:6px;flex-wrap:wrap;"></span>
-        </div>
-        <!-- J4: controles del modo tarjeta (repaso y práctica) -->
-        <div id="jc-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
-          <button class="ctrl-btn" id="jc-btn-hint" title="Show the good moves (the card counts as failed)">💡 Hint</button>
-          <button class="ctrl-btn" id="jc-btn-pass">Pass</button>
-          <button class="ctrl-btn" id="jc-btn-next" style="display:none">→ Next</button>
-          <button class="ctrl-btn" id="jc-btn-stop" title="Stop the session (the current card is not recorded)">✕ Stop</button>
-          <span id="jc-end" style="display:flex;gap:6px;flex-wrap:wrap;"></span>
         </div>
       </div>
       <div id="comment-box"></div>
@@ -1788,7 +1770,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261026-1128';
+	const SW_VERSION = 'tsumevault-20261026-1158';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2103,12 +2085,6 @@
         dbExec('CREATE TABLE IF NOT EXISTS problem_tags (source TEXT NOT NULL, problem_id TEXT NOT NULL, tag TEXT NOT NULL COLLATE NOCASE, active INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (source, problem_id, tag))');
         dbExec('CREATE INDEX IF NOT EXISTS idx_problem_tags_updated ON problem_tags(updated_at)');
       } catch (e) { console.warn('[migrate] tags tables failed', e); }
-      // J4: progreso de josekis (instalaciones existentes; mismo DDL que createSchema)
-      try {
-        dbExec('CREATE TABLE IF NOT EXISTS joseki_sm2 (card_id TEXT PRIMARY KEY, due_date TEXT NOT NULL, interval REAL NOT NULL DEFAULT 6, easiness REAL NOT NULL DEFAULT 2.5, repetitions INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0)');
-        dbExec('CREATE TABLE IF NOT EXISTS joseki_attempts (id INTEGER PRIMARY KEY AUTOINCREMENT, uuid TEXT NOT NULL UNIQUE, card_id TEXT NOT NULL, result TEXT NOT NULL, hint INTEGER NOT NULL DEFAULT 0, time_ms INTEGER, created_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0)');
-        dbExec('CREATE INDEX IF NOT EXISTS idx_joseki_attempts_card ON joseki_attempts(card_id, created_at)');
-      } catch (e) { console.warn('[migrate] joseki tables failed', e); }
     }
 
     // ── T9: cursores de sync DENTRO de la DB (tabla sync_meta) ──
@@ -2226,10 +2202,6 @@
       PRIMARY KEY (source, problem_id, tag)
     );
     CREATE INDEX IF NOT EXISTS idx_problem_tags_updated ON problem_tags(updated_at);
-    -- J4: progreso de josekis (el contenido vive en joseki/*.json). synced: 0=pendiente, 1=confirmado.
-    CREATE TABLE IF NOT EXISTS joseki_sm2 (card_id TEXT PRIMARY KEY, due_date TEXT NOT NULL, interval REAL NOT NULL DEFAULT 6, easiness REAL NOT NULL DEFAULT 2.5, repetitions INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0);
-    CREATE TABLE IF NOT EXISTS joseki_attempts (id INTEGER PRIMARY KEY AUTOINCREMENT, uuid TEXT NOT NULL UNIQUE, card_id TEXT NOT NULL, result TEXT NOT NULL, hint INTEGER NOT NULL DEFAULT 0, time_ms INTEGER, created_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0);
-    CREATE INDEX IF NOT EXISTS idx_joseki_attempts_card ON joseki_attempts(card_id, created_at);
   `);
     }
 
@@ -3327,84 +3299,6 @@
         // nuevo cursor no volverían a enviarse jamás.
         if (sm2PushOk && sm2Cursor > lastSm2Sync) cursorUpdates['last_sm2_sync'] = sm2Cursor;
       } catch (e) { console.warn('[sync] sm2 sync failed', e); }
-      // ── J4: Sync josekis (solo progreso; el contenido vive en joseki/*.json) ──
-      // (1) joseki_attempts: push de synced=0 (se marcan SOLO los enviados) y
-      // pull por id de servidor con cursor last_joseki_attempt_id (dedupe por
-      // uuid; lo recibido entra con synced=1).
-      // (2) joseki_sm2: pull con cursor last_joseki_sm2_sync (>=, LWW por
-      // updated_at) y push de synced=0; se confirman solo las filas enviadas con
-      // la misma updated_at; el cursor solo avanza si el push fue bien.
-      // Cursor huerfano: tabla vacia -> desde el principio. Servidor sin J2
-      // (404): ok=false -> no cambia nada local ni avanza ningun cursor.
-      try {
-        const pendingJa = dbQuery('SELECT id, uuid, card_id, result, hint, time_ms, created_at FROM joseki_attempts WHERE synced=0', []);
-        let jaPushOk = true;
-        if (pendingJa.length > 0) {
-          const jaPushR = await syncFetch(`/sync/joseki_attempts/push`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ joseki_attempts: pendingJa.map(a => ({ uuid: a.uuid, card_id: a.card_id, result: a.result, hint: a.hint, time_ms: a.time_ms, created_at: a.created_at })) }),
-            signal: AbortSignal.timeout(8000)
-          });
-          jaPushOk = jaPushR.ok;
-          if (jaPushR.ok) for (const a of pendingJa) dbExec('UPDATE joseki_attempts SET synced=1 WHERE id=?', [a.id]);
-        }
-        if (jaPushOk) {
-          const haveJa = (dbQueryOne('SELECT COUNT(*) AS c FROM joseki_attempts WHERE synced=1', [])?.c || 0) > 0;
-          const sinceJa = haveJa ? (parseInt(getSyncMeta('last_joseki_attempt_id') || '0', 10) || 0) : 0;
-          const jaPullR = await syncFetch(`/sync/joseki_attempts/pull?since_id=${sinceJa}`, { signal: AbortSignal.timeout(8000) });
-          if (jaPullR.ok) {
-            const { joseki_attempts: rows } = await jaPullR.json();
-            let maxJa = sinceJa;
-            for (const a of (rows || [])) {
-              if (a.id > maxJa) maxJa = a.id;
-              dbExec('INSERT OR IGNORE INTO joseki_attempts (uuid, card_id, result, hint, time_ms, created_at, synced) VALUES (?,?,?,?,?,?,1)',
-                [a.uuid, a.card_id, a.result, a.hint, a.time_ms ?? null, a.created_at]);
-            }
-            if (maxJa > sinceJa || !haveJa) cursorUpdates['last_joseki_attempt_id'] = String(maxJa);
-          }
-        }
-      } catch (e) { console.warn('[sync] joseki attempts sync failed', e); }
-      try {
-        const haveJs = (dbQueryOne('SELECT COUNT(*) AS c FROM joseki_sm2', [])?.c || 0) > 0;
-        const lastJs = haveJs ? (getSyncMeta('last_joseki_sm2_sync') || '1970-01-01T00:00:00Z') : '1970-01-01T00:00:00Z';
-        let jsCursor = lastJs;
-        const jsPullR = await syncFetch(`/sync/joseki_sm2/pull?since=${encodeURIComponent(lastJs)}`, { signal: AbortSignal.timeout(8000) });
-        if (jsPullR.ok) {
-          const { joseki_sm2: rows } = await jsPullR.json();
-          for (const r of (rows || [])) {
-            if (r.updated_at > jsCursor) jsCursor = r.updated_at;
-            const existing = dbQueryOne('SELECT updated_at FROM joseki_sm2 WHERE card_id=?', [r.card_id]);
-            if (!existing || r.updated_at > existing.updated_at) {
-              dbExec(`
-                INSERT INTO joseki_sm2 (card_id, due_date, interval, easiness, repetitions, updated_at, synced)
-                VALUES (?, ?, ?, ?, ?, ?, 1)
-                ON CONFLICT(card_id) DO UPDATE SET
-                  due_date = excluded.due_date, interval = excluded.interval, easiness = excluded.easiness,
-                  repetitions = excluded.repetitions, updated_at = excluded.updated_at, synced = 1
-              `, [r.card_id, r.due_date, r.interval, r.easiness, r.repetitions, r.updated_at]);
-            }
-          }
-          const pendingJs = dbQuery('SELECT card_id, due_date, interval, easiness, repetitions, updated_at FROM joseki_sm2 WHERE synced=0', []);
-          let jsPushOk = true;
-          if (pendingJs.length > 0) {
-            const jsPushR = await syncFetch(`/sync/joseki_sm2/push`, {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ joseki_sm2: pendingJs }),
-              signal: AbortSignal.timeout(8000)
-            });
-            jsPushOk = jsPushR.ok;
-            if (jsPushR.ok) {
-              for (const r of pendingJs) {
-                if (r.updated_at > jsCursor) jsCursor = r.updated_at;
-                dbExec('UPDATE joseki_sm2 SET synced=1 WHERE card_id=? AND updated_at=?', [r.card_id, r.updated_at]);
-              }
-            }
-          }
-          if (jsPushOk && jsCursor > lastJs) cursorUpdates['last_joseki_sm2_sync'] = jsCursor;
-        }
-      } catch (e) { console.warn('[sync] joseki sm2 sync failed', e); }
       // T9: los cursores se escriben en sync_meta ANTES del saveDB final, de
       // modo que se persisten ATOMICAMENTE con los datos en el mismo export.
       // Si saveDB lanza, ni datos ni cursores persisten: el proximo sync repite
@@ -3419,28 +3313,19 @@
     // tras el push). Cero red: consulta local instantanea. La confianza en un
     // sistema offline-first es una feature.
     function countPendingSync() {
-      if (!db) return { attempts: 0, runs: 0, joseki: 0, total: 0 };
+      if (!db) return { attempts: 0, runs: 0, total: 0 };
       try {
         const a = dbQueryOne('SELECT COUNT(*) AS c FROM attempts WHERE uuid IS NOT NULL AND synced = 0', [])?.c || 0;
         const r = dbQueryOne('SELECT COUNT(*) AS c FROM runs WHERE uuid IS NOT NULL AND synced <> 1', [])?.c || 0;
-        // J4: pendientes de josekis en campo aparte. NO entran en total: total
-        // dispara la cadena de re-sync (Q3) y, contra un servidor sin J2, los de
-        // josekis no se confirmarian nunca -> bucle de sync cada 1,5 s.
-        let j = 0;
-        try {
-          j = (dbQueryOne('SELECT COUNT(*) AS c FROM joseki_attempts WHERE synced = 0', [])?.c || 0)
-            + (dbQueryOne('SELECT COUNT(*) AS c FROM joseki_sm2 WHERE synced = 0', [])?.c || 0);
-        } catch (e) { j = 0; }
-        return { attempts: a, runs: r, joseki: j, total: a + r };
-      } catch (e) { return { attempts: 0, runs: 0, joseki: 0, total: 0 }; }
+        return { attempts: a, runs: r, total: a + r };
+      } catch (e) { return { attempts: 0, runs: 0, total: 0 }; }
     }
     function updatePendingBadge() {
       const p = countPendingSync();
       const badge = document.getElementById('pending-badge');
-      const shown = p.total + (p.joseki || 0); // J4: el badge cuenta tambien los pendientes de josekis
-      if (badge) { badge.style.display = shown > 0 ? 'block' : 'none'; badge.textContent = shown > 99 ? '99+' : String(shown); }
+      if (badge) { badge.style.display = p.total > 0 ? 'block' : 'none'; badge.textContent = p.total > 99 ? '99+' : String(p.total); }
       const det = document.getElementById('cfg-sync-pending');
-      if (det) det.textContent = shown > 0 ? `⏳ ${p.attempts} attempts · ${p.runs} runs` + (p.joseki ? ` · ${p.joseki} joseki` : '') + ` sin sincronizar` : '✓ Todo sincronizado';
+      if (det) det.textContent = p.total > 0 ? `⏳ ${p.attempts} attempts · ${p.runs} runs sin sincronizar` : '✓ Todo sincronizado';
     }
     function setSyncStatus(state) {
 	  // T6/3.10: el setTimeout de 3 s del estado "ok" podia rehabilitar el boton
@@ -5691,8 +5576,26 @@
       }
       wgoBoard.redraw();
     }
+    // T33: simbolo de calidad de una jugada a partir de sus marcas SGF (IT/BM/DO/TE; el
+    // parser de WGo las deja tal cual en el nodo, p. ej. node.BM = '1', node.IT = '').
+    // Mismos simbolos, colores y prioridad que J3 (jsMarkInfo). null = sin marca.
+    function moveQualityMark(node) {
+      if (!node) return null;
+      const has = k => node[k] !== undefined;
+      if (!has('IT') && !has('BM') && !has('DO') && !has('TE')) return null;
+      const info = jsMarkInfo({ it: has('IT'), q: has('BM') ? 'bad' : has('DO') ? 'doubtful' : undefined, te: has('TE') });
+      return { sym: info.sym, color: info.color };
+    }
+    // T33: marca de la ultima jugada: su simbolo de calidad si lo tiene; si no, el circulo de siempre.
+    function addLastMoveMark(x, y, q) {
+      if (q) wgoBoard.addObject({ x, y, type: WGo.Board.drawHandlers['LB'], text: q.sym, c: q.color });
+      else wgoBoard.addObject({ x, y, type: 'CR' });
+    }
     function renderLabels(node) {
-      if (!node.markup) return;
+      // T32: antes salia aqui sin tocar comment-box, y los comentarios de las jugadas sin marcas
+      // (p. ej. la instruccion de los problemas de joseki) no se veian nunca. Los RIGHT/WRONG
+      // finales los sigue mostrando showResult (sin prefijo); sin comentario no se borra la caja.
+      if (!node.markup) { const c = (node.comment || '').trim(); if (c && !/^(RIGHT|WRONG)/i.test(c)) document.getElementById('comment-box').textContent = node.comment; return; }
       for (const mk of node.markup) {
         if (wgoBoard.obj_arr[mk.x][mk.y]) wgoBoard.obj_arr[mk.x][mk.y] = wgoBoard.obj_arr[mk.x][mk.y].filter(o => o.c === 1 || o.c === -1);
         if (mk.type === 'LB' && (mk.text === ':)' || mk.text === ':(')) {
@@ -5787,10 +5690,12 @@
       // contra ellas (posicion repetida) devolviendo un codigo de error que placeStone()
       // ignoraba -> la piedra no se pintaba aunque la logica del puzzle seguia normal.
       function restoreSnapshot(snap) { game = new WGo.Game(boardSize); game.allow_rewrite = true; for (const { x, y, v } of snap.stones) game.setStone(x, y, v); lastMoveMarker = snap.marker; redrawFromGame(); }
-      function redrawFrom(g, marker) { clearBoard(); const pos = g.getPosition(); for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 }); else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 }); } if (marker) wgoBoard.addObject({ x: marker.x, y: marker.y, type: 'CR' }); } // T31: parametrizada (Explorar pinta su propio game)
+      function redrawFrom(g, marker) { clearBoard(); const pos = g.getPosition(); for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 }); else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 }); } if (marker) addLastMoveMark(marker.x, marker.y, marker.q); /* T33: simbolo de calidad o circulo */ } // T31: parametrizada (Explorar pinta su propio game)
       function redrawFromGame() { redrawFrom(game, lastMoveMarker); }
       function placeStone(x, y, c) { game.play(x, y, c === 1 ? WGo.B : WGo.W); redrawFromGame(); hintMarker = null; }
-      function drawLastMoveDot(x, y) { if (lastMoveMarker) wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); wgoBoard.addObject({ x, y, type: 'CR' }); lastMoveMarker = { x, y }; }
+      // T33: el marcador guarda tambien el simbolo de calidad (q) de la jugada; gameSnapshot/restoreSnapshot
+      // y redrawFrom lo conservan igual que la posicion, asi que resize, Back y salto de variante lo respetan.
+      function drawLastMoveDot(x, y, node) { if (lastMoveMarker) { wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); if (lastMoveMarker.q) wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: WGo.Board.drawHandlers['LB'] }); } const q = moveQualityMark(node); addLastMoveMark(x, y, q); lastMoveMarker = { x, y, q }; }
       function recordAttempt(result) {
         if (attemptRecorded) return; attemptRecorded = true;
         if (!runMode) { if (result === 'correct') sessionOk++; else sessionNo++; }
@@ -5876,7 +5781,7 @@
         }
         const oppNode = node.children[idx];
         oppPending = true; // T31
-        setTimeout(() => { oppPending = false; if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
+        setTimeout(() => { oppPending = false; if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y, oppNode); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
       }
       function resetGame() { game = new WGo.Game(boardSize); game.allow_rewrite = true; for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
       // T5/3.9: rehidratacion tras resize. Repinta la posicion ACTUAL desde el
@@ -6021,7 +5926,7 @@
         if (!match) { if (currentProblem && currentProblem._isReveal) return; checkResult({ comment: 'WRONG' }); hadWrong = true; if (freeMode) waitingForNext = false; return; }
         history.push({ node: currentNode, snap: gameSnapshot() }); answered = true;
         if (!firstMoveDone) { clearCrossMarks(); firstMoveDone = true; }
-        placeStone(x, y, playerC); drawLastMoveDot(x, y); renderLabels(match); playSound('stone');
+        placeStone(x, y, playerC); drawLastMoveDot(x, y, match); renderLabels(match); playSound('stone');
         if (checkResult(match)) return; playOpponent(match);
       }
       if (!wgoBoard._globalListenerSet) { wgoBoard.addEventListener('click', (x, y) => { if (window._boardClickHandler) window._boardClickHandler(x, y); }); wgoBoard._globalListenerSet = true; }
@@ -6230,7 +6135,7 @@
       // Marcar último movimiento (solo si no hay LB en esa posición)
       if (node.move && node.move.x !== undefined) {
         const hasLB = node.markup && node.markup.some(m => m.type === 'LB' && m.x === node.move.x && m.y === node.move.y);
-        if (!hasLB) wgoBoard.addObject({ x: node.move.x, y: node.move.y, type: 'CR' });
+        if (!hasLB) addLastMoveMark(node.move.x, node.move.y, moveQualityMark(node)); // T33
       }
       // Markup del nodo (LB, TR, SQ, etc.)
       if (node.markup) {
@@ -6402,6 +6307,7 @@
     }
     // J3: símbolo + color de un fantasma (J-31: color Y forma, no solo tono).
     function jsMarkInfo(n) {
+      if (n.ctx) return { sym: '◆', color: '#a07cd8', kind: 'context' };   // J3.2: nodo de contexto (piedras añadidas)
       if (n.it && !n.implicit) return { sym: '?', color: '#4a8fe7', kind: 'whatif' };
       if (n.q === 'bad') return { sym: '✕', color: '#d45030', kind: 'bad' };
       if (n.q === 'doubtful') return { sym: '▲', color: '#e0a030', kind: 'doubtful' };
@@ -6411,6 +6317,7 @@
     // J3: opciones visibles en un nodo. El pase implícito (rama ¿y si? del mismo
     // color, J-75) no se muestra como opción: se aplanan sus hijos IT y se
     // recuerda en "via" para que el sistema lo juegue antes de la piedra.
+    // J3.2: un nodo de contexto es una opción con ctx=true (chip, nunca fantasma).
     function jsOptions(node, showWhatif) {
       const out = [];
       for (const k of (node.ch || [])) {
@@ -6418,7 +6325,7 @@
         if (k.implicit) {
           for (const g of (k.ch || [])) out.push(Object.assign({ m: g.m, c: g.c, pass: g.m === 'pass', node: g, via: k }, jsMarkInfo(g)));
         } else {
-          out.push(Object.assign({ m: k.m, c: k.c, pass: k.m === 'pass', node: k, via: null }, jsMarkInfo(k)));
+          out.push(Object.assign({ m: k.m, c: k.c, pass: k.m === 'pass', ctx: !!k.ctx, node: k, via: null }, jsMarkInfo(k)));
         }
       }
       return out;
@@ -6439,13 +6346,14 @@
     }
     // J3.1: ¿se dibujan los fantasmas? Siempre con "all ghosts"; si no, solo
     // cuando hay 2+ opciones visibles (pases incluidos, what-if ya filtrado).
+    // J3.2: los contextos no cuentan: son escenarios, no alternativas que adivinar.
     function jsGhostsVisible(opts, showAll) {
-      return !!showAll || opts.length >= 2;
+      return !!showAll || opts.filter(o => !o.ctx).length >= 2;
     }
 
     // ── J3: UI ──
     let jsActive = false;       // true con la pestaña Josekis activa (análogo a gmActive)
-    let jsManifest = null;      // { format, files: [{ file, json, hash, cards }] }
+    let jsManifest = null;      // { format, files: [{ file, json, hash, lines }] }
     let jsEntry = null;         // entrada del manifiesto abierta
     let jsData = null;          // JSON compilado del fichero abierto
     let jsStack = [];           // nodos recorridos desde la raíz (la raíz no entra)
@@ -6481,14 +6389,8 @@
         div.textContent = f.file;
         const sub = document.createElement('div');
         sub.style.cssText = 'font-size:8px;color:var(--dim2);margin-top:2px;';
-        sub.textContent = f.cards + ' cards';
+        sub.textContent = f.lines != null ? f.lines + ' lines' : '';   // manifiesto anterior (sin lines): nada
         div.appendChild(sub);
-        // J4: práctica de todas las tarjetas del fichero (sin SM-2)
-        const pb = document.createElement('button');
-        pb.className = 'ctrl-btn'; pb.textContent = '▶ Practice';
-        pb.style.cssText = 'margin-top:4px;font-size:8px;padding:2px 6px;';
-        pb.addEventListener('click', ev => { ev.stopPropagation(); jcStartPracticeFile(f); });
-        div.appendChild(pb);
         div.addEventListener('mouseenter', () => div.style.background = 'var(--hover)');
         div.addEventListener('mouseleave', () => div.style.background = '');
         div.addEventListener('click', () => jsOpenFile(f));
@@ -6503,7 +6405,6 @@
         if (!r.ok) throw new Error('HTTP ' + r.status);
         const data = await r.json();
         if (!data || data.format !== 1 || !data.root) throw new Error('joseki format');
-        if (jcSession) { jcAbort(); document.getElementById('js-controls').style.display = 'flex'; } // J4
         jsEntry = entry; jsData = data; jsStack = []; jsSym = 0; jsNotice = '';
         if (!wgoBoard || boardSize !== 19) initBoard(19);
         jsRender(null);
@@ -6517,7 +6418,16 @@
       clearBoard();
       // Posición: WGo.Game aplica capturas; la legalidad ya la validó el importador.
       const game = new WGo.Game(19, 'NONE', true, false);
+      const ctxPts = [];   // J3.2: piedras de contexto de la pila (para el cuadrado)
       for (const n of jsStack) {
+        if (n.ctx) {         // J3.2: el contexto añade piedras, sin capturas ni cambio de turno
+          for (const c of ['B', 'W']) for (const m of (n.ctx[c] || [])) {
+            const p = jsXy(jsXform(m, jsSym));
+            game.setStone(p.x, p.y, c === 'B' ? WGo.B : WGo.W);
+            ctxPts.push(p);
+          }
+          continue;
+        }
         if (n.m === 'pass') continue;
         const p = jsXy(jsXform(n.m, jsSym));
         game.play(p.x, p.y, n.c === 'B' ? WGo.B : WGo.W);
@@ -6530,15 +6440,25 @@
       }
       const stoneAt = (x, y) => { const v = pos.get(x, y); return v === WGo.B ? 1 : v === WGo.W ? -1 : 0; };
       // Último movimiento (como en Games)
-      if (jsStack.length && node.m !== 'pass') { const p = jsXy(jsXform(node.m, jsSym)); wgoBoard.addObject({ x: p.x, y: p.y, type: 'CR' }); }
-      // Marcas del nodo (J-76), rotadas con el tablero
+      if (jsStack.length && node.m !== 'pass' && !node.ctx) { const p = jsXy(jsXform(node.m, jsSym)); wgoBoard.addObject({ x: p.x, y: p.y, type: 'CR' }); }
+      // Marcas del nodo (J-76), rotadas con el tablero. J3.2: LB = [[coord, texto], ...]
+      const labelled = new Set();
       for (const [t, list] of Object.entries(node.marks || {})) {
         const h = WGo.Board.drawHandlers[t];
         if (!h) continue;
         for (const m of list) {
-          const p = jsXy(jsXform(m, jsSym)), sc = stoneAt(p.x, p.y);
-          wgoBoard.addObject({ x: p.x, y: p.y, type: h, c: sc === 1 ? 'white' : sc === -1 ? 'black' : '#333' });
+          const isLb = t === 'LB';
+          const p = jsXy(jsXform(isLb ? m[0] : m, jsSym)), sc = stoneAt(p.x, p.y);
+          const obj = { x: p.x, y: p.y, type: h, c: sc === 1 ? 'white' : sc === -1 ? 'black' : '#333' };
+          if (isLb) { obj.text = m[1]; labelled.add(p.x + ',' + p.y); }
+          wgoBoard.addObject(obj);
         }
+      }
+      // J3.2: cuadrado en las piedras de contexto que siguen en el tablero, salvo si llevan letra
+      for (const p of ctxPts) {
+        const sc = stoneAt(p.x, p.y);
+        if (!sc || labelled.has(p.x + ',' + p.y)) continue;
+        wgoBoard.addObject({ x: p.x, y: p.y, type: WGo.Board.drawHandlers['SQ'], c: sc === 1 ? 'white' : 'black' });
       }
       // Opciones: fantasmas en el tablero; pases como chips (J-31, J-74)
       const opts = jsOptions(node, jsShowWhatif);
@@ -6546,15 +6466,16 @@
       jsClosePop();
       const seen = new Set();
       for (const o of opts) {
-        if (o.pass || !drawGhosts) continue;
+        if (o.pass || o.ctx || !drawGhosts) continue;
         const p = jsXy(jsXform(o.m, jsSym)), key = p.x + ',' + p.y;
         if (seen.has(key)) continue;   // varias opciones en el mismo punto: se elige al pulsar
         seen.add(key);
         wgoBoard.addObject({ x: p.x, y: p.y, c: o.c === 'B' ? 1 : -1, type: 'outline' });
         wgoBoard.addObject({ x: p.x, y: p.y, type: WGo.Board.drawHandlers['LB'], text: o.sym, c: o.color });
       }
-      if (drawGhosts) jsRenderChoices(opts.filter(o => o.pass));
-      else jsRenderNeutralPass(opts.filter(o => o.pass));   // J3.1: sin pistas, pero se puede pasar
+      const ctxOpts = opts.filter(o => o.ctx);   // J3.2: los contextos, siempre visibles
+      if (drawGhosts) jsRenderChoices(opts.filter(o => o.pass).concat(ctxOpts));
+      else jsRenderNeutralPass(opts.filter(o => o.pass), ctxOpts);   // J3.1: sin pistas, pero se puede pasar
       // Comentario (J-35: siempre visible en modo aprender)
       const cb = document.getElementById('comment-box');
       cb.textContent = jsStack.length ? (node.comment || '') : (jsData.description || '');
@@ -6586,7 +6507,8 @@
       const s = document.createElement('span');
       s.style.color = o.color; s.textContent = o.sym + ' ';
       b.appendChild(s);
-      b.appendChild(document.createTextNode((o.pass ? 'Pass' : o.m.toUpperCase()) + ' (' + o.c + ')' + (o.node.name ? ' · ' + o.node.name : '')));
+      b.appendChild(document.createTextNode(o.ctx ? 'Context · ' + (o.node.name || '?')   // J3.2
+        : (o.pass ? 'Pass' : o.m.toUpperCase()) + ' (' + o.c + ')' + (o.node.name ? ' · ' + o.node.name : '')));
       b.addEventListener('click', () => jsPlay(o));
       return b;
     }
@@ -6597,7 +6519,8 @@
     }
     // J3.1: con los fantasmas ocultos, un botón Pass sin símbolo (no desvela si
     // pasar es una opción); si el nodo no tiene pase, no hace nada.
-    function jsRenderNeutralPass(passOpts) {
+    // J3.2: los chips de contexto se añaden detrás (siempre visibles).
+    function jsRenderNeutralPass(passOpts, ctxOpts) {
       const zone = document.getElementById('js-choices');
       zone.innerHTML = '';
       const b = document.createElement('button');
@@ -6605,6 +6528,7 @@
       b.textContent = 'Pass';
       b.addEventListener('click', () => { if (passOpts.length === 1) jsPlay(passOpts[0]); });
       zone.appendChild(b);
+      for (const o of (ctxOpts || [])) zone.appendChild(jsChoiceButton(o));
     }
     // J3.1: menú flotante anclado a la intersección (varias opciones en el
     // mismo punto). Se cierra al elegir, al pulsar fuera, con Escape o al repintar.
@@ -6638,7 +6562,7 @@
       if (opt.via) { jsStack.push(opt.via); jsNotice = 'tenuki by ' + opt.via.c; }
       jsStack.push(opt.node);
       const sig = jsSignal(opt.node);
-      sig.moved = !opt.pass;
+      sig.moved = !opt.pass && !opt.ctx;   // J3.2: el contexto no suena a piedra
       jsRender(sig);
     }
 
@@ -6646,7 +6570,7 @@
       window._boardClickHandler = (x, y) => {
         if (!jsActive || !jsData) return;
         const m = jsXformInv(String.fromCharCode(97 + x) + String.fromCharCode(97 + y), jsSym);
-        const hits = jsOptions(jsNode(), jsShowWhatif).filter(o => !o.pass && o.m === m);
+        const hits = jsOptions(jsNode(), jsShowWhatif).filter(o => !o.pass && !o.ctx && o.m === m);
         if (hits.length === 1) jsPlay(hits[0]);
         else if (hits.length > 1) jsShowPop(hits, x, y);   // J3.1: menú junto al punto
       };
@@ -6684,404 +6608,15 @@
     // J3: entrada en la pestaña: refresca la lista y, si había un joseki
     // abierto, lo vuelve a pintar (el tablero es compartido con otros modos).
     function jsEnterTab() {
-      jsLoadManifest().then(() => jcRefreshCounts()); // J4: recuento de la cola del día
+      jsLoadManifest();
       if (jsData) { if (!wgoBoard || boardSize !== 19) initBoard(19); jsRender(null); }
-    }
-
-    // ══ J4: JOSEKIS — tarjetas (revisión SM-2 y práctica) ══
-    // Bloque 1: funciones PURAS (probadas en test_joseki.js). Bloque 2: UI.
-    // El sync del progreso vive dentro de doSync (zona crítica, bloque J4).
-
-    // J4: paso SM-2 puro. MISMO algoritmo que updateSm2 (que no se toca): un
-    // test de equivalencia sobre sql.js real lo garantiza. rnd() en [0,1).
-    function sm2Step(prev, result, rnd, now) {
-      let interval = prev ? prev.interval : 6;
-      let easiness = prev ? prev.easiness : 2.5;
-      let repetitions = prev ? prev.repetitions : 0;
-      let daysUntilDue;
-      if (result === 'correct') {
-        repetitions += 1;
-        const nextBase = repetitions === 1 ? 6 : Math.round(interval * easiness);
-        const nextNext = Math.round(nextBase * easiness);
-        daysUntilDue = nextBase + Math.floor(rnd() * Math.max(1, nextNext - nextBase));
-        interval = nextBase;
-      } else {
-        repetitions = 0;
-        interval = 1;
-        daysUntilDue = interval;
-        easiness = Math.max(1.3, easiness - 0.2);
-      }
-      const due = new Date(now.getTime());
-      due.setDate(due.getDate() + Math.round(daysUntilDue));
-      return { interval, easiness, repetitions, due };
-    }
-    // J4: nodos de la línea de una tarjeta (path del JSON -> nodos del árbol).
-    function jcResolve(root, path) {
-      const nodes = [];
-      let node = root;
-      for (const m of path) {
-        const k = (node.ch || []).find(c => c.m === m);
-        if (!k) return null;
-        nodes.push(k);
-        node = k;
-      }
-      return nodes;
-    }
-    // J4: ¿esta jugada de la línea la hace Victor? Los pases implícitos los
-    // juega siempre el sistema (J-75), sean del color que sean.
-    function jcIsMine(node, color) {
-      return node.c === color && !node.implicit;
-    }
-    // J4: evalúa la jugada m (coordenada o 'pass') en el nodo padre (J-22).
-    // 'ok' = la de la tarjeta; 'alt' = otra buena; 'doubtful'; 'bad'; 'unknown'
-    // = no está en el fichero. Las ramas tras un pase implícito no son jugables.
-    function jcEvaluate(parent, expected, m) {
-      if (m === expected.m) return 'ok';
-      const k = (parent.ch || []).find(c => c.m === m && !c.implicit);
-      if (!k) return 'unknown';
-      if (k.q === 'bad') return 'bad';
-      if (k.q === 'doubtful') return 'doubtful';
-      return 'alt';
-    }
-    // J4: jugadas que enseña la pista (J-24): las buenas del color que juega.
-    function jcHintMoves(parent, color) {
-      return (parent.ch || []).filter(c => !c.implicit && c.c === color && !c.q);
-    }
-    // J4: cola del día (J-16). cards en orden de catálogo; sm2 = {card_id: fila}.
-    function jcBuildQueue(cards, sm2, today, newLimit, newStartedToday) {
-      const due = cards.filter(c => sm2[c.id] && sm2[c.id].due_date <= today)
-        .sort((a, b) => (sm2[a.id].due_date < sm2[b.id].due_date ? -1 : sm2[a.id].due_date > sm2[b.id].due_date ? 1 : 0));
-      const slots = Math.max(0, newLimit - newStartedToday);
-      const fresh = cards.filter(c => !sm2[c.id]).slice(0, slots);
-      return { due, fresh, queue: due.concat(fresh) };
-    }
-    // J4: nº de tarjetas cuyo PRIMER intento fue hoy. firsts = [{card_id, first}]
-    // (first = MIN(created_at) en UTC); toLocal convierte a día local.
-    function jcNewToday(firsts, today, toLocal) {
-      return firsts.filter(r => toLocal(r.first) === today).length;
-    }
-    // J4: tarjetas cuya línea pasa por la posición dada (práctica de una rama).
-    function jcBranchCards(cards, prefix) {
-      return cards.filter(c => c.path.length >= prefix.length && prefix.every((m, i) => c.path[i] === m));
-    }
-    // J4: barajado Fisher-Yates con rnd inyectable.
-    function jcShuffle(arr, rnd) {
-      const a = arr.slice();
-      for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; }
-      return a;
-    }
-
-    // ── J4: UI ──
-    let jcSession = null;   // { mode: 'review'|'practice', queue: [card], idx, failed: [card], ok, label }
-    let jcCur = null;       // tarjeta en juego: { card, data, nodes, i, sym, hint, failed, fix, done, start, notice }
-    let jcTimer = null;     // jugada pendiente del sistema / avance automático
-    let jcCatalog = new Map();   // json -> datos compilados (catálogo de tarjetas)
-
-    function jcPrefNum(k, d) { try { const v = parseInt(localStorage.getItem(k), 10); return isNaN(v) ? d : v; } catch (e) { return d; } }
-    function jcNowIso() { return new Date().toISOString().replace(/\.\d+Z$/, 'Z'); }
-
-    async function jcLoadFile(entry) {
-      if (jcCatalog.has(entry.json + '?' + entry.hash)) return jcCatalog.get(entry.json + '?' + entry.hash);
-      const r = await fetch(SGF_BASE + 'joseki/' + encodeURIComponent(entry.json) + '?h=' + encodeURIComponent(entry.hash));
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      const data = await r.json();
-      if (!data || data.format !== 1 || !data.root) throw new Error('joseki format');
-      jcCatalog.set(entry.json + '?' + entry.hash, data);
-      return data;
-    }
-    function jcCardsOf(data) { return (data.cards || []).map(c => Object.assign({ file: data.file, _data: data }, c)); }
-    async function jcAllCards() {
-      if (!jsManifest) await jsLoadManifest();
-      if (!jsManifest) return [];
-      const out = [];
-      for (const f of jsManifest.files) {
-        try { out.push(...jcCardsOf(await jcLoadFile(f))); } catch (e) { console.warn('jcAllCards', f.file, e); }
-      }
-      return out;
-    }
-    function jcSm2Map() {
-      const m = {};
-      for (const r of dbQuery('SELECT card_id, due_date FROM joseki_sm2', [])) m[r.card_id] = r;
-      return m;
-    }
-    function jcNewStartedToday() {
-      const firsts = dbQuery('SELECT card_id, MIN(created_at) AS first FROM joseki_attempts GROUP BY card_id', []);
-      return jcNewToday(firsts, localDateStr(), iso => localDateStr(new Date(iso)));
-    }
-    async function jcComputeQueue() {
-      const cards = await jcAllCards();
-      return jcBuildQueue(cards, jcSm2Map(), localDateStr(), jcPrefNum('joseki_new_per_day', 10), jcNewStartedToday());
-    }
-    async function jcRefreshCounts() {
-      const el = document.getElementById('jc-counts');
-      if (!el) return;
-      try { const q = await jcComputeQueue(); el.textContent = 'Due ' + q.due.length + ' · New ' + q.fresh.length; }
-      catch (e) { el.textContent = '—'; }
-    }
-
-    // ── Sesiones ──
-    async function jcStartReview() {
-      try {
-        const q = await jcComputeQueue();
-        if (!q.queue.length) { document.getElementById('jc-counts').textContent = 'Nothing due today ✓'; return; }
-        jcBeginSession('review', q.queue, 'Review');
-      } catch (e) { console.warn('jcStartReview', e); alert('Error building the review queue: ' + e.message); }
-    }
-    async function jcStartPracticeFile(entry) {
-      try { const data = await jcLoadFile(entry); jcBeginSession('practice', jcShuffle(jcCardsOf(data), Math.random), 'Practice'); }
-      catch (e) { console.warn('jcStartPracticeFile', e); alert('Error loading joseki file: ' + e.message); }
-    }
-    function jcStartPracticeBranch() {
-      if (!jsData) return;
-      const prefix = jsStack.map(n => n.m);
-      const cards = jcBranchCards(jcCardsOf(jsData), prefix);
-      if (!cards.length) { jsNotice = 'no cards in this branch'; jsRender(null); return; }
-      jcBeginSession('practice', jcShuffle(cards, Math.random), 'Practice');
-    }
-    function jcBeginSession(mode, queue, label) {
-      jcSession = { mode, queue, idx: 0, failed: [], ok: 0, label };
-      document.getElementById('js-controls').style.display = 'none';
-      document.getElementById('jc-controls').style.display = 'flex';
-      if (!wgoBoard || boardSize !== 19) initBoard(19);
-      switchToBoard();
-      jcStartCard();
-    }
-    function jcStartCard() {
-      const card = jcSession.queue[jcSession.idx];
-      const data = card._data;
-      const nodes = jcResolve(data.root, card.path);
-      if (!nodes) { console.warn('jcStartCard: ruta inexistente', card.id); jcNextCard(); return; }
-      const rnd = jcPrefNum('joseki_random_orient', 1) ? Math.floor(Math.random() * 8) : 0;
-      jcCur = { card, data, nodes, i: 0, sym: rnd, hint: false, failed: false, fix: false, done: false, start: Date.now(), notice: '' };
-      jcSetEndButtons(false);
-      jcRender();
-      jcAdvanceAuto();
-    }
-    // El sistema juega sus jugadas (y los pases implícitos) hasta que te toca o acaba la línea.
-    function jcAdvanceAuto() {
-      if (!jcCur || jcCur.done) return;
-      const c = jcCur;
-      if (c.i >= c.nodes.length) { jcFinishCard(); return; }
-      if (jcIsMine(c.nodes[c.i], c.card.color)) { jcRender(); return; }
-      if (jcTimer) clearTimeout(jcTimer);
-      jcTimer = setTimeout(() => {
-        jcTimer = null;
-        if (jcCur !== c || c.done) return;
-        const n = c.nodes[c.i];
-        c.i++;
-        if (n.implicit) c.notice = 'tenuki by ' + n.c;
-        else if (n.m === 'pass') c.notice = 'opponent plays elsewhere';
-        else { c.notice = ''; playSound('stone'); }
-        jcRender();
-        jcAdvanceAuto();
-      }, 400);
-    }
-    function jcInput(m) {
-      const c = jcCur;
-      if (!c || c.done || jcTimer) return;
-      if (c.i >= c.nodes.length || !jcIsMine(c.nodes[c.i], c.card.color)) return;
-      const expected = c.nodes[c.i];
-      const parent = c.i === 0 ? c.data.root : c.nodes[c.i - 1];
-      if (c.fix) {   // D1: tras un fallo solo vale la jugada correcta (mostrada como fantasma)
-        if (m !== expected.m) return;
-        c.fix = false;
-      } else {
-        const ev = jcEvaluate(parent, expected, m);
-        if (ev === 'alt' || ev === 'doubtful') {
-          playSound('variant');
-          c.notice = ev === 'doubtful' ? 'doubtful move — this card wants another variation' : 'valid, but this card wants another variation';
-          jcRender();
-          return;
-        }
-        if (ev !== 'ok') {
-          c.failed = true; c.fix = true;
-          playSound('wrong');
-          c.notice = ev === 'bad' ? '✗ bad move — play the shown move to continue' : '✗ not in this joseki — play the shown move to continue';
-          jcRender();
-          document.getElementById('board-wrap').classList.add('board-bad');
-          return;
-        }
-      }
-      c.i++;
-      c.notice = '';
-      if (expected.m !== 'pass') playSound('stone');
-      jcRender();
-      jcAdvanceAuto();
-    }
-    function jcHint() {
-      const c = jcCur;
-      if (!c || c.done || c.fix) return;
-      c.hint = true;
-      c.notice = 'hint shown';
-      jcRender();
-    }
-    function jcFinishCard() {
-      const c = jcCur;
-      c.done = true;
-      const result = (c.failed || c.hint) ? 'wrong' : 'correct';
-      const s = jcSession;
-      if (result === 'correct') s.ok++; else s.failed.push(c.card);
-      if (s.mode === 'review') jcRecord(c.card, result, c.hint, Date.now() - c.start);
-      const bw = document.getElementById('board-wrap');
-      bw.classList.remove('board-ok', 'board-bad');
-      bw.classList.add(result === 'correct' ? 'board-ok' : 'board-bad');
-      playSound(result === 'correct' ? 'right' : 'wrong');
-      c.notice = result === 'correct' ? '✓ end of line' : 'end of line';
-      jcRender();
-      if (result === 'correct') { jcTimer = setTimeout(() => { jcTimer = null; jcNextCard(); }, 1000); }   // D2
-      else jcSetEndButtons(false, true);
-    }
-    // Registro de un repaso: intento + SM-2 (ambos pendientes de sync, synced=0).
-    function jcRecord(card, result, hint, ms) {
-      try {
-        const now = jcNowIso();
-        dbExec('INSERT INTO joseki_attempts (uuid, card_id, result, hint, time_ms, created_at, synced) VALUES (?,?,?,?,?,?,0)',
-          [makeUUID(), card.id, result, hint ? 1 : 0, Math.round(ms), now]);
-        const prev = dbQueryOne('SELECT interval, easiness, repetitions FROM joseki_sm2 WHERE card_id=?', [card.id]);
-        const st = sm2Step(prev, result, Math.random, new Date());
-        dbExec(`INSERT INTO joseki_sm2 (card_id, due_date, interval, easiness, repetitions, updated_at, synced)
-                VALUES (?, ?, ?, ?, ?, ?, 0)
-                ON CONFLICT(card_id) DO UPDATE SET due_date = excluded.due_date, interval = excluded.interval,
-                  easiness = excluded.easiness, repetitions = excluded.repetitions, updated_at = excluded.updated_at, synced = 0`,
-          [card.id, localDateStr(st.due), st.interval, st.easiness, st.repetitions, now]);
-        scheduleSaveDB();
-        if (typeof updatePendingBadge === 'function') updatePendingBadge();
-        tryAutoSync(true).then(ok => { if (!ok && syncInProgress) setTimeout(() => { tryAutoSync(true).catch(() => { }); }, 2000); }).catch(() => { });
-      } catch (e) { console.warn('jcRecord', e); }
-    }
-    function jcNextCard() {
-      if (!jcSession) return;
-      if (jcTimer) { clearTimeout(jcTimer); jcTimer = null; }
-      jcSession.idx++;
-      if (jcSession.idx < jcSession.queue.length) { jcStartCard(); return; }
-      jcEndSession();
-    }
-    function jcEndSession() {
-      const s = jcSession;
-      jcCur = null;
-      clearBoard();
-      document.getElementById('board-wrap').classList.remove('board-ok', 'board-bad');
-      document.getElementById('comment-box').textContent = '';
-      const hint = document.getElementById('board-hint');
-      hint.textContent = s.label + ' finished · ' + s.ok + '/' + s.queue.length;
-      hint.className = '';
-      window._boardClickHandler = null;
-      jcSetEndButtons(true);
-      if (s.mode === 'review') jcRefreshCounts();
-    }
-    // Botones de fin: en tarjeta -> Next visible si se espera; en fin de tanda -> Repeat/Exit.
-    function jcSetEndButtons(sessionOver, waitNext) {
-      const end = document.getElementById('jc-end');
-      end.innerHTML = '';
-      document.getElementById('jc-btn-hint').style.display = sessionOver ? 'none' : '';
-      document.getElementById('jc-btn-pass').style.display = sessionOver ? 'none' : '';
-      document.getElementById('jc-btn-next').style.display = (!sessionOver && waitNext) ? '' : 'none';
-      document.getElementById('jc-btn-stop').style.display = sessionOver ? 'none' : '';
-      if (!sessionOver) return;
-      const s = jcSession;
-      const mk = (label, fn) => { const b = document.createElement('button'); b.className = 'ctrl-btn'; b.textContent = label; b.addEventListener('click', fn); end.appendChild(b); };
-      if (s.mode === 'practice' && s.failed.length) mk('↻ Repeat failed (' + s.failed.length + ')', () => jcBeginSession('practice', jcShuffle(s.failed, Math.random), 'Practice'));
-      if (s.mode === 'practice') mk('↻ Repeat all', () => jcBeginSession('practice', jcShuffle(s.queue, Math.random), 'Practice'));
-      mk('✕ Exit', jcExit);
-    }
-    function jcAbort() {
-      if (jcTimer) { clearTimeout(jcTimer); jcTimer = null; }
-      jcSession = null; jcCur = null;
-      const ctl = document.getElementById('jc-controls');
-      if (ctl) ctl.style.display = 'none';
-    }
-    // D3: Stop corta la sesión; la tarjeta a medias no registra nada.
-    function jcExit() {
-      jcAbort();
-      document.getElementById('board-wrap').classList.remove('board-ok', 'board-bad');
-      if (jsActive) document.getElementById('js-controls').style.display = 'flex';
-      if (jsData) jsRender(null);
-      else { clearBoard(); document.getElementById('board-hint').textContent = ''; document.getElementById('comment-box').textContent = ''; }
-      jcRefreshCounts();
-    }
-
-    function jcRender() {
-      const c = jcCur;
-      if (!c || !wgoBoard) return;
-      clearBoard();
-      const game = new WGo.Game(19, 'NONE', true, false);
-      for (let k = 0; k < c.i; k++) {
-        const n = c.nodes[k];
-        if (n.m === 'pass') continue;
-        const p = jsXy(jsXform(n.m, c.sym));
-        game.play(p.x, p.y, n.c === 'B' ? WGo.B : WGo.W);
-      }
-      const pos = game.getPosition();
-      for (let x = 0; x < 19; x++) for (let y = 0; y < 19; y++) {
-        const v = pos.get(x, y);
-        if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 });
-        else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 });
-      }
-      const last = c.i > 0 ? c.nodes[c.i - 1] : null;
-      if (last && last.m !== 'pass') { const p = jsXy(jsXform(last.m, c.sym)); wgoBoard.addObject({ x: p.x, y: p.y, type: 'CR' }); }
-      // Marcas y comentario: solo de jugadas YA hechas (J-25, J-76)
-      if (last) {
-        for (const [t, list] of Object.entries(last.marks || {})) {
-          const h = WGo.Board.drawHandlers[t];
-          if (!h) continue;
-          for (const m of list) {
-            const p = jsXy(jsXform(m, c.sym)), v = pos.get(p.x, p.y);
-            wgoBoard.addObject({ x: p.x, y: p.y, type: h, c: v === WGo.B ? 'white' : v === WGo.W ? 'black' : '#333' });
-          }
-        }
-      }
-      document.getElementById('comment-box').textContent = last ? (last.comment || '') : '';
-      // Fantasmas: la jugada correcta tras un fallo (D1) o las buenas con pista (J-24)
-      const mineNow = !c.done && c.i < c.nodes.length && jcIsMine(c.nodes[c.i], c.card.color);
-      let passHint = false;
-      if (mineNow) {
-        const parent = c.i === 0 ? c.data.root : c.nodes[c.i - 1];
-        const ghosts = c.fix ? [c.nodes[c.i]] : (c.hint ? jcHintMoves(parent, c.card.color) : []);
-        for (const g of ghosts) {
-          if (g.m === 'pass') { passHint = true; continue; }
-          const p = jsXy(jsXform(g.m, c.sym)), info = jsMarkInfo(g);
-          wgoBoard.addObject({ x: p.x, y: p.y, c: g.c === 'B' ? 1 : -1, type: 'outline' });
-          wgoBoard.addObject({ x: p.x, y: p.y, type: WGo.Board.drawHandlers['LB'], text: info.sym, c: info.color });
-        }
-      }
-      // Cabecera: modo · n/N · tu color · nombre de la variante esperada (J-23)
-      const s = jcSession;
-      const parts = [(s.mode === 'practice' ? 'Practice' : 'Card') + ' ' + (s.idx + 1) + '/' + s.queue.length, 'You: ' + c.card.color];
-      if (mineNow && c.nodes[c.i].name) parts.push(c.nodes[c.i].name);
-      if (c.card.whatif) parts.push('what-if');
-      if (c.notice) parts.push(c.notice);
-      if (passHint) parts.push('pass is a good move here');
-      const hint = document.getElementById('board-hint');
-      hint.textContent = parts.join(' · ');
-      hint.className = '';
-      if (!c.done && !c.fix) document.getElementById('board-wrap').classList.remove('board-ok', 'board-bad');
-      window._boardClickHandler = (x, y) => {
-        if (!jsActive || !jcCur) return;
-        if (jcCur.done) { if (!jcTimer) jcNextCard(); return; }   // D2: tocar el tablero = Next tras fallo
-        jcInput(jsXformInv(String.fromCharCode(97 + x) + String.fromCharCode(97 + y), jcCur.sym));
-      };
-    }
-
-    function jcInitControls() {
-      document.getElementById('jc-btn-hint').addEventListener('click', jcHint);
-      document.getElementById('jc-btn-pass').addEventListener('click', () => jcInput('pass'));
-      document.getElementById('jc-btn-next').addEventListener('click', () => { if (jcCur && jcCur.done) jcNextCard(); });
-      document.getElementById('jc-btn-stop').addEventListener('click', jcExit);
-      document.getElementById('jc-start').addEventListener('click', jcStartReview);
-      document.getElementById('js-btn-practice').addEventListener('click', jcStartPracticeBranch);
-      const lim = document.getElementById('jc-newlimit');
-      lim.value = String(jcPrefNum('joseki_new_per_day', 10));
-      lim.addEventListener('change', () => { const v = Math.max(0, Math.min(500, parseInt(lim.value, 10) || 0)); lim.value = String(v); try { localStorage.setItem('joseki_new_per_day', String(v)); } catch (e) { } jcRefreshCounts(); });
-      const rnd = document.getElementById('jc-random');
-      rnd.checked = !!jcPrefNum('joseki_random_orient', 1);
-      rnd.addEventListener('change', () => { try { localStorage.setItem('joseki_random_orient', rnd.checked ? '1' : '0'); } catch (e) { } });
     }
 
     function switchTab(name) {
       document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === `tab-${name}`));
       // J3: los controles de josekis solo existen dentro de su pestaña
-      if (name !== 'josekis') { jsActive = false; document.getElementById('js-controls').style.display = 'none'; jsClosePop(); /* J3.1 */ jcAbort(); /* J4 */ }
+      if (name !== 'josekis') { jsActive = false; document.getElementById('js-controls').style.display = 'none'; jsClosePop(); /* J3.1 */ }
       if (name === 'games') {
         gmActive = true;
         gmLoadCollections();
@@ -7145,7 +6680,7 @@
     // (gmActive) se excluye: repintarle un problema encima seria peor que
     // conservar el tamano anterior hasta la proxima interaccion.
     window.addEventListener('resize', () => { clearTimeout(rsTO); rsTO = setTimeout(() => {
-      if (wgoBoard && jsActive && (jsData || jcCur)) { initBoard(19); if (jcCur) jcRender(); else jsRender(null); return; } // J3/J4
+      if (wgoBoard && jsActive && jsData) { initBoard(19); jsRender(null); return; } // J3
       if (!wgoBoard || !currentProblem || gmActive) return;
       initBoard(currentProblem.size || 19);
       if (window._studyRedraw) window._studyRedraw(); else renderProblem(currentProblem);
@@ -7179,7 +6714,6 @@
       tryAutoSync(true).then(async ok => { if (ok) await syncDeletedRuns(); loadCollections(); });
       gmInitControls();
       jsInitControls(); // J3
-      jcInitControls(); // J4
 	  if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('/tsumevault/sw.js?' + SW_VERSION).then(() => {
 		  updateSwVersionLabel();
