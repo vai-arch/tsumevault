@@ -1493,10 +1493,16 @@
             </select>
           </div>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+            <div style="display:flex;flex-direction:column;gap:6px;">
             <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);padding-bottom:2px;">
               <input type="checkbox" id="cf-needs-work" style="accent-color:var(--gold);cursor:pointer;">
               Needs work (&lt;90% or not tried)
             </label>
+            <label id="cf-all-sources-lbl" style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);padding-bottom:2px;opacity:.45;" title="Requires 'Needs work'">
+              <input type="checkbox" id="cf-all-sources" disabled style="accent-color:var(--gold);cursor:pointer;">
+              All sources
+            </label>
+            </div>
             <button id="btn-expand-all" style="font-family:var(--mono);font-size:9px;color:var(--dim);background:transparent;border:1px solid var(--border2);border-radius:2px;padding:2px 7px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .15s;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">⊞ All</button>
           </div>
         </div>
@@ -1770,7 +1776,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261026-1752';
+	const SW_VERSION = 'tsumevault-20261026-1844';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1800,6 +1806,30 @@
     let waitingForNext = false;
     let sessionOk = 0, sessionNo = 0;
     let lastRunStatsAll = {};
+    // Collections tab: clave compuesta source|set_id (set_id solo es unico dentro de una source).
+    // viewCollections = lo que pinta la pestaña (1 source, o todas con 'All sources').
+    // allCollections sigue siendo SOLO la source actual (lo usan Free/Review).
+    let viewCollections = [];
+    const CF_NEEDS_KEY = 'cf_needs_work', CF_ALLSRC_KEY = 'cf_all_sources';
+    const colKey = (source, setId) => `${source}|${setId}`;
+    function cfAllSources() {
+      const a = document.getElementById('cf-all-sources'), n = document.getElementById('cf-needs-work');
+      return !!(a && n && a.checked && n.checked);
+    }
+    function lsGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function lsSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { } }
+    function syncAllSourcesUI() {
+      const n = document.getElementById('cf-needs-work'), a = document.getElementById('cf-all-sources');
+      const lbl = document.getElementById('cf-all-sources-lbl'), sel = document.getElementById('source-sel');
+      if (!n || !a) return;
+      a.disabled = !n.checked;
+      if (!n.checked) a.checked = false;
+      if (lbl) lbl.style.opacity = n.checked ? '1' : '.45';
+      if (sel) { sel.style.opacity = a.checked ? '.5' : ''; sel.title = a.checked ? 'All sources activo en Collections' : ''; }
+    }
+    async function ensureColSource(col) {
+      if (col.source && col.source !== currentSource) await changeSource(col.source, { keepTab: true });
+    }
     let lightMode = false;
     let currentSource = 'tsumego_hero';
     const SGF_BASE = '/tsumevault/';
@@ -4429,34 +4459,56 @@
     async function loadCollections() {
       try {
         allCollections = localGetCollections(currentSource);
-        lastRunStatsAll = localGetLastRunStatsAll(currentSource);
+        const srcs = cfAllSources()
+          ? dbQuery('SELECT DISTINCT source FROM collections ORDER BY source', []).map(r => r.source)
+          : [currentSource];
+        viewCollections = cfAllSources()
+          ? srcs.flatMap(sr => sr === currentSource ? allCollections : localGetCollections(sr))
+          : allCollections;
+        lastRunStatsAll = buildRunStatsView(srcs);
         renderCollectionsList(); populateCollectionDiffFilter(); populateFreeFilters(); populateReviewFilters(); clearSidebar();
       } catch (e) {
         document.getElementById('col-list').innerHTML = `<div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--accent);text-align:center">Error: ${esc(e.message)}</div>`;
       }
     }
+    function buildRunStatsView(srcs) {
+      const out = {};
+      for (const sr of srcs) {
+        const r = localGetLastRunStatsAll(sr);
+        for (const [sid, v] of Object.entries(r)) out[colKey(sr, sid)] = v;
+      }
+      return out;
+    }
     function renderCollectionsList() {
       const list = document.getElementById('col-list'); list.innerHTML = '';
-      for (const col of allCollections) {
+      const multi = cfAllSources();
+      let lastSrc = null;
+      for (const col of viewCollections) {
+        if (multi && col.source !== lastSrc) {
+          lastSrc = col.source;
+          const h = document.createElement('div'); h.className = 'col-src-head'; h.dataset.source = col.source;
+          h.style.cssText = 'padding:6px 14px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:var(--panel);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:2;';
+          h.textContent = col.source;
+          list.appendChild(h);
+        }
         const item = document.createElement('div');
-        item.className = 'col-item'; item.dataset.setId = col.set_id;
+        item.className = 'col-item'; item.dataset.setId = col.set_id; item.dataset.source = col.source; item.dataset.key = colKey(col.source, col.set_id);
         const diffStr = col.difficulty_raw || diffLabel(col.difficulty_num) || '—';
         item.innerHTML = `
       <div class="col-name"><span class="col-arrow">▶</span><span>${esc(col.name)}</span></div>
-      <div class="col-stats"><span>${col.visible_problems || col.num_problems} probs</span><span class="col-diff">${esc(diffStr)}</span><span class="col-pct" id="cpct-${col.set_id}">—</span></div>
-      <div class="col-chapters" id="chaps-${col.set_id}"></div>`;
+      <div class="col-stats"><span>${col.visible_problems || col.num_problems} probs</span><span class="col-diff">${esc(diffStr)}</span><span class="col-pct" id="cpct-${colKey(col.source, col.set_id)}">—</span></div>
+      <div class="col-chapters" id="chaps-${colKey(col.source, col.set_id)}"></div>`;
         item.querySelector('.col-name').addEventListener('click', () => toggleCollection(col, item));
-        list.appendChild(item); refreshColPct(col.set_id);
+        list.appendChild(item); refreshColPct(item.dataset.key);
       }
       applyCollectionFilters();
       if (document.getElementById('cf-needs-work').checked) expandAllVisible();
     }
     function populateCollectionDiffFilter() {
       const sel = document.getElementById('cf-diff');
-      const rows = dbQuery(
-        'SELECT DISTINCT diff_avg FROM chapters WHERE source=? AND diff_avg IS NOT NULL ORDER BY diff_avg ASC',
-        [currentSource]
-      );
+      const rows = cfAllSources()
+        ? dbQuery('SELECT DISTINCT diff_avg FROM chapters WHERE diff_avg IS NOT NULL ORDER BY diff_avg ASC', [])
+        : dbQuery('SELECT DISTINCT diff_avg FROM chapters WHERE source=? AND diff_avg IS NOT NULL ORDER BY diff_avg ASC', [currentSource]);
       const nums = rows.map(r => r.diff_avg);
       sel.innerHTML = '<option value="">All</option>';
       for (const n of nums) { const opt = document.createElement('option'); opt.value = n; opt.textContent = diffLabel(n); sel.appendChild(opt); }
@@ -4466,19 +4518,19 @@
       const maxDiff = document.getElementById('cf-diff').value;
       const needsWork = document.getElementById('cf-needs-work').checked;
       document.querySelectorAll('#col-list .col-item').forEach(item => {
-        const setId = item.dataset.setId;
-        const col = allCollections.find(c => String(c.set_id) === setId);
+        const key = item.dataset.key;
+        const col = viewCollections.find(c => colKey(c.source, c.set_id) === key);
         if (!col) return;
         let hide = false;
         if (maxDiff !== '') {
-          const cached = chaptersCache[col.set_id];
+          const cached = chaptersCache[key];
           let hasChapter;
           if (cached && cached.length > 0) {
             hasChapter = cached.some(ch => ch.diff_avg != null && ch.diff_avg <= Number(maxDiff));
           } else {
             const row = dbQueryOne(
               'SELECT COUNT(*) AS n FROM chapters WHERE source=? AND set_id=? AND diff_avg <= ?',
-              [currentSource, col.set_id, Number(maxDiff)]
+              [col.source, col.set_id, Number(maxDiff)]
             );
             hasChapter = row && row.n > 0;
           }
@@ -4486,25 +4538,25 @@
         }
         // Filtro mostrar: ocultar colección si ningún chapter tiene mostrar=1
         if (!hide && filterMostrar) {
-          const cached = chaptersCache[col.set_id];
+          const cached = chaptersCache[key];
           if (cached && cached.length > 0) {
             if (!cached.some(ch => ch.mostrar)) hide = true;
           } else {
             const row = dbQueryOne(
               'SELECT COUNT(*) AS n FROM chapters WHERE source=? AND set_id=? AND mostrar=1',
-              [currentSource, col.set_id]
+              [col.source, col.set_id]
             );
             if (!row || row.n === 0) hide = true;
           }
         }
         // Actualizar visibilidad de chapters dentro del acordeón
-        const s = lastRunStatsAll[parseInt(setId)];
+        const s = lastRunStatsAll[key];
         item.querySelectorAll('.chap-item').forEach(ci => {
           const chapId = ci.querySelector('.chap-mostrar-chk')?.dataset.chapid;
           if (!chapId) return;
           // filtro mostrar
           if (filterMostrar) {
-            const cached = chaptersCache[col.set_id];
+            const cached = chaptersCache[key];
             const chap = cached?.find(ch => String(ch.id) === chapId);
             if (chap && !chap.mostrar) { ci.style.display = 'none'; return; }
           }
@@ -4533,7 +4585,7 @@
             if (colStats) {
               const chapCount = dbQueryOne(
                 'SELECT COUNT(*) AS n FROM chapters WHERE source=? AND set_id=?',
-                [currentSource, col.set_id]
+                [col.source, col.set_id]
               );
               const total = chapCount ? chapCount.n : 0;
               if (total > 0) {
@@ -4547,15 +4599,31 @@
         }
         item.classList.toggle('hidden', hide);
       });
+      // Cabeceras de source: ocultar si todas sus colecciones estan ocultas
+      document.querySelectorAll('#col-list .col-src-head').forEach(h => {
+        let n = h.nextElementSibling, any = false;
+        while (n && !n.classList.contains('col-src-head')) { if (!n.classList.contains('hidden')) any = true; n = n.nextElementSibling; }
+        h.style.display = any ? '' : 'none';
+      });
     }
 	
     document.getElementById('cf-diff').addEventListener('change', applyCollectionFilters);
-    document.getElementById('cf-needs-work').addEventListener('change', () => {
+    document.getElementById('cf-needs-work').addEventListener('change', async () => {
+      const wasAll = document.getElementById('cf-all-sources').checked;
+      lsSet(CF_NEEDS_KEY, document.getElementById('cf-needs-work').checked ? '1' : '0');
+      syncAllSourcesUI();
+      lsSet(CF_ALLSRC_KEY, document.getElementById('cf-all-sources').checked ? '1' : '0');
+      if (wasAll && !document.getElementById('cf-all-sources').checked) { await loadCollections(); return; }
       if (document.getElementById('cf-needs-work').checked) {
         expandAllVisible();
       } else {
         applyCollectionFilters();
       }
+    });
+    document.getElementById('cf-all-sources').addEventListener('change', async () => {
+      lsSet(CF_ALLSRC_KEY, document.getElementById('cf-all-sources').checked ? '1' : '0');
+      syncAllSourcesUI();
+      await loadCollections();   // renderCollectionsList expande todo (Needs work activo)
     });
     document.getElementById('btn-expand-all').addEventListener('click', expandAllVisible);
 
@@ -4564,9 +4632,9 @@
       const s = Math.round(ms / 1000), m = Math.floor(s / 60), sec = s % 60;
       if (m === 0) return `${sec}s`; return `${m}m${sec > 0 ? ' ' + sec + 's' : ''}`;
     }
-    function refreshColPct(setId) {
-      const el = document.getElementById(`cpct-${setId}`); if (!el) return;
-      const s = lastRunStatsAll[parseInt(setId)];
+    function refreshColPct(key) {
+      const el = document.getElementById(`cpct-${key}`); if (!el) return;
+      const s = lastRunStatsAll[key];
       const chapTotal = (s && s.chap_total) || 0; let chapDone = 0, pctSum = 0, pctCount = 0;
       if (s) { for (const cs of Object.values(s.by_chapter)) { if (cs.pct != null) { chapDone++; pctSum += cs.pct; pctCount++; } } }
       const avgPct = pctCount > 0 ? Math.round(pctSum / pctCount) : null;
@@ -4576,15 +4644,17 @@
     }
     async function refreshCollectionStats() {
       try {
-        lastRunStatsAll = localGetLastRunStatsAll(currentSource);
+        lastRunStatsAll = buildRunStatsView(cfAllSources()
+          ? dbQuery('SELECT DISTINCT source FROM collections ORDER BY source', []).map(r => r.source)
+          : [currentSource]);
         document.querySelectorAll('.col-item').forEach(item => {
-          const setId = parseInt(item.dataset.setId);
-          refreshColPct(setId);
+          const key = item.dataset.key;
+          refreshColPct(key);
           // Re-renderizar stats de chapters abiertos
           if (item.classList.contains('expanded')) {
-            const col = allCollections.find(c => c.set_id === setId);
+            const col = viewCollections.find(c => colKey(c.source, c.set_id) === key);
             if (!col) return;
-            const runStats = localGetLastRunStats(currentSource, col.set_id);
+            const runStats = localGetLastRunStats(col.source, col.set_id);
             item.querySelectorAll('.chap-item').forEach(ci => {
               const chapId = parseInt(ci.querySelector('.chap-mostrar-chk')?.dataset.chapid);
               if (!chapId) return;
@@ -4603,10 +4673,11 @@
     async function renderChapterList(col, chapDiv) {
       chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--dim2)">Loading…</div>`;
       try {
-        const chapters = localGetChapters(currentSource, col.set_id);
-        const runStats = localGetLastRunStats(currentSource, col.set_id);
-        chaptersCache[col.set_id] = chapters;
-        refreshColPct(col.set_id);
+        const key = colKey(col.source, col.set_id);
+        const chapters = localGetChapters(col.source, col.set_id);
+        const runStats = localGetLastRunStats(col.source, col.set_id);
+        chaptersCache[key] = chapters;
+        refreshColPct(key);
         chapDiv.innerHTML = '';
         for (const chap of chapters) {
           const ci = document.createElement('div'); ci.className = 'chap-item';
@@ -4640,8 +4711,8 @@
             tryAutoSync(true).catch(() => { });
             if (filterMostrar) applyCollectionFilters();
           });
-          ci.querySelector('.chap-btn').addEventListener('click', e => { e.stopPropagation(); startRun({ source: currentSource, type: 'chapter', chapter_id: chap.id, colName: col.name, chapName: chap.name, chapNum: chap.chapter_num }); });
-          ci.querySelector('.chap-free-btn').addEventListener('click', e => { e.stopPropagation(); practiceChapterFree(col, chap); });
+          ci.querySelector('.chap-btn').addEventListener('click', async e => { e.stopPropagation(); await ensureColSource(col); startRun({ source: col.source, type: 'chapter', chapter_id: chap.id, colName: col.name, chapName: chap.name, chapNum: chap.chapter_num }); });
+          ci.querySelector('.chap-free-btn').addEventListener('click', async e => { e.stopPropagation(); await ensureColSource(col); practiceChapterFree(col, chap); });
           chapDiv.appendChild(ci);
         }
       } catch (e) { chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--accent)">Error loading chapters</div>`; }
@@ -4659,7 +4730,7 @@
       for (const item of visible) {
         if (!item.classList.contains('expanded')) {
           item.classList.add('expanded');
-          const col = allCollections.find(c => String(c.set_id) === item.dataset.setId);
+          const col = viewCollections.find(c => colKey(c.source, c.set_id) === item.dataset.key);
           if (col) {
             const chapDiv = item.querySelector('.col-chapters');
             if (chapDiv && chapDiv.children.length === 0) {
@@ -4931,7 +5002,7 @@
       let prevStillValid = false;
       for (const col of allCollections) {
         if (onlyVisible) {
-          const cached = chaptersCache[col.set_id];
+          const cached = chaptersCache[colKey(currentSource, col.set_id)];
           let hasVisible;
           if (cached && cached.length > 0) { hasVisible = cached.some(ch => ch.mostrar); }
           else {
@@ -4959,7 +5030,7 @@
       const onlyVisible = !ignoreVisibleFilter && document.getElementById('fp-visible').checked;
       let chapters;
       try { chapters = localGetChapters(currentSource, parseInt(setId)); } catch (e) { return; }
-      chaptersCache[setId] = chapters;
+      chaptersCache[colKey(currentSource, setId)] = chapters;
       const shown = onlyVisible ? chapters.filter(c => c.mostrar) : chapters;
       for (const c of shown) {
         const label = document.createElement('label');
@@ -6738,6 +6809,10 @@
     }
     document.getElementById('source-sel').addEventListener('change', e => changeSource(e.target.value));
 
+    // Restaurar checks de Collections (persisten entre sesiones)
+    document.getElementById('cf-needs-work').checked = lsGet(CF_NEEDS_KEY) === '1';
+    document.getElementById('cf-all-sources').checked = lsGet(CF_ALLSRC_KEY) === '1';
+    syncAllSourcesUI();
     (async () => {
 	  await initDB();
       await purgeEmptyRuns();
