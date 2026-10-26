@@ -28,8 +28,18 @@ Let's think this move is from a previous move (like the keima enclosure joseki) 
 (;W[jd]L[hc]C[From 2 extend 3 High
 Door is open at A];B[ld]DO[];W[lc];B[kc];W[kd];B[mc];W[lb];B[mb];W[md];B[le];W[nb])
 (;W[jc]L[kd]C[From 2 extend 3 Low
-It can be flattened at A]))))
-(;B[lc]C[Low 1 Space Pincer];W[qc]C[Invade San-San];B[pc];W[qd]
+It can be flattened at A]))
+(;B[nb]BM[1]C[Hane];W[mb];B[ob];W[jd]))
+(;W[qf]BM[1]C[Keima approach
+Very bad, White is not strong enough];B[nd];W[mc];B[md];W[lc]
+;B[qe]C[White is really busy now])
+(;W[ne]BM[1]C[1 point extension];B[nb]
+(;W[mb]C[Hane];B[mc];W[nd]
+;B[lb]C[Good for Black])
+(;W[mc]C[Extend];B[mb];W[lc]
+;B[pf]C[Good for Black])))
+(;B[lc]C[Low 1 Space Pincer];W[qc]C[Invade San-San]
+(;B[pc]C[Block on the inside];W[qd]
 (;B[pe]C[Extend]
 (;W[pb]C[Hane];B[ob];W[qb]
 (;B[oc]C[Connect];W[qf])
@@ -60,10 +70,31 @@ White is not ready to cut yet];B[qb];W[rb];B[pb];W[qf];B[re];W[rf]
 ;W[qf]C[White has the whole corner and influence in the lateral])
 (;B[qf]C[Extend];W[od];B[oe];W[pf];B[pg];W[of];B[nb];W[ob];B[oa];W[oc];B[pa]
 ;W[qa];B[na];W[mb];B[mc];W[ma]))))
+(;B[qd]C[Block on the outside];W[pc]
+(;B[od]C[Tiger's Mouth Vital Point]
+(;W[tt]C[White Tenuki]BM[1];B[oc];W[ob];B[nb];W[mb];B[pb];W[na]
+;B[qb]C[White has lost the corner])
+(;W[oc]C[Connect];B[me]C[Keima Connect]))
+(;B[nd]BM[1]C[Attach];W[od];B[oe]
+;W[oc]C[Many weak points for black]L[pe][ne][md];B[md];W[pe];B[qe];W[pf];B[qf];W[pg];B[qg];W[ph];B[qh];W[ne])))
 (;B[nd]C[Attach]
-(;W[md]C[Hane Outside];B[ne];W[oc]
-(;B[pc]C[Extend to Block];W[jc];B[pf])
-(;B[pe]C[Extend not blocking];W[pc];B[qc];W[qb];B[rb];W[rc];B[qd];W[pb];B[rd]))
+(;W[md]C[Hane Outside]
+(;B[ne]C[Extend]
+(;W[oc]C[Tiger Mouth Vital Point]
+(;B[pc]C[Extend to Block];W[jc]
+;B[pf]C[Table shape])
+(;B[pe]C[Extend not blocking];W[pc];B[qc];W[qb];B[rb];W[rc];B[qd];W[pb];B[rd])
+(;B[mc]BM[1]C[Black Cuts
+It is impossbiel to cut here];W[lc];B[mb];W[lb];B[nb];W[ob];B[ld];W[me];B[mf];W[le];B[kd]
+;W[ke]))
+(;W[mc]BM[1]C[Connect
+Bad Move. Black is going to leverage Tigers Mouth];B[oc]TE[1]C[Tigers Mouth
+The corner gets bigger and influence in the center also])
+(;W[me]BM[1]C[White is missing Vital Point Tiger Mouth];B[oc];W[mc]
+;B[nf]C[Good for Black]))
+(;B[oc]BM[1]C[Tigers Mouth
+Bad move, it is too early];W[ne];B[od]
+;W[me]C[Black shape is not soo good as the Joseki]))
 (;W[oc]C[Extend];B[od];W[pc];B[qc];W[md])
 (;W[od]C[Wedge
 It is not a trick play, it is a good move]
@@ -83,8 +114,8 @@ Bad move if White has the ladder];W[md]C[Good for White is it has the ladder])
 ;B[of]C[This is good for Black])
 (;W[pc]C[Atari from inside];B[nb];W[ob];B[nc];W[qd];B[pb];W[pe];B[qb]
 ;W[pi]C[According to AI this is Joseki although it looks good for White]))))))
-(;W[qc]C[3-3 Invasion
-Lets say there is a Black Stone in A]L[mc];AB[mc]PL[B]C[SAN-SAN with O-Keima Extension]
+(;W[qc]C[3-3 Invasion]
+(;AB[mc]PL[B]C[SAN-SAN with O-Keima Extension]
 (;B[qd]L[mc]C[Block on the bigger side
 Block on the bigger side according to actual situation
 There is a Black stone in A];W[pc]L[mc];B[oc]L[mc]
@@ -142,4 +173,25 @@ If A i Black and no white stones in that area we don't have too much space in th
 This is bad if we have a stone in A.
 It gets overconcentrated];W[rf];B[qg];W[rg])
 (;B[rf]C[Double Hane];W[qf];B[pe];W[rg];B[rd];W[sf]
-;B[rc]L[ph]C[Now White can extend to A but it is not mandatory. White is not ion real danger]))))
+;B[rc]L[ph]C[Now White can extend to A but it is not mandatory. White is not ion real danger])))
+(;B[qd];W[pc];B[oc];W[ob];B[nc];W[nb]
+;B[mc]IT[]
+(;W[mb]TE[1]C[Extends 3 stones
+Best answer, enough for White to survive];B[lc]
+;W[pj]C[Ocuppy the side
+White is strong enough in the corner];B[rc]IT[]C[If Black hane];W[rb]
+;B[rd]C[White is fine and has Sente])
+(;W[rd]C[Hane
+Not the best answer, it is going to make Black stronger]BM[1];B[re];W[rc]
+(;B[qf]C[Now black is stronger in the outside])
+(;B[tt]C[Black Tenuki
+Bad move, Black needs to protect the cut];W[qe]C[ Very severe cut]
+(;B[qf]
+;W[pe]L[od][rf]C[Now A & B are Miai, black is in trouble])
+(;B[pe];W[qf];B[rf];W[qg];B[rg]
+;W[qh]C[Crowling in the second line is very bad for Black])
+(;B[rf]C[Looks good but is not enough];W[pf]L[od]C[White threatens to cut at A];B[oe]C[Even if Black protects];W[qg];B[rg];W[qh];B[rh]
+;W[qi]C[Black is crowling again])))
+(;W[tt]C[If White Tenuki
+Bad move, is not strong enough]BM[1];B[rd];W[rc];B[mb]
+;W[qb]C[Black has sente and extra stones for free]TR[mb][rd]))))

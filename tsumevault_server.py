@@ -1887,9 +1887,23 @@ def handle_sync_sm2_push(body):
 
 
 def handle_sync_static_version(qs):
+    # T33: la version cambia si se anaden problemas (MAX(rowid)) O si cambian las
+    # dificultades (problems.difficulty_num, chapters.diff_min/max/avg). Antes solo
+    # miraba MAX(rowid), asi que un reimport que solo cambiaba dificultades no llegaba
+    # a los dispositivos. Checksum ponderado por rowid/id (detecta intercambios) con
+    # terminos pequenos para que SUM no desborde; NULL se distingue de cualquier valor.
     with db_connect() as con:
-        row = con.execute("SELECT MAX(rowid) FROM problems").fetchone()
-    return {"version": row[0] or 0}
+        mx = con.execute("SELECT MAX(rowid) FROM problems").fetchone()[0] or 0
+        cp = con.execute(
+            "SELECT COALESCE(SUM((rowid % 1009 + 1) * (COALESCE(difficulty_num, -1) + 2)), 0) "
+            "FROM problems").fetchone()[0]
+        cc = con.execute(
+            "SELECT COALESCE(SUM((id % 1009 + 1) * ((COALESCE(diff_min, -1) + 2) "
+            "+ 3 * (COALESCE(diff_max, -1) + 2) + 7 * (COALESCE(diff_avg, -1) + 2))), 0) "
+            "FROM chapters").fetchone()[0]
+    if not mx:
+        return {"version": 0}
+    return {"version": mx * 2147483647 + (cp * 31 + cc) % 2147483647}
 
 
 def handle_sync_games(qs):
