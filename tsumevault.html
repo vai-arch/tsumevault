@@ -1770,7 +1770,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261026-1242';
+	const SW_VERSION = 'tsumevault-20261026-1752';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2058,6 +2058,9 @@
     function migrateSyncColumns() {
       try { dbExec("ALTER TABLE attempts ADD COLUMN synced INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
       try { dbExec("ALTER TABLE runs ADD COLUMN synced INTEGER NOT NULL DEFAULT 0"); } catch (e) { }
+      // T34: chapters.mostrar_synced — 1 = sin cambios locales pendientes, 0 = cambio local
+      // pendiente de push. DEFAULT 1: al migrar, lo que tenga el servidor manda.
+      try { dbExec("ALTER TABLE chapters ADD COLUMN mostrar_synced INTEGER NOT NULL DEFAULT 1"); } catch (e) { }
       try {
         // Dedup de attempts: copias del mismo uuid → conservar la más antigua.
         dbExec(`DELETE FROM attempts WHERE uuid IS NOT NULL AND id NOT IN (
@@ -2127,7 +2130,8 @@
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
       set_id INTEGER NOT NULL, chapter_num INTEGER NOT NULL,
       diff_min INTEGER, diff_max INTEGER, diff_avg INTEGER, name TEXT,
-      problem_count INTEGER NOT NULL DEFAULT 0, mostrar INTEGER NOT NULL DEFAULT 0
+      problem_count INTEGER NOT NULL DEFAULT 0, mostrar INTEGER NOT NULL DEFAULT 0,
+      mostrar_synced INTEGER NOT NULL DEFAULT 1
     );
     CREATE TABLE IF NOT EXISTS problems (
       source TEXT NOT NULL, problem_id TEXT NOT NULL, set_id INTEGER NOT NULL,
@@ -3116,16 +3120,36 @@
           }
         } catch (e) { console.warn('[sync] games sync failed', e); }
       }
-	  // ── Sync mostrar ──
-      const chapMostrar = dbQuery('SELECT id, mostrar FROM chapters', []);
+      // ── T34: Sync mostrar ──
+      // Se empujan SOLO los capitulos cambiados localmente (mostrar_synced=0) y
+      // la respuesta (tabla completa id/mostrar) es la verdad, igual que T13.
+      // Antes se empujaba la tabla entera sin pull: el ultimo dispositivo en
+      // sincronizar pisaba al resto y los demas nunca recibian los cambios.
+      // Tras la respuesta: (a) un pendiente enviado pasa a synced=1 solo si no
+      // ha vuelto a cambiar durante el vuelo; (b) el valor del servidor se
+      // aplica solo a filas sin cambios pendientes. Capitulos que el cliente aun
+      // no tiene se ignoran (llegan por snapshot). Servidor viejo: 404 -> no-op.
       try {
-        await syncFetch(`/sync/chapters_mostrar`, {
+        const pendingCh = dbQuery('SELECT id, mostrar FROM chapters WHERE mostrar_synced=0', []);
+        const vR = await syncFetch(`/sync/chapter_visibility`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chapters: chapMostrar }),
+          body: JSON.stringify({ chapters: pendingCh }),
           signal: AbortSignal.timeout(8000)
         });
-      } catch (_) { }
+        if (vR.ok) {
+          const { chapters: srvCh } = await vR.json();
+          if (Array.isArray(srvCh)) {
+            for (const c of pendingCh) dbExec('UPDATE chapters SET mostrar_synced=1 WHERE id=? AND mostrar=? AND mostrar_synced=0', [c.id, c.mostrar]);
+            let changed = 0;
+            for (const c of srvCh) {
+              dbExec('UPDATE chapters SET mostrar=? WHERE id=? AND mostrar_synced=1 AND mostrar<>?', [c.mostrar, c.id, c.mostrar]);
+              changed += db.getRowsModified();
+            }
+            if (changed) chaptersCache = {};
+          }
+        }
+      } catch (e) { console.warn('[sync] chapter visibility sync failed', e); }
       // ── T13: Sync problemas ocultos (borrado lógico) ──
       // Semantica local de hidden: 0=visible, 2=oculto PENDIENTE de
       // confirmar (lo pone la UI/offline), 1=oculto CONFIRMADO por el
@@ -3974,17 +3998,31 @@
     // "UP TO LEVEL" del tab (localGetMaturityByLevel). Nota de escala: diff_avg menor =
     // mas facil en la escala interna (15k=600 ... 1d=2100); "numero mayor" en
     // etiqueta kyu = numero MENOR interno.
+    // T34: solo se escriben (y se marcan pendientes de sync, mostrar_synced=0) los
+    // capitulos cuyo valor cambia; marcar los que no cambian pisaria en el servidor
+    // cambios mas recientes hechos desde otro dispositivo.
     function applyMostrarUpTo(source, maxDiffNum) {
-      dbExec(`UPDATE chapters SET mostrar = CASE
-        WHEN diff_avg IS NULL THEN mostrar
-        WHEN diff_avg <= ?
-         AND (
-           NOT EXISTS (SELECT 1 FROM problems p WHERE p.chapter_id = chapters.id)
-           OR EXISTS (SELECT 1 FROM problems p WHERE p.chapter_id = chapters.id AND p.hidden = 0)
-         )
-        THEN 1 ELSE 0
-      END WHERE source = ?`, [maxDiffNum, source]);
+      dbExec(`UPDATE chapters SET mostrar = t.target, mostrar_synced = 0
+      FROM (
+        SELECT c.id, CASE
+          WHEN c.diff_avg <= ?
+           AND (
+             NOT EXISTS (SELECT 1 FROM problems p WHERE p.chapter_id = c.id)
+             OR EXISTS (SELECT 1 FROM problems p WHERE p.chapter_id = c.id AND p.hidden = 0)
+           )
+          THEN 1 ELSE 0
+        END AS target
+        FROM chapters c WHERE c.source = ? AND c.diff_avg IS NOT NULL
+      ) t
+      WHERE chapters.id = t.id AND chapters.mostrar <> t.target`, [maxDiffNum, source]);
       return dbQueryOne('SELECT SUM(mostrar = 1) AS shown, SUM(mostrar = 0) AS hidden FROM chapters WHERE source = ?', [source]);
+    }
+    // T34: cambio de mostrar de un capitulo. Solo escribe (y marca pendiente de
+    // sync) si el valor cambia. Devuelve true si cambio algo.
+    function setChapterMostrar(id, val) {
+      const v = val ? 1 : 0;
+      dbExec('UPDATE chapters SET mostrar=?, mostrar_synced=0 WHERE id=? AND mostrar<>?', [v, id, v]);
+      return db.getRowsModified() > 0;
     }
     // R1 (revisado): aplica visibilidad por nivel a UNA sola fuente (la de la
     // fila donde se pulsa el icono de ojo), no a todas las fuentes a la vez.
@@ -3999,7 +4037,7 @@
       applyMostrarUpTo(source, num);
       chaptersCache = {};
       scheduleSaveDB();
-      tryAutoSync(true).catch(() => { });   // doSync ya empuja el mostrar de todos los capitulos
+      tryAutoSync(true).catch(() => { });   // T34: doSync empuja los capitulos cambiados
       loadCollections();
       renderByLevel();
     }
@@ -4343,22 +4381,22 @@
         const res = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
-        // Reset total: todos a 0
-        dbExec('UPDATE chapters SET mostrar=0', []);
-        let count = 0;
+        // T34: visibles = los marcados en el fichero; el resto, ocultos. Solo se
+        // escriben (y se marcan pendientes de sync) los capitulos que cambian.
+        const target = new Set();
         for (const source of Object.keys(data)) {
           for (const colData of Object.values(data[source])) {
             for (const ch of (colData.chapters || [])) {
-              if (ch.mostrar) {
-                dbExec('UPDATE chapters SET mostrar=1 WHERE id=?', [ch.id]);
-                count++;
-              }
+              if (ch.mostrar) target.add(Number(ch.id));
             }
           }
         }
+        const count = target.size;
+        for (const { id } of dbQuery('SELECT id FROM chapters', [])) setChapterMostrar(id, target.has(id));
         // Invalidar cache de chapters y guardar IndexedDB
         chaptersCache = {};
         await saveDB();
+        tryAutoSync(true).catch(() => { });
         // Recargar UI
         await loadCollections();
         statusEl.style.color = 'var(--ok-bright)';
@@ -4596,17 +4634,10 @@
           ci.querySelector('.chap-mostrar-chk').addEventListener('change', async e => {
             e.stopPropagation();
             const val = e.target.checked ? 1 : 0;
-            dbExec('UPDATE chapters SET mostrar=? WHERE id=?', [val, chap.id]);
+            setChapterMostrar(chap.id, val);   // T34: marca pendiente; doSync lo empuja
             chap.mostrar = val;
             await saveDB();
-            try {
-              await syncFetch('/db/chapter/mostrar', {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ chapter_id: chap.id, mostrar: val }),
-                signal: AbortSignal.timeout(3000)
-              });
-            } catch (_) { }
+            tryAutoSync(true).catch(() => { });
             if (filterMostrar) applyCollectionFilters();
           });
           ci.querySelector('.chap-btn').addEventListener('click', e => { e.stopPropagation(); startRun({ source: currentSource, type: 'chapter', chapter_id: chap.id, colName: col.name, chapName: chap.name, chapNum: chap.chapter_num }); });
