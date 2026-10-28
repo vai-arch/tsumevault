@@ -1471,6 +1471,32 @@
         </div>
       </div></div>
 
+    <!-- T35: BULK TAG MODAL (reutiliza los filtros de Free; z-index como Config/Stats) -->
+    <div id="bt-overlay" onclick="onBulkTagOverlayClick(event)" style="display:none;position:fixed;inset:0;isolation:isolate;z-index:1300;background:rgba(0,0,0,.6);align-items:center;justify-content:center;">
+      <div id="bt-modal" onkeydown="if(event.code==='Escape')closeBulkTag();event.stopPropagation()" style="background:var(--panel);border:1px solid var(--border2);border-radius:3px;width:min(640px,96vw);max-height:88vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.8);position:relative;z-index:301;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--border);flex-shrink:0;">
+          <span style="font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);">Bulk tag</span>
+          <button onclick="closeBulkTag()" style="background:transparent;border:none;color:var(--dim);font-size:18px;cursor:pointer;line-height:1;padding:2px 6px;">✕</button>
+        </div>
+        <div style="padding:10px 18px;border-bottom:1px solid var(--border);flex-shrink:0;">
+          <div id="bt-summary" style="font-family:var(--mono);font-size:11px;color:var(--text);"></div>
+          <div style="display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap;">
+            <input id="bt-tag" list="bt-tag-list" type="text" maxlength="40" placeholder="Tag (existing or new)" autocomplete="off"
+              style="flex:1;min-width:140px;font-family:var(--mono);font-size:11px;background:var(--bg);color:var(--text);border:1px solid var(--border2);padding:5px 8px;border-radius:2px;outline:none;">
+            <datalist id="bt-tag-list"></datalist>
+            <button class="ctrl-btn" id="bt-add" onclick="applyBulkTag(true)">＋ Add</button>
+            <button class="ctrl-btn" id="bt-remove" onclick="applyBulkTag(false)">− Remove</button>
+          </div>
+          <div id="bt-status" style="font-family:var(--mono);font-size:10px;color:var(--dim2);margin-top:6px;min-height:14px;"></div>
+        </div>
+        <div style="padding:6px 18px;border-bottom:1px solid var(--border);display:flex;gap:8px;flex-shrink:0;">
+          <button class="ctrl-btn" onclick="btSelectAll(true)">Select all</button>
+          <button class="ctrl-btn" onclick="btSelectAll(false)">None</button>
+        </div>
+        <div id="bt-list" style="overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;flex:1;padding:6px 18px;"></div>
+      </div>
+    </div>
+
     <div id="mob-overlay" onclick="closeMobilePanel()"></div>
 
     <div id="left">
@@ -1583,6 +1609,8 @@
             <option value="random">Random</option>
           </select>
           <button class="fp-btn" id="fp-start">▶ Start practice</button>
+          <!-- T35: etiquetado en bloque sobre el conjunto filtrado de Free -->
+          <button class="fp-btn" id="fp-bulk" onclick="openBulkTag()" title="Add or remove a tag on many problems at once (uses the filters above)">🏷 Bulk tag…</button>
           <div id="fp-count" style="font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:6px;text-align:center;min-height:14px;"></div>
         </div>
       </div>
@@ -1776,7 +1804,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261026-2313';
+	const SW_VERSION = 'tsumevault-20261028-1129';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -5066,7 +5094,10 @@
       switchTab('free');
       await startFreePractice();
     }
-    async function startFreePractice() {
+    // T35: el filtro de Free (antes cuerpo de startFreePractice, sin cambios de logica) vive ahora
+    // aqui para que 'Start practice' y 'Bulk tag' vean siempre el mismo conjunto de problemas.
+    // Devuelve { problems, order }; lanza si la consulta falla (lo captura el llamante).
+    function freeFilteredProblems() {
       // F-AllSrc: con 'All sources' marcado, Collection/Chapter se ignoran
       // (son conceptos por-source, la UI ya los deja deshabilitados/vacios)
       // y se pasa source=null a las queries para que cubran todas las
@@ -5082,34 +5113,38 @@
       const onlyVisible = document.getElementById('fp-visible').checked;
       const tagSel = [...document.querySelectorAll('#fp-tags-list input:checked')].map(cb => cb.value);   // T23: ninguna = All
       const srcArg = allSources ? null : currentSource;
+      let problems = localGetProblems(srcArg, { set_id: setId ? parseInt(setId) : undefined, chapter_ids: chapIds.length ? chapIds : undefined, onlyVisible, tags: tagSel.length ? tagSel : undefined });
+      if (diffMin) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num >= parseInt(diffMin));
+      if (diffMax) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num <= parseInt(diffMax));
+      if (problemIdFilter) problems = problems.filter(p => String(p.problem_id).toLowerCase().includes(problemIdFilter.toLowerCase()));
+      // F-AllSrc: 'Unseen/Had wrong/Correct only' no estaban conectados a
+      // ningun filtro real (solo 'Struggling' funcionaba); se implementan
+      // aqui sobre total_attempts/total_correct, que localGetProblems ya
+      // devuelve por problema -- validos en 1 source o en todas por igual.
+      if (status === 'unseen') {
+        problems = problems.filter(p => !p.total_attempts);
+      } else if (status === 'wrong') {
+        problems = problems.filter(p => p.total_attempts > 0 && p.total_correct < p.total_attempts);
+      } else if (status === 'correct') {
+        problems = problems.filter(p => p.total_attempts > 0 && p.total_correct === p.total_attempts);
+      } else if (status.startsWith('struggling')) {
+        const n = parseInt(status.split('-')[1]);
+        // F11: con varios (o cero) capitulos marcados no hay un chapter_id
+        // unico que pasar; el scope se amplia a la coleccion (o global), y el
+        // cruce posterior con `problems` (ya acotado a los elegidos) deja el
+        // resultado final correcto igual.
+        // F-AllSrc: localGetStruggling devuelve claves compuestas
+        // 'source\u0001problem_id' (ver su definicion) para no mezclar
+        // problem_ids iguales de sources distintas; el cruce usa la misma
+        // clave sobre `problems`, que ya trae `source` de localGetProblems.
+        const strIds = new Set(localGetStruggling(srcArg, { set_id: setId ? parseInt(setId) : undefined, chapter_id: chapIds.length === 1 ? chapIds[0] : undefined }, n));
+        problems = problems.filter(p => strIds.has(`${p.source}\u0001${p.problem_id}`));
+      }
+      return { problems, order };
+    }
+    async function startFreePractice() {
       try {
-        let problems = localGetProblems(srcArg, { set_id: setId ? parseInt(setId) : undefined, chapter_ids: chapIds.length ? chapIds : undefined, onlyVisible, tags: tagSel.length ? tagSel : undefined });
-        if (diffMin) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num >= parseInt(diffMin));
-        if (diffMax) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num <= parseInt(diffMax));
-        if (problemIdFilter) problems = problems.filter(p => String(p.problem_id).toLowerCase().includes(problemIdFilter.toLowerCase()));
-        // F-AllSrc: 'Unseen/Had wrong/Correct only' no estaban conectados a
-        // ningun filtro real (solo 'Struggling' funcionaba); se implementan
-        // aqui sobre total_attempts/total_correct, que localGetProblems ya
-        // devuelve por problema -- validos en 1 source o en todas por igual.
-        if (status === 'unseen') {
-          problems = problems.filter(p => !p.total_attempts);
-        } else if (status === 'wrong') {
-          problems = problems.filter(p => p.total_attempts > 0 && p.total_correct < p.total_attempts);
-        } else if (status === 'correct') {
-          problems = problems.filter(p => p.total_attempts > 0 && p.total_correct === p.total_attempts);
-        } else if (status.startsWith('struggling')) {
-          const n = parseInt(status.split('-')[1]);
-          // F11: con varios (o cero) capitulos marcados no hay un chapter_id
-          // unico que pasar; el scope se amplia a la coleccion (o global), y el
-          // cruce posterior con `problems` (ya acotado a los elegidos) deja el
-          // resultado final correcto igual.
-          // F-AllSrc: localGetStruggling devuelve claves compuestas
-          // 'source\u0001problem_id' (ver su definicion) para no mezclar
-          // problem_ids iguales de sources distintas; el cruce usa la misma
-          // clave sobre `problems`, que ya trae `source` de localGetProblems.
-          const strIds = new Set(localGetStruggling(srcArg, { set_id: setId ? parseInt(setId) : undefined, chapter_id: chapIds.length === 1 ? chapIds[0] : undefined }, n));
-          problems = problems.filter(p => strIds.has(`${p.source}\u0001${p.problem_id}`));
-        }
+        const { problems, order } = freeFilteredProblems();
         if (!problems.length) {
           document.getElementById('fp-count').textContent = '0 problems match';
           document.getElementById('board-wrap').style.display = 'none'; document.getElementById('comment-box').textContent = '';
@@ -5128,6 +5163,99 @@
         allProblems = problems; document.getElementById('cfg-pill-total').textContent = `/ ${problems.length}`;
         runIdx = -1; sessionOk = 0; sessionNo = 0; updateSessionUI(); renderFreeList(); nextProblem();
       } catch (e) { alert('Failed to load problems: ' + e.message); }
+    }
+
+    // ══ T35: BULK TAG ══
+    // Etiquetado en bloque sobre el conjunto filtrado de Free (freeFilteredProblems).
+    // La seleccion vive en btSel (Set de claves 'source\u0001problem_id'), no en el DOM: la lista
+    // solo pinta las primeras BT_RENDER_MAX filas; el resto queda incluido salvo 'None'.
+    // Reutiliza localSetProblemTag (LWW, synced=0, alta del tag en `tags`): el sync T23 lo empuja.
+    const BT_RENDER_MAX = 500;
+    let btProblems = [], btSel = new Set();
+    function btKey(p) { return `${p.source}\u0001${p.problem_id}`; }
+    function openBulkTag() {
+      if (!db) return;
+      let res;
+      try { res = freeFilteredProblems(); } catch (e) { alert('Failed to load problems: ' + e.message); return; }
+      btProblems = res.problems; btSel = new Set(btProblems.map(btKey));
+      document.getElementById('bt-status').textContent = '';
+      renderBulkTagTagList();
+      renderBulkTagList();
+      document.getElementById('bt-overlay').style.display = 'flex';
+    }
+    function closeBulkTag() { const o = document.getElementById('bt-overlay'); if (o) o.style.display = 'none'; }
+    function onBulkTagOverlayClick(e) { if (e.target === document.getElementById('bt-overlay')) closeBulkTag(); }
+    function renderBulkTagTagList() {
+      const dl = document.getElementById('bt-tag-list'); dl.textContent = '';
+      for (const t of localGetTags()) { const o = document.createElement('option'); o.value = t; dl.appendChild(o); }
+    }
+    function updateBulkTagSummary() {
+      document.getElementById('bt-summary').textContent = `${btProblems.length} problems match the Free filters · ${btSel.size} selected`;
+    }
+    function btSelectAll(on) { btSel = on ? new Set(btProblems.map(btKey)) : new Set(); renderBulkTagList(); }
+    function renderBulkTagList() {
+      const list = document.getElementById('bt-list'); list.textContent = '';
+      const chapName = new Map(dbQuery('SELECT id, name, chapter_num FROM chapters', []).map(c => [c.id, c.name || `Ch ${c.chapter_num}`]));
+      const tagsBy = new Map();
+      for (const r of dbQuery('SELECT source, problem_id, tag FROM problem_tags WHERE active=1 ORDER BY tag COLLATE NOCASE', [])) {
+        const k = `${r.source}\u0001${r.problem_id}`;
+        if (!tagsBy.has(k)) tagsBy.set(k, []);
+        tagsBy.get(k).push(r.tag);
+      }
+      const shown = btProblems.slice(0, BT_RENDER_MAX), frag = document.createDocumentFragment();
+      for (const p of shown) {
+        const k = btKey(p);
+        const lab = document.createElement('label');
+        lab.style.cssText = 'display:flex;align-items:center;gap:8px;cursor:pointer;padding:2px 0;font-family:var(--mono);font-size:10px;color:var(--dim);';
+        const cb = document.createElement('input');
+        cb.type = 'checkbox'; cb.style.cssText = 'accent-color:var(--gold);cursor:pointer;flex-shrink:0;'; cb.checked = btSel.has(k);
+        cb.addEventListener('change', () => { if (cb.checked) btSel.add(k); else btSel.delete(k); updateBulkTagSummary(); });
+        const tx = document.createElement('span'), tg = tagsBy.get(k);
+        tx.textContent = `${p.source} · ${p.problem_id} · ${chapName.get(p.chapter_id) || '—'} · ${diffLabel(p.difficulty_num)}` + (tg ? ` · 🏷 ${tg.join(', ')}` : '');
+        lab.appendChild(cb); lab.appendChild(tx); frag.appendChild(lab);
+      }
+      list.appendChild(frag);
+      if (btProblems.length > shown.length) {
+        const more = document.createElement('div');
+        more.style.cssText = 'font-family:var(--mono);font-size:10px;color:var(--gold);padding:8px 0;';
+        more.textContent = `+${btProblems.length - shown.length} more not listed (included in the selection unless you press None). Narrow the Free filters to reduce the set.`;
+        list.appendChild(more);
+      }
+      updateBulkTagSummary();
+    }
+    function applyBulkTag(active) {
+      const tag = normTag(document.getElementById('bt-tag').value), status = document.getElementById('bt-status');
+      if (!tag) { alert('Nombre de etiqueta no válido (1–40 caracteres).'); return; }
+      if (!btSel.size) { alert('No hay problemas seleccionados.'); return; }
+      // una sola consulta: seleccionados que ya tienen la etiqueta activa (tag es NOCASE)
+      const have = new Set(dbQuery('SELECT source, problem_id FROM problem_tags WHERE tag=? AND active=1', [tag]).map(r => `${r.source}\u0001${r.problem_id}`));
+      const targets = btProblems.filter(p => btSel.has(btKey(p)) && have.has(btKey(p)) === !active);
+      const skipped = btSel.size - targets.length;
+      if (!targets.length) { status.textContent = active ? `Nothing to do: all ${btSel.size} selected already have "${tag}".` : `Nothing to do: none of the ${btSel.size} selected has "${tag}".`; return; }
+      const msg = (active ? `Añadir la etiqueta "${tag}" a ${targets.length} problema(s)` : `Quitar la etiqueta "${tag}" de ${targets.length} problema(s)`)
+        + (skipped ? ` (${skipped} ${active ? 'ya la tienen' : 'no la tienen'})` : '') + '?';
+      if (!confirm(msg)) return;
+      const btns = ['bt-add', 'bt-remove'].map(id => document.getElementById(id));
+      btns.forEach(b => { b.disabled = true; });
+      status.textContent = 'Applying…';
+      let changed = 0;
+      try {
+        dbExec('BEGIN', []);
+        for (const p of targets) if (localSetProblemTag(p.source, p.problem_id, tag, active)) changed++;
+        dbExec('COMMIT', []);
+      } catch (e) {
+        try { dbExec('ROLLBACK', []); } catch (_) { }
+        btns.forEach(b => { b.disabled = false; });
+        status.textContent = 'Bulk tag failed: ' + e.message;
+        return;
+      }
+      scheduleSaveDB();
+      refreshTagViews();
+      renderBulkTagTagList();
+      renderBulkTagList();
+      btns.forEach(b => { b.disabled = false; });
+      status.textContent = `${active ? 'Added' : 'Removed'} "${tag}" ${active ? 'to' : 'from'} ${changed} problem(s)` + (skipped ? ` · ${skipped} unchanged` : '') + '.';
+      tryAutoSync(true).catch(() => { });
     }
 
     // ══ REVIEW ══
@@ -6118,7 +6246,7 @@
       if ((e.code === 'Enter' || e.code === 'Space') && waitingForNext && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.altKey && e.code === 'KeyN' && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.code === 'KeyP') { e.preventDefault(); togglePause(); }
-      if (e.code === 'Escape') { closeConfig(); closeStats(); }
+      if (e.code === 'Escape') { closeConfig(); closeStats(); closeBulkTag(); /* T35 */ }
     });
     // ══ GAMES VIEWER ══
 
