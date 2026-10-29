@@ -394,6 +394,7 @@
 
     #main {
       grid-area: main;
+      min-width: 0; /* T38: el tablero (ancho fijo) no debe ensanchar la columna del grid */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1805,7 +1806,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261029-1003';
+	const SW_VERSION = 'tsumevault-20261029-1231';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1870,6 +1871,7 @@
     let retryQueue = [], retryQueued = new Set(), retryPhase = false; // F3 (§12.3): cola de repesca
     let secondChance = localStorage.getItem('second_chance') === 'true';
     let ghostMode = localStorage.getItem('free_ghosts') === '1'; // T37: piedras fantasma en Free (interruptor persistente)
+    const HINT_BUTTON_ENABLED = false; // T38: el modo Ghosts lo sustituye; true vuelve a mostrar el boton 💡 (la logica de la pista sigue intacta)
     let syncInProgress = false;
     let lastSyncError = null;      // T6/3.10: ultimo error de sync (para el alert del boton manual)
     let syncStatusTimer = null;    // T6/3.10: temporizador unico de setSyncStatus
@@ -5744,7 +5746,12 @@
     function initBoard(size) {
       boardSize = size || 19;
       const margin = 24;
-      const availW = window.innerWidth - margin - (document.getElementById('board-wrap').offsetLeft || 0);
+      // T38: antes se restaba board-wrap.offsetLeft, que en movil depende del ancho que tenia el tablero
+      // antes del giro (esta centrado con margin:auto): al volver a vertical se medía con el board-wrap
+      // aun a 240px y el tablero se quedaba mas pequeño en cada giro. Movil: innerWidth (#main puede estar
+      // en display:none en la primera apertura); resto: ancho real de la columna central.
+      const mainW = window.innerWidth < 768 ? window.innerWidth : (document.getElementById('main').clientWidth || window.innerWidth);
+      const availW = mainW - margin;
       const availH = window.innerHeight - 140;
       const avail = Math.min(availW, availH);
       const sz = Math.max(240, Math.min(avail, 620));
@@ -5901,7 +5908,7 @@
       document.getElementById('btn-back').style.display = runMode ? 'none' : '';
       document.getElementById('btn-next').style.display = runMode ? 'none' : '';
       document.getElementById('btn-restart').style.display = runMode ? 'none' : '';
-      document.getElementById('btn-hint').style.display = freeMode ? '' : 'none'; // F8: pista solo en Free
+      document.getElementById('btn-hint').style.display = (HINT_BUTTON_ENABLED && freeMode) ? '' : 'none'; // F8: pista solo en Free (T38: oculta por HINT_BUTTON_ENABLED)
       document.getElementById('btn-hide-problem').style.display = freeMode ? '' : 'none'; // T13: ocultar solo en Free
       // T31: Explorar solo en Free. Reset incondicional del aspecto del boton y de los
       // botones que Explorar deshabilita (por si se cambio de problema explorando).
