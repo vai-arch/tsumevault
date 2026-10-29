@@ -513,10 +513,14 @@
     #board-controls {
       display: flex;
       gap: 8px;
+      flex-wrap: wrap; /* T39: si no cabe, baja a otra fila en vez de salirse */
       padding: 6px 12px;
       background: rgba(0, 0, 0, .6);
       justify-content: center;
     }
+
+    /* T39: botonera del tablero solo con iconos (los textos van en title/aria-label) */
+    #board-controls .ctrl-btn { padding: 4px 10px; font-size: 14px; letter-spacing: 0; line-height: 1.3; }
 
     .ctrl-btn {
       font-family: var(--mono);
@@ -535,6 +539,10 @@
       border-color: var(--gold-dim);
       color: var(--gold);
     }
+
+    /* T39: estado activo (Explore, Ghosts) */
+    .ctrl-btn.active { background: var(--gold); border-color: var(--gold); color: #000; }
+    .ctrl-btn.active:hover { color: #000; }
 
     .ctrl-btn:disabled { opacity: .35; cursor: default; }  /* T31: botones bloqueados en Explorar */
     .ctrl-btn:disabled:hover { border-color: var(--border2); color: var(--dim); }
@@ -1548,7 +1556,7 @@
 
       <div class="tab-pane" id="tab-free">
         <div class="fp-section">
-          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--dim);">
+          <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--dim);" title="Filters apply to every source. A Collection or Chapter you pick still limits the search to its own source.">
             <input type="checkbox" id="fp-all-sources" style="accent-color:var(--gold);cursor:pointer;">
             All sources
           </label>
@@ -1683,14 +1691,14 @@
         <div id="result-flash"></div>
         <div id="board-hint">—</div>
         <div id="board-controls">
-          <button class="ctrl-btn" id="btn-back">← Back</button>
-          <button class="ctrl-btn" id="btn-restart">↺ Restart</button>
-          <button class="ctrl-btn" id="btn-pause">⏸ Pause</button>
-          <button class="ctrl-btn" id="btn-hint" style="display:none" title="Muestra el siguiente movimiento correcto (solo Free)">💡 Hint</button>
-          <button class="ctrl-btn" id="btn-explore" style="display:none" title="Explore: free play on the current position with real rules; ↺ resets, 🔍 again to return (Free only) — T31">🔍 Explore</button>
-          <label class="ctrl-btn" id="lbl-ghosts" style="display:none;align-items:center;gap:5px;cursor:pointer;" title="Ghost stones: show the available moves; green = wins, red = does not (Free only) — T37"><input type="checkbox" id="chk-ghosts" style="accent-color:var(--gold);cursor:pointer;"> 👻 Ghosts</label>
-          <button class="ctrl-btn" id="btn-hide-problem" style="display:none" title="Hide this problem everywhere (history kept; reversible only in the server DB) — T13">🚫 Hide</button>
-          <button class="ctrl-btn" id="btn-next">→ Next</button>
+          <button class="ctrl-btn" id="btn-back" title="Back — undo the last move" aria-label="Back">←</button>
+          <button class="ctrl-btn" id="btn-restart" title="Restart the problem" aria-label="Restart">↺</button>
+          <button class="ctrl-btn" id="btn-pause" title="Pause / resume (P)" aria-label="Pause">⏸</button>
+          <button class="ctrl-btn" id="btn-hint" style="display:none" title="Muestra el siguiente movimiento correcto (solo Free)" aria-label="Hint">💡</button>
+          <button class="ctrl-btn" id="btn-explore" style="display:none" title="Explore: free play on the current position with real rules; ↺ resets, 🔍 again to return (Free only) — T31" aria-label="Explore">🔍</button>
+          <button class="ctrl-btn" id="btn-ghosts" style="display:none" title="Ghosts on/off: show the available moves as ghost stones; green = wins, red = does not (Free only) — T37" aria-label="Ghosts" aria-pressed="false">👻</button>
+          <button class="ctrl-btn" id="btn-hide-problem" style="display:none" title="Hide this problem everywhere (history kept; reversible only in the server DB) — T13" aria-label="Hide problem">🚫</button>
+          <button class="ctrl-btn" id="btn-next" title="Next problem" aria-label="Next">→</button>
         </div>
         <div id="gm-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
           <button class="ctrl-btn" id="gm-btn-prev">← Prev</button>
@@ -1806,7 +1814,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261029-1231';
+	const SW_VERSION = 'tsumevault-20261029-1840';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1841,6 +1849,7 @@
     // allCollections sigue siendo SOLO la source actual (lo usan Free/Review).
     let viewCollections = [];
     const CF_NEEDS_KEY = 'cf_needs_work', CF_ALLSRC_KEY = 'cf_all_sources';
+    const FP_ALLSRC_KEY = 'fp_all_sources', FP_VISIBLE_KEY = 'fp_only_visible';   // T40: checks de Free
     const colKey = (source, setId) => `${source}|${setId}`;
     function cfAllSources() {
       const a = document.getElementById('cf-all-sources'), n = document.getElementById('cf-needs-work');
@@ -4981,26 +4990,14 @@
       if (!fpStart.dataset.bound) { fpStart.dataset.bound = '1'; fpStart.addEventListener('click', startFreePractice); }
       // F11: togglear 'Only visible chapters' refresca tanto las colecciones
       // como el checklist de capitulos de la coleccion actualmente elegida.
-      if (!fpVisible.dataset.bound) { fpVisible.dataset.bound = '1'; fpVisible.addEventListener('change', () => { refreshFreeCollectionOptions(); renderFreeChapterList(); }); }
+      if (!fpVisible.dataset.bound) { fpVisible.dataset.bound = '1'; fpVisible.addEventListener('change', () => { lsSet(FP_VISIBLE_KEY, fpVisible.checked ? '1' : '0'); refreshFreeCollectionOptions(); renderFreeChapterList(); }); }
       if (fpChapClear && !fpChapClear.dataset.bound) { fpChapClear.dataset.bound = '1'; fpChapClear.addEventListener('click', () => { document.querySelectorAll('#fp-chap-list input:checked').forEach(cb => cb.checked = false); }); }
-      // Collection/Chapter son conceptos por-source (set_id solo es unico
-      // dentro de (source, set_id)): en modo 'All sources' no significan
-      // nada, asi que se deshabilitan y se limpia cualquier seleccion previa
-      // para que no se aplique una source concreta por sorpresa.
+      // T40: 'All sources' ya no deshabilita Collection/Chapter (ver
+      // freeFilteredProblems); solo se persiste entre sesiones.
       const fpAllSources = document.getElementById('fp-all-sources');
       if (fpAllSources && !fpAllSources.dataset.bound) {
         fpAllSources.dataset.bound = '1';
-        fpAllSources.addEventListener('change', e => {
-          const all = e.target.checked;
-          const chapList = document.getElementById('fp-chap-list');
-          fpCol.disabled = all;
-          chapList.style.pointerEvents = all ? 'none' : '';
-          chapList.style.opacity = all ? '0.4' : '';
-          if (all) {
-            fpCol.value = '';
-            document.querySelectorAll('#fp-chap-list input:checked').forEach(cb => cb.checked = false);
-          }
-        });
+        fpAllSources.addEventListener('change', () => lsSet(FP_ALLSRC_KEY, fpAllSources.checked ? '1' : '0'));
       }
       // T23: checklist de etiquetas
       renderFreeTagList();
@@ -5089,6 +5086,9 @@
       }
       fpCol.value = col.set_id;
       renderFreeChapterList(true);
+      // T41: renderFreeChapterList conserva los capitulos ya marcados; desde 🧩
+      // la seleccion es SOLO el capitulo pulsado.
+      document.querySelectorAll('#fp-chap-list input:checked').forEach(c => c.checked = false);
       const cb = document.getElementById('fp-chap-list').querySelector(`input[value="${chap.id}"]`);
       if (cb) cb.checked = true;
       document.getElementById('fp-diff').value = '';
@@ -5102,21 +5102,21 @@
     // aqui para que 'Start practice' y 'Bulk tag' vean siempre el mismo conjunto de problemas.
     // Devuelve { problems, order }; lanza si la consulta falla (lo captura el llamante).
     function freeFilteredProblems() {
-      // F-AllSrc: con 'All sources' marcado, Collection/Chapter se ignoran
-      // (son conceptos por-source, la UI ya los deja deshabilitados/vacios)
-      // y se pasa source=null a las queries para que cubran todas las
-      // sources a la vez.
+      // F-AllSrc / T40: 'All sources' solo quita la restriccion de source
+      // (source=null) cuando NO hay Collection elegida. Un set_id solo es
+      // unico dentro de su source, asi que una Collection (o los Chapters
+      // de ella, que cuelgan de la misma) siempre limita a su source.
       const allSources = document.getElementById('fp-all-sources').checked;
-      const setId = allSources ? '' : document.getElementById('fp-col').value;
+      const setId = document.getElementById('fp-col').value;
       // F11: uno o varios capitulos marcados (todos de la misma coleccion);
       // ninguno marcado == All (comportamiento previo).
-      const chapIds = allSources ? [] : [...document.querySelectorAll('#fp-chap-list input:checked')].map(cb => parseInt(cb.value));
+      const chapIds = [...document.querySelectorAll('#fp-chap-list input:checked')].map(cb => parseInt(cb.value));
       const diffMin = document.getElementById('fp-diff').value, diffMax = document.getElementById('fp-diff-max').value;
       const problemIdFilter = document.getElementById('fp-problem-id').value.trim(), status = document.getElementById('fp-status').value;
       const order = document.getElementById('fp-order').value;
       const onlyVisible = document.getElementById('fp-visible').checked;
       const tagSel = [...document.querySelectorAll('#fp-tags-list input:checked')].map(cb => cb.value);   // T23: ninguna = All
-      const srcArg = allSources ? null : currentSource;
+      const srcArg = (allSources && !setId) ? null : currentSource;
       let problems = localGetProblems(srcArg, { set_id: setId ? parseInt(setId) : undefined, chapter_ids: chapIds.length ? chapIds : undefined, onlyVisible, tags: tagSel.length ? tagSel : undefined });
       if (diffMin) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num >= parseInt(diffMin));
       if (diffMax) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num <= parseInt(diffMax));
@@ -5630,7 +5630,7 @@
       isPaused = false; pausedAt = 0; totalPaused = 0;
       document.getElementById('pause-overlay').style.display = 'none';
       document.getElementById('board-wrap').style.visibility = 'visible';
-      document.getElementById('btn-pause').textContent = '⏸ Pause';
+      document.getElementById('btn-pause').textContent = '⏸';
       try {
         const prob = localGetProblem(probMeta.source || currentSource, probMeta.problem_id);
         if (!prob || !prob.sgf_path) { nextProblem(); return; }
@@ -5912,9 +5912,9 @@
       document.getElementById('btn-hide-problem').style.display = freeMode ? '' : 'none'; // T13: ocultar solo en Free
       // T31: Explorar solo en Free. Reset incondicional del aspecto del boton y de los
       // botones que Explorar deshabilita (por si se cambio de problema explorando).
-      const bex = document.getElementById('btn-explore'); bex.style.display = freeMode ? '' : 'none'; bex.classList.remove('active'); bex.textContent = '🔍 Explore'; bex.style.background = ''; bex.style.color = '';
+      const bex = document.getElementById('btn-explore'); bex.style.display = freeMode ? '' : 'none'; bex.classList.remove('active');
       for (const id of ['btn-hint', 'btn-hide-problem', 'btn-next', 'btn-pause']) document.getElementById(id).disabled = false;
-      document.getElementById('lbl-ghosts').style.display = freeMode ? 'inline-flex' : 'none'; document.getElementById('chk-ghosts').checked = ghostMode; // T37
+      const bgh = document.getElementById('btn-ghosts'); bgh.style.display = freeMode ? '' : 'none'; bgh.classList.toggle('active', ghostMode); bgh.setAttribute('aria-pressed', String(ghostMode)); // T37/T39
     }
     function setupInteractiveMode(root, playerC) {
       let firstMoveDone = false, currentNode = root, attemptRecorded = false, answered = false, hadWrong = false, hintMarker = null;
@@ -6131,7 +6131,7 @@
           if (bw) bw.classList.remove('board-ok', 'board-bad');
           cb.textContent = '';
           for (const id of EXPLORE_DISABLED) document.getElementById(id).disabled = true;
-          btn.classList.add('active'); btn.textContent = '🔍 Exploring…'; btn.style.background = 'var(--gold)'; btn.style.color = '#000';
+          btn.classList.add('active');
           exploreRedraw(); exploreSetHint();
         } else {
           // ── salir: restaurar exactamente el estado de entrada ──
@@ -6148,7 +6148,7 @@
           if (bw) { bw.classList.toggle('board-ok', st.boardOk); bw.classList.toggle('board-bad', st.boardBad); }
           refreshGhosts(); // T37: Explorar borra el tablero; se repintan los fantasmas con el estado ya restaurado
           for (const id of EXPLORE_DISABLED) document.getElementById(id).disabled = false;
-          btn.classList.remove('active'); btn.textContent = '🔍 Explore'; btn.style.background = ''; btn.style.color = '';
+          btn.classList.remove('active');
         }
       };
       window._studyHint = () => {
@@ -6266,8 +6266,8 @@
       if (!currentProblem || waitingForNext) return;
       isPaused = !isPaused;
       const overlay = document.getElementById('pause-overlay'), boardWrap = document.getElementById('board-wrap');
-      if (isPaused) { pausedAt = Date.now(); overlay.style.display = 'flex'; boardWrap.style.visibility = 'hidden'; document.getElementById('btn-pause').textContent = '▶ Resume'; }
-      else { const segmentMs = Date.now() - pausedAt; totalPaused += segmentMs; if (activeRunId) dbExec(`UPDATE runs SET paused_ms=paused_ms+? WHERE id=?`, [segmentMs, activeRunId]); overlay.style.display = 'none'; boardWrap.style.visibility = 'visible'; document.getElementById('btn-pause').textContent = '⏸ Pause'; }
+      if (isPaused) { pausedAt = Date.now(); overlay.style.display = 'flex'; boardWrap.style.visibility = 'hidden'; document.getElementById('btn-pause').textContent = '▶'; }
+      else { const segmentMs = Date.now() - pausedAt; totalPaused += segmentMs; if (activeRunId) dbExec(`UPDATE runs SET paused_ms=paused_ms+? WHERE id=?`, [segmentMs, activeRunId]); overlay.style.display = 'none'; boardWrap.style.visibility = 'visible'; document.getElementById('btn-pause').textContent = '⏸'; }
     }
     document.getElementById('btn-pause').addEventListener('click', togglePause);
     document.getElementById('pause-overlay').addEventListener('click', () => { if (isPaused) togglePause(); });
@@ -6289,7 +6289,7 @@
     document.getElementById('btn-back').addEventListener('click', () => { if (window._studyBack) window._studyBack(); });
     document.getElementById('btn-hint').addEventListener('click', () => { if (window._studyHint) window._studyHint(); });
     document.getElementById('btn-explore').addEventListener('click', () => { if (window._studyExploreToggle) window._studyExploreToggle(); }); // T31
-    document.getElementById('chk-ghosts').addEventListener('change', e => { ghostMode = e.target.checked; lsSet('free_ghosts', ghostMode ? '1' : '0'); e.target.blur(); /* que Espacio no lo vuelva a conmutar */ if (window._studyGhostsRefresh) window._studyGhostsRefresh(); }); // T37
+    document.getElementById('btn-ghosts').addEventListener('click', e => { const b = e.currentTarget; ghostMode = !ghostMode; lsSet('free_ghosts', ghostMode ? '1' : '0'); b.classList.toggle('active', ghostMode); b.setAttribute('aria-pressed', String(ghostMode)); b.blur(); /* que Espacio no lo vuelva a pulsar */ if (window._studyGhostsRefresh) window._studyGhostsRefresh(); }); // T37/T39
     document.getElementById('btn-hide-problem').addEventListener('click', hideCurrentProblem); // T13
     window.addEventListener('keydown', e => {
       if (e.code !== 'Escape' && window._studyExploring && window._studyExploring()) return; // T31: en Explorar solo Escape (cerrar modales)
@@ -6992,6 +6992,9 @@
     document.getElementById('cf-needs-work').checked = lsGet(CF_NEEDS_KEY) === '1';
     document.getElementById('cf-all-sources').checked = lsGet(CF_ALLSRC_KEY) === '1';
     syncAllSourcesUI();
+    // T40: checks de Free (persisten entre sesiones); antes del primer loadCollections
+    document.getElementById('fp-all-sources').checked = lsGet(FP_ALLSRC_KEY) === '1';
+    document.getElementById('fp-visible').checked = lsGet(FP_VISIBLE_KEY) === '1';
     (async () => {
 	  await initDB();
       await purgeEmptyRuns();
