@@ -1687,6 +1687,7 @@
           <button class="ctrl-btn" id="btn-pause">⏸ Pause</button>
           <button class="ctrl-btn" id="btn-hint" style="display:none" title="Muestra el siguiente movimiento correcto (solo Free)">💡 Hint</button>
           <button class="ctrl-btn" id="btn-explore" style="display:none" title="Explore: free play on the current position with real rules; ↺ resets, 🔍 again to return (Free only) — T31">🔍 Explore</button>
+          <label class="ctrl-btn" id="lbl-ghosts" style="display:none;align-items:center;gap:5px;cursor:pointer;" title="Ghost stones: show the available moves; green = wins, red = does not (Free only) — T37"><input type="checkbox" id="chk-ghosts" style="accent-color:var(--gold);cursor:pointer;"> 👻 Ghosts</label>
           <button class="ctrl-btn" id="btn-hide-problem" style="display:none" title="Hide this problem everywhere (history kept; reversible only in the server DB) — T13">🚫 Hide</button>
           <button class="ctrl-btn" id="btn-next">→ Next</button>
         </div>
@@ -1804,7 +1805,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261028-1331';
+	const SW_VERSION = 'tsumevault-20261029-1003';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1868,6 +1869,7 @@
     let freeMode = false;                                       // F7: Free Practice pura (distinto de runMode/Review)
     let retryQueue = [], retryQueued = new Set(), retryPhase = false; // F3 (§12.3): cola de repesca
     let secondChance = localStorage.getItem('second_chance') === 'true';
+    let ghostMode = localStorage.getItem('free_ghosts') === '1'; // T37: piedras fantasma en Free (interruptor persistente)
     let syncInProgress = false;
     let lastSyncError = null;      // T6/3.10: ultimo error de sync (para el alert del boton manual)
     let syncStatusTimer = null;    // T6/3.10: temporizador unico de setSyncStatus
@@ -5653,7 +5655,7 @@
       showSessionEnd(); loadRuns(); refreshCollectionStats();
     }
     function showSessionEnd() {
-      window._studyRedraw = null; // T5/3.9: el hook muere con la sesion
+      window._studyRedraw = null; window._studyGhostsRefresh = null; // T5/3.9: el hook muere con la sesion (T37: tambien el de Ghosts)
       clearSidebar(); clearBoard(); wgoBoard = null;
       document.getElementById('board-wrap').style.display = 'none';
       document.getElementById('comment-box').textContent = '';
@@ -5905,6 +5907,7 @@
       // botones que Explorar deshabilita (por si se cambio de problema explorando).
       const bex = document.getElementById('btn-explore'); bex.style.display = freeMode ? '' : 'none'; bex.classList.remove('active'); bex.textContent = '🔍 Explore'; bex.style.background = ''; bex.style.color = '';
       for (const id of ['btn-hint', 'btn-hide-problem', 'btn-next', 'btn-pause']) document.getElementById(id).disabled = false;
+      document.getElementById('lbl-ghosts').style.display = freeMode ? 'inline-flex' : 'none'; document.getElementById('chk-ghosts').checked = ghostMode; // T37
     }
     function setupInteractiveMode(root, playerC) {
       let firstMoveDone = false, currentNode = root, attemptRecorded = false, answered = false, hadWrong = false, hintMarker = null;
@@ -6016,16 +6019,54 @@
         }
         const oppNode = node.children[idx];
         oppPending = true; // T31
-        setTimeout(() => { oppPending = false; if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y, oppNode); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; }, 400);
+        setTimeout(() => { oppPending = false; if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y, oppNode); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; refreshGhosts(); /* T37 */ }, 400);
       }
       function resetGame() { game = new WGo.Game(boardSize); game.allow_rewrite = true; for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
       // T5/3.9: rehidratacion tras resize. Repinta la posicion ACTUAL desde el
       // objeto game del closure (setup + jugadas) y las labels del nodo actual,
       // sin re-entrar en setupInteractiveMode: currentNode, hadWrong,
       // attemptRecorded, history y el intento en curso sobreviven intactos.
-      window._studyRedraw = () => { if (explore) { exploreRedraw(); return; } /* T31 */ redrawFromGame(); renderLabels(currentNode); };
-      window._studyRestart = () => { if (explore) { exploreReset(); return; } /* T31: en Explorar, Restart vuelve a la posicion de entrada */ if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } branchPending = null; /* T30 */ owed.length = 0; branchSeen.clear(); /* T24: intento nuevo, sin ramas pendientes */ history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); problemStartTime = Date.now(); updateSessionUI(); };
-      window._studyBack = () => { if (explore) { exploreUndo(); return; } /* T31: en Explorar, Back deshace la ultima piedra explorada */ if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } branchPending = null; /* T24/T30: cancela la transicion en curso (timer o espera); la alternativa sigue en owed y se exigira al siguiente ✓ */ if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); };
+      // ── T37: modo Ghosts (solo Free) ──
+      // Piedras fantasma (outline + simbolo, como J3) sobre cada hijo de currentNode que sea
+      // jugada real, cuando le toca mover al jugador. Simbolo/color: ? what-if (IT) > ✕ (BM o la
+      // jugada no cierra en RIGHT segun hintWinsPlayer, criterio T24/T29) > ▲ (DO) > ★ (TE) > ●.
+      // Los objetos llevan _ghost para quitarlos sin tocar markup/hover/pista (mismo patron que
+      // clearCrossMarks). Cualquier redibujado completo (placeStone, restoreSnapshot, renderSetup,
+      // exploreRedraw) ya los borra; aqui solo hay que volver a pintarlos cuando toca.
+      function clearFreeGhosts() {
+        let any = false;
+        for (let x = 0; x < wgoBoard.size; x++) for (let y = 0; y < wgoBoard.size; y++) {
+          const a = wgoBoard.obj_arr[x][y];
+          if (a && a.some(o => o._ghost)) { wgoBoard.obj_arr[x][y] = a.filter(o => !o._ghost); any = true; }
+        }
+        if (any) wgoBoard.redraw();
+      }
+      function ghostInfo(c) {
+        const has = k => c[k] !== undefined;
+        if (has('IT')) return jsMarkInfo({ it: true });
+        if (has('BM') || !hintWinsPlayer(c)) return jsMarkInfo({ q: 'bad' });
+        if (has('DO')) return jsMarkInfo({ q: 'doubtful' });
+        if (has('TE')) return jsMarkInfo({ te: true });
+        return jsMarkInfo({});
+      }
+      function refreshGhosts() {
+        clearFreeGhosts();
+        if (!ghostMode || !freeMode || explore || answered || waitingForNext || !currentProblem || currentProblem._isReveal) return;
+        const rank = { bad: 3, doubtful: 2, whatif: 1 }, byPt = new Map();
+        for (const c of (currentNode.children || [])) {
+          if (!hintIsRealMove(c)) continue;
+          const info = ghostInfo(c), k = c.move.x + ',' + c.move.y, prev = byPt.get(k);
+          if (!prev || (rank[info.kind] || 0) > (rank[prev.info.kind] || 0)) byPt.set(k, { x: c.move.x, y: c.move.y, c: c.move.c, info });
+        }
+        for (const g of byPt.values()) {
+          wgoBoard.addObject({ x: g.x, y: g.y, c: g.c, type: 'outline', _ghost: true });
+          wgoBoard.addObject({ x: g.x, y: g.y, type: WGo.Board.drawHandlers['LB'], text: g.info.sym, c: g.info.color, _ghost: true });
+        }
+      }
+      window._studyGhostsRefresh = refreshGhosts;
+      window._studyRedraw = () => { if (explore) { exploreRedraw(); return; } /* T31 */ redrawFromGame(); renderLabels(currentNode); refreshGhosts(); /* T37 */ };
+      window._studyRestart = () => { if (explore) { exploreReset(); return; } /* T31: en Explorar, Restart vuelve a la posicion de entrada */ if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } branchPending = null; /* T30 */ owed.length = 0; branchSeen.clear(); /* T24: intento nuevo, sin ramas pendientes */ history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); refreshGhosts(); /* T37 */ problemStartTime = Date.now(); updateSessionUI(); };
+      window._studyBack = () => { if (explore) { exploreUndo(); return; } /* T31: en Explorar, Back deshace la ultima piedra explorada */ if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } branchPending = null; /* T24/T30: cancela la transicion en curso (timer o espera); la alternativa sigue en owed y se exigira al siguiente ✓ */ if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); refreshGhosts(); /* T37 */ };
       // F8: pista (solo Free) — señala un hijo de currentNode sin jugarlo ni registrar
       // ningún intento. T29: antes bastaba con que no empezara por WRONG y a veces
       // señalaba una rama sin ningún RIGHT debajo; ahora exige que la jugada pueda
@@ -6098,23 +6139,24 @@
           if (hintEl) { hintEl.textContent = st.hintText; hintEl.className = st.hintClass; }
           if (flash) flash.className = st.flashClass === 'show' ? 'hide' : st.flashClass;
           if (bw) { bw.classList.toggle('board-ok', st.boardOk); bw.classList.toggle('board-bad', st.boardBad); }
+          refreshGhosts(); // T37: Explorar borra el tablero; se repintan los fantasmas con el estado ya restaurado
           for (const id of EXPLORE_DISABLED) document.getElementById(id).disabled = false;
           btn.classList.remove('active'); btn.textContent = '🔍 Explore'; btn.style.background = ''; btn.style.color = '';
         }
       };
       window._studyHint = () => {
         if (explore || !freeMode || answered || waitingForNext) return; // T31: sin pista en Explorar
-        if (hintMarker) { wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'CR' }); wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'LB' }); hintMarker = null; }
+        if (hintMarker) { const a = wgoBoard.obj_arr[hintMarker.x][hintMarker.y]; wgoBoard.obj_arr[hintMarker.x][hintMarker.y] = a.filter(o => !o._hint); wgoBoard.redraw(); hintMarker = null; } // T37: por _hint, no por tipo (convive con los fantasmas)
         const correct = hintPickMove(currentNode);
         if (!correct) { const cb = document.getElementById('comment-box'); cb.textContent = 'Hint: no continuation from here reaches RIGHT'; cb.style.display = 'block'; return; }
         const { x, y } = correct.move;
         const hintC = '#1a1aff';
-        wgoBoard.addObject({ x, y, type: 'CR', c: hintC });
-        wgoBoard.addObject({ x, y, type: 'LB', text: '●', c: hintC });
+        wgoBoard.addObject({ x, y, type: 'CR', c: hintC, _hint: true });
+        wgoBoard.addObject({ x, y, type: 'LB', text: '●', c: hintC, _hint: true });
         hintMarker = { x, y };
       };
       let ghostPos = null; let pendingTap = null; const boardEl = wgoBoard.element;
-      function clearPending() { if (pendingTap) { wgoBoard.removeObject({ x: pendingTap.x, y: pendingTap.y, type: 'outline' }); pendingTap = null; } }
+      function clearPending() { if (pendingTap) { const a = wgoBoard.obj_arr[pendingTap.x][pendingTap.y]; wgoBoard.obj_arr[pendingTap.x][pendingTap.y] = a.filter(o => !o._pending); wgoBoard.redraw(); pendingTap = null; } } // T37: por _pending, no por tipo (el fantasma tambien es 'outline')
       function updateGhost(e) { if (!explore && (answered || waitingForNext)) return; /* T31 */ const rect = boardEl.getBoundingClientRect(); const mx = (e.clientX - rect.left) * wgoBoard.pixelRatio; const my = (e.clientY - rect.top) * wgoBoard.pixelRatio; const x = Math.round((mx - wgoBoard.left) / wgoBoard.fieldWidth); const y = Math.round((my - wgoBoard.top) / wgoBoard.fieldHeight); if (x < 0 || y < 0 || x >= boardSize || y >= boardSize) { clearGhost(); return; } if (ghostPos && ghostPos.x === x && ghostPos.y === y) return; clearGhost(); if (wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1)) return; ghostPos = { x, y }; wgoBoard.addObject({ x, y, c: explore ? explore.turn : playerC, type: 'outline' }); }
       function clearGhost() { if (ghostPos) { wgoBoard.removeObject({ x: ghostPos.x, y: ghostPos.y, type: 'outline' }); ghostPos = null; } }
       if (wgoBoard._ghostListener) { wgoBoard.element.removeEventListener('mousemove', wgoBoard._ghostListener); wgoBoard.element.removeEventListener('mouseleave', wgoBoard._clearGhost); }
@@ -6124,7 +6166,7 @@
         clearGhost();
         if (explore) { // T31: juego libre; respeta el doble toque de tapConfirm
           if (wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => (o.c === 1 || o.c === -1) && o.type !== 'outline')) return;
-          if (tapConfirm) { if (pendingTap && pendingTap.x === x && pendingTap.y === y) { clearPending(); exploreClick(x, y); } else { clearPending(); pendingTap = { x, y }; wgoBoard.addObject({ x, y, c: explore.turn, type: 'outline' }); } }
+          if (tapConfirm) { if (pendingTap && pendingTap.x === x && pendingTap.y === y) { clearPending(); exploreClick(x, y); } else { clearPending(); pendingTap = { x, y }; wgoBoard.addObject({ x, y, c: explore.turn, type: 'outline', _pending: true }); } }
           else exploreClick(x, y);
           return;
         }
@@ -6140,9 +6182,9 @@
           } else {
             // primer tap o cambio de sitio → fijar pending
             clearPending();
-            if (!(wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => o.c === 1 || o.c === -1))) {
+            if (!(wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => (o.c === 1 || o.c === -1) && o.type !== 'outline'))) { // T37: el outline de un fantasma no cuenta como piedra
               pendingTap = { x, y };
-              wgoBoard.addObject({ x, y, c: playerC, type: 'outline' });
+              wgoBoard.addObject({ x, y, c: playerC, type: 'outline', _pending: true });
             }
           }
         } else {
@@ -6165,6 +6207,7 @@
         if (checkResult(match)) return; playOpponent(match);
       }
       if (!wgoBoard._globalListenerSet) { wgoBoard.addEventListener('click', (x, y) => { if (window._boardClickHandler) window._boardClickHandler(x, y); }); wgoBoard._globalListenerSet = true; }
+      refreshGhosts(); // T37: primer pintado del problema
     }
     function showResult(isRight, comment) {
       waitingForNext = true; playSound(isRight ? 'right' : 'wrong');
@@ -6239,6 +6282,7 @@
     document.getElementById('btn-back').addEventListener('click', () => { if (window._studyBack) window._studyBack(); });
     document.getElementById('btn-hint').addEventListener('click', () => { if (window._studyHint) window._studyHint(); });
     document.getElementById('btn-explore').addEventListener('click', () => { if (window._studyExploreToggle) window._studyExploreToggle(); }); // T31
+    document.getElementById('chk-ghosts').addEventListener('change', e => { ghostMode = e.target.checked; lsSet('free_ghosts', ghostMode ? '1' : '0'); e.target.blur(); /* que Espacio no lo vuelva a conmutar */ if (window._studyGhostsRefresh) window._studyGhostsRefresh(); }); // T37
     document.getElementById('btn-hide-problem').addEventListener('click', hideCurrentProblem); // T13
     window.addEventListener('keydown', e => {
       if (e.code !== 'Escape' && window._studyExploring && window._studyExploring()) return; // T31: en Explorar solo Escape (cerrar modales)
