@@ -44,7 +44,8 @@ html,body{height:100%;overflow-y:auto;overflow-x:hidden;background:var(--bg);col
 #lesson-header .lh-col{color:var(--dim2);}
 #lesson-header .lh-name{color:var(--text);flex:1;}
 #lesson-header .lh-diff{color:var(--gold);flex-shrink:0;}
-#lesson-header #lh-studied{background:none;border:none;cursor:pointer;font-size:18px;line-height:1;color:var(--dim2);padding:0 4px;flex-shrink:0;transition:color .15s;}
+#lesson-header #lh-studied{background:none;border:1px solid var(--border2);border-radius:2px;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.12em;line-height:1;color:var(--dim);padding:5px 9px;flex-shrink:0;transition:all .15s;}
+#lesson-header #lh-studied.on{border-color:var(--gold-dim);}
 #ptr.visible{display:none;}
 #ptr.flash{animation:ptr-flash .25s ease;}
 @keyframes ptr-flash{0%{transform:translate(-50%,-50%) scale(2.2);opacity:0;}100%{transform:translate(-50%,-50%) scale(1);opacity:1;}}
@@ -145,7 +146,7 @@ input[type=range].vol::-webkit-slider-thumb{-webkit-appearance:none;width:9px;he
   <div id="main">
     <div id="welcome"><div class="kanji">囲碁</div><p>Load SGF · JSON · Audio</p></div>
     <div id="board-wrap" style="display:none">
-      <div id="lesson-header"><span class="lh-type" id="lh-type">—</span><span class="lh-col" id="lh-col">—</span><span class="lh-name" id="lh-name">—</span><span class="lh-diff" id="lh-diff">—</span><button id="lh-studied" title="Studied">○</button></div>
+      <div id="lesson-header"><span class="lh-type" id="lh-type">—</span><span class="lh-col" id="lh-col">—</span><span class="lh-name" id="lh-name">—</span><span class="lh-diff" id="lh-diff">—</span><button id="lh-studied" title="Marcar como estudiada">○ STUDIED</button></div>
       <div id="board"></div><div id="ptr"></div>
       <div id="subtitles"></div>
     </div>
@@ -1069,6 +1070,8 @@ async function loadLesson(forcedId) {
     const paintStudied = () => {
       const on = studied.has(row.lessonId);
       studiedBtns.forEach(b => { b.textContent = on ? '✓' : '○'; b.style.color = on ? 'var(--gold)' : 'var(--dim2)'; });
+      const h = document.getElementById('lh-studied');
+      h.textContent = (on ? '✓' : '○') + ' STUDIED'; h.style.color = on ? 'var(--gold)' : 'var(--dim)'; h.classList.toggle('on', on);
     };
     paintStudied();
     studiedBtns.forEach(b => { b.onclick = () => { setStudied(row.lessonId, !studied.has(row.lessonId)); paintStudied(); }; });
