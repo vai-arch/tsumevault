@@ -1,12 +1,6 @@
 (;GM[1]FF[4]CA[UTF-8]AP[Drago:4.33]SZ[19]CA[UTF-8];B[qd]
 (;W[od]C[High Approach];B[oc]C[Attachment
-Territorial move]
-(;W[pc]BM[1]C[Hane inside
-Overplay]
-(;B[pd]TE[1]C[Extend / crosscut];W[nc];B[ob];W[nb]
-;B[pb]C[Corner is secured and White has a Weak point A]L[nd])
-(;B[nc]BM[1]C[Extend lateral];W[pd]C[White is connected and Black separated]TE[1]))
-(;W[nc]TE[1]C[Hane outside];B[pc]
+Territorial move];W[nc]TE[1]C[Hane outside];B[pc]
 (;W[nd]C[Connect]
 (;B[qf]C[1 space extension]
 (;W[jd]C[From 2 extend 3 High
@@ -53,11 +47,13 @@ Want more terrotory but white can have more influence];W[pf];B[qf])
 Occupies the from 2 extend 3 high point];W[qe];B[re];W[pd];B[qc];W[qf];B[rf];W[qh]))
 (;W[jc]BM[1]C[From 2 extend 3 low];B[nd]
 (;W[mc]C[Extend lateral];B[ne])
-(;W[oe]C[Extend up];B[mc]))))
+(;W[oe]C[Extend up];B[mc])))
 (;W[oc]C[Low Approach]
 (;B[pc]C[Kick]
 (;W[od]
-(;B[qf]C[1 point extension];W[kc])
+(;B[qf]C[1 point extension]
+(;W[kc]C[Low Extension])
+(;W[kd]C[High Extension]))
 (;B[tt]IT[]C[Black Tenuki
 Wrong, Black can't tenuki];W[pd];B[qc];W[qf];B[qe];W[pf];B[rf];W[rg];B[re]
 ;W[qh]C[Very good for White]))

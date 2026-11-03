@@ -774,6 +774,90 @@ async function serverQuery(sql) {
     && G3.q1("SELECT synced FROM tags WHERE tag='en-vuelo'")?.synced === 0
     && G3.q1("SELECT synced FROM tags WHERE tag='semeai'")?.synced === 1, JSON.stringify(G3.q('SELECT * FROM tags')));
 
+  // ════ Escenario T34: sync de chapters.mostrar (push de pendientes + verdad del servidor) ════
+  // El servidor tiene 701=1, 702=0. Los capitulos se siembran tambien en cada
+  // dispositivo (llegarian por snapshot). El cambio local se simula con SQL
+  // (setChapterMostrar vive fuera del perimetro de extract_bundle.py).
+  srvSql("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar) VALUES (701,'t34',7,1,1)");
+  srvSql("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar) VALUES (702,'t34',7,2,0)");
+  const seedVis = (d, v701, v702) => d.run(`
+    dbExec("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar) VALUES (701,'t34',7,1,${v701})", []);
+    dbExec("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar) VALUES (702,'t34',7,2,${v702})", []);
+  `);
+  const visPushes = (d) => d.netlog.filter(c => c.url.endsWith('/sync/chapter_visibility'));
+  let V1 = freshDevice('V1');
+  seedVis(V1, 1, 0);
+  check('T34: capitulos nuevos entran con mostrar_synced=1 (default)', V1.q1('SELECT MIN(mostrar_synced) m FROM chapters').m === 1);
+  V1.run(`dbExec("UPDATE chapters SET mostrar=1, mostrar_synced=0 WHERE id=702", [])`);
+  ok = await V1.runAsync('return await tryAutoSync(true)');
+  const v1Body = JSON.parse(visPushes(V1).pop()?.body || '{}');
+  check('T34: el push lleva SOLO el capitulo pendiente', ok === true
+    && JSON.stringify(v1Body.chapters) === JSON.stringify([{ id: 702, mostrar: 1 }]), JSON.stringify(v1Body));
+  check('T34: el servidor aplica el cambio de V1', srvQ('SELECT mostrar FROM chapters WHERE id=702')[0].mostrar === 1);
+  check('T34: el pendiente de V1 queda confirmado (synced=1)', V1.q1('SELECT mostrar, mostrar_synced FROM chapters WHERE id=702').mostrar_synced === 1);
+  // V2 tiene un valor viejo (702=0) sin cambios locales: NO debe pisar el servidor y debe recibir el bueno
+  let V2 = freshDevice('V2');
+  seedVis(V2, 1, 0);
+  ok = await V2.runAsync('return await tryAutoSync(true)');
+  check('T34: V2 sin pendientes no empuja nada', ok === true && JSON.parse(visPushes(V2).pop()?.body || '{}').chapters?.length === 0);
+  check('T34: el valor viejo de V2 NO pisa al servidor (antes si)', srvQ('SELECT mostrar FROM chapters WHERE id=702')[0].mostrar === 1);
+  check('T34: V2 recibe el cambio hecho en V1', V2.q1('SELECT mostrar FROM chapters WHERE id=702').mostrar === 1);
+  check('T34: los capitulos que el cliente no tiene se ignoran (no se crean)', V2.q1('SELECT COUNT(*) c FROM chapters').c === 3);
+  // Cambio en mitad del vuelo: V2 empuja 701=0 y, mientras viaja, el usuario lo
+  // vuelve a 1. Debe quedar pendiente con 1 y la respuesta (701=0) no lo pisa.
+  V2.run(`dbExec("UPDATE chapters SET mostrar=0, mostrar_synced=0 WHERE id=701", [])`);
+  {
+    const orig = V2.ctx.fetch; let injected = false;
+    V2.ctx.fetch = async (url, o) => {
+      if (!injected && String(url).endsWith('/sync/chapter_visibility')) { injected = true; V2.run(`dbExec("UPDATE chapters SET mostrar=1, mostrar_synced=0 WHERE id=701", [])`); }
+      return orig(url, o);
+    };
+  }
+  ok = await V2.runAsync('return await tryAutoSync(true)');
+  check('T34: en vuelo: el servidor recibio lo enviado (701=0)', ok === true && srvQ('SELECT mostrar FROM chapters WHERE id=701')[0].mostrar === 0);
+  check('T34: en vuelo: el cambio posterior sigue pendiente y la respuesta no lo pisa',
+    JSON.stringify(V2.q1('SELECT mostrar, mostrar_synced FROM chapters WHERE id=701')) === JSON.stringify({ mostrar: 1, mostrar_synced: 0 }),
+    JSON.stringify(V2.q1('SELECT mostrar, mostrar_synced FROM chapters WHERE id=701')));
+  ok = await V2.runAsync('return await tryAutoSync(true)');
+  check('T34: en vuelo: el siguiente sync lo empuja y confirma', ok === true && srvQ('SELECT mostrar FROM chapters WHERE id=701')[0].mostrar === 1
+    && V2.q1('SELECT mostrar_synced FROM chapters WHERE id=701').mostrar_synced === 1);
+  // Offline: el pendiente se conserva y sale al reconectar
+  let V3 = freshDevice('V3', { server: OFFLINE });
+  seedVis(V3, 1, 1);
+  V3.run(`dbExec("UPDATE chapters SET mostrar=0, mostrar_synced=0 WHERE id=702", [])`);
+  ok = await V3.runAsync('return await tryAutoSync(true)');
+  check('T34: offline: el pendiente se conserva', ok === false && V3.q1('SELECT mostrar_synced FROM chapters WHERE id=702').mostrar_synced === 0);
+  V3.ctx.SYNC_SERVER = SERVER;
+  ok = await V3.runAsync('return await tryAutoSync(true)');
+  check('T34: offline: al reconectar llega al servidor', ok === true && srvQ('SELECT mostrar FROM chapters WHERE id=702')[0].mostrar === 0
+    && V3.q1('SELECT mostrar_synced FROM chapters WHERE id=702').mostrar_synced === 1);
+  ok = await V1.runAsync('return await tryAutoSync(true)');
+  check('T34: V1 recibe el cambio de V3 (702=0)', ok === true && V1.q1('SELECT mostrar FROM chapters WHERE id=702').mostrar === 0);
+  // applyMostrarUpTo marca pendientes SOLO los capitulos que cambian de valor
+  let V4 = freshDevice('V4', { server: OFFLINE });
+  V4.run(`
+    dbExec("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar,diff_avg) VALUES (711,'t34s',1,1,1,600)", []);
+    dbExec("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar,diff_avg) VALUES (712,'t34s',1,2,0,1500)", []);
+    dbExec("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar,diff_avg) VALUES (713,'t34s',1,3,1,2100)", []);
+    dbExec("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar,diff_avg) VALUES (714,'t34s',1,4,0,NULL)", []);
+    applyMostrarUpTo('t34s', 1500);
+  `);
+  const v4 = V4.q("SELECT id, mostrar, mostrar_synced FROM chapters WHERE source='t34s' ORDER BY id");
+  check('T34: applyMostrarUpTo solo marca pendientes los que cambian (712 y 713)',
+    JSON.stringify(v4) === JSON.stringify([{ id: 711, mostrar: 1, mostrar_synced: 1 }, { id: 712, mostrar: 1, mostrar_synced: 0 },
+      { id: 713, mostrar: 0, mostrar_synced: 0 }, { id: 714, mostrar: 0, mostrar_synced: 1 }]), JSON.stringify(v4));
+  // Migracion: DB anterior sin la columna -> se anade con 1 (el servidor manda)
+  const oldCh = new SQLHost.Database();
+  oldCh.run("CREATE TABLE chapters (id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL, set_id INTEGER NOT NULL, chapter_num INTEGER NOT NULL, mostrar INTEGER NOT NULL DEFAULT 0); INSERT INTO chapters (id,source,set_id,chapter_num,mostrar) VALUES (1,'x',1,1,0),(2,'x',1,2,1);");
+  let VM = makeDevice('VM');
+  VM.ctx.db = oldCh;
+  check('T34: migracion — precondicion: la columna no existe (anti-test-vacuo)',
+    !VM.q("PRAGMA table_info(chapters)").some(c => c.name === 'mostrar_synced'));
+  VM.run('migrateSyncColumns()');
+  check('T34: migracion anade mostrar_synced=1 sin tocar mostrar',
+    JSON.stringify(VM.q('SELECT id, mostrar, mostrar_synced FROM chapters ORDER BY id')) === JSON.stringify([{ id: 1, mostrar: 0, mostrar_synced: 1 }, { id: 2, mostrar: 1, mostrar_synced: 1 }]),
+    JSON.stringify(VM.q('SELECT * FROM chapters')));
+
   console.log('\nRESULTADO CLIENTE:', fails.length ? `${fails.length} FALLOS: ${fails.join(' | ')}` : 'TODO OK');
   process.exit(fails.length ? 1 : 0);
 })().catch(e => { console.error('ERROR FATAL', e); process.exit(2); });

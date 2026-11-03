@@ -17,6 +17,8 @@ Endpoints:
     GET  /db/last_run_stats?source=X&set_id=X
     GET  /db/last_run_stats_all?source=X
     GET  /db/struggling?source=X[&set_id=X][&chapter_id=X]
+    GET  /sync/player_state            -> {studied:[ids], recorded:[ids]}
+    POST /sync/player_state            {kind,id,value[,t]} | {ops:[...]}
     POST /db/attempt   { source, problem_id, run_id?, result, time_ms? }
     POST /db/run       { source, set_id?, chapter_id?, vc_id?, type }
     PUT  /db/run       { id, status? }
@@ -1916,6 +1918,72 @@ def handle_sync_games(qs):
     return {"game_collections": game_collections, "games": games}
 
 
+# ── Estado del player (lecciones estudiadas / grabadas) ──────────────────────
+# Fichero JSON junto al .db. Por lección se guarda {"v": bool, "t": ISO}; gana
+# la última escritura de cada lección (t mayor o igual), así dos dispositivos no
+# se pisan la lista entera y desmarcar una lección no necesita lápidas aparte.
+PLAYER_STATE_PATH = os.path.join(SCRIPT_DIR, "player_state.json")
+PLAYER_STATE_KINDS = ("studied", "recorded")
+
+
+def _player_state_load():
+    try:
+        with open(PLAYER_STATE_PATH, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        data = {}
+    if not isinstance(data, dict):
+        data = {}
+    for k in PLAYER_STATE_KINDS:
+        if not isinstance(data.get(k), dict):
+            data[k] = {}
+    return data
+
+
+def _player_state_save(data):
+    tmp = PLAYER_STATE_PATH + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False)
+    os.replace(tmp, PLAYER_STATE_PATH)  # escritura atómica
+
+
+def handle_get_player_state(qs):
+    """Devuelve {studied:[ids], recorded:[ids]} con las lecciones marcadas."""
+    data = _player_state_load()
+    return {
+        k: sorted(int(i) for i, e in data[k].items() if e.get("v"))
+        for k in PLAYER_STATE_KINDS
+    }
+
+
+def handle_post_player_state(body):
+    """Aplica operaciones sueltas: {kind,id,value[,t]} o {ops:[...]}.
+
+    Idempotente y de última escritura por lección. Devuelve el estado final.
+    """
+    ops = body.get("ops") if "ops" in body else [body]
+    if not isinstance(ops, list) or len(ops) > 5000:
+        raise ValueError("ops")
+    data = _player_state_load()
+    now = now_iso()
+    for op in ops:
+        kind = op["kind"]
+        if kind not in PLAYER_STATE_KINDS:
+            raise ValueError("kind")
+        lesson_id = str(int(op["id"]))
+        value = op["value"]
+        if not isinstance(value, bool):
+            raise ValueError("value")
+        t = op.get("t") or now
+        if not isinstance(t, str) or len(t) > 40:
+            raise ValueError("t")
+        cur = data[kind].get(lesson_id)
+        if cur is None or t >= cur.get("t", ""):
+            data[kind][lesson_id] = {"v": value, "t": t}
+    _player_state_save(data)
+    return handle_get_player_state({})
+
+
 def handle_sync_pull(qs):
     """Devuelve attempts y runs nuevos desde los IDs indicados."""
     since_attempt_id = int(qs.get("since_attempt_id", ["0"])[0])
@@ -2133,20 +2201,6 @@ def handle_sync_push(body):
     return {"ok": True, "attempts": inserted_attempts, "runs": inserted_runs}
 
 
-def handle_put_chapter_mostrar(body):
-    chapter_id = body.get("chapter_id")
-    mostrar = body.get("mostrar")
-    if chapter_id is None or mostrar is None:
-        return {"error": "chapter_id y mostrar son requeridos"}, 400
-    with db_connect() as con:
-        con.execute(
-            "UPDATE chapters SET mostrar=? WHERE id=?",
-            (int(bool(mostrar)), int(chapter_id)),
-        )
-        con.commit()
-    return {"ok": True}
-
-
 def handle_sync_check_runs(body):
     uuids = body.get("uuids", [])
     if not isinstance(uuids, list):
@@ -2169,27 +2223,42 @@ def handle_sync_check_runs(body):
     return {"missing": missing}
 
 
-def handle_sync_chapters_mostrar(body):
-    """Actualiza el flag mostrar de chapters (antes lógica inline en do_PUT)."""
+def handle_sync_chapter_visibility(body):
+    """T34: sincronización del flag mostrar de chapters.
+
+    El cliente envía SOLO los capítulos que ha cambiado localmente; el servidor
+    los aplica y responde con la tabla completa (id, mostrar), que el cliente
+    toma como verdad salvo en sus cambios aún pendientes. Sustituye a
+    PUT /sync/chapters_mostrar (empujaba la tabla entera y no devolvía nada:
+    el último dispositivo en sincronizar pisaba al resto) y a
+    PUT /db/chapter/mostrar. No crea filas: un id inexistente se ignora.
+    """
     chapters = body.get("chapters")
     if not isinstance(chapters, list):
         return {"error": "chapters (list) required"}, 400
     normalized = []
     for ch in chapters:
-        if not isinstance(ch, dict) or "id" not in ch or "mostrar" not in ch:
+        if not isinstance(ch, dict) or "id" not in ch or ch.get("mostrar") not in (0, 1):
             return {"error": "invalid chapter entry"}, 400
         try:
-            # Fase 1 (§4.4): normalizar mostrar a 0/1 (antes se escribía tal cual).
-            normalized.append((int(bool(ch["mostrar"])), int(ch["id"])))
+            normalized.append((int(ch["mostrar"]), int(ch["id"])))
         except (TypeError, ValueError):
             return {"error": "invalid chapter entry"}, 400
+    updated = 0
     with db_connect() as con:
         for mostrar, chapter_id in normalized:
-            con.execute(
-                "UPDATE chapters SET mostrar=? WHERE id=?", (mostrar, chapter_id)
+            cur = con.execute(
+                "UPDATE chapters SET mostrar=? WHERE id=? AND mostrar<>?",
+                (mostrar, chapter_id, mostrar),
             )
+            updated += cur.rowcount
         con.commit()
-    return {"ok": True}
+        rows = rows_to_list(
+            con.execute("SELECT id, mostrar FROM chapters ORDER BY id").fetchall()
+        )
+    if updated:
+        log.info("chapter_visibility: %d capítulos cambiados", updated)
+    return {"chapters": rows, "updated": updated}
 
 
 def handle_sync_problems_hidden(body):
@@ -2454,6 +2523,7 @@ GET_ROUTES = {
     "/sync/pull": handle_sync_pull,
     "/sync/static_version": handle_sync_static_version,
     "/sync/games": handle_sync_games,
+    "/sync/player_state": handle_get_player_state,  # estado del player
     "/sync/sm2/pull": handle_sync_sm2_pull,
     "/sync/problem_tags/pull": handle_sync_problem_tags_pull,  # T23
     "/sync/joseki_sm2/pull": handle_sync_joseki_sm2_pull,  # J2
@@ -2465,6 +2535,7 @@ POST_ROUTES = {
     "/db/attempt": handle_post_attempt,
     "/db/run": handle_post_run,
     "/sync/push": handle_sync_push,
+    "/sync/player_state": handle_post_player_state,  # estado del player
     "/db/runs/delete": handle_delete_runs,
     "/sync/check_runs": handle_sync_check_runs,
     "/admin/import_games": handle_admin_import_games,
@@ -2478,8 +2549,7 @@ POST_ROUTES = {
 
 PUT_ROUTES = {
     "/db/run": handle_put_run,
-    "/db/chapter/mostrar": handle_put_chapter_mostrar,
-    "/sync/chapters_mostrar": handle_sync_chapters_mostrar,
+    "/sync/chapter_visibility": handle_sync_chapter_visibility,  # T34
     "/sync/problems_hidden": handle_sync_problems_hidden,  # T13
     "/sync/tags": handle_sync_tags,  # T23
 }

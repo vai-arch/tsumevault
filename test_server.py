@@ -246,8 +246,47 @@ try:
     check("put_run sin status → 400", st == 400, f"st={st}")
     st, _, _ = req("/sync/sm2/push", "POST", {"sm2_state": [{"source": "x"}]})
     check("sm2 push inválido → 400", st == 400, f"st={st}")
-    st, _, _ = req("/sync/chapters_mostrar", "PUT", {"chapters": [{"id": 1}]})
-    check("chapters_mostrar inválido → 400", st == 400, f"st={st}")
+    # ── T34: /sync/chapter_visibility (push de pendientes + tabla completa) ──
+    # Endpoints antiguos retirados: un cliente viejo recibe 404 (no pisa nada).
+    st, _, _ = req("/sync/chapters_mostrar", "PUT", {"chapters": [{"id": 1, "mostrar": 1}]})
+    check("T34: PUT /sync/chapters_mostrar retirado → 404", st == 404, f"st={st}")
+    st, _, _ = req("/db/chapter/mostrar", "PUT", {"chapter_id": 1, "mostrar": 1})
+    check("T34: PUT /db/chapter/mostrar retirado → 404", st == 404, f"st={st}")
+    con = sqlite3.connect(DB)
+    con.execute("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar) VALUES (801,'t34',1,1,1)")
+    con.execute("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar) VALUES (802,'t34',1,2,0)")
+    con.commit(); con.close()
+    def _vis(b): return {r["id"]: r["mostrar"] for r in b.get("chapters", [])}
+    st, body, _ = req("/sync/chapter_visibility", "PUT", {"chapters": []})
+    check("T34: push vacío → 200 y tabla completa (801=1, 802=0)", st == 200 and body.get("updated") == 0
+          and _vis(body).get(801) == 1 and _vis(body).get(802) == 0, f"st={st} body={body}")
+    st, body, _ = req("/sync/chapter_visibility", "PUT", {"chapters": [{"id": 802, "mostrar": 1}]})
+    con = sqlite3.connect(DB)
+    v802 = con.execute("SELECT mostrar FROM chapters WHERE id=802").fetchone()[0]
+    con.close()
+    check("T34: push aplica el cambio y la respuesta lo refleja", st == 200 and body.get("updated") == 1
+          and v802 == 1 and _vis(body).get(802) == 1, f"st={st} body={body} v802={v802}")
+    st, body, _ = req("/sync/chapter_visibility", "PUT", {"chapters": [{"id": 801, "mostrar": True}]})
+    check("T34: push sin cambio real → updated=0 (bool True aceptado como 1)", st == 200 and body.get("updated") == 0
+          and _vis(body).get(801) == 1, f"st={st} body={body}")
+    st, body, _ = req("/sync/chapter_visibility", "PUT", {"chapters": [{"id": 99999, "mostrar": 1}]})
+    con = sqlite3.connect(DB)
+    n_ghost = con.execute("SELECT COUNT(*) FROM chapters WHERE id=99999").fetchone()[0]
+    con.close()
+    check("T34: id inexistente se ignora (no crea filas)", st == 200 and body.get("updated") == 0
+          and n_ghost == 0 and 99999 not in _vis(body), f"st={st} body={body} n={n_ghost}")
+    for label, bad in (("sin mostrar", {"chapters": [{"id": 801}]}),
+                       ("mostrar fuera de {0,1}", {"chapters": [{"id": 801, "mostrar": 5}]}),
+                       ("mostrar como texto", {"chapters": [{"id": 801, "mostrar": "1"}]}),
+                       ("id no numérico", {"chapters": [{"id": "abc", "mostrar": 1}]}),
+                       ("chapters no-lista", {"chapters": "no-list"})):
+        st, _, _ = req("/sync/chapter_visibility", "PUT", bad)
+        check(f"T34: chapter_visibility {label} → 400", st == 400, f"st={st}")
+    con = sqlite3.connect(DB)
+    v801 = con.execute("SELECT mostrar FROM chapters WHERE id=801").fetchone()[0]
+    check("T34: los push rechazados no tocan nada (801 sigue en 1)", v801 == 1, f"v801={v801}")
+    con.execute("DELETE FROM chapters WHERE source='t34'")   # limpieza: no contaminar audit (Fase C)
+    con.commit(); con.close()
 
     # ── T13: /sync/problems_hidden (borrado lógico, merge) ──
     # Sembrar catálogo mínimo directamente en la DB (conexión concurrente
