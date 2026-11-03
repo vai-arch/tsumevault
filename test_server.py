@@ -526,14 +526,94 @@ try:
     atts = body.get("attempts", [])
     check("pull attempts incluyen run_uuid", st == 200 and atts and all("run_uuid" in a for a in atts), f"n={len(atts)}")
 
+    # ── FC1: Focus — tablas v5, attempts.session_uuid, /sync/focus (LWW) ──
+    con = sqlite3.connect(DB)
+    ft = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    acols = [r[1] for r in con.execute("PRAGMA table_info(attempts)")]
+    n_old_su = con.execute("SELECT COUNT(*) FROM attempts WHERE session_uuid IS NOT NULL").fetchone()[0]
+    con.close()
+    check("FC1: migración legacy crea focus, focus_chapters y focus_sessions",
+          {"focus", "focus_chapters", "focus_sessions"} <= ft, f"{sorted(ft)}")
+    check("FC1: migración añade attempts.session_uuid y los intentos previos quedan sin sesión",
+          "session_uuid" in acols and n_old_su == 0, f"cols={acols} n={n_old_su}")
+    fo = {"uuid": "fc1-f1", "name": "  Corner   patterns ", "archived": 0, "deleted": 0,
+          "created_at": "2026-11-03T10:00:00Z", "updated_at": "2026-11-03T10:00:00Z"}
+    fch = {"focus_uuid": "fc1-f1", "chapter_id": 901, "promoted": 0, "active": 1, "updated_at": "2026-11-03T10:00:01Z"}
+    fse = {"uuid": "fc1-s1", "focus_uuid": "fc1-f1", "started_at": "2026-11-03T10:05:00Z", "ended_at": None,
+           "completed": 0, "updated_at": "2026-11-03T10:05:00Z"}
+    st, body, _ = req("/sync/focus/push", "POST", {"focus": [fo], "focus_chapters": [fch], "focus_sessions": [fse]})
+    check("FC1: focus push aplica las tres tablas", st == 200
+          and body.get("applied") == {"focus": 1, "focus_chapters": 1, "focus_sessions": 1}, f"st={st} body={body}")
+    st, body, _ = req("/sync/focus/push", "POST", {"focus": [fo], "focus_chapters": [fch], "focus_sessions": [fse]})
+    check("FC1: push repetido (mismo updated_at) no aplica nada (LWW estricto)", st == 200
+          and body.get("applied") == {"focus": 0, "focus_chapters": 0, "focus_sessions": 0}, f"body={body}")
+    fse_done = dict(fse, ended_at="2026-11-03T10:20:00Z", completed=1, updated_at="2026-11-03T10:20:00Z")
+    st, body, _ = req("/sync/focus/push", "POST", {"focus_sessions": [fse_done]})
+    check("FC1: LWW — sesión completada (más reciente) aplica", st == 200
+          and body.get("applied", {}).get("focus_sessions") == 1, f"body={body}")
+    st, body, _ = req("/sync/focus/push", "POST", {"focus_sessions": [fse], "focus_chapters": [dict(fch, active=0, updated_at="2026-11-03T09:00:00Z")]})
+    con = sqlite3.connect(DB)
+    s_row = con.execute("SELECT completed, ended_at FROM focus_sessions WHERE uuid='fc1-s1'").fetchone()
+    c_row = con.execute("SELECT active FROM focus_chapters WHERE focus_uuid='fc1-f1' AND chapter_id=901").fetchone()
+    con.close()
+    check("FC1: LWW — filas más antiguas NO pisan (sesión sigue completada, capítulo sigue activo)",
+          st == 200 and body.get("applied") == {"focus": 0, "focus_chapters": 0, "focus_sessions": 0}
+          and s_row == (1, "2026-11-03T10:20:00Z") and c_row == (1,), f"body={body} s={s_row} c={c_row}")
+    st, body, _ = req("/sync/focus/pull?since=1970-01-01T00:00:00Z")
+    check("FC1: pull completo devuelve las tres tablas con el nombre normalizado", st == 200
+          and [f["name"] for f in body.get("focus", [])] == ["Corner patterns"]
+          and [c["chapter_id"] for c in body.get("focus_chapters", [])] == [901]
+          and [s["completed"] for s in body.get("focus_sessions", [])] == [1], f"body={body}")
+    st, body, _ = req("/sync/focus/pull?since=2026-11-03T10:20:00Z")
+    check("FC1: pull desde cursor incluye la frontera (>=) y excluye lo anterior", st == 200
+          and body.get("focus") == [] and body.get("focus_chapters") == []
+          and [s["uuid"] for s in body.get("focus_sessions", [])] == ["fc1-s1"], f"body={body}")
+    for label, bad in (("tabla no-lista", {"focus": "x"}),
+                       ("flag fuera de {0,1}", {"focus": [dict(fo, archived=2)]}),
+                       ("flag booleano", {"focus_chapters": [dict(fch, active=True)]}),
+                       ("chapter_id no entero", {"focus_chapters": [dict(fch, chapter_id="901")]}),
+                       ("nombre vacío", {"focus": [dict(fo, name="   ")]}),
+                       ("nombre de más de 60", {"focus": [dict(fo, name="x" * 61)]}),
+                       ("sin updated_at", {"focus_sessions": [{k: v for k, v in fse.items() if k != "updated_at"}]}),
+                       ("ended_at no texto", {"focus_sessions": [dict(fse, ended_at=5)]})):
+        st, _, _ = req("/sync/focus/push", "POST", bad)
+        check(f"FC1: focus push con {label} → 400", st == 400, f"st={st}")
+    st, _, _ = req("/sync/focus/push", "POST", {"focus": [dict(fo, uuid="fc1-f2")], "focus_chapters": [dict(fch, promoted=7)]})
+    con = sqlite3.connect(DB)
+    n_f2 = con.execute("SELECT COUNT(*) FROM focus WHERE uuid='fc1-f2'").fetchone()[0]
+    con.close()
+    check("FC1: un push con una sola fila inválida no escribe nada (validación previa)", st == 400 and n_f2 == 0, f"st={st} n={n_f2}")
+    st, _, _ = req("/sync/focus/push", "POST", {"focus": []}, origin="https://evil.example")
+    check("FC1: escritura focus con Origin ajeno → 403", st == 403, f"st={st}")
+    att_s = {"uuid": "fc1-a1", "source": "tsumego_hero", "problem_id": 31, "result": "correct",
+             "created_at": "2026-11-03T10:06:00Z", "session_uuid": "fc1-s1", "client_id": 1}
+    st, body, _ = req("/sync/push", "POST", {"attempts": [att_s], "runs": []})
+    check("FC1: push de attempt con session_uuid ok", st == 200 and body.get("ok"), f"st={st} body={body}")
+    st, body, _ = req("/sync/pull?since_attempt_id=0&since_run_id=0")
+    got = [a for a in body.get("attempts", []) if a.get("uuid") == "fc1-a1"]
+    check("FC1: pull devuelve el session_uuid del attempt", got and got[0].get("session_uuid") == "fc1-s1", f"{got}")
+    st, _, _ = req("/sync/push", "POST", {"attempts": [dict(att_s, uuid="fc1-a2", session_uuid=7)], "runs": []})
+    check("FC1: attempt con session_uuid no texto → 400", st == 400, f"st={st}")
+    st, _, _ = req("/sync/push", "POST", {"attempts": [{k: v for k, v in att_s.items() if k != "session_uuid"} | {"uuid": "fc1-a3"}], "runs": []})
+    con = sqlite3.connect(DB)
+    su3 = con.execute("SELECT session_uuid FROM attempts WHERE uuid='fc1-a3'").fetchone()
+    con.close()
+    check("FC1: attempt sin session_uuid (cliente antiguo) se guarda con sesión NULL", st == 200 and su3 == (None,), f"st={st} row={su3}")
+    # limpieza: no contaminar audit (Fase C) ni otros tests
+    con = sqlite3.connect(DB)
+    con.execute("DELETE FROM focus"); con.execute("DELETE FROM focus_chapters"); con.execute("DELETE FROM focus_sessions")
+    con.execute("DELETE FROM attempts WHERE uuid IN ('fc1-a1','fc1-a3')")
+    con.commit(); con.close()
+
     # T11-A: schema_version formal sellado tras las migraciones
     con = sqlite3.connect(DB)
     uv = con.execute("PRAGMA user_version").fetchone()[0]
     con.close()
     # T13: la migracion v2 (problems.hidden) sellaba schema_version=2.
     # T23: la migracion v3 (tags/problem_tags) sellaba schema_version=3.
-    # J2: la migracion v4 (josekis) sella ahora schema_version=4.
-    check("user_version sellado a 4 tras migrar DB legacy", uv == 4, f"uv={uv}")
+    # J2: la migracion v4 (josekis) sellaba schema_version=4.
+    # FC1: la migracion v5 (Focus) sella ahora schema_version=5.
+    check("user_version sellado a 5 tras migrar DB legacy", uv == 5, f"uv={uv}")
 
     # T11-D: query params no numericos → 400 (no 500)
     st, _, _ = req("/sync/pull?since_attempt_id=abc&since_run_id=0")
@@ -773,7 +853,7 @@ try:
     jt = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
     n_tags = con.execute("SELECT COUNT(*) FROM tags").fetchone()[0]
     con.close()
-    check("J2: v3 -> v4 crea las tablas y sella 4", uv == 4 and {"joseki_sm2", "joseki_attempts"} <= jt, f"uv={uv} {sorted(jt)}")
+    check("J2: v3 -> v4 crea las tablas y sella 5 (FC1: v5 encadenada)", uv == 5 and {"joseki_sm2", "joseki_attempts"} <= jt, f"uv={uv} {sorted(jt)}")
     check("J2: la migración v4 no toca datos de v3 (tags intactos)", n_tags == 1, f"n_tags={n_tags}")
     st, body, _ = req("/sync/joseki_sm2/push", "POST", {"joseki_sm2": [{"card_id": "persist#B", "due_date": "2026-11-01",
                       "interval": 6, "easiness": 2.5, "repetitions": 1, "updated_at": "2026-10-16T10:00:00Z"}]})
@@ -786,7 +866,50 @@ try:
     uv = con.execute("PRAGMA user_version").fetchone()[0]
     n = con.execute("SELECT COUNT(*) FROM joseki_sm2 WHERE card_id='persist#B'").fetchone()[0]
     con.close()
-    check("J2: rearranque sobre v4 es idempotente (sella 4, conserva filas)", uv == 4 and n == 1, f"uv={uv} n={n}")
+    check("J2: rearranque sobre v4 es idempotente (sella 5, conserva filas)", uv == 5 and n == 1, f"uv={uv} n={n}")
+finally:
+    stop(p)
+
+# ══ FASE E: FC1 — migración v4 -> v5 sobre una BD ya en v4, e idempotencia ══
+con = sqlite3.connect(DB)
+con.execute("DROP TABLE focus"); con.execute("DROP TABLE focus_chapters"); con.execute("DROP TABLE focus_sessions")
+con.execute("DROP INDEX IF EXISTS idx_attempts_session")
+con.execute("ALTER TABLE attempts DROP COLUMN session_uuid")
+con.execute("PRAGMA user_version = 4")
+con.commit()
+ft = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+acols = [r[1] for r in con.execute("PRAGMA table_info(attempts)")]
+n_att_before = con.execute("SELECT COUNT(*) FROM attempts").fetchone()[0]
+con.close()
+check("FC1 anti-vacío: BD simulada en v4 sin tablas de Focus ni session_uuid",
+      not ({"focus", "focus_chapters", "focus_sessions"} & ft) and "session_uuid" not in acols and n_att_before > 0,
+      f"{sorted(ft)} cols={acols} n={n_att_before}")
+p = start_server({})
+try:
+    con = sqlite3.connect(DB)
+    uv = con.execute("PRAGMA user_version").fetchone()[0]
+    ft = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    acols = [r[1] for r in con.execute("PRAGMA table_info(attempts)")]
+    n_att = con.execute("SELECT COUNT(*) FROM attempts").fetchone()[0]
+    n_js = con.execute("SELECT COUNT(*) FROM joseki_sm2").fetchone()[0]
+    con.close()
+    check("FC1: v4 -> v5 crea las tablas de Focus y la columna, y sella 5",
+          uv == 5 and {"focus", "focus_chapters", "focus_sessions"} <= ft and "session_uuid" in acols,
+          f"uv={uv} {sorted(ft)} cols={acols}")
+    check("FC1: la migración v5 no toca datos previos (attempts y josekis intactos)",
+          n_att == n_att_before and n_js == 1, f"att={n_att}/{n_att_before} js={n_js}")
+    st, body, _ = req("/sync/focus/push", "POST", {"focus": [{"uuid": "persist-f", "name": "Persist", "archived": 0,
+                      "deleted": 0, "created_at": "2026-11-03T11:00:00Z", "updated_at": "2026-11-03T11:00:00Z"}]})
+    check("FC1: push tras migrar v4 -> v5 ok", st == 200 and body.get("applied", {}).get("focus") == 1, f"st={st} body={body}")
+finally:
+    stop(p)
+p = start_server({})
+try:
+    con = sqlite3.connect(DB)
+    uv = con.execute("PRAGMA user_version").fetchone()[0]
+    n = con.execute("SELECT COUNT(*) FROM focus WHERE uuid='persist-f'").fetchone()[0]
+    con.close()
+    check("FC1: rearranque sobre v5 es idempotente (sella 5, conserva filas)", uv == 5 and n == 1, f"uv={uv} n={n}")
 finally:
     stop(p)
 

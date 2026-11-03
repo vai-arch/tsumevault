@@ -28,6 +28,10 @@ Endpoints:
     POST /sync/joseki_sm2/push        { joseki_sm2: [...] }
     GET  /sync/joseki_attempts/pull?since_id=N
     POST /sync/joseki_attempts/push   { joseki_attempts: [...] }
+
+    FC1 (Focus):
+    GET  /sync/focus/pull?since=ISO   -> {focus, focus_chapters, focus_sessions}
+    POST /sync/focus/push             {focus:[...], focus_chapters:[...], focus_sessions:[...]}
 """
 
 import gzip
@@ -900,6 +904,57 @@ def _migrate_v4_joseki(con):
     con.execute("PRAGMA user_version = 4")  # J2: sellar la version
     con.commit()
     log.info("[migrate] Migraciones completadas (schema_version=4).")
+    _migrate_v5_focus(con)  # FC1: encadenar v5
+
+
+def _migrate_v5_focus(con):
+    """FC1: schema v5 — sección Focus (REQUISITOS_FOCUS.md + decisiones técnicas).
+
+    focus / focus_chapters / focus_sessions se sincronizan con LWW por
+    updated_at (igual que problem_tags). Nunca se borran filas: focus.deleted,
+    focus.archived y focus_chapters.active son flags que viajan por LWW.
+    attempts.session_uuid vincula un intento a su sesión de Focus (NULL en
+    todos los intentos anteriores y en Runs/Review/Free). Idempotente.
+    """
+    cols_a = [r[1] for r in con.execute("PRAGMA table_info(attempts)").fetchall()]
+    if "session_uuid" not in cols_a:
+        con.execute("ALTER TABLE attempts ADD COLUMN session_uuid TEXT")
+        log.info("[migrate] Columna session_uuid añadida a attempts.")
+    con.execute(
+        "CREATE INDEX IF NOT EXISTS idx_attempts_session ON attempts(session_uuid) WHERE session_uuid IS NOT NULL"
+    )
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS focus (
+            uuid       TEXT PRIMARY KEY,
+            name       TEXT NOT NULL,
+            archived   INTEGER NOT NULL DEFAULT 0,
+            deleted    INTEGER NOT NULL DEFAULT 0,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL)"""
+    )
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS focus_chapters (
+            focus_uuid TEXT NOT NULL,
+            chapter_id INTEGER NOT NULL,
+            promoted   INTEGER NOT NULL DEFAULT 0,
+            active     INTEGER NOT NULL DEFAULT 1,
+            updated_at TEXT NOT NULL,
+            PRIMARY KEY (focus_uuid, chapter_id))"""
+    )
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS focus_sessions (
+            uuid       TEXT PRIMARY KEY,
+            focus_uuid TEXT NOT NULL,
+            started_at TEXT NOT NULL,
+            ended_at   TEXT,
+            completed  INTEGER NOT NULL DEFAULT 0,
+            updated_at TEXT NOT NULL)"""
+    )
+    for t in ("focus", "focus_chapters", "focus_sessions"):
+        con.execute(f"CREATE INDEX IF NOT EXISTS idx_{t}_updated ON {t}(updated_at)")
+    con.execute("PRAGMA user_version = 5")  # FC1: sellar la version
+    con.commit()
+    log.info("[migrate] Migraciones completadas (schema_version=5).")
 
 
 def migrate_db():
@@ -909,8 +964,12 @@ def migrate_db():
         # CREATE ... IF NOT EXISTS y dedup re-ejecutable) quedan bajo la
         # version 1. Migraciones futuras: "if version < N: ...; sellar N".
         version = con.execute("PRAGMA user_version").fetchone()[0]
-        if version >= 4:
+        if version >= 5:
             log.info("[migrate] schema_version=%d — nada que migrar.", version)
+            return
+        if version >= 4:
+            # FC1: v4 ya aplicada — solo falta v5 (Focus).
+            _migrate_v5_focus(con)
             return
         if version >= 3:
             # J2: v3 ya aplicada — solo falta v4 (josekis).
@@ -2040,6 +2099,9 @@ def handle_sync_push(body):
                 return {"error": f"attempt missing field: {f}"}, 400
         if a["result"] not in ("correct", "wrong"):
             return {"error": "invalid attempt result"}, 400
+        su = a.get("session_uuid")  # FC1: opcional; los clientes antiguos no lo envían
+        if su is not None and (not isinstance(su, str) or not su or len(su) > 64):
+            return {"error": "invalid attempt session_uuid"}, 400
     for r in runs_in:
         if not isinstance(r, dict):
             return {"error": "invalid run entry"}, 400
@@ -2181,7 +2243,7 @@ def handle_sync_push(body):
                 server_run_id = None
 
             cur = con.execute(
-                "INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at, uuid) VALUES (?,?,?,?,?,?,?)",
+                "INSERT INTO attempts (source, problem_id, run_id, result, time_ms, created_at, uuid, session_uuid) VALUES (?,?,?,?,?,?,?,?)",
                 (
                     a["source"],
                     a["problem_id"],
@@ -2190,6 +2252,7 @@ def handle_sync_push(body):
                     a.get("time_ms"),
                     a["created_at"],
                     uuid,
+                    a.get("session_uuid"),  # FC1
                 ),
             )
             inserted_attempts.append(
@@ -2507,6 +2570,116 @@ def handle_sync_joseki_attempts_push(body):
     return {"ok": True, "inserted": inserted, "skipped": len(normalized) - inserted}
 
 
+# ── FC1: Focus (LWW por updated_at en las tres tablas) ───────────────────────
+
+_FOCUS_TABLES = {
+    # tabla: (columnas en orden, columnas clave)
+    "focus": (("uuid", "name", "archived", "deleted", "created_at", "updated_at"), ("uuid",)),
+    "focus_chapters": (("focus_uuid", "chapter_id", "promoted", "active", "updated_at"),
+                       ("focus_uuid", "chapter_id")),
+    "focus_sessions": (("uuid", "focus_uuid", "started_at", "ended_at", "completed", "updated_at"),
+                       ("uuid",)),
+}
+
+
+def _focus_str(v, maxlen=64):
+    return isinstance(v, str) and 0 < len(v) <= maxlen
+
+
+def _focus_flag(v):
+    return not isinstance(v, (bool, float)) and v in (0, 1)
+
+
+def _focus_validate(table, r):
+    """FC1: devuelve la tupla normalizada o None si la fila no es válida."""
+    if not isinstance(r, dict) or not _focus_str(r.get("updated_at"), 40):
+        return None
+    if table == "focus":
+        name = r.get("name")
+        if not _focus_str(r.get("uuid")) or not isinstance(name, str):
+            return None
+        name = " ".join(name.split())
+        if not name or len(name) > 60:
+            return None
+        if not _focus_flag(r.get("archived")) or not _focus_flag(r.get("deleted")):
+            return None
+        if not _focus_str(r.get("created_at"), 40):
+            return None
+        return (r["uuid"], name, int(r["archived"]), int(r["deleted"]), r["created_at"], r["updated_at"])
+    if table == "focus_chapters":
+        cid = r.get("chapter_id")
+        if not _focus_str(r.get("focus_uuid")) or isinstance(cid, bool) or not isinstance(cid, int):
+            return None
+        if not _focus_flag(r.get("promoted")) or not _focus_flag(r.get("active")):
+            return None
+        return (r["focus_uuid"], cid, int(r["promoted"]), int(r["active"]), r["updated_at"])
+    # focus_sessions
+    ended = r.get("ended_at")
+    if not _focus_str(r.get("uuid")) or not _focus_str(r.get("focus_uuid")):
+        return None
+    if not _focus_str(r.get("started_at"), 40) or not (ended is None or _focus_str(ended, 40)):
+        return None
+    if not _focus_flag(r.get("completed")):
+        return None
+    return (r["uuid"], r["focus_uuid"], r["started_at"], ended, int(r["completed"]), r["updated_at"])
+
+
+def handle_sync_focus_pull(qs):
+    """FC1: filas de las tres tablas de Focus con updated_at >= since (la
+    frontera se reenvía y el LWW del cliente la hace inocua, igual que sm2)."""
+    since = qs.get("since", ["1970-01-01T00:00:00Z"])[0]
+    out = {}
+    with db_connect() as con:
+        for table, (cols, _) in _FOCUS_TABLES.items():
+            out[table] = rows_to_list(
+                con.execute(
+                    f"SELECT {', '.join(cols)} FROM {table} WHERE updated_at >= ? ORDER BY updated_at ASC",
+                    (since,),
+                ).fetchall()
+            )
+    return out
+
+
+def handle_sync_focus_push(body):
+    """FC1: recibe filas de Focus y aplica LWW por updated_at (solo gana un
+    updated_at estrictamente mayor). Valida todo antes de escribir nada.
+    No se exige que el Focus o el capítulo existan: el cliente es la fuente
+    de esas reglas y una fila "adelantada" no rompe nada."""
+    normalized = {}
+    for table in _FOCUS_TABLES:
+        rows = body.get(table, [])
+        if not isinstance(rows, list):
+            return {"error": f"{table} must be a list"}, 400
+        norm = []
+        for r in rows:
+            t = _focus_validate(table, r)
+            if t is None:
+                return {"error": f"invalid {table} entry"}, 400
+            norm.append(t)
+        normalized[table] = norm
+    applied = {}
+    with db_connect() as con:
+        for table, (cols, keys) in _FOCUS_TABLES.items():
+            n = 0
+            where = " AND ".join(f"{k}=?" for k in keys)
+            upd = ", ".join(f"{c}=excluded.{c}" for c in cols if c not in keys)
+            for t in normalized[table]:
+                rec = dict(zip(cols, t))
+                existing = con.execute(
+                    f"SELECT updated_at FROM {table} WHERE {where}", tuple(rec[k] for k in keys)
+                ).fetchone()
+                if existing is None or rec["updated_at"] > existing[0]:
+                    con.execute(
+                        f"""INSERT INTO {table} ({', '.join(cols)}) VALUES ({', '.join('?' * len(cols))})
+                            ON CONFLICT({', '.join(keys)}) DO UPDATE SET {upd}""",
+                        t,
+                    )
+                    n += 1
+            applied[table] = n
+        con.commit()
+    return {"ok": True, "applied": applied}
+
+
 GET_ROUTES = {
     "/db/collections": handle_get_collections,
     "/db/chapters": handle_get_chapters,
@@ -2528,6 +2701,7 @@ GET_ROUTES = {
     "/sync/problem_tags/pull": handle_sync_problem_tags_pull,  # T23
     "/sync/joseki_sm2/pull": handle_sync_joseki_sm2_pull,  # J2
     "/sync/joseki_attempts/pull": handle_sync_joseki_attempts_pull,  # J2
+    "/sync/focus/pull": handle_sync_focus_pull,  # FC1
 }
 
 
@@ -2545,6 +2719,7 @@ POST_ROUTES = {
     "/sync/problem_tags/push": handle_sync_problem_tags_push,  # T23
     "/sync/joseki_sm2/push": handle_sync_joseki_sm2_push,  # J2
     "/sync/joseki_attempts/push": handle_sync_joseki_attempts_push,  # J2
+    "/sync/focus/push": handle_sync_focus_push,  # FC1
 }
 
 PUT_ROUTES = {

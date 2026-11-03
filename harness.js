@@ -858,6 +858,123 @@ async function serverQuery(sql) {
     JSON.stringify(VM.q('SELECT id, mostrar, mostrar_synced FROM chapters ORDER BY id')) === JSON.stringify([{ id: 1, mostrar: 0, mostrar_synced: 1 }, { id: 2, mostrar: 1, mostrar_synced: 1 }]),
     JSON.stringify(VM.q('SELECT * FROM chapters')));
 
+  // ════ Escenario FC2: sync de Focus (pull completo + LWW) y session_uuid en attempts ════
+  // La API local de Focus no está en el bundle (como la de etiquetas): las filas se
+  // siembran por SQL. Lo que se prueba aquí es el bloque FC2 de doSync y
+  // localInsertAttempt (ambos reales, extraídos del cliente).
+  const fcPushes = (d) => d.netlog.filter(c => c.url.endsWith('/sync/focus/push')).length;
+  const fcUnsynced = (d) => ['focus', 'focus_chapters', 'focus_sessions'].reduce((n, t) => n + d.q1(`SELECT COUNT(*) c FROM ${t} WHERE synced=0`).c, 0);
+  let FA = freshDevice('FA');
+  FA.run(`
+    dbExec("INSERT INTO focus (uuid,name,archived,deleted,created_at,updated_at,synced) VALUES ('fx1','Corner',0,0,'2026-11-03T10:00:00Z','2026-11-03T10:00:00Z',0)", []);
+    dbExec("INSERT INTO focus_chapters (focus_uuid,chapter_id,promoted,active,updated_at,synced) VALUES ('fx1',1,0,1,'2026-11-03T10:00:01Z',0)", []);
+    dbExec("INSERT INTO focus_sessions (uuid,focus_uuid,started_at,ended_at,completed,updated_at,synced) VALUES ('sx1','fx1','2026-11-03T10:05:00Z',NULL,0,'2026-11-03T10:05:00Z',0)", []);
+    localInsertAttempt('tsumego_hero', 'p1', null, 'wrong', 300, 'sx1');
+    localInsertAttempt('tsumego_hero', 'p2', null, 'correct', 300, 'sx1');
+    localInsertAttempt('tsumego_hero', 'p2', null, 'correct', 300);
+  `);
+  check('FC2: localInsertAttempt guarda session_uuid (y NULL si no se pasa)',
+    FA.q1("SELECT COUNT(*) c FROM attempts WHERE session_uuid='sx1'").c === 2
+    && FA.q1('SELECT COUNT(*) c FROM attempts WHERE session_uuid IS NULL').c === 1);
+  check('FC2: precondición — 3 filas de Focus pendientes (guardia anti-test-vacuo)', fcUnsynced(FA) === 3);
+  ok = await FA.runAsync('return await tryAutoSync(true)');
+  check('FC2: sync de FA ok y las tres tablas quedan confirmadas (synced=1)', ok === true && fcUnsynced(FA) === 0, `pend=${fcUnsynced(FA)}`);
+  check('FC2: el servidor tiene Focus, capítulo y sesión',
+    srvQ("SELECT name FROM focus WHERE uuid='fx1'")[0]?.name === 'Corner'
+    && srvQ("SELECT active FROM focus_chapters WHERE focus_uuid='fx1' AND chapter_id=1")[0]?.active === 1
+    && srvQ("SELECT completed FROM focus_sessions WHERE uuid='sx1'")[0]?.completed === 0,
+    JSON.stringify(srvQ('SELECT * FROM focus')));
+  check('FC2: el servidor recibe los attempts con su session_uuid',
+    srvQ("SELECT COUNT(*) c FROM attempts WHERE session_uuid='sx1'")[0].c === 2);
+  const faPushes = fcPushes(FA);
+  ok = await FA.runAsync('return await tryAutoSync(true)');
+  check('FC2: segundo sync NO re-pushea Focus (nada pendiente)', ok === true && fcPushes(FA) === faPushes, `pushes=${fcPushes(FA) - faPushes}`);
+  let FB = freshDevice('FB');
+  check('FC2: FB parte sin Focus (guardia anti-test-vacuo)', FB.q1('SELECT COUNT(*) c FROM focus').c === 0);
+  ok = await FB.runAsync('return await tryAutoSync(true)');
+  check('FC2: FB recibe las tres tablas ya confirmadas (synced=1) y sin push propio', ok === true
+    && FB.q1("SELECT synced FROM focus WHERE uuid='fx1'")?.synced === 1
+    && FB.q1("SELECT synced FROM focus_chapters WHERE focus_uuid='fx1'")?.synced === 1
+    && FB.q1("SELECT synced FROM focus_sessions WHERE uuid='sx1'")?.synced === 1
+    && fcPushes(FB) === 0);
+  check('FC2: FB recibe los attempts con session_uuid',
+    FB.q1("SELECT COUNT(*) c FROM attempts WHERE session_uuid='sx1'").c === 2);
+  // FB completa la sesión -> llega a FA (LWW por updated_at más reciente)
+  FB.run(`dbExec("UPDATE focus_sessions SET completed=1, ended_at='2026-11-03T10:20:00Z', updated_at='2026-11-03T10:20:00Z', synced=0 WHERE uuid='sx1'", [])`);
+  ok = await FB.runAsync('return await tryAutoSync(true)');
+  ok = ok && await FA.runAsync('return await tryAutoSync(true)');
+  check('FC2: la sesión completada en FB llega a FA', ok === true
+    && FA.q1("SELECT completed FROM focus_sessions WHERE uuid='sx1'").completed === 1);
+  // Un cambio local con updated_at más antiguo que el del servidor pierde (LWW)
+  FA.run(`dbExec("UPDATE focus_sessions SET completed=0, ended_at=NULL, updated_at='2026-11-03T10:10:00Z', synced=0 WHERE uuid='sx1'", [])`);
+  ok = await FA.runAsync('return await tryAutoSync(true)');
+  check('FC2: LWW — un cambio local más antiguo no pisa al servidor y se sustituye por el suyo', ok === true
+    && srvQ("SELECT completed FROM focus_sessions WHERE uuid='sx1'")[0].completed === 1
+    && FA.q1("SELECT completed, synced FROM focus_sessions WHERE uuid='sx1'").completed === 1
+    && FA.q1("SELECT synced FROM focus_sessions WHERE uuid='sx1'").synced === 1);
+  // Pull completo (sin cursor): una fila con updated_at muy antiguo que llega al
+  // servidor DESPUÉS de que FA ya sincronizara (p. ej. creada offline en otro
+  // dispositivo) también se recibe.
+  srvSql("INSERT INTO focus (uuid,name,archived,deleted,created_at,updated_at) VALUES ('fx-old','Viejo',0,0,'2001-01-01T00:00:00Z','2001-01-01T00:00:00Z')");
+  ok = await FA.runAsync('return await tryAutoSync(true)');
+  check('FC2: pull completo — una fila antigua recién llegada al servidor también se recibe', ok === true
+    && FA.q1("SELECT name FROM focus WHERE uuid='fx-old'")?.name === 'Viejo');
+  // Offline: el cambio queda pendiente y se empuja al reconectar
+  let FC = freshDevice('FC', { server: OFFLINE });
+  FC.run(`dbExec("INSERT INTO focus (uuid,name,archived,deleted,created_at,updated_at,synced) VALUES ('fx-off','Offline',0,0,'2026-11-03T11:00:00Z','2026-11-03T11:00:00Z',0)", [])`);
+  ok = await FC.runAsync('return await tryAutoSync(true)');
+  check('FC2: offline — el sync falla y el Focus sigue pendiente', ok === false && fcUnsynced(FC) === 1);
+  FC.ctx.SYNC_SERVER = SERVER;
+  ok = await FC.runAsync('return await tryAutoSync(true)');
+  check('FC2: al reconectar el Focus offline llega al servidor', ok === true && fcUnsynced(FC) === 0
+    && srvQ("SELECT COUNT(*) c FROM focus WHERE uuid='fx-off'")[0].c === 1);
+  // Un cambio hecho mientras el push está en vuelo queda pendiente (no se marca synced)
+  FC.run(`dbExec("UPDATE focus SET name='Offline 2', updated_at='2026-11-03T11:00:05Z', synced=0 WHERE uuid='fx-off'", [])`);
+  {
+    const orig = FC.ctx.fetch; let injected = false;
+    FC.ctx.fetch = async (url, o) => {
+      if (!injected && String(url).endsWith('/sync/focus/push')) {
+        injected = true;
+        FC.run(`dbExec("UPDATE focus SET name='Offline 3', updated_at='2026-11-03T11:00:09Z', synced=0 WHERE uuid='fx-off'", [])`);
+      }
+      return orig(url, o);
+    };
+  }
+  ok = await FC.runAsync('return await tryAutoSync(true)');
+  check('FC2: cambio en mitad del vuelo queda pendiente (synced=0) y el enviado llega al servidor', ok === true
+    && FC.q1("SELECT synced FROM focus WHERE uuid='fx-off'").synced === 0
+    && srvQ("SELECT name FROM focus WHERE uuid='fx-off'")[0].name === 'Offline 2', JSON.stringify(FC.q('SELECT * FROM focus')));
+  ok = await FC.runAsync('return await tryAutoSync(true)');
+  check('FC2: el siguiente sync empuja el cambio pendiente', ok === true && fcUnsynced(FC) === 0
+    && srvQ("SELECT name FROM focus WHERE uuid='fx-off'")[0].name === 'Offline 3');
+
+  // FC2: migración de una instalación existente (sin session_uuid ni tablas de Focus)
+  {
+    const oldDb2 = new SQLHost.Database();
+    oldDb2.run(`
+      CREATE TABLE attempts (id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
+        problem_id TEXT NOT NULL, run_id INTEGER, result TEXT NOT NULL,
+        time_ms INTEGER, created_at TEXT NOT NULL, uuid TEXT);
+      CREATE TABLE runs (id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
+        set_id INTEGER, chapter_id INTEGER, vc_id INTEGER, type TEXT NOT NULL,
+        status TEXT NOT NULL DEFAULT 'open', total INTEGER NOT NULL DEFAULT 0,
+        done INTEGER NOT NULL DEFAULT 0, started_at TEXT NOT NULL, closed_at TEXT, uuid TEXT);
+      CREATE TABLE chapters (id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL, set_id INTEGER NOT NULL, chapter_num INTEGER NOT NULL, mostrar INTEGER NOT NULL DEFAULT 0);
+      INSERT INTO attempts (source,problem_id,result,created_at,uuid) VALUES ('tsumego_hero','p1','correct','2026-07-01T10:00:00Z','mig-a');
+    `);
+    const FM = makeDevice('FM');
+    FM.ctx.db = oldDb2;
+    FM.run('migrateSyncColumns()');
+    const cols = FM.q('PRAGMA table_info(attempts)').map(r => r.name);
+    const tabs = FM.q("SELECT name FROM sqlite_master WHERE type='table'").map(r => r.name);
+    check('FC2: la migración local añade attempts.session_uuid y las tablas de Focus sin tocar datos',
+      cols.includes('session_uuid') && ['focus', 'focus_chapters', 'focus_sessions'].every(t => tabs.includes(t))
+      && FM.q1("SELECT session_uuid FROM attempts WHERE uuid='mig-a'").session_uuid === null,
+      JSON.stringify({ cols, tabs }));
+    FM.run('migrateSyncColumns()');
+    check('FC2: la migración local es idempotente', FM.q1('SELECT COUNT(*) c FROM attempts').c === 1);
+  }
+
   console.log('\nRESULTADO CLIENTE:', fails.length ? `${fails.length} FALLOS: ${fails.join(' | ')}` : 'TODO OK');
   process.exit(fails.length ? 1 : 0);
 })().catch(e => { console.error('ERROR FATAL', e); process.exit(2); });

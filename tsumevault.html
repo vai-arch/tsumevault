@@ -265,6 +265,11 @@
       color: var(--gold);
     }
 
+    /* FC4: botón Focus de cada capítulo en Collections */
+    .chap-focus-btn { max-width: 72px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .chap-focus-btn.chap-focus-in { border-color: var(--gold-dim); color: var(--gold); }
+    .chap-focus-btn.chap-focus-arch { border-style: dashed; color: var(--dim2); }
+
     .run-col-btn {
       display: block;
       width: calc(100% - 28px);
@@ -1139,7 +1144,11 @@
       #hdr {
         gap: 8px;
         padding: 0 10px;
+        min-width: 0; /* FC3: la cabecera nunca ensancha la columna */
       }
+
+      /* FC3: con el botón 🗂 la cabecera no cabía en 390px: botones algo más compactos */
+      #runs-btn, #stats-btn, #lessons-btn { padding: 3px 6px !important; margin-right: 2px !important; font-size: 14px !important; }
 
       .logo {
         font-size: 10px;
@@ -1202,6 +1211,7 @@
         <option value="joseki">joseki</option><!-- JP: josekis como problemas (generate_joseki_problems.py) -->
       </select>
       <div style="flex:1"></div>
+      <button id="runs-btn" onclick="openRuns()" title="Runs" style="background:transparent;border:1px solid var(--border2);color:var(--dim);font-size:15px;cursor:pointer;padding:4px 9px;border-radius:2px;transition:all .15s;margin-right:6px;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">🗂</button><!-- FC3: Runs pasa de pestaña a modal -->
       <button id="stats-btn" onclick="openStats()" title="Statistics" style="background:transparent;border:1px solid var(--border2);color:var(--dim);font-size:15px;cursor:pointer;padding:4px 9px;border-radius:2px;transition:all .15s;margin-right:6px;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">📊</button>
       <button id="lessons-btn" onclick="window.location.href='lessons'" title="Go Lessons" style="background:transparent;border:1px solid var(--border2);color:var(--dim);font-size:15px;cursor:pointer;padding:4px 9px;border-radius:2px;transition:all .15s;margin-right:6px;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">📚</button>
       <button id="cfg-btn" onclick="openConfig()" title="Settings" style="position:relative">⚙<span id="sync-error-dot" style="display:none;position:absolute;top:1px;right:1px;width:7px;height:7px;border-radius:50%;background:#e5484d;box-shadow:0 0 0 2px var(--bg,#1a1a1a);"></span><span id="pending-badge" title="Pendiente de sincronizar" style="display:none;position:absolute;bottom:-2px;right:-2px;min-width:12px;height:12px;border-radius:6px;background:var(--gold,#c9a86a);color:#141414;font-size:8px;line-height:12px;text-align:center;padding:0 2px;font-family:var(--mono,monospace);box-shadow:0 0 0 2px var(--bg,#1a1a1a);"></span></button>
@@ -1480,6 +1490,19 @@
         </div>
       </div></div>
 
+    <!-- FC3: RUNS MODAL (antes pestaña Runs; z-index como Config/Stats) -->
+    <div id="runs-overlay" onclick="onRunsOverlayClick(event)" style="display:none;position:fixed;inset:0;isolation:isolate;z-index:1300;background:rgba(0,0,0,.6);align-items:center;justify-content:center;">
+      <div style="background:var(--panel);border:1px solid var(--border2);border-radius:3px;width:min(460px,96vw);max-height:88vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.8);position:relative;z-index:301;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--border);flex-shrink:0;">
+          <span style="font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);">Runs</span>
+          <button onclick="closeRuns()" style="background:transparent;border:none;color:var(--dim);font-size:18px;cursor:pointer;line-height:1;padding:2px 6px;">✕</button>
+        </div>
+        <div id="runs-list" style="overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;flex:1;">
+          <div class="runs-empty">No runs yet</div>
+        </div>
+      </div>
+    </div>
+
     <!-- T35: BULK TAG MODAL (reutiliza los filtros de Free; z-index como Config/Stats) -->
     <div id="bt-overlay" onclick="onBulkTagOverlayClick(event)" style="display:none;position:fixed;inset:0;isolation:isolate;z-index:1300;background:rgba(0,0,0,.6);align-items:center;justify-content:center;">
       <div id="bt-modal" onkeydown="if(event.code==='Escape')closeBulkTag();event.stopPropagation()" style="background:var(--panel);border:1px solid var(--border2);border-radius:3px;width:min(640px,96vw);max-height:88vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.8);position:relative;z-index:301;">
@@ -1511,7 +1534,7 @@
     <div id="left">
       <div class="tab-bar">
         <div class="tab active" data-tab="collections">Collections</div>
-        <div class="tab" data-tab="runs">Runs</div>
+        <div class="tab" data-tab="focus">Focus</div> <!-- FC3: sustituye a la pestaña Runs -->
         <div class="tab" data-tab="free">Free</div>
         <div class="tab" data-tab="review">Review</div>
         <div class="tab" data-tab="games">Games</div>
@@ -1548,11 +1571,7 @@
         </div>
       </div>
 
-      <div class="tab-pane" id="tab-runs">
-        <div id="runs-list">
-          <div class="runs-empty">No runs yet</div>
-        </div>
-      </div>
+      <div class="tab-pane" id="tab-focus"><!-- FC5: contenido de la sección Focus --></div>
 
       <div class="tab-pane" id="tab-free">
         <div class="fp-section">
@@ -1570,7 +1589,10 @@
         <div class="fp-section">
           <div class="fp-label" style="display:flex;justify-content:space-between;align-items:center;">
             <span>Chapter</span>
-            <span id="fp-chap-clear" style="text-transform:none;letter-spacing:normal;color:var(--dim);cursor:pointer;text-decoration:underline;">Clear</span>
+            <span style="display:flex;gap:10px;align-items:center;">
+              <span id="fp-chap-focus" title="Add the checked chapters to a Focus (chapters already in a Focus are skipped)" style="text-transform:none;letter-spacing:normal;color:var(--gold);cursor:pointer;">🎯 → Focus</span><!-- FC8 -->
+              <span id="fp-chap-clear" style="text-transform:none;letter-spacing:normal;color:var(--dim);cursor:pointer;text-decoration:underline;">Clear</span>
+            </span>
           </div>
           <!-- F11: checklist de capitulos (multi-seleccion dentro de la misma coleccion); ningun check marcado = All -->
           <div id="fp-chap-list" style="max-height:150px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;border:1px solid var(--border2);border-radius:2px;padding:4px 8px;font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:4px;"></div>
@@ -1595,6 +1617,13 @@
             <span id="fp-tags-clear" style="text-transform:none;letter-spacing:normal;color:var(--dim);cursor:pointer;text-decoration:underline;">Clear</span>
           </div>
           <div id="fp-tags-list" style="max-height:110px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;border:1px solid var(--border2);border-radius:2px;padding:4px 8px;font-family:var(--mono);font-size:11px;color:var(--dim);margin-bottom:4px;"></div>
+        </div>
+        <!-- FC7: filtro por Focus (solo sus capítulos En trabajo; ignora el source de la cabecera salvo que elijas una Collection) -->
+        <div class="fp-section">
+          <div class="fp-label">Focus</div>
+          <select class="fsel" id="fp-focus" title="Only the In-progress chapters of the chosen Focus. Practice only: creates no session.">
+            <option value="">Any</option>
+          </select>
         </div>
         <div class="fp-section">
           <div class="fp-label">Status</div>
@@ -1753,7 +1782,7 @@
         <div class="rp-counts" id="rp-counts"></div>
       </div>
       <div class="sb-section" id="free-nav-section" style="display:none">
-        <div class="sb-label">Free practice</div>
+        <div class="sb-label" id="free-nav-label">Free practice</div>
         <div style="display:flex;gap:6px;margin-bottom:10px;">
           <button id="free-prev-btn" type="button" style="flex:1;font-family:var(--mono);font-size:10px;letter-spacing:.08em;padding:6px 4px;background:transparent;border:1px solid var(--border2);color:var(--dim);cursor:pointer;border-radius:2px;">◀ Prev</button>
           <button id="free-next-btn" type="button" style="flex:1;font-family:var(--mono);font-size:10px;letter-spacing:.08em;padding:6px 4px;background:transparent;border:1px solid var(--border2);color:var(--dim);cursor:pointer;border-radius:2px;">Next ▶</button>
@@ -1814,7 +1843,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261103-1218';
+	const SW_VERSION = 'tsumevault-20261103-2009';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1877,6 +1906,7 @@
     let tapToAdvance = false;                                   // F2 (§12.2): pausa en fallo durante runs
     let everWrong = false;                                      // T25: hubo al menos un fallo en ESTE problema. A diferencia de hadWrong (closure, lo resetea Restart), sobrevive a Restart/Back y solo muere al cargar otro problema.
     let freeMode = false;                                       // F7: Free Practice pura (distinto de runMode/Review)
+    let focusSession = null;                                    // FC6: sesión de Focus en curso {uuid, focusUuid, name, pending:Set, total, completed, result}
     let retryQueue = [], retryQueued = new Set(), retryPhase = false; // F3 (§12.3): cola de repesca
     let secondChance = localStorage.getItem('second_chance') === 'true';
     let ghostMode = localStorage.getItem('free_ghosts') === '1'; // T37: piedras fantasma en Free (interruptor persistente)
@@ -2164,6 +2194,14 @@
         dbExec('CREATE TABLE IF NOT EXISTS problem_tags (source TEXT NOT NULL, problem_id TEXT NOT NULL, tag TEXT NOT NULL COLLATE NOCASE, active INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (source, problem_id, tag))');
         dbExec('CREATE INDEX IF NOT EXISTS idx_problem_tags_updated ON problem_tags(updated_at)');
       } catch (e) { console.warn('[migrate] tags tables failed', e); }
+      // FC2: Focus (instalaciones existentes; mismo DDL que createSchema)
+      try { dbExec("ALTER TABLE attempts ADD COLUMN session_uuid TEXT"); } catch (e) { }
+      try {
+        dbExec('CREATE TABLE IF NOT EXISTS focus (uuid TEXT PRIMARY KEY, name TEXT NOT NULL, archived INTEGER NOT NULL DEFAULT 0, deleted INTEGER NOT NULL DEFAULT 0, created_at TEXT NOT NULL, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0)');
+        dbExec('CREATE TABLE IF NOT EXISTS focus_chapters (focus_uuid TEXT NOT NULL, chapter_id INTEGER NOT NULL, promoted INTEGER NOT NULL DEFAULT 0, active INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (focus_uuid, chapter_id))');
+        dbExec('CREATE TABLE IF NOT EXISTS focus_sessions (uuid TEXT PRIMARY KEY, focus_uuid TEXT NOT NULL, started_at TEXT NOT NULL, ended_at TEXT, completed INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0)');
+        dbExec('CREATE INDEX IF NOT EXISTS idx_attempts_session ON attempts(session_uuid) WHERE session_uuid IS NOT NULL');
+      } catch (e) { console.warn('[migrate] focus tables failed', e); }
     }
 
     // ── T9: cursores de sync DENTRO de la DB (tabla sync_meta) ──
@@ -2220,7 +2258,7 @@
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
       problem_id TEXT NOT NULL, run_id INTEGER, result TEXT NOT NULL,
       time_ms INTEGER, created_at TEXT NOT NULL, uuid TEXT,
-      synced INTEGER NOT NULL DEFAULT 0
+      synced INTEGER NOT NULL DEFAULT 0, session_uuid TEXT
     );
     CREATE TABLE IF NOT EXISTS runs (
       id INTEGER PRIMARY KEY AUTOINCREMENT, source TEXT NOT NULL,
@@ -2284,6 +2322,23 @@
       PRIMARY KEY (source, problem_id, tag)
     );
     CREATE INDEX IF NOT EXISTS idx_problem_tags_updated ON problem_tags(updated_at);
+    -- FC2: Focus. synced: 0 = cambio local pendiente de push, 1 = confirmado por el servidor.
+    -- Nunca se borran filas: deleted/archived/active son flags que viajan por LWW (updated_at).
+    CREATE TABLE IF NOT EXISTS focus (
+      uuid TEXT PRIMARY KEY, name TEXT NOT NULL, archived INTEGER NOT NULL DEFAULT 0,
+      deleted INTEGER NOT NULL DEFAULT 0, created_at TEXT NOT NULL, updated_at TEXT NOT NULL,
+      synced INTEGER NOT NULL DEFAULT 0
+    );
+    CREATE TABLE IF NOT EXISTS focus_chapters (
+      focus_uuid TEXT NOT NULL, chapter_id INTEGER NOT NULL, promoted INTEGER NOT NULL DEFAULT 0,
+      active INTEGER NOT NULL DEFAULT 1, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0,
+      PRIMARY KEY (focus_uuid, chapter_id)
+    );
+    CREATE TABLE IF NOT EXISTS focus_sessions (
+      uuid TEXT PRIMARY KEY, focus_uuid TEXT NOT NULL, started_at TEXT NOT NULL, ended_at TEXT,
+      completed INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0
+    );
+    CREATE INDEX IF NOT EXISTS idx_attempts_session ON attempts(session_uuid) WHERE session_uuid IS NOT NULL;
   `);
     }
 
@@ -2502,6 +2557,211 @@
       dbExec(`INSERT INTO problem_tags (source, problem_id, tag, active, updated_at, synced) VALUES (?,?,?,?,?,0)
         ON CONFLICT(source, problem_id, tag) DO UPDATE SET active=excluded.active, updated_at=excluded.updated_at, synced=0`, [source, pid, t, a, now]);
       return true;
+    }
+    // ══ FC2: Focus — API local (el sync vive en el bloque FC2 de doSync) ══
+    // Las reglas de negocio viven aqui; el servidor solo guarda (LWW por updated_at).
+    // Toda escritura deja synced=0 y un updated_at estrictamente mayor que el anterior
+    // de la fila (resolucion de segundo, mismo criterio que localSetProblemTag).
+    // Estado de un capitulo: 'work' (en trabajo), 'ready' (promocionado sin Run
+    // completo) o 'promoted' (promocionado con Run de capitulo completo). Solo se
+    // guarda la decision (promoted 0/1); ready/promoted se calculan al vuelo.
+    function focusNorm(name) { const s = String(name ?? '').trim().replace(/\s+/g, ' '); return (s && s.length <= 60) ? s : null; }
+    function focusStamp(prev) {
+      let now = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+      if (prev && now <= prev) now = new Date(Date.parse(prev) + 1000).toISOString().replace(/\.\d+Z$/, 'Z');
+      return now;
+    }
+    function localFocusGet(uuid) { return dbQueryOne('SELECT * FROM focus WHERE uuid=? AND deleted=0', [uuid]); }
+    function localFocusList(includeArchived) {
+      return dbQuery(`SELECT uuid, name, archived, created_at FROM focus WHERE deleted=0 ${includeArchived ? '' : 'AND archived=0'} ORDER BY name COLLATE NOCASE`, []);
+    }
+    function localFocusNameTaken(name, exceptUuid) {
+      return !!dbQueryOne('SELECT 1 FROM focus WHERE deleted=0 AND name=? COLLATE NOCASE AND uuid<>?', [name, exceptUuid || '']);
+    }
+    function focusTouch(uuid, sets, params) {
+      const f = dbQueryOne('SELECT updated_at FROM focus WHERE uuid=?', [uuid]);
+      dbExec(`UPDATE focus SET ${sets}, updated_at=?, synced=0 WHERE uuid=?`, [...params, focusStamp(f && f.updated_at), uuid]);
+    }
+    function focusSetChapterRow(focus_uuid, chapter_id, promoted, active) {
+      const ex = dbQueryOne('SELECT updated_at FROM focus_chapters WHERE focus_uuid=? AND chapter_id=?', [focus_uuid, chapter_id]);
+      dbExec(`INSERT INTO focus_chapters (focus_uuid,chapter_id,promoted,active,updated_at,synced) VALUES (?,?,?,?,?,0)
+        ON CONFLICT(focus_uuid, chapter_id) DO UPDATE SET promoted=excluded.promoted, active=excluded.active, updated_at=excluded.updated_at, synced=0`,
+        [focus_uuid, chapter_id, promoted, active, focusStamp(ex && ex.updated_at)]);
+    }
+    // Las funciones de escritura devuelven { ok: true, ... } o { error: '<codigo>' }.
+    function localFocusCreate(name) {
+      const n = focusNorm(name); if (!n) return { error: 'invalid' };
+      if (localFocusNameTaken(n)) return { error: 'duplicate' };
+      const uuid = makeUUID(), now = focusStamp();
+      dbExec('INSERT INTO focus (uuid,name,archived,deleted,created_at,updated_at,synced) VALUES (?,?,0,0,?,?,0)', [uuid, n, now, now]);
+      return { ok: true, uuid };
+    }
+    function localFocusRename(uuid, name) {
+      const f = localFocusGet(uuid); if (!f) return { error: 'missing' };
+      const n = focusNorm(name); if (!n) return { error: 'invalid' };
+      if (localFocusNameTaken(n, uuid)) return { error: 'duplicate' };
+      if (n !== f.name) focusTouch(uuid, 'name=?', [n]);
+      return { ok: true };
+    }
+    // Solo si nunca ha tenido sesiones; sus capitulos quedan libres.
+    function localFocusDelete(uuid) {
+      const f = localFocusGet(uuid); if (!f) return { error: 'missing' };
+      if (dbQueryOne('SELECT 1 FROM focus_sessions WHERE focus_uuid=?', [uuid])) return { error: 'has_sessions' };
+      for (const c of dbQuery('SELECT chapter_id, promoted FROM focus_chapters WHERE focus_uuid=? AND active=1', [uuid])) focusSetChapterRow(uuid, c.chapter_id, c.promoted, 0);
+      focusTouch(uuid, 'deleted=1', []);
+      return { ok: true };
+    }
+    // Focus (activo o archivado, nunca borrado) al que pertenece un capitulo, o null.
+    function localFocusOfChapter(chapter_id) {
+      return dbQueryOne(`SELECT f.uuid, f.name, f.archived, fc.promoted FROM focus_chapters fc JOIN focus f ON f.uuid=fc.focus_uuid
+        WHERE fc.chapter_id=? AND fc.active=1 AND f.deleted=0 ORDER BY f.archived ASC, fc.updated_at DESC LIMIT 1`, [chapter_id]);
+    }
+    // Lo mismo para todos los capitulos de una vez (Colecciones): Map chapter_id -> {uuid,name,archived}.
+    function localFocusChapterMap() {
+      const m = new Map();
+      for (const r of dbQuery(`SELECT fc.chapter_id, f.uuid, f.name, f.archived FROM focus_chapters fc JOIN focus f ON f.uuid=fc.focus_uuid
+        WHERE fc.active=1 AND f.deleted=0 ORDER BY f.archived DESC, fc.updated_at ASC`, [])) m.set(r.chapter_id, r);
+      return m;
+    }
+    function localFocusAddChapter(uuid, chapter_id) {
+      const f = localFocusGet(uuid); if (!f || f.archived) return { error: 'not_active' };
+      if (!dbQueryOne('SELECT 1 FROM chapters WHERE id=?', [chapter_id])) return { error: 'no_chapter' };
+      if (localFocusOfChapter(chapter_id)) return { error: 'in_focus' };
+      focusSetChapterRow(uuid, chapter_id, 0, 1);
+      return { ok: true };
+    }
+    function localFocusRemoveChapter(uuid, chapter_id) {
+      const f = localFocusGet(uuid); if (!f || f.archived) return { error: 'not_active' };
+      const c = dbQueryOne('SELECT promoted FROM focus_chapters WHERE focus_uuid=? AND chapter_id=? AND active=1', [uuid, chapter_id]);
+      if (!c) return { error: 'not_member' };
+      focusSetChapterRow(uuid, chapter_id, c.promoted, 0);
+      return { ok: true };
+    }
+    // Run del PROPIO capitulo con todos sus problemas contestados (un Run de coleccion no cuenta).
+    function localChapterHasCompletedRun(chapter_id) {
+      return !!dbQueryOne(`SELECT 1 FROM runs r WHERE r.type='chapter' AND r.chapter_id=?
+        AND EXISTS (SELECT 1 FROM run_items ri WHERE ri.run_id=r.id)
+        AND NOT EXISTS (SELECT 1 FROM run_items ri WHERE ri.run_id=r.id AND ri.result IS NULL) LIMIT 1`, [chapter_id]);
+    }
+    function focusChapterState(promoted, chapter_id) {
+      return !promoted ? 'work' : (localChapterHasCompletedRun(chapter_id) ? 'promoted' : 'ready');
+    }
+    // Promocionar activa el 'show' del capitulo (Review solo incluye capitulos con mostrar=1);
+    // devolver a En trabajo no toca show, SM-2 ni historial. Devuelve el estado resultante.
+    function localFocusSetPromoted(uuid, chapter_id, promoted) {
+      const f = localFocusGet(uuid); if (!f || f.archived) return { error: 'not_active' };
+      const c = dbQueryOne('SELECT promoted FROM focus_chapters WHERE focus_uuid=? AND chapter_id=? AND active=1', [uuid, chapter_id]);
+      if (!c) return { error: 'not_member' };
+      const p = promoted ? 1 : 0;
+      if (c.promoted !== p) focusSetChapterRow(uuid, chapter_id, p, 1);
+      if (p) setChapterMostrar(chapter_id, 1);
+      return { ok: true, state: focusChapterState(p, chapter_id) };
+    }
+    // Capitulos de un Focus con su estado. missing=true: el capitulo ya no existe (reimportado).
+    function localFocusChapters(uuid) {
+      return dbQuery(`SELECT fc.chapter_id, fc.promoted, ch.id AS ch_id, ch.name AS chapter_name, ch.chapter_num, ch.source, ch.set_id,
+          c.name AS collection_name, (SELECT COUNT(*) FROM problems p WHERE p.chapter_id=fc.chapter_id AND p.hidden=0) AS problems
+        FROM focus_chapters fc LEFT JOIN chapters ch ON ch.id=fc.chapter_id
+        LEFT JOIN collections c ON c.source=ch.source AND c.set_id=ch.set_id
+        WHERE fc.focus_uuid=? AND fc.active=1
+        ORDER BY c.name COLLATE NOCASE, ch.name COLLATE NOCASE, fc.chapter_id`, [uuid]).map(r => ({
+          chapter_id: r.chapter_id, promoted: r.promoted, missing: r.ch_id == null,
+          chapter_name: r.chapter_name ?? (r.chapter_num != null ? `Ch ${r.chapter_num}` : null),
+          collection_name: r.collection_name, source: r.source, set_id: r.set_id, problems: r.problems,
+          state: focusChapterState(r.promoted, r.chapter_id)
+        }));
+    }
+    // Archivar: bloqueado si hay capitulos 'ready'; los 'work' quedan libres; los 'promoted' se quedan.
+    function localFocusArchiveCheck(uuid) {
+      const ch = localFocusChapters(uuid);
+      return { work: ch.filter(c => c.state === 'work'), ready: ch.filter(c => c.state === 'ready') };
+    }
+    function localFocusArchive(uuid) {
+      const f = localFocusGet(uuid); if (!f || f.archived) return { error: 'not_active' };
+      const chk = localFocusArchiveCheck(uuid);
+      if (chk.ready.length) return { error: 'ready', ready: chk.ready };
+      for (const c of chk.work) focusSetChapterRow(uuid, c.chapter_id, 0, 0);
+      focusTouch(uuid, 'archived=1', []);
+      return { ok: true, freed: chk.work };
+    }
+    function localFocusReopen(uuid) {
+      const f = localFocusGet(uuid); if (!f || !f.archived) return { error: 'not_archived' };
+      focusTouch(uuid, 'archived=0', []);
+      return { ok: true };
+    }
+    // ── Sesiones ──
+    // Problemas visibles de los capitulos En trabajo (existentes) del Focus, en orden aleatorio.
+    function localFocusSessionProblems(uuid) {
+      const ids = localFocusChapters(uuid).filter(c => c.state === 'work' && !c.missing).map(c => c.chapter_id);
+      if (!ids.length) return [];
+      const rows = dbQuery(`SELECT source, problem_id, chapter_id FROM problems WHERE hidden=0 AND chapter_id IN (${ids.map(() => '?').join(',')})`, ids);
+      for (let i = rows.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [rows[i], rows[j]] = [rows[j], rows[i]]; }
+      return rows;
+    }
+    function localFocusSessionStart(uuid) {
+      const f = localFocusGet(uuid); if (!f || f.archived) return null;
+      const s = makeUUID(), now = focusStamp();
+      dbExec('INSERT INTO focus_sessions (uuid,focus_uuid,started_at,ended_at,completed,updated_at,synced) VALUES (?,?,?,NULL,0,?,0)', [s, uuid, now, now]);
+      return s;
+    }
+    function localFocusSessionComplete(session_uuid) {
+      const s = dbQueryOne('SELECT updated_at, completed FROM focus_sessions WHERE uuid=?', [session_uuid]);
+      if (!s || s.completed) return false;
+      const now = focusStamp(s.updated_at);
+      dbExec('UPDATE focus_sessions SET ended_at=?, completed=1, updated_at=?, synced=0 WHERE uuid=?', [now, now, session_uuid]);
+      return true;
+    }
+    // Primer intento de cada problema dentro de cada sesion indicada (criterio del %).
+    function focusFirstAttempts(sessionUuids) {
+      const out = [];
+      for (let i = 0; i < sessionUuids.length; i += 400) {
+        const chunk = sessionUuids.slice(i, i + 400);
+        out.push(...dbQuery(`SELECT session_uuid, source, problem_id, chapter_id, result FROM (
+            SELECT a.session_uuid, a.source, a.problem_id, p.chapter_id, a.result,
+                   ROW_NUMBER() OVER (PARTITION BY a.session_uuid, a.source, a.problem_id ORDER BY a.created_at ASC, a.id ASC) AS rn
+            FROM attempts a LEFT JOIN problems p ON p.source=a.source AND p.problem_id=a.problem_id
+            WHERE a.session_uuid IN (${chunk.map(() => '?').join(',')})) WHERE rn=1`, chunk));
+      }
+      return out;
+    }
+    function focusPct(ok, total) { return total > 0 ? Math.round(ok / total * 100) : null; }
+    function localFocusSessionStats(session_uuid) {
+      const rows = focusFirstAttempts([session_uuid]);
+      const ok = rows.filter(r => r.result === 'correct').length;
+      return { total: rows.length, ok, pct: focusPct(ok, rows.length) };
+    }
+    // Progreso: % de la ultima sesion completada y, por capitulo, % de la ultima sesion
+    // completada que lo incluyo (sin entrada = sin datos todavia).
+    function localFocusProgress(uuid) {
+      const res = { last: null, byChapter: {} };
+      const sess = dbQuery('SELECT uuid FROM focus_sessions WHERE focus_uuid=? AND completed=1 ORDER BY ended_at DESC, uuid DESC', [uuid]);
+      if (!sess.length) return res;
+      const order = new Map(sess.map((s, i) => [s.uuid, i]));
+      const rows = focusFirstAttempts(sess.map(s => s.uuid));
+      let lastOk = 0, lastTotal = 0;
+      const byCh = new Map();
+      for (const r of rows) {
+        const idx = order.get(r.session_uuid), ok = r.result === 'correct' ? 1 : 0;
+        if (idx === 0) { lastTotal++; lastOk += ok; }
+        if (r.chapter_id == null) continue;
+        let c = byCh.get(r.chapter_id);
+        if (!c || idx < c.idx) { c = { idx, ok: 0, total: 0 }; byCh.set(r.chapter_id, c); }
+        if (c.idx === idx) { c.total++; c.ok += ok; }
+      }
+      res.last = { ok: lastOk, total: lastTotal, pct: focusPct(lastOk, lastTotal) };
+      for (const [cid, c] of byCh) res.byChapter[cid] = { ok: c.ok, total: c.total, pct: focusPct(c.ok, c.total) };
+      return res;
+    }
+    // Estado de hoy de cada Focus activo. work = capitulos En trabajo con problemas visibles;
+    // pending = hay algo que hacer y ninguna sesion suya se ha completado hoy (dia local).
+    function localFocusTodayStatus() {
+      const today = localDateStr();
+      return localFocusList(false).map(f => {
+        const work = localFocusChapters(f.uuid).filter(c => c.state === 'work' && !c.missing && c.problems > 0).length;
+        const doneToday = dbQuery('SELECT ended_at FROM focus_sessions WHERE focus_uuid=? AND completed=1 AND ended_at IS NOT NULL ORDER BY ended_at DESC LIMIT 5', [f.uuid])
+          .some(s => localDateStr(new Date(s.ended_at)) === today);
+        return { uuid: f.uuid, name: f.name, work, doneToday, pending: work > 0 && !doneToday };
+      });
     }
     function localGetProblem(source, problem_id) {
       return dbQueryOne(`
@@ -2837,11 +3097,12 @@
     function localGetRunItems(run_id) {
       return dbQuery(`SELECT ri.*, p.sgf_path, p.difficulty_raw, p.difficulty_num, p.color_to_play FROM run_items ri JOIN problems p ON p.source=ri.source AND p.problem_id=ri.problem_id WHERE ri.run_id=? ORDER BY ri.order_in_run ASC`, [run_id]);
     }
-    function localInsertAttempt(source, problem_id, run_id, result, time_ms) {
+    function localInsertAttempt(source, problem_id, run_id, result, time_ms, session_uuid) {
       const created_at = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
       const uuid = makeUUID();
-      dbExec(`INSERT INTO attempts (source,problem_id,run_id,result,time_ms,created_at,uuid) VALUES (?,?,?,?,?,?,?)`,
-        [source, problem_id, run_id ?? null, result, time_ms ?? null, created_at, uuid]);
+      // FC2: session_uuid vincula el intento a una sesion de Focus (NULL en Runs/Review/Free)
+      dbExec(`INSERT INTO attempts (source,problem_id,run_id,result,time_ms,created_at,uuid,session_uuid) VALUES (?,?,?,?,?,?,?,?)`,
+        [source, problem_id, run_id ?? null, result, time_ms ?? null, created_at, uuid, session_uuid ?? null]);
       if (run_id) {
         dbExec(`UPDATE runs SET done=done+1 WHERE id=?`, [run_id]);
         dbExec(`UPDATE runs SET status='closed', closed_at=? WHERE id=? AND done>=total AND status='open'`, [created_at, run_id]);
@@ -3101,7 +3362,7 @@
             dbExec(`INSERT OR IGNORE INTO run_items (run_id,source,problem_id,order_in_run,result) VALUES (?,?,?,?,?)`, [ri.run_id, ri.source, ri.problem_id, ri.order_in_run, ri.result]);
         }
       }
-      const stmtA = db.prepare(`INSERT OR IGNORE INTO attempts (source,problem_id,run_id,result,time_ms,created_at,uuid,synced) VALUES (?,?,?,?,?,?,?,1)`);
+      const stmtA = db.prepare(`INSERT OR IGNORE INTO attempts (source,problem_id,run_id,result,time_ms,created_at,uuid,synced,session_uuid) VALUES (?,?,?,?,?,?,?,1,?)`); // FC2: + session_uuid
       const stmtALegacy = db.prepare(`INSERT OR IGNORE INTO attempts (id,source,problem_id,run_id,result,time_ms,created_at,uuid,synced) VALUES (?,?,?,?,?,?,?,?,1)`);
       for (const a of pulled.attempts) {
         if (a.id > maxPullAttemptId) maxPullAttemptId = a.id;
@@ -3131,7 +3392,7 @@
         } else if (a.run_id != null && dbQueryOne('SELECT id FROM runs WHERE id=? AND uuid IS NULL', [a.run_id])) {
           localRunId = a.run_id;
         }
-        stmtA.run([a.source, a.problem_id, localRunId, a.result, a.time_ms, a.created_at, a.uuid]);
+        stmtA.run([a.source, a.problem_id, localRunId, a.result, a.time_ms, a.created_at, a.uuid, a.session_uuid ?? null]);
       }
       stmtA.free();
       stmtALegacy.free();
@@ -3336,6 +3597,55 @@
           if (ptPushOk && tagsCursor > lastTagsSync) cursorUpdates['last_tags_sync'] = tagsCursor;
         }
       } catch (e) { console.warn('[sync] problem_tags sync failed', e); }
+      // ── FC2: Sync Focus (focus, focus_chapters, focus_sessions) ──
+      // Pull COMPLETO en cada sync (sin cursor): las tablas son pequenas y asi una
+      // fila creada offline en otro dispositivo con updated_at anterior a un cursor
+      // nunca se pierde. Se aplica LWW por updated_at (solo gana uno estrictamente
+      // mayor). Despues se empujan las filas con synced=0 y se confirman solo las
+      // enviadas (misma updated_at): un cambio hecho en mitad del vuelo queda
+      // pendiente. Servidor antiguo (404) -> no-op.
+      try {
+        const FOCUS_T = {
+          focus: [['uuid'], ['name', 'archived', 'deleted', 'created_at']],
+          focus_chapters: [['focus_uuid', 'chapter_id'], ['promoted', 'active']],
+          focus_sessions: [['uuid'], ['focus_uuid', 'started_at', 'ended_at', 'completed']],
+        };
+        const fPullR = await syncFetch(`/sync/focus/pull`, { signal: AbortSignal.timeout(8000) });
+        if (fPullR.ok) {
+          const pulledF = await fPullR.json();
+          for (const [t, [keys, vals]] of Object.entries(FOCUS_T)) {
+            const cols = [...keys, ...vals, 'updated_at'];
+            const where = keys.map(k => `${k}=?`).join(' AND ');
+            for (const r of (pulledF[t] || [])) {
+              const ex = dbQueryOne(`SELECT updated_at FROM ${t} WHERE ${where}`, keys.map(k => r[k]));
+              if (!ex || r.updated_at > ex.updated_at) {
+                dbExec(`INSERT INTO ${t} (${cols.join(',')},synced) VALUES (${cols.map(() => '?').join(',')},1)
+                  ON CONFLICT(${keys.join(',')}) DO UPDATE SET ${[...vals, 'updated_at'].map(c => `${c}=excluded.${c}`).join(', ')}, synced=1`,
+                  cols.map(c => r[c] ?? null));
+              }
+            }
+          }
+          const pendingF = {}; let nPendingF = 0;
+          for (const [t, [keys, vals]] of Object.entries(FOCUS_T)) {
+            pendingF[t] = dbQuery(`SELECT ${[...keys, ...vals, 'updated_at'].join(',')} FROM ${t} WHERE synced=0`, []);
+            nPendingF += pendingF[t].length;
+          }
+          if (nPendingF > 0) {
+            const fPushR = await syncFetch(`/sync/focus/push`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(pendingF),
+              signal: AbortSignal.timeout(8000)
+            });
+            if (fPushR.ok) {
+              for (const [t, [keys]] of Object.entries(FOCUS_T)) {
+                const where = keys.map(k => `${k}=?`).join(' AND ');
+                for (const r of pendingF[t]) dbExec(`UPDATE ${t} SET synced=1 WHERE ${where} AND updated_at=?`, [...keys.map(k => r[k]), r.updated_at]);
+              }
+            }
+          }
+        }
+      } catch (e) { console.warn('[sync] focus sync failed', e); }
       // ── Sync SM-2 ──
       // Fase 1 (3.10, solo el cursor): last_sm2_sync ya NO se fija con el reloj
       // del cliente (un reloj adelantado saltaba para siempre registros del
@@ -4275,6 +4585,10 @@
         }
       }
     }
+    // FC3: lista de Runs en modal (antes pestaña)
+    function openRuns() { document.getElementById('runs-overlay').style.display = 'flex'; loadRuns(); }
+    function closeRuns() { const o = document.getElementById('runs-overlay'); if (o) o.style.display = 'none'; }
+    function onRunsOverlayClick(e) { if (e.target === document.getElementById('runs-overlay')) closeRuns(); }
     function openStats() {
       document.getElementById('stats-overlay').style.display = 'flex';
       switchStatsTab('collections');
@@ -4385,8 +4699,9 @@
       if (ok) {
         loadCollections();
         refreshTagViews();   // T23: etiquetas recibidas de otros dispositivos
+        refreshFocusViews(); // FC5: Focus recibidos de otros dispositivos
         if (activeRunId) runItems = localGetRunItems(activeRunId);
-        if (document.querySelector('.tab[data-tab="runs"].active')) loadRuns();
+        if (document.getElementById('runs-overlay').style.display === 'flex') loadRuns(); // FC3
       } else if (lastSyncError) {
         alert('Sync error: ' + (lastSyncError.message || lastSyncError));
       }
@@ -4515,6 +4830,7 @@
           : allCollections;
         lastRunStatsAll = buildRunStatsView(srcs);
         renderCollectionsList(); populateCollectionDiffFilter(); populateFreeFilters(); populateReviewFilters(); clearSidebar();
+        refreshFocusTabIfActive(); // FC5
       } catch (e) {
         document.getElementById('col-list').innerHTML = `<div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--accent);text-align:center">Error: ${esc(e.message)}</div>`;
       }
@@ -4719,6 +5035,7 @@
         const runStats = lastRunStatsAll[key] || localGetLastRunStats(col.source, col.set_id);   // perf: lastRunStatsAll ya esta fresco (se refresca al volver a la pestaña / cerrar run)
         chaptersCache[key] = chapters;
         refreshColPct(key);
+        const focusMap = localFocusChapterMap(); // FC4: una sola consulta para todos los capítulos
         chapDiv.innerHTML = '';
         for (const chap of chapters) {
           const ci = document.createElement('div'); ci.className = 'chap-item';
@@ -4742,7 +5059,8 @@
 		  show
 		</label>` : `<input type="hidden" class="chap-mostrar-chk" data-chapid="${chap.id}">`}
         <button class="chap-btn" data-chapid="${chap.id}" title="Run (cuenta para SM-2 y stats)">▶</button>
-        <button class="chap-btn chap-free-btn" data-chapid="${chap.id}" title="Free practice (sin run, no cuenta en stats)">🧩</button>`;
+        <button class="chap-btn chap-free-btn" data-chapid="${chap.id}" title="Free practice (sin run, no cuenta en stats)">🧩</button>
+        <button class="chap-btn chap-focus-btn" data-chapid="${chap.id}">🎯</button>`;
           ci.querySelector('.chap-mostrar-chk').addEventListener('change', async e => {
             e.stopPropagation();
             const val = e.target.checked ? 1 : 0;
@@ -4754,6 +5072,7 @@
           });
           ci.querySelector('.chap-btn').addEventListener('click', async e => { e.stopPropagation(); await ensureColSource(col); startRun({ source: col.source, type: 'chapter', chapter_id: chap.id, colName: col.name, chapName: chap.name, chapNum: chap.chapter_num }); });
           ci.querySelector('.chap-free-btn').addEventListener('click', async e => { e.stopPropagation(); await ensureColSource(col); practiceChapterFree(col, chap); });
+          { const fb = ci.querySelector('.chap-focus-btn'); paintFocusBtn(fb, focusMap.get(chap.id) || null); fb.addEventListener('click', e => { e.stopPropagation(); openFocusPop(fb, chap.id); }); } // FC4
           chapDiv.appendChild(ci);
         }
       } catch (e) { chapDiv.innerHTML = `<div style="padding:8px 24px;font-family:var(--mono);font-size:8px;color:var(--accent)">Error loading chapters</div>`; }
@@ -4793,13 +5112,14 @@
         activeRunId = result.run_id;
         await saveDB(); tryAutoSync();
         runItems = localGetRunItems(activeRunId); runIdx = -1; runMode = true; freeMode = false; sessionOk = 0; sessionNo = 0;
+        focusSession = null; // FC6
         retryQueue = []; retryQueued = new Set(); retryPhase = false; // F3
         const label = opts.colName ? (opts.chapNum ? `${opts.colName} · Ch ${opts.chapNum}` : opts.colName) : 'Run';
         document.getElementById('rp-title').textContent = label;
         document.getElementById('run-progress').style.display = 'block';
         document.getElementById('cfg-pill-total').textContent = '';
         document.getElementById('st-total-wrap').style.display = 'none';
-        switchTab('runs'); await loadRuns(); updateSessionUI(); nextProblem();
+        updateSessionUI(); nextProblem(); // FC3: sin cambiar de pestaña
       } catch (e) { alert('Failed to start run: ' + e.message); }
     }
 	
@@ -4884,7 +5204,7 @@
           const accStr = accPct != null ? `<span style="color:${pctColor(accPct)}">${accPct}%✓</span>` : '';
           item.innerHTML = `<div class="run-title">${esc(run.label || `Run #${run.id}`)}</div><div class="run-meta"><span class="${statusCls}">${esc(run.status)}</span><span>${done}/${total} (${compPct}%) ${accStr}</span><span style="color:var(--dim2)">${esc(date)}</span></div>`;
           if (run.status === 'open') {
-            item.addEventListener('click', async () => { await pullSm2State(); resumeRun(run.id); }); // T15
+            item.addEventListener('click', async () => { closeRuns(); focusSession = null; await pullSm2State(); resumeRun(run.id); }); // T15 / FC3 / FC6
             const closeBtn = document.createElement('button');
             closeBtn.className = 'chap-btn'; closeBtn.textContent = '✕ Close'; closeBtn.style.marginTop = '4px';
             closeBtn.addEventListener('click', async e => {
@@ -4992,6 +5312,16 @@
       // como el checklist de capitulos de la coleccion actualmente elegida.
       if (!fpVisible.dataset.bound) { fpVisible.dataset.bound = '1'; fpVisible.addEventListener('change', () => { lsSet(FP_VISIBLE_KEY, fpVisible.checked ? '1' : '0'); refreshFreeCollectionOptions(); renderFreeChapterList(); }); }
       if (fpChapClear && !fpChapClear.dataset.bound) { fpChapClear.dataset.bound = '1'; fpChapClear.addEventListener('click', () => { document.querySelectorAll('#fp-chap-list input:checked').forEach(cb => cb.checked = false); }); }
+      const fpChapFocus = document.getElementById('fp-chap-focus'); // FC8: añadir los capítulos marcados a un Focus
+      if (fpChapFocus && !fpChapFocus.dataset.bound) {
+        fpChapFocus.dataset.bound = '1';
+        fpChapFocus.addEventListener('click', e => {
+          e.stopPropagation();
+          const ids = [...document.querySelectorAll('#fp-chap-list input:checked')].map(cb => parseInt(cb.value));
+          if (!ids.length) { alert('Marca primero uno o varios capítulos en la lista.'); return; }
+          openFocusPopForChapters(fpChapFocus, ids);
+        });
+      }
       // T40: 'All sources' ya no deshabilita Collection/Chapter (ver
       // freeFilteredProblems); solo se persiste entre sesiones.
       const fpAllSources = document.getElementById('fp-all-sources');
@@ -5001,6 +5331,7 @@
       }
       // T23: checklist de etiquetas
       renderFreeTagList();
+      renderFreeFocusOptions(); // FC7
       const fpTagsClear = document.getElementById('fp-tags-clear');
       if (fpTagsClear && !fpTagsClear.dataset.bound) { fpTagsClear.dataset.bound = '1'; fpTagsClear.addEventListener('click', () => { document.querySelectorAll('#fp-tags-list input:checked').forEach(cb => cb.checked = false); }); }
     }
@@ -5116,8 +5447,21 @@
       const order = document.getElementById('fp-order').value;
       const onlyVisible = document.getElementById('fp-visible').checked;
       const tagSel = [...document.querySelectorAll('#fp-tags-list input:checked')].map(cb => cb.value);   // T23: ninguna = All
-      const srcArg = (allSources && !setId) ? null : currentSource;
-      let problems = localGetProblems(srcArg, { set_id: setId ? parseInt(setId) : undefined, chapter_ids: chapIds.length ? chapIds : undefined, onlyVisible, tags: tagSel.length ? tagSel : undefined });
+      // FC7: filtro Focus = solo sus capítulos En trabajo (existentes). Ignora el source de la
+      // cabecera (un Focus mezcla sources) salvo que se elija una Collection; se cruza con los
+      // Chapters marcados y con la Collection elegida.
+      const focusSel = document.getElementById('fp-focus').value;
+      let focusIds = null;
+      if (focusSel) {
+        focusIds = localFocusChapters(focusSel).filter(c => c.state === 'work' && !c.missing).map(c => c.chapter_id);
+        if (chapIds.length) focusIds = focusIds.filter(id => chapIds.includes(id));
+        if (setId) { const inSet = new Set(dbQuery('SELECT id FROM chapters WHERE source=? AND set_id=?', [currentSource, parseInt(setId)]).map(r => r.id)); focusIds = focusIds.filter(id => inSet.has(id)); }
+        if (!focusIds.length) return { problems: [], order };
+      }
+      const srcArg = ((allSources || focusIds) && !setId) ? null : currentSource;
+      // FC7: con un Focus elegido, 'Only visible chapters' no se aplica: el Focus ya dice qué
+      // capítulos quieres y los En trabajo suelen tener show desactivado hasta promocionarlos.
+      let problems = localGetProblems(srcArg, { set_id: setId ? parseInt(setId) : undefined, chapter_ids: focusIds || (chapIds.length ? chapIds : undefined), onlyVisible: onlyVisible && !focusIds, tags: tagSel.length ? tagSel : undefined });
       if (diffMin) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num >= parseInt(diffMin));
       if (diffMax) problems = problems.filter(p => p.difficulty_num == null || p.difficulty_num <= parseInt(diffMax));
       if (problemIdFilter) problems = problems.filter(p => String(p.problem_id).toLowerCase().includes(problemIdFilter.toLowerCase()));
@@ -5164,6 +5508,7 @@
         document.getElementById('st-total-wrap').style.display = '';
         if (order === 'random') { for (let i = problems.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[problems[i], problems[j]] = [problems[j], problems[i]]; } }
         activeRunId = null; runMode = false; freeMode = true; runItems = []; document.getElementById('run-progress').style.display = 'none';
+        focusSession = null; // FC6: Free nunca crea sesión
         allProblems = problems; document.getElementById('cfg-pill-total').textContent = `/ ${problems.length}`;
         runIdx = -1; sessionOk = 0; sessionNo = 0; updateSessionUI(); renderFreeList(); nextProblem();
       } catch (e) { alert('Failed to load problems: ' + e.message); }
@@ -5472,6 +5817,7 @@
         document.getElementById('st-total').textContent = problems.length;
         document.getElementById('st-total-wrap').style.display = '';
         runMode = false; freeMode = false; runItems = [];
+        focusSession = null; // FC6
         document.getElementById('run-progress').style.display = 'none';
         allProblems = problems;
         document.getElementById('cfg-pill-total').textContent = `/ ${problems.length}`;
@@ -5500,6 +5846,338 @@
       } catch (e) { alert('Failed to load review: ' + e.message); }
     }
 
+    // ══ FC4–FC7: Focus — interfaz (la capa de datos es la API local de FC2) ══
+    const FOCUS_FILTER_KEY = 'focus_filter';
+    const focusExpanded = new Set(), focusPromotedOpen = new Set();   // estado de la vista (no se guarda)
+    let focusShowArchived = false;
+    const focusKey = (p) => `${p.source}\u0001${p.problem_id}`;
+    const FOCUS_ERR = {
+      invalid: 'Nombre no válido (de 1 a 60 caracteres).', duplicate: 'Ya existe un Focus con ese nombre.',
+      missing: 'Ese Focus ya no existe.', has_sessions: 'Este Focus ya tiene sesiones: no se puede borrar, solo archivar.',
+      not_active: 'El Focus está archivado.', no_chapter: 'El capítulo no existe.', in_focus: 'El capítulo ya está en otro Focus.',
+      not_member: 'El capítulo no está en este Focus.', not_archived: 'El Focus no está archivado.',
+    };
+    function focusAlertErr(r) { if (r && r.error) { alert(FOCUS_ERR[r.error] || r.error); return true; } return false; }
+    function focusPromptCreate() {
+      const name = prompt('Nombre del nuevo Focus:'); if (name == null) return null;
+      const r = localFocusCreate(name); return focusAlertErr(r) ? null : r.uuid;
+    }
+    // Tras cualquier cambio: guardar, sincronizar y repintar todo lo que muestra Focus.
+    function focusAfterChange() {
+      scheduleSaveDB();
+      refreshFocusViews();
+      tryAutoSync(true).then(ok => { if (ok) refreshFocusViews(); }).catch(() => { });
+    }
+    function refreshFocusTabIfActive() { if (document.getElementById('tab-focus')?.classList.contains('active')) renderFocusTab(); }
+    function refreshFocusViews() { refreshFocusTabIfActive(); paintAllFocusButtons(); renderFreeFocusOptions(); }
+    // Promocionar activa 'show': reflejarlo en los checkboxes ya pintados de Collections.
+    function syncChapterShowUI(chId) {
+      for (const k in chaptersCache) for (const ch of chaptersCache[k]) if (ch.id === chId) ch.mostrar = 1;
+      document.querySelectorAll(`.chap-mostrar-chk[data-chapid="${chId}"]`).forEach(cb => { if (cb.type === 'checkbox') cb.checked = true; });
+    }
+
+    // ── FC4: botón 🎯 de Collections y su menú ──
+    function paintFocusBtn(btn, m) {
+      btn.textContent = m ? `🎯 ${m.name}` : '🎯';
+      btn.classList.toggle('chap-focus-in', !!m && !m.archived);
+      btn.classList.toggle('chap-focus-arch', !!m && !!m.archived);
+      btn.title = !m ? 'Añadir a un Focus' : (m.archived ? `En el Focus archivado «${m.name}»` : `En el Focus «${m.name}» (pulsa para sacarlo)`);
+    }
+    function paintAllFocusButtons() {
+      const btns = document.querySelectorAll('#col-list .chap-focus-btn'); if (!btns.length) return;
+      const map = localFocusChapterMap();
+      btns.forEach(b => paintFocusBtn(b, map.get(Number(b.dataset.chapid)) || null));
+    }
+    function closeFocusPop() { const pop = document.getElementById('focus-pop'); if (pop) pop.style.display = 'none'; }
+    function focusPopEnsure() {
+      let pop = document.getElementById('focus-pop');
+      if (!pop) {
+        pop = document.createElement('div');
+        pop.id = 'focus-pop';
+        pop.style.cssText = 'position:fixed;z-index:1200;display:none;flex-direction:column;gap:4px;padding:8px;background:var(--panel);border:1px solid var(--border2);border-radius:3px;box-shadow:0 8px 24px rgba(0,0,0,.6);min-width:180px;max-width:260px;max-height:60vh;overflow-y:auto;font-family:var(--mono);font-size:10px;color:var(--dim);';
+        document.body.appendChild(pop);
+        // registro único (el menú se crea una vez): pulsar fuera lo cierra
+        document.addEventListener('pointerdown', e => { if (pop.style.display !== 'none' && !pop.contains(e.target) && !e.target.closest('.chap-focus-btn, #fp-chap-focus')) closeFocusPop(); });
+      }
+      return pop;
+    }
+    function focusPopPlace(pop, anchor) {
+      pop.style.display = 'flex';
+      const r = anchor.getBoundingClientRect(), w = pop.offsetWidth || 200, h = pop.offsetHeight || 80;
+      const vw = window.innerWidth || 1024, vh = window.innerHeight || 768;
+      pop.style.left = Math.max(4, Math.min(r.right - w, vw - w - 4)) + 'px';
+      pop.style.top = (r.bottom + 4 + h > vh - 4 ? Math.max(4, r.top - h - 4) : r.bottom + 4) + 'px';
+    }
+    function openFocusPop(anchor, chapterId) {
+      const pop = focusPopEnsure();
+      pop.textContent = '';
+      const note = (t) => { const d = document.createElement('div'); d.style.padding = '2px 2px 4px'; d.textContent = t; pop.appendChild(d); };
+      const item = (label, fn) => {
+        const b = document.createElement('button'); b.className = 'ctrl-btn'; b.style.textAlign = 'left'; b.textContent = label;
+        b.addEventListener('click', e => { e.stopPropagation(); closeFocusPop(); fn(); });
+        pop.appendChild(b);
+      };
+      const m = localFocusOfChapter(chapterId);
+      if (m && m.archived) { note(`En el Focus archivado «${m.name}».`); note('Para volver a trabajarlo, reabre ese Focus en la pestaña Focus.'); }
+      else if (m) { note(`En el Focus «${m.name}».`); item('✕ Sacar del Focus', () => { if (!focusAlertErr(localFocusRemoveChapter(m.uuid, chapterId))) focusAfterChange(); }); }
+      else {
+        const list = localFocusList(false);
+        note(list.length ? 'Añadir a:' : 'Aún no hay ningún Focus.');
+        for (const f of list) item(`🎯 ${f.name}`, () => { if (!focusAlertErr(localFocusAddChapter(f.uuid, chapterId))) focusAfterChange(); });
+        item('＋ Nuevo Focus…', () => { const u = focusPromptCreate(); if (!u) return; focusAlertErr(localFocusAddChapter(u, chapterId)); focusAfterChange(); });
+      }
+      focusPopPlace(pop, anchor);
+    }
+
+    // ── FC8: añadir varios capítulos (los marcados en Free) a un Focus ──
+    // Los que ya están en un Focus (activo o archivado) se saltan sin tocarlos.
+    function focusAddChapters(uuid, ids) {
+      let added = 0, skipped = 0;
+      for (const id of ids) { if (localFocusAddChapter(uuid, id).ok) added++; else skipped++; }
+      return { added, skipped };
+    }
+    function openFocusPopForChapters(anchor, ids) {
+      const pop = focusPopEnsure();
+      pop.textContent = '';
+      const note = document.createElement('div'); note.style.padding = '2px 2px 4px';
+      note.textContent = `Añadir ${ids.length} capítulo${ids.length === 1 ? '' : 's'} a:`; pop.appendChild(note);
+      const done = (uuid, name) => {
+        const r = focusAddChapters(uuid, ids);
+        const msg = `🎯 ${r.added} añadido${r.added === 1 ? '' : 's'} a «${name}»` + (r.skipped ? ` · ${r.skipped} ya estaba${r.skipped === 1 ? '' : 'n'} en un Focus` : '');
+        const cnt = document.getElementById('fp-count'); if (cnt) cnt.textContent = msg;
+        focusAfterChange();
+      };
+      const item = (label, fn) => {
+        const b = document.createElement('button'); b.className = 'ctrl-btn'; b.style.textAlign = 'left'; b.textContent = label;
+        b.addEventListener('click', e => { e.stopPropagation(); closeFocusPop(); fn(); });
+        pop.appendChild(b);
+      };
+      for (const f of localFocusList(false)) item(`🎯 ${f.name}`, () => done(f.uuid, f.name));
+      item('＋ Nuevo Focus…', () => { const u = focusPromptCreate(); if (u) done(u, localFocusGet(u).name); });
+      focusPopPlace(pop, anchor);
+    }
+
+    // ── FC5: pestaña Focus ──
+    function renderFocusTab() {
+      const pane = document.getElementById('tab-focus'); if (!pane || !db) return;
+      const el = (tag, css, text, cls) => { const e = document.createElement(tag); if (css) e.style.cssText = css; if (text != null) e.textContent = text; if (cls) e.className = cls; return e; };
+      const btn = (label, title, fn, disabled) => {
+        const b = el('button', 'margin:2px 4px 2px 0;', label, 'chap-btn'); if (title) b.title = title;
+        if (disabled) { b.disabled = true; b.style.opacity = '.4'; b.style.cursor = 'default'; }
+        else b.addEventListener('click', e => { e.stopPropagation(); fn(); });
+        return b;
+      };
+      const pctChip = (pct) => el('span', `color:${pctColor(pct)};flex-shrink:0;font-family:var(--mono);font-size:10px;`, pct != null ? pct + '%' : '—');
+      const scroll = pane.scrollTop;
+      pane.textContent = '';
+      // Pendiente hoy
+      const secP = el('div', null, null, 'fp-section');
+      secP.appendChild(el('div', 'margin-bottom:6px', 'Pending today', 'fp-label'));
+      const today = localFocusTodayStatus();
+      const listP = el('div', 'font-family:var(--mono);font-size:10px;display:flex;flex-direction:column;gap:4px;');
+      if (!today.length) listP.appendChild(el('span', 'color:var(--dim2)', 'Sin Focus activos'));
+      for (const t of today) {
+        const row = el('div', 'display:flex;justify-content:space-between;align-items:center;gap:8px;');
+        row.appendChild(el('span', `color:${t.pending ? 'var(--text)' : 'var(--dim)'};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`, t.name));
+        const st = el('span', `flex-shrink:0;color:${t.pending ? 'var(--gold)' : t.doneToday ? 'var(--ok-bright)' : 'var(--dim2)'};${t.pending ? 'cursor:pointer;' : ''}`,
+          t.pending ? '▶ pendiente' : t.doneToday ? '✓ hecho' : 'sin capítulos en trabajo');
+        if (t.pending) { st.title = 'Empezar la sesión de hoy'; st.addEventListener('click', () => startFocusSession(t.uuid)); }
+        row.appendChild(st); listP.appendChild(row);
+      }
+      secP.appendChild(listP); pane.appendChild(secP);
+      // Datos de cada Focus
+      const focuses = localFocusList(true).filter(f => focusShowArchived || !f.archived).sort((a, b) => a.archived - b.archived);
+      const data = focuses.map(f => ({ f, chapters: localFocusChapters(f.uuid), progress: localFocusProgress(f.uuid),
+        hasSessions: !!dbQueryOne('SELECT 1 FROM focus_sessions WHERE focus_uuid=?', [f.uuid]) }));
+      const counts = { work: 0, ready: 0, promoted: 0 };
+      for (const d of data) if (!d.f.archived) for (const c of d.chapters) counts[c.state]++;
+      const saved = lsGet(FOCUS_FILTER_KEY);
+      const filter = ['all', 'work', 'ready', 'promoted'].includes(saved) ? saved : 'all';
+      // Filtro (persistente), contadores (siempre visibles), crear y archivados
+      const secF = el('div', null, null, 'fp-section');
+      const sel = el('select', 'margin-bottom:6px', null, 'fsel');
+      for (const [v, l] of [['all', 'Todos'], ['work', 'En trabajo'], ['ready', 'Listos para Run'], ['promoted', 'Promocionados']]) { const o = el('option', null, l); o.value = v; sel.appendChild(o); }
+      sel.value = filter;
+      sel.addEventListener('change', () => { lsSet(FOCUS_FILTER_KEY, sel.value); renderFocusTab(); });
+      secF.appendChild(sel);
+      const cnt = el('div', 'font-family:var(--mono);font-size:10px;color:var(--dim);margin-bottom:6px;');
+      [['work', 'En trabajo'], ['ready', 'Listos'], ['promoted', 'Promocionados']].forEach(([k, l], i) => {
+        if (i) cnt.appendChild(document.createTextNode(' · '));
+        cnt.appendChild(el('span', k === 'ready' && counts.ready ? 'color:var(--gold)' : null, `${l} (${counts[k]})`));
+      });
+      secF.appendChild(cnt);
+      const newB = el('button', null, '＋ Nuevo Focus', 'fp-btn');
+      newB.addEventListener('click', () => { if (focusPromptCreate()) focusAfterChange(); });
+      secF.appendChild(newB);
+      const archL = el('label', 'display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);margin-top:8px;');
+      const archC = el('input', 'accent-color:var(--gold);cursor:pointer;'); archC.type = 'checkbox'; archC.checked = focusShowArchived;
+      archC.addEventListener('change', () => { focusShowArchived = archC.checked; renderFocusTab(); });
+      archL.appendChild(archC); archL.appendChild(document.createTextNode('Mostrar archivados'));
+      secF.appendChild(archL);
+      pane.appendChild(secF);
+      if (!data.length) { pane.appendChild(el('div', null, 'Crea un Focus aquí o desde el botón 🎯 de un capítulo en Collections.', 'runs-empty')); return; }
+      for (const d of data) pane.appendChild(renderFocusCard(d, filter, el, btn, pctChip));
+      pane.scrollTop = scroll;
+    }
+    function renderFocusCard({ f, chapters, progress, hasSessions }, filter, el, btn, pctChip) {
+      const open = focusExpanded.has(f.uuid);
+      const card = el('div', null, null, 'col-item' + (open ? ' expanded' : ''));
+      const head = el('div', null, null, 'col-name');
+      head.appendChild(el('span', null, '▶', 'col-arrow'));
+      head.appendChild(el('span', 'flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;', f.name + (f.archived ? ' (archivado)' : '')));
+      head.appendChild(pctChip(progress.last ? progress.last.pct : null));
+      head.title = 'Última sesión completada';
+      head.addEventListener('click', () => { if (open) focusExpanded.delete(f.uuid); else focusExpanded.add(f.uuid); renderFocusTab(); });
+      card.appendChild(head);
+      const n = { work: 0, ready: 0, promoted: 0 }; for (const c of chapters) n[c.state]++;
+      const missing = chapters.filter(c => c.missing).length;
+      const meta = el('div', null, null, 'col-stats');
+      meta.appendChild(el('span', null, `${n.work} en trabajo`));
+      if (n.ready) meta.appendChild(el('span', 'color:var(--gold)', `${n.ready} listos`));
+      meta.appendChild(el('span', null, `${n.promoted} promocionados`));
+      if (missing) meta.appendChild(el('span', 'color:var(--accent)', `⚠ ${missing} no encontrados`));
+      card.appendChild(meta);
+      if (!f.archived) {
+        const workProblems = chapters.filter(c => c.state === 'work' && !c.missing).reduce((a, c) => a + c.problems, 0);
+        const bar = el('div', 'margin-top:6px;');
+        bar.appendChild(btn(`▶ Sesión (${workProblems})`, 'Sesión con todos los capítulos En trabajo, en orden aleatorio', () => startFocusSession(f.uuid), workProblems === 0));
+        card.appendChild(bar);
+      }
+      if (!open) return card;
+      const body = el('div', 'margin-top:8px;border-top:1px solid var(--border);padding-top:6px;cursor:default;');
+      const acts = el('div', 'margin-bottom:4px;');
+      if (f.archived) acts.appendChild(btn('↺ Reabrir', null, () => { if (!focusAlertErr(localFocusReopen(f.uuid))) focusAfterChange(); }));
+      else {
+        acts.appendChild(btn('✎ Renombrar', null, () => focusRename(f)));
+        acts.appendChild(btn('🗄 Archivar', null, () => focusArchive(f)));
+        if (!hasSessions) acts.appendChild(btn('🗑 Borrar', 'Solo mientras no tenga sesiones', () => focusDelete(f)));
+      }
+      body.appendChild(acts);
+      if (!chapters.length) body.appendChild(el('div', 'font-family:var(--mono);font-size:10px;color:var(--dim2);padding:4px 0;', 'Añade capítulos con el botón 🎯 de Collections.'));
+      for (const [state, label] of [['ready', 'Listos para Run'], ['work', 'En trabajo'], ['promoted', 'Promocionados']]) {
+        if (filter !== 'all' && filter !== state) continue;
+        const rows = chapters.filter(c => c.state === state);
+        if (!rows.length) continue;
+        const folded = state === 'promoted' && !focusPromotedOpen.has(f.uuid);
+        const gh = el('div', `font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:${state === 'ready' ? 'var(--gold)' : 'var(--dim2)'};margin:8px 0 4px;${state === 'promoted' ? 'cursor:pointer;' : ''}`,
+          `${label} (${rows.length})${state === 'promoted' ? (folded ? ' ▸' : ' ▾') : ''}`);
+        if (state === 'promoted') gh.addEventListener('click', e => { e.stopPropagation(); if (folded) focusPromotedOpen.add(f.uuid); else focusPromotedOpen.delete(f.uuid); renderFocusTab(); });
+        body.appendChild(gh);
+        if (folded) continue;
+        for (const c of rows) body.appendChild(renderFocusChapterRow(f, c, progress.byChapter[c.chapter_id], el, btn, pctChip));
+      }
+      card.appendChild(body);
+      return card;
+    }
+    function renderFocusChapterRow(f, c, prog, el, btn, pctChip) {
+      const row = el('div', 'display:flex;align-items:center;gap:6px;padding:4px 0 4px 10px;font-family:var(--mono);font-size:10px;flex-wrap:wrap;');
+      const name = el('span', 'flex:1;min-width:120px;color:var(--dim);');
+      if (c.missing) { name.textContent = `⚠ Capítulo no encontrado (id ${c.chapter_id})`; name.style.color = 'var(--accent)'; name.title = 'Ya no existe (¿reimportado con otro id?). Sácalo del Focus.'; }
+      else { name.textContent = `${c.collection_name || '—'} · ${c.chapter_name || '—'} `; name.appendChild(el('span', 'color:var(--dim2)', `${c.source} · ${c.problems}p`)); }
+      row.appendChild(name);
+      row.appendChild(pctChip(prog ? prog.pct : null));
+      if (!f.archived) {
+        if (c.missing) row.appendChild(btn('✕ Sacar', 'Quitar del Focus', () => { if (!focusAlertErr(localFocusRemoveChapter(f.uuid, c.chapter_id))) focusAfterChange(); }));
+        else if (c.state === 'work') row.appendChild(btn('⬆ Promocionar', 'Listo para su Run (activa show para que entre en Review)', () => focusPromote(f, c)));
+        else {
+          if (c.state === 'ready') row.appendChild(btn('▶ Run', 'Lanzar el Run del capítulo', () => focusLaunchRun(c)));
+          row.appendChild(btn('⬇ En trabajo', 'Devolver a En trabajo (no toca SM-2, historial ni show)', () => { if (!focusAlertErr(localFocusSetPromoted(f.uuid, c.chapter_id, false))) focusAfterChange(); }));
+        }
+      }
+      return row;
+    }
+    function focusRename(f) {
+      const name = prompt('Nuevo nombre del Focus:', f.name); if (name == null) return;
+      if (!focusAlertErr(localFocusRename(f.uuid, name))) focusAfterChange();
+    }
+    function focusDelete(f) {
+      if (!confirm(`¿Borrar el Focus «${f.name}»? Sus capítulos quedarán libres.`)) return;
+      if (!focusAlertErr(localFocusDelete(f.uuid))) focusAfterChange();
+    }
+    function focusArchive(f) {
+      const NL = String.fromCharCode(10);
+      const lbl = (c) => c.missing ? `(capítulo ${c.chapter_id})` : `${c.collection_name || '—'} · ${c.chapter_name || '—'}`;
+      const chk = localFocusArchiveCheck(f.uuid);
+      if (chk.ready.length) {
+        alert(`No se puede archivar «${f.name}»: estos capítulos están listos para Run y aún no tienen su primer Run:${NL}${chk.ready.map(c => '• ' + lbl(c)).join(NL)}${NL}${NL}Haz su Run o devuélvelos a En trabajo.`);
+        return;
+      }
+      let msg = `¿Archivar «${f.name}»?`;
+      if (chk.work.length) msg += `${NL}${NL}Estos capítulos En trabajo quedarán libres (sin Focus):${NL}${chk.work.map(c => '• ' + lbl(c)).join(NL)}`;
+      if (!confirm(msg)) return;
+      if (!focusAlertErr(localFocusArchive(f.uuid))) focusAfterChange();
+    }
+    async function focusPromote(f, c) {
+      const r = localFocusSetPromoted(f.uuid, c.chapter_id, true);
+      if (focusAlertErr(r)) return;
+      syncChapterShowUI(c.chapter_id);
+      focusAfterChange();
+      if (r.state === 'ready' && confirm(`«${c.chapter_name}» está listo para su Run.${String.fromCharCode(10)}¿Lanzarlo ahora?`)) focusLaunchRun(c);
+    }
+    async function focusLaunchRun(c) {
+      if (c.missing) return;
+      if (c.source !== currentSource) await changeSource(c.source, { keepTab: true });
+      startRun({ source: c.source, type: 'chapter', chapter_id: c.chapter_id, colName: `${c.collection_name || '—'} · ${c.chapter_name || '—'}` });
+    }
+
+    // ── FC6: sesiones de Focus (motor de Free, intentos vinculados a la sesión) ──
+    function focusSessionActive() { return (focusSession && freeMode && !runMode) ? focusSession : null; }
+    function startFocusSession(uuid) {
+      const f = localFocusGet(uuid); if (!f || f.archived) return;
+      const probs = localFocusSessionProblems(uuid);
+      if (!probs.length) { alert('Este Focus no tiene problemas En trabajo.'); return; }
+      const s = localFocusSessionStart(uuid); if (!s) return;
+      closeMobilePanel();
+      scheduleSaveDB(); tryAutoSync(true).catch(() => { });
+      activeRunId = null; runMode = false; freeMode = true; runItems = []; document.getElementById('run-progress').style.display = 'none';
+      retryQueue = []; retryQueued = new Set(); retryPhase = false;
+      allProblems = probs;
+      focusSession = { uuid: s, focusUuid: uuid, name: f.name, pending: new Set(probs.map(focusKey)), total: probs.length, completed: false, result: null };
+      document.getElementById('st-total').textContent = probs.length;
+      document.getElementById('st-total-wrap').style.display = '';
+      document.getElementById('cfg-pill-total').textContent = `/ ${probs.length}`;
+      runIdx = -1; sessionOk = 0; sessionNo = 0; updateSessionUI(); renderFreeList(); nextProblem();
+    }
+    function focusOnAttempt(prob) {
+      const fs = focusSessionActive(); if (!fs || fs.completed) return;
+      fs.pending.delete(focusKey({ source: prob.source || currentSource, problem_id: prob.problem_id }));
+      focusCheckComplete();
+      renderFreeList();
+    }
+    // La sesión se completa sola cuando todos sus problemas tienen al menos un intento.
+    function focusCheckComplete() {
+      const fs = focusSessionActive(); if (!fs || fs.completed) return;
+      if (fs.pending.size === 0) {
+        localFocusSessionComplete(fs.uuid);
+        fs.completed = true;
+        fs.result = localFocusSessionStats(fs.uuid);
+        scheduleSaveDB(); tryAutoSync(true).catch(() => { });
+        const hint = document.getElementById('board-hint');
+        if (hint) hint.textContent = `🎯 Focus completado — ${fs.result.ok}/${fs.result.total} (${fs.result.pct ?? 0}%)`;
+        refreshFocusViews();
+      }
+      renderFreeNavLabel();
+    }
+    function renderFreeNavLabel() {
+      const lbl = document.getElementById('free-nav-label'); if (!lbl) return;
+      const fs = focusSessionActive();
+      if (!fs) { lbl.textContent = 'Free practice'; lbl.style.color = ''; return; }
+      lbl.textContent = fs.completed
+        ? `🎯 ${fs.name} · ✓ ${fs.result.ok}/${fs.result.total} (${fs.result.pct ?? 0}%)`
+        : `🎯 ${fs.name} · ${fs.total - fs.pending.size}/${fs.total}`;
+      lbl.style.color = fs.completed ? 'var(--ok-bright)' : 'var(--gold)';
+    }
+
+    // ── FC7: opciones del filtro Focus de Free ──
+    function renderFreeFocusOptions() {
+      const sel = document.getElementById('fp-focus'); if (!sel || !db) return;
+      const prev = sel.value;
+      sel.textContent = '';
+      const any = document.createElement('option'); any.value = ''; any.textContent = 'Any'; sel.appendChild(any);
+      for (const f of localFocusList(false)) { const o = document.createElement('option'); o.value = f.uuid; o.textContent = f.name; sel.appendChild(o); }
+      sel.value = [...sel.options].some(o => o.value === prev) ? prev : '';
+    }
+
     // ══ PROBLEM NAV ══
     function nextProblem() {
       document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad');
@@ -5515,6 +6193,12 @@
       }
       else {
         if (runIdx >= allProblems.length) {
+          // FC6: en una sesión de Focus los saltados con Next siguen pendientes: se vuelve al primero
+          const fsNext = focusSessionActive();
+          if (fsNext && !fsNext.completed) {
+            const pi = allProblems.findIndex(pr => fsNext.pending.has(focusKey(pr)));
+            if (pi !== -1) { runIdx = pi; loadAndRender(allProblems[runIdx]); return; }
+          }
           // T4/3.8: al terminar una sesion de review, soltar el run activo. Sin
           // esto, activeRunId seguia apuntando al run de review (solo endRun lo
           // limpiaba, y la review no pasa por endRun) y flujos posteriores podian
@@ -5563,6 +6247,7 @@
     // llamada (igual que renderGlobalPending/populateFreeFilters): sin listeners
     // acumulados porque el contenedor se vacia primero.
     function renderFreeList() {
+      renderFreeNavLabel(); // FC6
       const section = document.getElementById('free-nav-section');
       const listEl = document.getElementById('free-list');
       if (!section || !listEl) return;
@@ -5582,13 +6267,14 @@
         section.style.display = 'none';
       } else {
         section.style.display = '';
-        const allSources = document.getElementById('fp-all-sources').checked;
+        const fsList = focusSessionActive(); // FC6: una sesión de Focus puede mezclar sources
+        const allSources = !!fsList || document.getElementById('fp-all-sources').checked;
         const sorted = allProblems.map((p, i) => ({ p, i })).sort((a, b) => a.p.problem_id - b.p.problem_id);
         listEl.innerHTML = '';
         for (const { p, i } of sorted) {
           const row = document.createElement('div');
           const isCur = i === runIdx;
-          row.textContent = allSources ? `${p.source} · ${p.problem_id}` : String(p.problem_id);
+          row.textContent = (fsList ? (fsList.pending.has(focusKey(p)) ? '○ ' : '● ') : '') + (allSources ? `${p.source} · ${p.problem_id}` : String(p.problem_id));
           row.style.cssText = `font-family:var(--mono);font-size:11px;padding:4px 6px;cursor:pointer;border-radius:2px;${isCur ? 'color:var(--gold);font-weight:600;background:rgba(212,168,74,.12);' : 'color:var(--dim);'}`;
           row.addEventListener('click', () => jumpToProblem(i));
           listEl.appendChild(row);
@@ -5611,11 +6297,14 @@
       dbExec('UPDATE problems SET hidden=2 WHERE source=? AND problem_id=?', [currentProblem.source || currentSource, pid]);
       saveDB().catch(() => { });
       // sacarlo de la sesion Free en curso y recolocar el indice
-      const idx = allProblems.findIndex(pr => pr.problem_id === pid);
+      // FC6: con varias sources (sesiones de Focus) la clave es (source, problem_id)
+      const hsrc = currentProblem.source || currentSource;
+      const idx = allProblems.findIndex(pr => pr.problem_id === pid && (pr.source || currentSource) === hsrc);
       if (idx !== -1) {
         allProblems.splice(idx, 1);
         if (runIdx > idx) runIdx--;
       }
+      { const fs = focusSessionActive(); if (fs && !fs.completed) { fs.pending.delete(`${hsrc}\u0001${pid}`); fs.total = allProblems.length; focusCheckComplete(); } } // FC6
       document.getElementById('fp-count').textContent = `${allProblems.length} problems`;
       document.getElementById('st-total').textContent = allProblems.length;
       document.getElementById('cfg-pill-total').textContent = `/ ${allProblems.length}`;
@@ -5655,9 +6344,11 @@
       runMode = false; document.getElementById('run-progress').style.display = 'none';
       retryQueue = []; retryQueued = new Set(); retryPhase = false; // F3
       showSessionEnd(); loadRuns(); refreshCollectionStats();
+      refreshFocusViews(); // FC5: un Run de capítulo puede promocionar un capítulo de un Focus
     }
     function showSessionEnd() {
       window._studyRedraw = null; window._studyGhostsRefresh = null; // T5/3.9: el hook muere con la sesion (T37: tambien el de Ghosts)
+      focusSession = null; renderFreeNavLabel(); // FC6: la sesión de Focus termina con la práctica
       clearSidebar(); clearBoard(); wgoBoard = null;
       document.getElementById('board-wrap').style.display = 'none';
       document.getElementById('comment-box').textContent = '';
@@ -5949,7 +6640,8 @@
         // attempt cuenta en historial y SM-2, pero no incrementa done, no
         // reescribe el run_item (el wrong original es la verdad del run) y no
         // puede re-tocar el cierre del run.
-        localInsertAttempt(currentProblem.source || currentSource, currentProblem.problem_id, currentProblem._isRetry ? null : (activeRunId || null), result, time_ms);
+        const fsAtt = focusSessionActive(); // FC6: en una sesión de Focus el intento se vincula a ella
+        localInsertAttempt(currentProblem.source || currentSource, currentProblem.problem_id, currentProblem._isRetry ? null : (activeRunId || null), result, time_ms, fsAtt ? fsAtt.uuid : null);
         // Fase 1 (3.4): persistencia incondicional (debounced ~1,5 s) tras CADA
         // intento. Antes solo se guardaba cada 10 intentos y, sin conexión, un
         // cierre de la pestaña/PWA perdía hasta 9 intentos con sus run_items y
@@ -5958,6 +6650,7 @@
         tryAutoSync(true).catch(() => { });
         if (runMode && !currentProblem._isRetry && runItems[runIdx]) runItems[runIdx].result = result;
         updatePendingBadge(); // F1
+        if (fsAtt) focusOnAttempt(currentProblem); // FC6
       }
       function checkResult(node) {
         const comment = (node.comment || '').trim().toUpperCase();
@@ -6297,7 +6990,7 @@
       if ((e.code === 'Enter' || e.code === 'Space') && waitingForNext && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.altKey && e.code === 'KeyN' && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.code === 'KeyP') { e.preventDefault(); togglePause(); }
-      if (e.code === 'Escape') { closeConfig(); closeStats(); closeBulkTag(); /* T35 */ }
+      if (e.code === 'Escape') { closeConfig(); closeStats(); closeBulkTag(); /* T35 */ closeRuns(); /* FC3 */ closeFocusPop(); /* FC4 */ }
     });
     // ══ GAMES VIEWER ══
 
@@ -6927,7 +7620,7 @@
     }
     document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
       const name = t.dataset.tab; switchTab(name);
-      if (name === 'runs') loadRuns(); if (name === 'collections') refreshCollectionStats();
+      if (name === 'focus') renderFocusTab(); if (name === 'collections') refreshCollectionStats(); // FC3/FC5
       // F6: refrescar pendientes al entrar en review (cubre runs normales u
       // otros flujos que tocaron SM-2 fuera de la pestana).
       if (name === 'review') { renderGlobalPending(); refreshReviewMaturity(); }
