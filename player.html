@@ -1041,6 +1041,12 @@ async function loadLesson(forcedId) {
     window.currentLesson = row;
     localStorage.setItem('go_last_id', row.lessonId);
     navPopulate(allLessons, row);
+    if (!window._navFilled) {           // primera carga: Type y Collection según la lección abierta
+      window._navFilled = true;
+      const selT = document.getElementById('nav-type');
+      if ([...selT.options].some(o => o.value === (row.typeName||''))) selT.value = row.typeName || '';
+      navUpdateCols(allLessons, row, true);
+    }
 
     const title = row.lessonSuffix ? `${row.lessonName} — ${row.lessonSuffix}` : row.lessonName || ('Lesson ' + id);
     document.getElementById('lesson-title').textContent = title;
