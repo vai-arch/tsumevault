@@ -196,9 +196,9 @@ input[type=range].vol::-webkit-slider-thumb{-webkit-appearance:none;width:9px;he
       <div id="prog-thumb" style="left:0%"></div>
     </div>
     <div class="ctrl-row">
-      <button class="cbtn" id="btn-prev" title="Evento anterior">⏮</button>
+      <button class="cbtn" id="btn-prev" title="Lección anterior">⏮</button>
       <button class="cbtn round" id="btn-play" title="Play/Pausa">▶</button>
-      <button class="cbtn" id="btn-next" title="Evento siguiente">⏭</button>
+      <button class="cbtn" id="btn-next" title="Lección siguiente">⏭</button>
       <div class="time-disp"><span class="cur" id="t-cur">0:00</span> / <span id="t-tot">0:00</span></div>
       <button class="speed-btn" id="btn-slow">0.75×</button>
       <button class="speed-btn active" id="btn-norm">1×</button>
@@ -862,8 +862,21 @@ audio.addEventListener('ended',   () => { setStatus('ENDED');   document.getElem
 document.getElementById('btn-play').addEventListener('click', () => {
   if (audio.paused) audio.play(); else audio.pause();
 });
-document.getElementById('btn-prev').addEventListener('click', seekPrev);
-document.getElementById('btn-next').addEventListener('click', seekNext);
+// ⏮ / ⏭: lección anterior / siguiente del desplegable de lecciones (misma colección y filtros)
+function stepLesson(dir) {
+  const sel = document.getElementById('nav-name');
+  const opts = [...sel.options];
+  const cur = window.currentLesson && String(window.currentLesson.lessonId);
+  const i = opts.findIndex(o => o.value === cur);
+  const j = i < 0 ? (dir > 0 ? 0 : opts.length - 1) : i + dir;   // si la actual no está en la lista, empieza por un extremo
+  if (j < 0 || j >= opts.length) return;
+  const id = opts[j].value;
+  sel.value = id;
+  history.replaceState(null, '', `?id=${id}`);
+  loadLesson(id);
+}
+document.getElementById('btn-prev').addEventListener('click', () => stepLesson(-1));
+document.getElementById('btn-next').addEventListener('click', () => stepLesson(1));
 document.getElementById('prog-wrap').addEventListener('click', e => {
   if (!isReady) return;
   const rect=e.currentTarget.getBoundingClientRect();
