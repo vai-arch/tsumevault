@@ -213,69 +213,57 @@ async function loadData() {
   const res = await fetch(LESSONS_JSON);
   const data = await res.json();
   allRows = data.rows.filter(Boolean);
-  buildFilters();
+  refreshOptions();                       // listas completas
   const saved = loadSavedFilters();
-  const selT = document.getElementById('sel-type');
-  const selD = document.getElementById('sel-diff');
-  const selSt = document.getElementById('sel-studied');
-  if (saved.type && [...selT.options].some(o=>o.value===saved.type)) selT.value = saved.type;
-  if (saved.diff && [...selD.options].some(o=>o.value===saved.diff)) selD.value = saved.diff;
-  if (saved.studied) selSt.value = saved.studied;
-  updateCollections(saved.col, saved.name);
+  for (const k in SEL) {
+    const el = document.getElementById(SEL[k]);
+    if (saved[{t:'type',c:'col',n:'name',d:'diff',st:'studied'}[k]] !== undefined &&
+        [...el.options].some(o=>o.value===saved[{t:'type',c:'col',n:'name',d:'diff',st:'studied'}[k]]))
+      el.value = saved[{t:'type',c:'col',n:'name',d:'diff',st:'studied'}[k]];
+  }
+  refreshOptions();
   applyFilters();
 }
 
 // ── Filters ──
-function buildFilters() {
-  const types = [...new Set(allRows.map(r=>r.typeName||''))].sort();
-  const diffs = [...new Set(allRows.map(r=>r.lessonDifficulty).filter(Boolean))].sort((a,b)=>a-b);
-  const selT = document.getElementById('sel-type');
-  const selD = document.getElementById('sel-diff');
-  types.forEach(t => { const o=document.createElement('option'); o.value=t; o.textContent=t; selT.appendChild(o); });
-  diffs.forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=d; selD.appendChild(o); });
+// Cada desplegable solo ofrece valores que tienen lecciones con el resto de filtros activos.
+// Con Studied = "No" desaparecen las colecciones/lecciones ya estudiadas por completo.
+const SEL = {t:'sel-type', c:'sel-col', n:'sel-name', d:'sel-diff', st:'sel-studied'};
+function curFilters() {
+  const f = {}; for (const k in SEL) f[k] = document.getElementById(SEL[k]).value; return f;
 }
-
-function getFilteredByTypeCol() {
-  const t = document.getElementById('sel-type').value;
-  const c = document.getElementById('sel-col').value;
-  return allRows.filter(r => (!t||r.typeName===t) && (!c||r.collectionName===c));
+function rowMatches(r, f, skip) {
+  return (skip.includes('t')  || !f.t  || r.typeName===f.t) &&
+         (skip.includes('c')  || !f.c  || r.collectionName===f.c) &&
+         (skip.includes('n')  || !f.n  || r.lessonName===f.n) &&
+         (skip.includes('d')  || !f.d  || String(r.lessonDifficulty)===f.d) &&
+         (skip.includes('st') || !f.st || (f.st==='yes' ? studied.has(r.lessonId) : !studied.has(r.lessonId)));
 }
-
-function updateCollections(forceCol, forceName) {
-  const t = document.getElementById('sel-type').value;
-  const selC = document.getElementById('sel-col');
-  const prev = forceCol !== undefined ? forceCol : selC.value;
-  selC.innerHTML = '<option value="">All</option>';
-  const cols = [...new Set(allRows.filter(r=>!t||r.typeName===t).map(r=>r.collectionName||''))].sort();
-  cols.forEach(c => { const o=document.createElement('option'); o.value=c; o.textContent=c; selC.appendChild(o); });
-  selC.value = cols.includes(prev) ? prev : '';
-  updateNames(true, forceName);
+function fillSelect(id, values) {
+  const sel = document.getElementById(id), prev = sel.value;
+  sel.innerHTML = '<option value="">All</option>';
+  values.forEach(v => { const o=document.createElement('option'); o.value=v; o.textContent=v; sel.appendChild(o); });
+  sel.value = values.map(String).includes(prev) ? prev : '';
+  return sel.value !== prev;
 }
-
-function updateNames(reset, forceName) {
-  const base = getFilteredByTypeCol();
-  const selN = document.getElementById('sel-name');
-  const prev = forceName !== undefined ? forceName : (reset ? '' : selN.value);
-  selN.innerHTML = '<option value="">All</option>';
-  const names = [...new Set(base.map(r=>r.lessonName||''))].sort();
-  names.forEach(n => { const o=document.createElement('option'); o.value=n; o.textContent=n; selN.appendChild(o); });
-  selN.value = names.includes(prev) ? prev : '';
+function refreshOptions() {
+  // varias pasadas: si un valor deja de ser válido y se resetea, el resto se recalcula
+  for (let i = 0; i < 4; i++) {
+    const f = curFilters();
+    const uniq = (rows, fn) => [...new Set(rows.map(fn))];
+    let ch = false;
+    ch = fillSelect(SEL.t, uniq(allRows.filter(r=>rowMatches(r,f,['t','c','n'])), r=>r.typeName||'').sort()) || ch;
+    ch = fillSelect(SEL.c, uniq(allRows.filter(r=>rowMatches(r,f,['c','n'])), r=>r.collectionName||'').sort()) || ch;
+    ch = fillSelect(SEL.n, uniq(allRows.filter(r=>rowMatches(r,f,['n'])), r=>r.lessonName||'').sort()) || ch;
+    ch = fillSelect(SEL.d, uniq(allRows.filter(r=>rowMatches(r,f,['d'])), r=>r.lessonDifficulty).filter(Boolean).sort((a,b)=>a-b)) || ch;
+    if (!ch) break;
+  }
 }
 
 function applyFilters() {
-  const t  = document.getElementById('sel-type').value;
-  const c  = document.getElementById('sel-col').value;
-  const n  = document.getElementById('sel-name').value;
-  const d  = document.getElementById('sel-diff').value;
-  const st = document.getElementById('sel-studied').value;
+  const f = curFilters();
   saveFilters();
-  filtered = allRows.filter(r =>
-    (!t  || r.typeName===t) &&
-    (!c  || r.collectionName===c) &&
-    (!n  || r.lessonName===n) &&
-    (!d  || String(r.lessonDifficulty)===d) &&
-    (!st || (st==='yes' ? studied.has(r.lessonId) : !studied.has(r.lessonId)))
-  );
+  filtered = allRows.filter(r => rowMatches(r, f, []));
   sortRows();
   renderTable();
   document.getElementById('cnt').textContent = filtered.length;
@@ -365,14 +353,10 @@ function checkStatusBatch(ids) {
 }
 
 // ── Events ──
-document.getElementById('sel-type').addEventListener('change', () => { updateCollections(); applyFilters(); });
-document.getElementById('sel-col').addEventListener('change', () => { updateNames(false); applyFilters(); });
-document.getElementById('sel-name').addEventListener('change', applyFilters);
-document.getElementById('sel-diff').addEventListener('change', applyFilters);
-document.getElementById('sel-studied').addEventListener('change', applyFilters);
+Object.values(SEL).forEach(id => document.getElementById(id).addEventListener('change', () => { refreshOptions(); applyFilters(); }));
 document.getElementById('btn-clear').addEventListener('click', () => {
-  ['sel-type','sel-col','sel-name','sel-diff','sel-studied'].forEach(id => document.getElementById(id).value='');
-  updateCollections(); applyFilters();
+  Object.values(SEL).forEach(id => document.getElementById(id).value='');
+  refreshOptions(); applyFilters();
 });
 document.getElementById('btn-save').addEventListener('click', exportStudied);
 document.querySelectorAll('thead th[data-col]').forEach(th => {
