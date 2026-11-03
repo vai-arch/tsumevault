@@ -95,7 +95,9 @@ input[type=range].vol::-webkit-slider-thumb{-webkit-appearance:none;width:9px;he
 .rec-btn.recording{border-color:var(--accent);color:var(--accent);animation:blink 1.1s ease infinite;}
 
 @media (max-width:760px){
-  #app{grid-template-columns:1fr;grid-template-rows:42px 54px minmax(240px,45vh) auto auto;grid-template-areas:"hdr""nav""main""xprt""side";}
+  #app{height:auto;min-height:100dvh;grid-template-columns:1fr;grid-template-rows:42px 54px auto auto auto;grid-template-areas:"hdr""nav""main""xprt""side";}
+  #main{overflow:visible;padding:8px 0;}
+  #xprt{height:auto;min-height:76px;}
   #sidebar{border-left:none;border-top:1px solid var(--border);max-height:38vh;overflow-y:auto;}
 }
 </style>
@@ -215,7 +217,7 @@ input[type=range].vol::-webkit-slider-thumb{-webkit-appearance:none;width:9px;he
 // ══════════════════════════════════════════════════════════════
 
 let wgoBoard = null, boardSize = 19;
-let padding = 0.6;
+let padding = 0.5;
 let liveKifu = null;
 let changeList = [], rawEvents = [], isReady = false, currentIdx = -1;
 // Ficheros de lecciones y catalogo: el navegador pregunta al servidor si cambiaron (304 si no),
@@ -488,7 +490,15 @@ function collectPathToNN(nn, node, path=[]) {
 // ── Init WGo board ──
 function initBoard() {
   const main = document.getElementById('main');
-  const avail = Math.min(main.clientWidth-32, main.clientHeight-32);
+  // Cabecera (32px) + subtítulos (72px) van dentro de #board-wrap: se descuentan del alto.
+  const EXTRA_H = 32 + 72;
+  let avail;
+  if (window.matchMedia('(max-width:760px)').matches) {
+    // Móvil: solo limita el ancho de pantalla; la página hace scroll vertical.
+    avail = window.innerWidth - 16;
+  } else {
+    avail = Math.min(main.clientWidth - 24, main.clientHeight - EXTRA_H - 24);
+  }
   const size  = Math.max(260, Math.min(avail, 720));
   document.getElementById('board').innerHTML = '';
   wgoBoard = new WGo.Board(document.getElementById('board'), {
@@ -497,7 +507,9 @@ function initBoard() {
     background: '#c4943a',
   });
   wgoBoard.setSection(-padding, -padding, -padding, -padding);
-  document.getElementById('board-wrap').style.display = 'block';
+  const bw = document.getElementById('board-wrap');
+  bw.style.width = size + 'px';
+  bw.style.display = 'block';
   document.getElementById('welcome').style.display    = 'none';
   wgoBoard.addCustomObject(WGo.Board.coordinates);
   const sub = document.getElementById('subtitles');
