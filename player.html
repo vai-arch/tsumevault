@@ -1174,12 +1174,27 @@ function navUpdateNames(rows, currentRow, init) {
   // only auto-navigate if user explicitly changed the lesson dropdown
 }
 
+// Tras cambiar un filtro: si la lección cargada sigue en el desplegable se mantiene
+// (así ▶ no vuelve a la primera); si ya no está, se carga la primera de la lista.
+function navEnsureLesson() {
+  const sel = document.getElementById('nav-name');
+  const opts = [...sel.options];
+  if (!opts.length) return;
+  const cur = window.currentLesson && String(window.currentLesson.lessonId);
+  if (opts.some(o => o.value === cur)) { sel.value = cur; return; }
+  const id = opts[0].value;
+  sel.value = id;
+  history.replaceState(null, '', `?id=${id}`);
+  loadLesson(id);
+}
+
 function navWire(rows) {
-  document.getElementById('nav-recorded').addEventListener('change', () => { navPopulate(rows, window.currentLesson||{}, false); navUpdateCols(rows, {}, false); });
-  document.getElementById('nav-diff').addEventListener('change', () => { navPopulate(rows, window.currentLesson||{}, false); navUpdateCols(rows, {}, false); });
-  document.getElementById('nav-studied').addEventListener('change', () => { navPopulate(rows, window.currentLesson||{}, false); navUpdateCols(rows, {}, false); });
-  document.getElementById('nav-type').addEventListener('change',    () => { navUpdateCols(rows, {}, false); });
-  document.getElementById('nav-col').addEventListener('change',     () => { navUpdateNames(rows, {}, false); });
+  const refilter = () => { navPopulate(rows, window.currentLesson||{}, false); navUpdateCols(rows, {}, false); navEnsureLesson(); };
+  document.getElementById('nav-recorded').addEventListener('change', refilter);
+  document.getElementById('nav-diff').addEventListener('change', refilter);
+  document.getElementById('nav-studied').addEventListener('change', refilter);
+  document.getElementById('nav-type').addEventListener('change',    () => { navUpdateCols(rows, {}, false); navEnsureLesson(); });
+  document.getElementById('nav-col').addEventListener('change',     () => { navUpdateNames(rows, {}, false); navEnsureLesson(); });
   document.getElementById('nav-name').addEventListener('change', function(e) {
   if (!e.isTrusted) return; // ignore programmatic changes
   const id = this.value;
