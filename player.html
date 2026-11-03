@@ -12,7 +12,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=IBM+Plex+Mono:wght@400;600&display=swap');
 :root {
   --bg:#0e0c08;--panel:#161410;--border:#2e2a1e;--border2:#3a3526;
-  --gold:#d4a84a;--gold-dim:#7a5e22;--text:#ede4cc;--dim:#6a6050;--dim2:#4a4438;
+  --gold:#d4a84a;--gold-dim:#7a5e22;--text:#ede4cc;--dim:#a89880;--dim2:#7a6e60;
   --accent:#d45030;--mono:'IBM Plex Mono',monospace;--serif:'Noto Serif JP',serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -44,6 +44,7 @@ html,body{height:100%;overflow-y:auto;overflow-x:hidden;background:var(--bg);col
 #lesson-header .lh-col{color:var(--dim2);}
 #lesson-header .lh-name{color:var(--text);flex:1;}
 #lesson-header .lh-diff{color:var(--gold);flex-shrink:0;}
+#lesson-header #lh-studied{background:none;border:none;cursor:pointer;font-size:18px;line-height:1;color:var(--dim2);padding:0 4px;flex-shrink:0;transition:color .15s;}
 #ptr.visible{display:none;}
 #ptr.flash{animation:ptr-flash .25s ease;}
 @keyframes ptr-flash{0%{transform:translate(-50%,-50%) scale(2.2);opacity:0;}100%{transform:translate(-50%,-50%) scale(1);opacity:1;}}
@@ -144,7 +145,7 @@ input[type=range].vol::-webkit-slider-thumb{-webkit-appearance:none;width:9px;he
   <div id="main">
     <div id="welcome"><div class="kanji">囲碁</div><p>Load SGF · JSON · Audio</p></div>
     <div id="board-wrap" style="display:none">
-      <div id="lesson-header"><span class="lh-type" id="lh-type">—</span><span class="lh-col" id="lh-col">—</span><span class="lh-name" id="lh-name">—</span><span class="lh-diff" id="lh-diff">—</span></div>
+      <div id="lesson-header"><span class="lh-type" id="lh-type">—</span><span class="lh-col" id="lh-col">—</span><span class="lh-name" id="lh-name">—</span><span class="lh-diff" id="lh-diff">—</span><button id="lh-studied" title="Studied">○</button></div>
       <div id="board"></div><div id="ptr"></div>
       <div id="subtitles"></div>
     </div>
@@ -236,7 +237,7 @@ audio.crossOrigin = 'anonymous';
 let recCompletedNaturally = false;
 
 // ── Rutas base (ajustables según despliegue) ──
-const PLAYER_DATA_BASE = 'https://tsumevault.duckdns.org/player/';         // manifest + studied/recorded
+const PLAYER_DATA_BASE = 'https://tsumevault.duckdns.org/player/';         // all_lessons.json
 const LESSONS_BASE     = 'https://tsumevault.duckdns.org/player/lessons/'; // sgf/json/ogg de cada lección
 
 // ── u(): inject NN[N] markers into SGF (IGS exact replica) ──
@@ -912,62 +913,93 @@ function lessonDir(r) {
   if (suf) p += `/${enc(suf)}`;
   return p + '/';
 }
-async function saveToServer(filename, data) {
-  try {
-    const r = await fetch('http://localhost:3001/save', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ filename, data })
-    });
-    console.log('save response:', r.status, r.ok);
-    return r.ok;
-  } catch(e) { console.log('save error:', e); return false; }
-}
-
 // ── Globals for recorder ──
 window.currentLesson = null;
 window.playerAudio   = audio;
 
-// ── Studied ──
-const LS_KEY = 'go_studied';
-let studied = new Set();
-function saveStudied() {
-  localStorage.setItem(LS_KEY, JSON.stringify([...studied]));
-  saveToServer('studied.json', { studied: [...studied] });
+// ── Estado estudiado / grabado ──
+// Fuente de verdad: el servidor (GET/POST /sync/player_state). localStorage es copia
+// local; los cambios hechos sin conexión quedan en una cola y se envían en la siguiente
+// oportunidad. Última escritura por lección gana (cada operación lleva su fecha).
+const PLAYER_STATE_URL = 'https://tsumevault.duckdns.org/sync/player_state';
+const LS_KEY = 'go_studied', LS_KEY_REC = 'go_recorded', LS_KEY_OPS = 'go_pending_ops';
+let studied = new Set(), recorded = new Set();
+let pendingOps = [];
+let flushing = false;
+
+function lsLoadJson(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } }
+function persistLocal() {
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify([...studied]));
+    localStorage.setItem(LS_KEY_REC, JSON.stringify([...recorded]));
+    localStorage.setItem(LS_KEY_OPS, JSON.stringify(pendingOps));
+  } catch {}
+}
+function applyOps(ops) {
+  for (const op of ops) {
+    const set = op.kind === 'studied' ? studied : recorded;
+    if (op.value) set.add(op.id); else set.delete(op.id);
+  }
+}
+async function flushPending() {
+  if (flushing || !pendingOps.length) return true;
+  flushing = true;
+  const sent = pendingOps.slice();
+  try {
+    const r = await fetch(PLAYER_STATE_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ops: sent })
+    });
+    if (!r.ok) return false;
+    pendingOps = pendingOps.slice(sent.length);   // lo añadido durante el envío sigue en cola
+    persistLocal();
+    return true;
+  } catch { return false; }
+  finally { flushing = false; }
+}
+function queueOp(kind, id, value) {
+  pendingOps.push({ kind, id: Number(id), value: !!value, t: new Date().toISOString() });
+  persistLocal();
+  flushPending().then(ok => { if (!ok) console.warn('player_state: sin conexión, cambio en cola'); });
+}
+function setStudied(id, value) {
+  if (value) studied.add(id); else studied.delete(id);
+  queueOp('studied', id, value);
+}
+function setRecorded(id, value) {
+  if (value) recorded.add(id); else recorded.delete(id);
+  queueOp('recorded', id, value);
+}
+async function loadPlayerState() {
+  // 1) copia local + cola pendiente
+  studied  = new Set(lsLoadJson(LS_KEY, []).map(Number));
+  recorded = new Set(lsLoadJson(LS_KEY_REC, []).map(Number));
+  pendingOps = lsLoadJson(LS_KEY_OPS, []);
+  // 2) enviar lo pendiente y 3) traer el estado del servidor
+  await flushPending();
+  try {
+    const r = await fetch(PLAYER_STATE_URL, NOCACHE);
+    if (r.ok) {
+      const d = await r.json();
+      studied  = new Set((d.studied  || []).map(Number));
+      recorded = new Set((d.recorded || []).map(Number));
+      applyOps(pendingOps);                       // lo que no se pudo enviar sigue visible
+      persistLocal();
+    }
+  } catch { /* sin conexión: se usa la copia local */ }
 }
 function exportStudied() {
   const blob = new Blob([JSON.stringify({studied:[...studied]},null,2)], {type:'application/json'});
   const a = document.createElement('a'); a.href=URL.createObjectURL(blob);
-  a.download='player/studied.json'; a.click();
-}
-async function loadStudied() {
-  try {
-    const r = await fetch(PLAYER_DATA_BASE + 'studied.json');
-    if (r.ok) { const d=await r.json(); studied=new Set((d.studied||[]).map(Number)); saveStudied(); return; }
-  } catch {}
-  try { const s=localStorage.getItem(LS_KEY); if(s) studied=new Set(JSON.parse(s).map(Number)); } catch {}
-}
-
-const LS_KEY_REC = 'go_recorded';
-let recorded = new Set();
-function saveRecorded() {
-  console.log('Saving recorded:', [...recorded].length);
-  localStorage.setItem(LS_KEY_REC, JSON.stringify([...recorded]));
-  saveToServer('recorded.json', { recorded: [...recorded] });
+  a.download='studied.json'; a.click();
 }
 function exportRecorded() {
   const blob = new Blob([JSON.stringify({recorded:[...recorded]},null,2)], {type:'application/json'});
   const a = document.createElement('a'); a.href=URL.createObjectURL(blob);
-  a.download='player/recorded.json'; a.click();
+  a.download='recorded.json'; a.click();
 }
-async function loadRecorded() {
-  console.log('Loading recorded:', [...recorded].length);
-  try {
-    const r = await fetch(PLAYER_DATA_BASE + 'recorded.json');
-    if (r.ok) { const d=await r.json(); recorded=new Set((d.recorded||[]).map(Number)); return; }
-  } catch {}
-  try { const s=localStorage.getItem(LS_KEY_REC); if(s) recorded=new Set(JSON.parse(s).map(Number)); } catch {}
-}
+window.addEventListener('online', () => { flushPending(); });
 
 // ── Load lesson ──
 async function loadLesson(forcedId) {
@@ -1014,16 +1046,13 @@ async function loadLesson(forcedId) {
       ? `${row.lessonName} — ${row.lessonSuffix}` : row.lessonName || '—';
     document.getElementById('lh-diff').textContent = row.lessonDifficulty ? `Diff ${row.lessonDifficulty}` : '—';
 
-    const studiedBtn = document.getElementById('meta-studied');
-    const isStudied = studied.has(row.lessonId);
-    studiedBtn.textContent = isStudied ? '✓' : '○';
-    studiedBtn.style.color = isStudied ? 'var(--gold)' : 'var(--dim2)';
-    studiedBtn.onclick = () => {
-      if (studied.has(row.lessonId)) studied.delete(row.lessonId); else studied.add(row.lessonId);
-      saveStudied();
-      studiedBtn.textContent = studied.has(row.lessonId) ? '✓' : '○';
-      studiedBtn.style.color = studied.has(row.lessonId) ? 'var(--gold)' : 'var(--dim2)';
+    const studiedBtns = [document.getElementById('meta-studied'), document.getElementById('lh-studied')];
+    const paintStudied = () => {
+      const on = studied.has(row.lessonId);
+      studiedBtns.forEach(b => { b.textContent = on ? '✓' : '○'; b.style.color = on ? 'var(--gold)' : 'var(--dim2)'; });
     };
+    paintStudied();
+    studiedBtns.forEach(b => { b.onclick = () => { setStudied(row.lessonId, !studied.has(row.lessonId)); paintStudied(); }; });
 
     const dir = lessonDir(row);
     const [sgfRes, jsonRes] = await Promise.all([fetch(dir+id+'.sgf', NOCACHE), fetch(dir+id+'.json', NOCACHE)]);
@@ -1360,8 +1389,7 @@ async function recRunNext() {
 		a.download = recFilename(row);
 		a.click();
 		setTimeout(() => URL.revokeObjectURL(a.href), 5000);
-		recorded.add(row.lessonId);
-		saveRecorded();
+		setRecorded(row.lessonId, true);
 		recSetProgress(`[${recIdx+1}/${recQueue.length}] ✓ ${recFilename(row)}`);
 		recIdx++;
 		recRunning = false;
@@ -1408,7 +1436,7 @@ function waitUntilAudioReady() {
   });
 }
 
-loadStudied().then(() => loadRecorded()).then(() => loadLesson());
+loadPlayerState().then(() => loadLesson());
 </script>
 </body>
 </html>	

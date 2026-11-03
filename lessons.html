@@ -8,7 +8,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Serif+JP:wght@300;400&display=swap');
 :root {
   --bg:#0e0c08;--panel:#161410;--border:#2e2a1e;--border2:#3a3526;
-  --gold:#d4a84a;--gold-dim:#7a5e22;--text:#ede4cc;--dim:#6a6050;--dim2:#4a4438;
+  --gold:#d4a84a;--gold-dim:#7a5e22;--text:#ede4cc;--dim:#a89880;--dim2:#7a6e60;
   --accent:#d45030;--mono:'IBM Plex Mono',monospace;--serif:'Noto Serif JP',serif;
   --ok:#4a8a50;--ok-dim:#2a5a30;
 }
@@ -113,12 +113,13 @@ tbody td.status{text-align:center;width:36px;}
 </div>
 <script>
 // ── Config ──
-const PLAYER_DATA_BASE = 'https://tsumevault.duckdns.org/player/';         // manifest + studied/recorded
+const PLAYER_DATA_BASE = 'https://tsumevault.duckdns.org/player/';         // all_lessons.json
 const LESSONS_BASE     = 'https://tsumevault.duckdns.org/player/lessons/'; // sgf/json/ogg de cada lección
 const LESSONS_JSON  = PLAYER_DATA_BASE + 'all_lessons.json';
-const STUDIED_JSON  = PLAYER_DATA_BASE + 'studied.json';
+const PLAYER_STATE_URL = 'https://tsumevault.duckdns.org/sync/player_state';
 const PLAYER_URL    = 'player';
 const LS_KEY        = 'go_studied';
+const LS_KEY_OPS    = 'go_pending_ops';
 const LS_FILTERS_KEY = 'go_lessons_filters';
 
 // ── State ──
@@ -126,25 +127,55 @@ let allRows = [], filtered = [], sortCol = 'lessonName', sortDir = 1;
 const statusCache = {};
 let studied = new Set(); // lessonId (number)
 
-// ── Studied persistence ──
-function saveStudied() {
-  const arr = [...studied];
-  localStorage.setItem(LS_KEY, JSON.stringify(arr));
+// ── Studied: servidor (/sync/player_state) + copia local y cola offline ──
+let pendingOps = [];
+let flushing = false;
+function lsLoadJson(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch { return d; } }
+function persistLocal() {
+  try {
+    localStorage.setItem(LS_KEY, JSON.stringify([...studied]));
+    localStorage.setItem(LS_KEY_OPS, JSON.stringify(pendingOps));
+  } catch {}
+}
+async function flushPending() {
+  if (flushing || !pendingOps.length) return true;
+  flushing = true;
+  const sent = pendingOps.slice();
+  try {
+    const r = await fetch(PLAYER_STATE_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ops: sent})});
+    if (!r.ok) return false;
+    pendingOps = pendingOps.slice(sent.length);
+    persistLocal();
+    return true;
+  } catch { return false; }
+  finally { flushing = false; }
+}
+function setStudied(id, value) {
+  if (value) studied.add(id); else studied.delete(id);
+  pendingOps.push({kind:'studied', id:Number(id), value:!!value, t:new Date().toISOString()});
+  persistLocal();
+  flushPending();
+}
+async function loadStudied() {
+  studied = new Set(lsLoadJson(LS_KEY, []).map(Number));
+  pendingOps = lsLoadJson(LS_KEY_OPS, []);
+  await flushPending();
+  try {
+    const r = await fetch(PLAYER_STATE_URL, {cache:'no-cache'});
+    if (r.ok) {
+      const d = await r.json();
+      studied = new Set((d.studied||[]).map(Number));
+      for (const op of pendingOps) if (op.kind==='studied') { if (op.value) studied.add(op.id); else studied.delete(op.id); }
+      persistLocal();
+    }
+  } catch {}
 }
 function exportStudied() {
   const blob = new Blob([JSON.stringify({studied:[...studied]},null,2)], {type:'application/json'});
   const a = document.createElement('a'); a.href=URL.createObjectURL(blob);
   a.download='studied.json'; a.click();
 }
-async function loadStudied() {
-  // 1. try file
-  try {
-    const r = await fetch(STUDIED_JSON);
-    if (r.ok) { const d=await r.json(); studied=new Set((d.studied||[]).map(Number)); saveStudied(); return; }
-  } catch {}
-  // 2. fallback localStorage
-  try { const s=localStorage.getItem(LS_KEY); if(s) studied=new Set(JSON.parse(s).map(Number)); } catch {}
-}
+window.addEventListener('online', flushPending);
 
 // ── Filtros: persistencia ──
 function saveFilters() {
@@ -304,8 +335,7 @@ document.getElementById('tbody').addEventListener('click', e => {
   const btn = e.target.closest('.tog');
   if (!btn) return;
   const id = Number(btn.dataset.id);
-  if (studied.has(id)) studied.delete(id); else studied.add(id);
-  saveStudied();
+  setStudied(id, !studied.has(id));
   btn.className = `tog ${studied.has(id)?'on':'off'}`;
   btn.textContent = studied.has(id) ? '✓' : '○';
   // if studied filter active, re-filter
