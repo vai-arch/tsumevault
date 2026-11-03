@@ -906,8 +906,10 @@ function lessonDir(r) {
   const col  = sanitize((r.collectionName||'').trim());
   const name = sanitize((r.lessonName||'').trim());
   const suf  = sanitize((r.lessonSuffix||'').trim());
-  let p = `${LESSONS_BASE}${type}/${col}/${name}`;
-  if (suf) p += `/${suf}`;
+  // Cada segmento se codifica: un '%' suelto (p. ej. "appears 100%") o un '#' rompían la URL.
+  const enc = encodeURIComponent;
+  let p = `${LESSONS_BASE}${enc(type)}/${enc(col)}/${enc(name)}`;
+  if (suf) p += `/${enc(suf)}`;
   return p + '/';
 }
 async function saveToServer(filename, data) {
