@@ -1843,7 +1843,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261103-2009';
+	const SW_VERSION = 'tsumevault-20261104-1132';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2751,6 +2751,18 @@
       res.last = { ok: lastOk, total: lastTotal, pct: focusPct(lastOk, lastTotal) };
       for (const [cid, c] of byCh) res.byChapter[cid] = { ok: c.ok, total: c.total, pct: focusPct(c.ok, c.total) };
       return res;
+    }
+    // FC9: % de la tarjeta = capitulos En trabajo AHORA (existentes), cada uno con los datos de
+    // su ultima sesion completada; cada problema pesa lo mismo. Sin datos -> pct null.
+    // Un promocionado sale en el acto; uno recien anadido no cuenta hasta su primera sesion.
+    function localFocusWorkPct(chapters, progress) {
+      let ok = 0, total = 0;
+      for (const c of chapters) {
+        if (c.state !== 'work' || c.missing) continue;
+        const p = progress.byChapter[c.chapter_id];
+        if (p) { ok += p.ok; total += p.total; }
+      }
+      return { ok, total, pct: focusPct(ok, total) };
     }
     // Estado de hoy de cada Focus activo. work = capitulos En trabajo con problemas visibles;
     // pending = hay algo que hacer y ninguna sesion suya se ha completado hoy (dia local).
@@ -6025,8 +6037,8 @@
       const head = el('div', null, null, 'col-name');
       head.appendChild(el('span', null, '▶', 'col-arrow'));
       head.appendChild(el('span', 'flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;', f.name + (f.archived ? ' (archivado)' : '')));
-      head.appendChild(pctChip(progress.last ? progress.last.pct : null));
-      head.title = 'Última sesión completada';
+      head.appendChild(pctChip(localFocusWorkPct(chapters, progress).pct)); // FC9
+      head.title = 'Acierto de los capítulos En trabajo (última sesión de cada uno)';
       head.addEventListener('click', () => { if (open) focusExpanded.delete(f.uuid); else focusExpanded.add(f.uuid); renderFocusTab(); });
       card.appendChild(head);
       const n = { work: 0, ready: 0, promoted: 0 }; for (const c of chapters) n[c.state]++;
@@ -6634,7 +6646,11 @@
       function drawLastMoveDot(x, y, node) { if (lastMoveMarker) { wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); if (lastMoveMarker.q) wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: WGo.Board.drawHandlers['LB'] }); } const q = moveQualityMark(node); addLastMoveMark(x, y, q); lastMoveMarker = { x, y, q }; }
       function recordAttempt(result) {
         if (attemptRecorded) return; attemptRecorded = true;
-        if (!runMode) { if (result === 'correct') sessionOk++; else sessionNo++; }
+        // FC10: en una sesion de Focus solo cuenta el PRIMER intento de cada problema (el que va al %);
+        // repetir un problema ya hecho guarda el intento pero no toca seen/aciertos/fallos.
+        const fsCount = focusSessionActive();
+        const countIt = !fsCount || fsCount.pending.has(focusKey({ source: currentProblem.source || currentSource, problem_id: currentProblem.problem_id }));
+        if (!runMode && countIt) { if (result === 'correct') sessionOk++; else sessionNo++; }
         const time_ms = Date.now() - problemStartTime - totalPaused;
         // F3: los intentos de repesca NO se atribuyen al run (run_id NULL): el
         // attempt cuenta en historial y SM-2, pero no incrementa done, no

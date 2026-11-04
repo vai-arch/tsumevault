@@ -133,6 +133,20 @@ function check(name, cond, extra = '') { console.log((cond ? 'PASS ' : 'FAIL ') 
   check('progreso: % del Focus = última sesión completada', J(prog.last) === J({ ok: 2, total: 3, pct: 67 }), J(prog.last));
   check('progreso por capítulo = última sesión completada que lo incluyó',
     J(prog.byChapter) === J({ 1: { ok: 2, total: 2, pct: 100 }, 2: { ok: 1, total: 2, pct: 50 }, 3: { ok: 0, total: 1, pct: 0 } }), J(prog.byChapter));
+  // FC9: % de la tarjeta = capítulos En trabajo ahora, con su última sesión; cada problema pesa igual
+  {
+    const wp = (u) => ctx.localFocusWorkPct(ctx.localFocusChapters(u), ctx.localFocusProgress(u));
+    check('FC9: % de tarjeta = En trabajo actuales (ch1 2/2 + ch3 0/1 = 2/3); el promocionado ch2 no cuenta',
+      J(wp(F)) === J({ ok: 2, total: 3, pct: 67 }), J(wp(F)));
+    ctx.localFocusSetPromoted(F, 3, true);
+    check('FC9: al promocionar un capítulo sale del % en el acto (solo ch1 → 100%)', J(wp(F)) === J({ ok: 2, total: 2, pct: 100 }), J(wp(F)));
+    ctx.localFocusSetPromoted(F, 3, false);
+    ctx.localFocusSetPromoted(F, 2, false);
+    check('FC9: devolverlo a En trabajo lo vuelve a sumar con su última sesión (ch2 1/2) y pesa por problema',
+      J(wp(F)) === J({ ok: 3, total: 5, pct: 60 }), J(wp(F)));
+    ctx.localFocusSetPromoted(F, 2, true);
+    check('FC9: un Focus sin sesiones → pct null', ctx.localFocusWorkPct(ctx.localFocusChapters(G), ctx.localFocusProgress(G)).pct === null);
+  }
   check('capítulo sin sesiones completadas → sin entrada en byChapter', ctx.localFocusAddChapter(F, 4).ok && !(4 in ctx.localFocusProgress(F).byChapter));
 
   // ── pendiente hoy ──
