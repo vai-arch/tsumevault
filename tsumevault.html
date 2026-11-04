@@ -1843,7 +1843,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261104-1132';
+	const SW_VERSION = 'tsumevault-20261104-1204';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2413,6 +2413,37 @@
       }
     }
 
+    // ── Poda del catalogo local: capitulos/problemas que el servidor ya no tiene ──
+    // importSnapshot solo inserta/actualiza y nunca borra, asi que lo retirado en
+    // el servidor (p. ej. un capitulo reorganizado) se quedaba aqui para siempre.
+    // planSnapshotPrune solo CALCULA; no borra nada. Devuelve null si el snapshot
+    // no es fiable (vacio) y entonces no se poda. Solo afecta a chapters y problems:
+    // intentos, SM-2, etiquetas, runs, Focus y mostrar/hidden de lo que sigue no se tocan.
+    function planSnapshotPrune(snap) {
+      if (!snap || !snap.chapters?.length || !snap.problems?.length) return null;
+      const keepCh = new Set(snap.chapters.map(c => c.id));
+      const keepP = new Set(snap.problems.map(p => p.source + '\u0001' + p.problem_id));
+      const chapters = dbQuery('SELECT id, source, name FROM chapters', []).filter(c => !keepCh.has(c.id));
+      const problems = dbQuery('SELECT source, problem_id FROM problems', []).filter(p => !keepP.has(p.source + '\u0001' + p.problem_id));
+      const total = dbQueryOne('SELECT COUNT(*) AS n FROM problems', [])?.n || 0;
+      return { chapters, problems, total };
+    }
+    // Nunca se borra sin preguntar: el usuario ve que se va a retirar y decide.
+    function confirmSnapshotPrune(plan) {
+      const names = plan.chapters.slice(0, 5).map(c => '\u2022 ' + (c.name || ('capitulo ' + c.id))).join('\n');
+      const more = plan.chapters.length > 5 ? '\n... y ' + (plan.chapters.length - 5) + ' mas' : '';
+      const pct = plan.total ? Math.round(plan.problems.length / plan.total * 100) : 0;
+      return confirm(
+        'El servidor ya no tiene:\n\u2022 ' + plan.chapters.length + ' capitulo(s)\n\u2022 ' + plan.problems.length + ' problema(s)' +
+        (plan.chapters.length ? '\n\n' + names + more : '') +
+        (pct > 20 ? '\n\n\u26A0 Es el ' + pct + '% de tus problemas. Revisa que sea correcto.' : '') +
+        '\n\nSe borraran de este dispositivo (tus intentos y repasos no se tocan).\n\u00BFContinuar?');
+    }
+    function applySnapshotPrune(plan) {
+      for (const p of plan.problems) dbExec('DELETE FROM problems WHERE source=? AND problem_id=?', [p.source, p.problem_id]);
+      for (const c of plan.chapters) dbExec('DELETE FROM chapters WHERE id=?', [c.id]);
+      chaptersCache = {};
+    }
     // ── Local DB queries ──
     function localGetCollections(source) {
       // Perf: se quitaron total_attempts/total_correct (ningun consumidor los usaba) y el
@@ -3447,7 +3478,17 @@
             const localVersion = parseInt(localStorage.getItem('static_version') || '0');
             if (version !== localVersion) {
               const snapR = await syncFetch(`/sync/snapshot`, { signal: AbortSignal.timeout(120000) });
-              if (snapR.ok) { importSnapshot(await snapR.json()); localStorage.setItem('static_version', String(version)); }
+              if (snapR.ok) {
+                const snap = await snapR.json();
+                importSnapshot(snap);
+                let versionDone = true;
+                const plan = planSnapshotPrune(snap);
+                if (plan && (plan.chapters.length || plan.problems.length)) {
+                  if (confirmSnapshotPrune(plan)) applySnapshotPrune(plan);
+                  else versionDone = false;   // no recordar la version: se volvera a preguntar en el proximo sync
+                }
+                if (versionDone) localStorage.setItem('static_version', String(version));
+              }
             }
           }
         } catch (e) { console.warn('[sync] static_version check failed', e); }
