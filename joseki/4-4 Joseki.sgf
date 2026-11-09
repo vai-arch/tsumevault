@@ -174,8 +174,7 @@ This is bad if we have a stone in A.
 It gets overconcentrated];W[rf];B[qg];W[rg])
 (;B[rf]C[Double Hane];W[qf];B[pe];W[rg];B[rd];W[sf]
 ;B[rc]L[ph]C[Now White can extend to A but it is not mandatory. White is not ion real danger])))
-(;B[qd];W[pc];B[oc];W[ob];B[nc];W[nb]
-;B[mc]IT[]
+(;B[qd];W[pc];B[oc];W[ob];B[nc];W[nb];B[mc]
 (;W[mb]TE[1]C[Extends 3 stones
 Best answer, enough for White to survive];B[lc]
 ;W[pj]C[Ocuppy the side
@@ -186,11 +185,11 @@ Not the best answer, it is going to make Black stronger]BM[1];B[re];W[rc]
 (;B[qf]C[Now black is stronger in the outside])
 (;B[tt]C[Black Tenuki
 Bad move, Black needs to protect the cut];W[qe]C[ Very severe cut]
-(;B[qf]
-;W[pe]L[od][rf]C[Now A & B are Miai, black is in trouble])
-(;B[pe];W[qf];B[rf];W[qg];B[rg]
+(;B[qf]BM[1]C[Broken Ladder];W[pe]L[od][rf]C[Now A & B are Miai, black is in trouble])
+(;B[pe]BM[1]C[Atari Up];W[qf];B[rf];W[qg];B[rg]
 ;W[qh]C[Crowling in the second line is very bad for Black])
-(;B[rf]C[Looks good but is not enough];W[pf]L[od]C[White threatens to cut at A];B[oe]C[Even if Black protects];W[qg];B[rg];W[qh];B[rh]
+(;B[rf]BM[1]C[Extend in second line
+Looks good but is not enough];W[pf]L[od]C[White threatens to cut at A];B[oe]C[Even if Black protects];W[qg];B[rg];W[qh];B[rh]
 ;W[qi]C[Black is crowling again])))
 (;W[tt]C[If White Tenuki
 Bad move, is not strong enough]BM[1];B[rd];W[rc];B[mb]

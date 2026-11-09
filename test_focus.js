@@ -154,6 +154,9 @@ function check(name, cond, extra = '') { console.log((cond ? 'PASS ' : 'FAIL ') 
   const byName = (n) => t1.find(x => x.name === n);
   check('Focus con sesión completada hoy → no pendiente', byName('Corner patterns').doneToday === true && byName('Corner patterns').pending === false);
   check('Focus con capítulos en trabajo y sin sesión hoy → pendiente', byName('Lateral patterns').pending === true && byName('Lateral patterns').work === 1);
+  check('FC14: "pendiente hoy" incluye el nº de problemas de la sesión (visibles de los En trabajo)',
+    byName('Lateral patterns').problems === ctx.localFocusSessionProblems(G).length && byName('Lateral patterns').problems === 1
+    && byName('Vacío').problems === 0, J(t1));
   check('Focus sin capítulos en trabajo → no pendiente', byName('Vacío').work === 0 && byName('Vacío').pending === false);
   run(`dbExec("UPDATE focus_sessions SET ended_at=? WHERE uuid=?", [new Date(Date.now() - 36 * 3600 * 1000).toISOString().replace(/\\.\\d+Z$/, 'Z'), '${S2}'])`);
   check('sesión completada ayer → vuelve a estar pendiente hoy', ctx.localFocusTodayStatus().find(x => x.name === 'Corner patterns').pending === true);

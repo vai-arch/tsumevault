@@ -1,10 +1,9 @@
-(;GM[1]FF[4]CA[UTF-8]SZ[19]PL[B]AB[mc][pd]AW[qc]CR[qc]LB[mc:A]C[4-4 Joseki · Juegas B
+(;GM[1]FF[4]CA[UTF-8]SZ[19]PL[B]AB[mc][pd]AW[qc]CR[qc]SQ[mc]C[4-4 Joseki · Juegas B
 Contexto: SAN-SAN with O-Keima Extension
 3-3 Invasion
-Lets say there is a Black Stone in A
-→ Ahora: Block on the bigger side];B[qd]LB[mc:A]C[Block on the bigger side
+→ Ahora: Block on the bigger side];B[qd]LB[mc:A]TVALERT[choice:Block on the bigger side]C[Block on the bigger side
 Block on the bigger side according to actual situation
-There is a Black stone in A];W[pc]LB[mc:A];B[oc]LB[mc:A];W[rd]BM[1]C[Mistake];B[re];W[rc]C[→ Ahora: Connect](;B[od]C[Connect
+There is a Black stone in A];W[pc]LB[mc:A];B[oc]LB[mc:A];W[rd]BM[1]C[Mistake];B[re];W[rc]C[→ Ahora: Connect](;B[od]TVALERT[choice:Connect]C[Connect
 Simple and effective];W[ob];B[nb];W[pb]LB[qf:A]C[RIGHT
 Now Black has Sente because it doent need to protect at A.
 Black is strong to fight i white tries to cut])(;B[pb]BM[1]C[WRONG Hane

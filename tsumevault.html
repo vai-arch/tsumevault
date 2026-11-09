@@ -482,6 +482,17 @@
       transition: opacity .6s;
     }
 
+    /* AV-08: destello del aviso con el nombre de la variante (más pequeño que ✓/✗) */
+    #result-flash.choice {
+      font-size: 26px;
+      width: max-content;
+      max-width: 85%;
+      text-align: center;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, .6);
+    }
+
     #welcome {
       position: absolute;
       inset: 0;
@@ -513,6 +524,11 @@
 
     .board-bad {
       outline: 4px solid var(--accent);
+    }
+
+    /* AV-07: posición de elección (el azul de los fantasmas ¿y si?) */
+    .board-choice {
+      outline: 4px solid #4a8fe7;
     }
 
     #board-controls {
@@ -1843,7 +1859,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261109-1251';
+	const SW_VERSION = 'tsumevault-20261109-2015';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1925,6 +1941,7 @@
       right: new Audio('audio/right.mp3'),
       wrong: new Audio('audio/wrong.mp3'),
       variant: new Audio('audio/variant.mp3'),   // T26: paso a una variante del MISMO problema (no es el cierre del problema)
+      choice: new Audio('audio/variant.mp3'),    // AV-10: aviso de posición de elección (mismo fichero por ahora; elemento propio para poder cambiarlo)
     };
     function playSound(n) { if (!soundEnabled) return; try { SFX[n].currentTime = 0; SFX[n].volume = sfxVolume / 100; SFX[n].play(); } catch (e) { } }
 
@@ -6269,7 +6286,7 @@
 
     // ══ PROBLEM NAV ══
     function nextProblem() {
-      document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad');
+      document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad', 'board-choice');
       tapToAdvance = false; // F2
       runIdx++;
       let probMeta;
@@ -6319,14 +6336,14 @@
     // (localGetProblem/localGetProblems ya excluyen run_id NULL).
     function prevProblem() {
       if (!freeMode || runIdx <= 0) return;
-      document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad');
+      document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad', 'board-choice');
       tapToAdvance = false;
       runIdx--;
       loadAndRender(allProblems[runIdx]);
     }
     function jumpToProblem(idx) {
       if (!freeMode || idx < 0 || idx >= allProblems.length || idx === runIdx) return;
-      document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad');
+      document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad', 'board-choice');
       tapToAdvance = false;
       runIdx = idx;
       loadAndRender(allProblems[runIdx]);
@@ -6488,6 +6505,21 @@
     //    real del jugador bajo ella gana.
     function hintTag(node) { return String(node && node.comment || '').trim().toUpperCase(); }
     function hintIsRealMove(c) { return !!(c && c.move && !c.move.pass && c.move.x !== undefined); }
+    // AV (REQUISITOS_AVISO_VARIANTE.md): la marca TVALERT[<tipo>:<nombre>] la escribe
+    // generate_joseki_problems.py en la jugada ESPERADA (nunca en la raiz: WGo no guarda
+    // ahi las propiedades que no conoce). Devuelve {kind, sym, name} si alguna respuesta
+    // del jugador en `node` la lleva; si no, null.
+    function choiceAlertOf(node) {
+      for (const c of ((node && node.children) || [])) {
+        const v = Array.isArray(c.TVALERT) ? c.TVALERT[0] : c.TVALERT;
+        if (typeof v !== 'string') continue;
+        const i = v.indexOf(':'), kind = i < 0 ? v : v.slice(0, i), name = i < 0 ? '' : v.slice(i + 1);
+        if (kind === 'choice') return { kind, sym: '⑂', name };
+        if (kind === 'whatif') return { kind, sym: '?', name };
+      }
+      return null;
+    }
+    const CHOICE_ALERT_MS = 1200;   // AV-08/AV-09: duracion del destello y del bloqueo de clics
     function hintWinsPlayer(m) {
       const t = hintTag(m);
       if (t.startsWith('RIGHT')) return true;
@@ -6703,6 +6735,7 @@
       let branchPending = null; // T30: en Free la transicion a variante NO usa timer: se guarda aqui el salto y lo dispara el usuario (tocar tablero o -> Next)
       let oppPending = false; // T31: true mientras la respuesta del oponente (setTimeout 400 ms de playOpponent) esta en vuelo; Explorar no entra en esa ventana
       let explore = null; // T31: modo Explorar (solo Free): {entrySnap, entryState, game, turn, moves, lastMark, pausedAt}; null = modo normal
+      let choiceTimer = null, choiceLock = false, choiceFlashOn = false; // AV: temporizador, bloqueo de clics y destello del aviso
       const { black: setupB, white: setupW } = getSetupStones(root);
       let game = new WGo.Game(boardSize); game.allow_rewrite = true;
       for (const s of setupB) game.setStone(s.x, s.y, WGo.B);
@@ -6721,6 +6754,33 @@
       // T33: el marcador guarda tambien el simbolo de calidad (q) de la jugada; gameSnapshot/restoreSnapshot
       // y redrawFrom lo conservan igual que la posicion, asi que resize, Back y salto de variante lo respetan.
       function drawLastMoveDot(x, y, node) { if (lastMoveMarker) { wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); if (lastMoveMarker.q) wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: WGo.Board.drawHandlers['LB'] }); } const q = moveQualityMark(node); addLastMoveMark(x, y, q); lastMoveMarker = { x, y, q }; }
+      // AV: aviso de posicion de eleccion. clearChoiceAlert quita borde, destello y bloqueo.
+      // maybeChoiceAlert(node) lo lanza si le toca al jugador en `node` y alguna respuesta suya
+      // lleva la marca (AV-03..AV-05); con borderOnly solo pone el borde (salida de Explorar, AV-15).
+      function clearChoiceAlert() {
+        if (choiceTimer) { clearTimeout(choiceTimer); choiceTimer = null; }
+        choiceLock = false;
+        const bw = document.querySelector('#board-wrap'); if (bw) bw.classList.remove('board-choice');
+        if (choiceFlashOn) { const fl = document.getElementById('result-flash'); if (fl) fl.className = ''; choiceFlashOn = false; }
+      }
+      function maybeChoiceAlert(node, borderOnly) {
+        clearChoiceAlert();
+        if (explore || answered || waitingForNext) return;
+        const info = choiceAlertOf(node);
+        if (!info) return;
+        const bw = document.querySelector('#board-wrap');
+        if (bw) { bw.classList.remove('board-ok', 'board-bad'); bw.classList.add('board-choice'); }
+        if (borderOnly) return;
+        const fl = document.getElementById('result-flash');
+        if (fl) { fl.textContent = info.sym + ' ' + info.name; fl.style.color = '#4a8fe7'; fl.className = 'show choice'; choiceFlashOn = true; }
+        choiceLock = true;
+        playSound('choice');
+        choiceTimer = setTimeout(() => {
+          choiceTimer = null; choiceLock = false;
+          if (!currentProblem || currentProblem.tree !== root) return; // el problema ya cambio: no tocar su pantalla
+          if (choiceFlashOn) { const f2 = document.getElementById('result-flash'); if (f2) f2.className = 'hide choice'; choiceFlashOn = false; }
+        }, CHOICE_ALERT_MS);
+      }
       function recordAttempt(result) {
         if (attemptRecorded) return; attemptRecorded = true;
         // FC10: en una sesion de Focus solo cuenta el PRIMER intento de cada problema (el que va al %);
@@ -6791,7 +6851,7 @@
         const e = owed.pop();
         restoreSnapshot(e.snap); history.length = 0; answered = true; waitingForNext = false; // D6: Back hace suelo en el punto de rama
         cb.textContent = ''; // T24.1: el mensaje de transicion no sobrevive al salto. showResult solo sobrescribe comment-box si el comentario trae texto (guarda 'if (clean)'), asi que un nodo final 'RIGHT' a secas o un WRONG sin texto dejaban el mensaje pegado
-        const bw = document.querySelector('#board-wrap'); if (bw) bw.classList.remove('board-ok', 'board-bad');
+        const bw = document.querySelector('#board-wrap'); if (bw) bw.classList.remove('board-ok', 'board-bad', 'board-choice');
         const hintEl = document.getElementById('board-hint');
         if (hintEl) hintEl.textContent = (playerC === 1 ? '● Black' : '○ White') + ' to play — variation ' + (e.idx + 1) + '/' + e.node.children.length;
         playOpponent(e.node, e.idx);
@@ -6812,7 +6872,7 @@
         }
         const oppNode = node.children[idx];
         oppPending = true; // T31
-        setTimeout(() => { oppPending = false; if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y, oppNode); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; refreshGhosts(); /* T37 */ }, 400);
+        setTimeout(() => { oppPending = false; if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y, oppNode); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; refreshGhosts(); /* T37 */ maybeChoiceAlert(oppNode); /* AV-03 */ }, 400);
       }
       function resetGame() { game = new WGo.Game(boardSize); game.allow_rewrite = true; for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
       // T5/3.9: rehidratacion tras resize. Repinta la posicion ACTUAL desde el
@@ -6858,8 +6918,8 @@
       }
       window._studyGhostsRefresh = refreshGhosts;
       window._studyRedraw = () => { if (explore) { exploreRedraw(); return; } /* T31 */ redrawFromGame(); renderLabels(currentNode); refreshGhosts(); /* T37 */ };
-      window._studyRestart = () => { if (explore) { exploreReset(); return; } /* T31: en Explorar, Restart vuelve a la posicion de entrada */ if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } branchPending = null; /* T30 */ owed.length = 0; branchSeen.clear(); /* T24: intento nuevo, sin ramas pendientes */ history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad'); resetGame(); renderSetup(root); refreshGhosts(); /* T37 */ problemStartTime = Date.now(); updateSessionUI(); };
-      window._studyBack = () => { if (explore) { exploreUndo(); return; } /* T31: en Explorar, Back deshace la ultima piedra explorada */ if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } branchPending = null; /* T24/T30: cancela la transicion en curso (timer o espera); la alternativa sigue en owed y se exigira al siguiente ✓ */ if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); refreshGhosts(); /* T37 */ };
+      window._studyRestart = () => { if (explore) { exploreReset(); return; } /* T31: en Explorar, Restart vuelve a la posicion de entrada */ if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } branchPending = null; /* T30 */ owed.length = 0; branchSeen.clear(); /* T24: intento nuevo, sin ramas pendientes */ history.length = 0; currentNode = root; answered = false; hadWrong = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; document.querySelector('#board-wrap').classList.remove('board-ok', 'board-bad', 'board-choice'); resetGame(); renderSetup(root); refreshGhosts(); /* T37 */ maybeChoiceAlert(root); /* AV-05 */ problemStartTime = Date.now(); updateSessionUI(); };
+      window._studyBack = () => { if (explore) { exploreUndo(); return; } /* T31: en Explorar, Back deshace la ultima piedra explorada */ if (branchTimer) { clearTimeout(branchTimer); branchTimer = null; } branchPending = null; /* T24/T30: cancela la transicion en curso (timer o espera); la alternativa sigue en owed y se exigira al siguiente ✓ */ if (!history.length) return; const prev = history.pop(); currentNode = prev.node; answered = false; waitingForNext = false; hintMarker = null; document.getElementById('comment-box').textContent = ''; document.getElementById('result-flash').className = ''; restoreSnapshot(prev.snap); refreshGhosts(); /* T37 */ maybeChoiceAlert(currentNode); /* AV-05 */ };
       // F8: pista (solo Free) — señala un hijo de currentNode sin jugarlo ni registrar
       // ningún intento. T29: antes bastaba con que no empezara por WRONG y a veces
       // señalaba una rama sin ningún RIGHT debajo; ahora exige que la jugada pueda
@@ -6906,6 +6966,7 @@
         const btn = document.getElementById('btn-explore'), cb = document.getElementById('comment-box'), hintEl = document.getElementById('board-hint'), bw = document.querySelector('#board-wrap'), flash = document.getElementById('result-flash');
         if (!explore) {
           // ── entrar ──
+          clearChoiceAlert(); // AV-15: antes de guardar el estado de entrada (destello y bloqueo fuera)
           clearGhost(); clearPending();
           if (hintMarker) { wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'CR' }); wgoBoard.removeObject({ x: hintMarker.x, y: hintMarker.y, type: 'LB' }); hintMarker = null; }
           const entrySnap = gameSnapshot();
@@ -6914,7 +6975,7 @@
           explore = { entrySnap, entryState, game: exploreNewGame(entrySnap, []), turn: turn0, turn0, moves: [], lastMark: entrySnap.marker ? { ...entrySnap.marker } : null, pausedAt: Date.now() };
           waitingForNext = false; // durante la exploracion ni el toque ni Enter/Espacio avanzan; se restaura al salir
           if (flash) flash.className = '';
-          if (bw) bw.classList.remove('board-ok', 'board-bad');
+          if (bw) bw.classList.remove('board-ok', 'board-bad', 'board-choice');
           cb.textContent = '';
           for (const id of EXPLORE_DISABLED) document.getElementById(id).disabled = true;
           btn.classList.add('active');
@@ -6933,6 +6994,7 @@
           if (flash) flash.className = st.flashClass === 'show' ? 'hide' : st.flashClass;
           if (bw) { bw.classList.toggle('board-ok', st.boardOk); bw.classList.toggle('board-bad', st.boardBad); }
           refreshGhosts(); // T37: Explorar borra el tablero; se repintan los fantasmas con el estado ya restaurado
+          maybeChoiceAlert(currentNode, true); // AV-15: vuelve el borde (sin destello ni sonido) si sigue la eleccion
           for (const id of EXPLORE_DISABLED) document.getElementById(id).disabled = false;
           btn.classList.remove('active');
         }
@@ -6966,6 +7028,7 @@
         if (branchPending) { const f = branchPending; branchPending = null; f(); return; } // T30: tocar el tablero dispara la variante pendiente (answered=true, asi que sin esto se ignoraria)
         if (waitingForNext) { if (currentProblem && (currentProblem._isReveal || tapToAdvance || freeMode)) { tapToAdvance = false; nextProblem(); } return; } // F11: en Free, tocar el tablero tras resolver == Next
         if (answered) return;
+        if (choiceLock) return; // AV-09: mientras dura el destello del aviso los clics no hacen nada
         if (wgoBoard.obj_arr[x][y] && wgoBoard.obj_arr[x][y].some(o => (o.c === 1 || o.c === -1) && o.type !== 'outline')) return;
         if (tapConfirm) {
           if (pendingTap && pendingTap.x === x && pendingTap.y === y) {
@@ -6985,6 +7048,7 @@
         }
       };
       function onBoardClickExecute(x, y) {
+        clearChoiceAlert(); // AV-07: al jugar (acierto o fallo) el borde azul se va
         const children = currentNode.children || [];
         const match = children.find(c => c.move && !c.move.pass && c.move.x === x && c.move.y === y);
         // F10: clic 'fuera de arbol' (ni siquiera es una variante contemplada
@@ -7001,6 +7065,7 @@
       }
       if (!wgoBoard._globalListenerSet) { wgoBoard.addEventListener('click', (x, y) => { if (window._boardClickHandler) window._boardClickHandler(x, y); }); wgoBoard._globalListenerSet = true; }
       refreshGhosts(); // T37: primer pintado del problema
+      maybeChoiceAlert(root); // AV-03: eleccion al empezar el problema
     }
     function showResult(isRight, comment) {
       waitingForNext = true; playSound(isRight ? 'right' : 'wrong');
@@ -7008,7 +7073,7 @@
       flash.textContent = isRight ? '✓' : '✗'; flash.style.color = isRight ? 'var(--ok-bright)' : 'var(--accent)';
       flash.className = 'show'; setTimeout(() => { flash.className = 'hide'; }, 800);
       const boardEl = document.querySelector('#board-wrap');
-      if (boardEl) { boardEl.classList.remove('board-ok', 'board-bad'); boardEl.classList.add(isRight ? 'board-ok' : 'board-bad'); }
+      if (boardEl) { boardEl.classList.remove('board-ok', 'board-bad', 'board-choice'); boardEl.classList.add(isRight ? 'board-ok' : 'board-bad'); }
       const cb = document.getElementById('comment-box');
       const clean = (comment || '').replace(/^RIGHT\s*/i, '').replace(/^WRONG\s*/i, '').trim();
       if (clean) { cb.textContent = clean; cb.style.display = 'block'; }
@@ -7553,7 +7618,7 @@
       cb.textContent = jsStack.length ? (node.comment || '') : (jsData.description || '');
       // Señal (J-34)
       const bw = document.getElementById('board-wrap');
-      bw.classList.remove('board-ok', 'board-bad');
+      bw.classList.remove('board-ok', 'board-bad', 'board-choice');
       if (signal && signal.bad) { bw.classList.add('board-bad'); playSound('wrong'); }
       else if (signal && signal.end) { bw.classList.add('board-ok'); playSound('right'); }
       else if (signal && signal.moved) playSound('stone');

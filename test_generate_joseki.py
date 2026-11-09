@@ -87,7 +87,7 @@ check("4-4: avisa de las dos líneas de castigo que acaban en el error del rival
 # ── 4-4: el ejemplo literal acordado con Victor ──────────────────────────────
 LOW_B = ("(;GM[1]FF[4]CA[UTF-8]SZ[19]PL[B]AB[pd]AW[nc]CR[nc]C[4-4 Joseki · Juegas B\n"
          "Keima Approach\n"
-         "→ Ahora: Low Enclosure];B[qf]C[Low Enclosure];W[pb]C[Slide];B[qc]C[Take the corner];W[kc]C[RIGHT\n"
+         "→ Ahora: Low Enclosure];B[qf]TVALERT[choice:Low Enclosure]C[Low Enclosure];W[pb]C[Slide];B[qc]C[Take the corner];W[kc]C[RIGHT\n"
          "2 spaces extension])\n")
 check("ejemplo Low Enclosure · B: SGF literal (Q16+O17 puestas, O17 marcada, instrucción, RIGHT final)",
       I44["4-4 Joseki/B-pdncqfpbqckc"]["sgf"] == LOW_B, I44["4-4 Joseki/B-pdncqfpbqckc"]["sgf"])
@@ -134,12 +134,12 @@ check("marcas del maestro (TR) copiadas a la jugada", ";B[qf]TR[pf]BM[1]C[RIGHT"
 
 # ── T33: marcas de calidad copiadas a los SGF generados ─────────────────────
 s = I44["4-4 Joseki/B-pdncqfpbqckcqboc"]["sgf"]
-check("T33: tu jugada ¿y si? lleva IT[] y la mala del rival BM[1]", ";B[qb]IT[]C[" in s and ";W[oc]TR[pb]BM[1]C[RIGHT" in s, s)
+check("T33: tu jugada ¿y si? lleva IT[] y la mala del rival BM[1]", ";B[qb]IT[]TVALERT[whatif:If we play this endgame move]C[" in s and ";W[oc]TR[pb]BM[1]C[RIGHT" in s, s)
 s = I44["4-4 Joseki/B-pdncqfpbqckcttqbqi"]["sgf"]
 check("T33: la buena con TE lleva TE[1]", ";B[qi]TE[1]C[RIGHT" in s, s)
 s = I44["4-4 Joseki/W-pdncqfpbqckcttqbqi"]["sgf"]
-check("T33: el pase implícito NO lleva IT (no es una jugada del fichero); la rama ¿y si? sí", ";B[]C[Tenuki." in s and ";W[qb]IT[]C[Corner Hane]" in s, s)
-check("T33: las jugadas sin marca no llevan ninguna (el ejemplo Low Enclosure no cambia)",
+check("T33: el pase implícito NO lleva IT (no es una jugada del fichero); la rama ¿y si? sí", ";B[]C[Tenuki." in s and ";W[qb]IT[]TVALERT[whatif:Corner Hane]C[Corner Hane]" in s, s)
+check("T33: las jugadas sin marca no llevan ninguna (el ejemplo Low Enclosure no lleva marcas de calidad)",
       not any(t in I44["4-4 Joseki/B-pdncqfpbqckc"]["sgf"] for t in ("IT[", "BM[", "DO[", "TE[")))
 
 # ── 3-3 sintético: WRONG, dudosas, escapes ───────────────────────────────────
@@ -319,7 +319,7 @@ check("JP.6: tras tu error, si el rival responde bien (Q14 → R16 bueno), NO ha
       not any(k.startswith("6-6 Errores/B-pdqcodqd") for k in I66))
 c = I66["6-6 Errores/B-pdqcqere"]["sgf"]
 check("JP.6 C: tu tramo bueno hasta justo antes de tu error (acaba en el corte de blanco, RIGHT)",
-      "→ Ahora: Hane](;B[qe]C[Hane];W[re]C[RIGHT\nCut])" in c and "[rf]" not in c
+      "→ Ahora: Hane](;B[qe]TVALERT[choice:Hane]C[Hane];W[re]C[RIGHT\nCut])" in c and "[rf]" not in c
       and "(;B[pc]BM[1]C[WRONG Wrong side])" in c, c)
 P, _, _ = gen(T66.replace("(;B[qe]C[Hane];W[re]C[Cut];B[rf]BM[1]C[Too slow];W[qf])",
                           "(;B[qe]C[Hane];W[re]C[Cut](;B[rf]BM[1]C[Too slow];W[qf])(;B[rd]C[Extend];W[pc])))"[:-1]), "6-6 Errores")
@@ -569,6 +569,60 @@ check("…y no sale si la línea ya da problemas A/C (6-6 Errores)",
       and not any("no añade ningún problema nuevo" in x["problem"] for x in W66), W66)
 check("el compilador ya no da el aviso de J1 «línea sin tarjetas»",
       not any("tarjetas" in m for _, _, m in res["issues"]))
+
+# ── AV: marca de posición de elección (TVALERT) ─────────────────────────────
+INSTR = _re.compile(r"→ (Ahora:|¿Y si…\?) (.+)$")   # «→ Ahora tenuki» no es una elección
+
+def _walk_sgf(node, depth=0, parent=None):
+    yield node, depth, parent
+    for c in node.children:
+        yield from _walk_sgf(c, depth + 1, node)
+
+def av_audit(problems):
+    """Para cada problema: (marcas, instrucciones, errores). Instrucción = última línea
+    «→ Ahora: X» / «→ ¿Y si…? X» del comentario de un nodo; la marca debe estar en
+    exactamente un hijo suyo, del jugador y no WRONG, con el mismo tipo y nombre."""
+    n_marks = n_instr = 0
+    errs = []
+    for p in problems:
+        root = parse_sgf(p["sgf"])
+        if "TVALERT" in root.props:
+            errs.append((p["problem_id"], "marca en la raíz"))
+        for node, depth, parent in _walk_sgf(root):
+            if "TVALERT" in node.props:
+                n_marks += 1
+                if depth % 2 == 0 or node.move_color != p["color"]:
+                    errs.append((p["problem_id"], "marca en una jugada que no es del jugador"))
+                if node.comment.strip().upper().startswith("WRONG"):
+                    errs.append((p["problem_id"], "marca en una rama WRONG"))
+            last = (node.comment or "").split("\n")[-1].strip()
+            m = INSTR.match(last)
+            if not m:
+                continue
+            n_instr += 1
+            want = "%s:%s" % ("choice" if m.group(1) == "Ahora:" else "whatif", m.group(2))
+            got = [k.props["TVALERT"][0] for k in node.children if "TVALERT" in k.props]
+            if got != [want]:
+                errs.append((p["problem_id"], "instrucción %r con marcas %r" % (want, got)))
+    return n_marks, n_instr, errs
+
+nm, ni, er = av_audit(allp + PG)
+check("AV: cada instrucción lleva su marca en la jugada esperada y no hay marcas sin instrucción (pruebas + tu 4-4 real)",
+      er == [] and nm == ni and nm > 0, (nm, ni, er[:5]))
+kinds = {k.props["TVALERT"][0].split(":")[0] for p in allp for n, _, _ in _walk_sgf(parse_sgf(p["sgf"])) for k in [n] if "TVALERT" in k.props}
+check("AV: aparecen los dos tipos (choice y whatif)", kinds == {"choice", "whatif"}, kinds)
+check("AV: elección al empezar el problema → la marca va en tu primera jugada, no en la raíz",
+      parse_sgf(LOW_B).children[0].props.get("TVALERT") == ["choice:Low Enclosure"] and "TVALERT" not in parse_sgf(LOW_B).props)
+c = I44["4-4 Joseki/W-pdncqfpbqckcttqbqi"]["sgf"]
+check("AV: elección a mitad del problema (tras el pase del rival) → whatif en la jugada IT",
+      ";B[]C[Tenuki.\n→ ¿Y si…? Corner Hane];W[qb]IT[]TVALERT[whatif:Corner Hane]" in c, c)
+check("AV anti-vacío: un problema sin instrucción no lleva marca (Low Enclosure · W)", "TVALERT" not in LOW_W)
+check("AV: las ramas WRONG nunca llevan marca", all("TVALERT" not in seg for p in allp for seg in p["sgf"].split("(") if "C[WRONG" in seg))
+P, e, _ = gen(T44.replace("C[Low Enclosure]", "C[Low \\] Enclosure]"), "4-4 Joseki")
+c = byid(P)["4-4 Joseki/B-pdncqfpbqckc"]["sgf"]
+check("AV: un nombre con ']' se escapa y sgf_lib lo lee bien; el problema sigue validando",
+      e == [] and "TVALERT[choice:Low \\] Enclosure]" in c and parse_sgf(c).children[0].props["TVALERT"] == ["choice:Low ] Enclosure"]
+      and not validate_problem(parse_sgf(c))["issues"], c[:300])
 
 # ── salida para la prueba de humo del cliente ────────────────────────────────
 out = os.path.join(HERE, "jp_test_out")

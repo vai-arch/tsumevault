@@ -109,6 +109,15 @@ def instruction_text(ins):
     return ("→ ¿Y si…? " if kind == "whatif" else "→ Ahora: ") + name
 
 
+def alert_prop(ins):
+    """AV-02: marca de posición de elección para el cliente, en la jugada esperada:
+    TVALERT[choice:<nombre>] o TVALERT[whatif:<nombre>]. Va en el hijo y no en la
+    posición porque WGo no guarda en la raíz las propiedades que no conoce."""
+    if not ins or not ins[1]:
+        return ""
+    return "TVALERT[%s:%s]" % (ins[0], esc(ins[1]))
+
+
 def marks_props(node):
     out = ""
     for mp, vals in sorted((node.get("marks") or {}).items()):
@@ -552,7 +561,10 @@ def build_sgf(stem, color, nodes, s, e, cut, errors, where, note=None, tri=()):
     def chain(k):
         n = nodes[k]
         txt = comment_for(k)
-        here = ";%s[%s]%s%s" % (n["c"], coord(n["m"]), marks_props(n), quality_props(n)) + ("C[%s]" % esc(txt) if txt else "")
+        # AV: misma condición que la instrucción «→ Ahora / → ¿Y si…?» (need), sin repetir sus errores
+        ins = instruction(nodes[k - 1], n, color) if n["c"] == color else None
+        here = (";%s[%s]%s%s" % (n["c"], coord(n["m"]), marks_props(n), quality_props(n)) + alert_prop(ins)
+                + ("C[%s]" % esc(txt) if txt else ""))
         rest = chain(k + 1) if k < e else ""
         nxt_w = wrongs(k + 1) if k < e and nodes[k + 1]["c"] == color else []
         if nxt_w:

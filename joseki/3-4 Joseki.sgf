@@ -50,17 +50,16 @@ Occupies the from 2 extend 3 high point];W[qe];B[re];W[pd];B[qc];W[qf];B[rf];W[q
 (;W[oe]C[Extend up];B[mc])))
 (;W[oc]C[Low Approach]
 (;B[pc]C[Kick]
-(;W[od]
+(;W[od]C[Extend up]
 (;B[qf]C[1 point extension]
-(;W[kc]C[Low Extension])
-(;W[kd]C[High Extension]))
+(;W[kc]C[Low Extension]TE[1])
+(;W[kd]C[High Extension]TE[1]))
 (;B[tt]IT[]C[Black Tenuki
 Wrong, Black can't tenuki];W[pd];B[qc];W[qf];B[qe];W[pf];B[rf];W[rg];B[re]
 ;W[qh]C[Very good for White]))
-(;W[lc];B[pe]
-(;W[od])
-(;W[tt]C[White Tenuki]BM[1];B[od];W[nc]
-;B[jc]C[Really good for black])))
+(;W[lc]BM[1]C[2 space extension];B[pe]
+;W[tt]C[White Tenuki]BM[1];B[od];W[nc]
+;B[jc]C[Really good for black]))
 (;B[pe]C[Kosumi])
 (;B[mc]C[Pincer 1 space low];W[pe]C[Keima attack];B[qg]BM[1]C[Trick move];W[qe];B[re]
 (;W[rf]BM[1]C[Hane
