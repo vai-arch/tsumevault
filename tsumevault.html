@@ -1843,7 +1843,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261104-1204';
+	const SW_VERSION = 'tsumevault-20261109-1150';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -1901,6 +1901,11 @@
     let lightMode = false;
     let currentSource = 'tsumego_hero';
     const SGF_BASE = '/tsumevault/';
+    // FC12: URL de un SGF a partir de su sgf_path. Solo se codifican los caracteres que rompen una
+    // ruta (% # ?): una carpeta como "This Endgame appears 100%" daba HTTP 400. El resto queda igual
+    // que antes (el navegador ya codifica espacios y acentos), asi que las URLs que ya funcionaban y
+    // sus entradas en la cache offline no cambian.
+    function sgfUrl(path) { return SGF_BASE + path.replace(/\\/g, '/').replace(/%/g, '%25').replace(/#/g, '%23').replace(/\?/g, '%3F'); }
     let pausedAt = 0, totalPaused = 0, isPaused = false;
     let activeRunId = null, runItems = [], runIdx = -1, runMode = false, problemStartTime = 0;
     let tapToAdvance = false;                                   // F2 (§12.2): pausa en fallo durante runs
@@ -6031,7 +6036,10 @@
       if (!today.length) listP.appendChild(el('span', 'color:var(--dim2)', 'Sin Focus activos'));
       for (const t of today) {
         const row = el('div', 'display:flex;justify-content:space-between;align-items:center;gap:8px;');
-        row.appendChild(el('span', `color:${t.pending ? 'var(--text)' : 'var(--dim)'};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;`, t.name));
+        // FC13: como en Review, pulsar el nombre lanza la sesión (si hay capítulos En trabajo)
+        const nm = el('span', `color:${t.pending ? 'var(--text)' : 'var(--dim)'};overflow:hidden;text-overflow:ellipsis;white-space:nowrap;${t.work > 0 ? 'cursor:pointer;' : ''}`, t.name);
+        if (t.work > 0) { nm.title = 'Empezar sesión'; nm.addEventListener('click', () => startFocusSession(t.uuid)); }
+        row.appendChild(nm);
         const st = el('span', `flex-shrink:0;color:${t.pending ? 'var(--gold)' : t.doneToday ? 'var(--ok-bright)' : 'var(--dim2)'};${t.pending ? 'cursor:pointer;' : ''}`,
           t.pending ? '▶ pendiente' : t.doneToday ? '✓ hecho' : 'sin capítulos en trabajo');
         if (t.pending) { st.title = 'Empezar la sesión de hoy'; st.addEventListener('click', () => startFocusSession(t.uuid)); }
@@ -6185,11 +6193,36 @@
       activeRunId = null; runMode = false; freeMode = true; runItems = []; document.getElementById('run-progress').style.display = 'none';
       retryQueue = []; retryQueued = new Set(); retryPhase = false;
       allProblems = probs;
-      focusSession = { uuid: s, focusUuid: uuid, name: f.name, pending: new Set(probs.map(focusKey)), total: probs.length, completed: false, result: null };
+      focusSession = { uuid: s, focusUuid: uuid, name: f.name, pending: new Set(probs.map(focusKey)), total: probs.length, completed: false, result: null, failed: [] };
       document.getElementById('st-total').textContent = probs.length;
       document.getElementById('st-total-wrap').style.display = '';
       document.getElementById('cfg-pill-total').textContent = `/ ${probs.length}`;
       runIdx = -1; sessionOk = 0; sessionNo = 0; updateSessionUI(); renderFreeList(); nextProblem();
+    }
+    // FC11: un problema de la sesión que no se puede cargar (SGF ausente, ilegible...) sale de la
+    // sesión en vez de quedarse pendiente para siempre. Antes, al volver al "primer pendiente" fallaba
+    // otra vez, el motor avanzaba al siguiente ya hecho y la sesión repetía problemas sin completarse.
+    // Devuelve true si la sesión acaba de completarse (el llamante no debe avanzar: se queda en el tablero).
+    function focusDropUnloadable(probMeta, why) {
+      const fs = focusSessionActive(); if (!fs || fs.completed) return false;
+      const src = probMeta.source || currentSource, key = focusKey({ source: src, problem_id: probMeta.problem_id });
+      const idx = allProblems.findIndex(pr => focusKey(pr) === key);
+      if (idx !== -1) { allProblems.splice(idx, 1); if (runIdx >= idx) runIdx--; }
+      fs.pending.delete(key);
+      fs.total = allProblems.length;
+      if (!fs.failed.some(f => f.key === key)) fs.failed.push({ key, source: src, problem_id: probMeta.problem_id, why });
+      console.warn('[Focus] problema quitado de la sesión (no carga):', src, probMeta.problem_id, why);
+      document.getElementById('st-total').textContent = fs.total;
+      document.getElementById('cfg-pill-total').textContent = `/ ${fs.total}`;
+      focusCheckComplete();
+      renderFreeList(); updateSessionUI();
+      if (fs.completed) {
+        // quedarse en el último problema mostrado (el que falló nunca llegó a pintarse)
+        const ci = currentProblem ? allProblems.findIndex(pr => focusKey(pr) === focusKey({ source: currentProblem.source || currentSource, problem_id: currentProblem.problem_id })) : -1;
+        if (ci !== -1) runIdx = ci;
+        return true;
+      }
+      return false;
     }
     function focusOnAttempt(prob) {
       const fs = focusSessionActive(); if (!fs || fs.completed) return;
@@ -6214,10 +6247,12 @@
     function renderFreeNavLabel() {
       const lbl = document.getElementById('free-nav-label'); if (!lbl) return;
       const fs = focusSessionActive();
-      if (!fs) { lbl.textContent = 'Free practice'; lbl.style.color = ''; return; }
-      lbl.textContent = fs.completed
+      if (!fs) { lbl.textContent = 'Free practice'; lbl.style.color = ''; lbl.title = ''; return; }
+      lbl.textContent = (fs.completed
         ? `🎯 ${fs.name} · ✓ ${fs.result.ok}/${fs.result.total} (${fs.result.pct ?? 0}%)`
-        : `🎯 ${fs.name} · ${fs.total - fs.pending.size}/${fs.total}`;
+        : `🎯 ${fs.name} · ${fs.total - fs.pending.size}/${fs.total}`)
+        + (fs.failed && fs.failed.length ? ` · ⚠ ${fs.failed.length} sin cargar` : ''); // FC11
+      lbl.title = fs.failed && fs.failed.length ? 'No se pudieron cargar (quitados de la sesión):' + String.fromCharCode(10) + fs.failed.map(f => `${f.source} · ${f.problem_id} — ${f.why}`).join(String.fromCharCode(10)) : '';
       lbl.style.color = fs.completed ? 'var(--ok-bright)' : 'var(--gold)';
     }
 
@@ -6375,8 +6410,8 @@
       document.getElementById('btn-pause').textContent = '⏸';
       try {
         const prob = localGetProblem(probMeta.source || currentSource, probMeta.problem_id);
-        if (!prob || !prob.sgf_path) { nextProblem(); return; }
-        const sgfPath = SGF_BASE + prob.sgf_path.replace(/\\/g, '/');
+        if (!prob || !prob.sgf_path) { if (focusDropUnloadable(probMeta, 'sin sgf_path')) return; nextProblem(); return; } // FC11
+        const sgfPath = sgfUrl(prob.sgf_path); // FC12
         const res = await fetch(sgfPath); if (!res.ok) throw new Error('SGF not found');
         const sgf = await res.text();
         const tree = parseSgfTree(sgf); if (!tree) { console.log('parse failed'); throw new Error('Parse failed'); }
@@ -6385,7 +6420,7 @@
         currentProblem = { ...prob, tree, size, _isReveal, _isRetry: !!probMeta._isRetry }; problemStartTime = Date.now();
         renderProblem(currentProblem);
         if (currentProblem._isRetry) { const h = document.getElementById('board-hint'); if (h) h.textContent += ' · ↻ second chance'; }
-      } catch (e) { console.warn('Skip problem', probMeta.problem_id, e.message); nextProblem(); }
+      } catch (e) { console.warn('Skip problem', probMeta.problem_id, e.message); if (focusDropUnloadable(probMeta, e.message)) return; nextProblem(); } // FC11
     }
     function clearSidebar() {
       ['pi-id', 'pi-col', 'pi-chap', 'pi-diff', 'pi-color', 'ps-seen', 'ps-ok', 'ps-no', 'ps-pct', 'ps-ms', 'ps-streak', 'ps-nextin'].forEach(id => document.getElementById(id).textContent = '—');
@@ -7111,7 +7146,7 @@
       gmStopTimer();
       gmActive = true;
       gmCurrentGame = gameRow;
-      const sgfPath = SGF_BASE + gameRow.sgf_path.replace(/\\/g, '/');
+      const sgfPath = sgfUrl(gameRow.sgf_path); // FC12
       try {
         const res = await fetch(sgfPath);
         if (!res.ok) throw new Error('SGF not found');
@@ -7772,7 +7807,7 @@
       const urls = dbQuery(
         'SELECT p.sgf_path FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE ch.mostrar=1 AND p.sgf_path IS NOT NULL',
         []
-      ).map(r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/'));
+      ).map(r => sgfUrl(r.sgf_path)); // FC12
       navigator.serviceWorker.ready.then(reg => { reg.active?.postMessage({ type: 'PRECACHE_SGFS', urls }); });
     }
 	
@@ -7825,7 +7860,7 @@
 	  btn.textContent = 'Descargando...';
 	  progress.style.display = 'block';
 	  const force = Array.isArray(forceSources) && forceSources.length > 0;
-	  const toUrl = r => '/tsumevault/' + r.sgf_path.replace(/\\/g, '/');
+	  const toUrl = r => sgfUrl(r.sgf_path); // FC12
 	  const rows = dbQuery('SELECT p.sgf_path, p.source FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE ch.mostrar=1 AND p.sgf_path IS NOT NULL', []);
 	  const urls = rows.map(toUrl), urlSrc = rows.map(r => r.source);   // T27.1: source paralelo a cada url, para el desglose
 	  const delUrls = force ? dbQuery(`SELECT p.sgf_path FROM problems p WHERE p.sgf_path IS NOT NULL AND p.source IN (${forceSources.map(() => '?').join(',')})`, forceSources).map(toUrl) : [];
