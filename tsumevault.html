@@ -1843,7 +1843,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261109-1150';
+	const SW_VERSION = 'tsumevault-20261109-1219';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2805,10 +2805,11 @@
     function localFocusTodayStatus() {
       const today = localDateStr();
       return localFocusList(false).map(f => {
-        const work = localFocusChapters(f.uuid).filter(c => c.state === 'work' && !c.missing && c.problems > 0).length;
+        const workCh = localFocusChapters(f.uuid).filter(c => c.state === 'work' && !c.missing && c.problems > 0);
+        const work = workCh.length, problems = workCh.reduce((a, c) => a + c.problems, 0); // FC14: problemas de la sesión
         const doneToday = dbQuery('SELECT ended_at FROM focus_sessions WHERE focus_uuid=? AND completed=1 AND ended_at IS NOT NULL ORDER BY ended_at DESC LIMIT 5', [f.uuid])
           .some(s => localDateStr(new Date(s.ended_at)) === today);
-        return { uuid: f.uuid, name: f.name, work, doneToday, pending: work > 0 && !doneToday };
+        return { uuid: f.uuid, name: f.name, work, problems, doneToday, pending: work > 0 && !doneToday };
       });
     }
     function localGetProblem(source, problem_id) {
@@ -6041,7 +6042,7 @@
         if (t.work > 0) { nm.title = 'Empezar sesión'; nm.addEventListener('click', () => startFocusSession(t.uuid)); }
         row.appendChild(nm);
         const st = el('span', `flex-shrink:0;color:${t.pending ? 'var(--gold)' : t.doneToday ? 'var(--ok-bright)' : 'var(--dim2)'};${t.pending ? 'cursor:pointer;' : ''}`,
-          t.pending ? '▶ pendiente' : t.doneToday ? '✓ hecho' : 'sin capítulos en trabajo');
+          t.pending ? `▶ ${t.problems} pendiente${t.problems === 1 ? '' : 's'}` : t.doneToday ? '✓ hecho' : 'sin capítulos en trabajo'); // FC14
         if (t.pending) { st.title = 'Empezar la sesión de hoy'; st.addEventListener('click', () => startFocusSession(t.uuid)); }
         row.appendChild(st); listP.appendChild(row);
       }
