@@ -4,7 +4,7 @@ rem ============================================================
 rem  Baja una copia consistente de la BD de Hetzner.
 rem  Deja DOS ficheros junto a este .bat:
 rem    tsumeVault.downloaded.db  copia ORIGINAL (no la toques; la usa subir_BD_a_Hetzner.bat)
-rem    tsumeVault.db             copia de TRABAJO (sobre esta ejecutas delete_chapter.py)
+rem    tsumeVault.db             copia de TRABAJO (la que usa el servidor local)
 rem ============================================================
 set "HOST=root@46.225.97.185"
 set "RDIR=/opt/tsumevault"
@@ -21,8 +21,13 @@ set "TMPF=%TEMP%\tsv_bajar.txt"
 rem --- Aviso si la BD local de trabajo tiene cambios que aun no se han subido ---
 if not exist "%LOCAL%" goto :snapshot
 if not exist "%ORIG%" goto :snapshot
-fc /b "%LOCAL%" "%ORIG%" >nul 2>&1
-if not errorlevel 1 goto :snapshot
+rem Se comparan los SHA256 (fc /b sobre dos BD grandes y distintas tarda muchisimo)
+set "H1="
+set "H2="
+for /f "delims=" %%H in ('certutil -hashfile "%LOCAL%" SHA256 ^| findstr /v ":"') do set "H1=%%H"
+for /f "delims=" %%H in ('certutil -hashfile "%ORIG%" SHA256 ^| findstr /v ":"') do set "H2=%%H"
+if not defined H1 goto :hash_fail
+if "%H1%"=="%H2%" goto :snapshot
 echo.
 echo AVISO: la BD local ^(tsumeVault.db^) es DISTINTA de la ultima descargada.
 echo Si has editado la BD y aun no la has subido, descargar ahora la sobrescribe.
@@ -60,7 +65,7 @@ copy /y "%ORIG%" "%LOCAL%" >nul
 if errorlevel 1 goto :fail
 
 echo.
-echo Hecho. Ahora: delete_chapter.py ^(dry-run, luego --apply^) sobre tsumeVault.db.
+echo Hecho. La copia de trabajo es tsumeVault.db; cuando acabes, subela con subir_BD_a_Hetzner.bat.
 echo NO abras la app en ningun dispositivo hasta terminar todo el proceso.
 pause
 exit /b 0
@@ -82,6 +87,12 @@ echo.
 echo Cancelado. No se ha descargado nada.
 pause
 exit /b 0
+
+:hash_fail
+echo.
+echo ERROR: no se pudo calcular el hash de "%LOCAL%" ^(abierta por otro programa?^).
+pause
+exit /b 1
 
 :no_sqlite
 echo.
