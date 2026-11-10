@@ -16,7 +16,9 @@ Reglas (acordadas):
   - Colecciones sin capitulos -> un unico capitulo con el nombre de la coleccion.
   - Niveles intermedios -> se aplanan en el nombre del capitulo
     ("01-Part 1 - 1 - Life").
-  - Rangos desplazados SHIFT posiciones hacia abajo (el 10k de WeiqiHub es 15k).
+  - Rangos desplazados SHIFT posiciones hacia abajo (el 10k de WeiqiHub es 15k),
+    salvo las colecciones de SHIFT_BY_COLLECTION, que llevan su propio valor
+    (los clasicos de nivel dan, donde WeiqiHub ya coincide con las referencias).
   - Una carpeta tiene como maximo PART_MAX problemas, mas un resto de menos de
     TAIL_MIN (es decir, hasta PART_MAX + TAIL_MIN - 1). Un capitulo que no
     cabe se parte:
@@ -57,6 +59,12 @@ PART_MIN = 50
 PART_MAX = 50
 TAIL_MIN = 25
 FITS = PART_MAX + TAIL_MIN - 1   # tamano maximo de una carpeta (74)
+SHIFT_BY_COLLECTION = {
+    'Gateway to All Marvels': 0,
+    'Guanzi Pu': 0,
+    'Igo Hatsuyoron': 0,
+    'Xian Ji Wu Ku': 0,
+}
 
 GENERIC_SOURCE = 'wqhub'
 MY_SOURCE = 'my_collections'
@@ -75,9 +83,9 @@ MY_COLLECTIONS = {
 
 # ── rangos ────────────────────────────────────────────────────────────────────
 
-def shifted(idx):
+def shifted(idx, shift=SHIFT):
     """Indice WeiqiHub (0 = 30k) -> indice desplazado, sin bajar de 30k."""
-    return max(idx - SHIFT, 0)
+    return max(idx - shift, 0)
 
 
 def label(r):
@@ -167,7 +175,7 @@ def build_sgf(row, stats):
     black = [check_point(p, size, stats) for p in split_stones(row['black_stones'])]
     white = [check_point(p, size, stats) for p in split_stones(row['white_stones'])]
     root = (f'GM[1]FF[4]CA[UTF-8]SZ[{size}]PL[{first}]'
-            f"DI[{label(shifted(row['rank']))}]")
+            f"DI[{label(row['srank'])}]")
     if black:
         root += 'AB' + ''.join(f'[{p}]' for p in black)
     if white:
@@ -210,7 +218,7 @@ def split_by_rank(rows):
     Devuelve [(etiqueta_banda, filas_en_orden_del_libro)]."""
     counts = {}
     for row in rows:
-        r = shifted(row['rank'])
+        r = row['srank']
         counts[r] = counts.get(r, 0) + 1
     bands, cur = [], []
     for r in sorted(counts):
@@ -227,7 +235,7 @@ def split_by_rank(rows):
     for band in bands:
         name = label(band[0]) if len(band) == 1 else f'{label(band[0])}-{label(band[-1])}'
         members = set(band)
-        out.append((name, [row for row in rows if shifted(row['rank']) in members]))
+        out.append((name, [row for row in rows if row['srank'] in members]))
     return out
 
 
@@ -262,9 +270,12 @@ def plan(con, meta, warnings):
     titles = {col['title'] for col in meta['children']}
     for missing in sorted(MY_COLLECTIONS - titles):
         warnings.append(f'MY_COLLECTIONS: "{missing}" no existe en el JSON')
+    for missing in sorted(set(SHIFT_BY_COLLECTION) - titles):
+        warnings.append(f'SHIFT_BY_COLLECTION: "{missing}" no existe en el JSON')
     result = []
     for col in meta['children']:
         source = MY_SOURCE if col['title'] in MY_COLLECTIONS else GENERIC_SOURCE
+        shift = SHIFT_BY_COLLECTION.get(col['title'], SHIFT)
         chapters, n = [], 0
         for leaf_id, chap_title, expected in chapters_of(col):
             ctx = f"{col['title']} / {chap_title}"
@@ -274,6 +285,8 @@ def plan(con, meta, warnings):
                 'FROM collection_tasks ct JOIN tasks t '
                 'ON t.rank = ct.rank AND t.type = ct.type AND t.id = ct.task_id '
                 'WHERE ct.id = ? ORDER BY ct.idx', (leaf_id,)).fetchall()
+            # srank: rango ya desplazado segun la coleccion; lo usa todo lo demas
+            rows = [dict(r, srank=shifted(r['rank'], shift)) for r in rows]
             if len(rows) != expected:
                 warnings.append(f'{ctx}: {len(rows)} problemas en la BD, '
                                 f'el JSON dice {expected}')
@@ -346,7 +359,7 @@ def main():
                     fh.write(sgf)
                 total += 1
 
-            avg = sum(shifted(r['rank']) for r in rows) / len(rows)
+            avg = sum(r['srank'] for r in rows) / len(rows)
             open(os.path.join(chap_dir, f'difficulty-{label(avg)}'), 'w').close()
 
     print(f'{total} problemas generados en {len(structure)} colecciones '

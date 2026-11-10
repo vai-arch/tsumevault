@@ -2,7 +2,7 @@
 """
 wqhub_analisis.py — Analisis de dificultad de las colecciones de WeiqiHub.
 Usa exactamente la misma estructura que genera wqhub_to_sgf.py (aplanado,
-desplazamiento de rangos y particion por bandas), asi que cada fila
+desplazamiento de rangos por coleccion y particion por bandas), asi que cada fila
 corresponde a una carpeta de capitulo generada.
 
 Genera dos CSV (separador ';', UTF-8 con BOM para Excel en espanol):
@@ -32,7 +32,7 @@ import statistics
 import sys
 from collections import Counter
 
-from wqhub_to_sgf import label, num, parse_tree, plan, shifted
+from wqhub_to_sgf import label, num, parse_tree, plan
 
 TYPES = ['Vida y muerte', 'Tesuji', 'Captura', 'Carrera de libertades',
          'Apertura', 'Joseki', 'Medio juego', 'Yose', 'Teoria', 'Apreciacion']
@@ -100,7 +100,7 @@ def main():
             ranks, sols, types = [], [], Counter()
             white = 0
             for pos, row in enumerate(rows, start=1):
-                r = shifted(row['rank'])
+                r = row['srank']
                 tree = parse_tree(row['variation_tree'])
                 sol = shortest_right(tree)
                 tname = TYPES[row['type']] if row['type'] < len(TYPES) else str(row['type'])

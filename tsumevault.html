@@ -1225,6 +1225,7 @@
         <option value="awesome_baduk">awesome_baduk</option>
         <option value="awesome_lessons">awesome_lessons</option>
         <option value="joseki">joseki</option><!-- JP: josekis como problemas (generate_joseki_problems.py) -->
+		<option value="wqhub">wqhub</option>
       </select>
       <div style="flex:1"></div>
       <button id="runs-btn" onclick="openRuns()" title="Runs" style="background:transparent;border:1px solid var(--border2);color:var(--dim);font-size:15px;cursor:pointer;padding:4px 9px;border-radius:2px;transition:all .15s;margin-right:6px;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">🗂</button><!-- FC3: Runs pasa de pestaña a modal -->
@@ -1859,7 +1860,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261109-2015';
+	const SW_VERSION = 'tsumevault-20261110-1830';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
