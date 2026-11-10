@@ -1,0 +1,65 @@
+# Despliegue de TsumeVault en GitHub Pages.
+# Sustituye a la compilacion automatica con Jekyll, que con ~119.000 ficheros
+# superaba el tiempo de espera del despliegue. Aqui:
+#   - se publica solo lo que usa la web (fuera scripts, docs, tests...);
+#   - no se ejecuta Jekyll;
+#   - el despliegue puede esperar hasta 30 minutos.
+# Requiere: Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
+name: Deploy Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Preparar el sitio (solo lo publicable)
+        run: |
+          # Lo mismo que ya excluia Jekyll (nombres que empiezan por "_" o ".")
+          # mas los ficheros de desarrollo. tsumeVault.db SI se publica: la app
+          # lo descarga como plan B cuando no hay BD local ni servidor.
+          rsync -a \
+            --exclude='.*' \
+            --exclude='_*' \
+            --exclude='docs/' \
+            --exclude='v2/' \
+            --exclude='*.py' --exclude='*.pyc' \
+            --exclude='*.bat' --exclude='*.sh' \
+            --exclude='*.md' --exclude='*.txt' --exclude='*.sql' \
+            --exclude='Caddyfile' \
+            --exclude='harness.js' --exclude='test_*.js' --exclude='*_bundle.js' \
+            --exclude='tsumeVault.downloaded.db' \
+            ./ "$RUNNER_TEMP/site/"
+          echo "Ficheros publicados: $(find "$RUNNER_TEMP/site" -type f | wc -l)"
+          du -sh "$RUNNER_TEMP/site"
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 1800000
