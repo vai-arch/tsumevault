@@ -1883,7 +1883,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261114-1841';
+	const SW_VERSION = 'tsumevault-20261114-2236';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -8121,7 +8121,7 @@
       const tok = aiSetBusy(); aiError = ''; if (aiActive) aiRenderStatus();
       const t0 = Date.now(), color = aiToPlay(g);
       try {
-        const data = await aiPost('/ai/move', Object.assign(aiPosBody(g), { level: g.level, to_play: color }), 120000);
+        const data = await aiPost('/ai/move', Object.assign(aiPosBody(g), { level: g.level, to_play: color, handicap: g.handicap }), 120000);
         const wait = aiDelayMs() - (Date.now() - t0);
         if (wait > 0) await new Promise(r => setTimeout(r, wait));
         if (aiGame !== g || g.status !== 'playing') return;   // la partida cambió mientras pensaba
