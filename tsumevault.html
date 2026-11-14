@@ -1883,7 +1883,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261114-2236';
+	const SW_VERSION = 'tsumevault-20261114-2350';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -7285,11 +7285,13 @@
       gmStopTimer();
       gmActive = true;
       gmCurrentGame = gameRow;
-      const sgfPath = sgfUrl(gameRow.sgf_path); // FC12
       try {
-        const res = await fetch(sgfPath);
-        if (!res.ok) throw new Error('SGF not found');
-        const sgf = await res.text();
+        let sgf = gameRow.sgf;   // IA: partidas contra la IA traen el SGF como texto (ai_games.sgf)
+        if (sgf == null) {
+          const res = await fetch(sgfUrl(gameRow.sgf_path)); // FC12
+          if (!res.ok) throw new Error('SGF not found');
+          sgf = await res.text();
+        }
         const kifu = WGo.Kifu.fromSgf(sgf);
         gmRootNode = kifu.root;
         const size = parseInt((sgf.match(/SZ\[(\d+)\]/) || [, '19'])[1]);
@@ -8383,6 +8385,16 @@
       document.body.appendChild(a); a.click(); a.remove();
       setTimeout(() => URL.revokeObjectURL(a.href), 1000);
     }
+    // Revisar una partida en el visor de la pestaña Games (sin tocar sus colecciones).
+    function aiReviewGame(uuid) {
+      const r = dbQueryOne('SELECT sgf, played_at, ai_level, handicap, score FROM ai_games WHERE uuid=?', [uuid]);
+      if (!r) return;
+      closeAiStats();
+      switchTab('games');
+      const d = new Date(r.played_at);
+      gmOpenGame({ id: null, sgf: r.sgf,
+        name: `${localDateStr(d)} · IA ${aiLevelLabel(r.ai_level)} · H${r.handicap > 0 ? '+' : ''}${r.handicap} · ${r.score > 0 ? '+' : ''}${r.score}` });
+    }
     function openAiStats() { document.getElementById('ai-stats-overlay').style.display = 'flex'; renderAiStats(); }
     function closeAiStats() { const o = document.getElementById('ai-stats-overlay'); if (o) o.style.display = 'none'; }
     function onAiStatsOverlayClick(e) { if (e.target === document.getElementById('ai-stats-overlay')) closeAiStats(); }
@@ -8498,6 +8510,9 @@
         row.appendChild(el('span', 'min-width:28px;text-align:right;', (g.handicap > 0 ? '+' : '') + g.handicap));
         row.appendChild(el('span', `min-width:56px;text-align:right;color:${g.score > 0 ? 'var(--ok-bright)' : 'var(--accent)'};`, (g.score > 0 ? '+' : '') + g.score));
         row.appendChild(el('span', 'flex:1;color:var(--dim2);', g.end_type === 'resign_me' ? 'abandono' : g.end_type === 'resign_ai' ? 'abandona la IA' : ''));
+        const vw = el('button', null, '👁'); vw.className = 'chap-btn'; vw.title = 'Revisar la partida en el visor de Games';
+        vw.addEventListener('click', () => aiReviewGame(g.uuid));
+        row.appendChild(vw);
         const dl = el('button', null, '⬇ SGF'); dl.className = 'chap-btn'; dl.addEventListener('click', () => aiDownloadSgf(g.uuid));
         const rm = el('button', null, '🗑'); rm.className = 'chap-btn'; rm.title = 'Borrar del histórico';
         rm.addEventListener('click', () => {
