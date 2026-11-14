@@ -1788,8 +1788,10 @@
           <span id="js-choices" style="display:flex;gap:6px;flex-wrap:wrap;"></span>
         </div>
         <!-- IA3: controles de la partida contra la IA -->
-        <div id="ai-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
+        <div id="ai-controls" style="display:none;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
+          <button class="ctrl-btn" id="ai-btn-back" title="Deshacer tu última jugada y la respuesta de la IA">← Atrás</button>
           <button class="ctrl-btn" id="ai-btn-pass" title="Pasar (dos pases seguidos terminan la partida)">Pasar</button>
+          <button class="ctrl-btn" id="ai-btn-est" title="Estimar el resultado y mostrar el territorio (vuelve a pulsar para ocultarlo)">📊 Estimar</button>
           <button class="ctrl-btn" id="ai-btn-resign" title="Abandonar (cuenta como derrota)">🏳 Abandonar</button>
           <button class="ctrl-btn" id="ai-btn-discard" title="Descartar la partida: no cuenta en el histórico ni en las estadísticas">🗑 Descartar</button>
           <button class="ctrl-btn" id="ai-btn-retry" style="display:none" title="Volver a pedir la jugada o el recuento al servidor">↻ Reintentar</button>
@@ -1881,7 +1883,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261114-1721';
+	const SW_VERSION = 'tsumevault-20261114-1841';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -7881,6 +7883,12 @@
       if (!m.length) return game.hc_stones.length >= 2 ? 'W' : 'B';
       return m[m.length - 1][0] === 'B' ? 'W' : 'B';
     }
+    // Atrás: nº de jugadas que quedan tras deshacer la última jugada propia y todo lo posterior
+    // (la respuesta de la IA). null si no hay ninguna jugada propia que deshacer.
+    function aiUndoLength(game) {
+      for (let i = game.moves.length - 1; i >= 0; i--) if (game.moves[i][0] === game.my_color) return i;
+      return null;
+    }
     function aiTwoPasses(game) {
       const m = game.moves;
       return m.length >= 2 && m[m.length - 1][1] === 'pass' && m[m.length - 2][1] === 'pass';
@@ -7991,6 +7999,8 @@
     let aiPendingTap = null;  // doble toque (tapConfirm)
     let aiError = '';         // último error de red, se muestra con el botón Reintentar
     let aiBusyTok = null;     // dueño de aiBusy: una petición solo libera el ocupado que ella tomó
+    let aiEst = null;         // estimación visible: {n: nº de jugadas cuando se pidió, score, ownership}
+    let aiEstimating = false;
     function aiSetBusy() { const t = {}; aiBusyTok = t; aiBusy = true; return t; }
     function aiClearBusy(t) { if (aiBusyTok === t) { aiBusyTok = null; aiBusy = false; } }
 
@@ -8013,6 +8023,22 @@
       }
       return g;
     }
+    // Cuadradito de territorio: negro o blanco según el dueño, más opaco cuanto más seguro.
+    const AI_OWN_HANDLER = {
+      stone: {
+        draw: function (a, board) {
+          const ctx = this, x = board.getX(a.x), y = board.getY(a.y), h = board.stoneRadius * 0.55;
+          ctx.save();
+          ctx.globalAlpha = Math.min(1, Math.abs(a.own)) * 0.85;
+          ctx.fillStyle = a.own > 0 ? '#ffffff' : '#000000';
+          ctx.strokeStyle = a.own > 0 ? '#000000' : '#ffffff';
+          ctx.lineWidth = 0.6;
+          ctx.fillRect(x - h, y - h, h * 2, h * 2);
+          ctx.strokeRect(x - h, y - h, h * 2, h * 2);
+          ctx.restore();
+        }
+      }
+    };
     function aiIsMyTurn() { return !!aiGame && aiGame.status === 'playing' && !aiBusy && aiToPlay(aiGame) === aiGame.my_color; }
     function aiRender() {
       if (!aiGame) return;
@@ -8026,6 +8052,14 @@
       const last = aiGame.moves[aiGame.moves.length - 1];
       if (last && aiGame.status === 'playing') { const p = aiFromGtp(last[1]); if (p) wgoBoard.addObject({ x: p.x, y: p.y, type: 'CR' }); }
       for (const v of (aiGame.dead || [])) { const p = aiFromGtp(v); if (p) wgoBoard.addObject({ x: p.x, y: p.y, type: 'MA' }); }
+      if (aiEst && aiEst.n === aiGame.moves.length && aiGame.status === 'playing' && aiEst.ownership) {
+        for (let y = 0; y < 19; y++) for (let x = 0; x < 19; x++) {
+          const o = aiEst.ownership[x + 19 * y], st = pos.get(x, y);
+          // vacíos con dueño claro, y piedras que se dan por muertas (dueño contrario a su color)
+          const show = st === 0 ? Math.abs(o) >= 0.15 : (st === WGo.B ? o >= 0.5 : o <= -0.5);
+          if (show) wgoBoard.addObject({ x, y, type: AI_OWN_HANDLER, own: o });
+        }
+      }
       aiPendingTap = null;
       aiRenderStatus();
     }
@@ -8037,10 +8071,15 @@
       let txt, cls = '';
       if (g.status === 'done') txt = aiResultText(g);
       else if (g.status === 'scoring') txt = aiBusy ? 'Contando…' : 'Recuento pendiente';
-      else if (aiBusy) txt = 'La IA está pensando…';
+      else if (aiBusy) txt = aiEstimating ? 'Estimando…' : 'La IA está pensando…';
       else if (toPlay === g.my_color) { txt = (toPlay === 'B' ? '● Negras' : '○ Blancas') + ' — te toca'; cls = toPlay === 'B' ? 'board-hint-black' : 'board-hint-white'; }
       else txt = 'Turno de la IA';
       if (g.status === 'playing' && lastMv && lastMv[1] === 'pass') txt += ' · ' + (lastMv[0] === g.my_color ? 'has pasado' : 'la IA ha pasado');
+      if (aiEst && aiEst.n === g.moves.length && g.status === 'playing' && !aiBusy) {
+        const sc = aiEst.score;
+        txt = sc > 0 ? `Estimación: vas ganando por ${sc}` : sc < 0 ? `Estimación: vas perdiendo por ${-sc}` : 'Estimación: igualado';
+        cls = '';
+      }
       if (aiError && !aiBusy) { txt = '⚠ ' + aiError + ' — pulsa Reintentar'; cls = ''; }
       hint.textContent = txt;
       hint.className = cls;
@@ -8052,6 +8091,8 @@
       document.getElementById('ai-btn-pass').disabled = busyOrDone;
       document.getElementById('ai-btn-resign').disabled = g.status !== 'playing' || aiBusy;
       document.getElementById('ai-btn-discard').disabled = g.status === 'done';
+      document.getElementById('ai-btn-back').disabled = g.status !== 'playing' || aiBusy || aiUndoLength(g) == null;
+      document.getElementById('ai-btn-est').disabled = g.status !== 'playing' || aiBusy;
       const retry = document.getElementById('ai-btn-retry');
       retry.style.display = !aiBusy && aiError && (g.status === 'scoring' || (g.status === 'playing' && toPlay !== g.my_color)) ? '' : 'none';
     }
@@ -8122,6 +8163,34 @@
       }
       aiPlayMine(aiToGtp(x, y));
     }
+    function aiBack() {
+      const g = aiGame;
+      if (!g || g.status !== 'playing' || aiBusy) return;
+      const n = aiUndoLength(g);
+      if (n == null) return;
+      if (!confirm('¿Deshacer tu última jugada (y la respuesta de la IA)?')) return;
+      g.moves.length = n;
+      aiError = ''; aiEst = null;
+      aiSave();
+      aiRender();
+      aiRequestMove();   // solo actúa si tras deshacer le tocara a la IA (no debería)
+    }
+    async function aiEstimate() {
+      const g = aiGame;
+      if (!g || g.status !== 'playing' || aiBusy) return;
+      if (aiEst && aiEst.n === g.moves.length) { aiEst = null; aiRender(); return; }   // segundo toque: ocultar
+      const tok = aiSetBusy(); aiEstimating = true; aiRenderStatus();
+      try {
+        const data = await aiPost('/ai/score', Object.assign(aiPosBody(g), { mode: 'estimate' }), 30000);
+        if (aiGame === g) aiEst = { n: g.moves.length, score: aiMyScore('passes', data.score_white, g.my_color), ownership: data.ownership || null };
+      } catch (e) {
+        if (aiGame === g) { const cb = document.getElementById('comment-box'); if (cb) cb.textContent = 'No se pudo estimar (' + e.message + ')'; }
+      } finally {
+        aiEstimating = false;
+        aiClearBusy(tok);
+        if (aiActive && aiGame === g) aiRender();
+      }
+    }
     function aiPass() { if (aiIsMyTurn()) aiPlayMine('pass'); }
     function aiResign() {
       if (!aiGame || aiGame.status !== 'playing' || aiBusy) return;
@@ -8139,7 +8208,8 @@
       const bw = document.getElementById('board-wrap'); if (bw) bw.classList.remove('board-bad', 'board-ok', 'board-choice');
       const hint = document.getElementById('board-hint'); if (hint) { hint.textContent = 'Partida descartada'; hint.className = ''; }
       document.getElementById('comment-box').textContent = '';
-      ['ai-btn-pass', 'ai-btn-resign', 'ai-btn-discard'].forEach(id => { document.getElementById(id).disabled = true; });
+      aiEst = null;
+      ['ai-btn-pass', 'ai-btn-resign', 'ai-btn-discard', 'ai-btn-back', 'ai-btn-est'].forEach(id => { document.getElementById(id).disabled = true; });
       document.getElementById('ai-btn-retry').style.display = 'none';
       aiRenderPanel();
       switchToPanel();
@@ -8255,7 +8325,7 @@
     function aiStartGame(p) {
       aiGame = Object.assign(aiNewGame({ level: p.level, handicap: p.hc, holder: p.holder, myColor: p.color, rules: p.rules }),
         { uuid: makeUUID(), started_at: aiNowIso() });
-      aiError = ''; aiBusy = false; aiBusyTok = null;
+      aiError = ''; aiBusy = false; aiBusyTok = null; aiEst = null;
       aiSave();
       closeMobilePanel();
       initBoard(19); aiRender(); switchToBoard();
@@ -8282,6 +8352,8 @@
       document.getElementById('ai-btn-pass').addEventListener('click', aiPass);
       document.getElementById('ai-btn-resign').addEventListener('click', aiResign);
       document.getElementById('ai-btn-discard').addEventListener('click', aiDiscard);
+      document.getElementById('ai-btn-back').addEventListener('click', aiBack);
+      document.getElementById('ai-btn-est').addEventListener('click', aiEstimate);
       document.getElementById('ai-btn-retry').addEventListener('click', aiRetry);
     }
 
