@@ -112,17 +112,18 @@
 
     .tab-bar {
       display: flex;
+      flex-wrap: wrap; /* IA3: con 7 pestañas, si no caben pasan a otra fila en vez de quedar ocultas */
       border-bottom: 1px solid var(--border);
       flex-shrink: 0;
     }
 
     .tab {
-      flex: 1;
+      flex: 1 1 auto;
       font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: .12em;
+      font-size: 10px;          /* IA3: antes 11px/.12em: 7 pestañas necesitaban ~380px en un panel de 300 */
+      letter-spacing: .04em;
       text-transform: uppercase;
-      padding: 9px 4px;
+      padding: 9px 2px;
       text-align: center;
       cursor: pointer;
       color: var(--dim);
@@ -1520,6 +1521,17 @@
       </div>
     </div>
 
+    <!-- IA4: ESTADÍSTICAS DE PARTIDAS CONTRA LA IA (z-index como Config/Stats) -->
+    <div id="ai-stats-overlay" onclick="onAiStatsOverlayClick(event)" style="display:none;position:fixed;inset:0;isolation:isolate;z-index:1300;background:rgba(0,0,0,.6);align-items:center;justify-content:center;">
+      <div style="background:var(--panel);border:1px solid var(--border2);border-radius:3px;width:min(980px,98vw);max-height:92vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.8);position:relative;z-index:301;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 18px;border-bottom:1px solid var(--border);flex-shrink:0;">
+          <span style="font-family:var(--mono);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);">Partidas contra la IA</span>
+          <button onclick="closeAiStats()" style="background:transparent;border:none;color:var(--dim);font-size:18px;cursor:pointer;line-height:1;padding:2px 6px;">✕</button>
+        </div>
+        <div id="ai-stats-body" style="overflow:auto;scrollbar-width:thin;scrollbar-color:var(--border2) transparent;flex:1;padding:12px 18px 18px;"></div>
+      </div>
+    </div>
+
     <!-- T35: BULK TAG MODAL (reutiliza los filtros de Free; z-index como Config/Stats) -->
     <div id="bt-overlay" onclick="onBulkTagOverlayClick(event)" style="display:none;position:fixed;inset:0;isolation:isolate;z-index:1300;background:rgba(0,0,0,.6);align-items:center;justify-content:center;">
       <div id="bt-modal" onkeydown="if(event.code==='Escape')closeBulkTag();event.stopPropagation()" style="background:var(--panel);border:1px solid var(--border2);border-radius:3px;width:min(640px,96vw);max-height:88vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.8);position:relative;z-index:301;">
@@ -1556,6 +1568,7 @@
         <div class="tab" data-tab="review">Review</div>
         <div class="tab" data-tab="games">Games</div>
         <div class="tab" data-tab="josekis">Joseki</div> <!-- J3 -->
+        <div class="tab" data-tab="play">Play</div> <!-- IA3: jugar contra la IA -->
       </div>
 
       <div class="tab-pane active" id="tab-collections">
@@ -1725,6 +1738,7 @@
           <div style="padding:24px 14px;font-family:var(--mono);font-size:9px;color:var(--dim2);text-align:center">Loading…</div>
         </div>
       </div>
+      <div class="tab-pane" id="tab-play"><!-- IA3: contenido generado por aiRenderPanel() --></div>
     </div>
 
     <div id="main">
@@ -1772,6 +1786,13 @@
             <input type="checkbox" id="js-allghosts" checked style="accent-color:var(--gold);cursor:pointer;"> all ghosts
           </label>
           <span id="js-choices" style="display:flex;gap:6px;flex-wrap:wrap;"></span>
+        </div>
+        <!-- IA3: controles de la partida contra la IA -->
+        <div id="ai-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
+          <button class="ctrl-btn" id="ai-btn-pass" title="Pasar (dos pases seguidos terminan la partida)">Pasar</button>
+          <button class="ctrl-btn" id="ai-btn-resign" title="Abandonar (cuenta como derrota)">🏳 Abandonar</button>
+          <button class="ctrl-btn" id="ai-btn-discard" title="Descartar la partida: no cuenta en el histórico ni en las estadísticas">🗑 Descartar</button>
+          <button class="ctrl-btn" id="ai-btn-retry" style="display:none" title="Volver a pedir la jugada o el recuento al servidor">↻ Reintentar</button>
         </div>
       </div>
       <div id="comment-box"></div>
@@ -1860,7 +1881,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261110-1830';
+	const SW_VERSION = 'tsumevault-20261114-1721';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -2225,6 +2246,8 @@
         dbExec('CREATE TABLE IF NOT EXISTS focus_sessions (uuid TEXT PRIMARY KEY, focus_uuid TEXT NOT NULL, started_at TEXT NOT NULL, ended_at TEXT, completed INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0)');
         dbExec('CREATE INDEX IF NOT EXISTS idx_attempts_session ON attempts(session_uuid) WHERE session_uuid IS NOT NULL');
       } catch (e) { console.warn('[migrate] focus tables failed', e); }
+      // IA2: partidas contra la IA (instalaciones existentes; mismo DDL que createSchema)
+      try { dbExec('CREATE TABLE IF NOT EXISTS ai_games (uuid TEXT PRIMARY KEY, played_at TEXT NOT NULL, my_color TEXT NOT NULL, ai_level TEXT NOT NULL, model TEXT NOT NULL, handicap INTEGER NOT NULL, rules TEXT NOT NULL, komi REAL NOT NULL, end_type TEXT NOT NULL, score REAL NOT NULL, sgf TEXT NOT NULL, deleted INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0)'); } catch (e) { console.warn('[migrate] ai_games table failed', e); }
     }
 
     // ── T9: cursores de sync DENTRO de la DB (tabla sync_meta) ──
@@ -2362,6 +2385,10 @@
       completed INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0
     );
     CREATE INDEX IF NOT EXISTS idx_attempts_session ON attempts(session_uuid) WHERE session_uuid IS NOT NULL;
+    -- IA2: partidas terminadas contra la IA. synced: 0 = cambio local pendiente de push, 1 = confirmado.
+    -- Nunca se borran filas: deleted=1 es borrado logico y viaja por LWW (updated_at).
+    -- handicap y score con signo desde el jugador: +N recibe / -N da; + gana / - pierde.
+    CREATE TABLE IF NOT EXISTS ai_games (uuid TEXT PRIMARY KEY, played_at TEXT NOT NULL, my_color TEXT NOT NULL, ai_level TEXT NOT NULL, model TEXT NOT NULL, handicap INTEGER NOT NULL, rules TEXT NOT NULL, komi REAL NOT NULL, end_type TEXT NOT NULL, score REAL NOT NULL, sgf TEXT NOT NULL, deleted INTEGER NOT NULL DEFAULT 0, updated_at TEXT NOT NULL, synced INTEGER NOT NULL DEFAULT 0);
   `);
     }
 
@@ -3723,6 +3750,48 @@
           }
         }
       } catch (e) { console.warn('[sync] focus sync failed', e); }
+      // ── IA2: Sync partidas contra la IA (ai_games) ──
+      // Pull por cursor server_at: hora DEL SERVIDOR de la ultima escritura aceptada
+      // (ver _migrate_v6_ai_games). Asi una partida terminada offline en otro
+      // dispositivo llega aunque su updated_at sea anterior al cursor. Se aplica LWW
+      // por updated_at. Despues se empujan las filas con synced=0 y se confirman solo
+      // las enviadas (misma updated_at). El cursor (sync_meta last_ai_games_sync) solo
+      // avanza si el push tuvo exito; con la tabla vacia se ignora (cursor huerfano).
+      // Servidor antiguo (404) -> no-op.
+      try {
+        const AIG = ['uuid', 'played_at', 'my_color', 'ai_level', 'model', 'handicap', 'rules', 'komi', 'end_type', 'score', 'sgf', 'deleted', 'updated_at'];
+        const haveAig = (dbQueryOne('SELECT COUNT(*) AS c FROM ai_games', [])?.c || 0) > 0;
+        const lastAig = haveAig ? (getSyncMeta('last_ai_games_sync') || '1970-01-01T00:00:00Z') : '1970-01-01T00:00:00Z';
+        let aigCursor = lastAig;
+        const gPullR = await syncFetch(`/sync/ai_games/pull?since=${encodeURIComponent(lastAig)}`, { signal: AbortSignal.timeout(15000) });
+        if (gPullR.ok) {
+          const { ai_games: pulledG } = await gPullR.json();
+          for (const r of (pulledG || [])) {
+            if (r.server_at > aigCursor) aigCursor = r.server_at;
+            const ex = dbQueryOne('SELECT updated_at FROM ai_games WHERE uuid=?', [r.uuid]);
+            if (!ex || r.updated_at > ex.updated_at) {
+              dbExec(`INSERT INTO ai_games (${AIG.join(',')},synced) VALUES (${AIG.map(() => '?').join(',')},1)
+                ON CONFLICT(uuid) DO UPDATE SET ${AIG.slice(1).map(c => `${c}=excluded.${c}`).join(', ')}, synced=1`,
+                AIG.map(c => r[c] ?? null));
+            }
+          }
+          const pendingG = dbQuery(`SELECT ${AIG.join(',')} FROM ai_games WHERE synced=0`, []);
+          let gPushOk = true;
+          if (pendingG.length) {
+            const gPushR = await syncFetch(`/sync/ai_games/push`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ ai_games: pendingG }),
+              signal: AbortSignal.timeout(15000)
+            });
+            gPushOk = gPushR.ok;
+            if (gPushR.ok) {
+              for (const r of pendingG) dbExec('UPDATE ai_games SET synced=1 WHERE uuid=? AND updated_at=?', [r.uuid, r.updated_at]);
+            }
+          }
+          if (gPushOk && aigCursor > lastAig) cursorUpdates['last_ai_games_sync'] = aigCursor;
+        }
+      } catch (e) { console.warn('[sync] ai_games sync failed', e); }
       // ── Sync SM-2 ──
       // Fase 1 (3.10, solo el cursor): last_sm2_sync ya NO se fija con el reloj
       // del cliente (un reloj adelantado saltaba para siempre registros del
@@ -7146,10 +7215,11 @@
     window.addEventListener('keydown', e => {
       if (e.code !== 'Escape' && window._studyExploring && window._studyExploring()) return; // T31: en Explorar solo Escape (cerrar modales)
       if (e.code !== 'Escape' && jsActive) return; // J3: en Josekis no aplican Enter/Espacio/Alt+N/P de problemas
+      if (e.code !== 'Escape' && aiActive) return; // IA3: ni en la partida contra la IA
       if ((e.code === 'Enter' || e.code === 'Space') && waitingForNext && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.altKey && e.code === 'KeyN' && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.code === 'KeyP') { e.preventDefault(); togglePause(); }
-      if (e.code === 'Escape') { closeConfig(); closeStats(); closeBulkTag(); /* T35 */ closeRuns(); /* FC3 */ closeFocusPop(); /* FC4 */ }
+      if (e.code === 'Escape') { closeConfig(); closeStats(); closeBulkTag(); /* T35 */ closeRuns(); /* FC3 */ closeFocusPop(); /* FC4 */ closeAiStats(); /* IA4 */ }
     });
     // ══ GAMES VIEWER ══
 
@@ -7750,11 +7820,630 @@
       if (jsData) { if (!wgoBoard || boardSize !== 19) initBoard(19); jsRender(null); }
     }
 
+    // ══ IA3: JUGAR CONTRA LA IA (WORKPLAN_IA.md) ══
+    // El motor vive en el servidor (/ai/move, /ai/score; ai_engines.py). Aquí: la
+    // partida en curso (localStorage, solo este dispositivo), las reglas locales con
+    // WGo.Game (una jugada ilegal no se envía) y el alta en ai_games al terminar.
+
+    // ── IA3: funciones puras (extract_ai.py las extrae para test_ai.js; sin DOM ni estado global) ──
+    const AI_COLS = 'ABCDEFGHJKLMNOPQRST';   // GTP: columnas sin la I
+    // Piedras de handicap (vista de negras): 2 = esquinas opuestas, 3 añade abajo-derecha, etc.
+    const AI_HC_STONES = {
+      2: ['D4', 'Q16'], 3: ['D4', 'Q16', 'Q4'], 4: ['D4', 'Q16', 'Q4', 'D16'],
+      5: ['D4', 'Q16', 'Q4', 'D16', 'K10'], 6: ['D4', 'Q16', 'Q4', 'D16', 'D10', 'Q10'],
+      7: ['D4', 'Q16', 'Q4', 'D16', 'D10', 'Q10', 'K10'], 8: ['D4', 'Q16', 'Q4', 'D16', 'D10', 'Q10', 'K4', 'K16'],
+      9: ['D4', 'Q16', 'Q4', 'D16', 'D10', 'Q10', 'K4', 'K16', 'K10'],
+    };
+    function aiToGtp(x, y) { return AI_COLS[x] + (19 - y); }
+    function aiFromGtp(v) {
+      if (typeof v !== 'string' || !v || v === 'pass') return null;
+      const x = AI_COLS.indexOf(v[0]), n = parseInt(v.slice(1), 10);
+      return (x < 0 || !(n >= 1 && n <= 19) || String(n) !== v.slice(1)) ? null : { x, y: 19 - n };
+    }
+    function aiSgfCoord(v) { const p = aiFromGtp(v); return p ? String.fromCharCode(97 + p.x) + String.fromCharCode(97 + p.y) : ''; }
+    function aiHandicapStones(n) { return (AI_HC_STONES[n] || []).slice(); }
+    function aiLevelLabel(level) {
+      const lv = String(level || '').split(':').pop();
+      if (lv === 'max') return 'Máximo';
+      const m = /^rank_(\d+)([kd])$/.exec(lv);
+      return m ? m[1] + m[2] : lv;
+    }
+    function aiDefaultLevels() {
+      const out = [];
+      for (let k = 20; k >= 1; k--) out.push(`katago:rank_${k}k`);
+      for (let d = 1; d <= 9; d++) out.push(`katago:rank_${d}d`);
+      out.push('katago:max');
+      return out;
+    }
+    // Configuración de una partida nueva. handicap 0..9; holder 'me'|'ai' (quien lleva el
+    // handicap juega con negras); myColor solo cuenta en igualadas. Handicap 1 = negras sin
+    // piedras y komi 0,5. Igualada: komi 6,5 japonesas / 7,5 chinas. game.handicap queda con
+    // signo desde el jugador: +N recibe, -N da.
+    function aiNewGame({ level, handicap, holder, myColor, rules }) {
+      const h = Math.max(0, Math.min(9, handicap | 0));
+      const r = rules === 'chinese' ? 'chinese' : 'japanese';
+      const g = { level, rules: r, moves: [], status: 'playing' };
+      if (h >= 1) {
+        g.my_color = holder === 'ai' ? 'W' : 'B';
+        g.handicap = holder === 'ai' ? -h : h;
+        g.komi = 0.5;
+        g.hc_stones = h >= 2 ? aiHandicapStones(h) : [];
+      } else {
+        g.my_color = myColor === 'W' ? 'W' : 'B';
+        g.handicap = 0;
+        g.komi = r === 'chinese' ? 7.5 : 6.5;
+        g.hc_stones = [];
+      }
+      return g;
+    }
+    function aiToPlay(game) {
+      const m = game.moves;
+      if (!m.length) return game.hc_stones.length >= 2 ? 'W' : 'B';
+      return m[m.length - 1][0] === 'B' ? 'W' : 'B';
+    }
+    function aiTwoPasses(game) {
+      const m = game.moves;
+      return m.length >= 2 && m[m.length - 1][1] === 'pass' && m[m.length - 2][1] === 'pass';
+    }
+    // Score con signo desde el jugador a partir del score de blancas del motor. Quien abandona
+    // pierde siempre: si la estimación dice lo contrario, derrota mínima (±0,5).
+    function aiMyScore(endType, scoreWhite, myColor) {
+      let s = myColor === 'W' ? scoreWhite : -scoreWhite;
+      s = Math.round(s * 10) / 10 || 0;
+      if (endType === 'resign_me' && !(s < 0)) s = -0.5;
+      if (endType === 'resign_ai' && !(s > 0)) s = 0.5;
+      return s;
+    }
+    function aiResultString(endType, score, myColor) {
+      const other = myColor === 'B' ? 'W' : 'B';
+      if (endType === 'resign_me') return other + '+R';
+      if (endType === 'resign_ai') return myColor + '+R';
+      if (score === 0) return '0';
+      return (score > 0 ? myColor : other) + '+' + Math.abs(score);
+    }
+    function aiSgfText(s) { return String(s).replace(/\\/g, '\\\\').replace(/]/g, '\\]'); }
+    function aiBuildSgf(game, { endType, score, date, myName, aiName }) {
+      const pb = game.my_color === 'B' ? myName : aiName, pw = game.my_color === 'B' ? aiName : myName;
+      let s = `(;GM[1]FF[4]CA[UTF-8]AP[TsumeVault]SZ[19]KM[${game.komi}]RU[${game.rules === 'chinese' ? 'Chinese' : 'Japanese'}]`;
+      if (game.hc_stones.length) s += `HA[${game.hc_stones.length}]AB` + game.hc_stones.map(v => `[${aiSgfCoord(v)}]`).join('');
+      s += `DT[${aiSgfText(date)}]PB[${aiSgfText(pb)}]PW[${aiSgfText(pw)}]RE[${aiResultString(endType, score, game.my_color)}]`;
+      for (const [c, v] of game.moves) s += `;${c}[${v === 'pass' ? '' : aiSgfCoord(v)}]`;
+      return s + ')';
+    }
+    // IA4: estadísticas (Excel de Victor). Solo cuentan partidas con nivel humano de KataGo
+    // ('katago:rank_*'); 'max' y otros motores quedan fuera. Índice de rango: 20k=0 … 1k=19, 1d=20 … 9d=28.
+    function aiRankIdx(level) {
+      const m = /^katago:rank_(\d+)([kd])$/.exec(String(level || ''));
+      if (!m) return null;
+      const n = parseInt(m[1], 10);
+      if (m[2] === 'k') return n >= 1 && n <= 20 ? 20 - n : null;
+      return n >= 1 && n <= 9 ? 19 + n : null;
+    }
+    function aiRankLevel(i) { return i < 20 ? `katago:rank_${20 - i}k` : `katago:rank_${i - 19}d`; }
+    // Rejilla nivel × handicap: celdas "i|h" con nº de partidas y media de score (h con signo: + recibo).
+    function aiGrid(games) {
+      const cells = {};
+      for (const g of games) {
+        if (g.deleted) continue;
+        const i = aiRankIdx(g.ai_level);
+        if (i == null) continue;
+        const k = i + '|' + g.handicap, c = cells[k] || (cells[k] = { n: 0, sum: 0, avg: 0 });
+        c.n++; c.sum += g.score; c.avg = Math.round(c.sum / c.n * 10) / 10;
+      }
+      return cells;
+    }
+    function aiCellGreen(cells, i, h) { const c = cells[i + '|' + h]; return !!(c && c.avg > 0); }
+    // Casilla sin jugar "dada por superada": hay una más difícil de la misma fila en verde
+    // (más difícil = recibir menos / dar más = h menor).
+    function aiCellImplied(cells, i, h) { for (let x = -9; x < h; x++) if (aiCellGreen(cells, i, x)) return true; return false; }
+    // Handicap que corresponde contra el rival i para superar el nivel objetivo t (+ recibo).
+    function aiHcRequired(i, t) { return i - t; }
+    // Diagonal de handicaps para superar el nivel t: cada rival i ≠ t con |h| ≤ 9 está superado
+    // si alguna casilla de su fila con h ≤ h requerido está en verde.
+    function aiHandicapStatus(cells, t) {
+      const out = [];
+      for (let i = 0; i <= 28; i++) {
+        if (i === t) continue;
+        const hReq = aiHcRequired(i, t);
+        if (Math.abs(hReq) > 9) continue;
+        let done = false;
+        for (let h = -9; h <= hReq && !done; h++) if (aiCellGreen(cells, i, h)) done = true;
+        out.push({ i, hReq, done });
+      }
+      return out;
+    }
+    // Reglas de cierre por defecto: puntos de control sobre TODAS las partidas igualadas del nivel,
+    // en orden. Las primeras se evalúan solo al llegar exactamente a n partidas; la última, de n en
+    // adelante. Cierra si % victorias ≥ pct y media > avg. Un nivel cerrado no se reabre.
+    const AI_CLOSE_RULES = [{ n: 3, pct: 100, avg: 100 }, { n: 5, pct: 80, avg: 15 }, { n: 12, pct: 75, avg: 0.5 }];
+    function aiLadder(games, rules) {
+      const byLvl = {};
+      for (const g of games) {
+        if (g.deleted || g.handicap !== 0) continue;
+        const i = aiRankIdx(g.ai_level);
+        if (i != null) (byLvl[i] = byLvl[i] || []).push(g);
+      }
+      const out = [];
+      for (const i of Object.keys(byLvl).map(Number).sort((a, b) => a - b)) {
+        const seq = byLvl[i].slice().sort((a, b) => (a.played_at < b.played_at ? -1 : a.played_at > b.played_at ? 1 : 0));
+        let wins = 0, sum = 0, closed = null;
+        seq.forEach((g, k) => {
+          wins += g.score > 0 ? 1 : 0; sum += g.score;
+          const n = k + 1, pct = wins / n * 100, avg = sum / n;
+          if (closed) return;
+          rules.forEach((r, ri) => {
+            if (closed) return;
+            const at = ri < rules.length - 1 ? n === r.n : n >= r.n;
+            if (at && pct >= r.pct && avg > r.avg) closed = { rule: ri, at: n };
+          });
+        });
+        out.push({ i, n: seq.length, wins, winrate: Math.round(wins / seq.length * 100), avg: Math.round(sum / seq.length * 10) / 10, closed });
+      }
+      return out;
+    }
+    // ── fin IA3 funciones puras ──
+
+    const AI_GAME_KEY = 'ai_current_game', AI_FORM_KEY = 'ai_form', AI_DELAY_KEY = 'ai_min_delay_ms';
+    let aiActive = false;     // pestaña Play activa (análogo a gmActive/jsActive)
+    let aiGame = null;        // partida en curso o la última terminada (localStorage)
+    let aiBusy = false;       // esperando al servidor (jugada o recuento)
+    let aiStatusInfo = null;  // respuesta de /ai/status
+    let aiPendingTap = null;  // doble toque (tapConfirm)
+    let aiError = '';         // último error de red, se muestra con el botón Reintentar
+    let aiBusyTok = null;     // dueño de aiBusy: una petición solo libera el ocupado que ella tomó
+    function aiSetBusy() { const t = {}; aiBusyTok = t; aiBusy = true; return t; }
+    function aiClearBusy(t) { if (aiBusyTok === t) { aiBusyTok = null; aiBusy = false; } }
+
+    function aiDelayMs() { const v = parseInt(lsGet(AI_DELAY_KEY), 10); return v >= 0 && v <= 10000 ? v : 1000; }
+    function aiLoad() { try { const g = JSON.parse(lsGet(AI_GAME_KEY) || 'null'); return g && Array.isArray(g.moves) ? g : null; } catch (e) { return null; } }
+    function aiSave() { if (aiGame) lsSet(AI_GAME_KEY, JSON.stringify(aiGame)); else { try { localStorage.removeItem(AI_GAME_KEY); } catch (e) { } } }
+    function aiNowIso() { return new Date().toISOString().replace(/\.\d+Z$/, 'Z'); }
+    function localAiGameInsert(row) {
+      const cols = ['uuid', 'played_at', 'my_color', 'ai_level', 'model', 'handicap', 'rules', 'komi', 'end_type', 'score', 'sgf', 'deleted', 'updated_at'];
+      dbExec(`INSERT OR IGNORE INTO ai_games (${cols.join(',')},synced) VALUES (${cols.map(() => '?').join(',')},0)`, cols.map(c => row[c]));
+    }
+
+    // Posición actual con reglas reales (captura, ko, sin suicidio).
+    function aiPosition(game) {
+      const g = new WGo.Game(19);
+      for (const v of game.hc_stones) { const p = aiFromGtp(v); g.setStone(p.x, p.y, WGo.B); }
+      for (const [c, v] of game.moves) {
+        const col = c === 'B' ? WGo.B : WGo.W, p = aiFromGtp(v);
+        if (p) g.play(p.x, p.y, col); else g.pass(col);
+      }
+      return g;
+    }
+    function aiIsMyTurn() { return !!aiGame && aiGame.status === 'playing' && !aiBusy && aiToPlay(aiGame) === aiGame.my_color; }
+    function aiRender() {
+      if (!aiGame) return;
+      if (!wgoBoard || boardSize !== 19) initBoard(19);
+      clearBoard();
+      const pos = aiPosition(aiGame).getPosition();
+      for (let x = 0; x < 19; x++) for (let y = 0; y < 19; y++) {
+        const v = pos.get(x, y);
+        if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 }); else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 });
+      }
+      const last = aiGame.moves[aiGame.moves.length - 1];
+      if (last && aiGame.status === 'playing') { const p = aiFromGtp(last[1]); if (p) wgoBoard.addObject({ x: p.x, y: p.y, type: 'CR' }); }
+      for (const v of (aiGame.dead || [])) { const p = aiFromGtp(v); if (p) wgoBoard.addObject({ x: p.x, y: p.y, type: 'MA' }); }
+      aiPendingTap = null;
+      aiRenderStatus();
+    }
+    function aiRenderStatus() {
+      const hint = document.getElementById('board-hint'), cb = document.getElementById('comment-box');
+      const g = aiGame; if (!g || !hint) return;
+      aiRenderCurInfo();
+      const toPlay = aiToPlay(g), lastMv = g.moves[g.moves.length - 1];
+      let txt, cls = '';
+      if (g.status === 'done') txt = aiResultText(g);
+      else if (g.status === 'scoring') txt = aiBusy ? 'Contando…' : 'Recuento pendiente';
+      else if (aiBusy) txt = 'La IA está pensando…';
+      else if (toPlay === g.my_color) { txt = (toPlay === 'B' ? '● Negras' : '○ Blancas') + ' — te toca'; cls = toPlay === 'B' ? 'board-hint-black' : 'board-hint-white'; }
+      else txt = 'Turno de la IA';
+      if (g.status === 'playing' && lastMv && lastMv[1] === 'pass') txt += ' · ' + (lastMv[0] === g.my_color ? 'has pasado' : 'la IA ha pasado');
+      if (aiError && !aiBusy) { txt = '⚠ ' + aiError + ' — pulsa Reintentar'; cls = ''; }
+      hint.textContent = txt;
+      hint.className = cls;
+      const bw = document.getElementById('board-wrap');   // borde rojo mientras haya un error de conexión
+      if (bw) { bw.classList.remove('board-ok', 'board-choice'); bw.classList.toggle('board-bad', !!aiError && !aiBusy); }
+      const hcTxt = g.handicap > 0 ? `recibes ${g.handicap}` : g.handicap < 0 ? `das ${-g.handicap}` : 'igualada';
+      cb.textContent = `IA ${aiLevelLabel(g.level)} · tú con ${g.my_color === 'B' ? 'negras' : 'blancas'} · ${hcTxt} · komi ${g.komi} · ${g.rules === 'chinese' ? 'chinas' : 'japonesas'} · ${g.moves.length} jugadas`;
+      const busyOrDone = !aiIsMyTurn();
+      document.getElementById('ai-btn-pass').disabled = busyOrDone;
+      document.getElementById('ai-btn-resign').disabled = g.status !== 'playing' || aiBusy;
+      document.getElementById('ai-btn-discard').disabled = g.status === 'done';
+      const retry = document.getElementById('ai-btn-retry');
+      retry.style.display = !aiBusy && aiError && (g.status === 'scoring' || (g.status === 'playing' && toPlay !== g.my_color)) ? '' : 'none';
+    }
+    function aiRenderCurInfo() {
+      const info = document.getElementById('ai-cur-info'), g = aiGame;
+      if (!info || !g) return;
+      info.textContent = `IA ${aiLevelLabel(g.level)} · ${g.my_color === 'B' ? 'negras' : 'blancas'} · ${g.moves.length} jugadas` + (g.status === 'scoring' ? ' · recuento pendiente' : '');
+    }
+    function aiResultText(g) {
+      if (g.end_type === 'resign_me') return `Abandonas — derrota (${g.score})`;
+      if (g.end_type === 'resign_ai') return `La IA abandona — victoria (+${g.score})`;
+      return g.score > 0 ? `Ganas por ${g.score}` : g.score < 0 ? `Pierdes por ${-g.score}` : 'Empate';
+    }
+
+    async function aiPost(path, body, timeoutMs) {
+      const r = await syncFetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal: AbortSignal.timeout(timeoutMs) });
+      const data = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(data.error || ('HTTP ' + r.status));
+      return data;
+    }
+    function aiPosBody(g) { return { rules: g.rules, komi: g.komi, handicap_stones: g.hc_stones, moves: g.moves }; }
+
+    async function aiRequestMove() {
+      const g = aiGame;
+      if (!g || g.status !== 'playing' || aiBusy || aiToPlay(g) === g.my_color) return;
+      const tok = aiSetBusy(); aiError = ''; if (aiActive) aiRenderStatus();
+      const t0 = Date.now(), color = aiToPlay(g);
+      try {
+        const data = await aiPost('/ai/move', Object.assign(aiPosBody(g), { level: g.level, to_play: color }), 120000);
+        const wait = aiDelayMs() - (Date.now() - t0);
+        if (wait > 0) await new Promise(r => setTimeout(r, wait));
+        if (aiGame !== g || g.status !== 'playing') return;   // la partida cambió mientras pensaba
+        g.model = data.model || g.model;
+        aiClearBusy(tok);
+        if (data.move === 'resign') { aiFinish('resign_ai'); return; }
+        if (data.move !== 'pass') {
+          const p = aiFromGtp(data.move);
+          if (!p || !Array.isArray(aiPosition(g).play(p.x, p.y, color === 'B' ? WGo.B : WGo.W))) throw new Error('jugada ilegal de la IA: ' + data.move);
+        }
+        g.moves.push([color, data.move]);
+        aiSave();
+        if (aiActive) { aiRender(); if (data.move !== 'pass') playSound('stone'); }
+        if (aiTwoPasses(g)) aiFinish('passes');
+      } catch (e) {
+        aiError = 'sin respuesta de la IA (' + e.message + ')';
+      } finally {
+        aiClearBusy(tok);
+        if (aiActive) aiRenderStatus();
+      }
+    }
+    function aiPlayMine(vertex) {
+      const g = aiGame;
+      g.moves.push([g.my_color, vertex]);
+      aiSave();
+      aiRender();
+      if (vertex !== 'pass') playSound('stone');
+      if (aiTwoPasses(g)) aiFinish('passes'); else aiRequestMove();
+    }
+    function aiBoardClick(x, y) {
+      if (!aiActive || !aiIsMyTurn()) return;
+      const c = aiGame.my_color === 'B' ? WGo.B : WGo.W;
+      if (!Array.isArray(aiPosition(aiGame).play(x, y, c))) return;   // ocupada, suicidio o ko
+      if (tapConfirm && !(aiPendingTap && aiPendingTap.x === x && aiPendingTap.y === y)) {
+        if (aiPendingTap) wgoBoard.removeObject({ x: aiPendingTap.x, y: aiPendingTap.y, type: 'outline' });
+        aiPendingTap = { x, y };
+        wgoBoard.addObject({ x, y, c: c === WGo.B ? 1 : -1, type: 'outline' });
+        return;
+      }
+      aiPlayMine(aiToGtp(x, y));
+    }
+    function aiPass() { if (aiIsMyTurn()) aiPlayMine('pass'); }
+    function aiResign() {
+      if (!aiGame || aiGame.status !== 'playing' || aiBusy) return;
+      if (!confirm('¿Abandonar la partida? Cuenta como derrota.')) return;
+      aiFinish('resign_me');
+    }
+    // Descartar: la partida en curso desaparece sin registrarse (ni ai_games ni sync). Una respuesta
+    // del servidor que llegue después se ignora: las peticiones comprueban aiGame !== g.
+    function aiDiscard() {
+      if (!aiGame || aiGame.status === 'done') return;
+      if (!confirm('¿Descartar la partida? No contará en el histórico ni en las estadísticas.')) return;
+      aiGame = null; aiBusy = false; aiBusyTok = null; aiError = '';
+      aiSave();
+      clearBoard();
+      const bw = document.getElementById('board-wrap'); if (bw) bw.classList.remove('board-bad', 'board-ok', 'board-choice');
+      const hint = document.getElementById('board-hint'); if (hint) { hint.textContent = 'Partida descartada'; hint.className = ''; }
+      document.getElementById('comment-box').textContent = '';
+      ['ai-btn-pass', 'ai-btn-resign', 'ai-btn-discard'].forEach(id => { document.getElementById(id).disabled = true; });
+      document.getElementById('ai-btn-retry').style.display = 'none';
+      aiRenderPanel();
+      switchToPanel();
+    }
+    function aiFinish(endType) {
+      aiGame.status = 'scoring'; aiGame.end_type = endType;
+      aiSave();
+      aiScore();
+    }
+    async function aiScore() {
+      const g = aiGame;
+      if (!g || g.status !== 'scoring' || aiBusy) return;
+      const tok = aiSetBusy(); aiError = ''; if (aiActive) aiRenderStatus();
+      try {
+        const mode = g.end_type === 'passes' ? 'final' : 'estimate';
+        const data = await aiPost('/ai/score', Object.assign(aiPosBody(g), { mode }), 120000);
+        if (aiGame !== g) return;
+        const score = aiMyScore(g.end_type, data.score_white, g.my_color), now = aiNowIso();
+        const lvl = aiLevelLabel(g.level);
+        const sgf = aiBuildSgf(g, { endType: g.end_type, score, date: now.slice(0, 10), myName: 'Jugador', aiName: `KataGo ${lvl}` });
+        localAiGameInsert({ uuid: g.uuid, played_at: now, my_color: g.my_color, ai_level: g.level,
+          model: g.model || (g.level.endsWith(':max') ? 'b15c192' : 'humanv0'), handicap: g.handicap, rules: g.rules,
+          komi: g.komi, end_type: g.end_type, score, sgf, deleted: 0, updated_at: now });
+        g.status = 'done'; g.score = score; g.dead = mode === 'final' ? (data.dead || []) : [];
+        aiClearBusy(tok);
+        aiSave();
+        scheduleSaveDB();
+        tryAutoSync(true).catch(() => { });
+        if (aiActive) { aiRender(); playSound(score > 0 ? 'right' : 'wrong'); aiRenderPanel(); }
+        if (document.getElementById('ai-stats-overlay').style.display === 'flex') renderAiStats(); // IA4
+      } catch (e) {
+        aiError = 'no se pudo contar (' + e.message + ')';
+      } finally {
+        aiClearBusy(tok);
+        if (aiActive) aiRenderStatus();
+      }
+    }
+    function aiRetry() { if (!aiGame) return; if (aiGame.status === 'scoring') aiScore(); else aiRequestMove(); }
+
+    // ── panel de la pestaña ──
+    function aiFormPrefs() {
+      try { return Object.assign({ level: 'katago:rank_15k', hc: 0, holder: 'me', color: 'B', rules: 'japanese' }, JSON.parse(lsGet(AI_FORM_KEY) || '{}')); }
+      catch (e) { return { level: 'katago:rank_15k', hc: 0, holder: 'me', color: 'B', rules: 'japanese' }; }
+    }
+    function aiRenderPanel() {
+      const pane = document.getElementById('tab-play'); if (!pane) return;
+      const el = (tag, css, text, cls) => { const e = document.createElement(tag); if (css) e.style.cssText = css; if (text != null) e.textContent = text; if (cls) e.className = cls; return e; };
+      const opt = (sel, value, label) => { const o = el('option', null, label); o.value = value; sel.appendChild(o); };
+      pane.textContent = '';
+      const st = el('div', null, null, 'fp-section');
+      const avail = !!(aiStatusInfo && aiStatusInfo.available);
+      st.appendChild(el('div', `font-family:var(--mono);font-size:10px;color:${avail ? 'var(--ok-bright)' : 'var(--dim2)'};`,
+        aiStatusInfo == null ? 'Comprobando el motor…' : avail ? '● Motor disponible' : '○ Motor no disponible (sin conexión o no configurado)'));
+      const stb = el('button', 'margin-top:8px;', '📈 Estadísticas', 'fp-btn');   // IA4
+      stb.addEventListener('click', openAiStats);
+      st.appendChild(stb);
+      pane.appendChild(st);
+      const g = aiGame;
+      if (g && g.status !== 'done') {
+        const sec = el('div', null, null, 'fp-section');
+        sec.appendChild(el('div', null, 'Partida en curso', 'fp-label'));
+        const info = el('div', 'font-family:var(--mono);font-size:10px;color:var(--dim);margin-bottom:6px;');
+        info.id = 'ai-cur-info';   // aiRenderStatus lo mantiene al día en cada jugada
+        sec.appendChild(info);
+        const b = el('button', null, '▶ Ver partida', 'fp-btn');
+        b.addEventListener('click', () => { closeMobilePanel(); initBoard(19); aiRender(); switchToBoard(); if (g.status === 'scoring') aiScore(); else aiRequestMove(); });
+        sec.appendChild(b);
+        sec.appendChild(el('div', 'font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:6px;', 'Para empezar otra, termina o abandona esta.'));
+        pane.appendChild(sec);
+        aiRenderCurInfo();
+        return;   // una partida a la vez: termínala o abandónala antes de empezar otra
+      }
+      if (g && g.status === 'done') {
+        const sec = el('div', null, null, 'fp-section');
+        sec.appendChild(el('div', null, 'Última partida', 'fp-label'));
+        sec.appendChild(el('div', `font-family:var(--mono);font-size:10px;color:${g.score > 0 ? 'var(--ok-bright)' : 'var(--accent)'};`, `IA ${aiLevelLabel(g.level)} · ${aiResultText(g)}`));
+        const b = el('button', 'margin-top:6px;', '👁 Ver tablero final', 'ctrl-btn');
+        b.addEventListener('click', () => { closeMobilePanel(); initBoard(19); aiRender(); switchToBoard(); });
+        sec.appendChild(b);
+        pane.appendChild(sec);
+      }
+      const pr = aiFormPrefs();
+      const f = el('div', null, null, 'fp-section');
+      f.appendChild(el('div', null, 'Nueva partida', 'fp-label'));
+      const row = (label, ctl) => { const d = el('div', 'margin-bottom:6px;'); d.appendChild(el('div', 'font-family:var(--mono);font-size:9px;color:var(--dim2);margin-bottom:2px;', label)); d.appendChild(ctl); f.appendChild(d); return ctl; };
+      const lvSel = row('Nivel de la IA', el('select', 'margin-bottom:0', null, 'fsel'));
+      for (const lv of (avail && aiStatusInfo.levels && aiStatusInfo.levels.length ? aiStatusInfo.levels : aiDefaultLevels())) opt(lvSel, lv, aiLevelLabel(lv));
+      lvSel.value = pr.level; if (!lvSel.value) lvSel.value = 'katago:rank_15k';
+      const hcSel = row('Handicap', el('select', 'margin-bottom:0', null, 'fsel'));
+      opt(hcSel, '0', 'Sin handicap'); for (let i = 1; i <= 9; i++) opt(hcSel, String(i), i === 1 ? '1 (negras sin komi)' : `${i} piedras`);
+      hcSel.value = String(pr.hc);
+      const hoSel = row('Lleva el handicap', el('select', 'margin-bottom:0', null, 'fsel'));
+      opt(hoSel, 'me', 'Yo (recibo)'); opt(hoSel, 'ai', 'La IA (doy)'); hoSel.value = pr.holder;
+      const coSel = row('Mi color', el('select', 'margin-bottom:0', null, 'fsel'));
+      opt(coSel, 'B', '● Negras'); opt(coSel, 'W', '○ Blancas'); coSel.value = pr.color;
+      const ruSel = row('Reglas', el('select', 'margin-bottom:0', null, 'fsel'));
+      opt(ruSel, 'japanese', 'Japonesas'); opt(ruSel, 'chinese', 'Chinas'); ruSel.value = pr.rules;
+      const dl = row('Espera mínima de la IA (ms)', el('input', 'cursor:text;margin-bottom:0', null, 'fsel'));
+      dl.type = 'number'; dl.min = '0'; dl.max = '10000'; dl.step = '250'; dl.value = String(aiDelayMs());
+      dl.addEventListener('change', () => { const v = parseInt(dl.value, 10); if (v >= 0 && v <= 10000) lsSet(AI_DELAY_KEY, String(v)); else dl.value = String(aiDelayMs()); });
+      const sync = () => { const h = hcSel.value !== '0'; hoSel.disabled = !h; coSel.disabled = h; hoSel.style.opacity = h ? '' : '.45'; coSel.style.opacity = h ? '.45' : ''; };
+      hcSel.addEventListener('change', sync); sync();
+      const go = el('button', null, '▶ Empezar', 'fp-btn');
+      if (!avail) { go.disabled = true; go.style.opacity = '.45'; }
+      go.addEventListener('click', () => {
+        const p = { level: lvSel.value, hc: parseInt(hcSel.value, 10), holder: hoSel.value, color: coSel.value, rules: ruSel.value };
+        lsSet(AI_FORM_KEY, JSON.stringify(p));
+        aiStartGame(p);
+      });
+      f.appendChild(go);
+      pane.appendChild(f);
+    }
+    function aiStartGame(p) {
+      aiGame = Object.assign(aiNewGame({ level: p.level, handicap: p.hc, holder: p.holder, myColor: p.color, rules: p.rules }),
+        { uuid: makeUUID(), started_at: aiNowIso() });
+      aiError = ''; aiBusy = false; aiBusyTok = null;
+      aiSave();
+      closeMobilePanel();
+      initBoard(19); aiRender(); switchToBoard();
+      aiRenderPanel();
+      aiRequestMove();   // si empieza la IA (negras de la IA o handicap ≥2 con la IA de blancas)
+    }
+    async function aiRefreshStatus() {
+      try {
+        const r = await syncFetch('/ai/status', { signal: AbortSignal.timeout(8000) });
+        aiStatusInfo = r.ok ? await r.json() : { available: false };
+      } catch (e) { aiStatusInfo = { available: false }; }
+      if (aiActive && !(aiGame && aiGame.status !== 'done')) aiRenderPanel();
+    }
+    function aiEnterTab() {
+      aiGame = aiLoad();
+      window._boardClickHandler = aiBoardClick;
+      aiRenderPanel();
+      if (aiGame) { initBoard(19); aiRender(); }
+      aiRefreshStatus();
+      // retomar lo que quedó a medias (app cerrada mientras la IA pensaba o contaba)
+      if (aiGame && aiGame.status === 'scoring') aiScore(); else aiRequestMove();
+    }
+    function aiInitControls() {
+      document.getElementById('ai-btn-pass').addEventListener('click', aiPass);
+      document.getElementById('ai-btn-resign').addEventListener('click', aiResign);
+      document.getElementById('ai-btn-discard').addEventListener('click', aiDiscard);
+      document.getElementById('ai-btn-retry').addEventListener('click', aiRetry);
+    }
+
+    // ══ IA4: ESTADÍSTICAS de partidas contra la IA (ventana #ai-stats-overlay) ══
+    const AI_STATS_KEY = 'ai_stats_cfg';   // solo en este dispositivo: {target, rules}
+    function aiStatsCfg() {
+      try {
+        const c = JSON.parse(lsGet(AI_STATS_KEY) || '{}');
+        const rules = Array.isArray(c.rules) && c.rules.length === 3 ? c.rules : AI_CLOSE_RULES;
+        return { target: aiRankIdx(c.target) != null ? c.target : 'katago:rank_15k', rules: rules.map(r => ({ n: +r.n, pct: +r.pct, avg: +r.avg })) };
+      } catch (e) { return { target: 'katago:rank_15k', rules: AI_CLOSE_RULES.map(r => Object.assign({}, r)) }; }
+    }
+    function localAiGames() {
+      return dbQuery('SELECT uuid, played_at, my_color, ai_level, model, handicap, rules, komi, end_type, score, deleted, updated_at FROM ai_games WHERE deleted=0 ORDER BY played_at DESC', []);
+    }
+    function localAiGameDelete(uuid) {
+      const r = dbQueryOne('SELECT updated_at FROM ai_games WHERE uuid=?', [uuid]);
+      if (!r) return;
+      dbExec('UPDATE ai_games SET deleted=1, updated_at=?, synced=0 WHERE uuid=?', [focusStamp(r.updated_at), uuid]);
+    }
+    function aiDownloadSgf(uuid) {
+      const r = dbQueryOne('SELECT sgf, played_at, ai_level FROM ai_games WHERE uuid=?', [uuid]);
+      if (!r) return;
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([r.sgf], { type: 'application/x-go-sgf' }));
+      a.download = `tsumevault_${r.played_at.slice(0, 10)}_${aiLevelLabel(r.ai_level)}.sgf`;
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    }
+    function openAiStats() { document.getElementById('ai-stats-overlay').style.display = 'flex'; renderAiStats(); }
+    function closeAiStats() { const o = document.getElementById('ai-stats-overlay'); if (o) o.style.display = 'none'; }
+    function onAiStatsOverlayClick(e) { if (e.target === document.getElementById('ai-stats-overlay')) closeAiStats(); }
+    function renderAiStats() {
+      const body = document.getElementById('ai-stats-body'); if (!body || !db) return;
+      const el = (tag, css, text) => { const e = document.createElement(tag); if (css) e.style.cssText = css; if (text != null) e.textContent = text; return e; };
+      const title = (t) => el('div', 'font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin:16px 0 8px;', t);
+      const cfg = aiStatsCfg(), t = aiRankIdx(cfg.target), games = localAiGames();
+      const cells = aiGrid(games), hc = aiHandicapStatus(cells, t), ladder = aiLadder(games, cfg.rules);
+      const lbl = (i) => aiLevelLabel(aiRankLevel(i));
+      const fmtH = (h) => h > 0 ? `recibiendo ${h}` : h < 0 ? `dando ${-h}` : 'igualada';
+      const scroll = body.scrollTop;
+      body.textContent = '';
+
+      // ── configuración ──
+      const cf = el('div', 'display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;font-family:var(--mono);font-size:10px;color:var(--dim);');
+      const tSel = el('select', 'margin-bottom:0;width:auto;'); tSel.className = 'fsel';
+      for (let i = 0; i <= 28; i++) { const o = el('option', null, lbl(i)); o.value = aiRankLevel(i); tSel.appendChild(o); }
+      tSel.value = cfg.target;
+      const tWrap = el('label', 'display:flex;flex-direction:column;gap:2px;'); tWrap.appendChild(el('span', null, 'Nivel objetivo')); tWrap.appendChild(tSel);
+      cf.appendChild(tWrap);
+      const ruleInputs = cfg.rules.map((r, ri) => {
+        const w = el('div', 'display:flex;flex-direction:column;gap:2px;');
+        w.appendChild(el('span', null, ri < 2 ? `Cierre ${ri + 1}: a las N` : 'Cierre 3: desde N'));
+        const row = el('div', 'display:flex;gap:4px;align-items:center;');
+        const mk = (v, min, max, step, suffix) => {
+          const i = el('input', 'width:52px;font-family:var(--mono);font-size:10px;background:var(--bg);color:var(--text);border:1px solid var(--border2);padding:3px 4px;border-radius:2px;');
+          i.type = 'number'; i.min = min; i.max = max; i.step = step; i.value = v;
+          row.appendChild(i); row.appendChild(el('span', null, suffix)); return i;
+        };
+        const ins = { n: mk(r.n, 1, 99, 1, 'p'), pct: mk(r.pct, 0, 100, 5, '%'), avg: mk(r.avg, -100, 361, 0.5, '>pts') };
+        w.appendChild(row); cf.appendChild(w); return ins;
+      });
+      const save = () => {
+        const rules = ruleInputs.map(x => ({ n: parseInt(x.n.value, 10), pct: parseFloat(x.pct.value), avg: parseFloat(x.avg.value) }));
+        if (rules.some(r => !(r.n >= 1) || !(r.pct >= 0 && r.pct <= 100) || !Number.isFinite(r.avg))) { alert('Valores de cierre no válidos.'); renderAiStats(); return; }
+        lsSet(AI_STATS_KEY, JSON.stringify({ target: tSel.value, rules }));
+        renderAiStats();
+      };
+      tSel.addEventListener('change', save);
+      ruleInputs.forEach(x => Object.values(x).forEach(i => i.addEventListener('change', save)));
+      const rst = el('button', null, 'Reglas por defecto'); rst.className = 'ctrl-btn';
+      rst.addEventListener('click', () => { lsSet(AI_STATS_KEY, JSON.stringify({ target: tSel.value, rules: AI_CLOSE_RULES })); renderAiStats(); });
+      cf.appendChild(rst);
+      body.appendChild(cf);
+
+      // ── resumen: qué falta para superar el nivel objetivo ──
+      body.appendChild(title(`Para superar ${lbl(t)}`));
+      const own = ladder.find(r => r.i === t);
+      const sum = el('div', 'font-family:var(--mono);font-size:11px;color:var(--text);line-height:1.8;');
+      sum.appendChild(el('div', `color:${own && own.closed ? 'var(--ok-bright)' : 'var(--gold)'};`,
+        own && own.closed ? `✔ Igualadas a ${lbl(t)}: cerrado (regla ${own.closed.rule + 1}, partida ${own.closed.at})`
+          : `✘ Igualadas a ${lbl(t)}: ${own ? `${own.n} partidas, ${own.winrate}% victorias, media ${own.avg}` : 'ninguna todavía'} · alterna colores`));
+      const pend = hc.filter(r => !r.done);
+      const pendEl = el('div', `color:${pend.length ? 'var(--gold)' : 'var(--ok-bright)'};`,
+        pend.length ? `✘ Handicaps pendientes (${pend.length}): ` + pend.map(r => `${lbl(r.i)}_H${r.hReq > 0 ? '+' : ''}${r.hReq}`).join(' · ')
+          : '✔ Todos los handicaps superados');
+      if (pend.length) pendEl.title = pend.map(r => `${lbl(r.i)} ${fmtH(r.hReq)}`).join('\n');   // forma larga al pasar el ratón
+      sum.appendChild(pendEl);
+      body.appendChild(sum);
+
+      // ── rejilla nivel × handicap (como el Excel: +9 … −9) ──
+      body.appendChild(title('Media de puntos por nivel y handicap (+ recibo / − doy)'));
+      const gw = el('div', 'overflow-x:auto;');
+      const tb = el('table', 'border-collapse:collapse;font-family:var(--mono);font-size:9px;');
+      const hs = []; for (let h = 9; h >= -9; h--) hs.push(h);
+      const hr = el('tr'); hr.appendChild(el('th', 'padding:2px 6px;color:var(--dim2);font-weight:normal;', 'rival'));
+      for (const h of hs) hr.appendChild(el('th', `padding:2px 3px;color:${h === 0 ? 'var(--gold)' : 'var(--dim2)'};font-weight:normal;min-width:26px;`, (h > 0 ? '+' : '') + h));
+      tb.appendChild(hr);
+      const req = new Map(hc.map(r => [r.i, r]));
+      for (let i = 0; i <= 28; i++) {
+        const tr = el('tr');
+        const rs = req.get(i);
+        tr.appendChild(el('td', `padding:2px 6px;white-space:nowrap;color:${i === t ? 'var(--gold)' : rs ? (rs.done ? 'var(--ok-bright)' : 'var(--text)') : 'var(--dim2)'};`,
+          lbl(i) + (i === t ? ' ◀' : rs && rs.done ? ' ✔' : '')));
+        for (const h of hs) {
+          const c = cells[i + '|' + h], isReq = rs && rs.hReq === h;
+          const td = el('td', `padding:2px 3px;text-align:center;border:1px solid ${isReq ? 'var(--gold)' : 'var(--border)'};`);
+          if (c) { td.textContent = c.avg; td.title = `${lbl(i)} ${fmtH(h)}: ${c.n} partida(s), media ${c.avg}`; td.style.background = c.avg > 0 ? 'rgba(92,184,104,.28)' : 'rgba(212,80,48,.22)'; }
+          else if (aiCellImplied(cells, i, h)) { td.textContent = '–'; td.style.background = 'rgba(92,184,104,.14)'; td.style.color = 'var(--ok-bright)'; td.title = 'Superada (ya ganaste con un handicap más difícil)'; }
+          tr.appendChild(td);
+        }
+        tb.appendChild(tr);
+      }
+      gw.appendChild(tb); body.appendChild(gw);
+      body.appendChild(el('div', 'font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:4px;', 'Borde dorado: handicap que toca contra cada rival para superar el nivel objetivo.'));
+
+      // ── escalera de igualadas ──
+      body.appendChild(title('Igualadas por nivel'));
+      if (!ladder.length) body.appendChild(el('div', 'font-family:var(--mono);font-size:10px;color:var(--dim2);', 'Sin partidas igualadas todavía.'));
+      else {
+        const lt = el('table', 'border-collapse:collapse;font-family:var(--mono);font-size:10px;');
+        const h2 = el('tr');
+        for (const x of ['Nivel', 'Partidas', 'Victorias', 'Winrate', 'Media', 'Cerrado']) h2.appendChild(el('th', 'padding:3px 8px;color:var(--dim);font-weight:normal;text-align:right;', x));
+        lt.appendChild(h2);
+        for (const r of ladder) {
+          const tr = el('tr', r.i === t ? 'background:rgba(212,168,74,.08);' : '');
+          for (const v of [lbl(r.i), r.n, r.wins, r.winrate + '%', r.avg, r.closed ? `✔ regla ${r.closed.rule + 1} (${r.closed.at})` : '—'])
+            tr.appendChild(el('td', `padding:3px 8px;text-align:right;color:${r.closed ? 'var(--ok-bright)' : 'var(--text)'};`, v));
+          lt.appendChild(tr);
+        }
+        body.appendChild(lt);
+      }
+
+      // ── histórico ──
+      body.appendChild(title(`Histórico (${games.length})`));
+      if (!games.length) body.appendChild(el('div', 'font-family:var(--mono);font-size:10px;color:var(--dim2);', 'Todavía no hay partidas.'));
+      for (const g of games) {
+        const d = new Date(g.played_at), row = el('div', 'display:flex;align-items:center;gap:10px;padding:3px 0;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:10px;color:var(--dim);flex-wrap:wrap;');
+        row.appendChild(el('span', 'min-width:118px;', `${localDateStr(d)} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`));
+        row.appendChild(el('span', 'min-width:20px;', g.my_color === 'B' ? '●' : '○'));
+        row.appendChild(el('span', 'min-width:56px;color:var(--text);', aiLevelLabel(g.ai_level)));
+        row.appendChild(el('span', 'min-width:28px;text-align:right;', (g.handicap > 0 ? '+' : '') + g.handicap));
+        row.appendChild(el('span', `min-width:56px;text-align:right;color:${g.score > 0 ? 'var(--ok-bright)' : 'var(--accent)'};`, (g.score > 0 ? '+' : '') + g.score));
+        row.appendChild(el('span', 'flex:1;color:var(--dim2);', g.end_type === 'resign_me' ? 'abandono' : g.end_type === 'resign_ai' ? 'abandona la IA' : ''));
+        const dl = el('button', null, '⬇ SGF'); dl.className = 'chap-btn'; dl.addEventListener('click', () => aiDownloadSgf(g.uuid));
+        const rm = el('button', null, '🗑'); rm.className = 'chap-btn'; rm.title = 'Borrar del histórico';
+        rm.addEventListener('click', () => {
+          if (!confirm(`¿Borrar la partida del ${localDateStr(d)} contra ${aiLevelLabel(g.ai_level)}? Deja de contar en las estadísticas.`)) return;
+          localAiGameDelete(g.uuid); scheduleSaveDB(); tryAutoSync(true).catch(() => { }); renderAiStats();
+        });
+        row.appendChild(dl); row.appendChild(rm);
+        body.appendChild(row);
+      }
+      body.scrollTop = scroll;
+    }
+
     function switchTab(name) {
       document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === `tab-${name}`));
       // J3: los controles de josekis solo existen dentro de su pestaña
       if (name !== 'josekis') { jsActive = false; document.getElementById('js-controls').style.display = 'none'; jsClosePop(); /* J3.1 */ }
+      if (name !== 'play') { aiActive = false; document.getElementById('ai-controls').style.display = 'none'; } // IA3
       if (name === 'games') {
         gmActive = true;
         gmLoadCollections();
@@ -7769,6 +8458,14 @@
         document.getElementById('gm-controls').style.display = 'none';
         document.getElementById('js-controls').style.display = 'flex';
         jsEnterTab();
+      } else if (name === 'play') { // IA3
+        gmActive = false;
+        gmStopTimer();
+        aiActive = true;
+        document.getElementById('board-controls').style.display = 'none';
+        document.getElementById('gm-controls').style.display = 'none';
+        document.getElementById('ai-controls').style.display = 'flex';
+        aiEnterTab();
       } else {
         gmActive = false;
         gmStopTimer();
@@ -7791,7 +8488,7 @@
     function switchToBoard() { if (isMobilePortrait()) document.getElementById('app').classList.add('mob-board'); }
     function switchToPanel() { if (isMobilePortrait()) document.getElementById('app').classList.remove('mob-board'); }
     function toggleMobilePanel() {
-      if (isMobilePortrait()) { const inBoard = document.getElementById('app').classList.contains('mob-board'); if (inBoard) switchToPanel(); else if (currentProblem || (jsActive && jsData)) switchToBoard(); /* J3 */ }
+      if (isMobilePortrait()) { const inBoard = document.getElementById('app').classList.contains('mob-board'); if (inBoard) switchToPanel(); else if (currentProblem || (jsActive && jsData) || (aiActive && aiGame)) switchToBoard(); /* J3 / IA3 */ }
       else if (isTablet()) { const left = document.getElementById('left'), ov = document.getElementById('mob-overlay'); const open = left.classList.toggle('mob-visible'); ov.classList.toggle('mob-visible', open); document.getElementById('board-wrap').style.pointerEvents = open ? 'none' : ''; document.querySelectorAll('#board-wrap canvas').forEach(c => c.style.zIndex = open ? '1' : ''); }
     }
     function closeMobilePanel() { document.getElementById('left').classList.remove('mob-visible'); document.getElementById('mob-overlay').classList.remove('mob-visible'); document.getElementById('board-wrap').style.pointerEvents = ''; document.querySelectorAll('#board-wrap canvas').forEach(c => c.style.zIndex = ''); }
@@ -7819,6 +8516,7 @@
     // conservar el tamano anterior hasta la proxima interaccion.
     window.addEventListener('resize', () => { clearTimeout(rsTO); rsTO = setTimeout(() => {
       if (wgoBoard && jsActive && jsData) { initBoard(19); jsRender(null); return; } // J3
+      if (wgoBoard && aiActive && aiGame) { initBoard(19); aiRender(); return; } // IA3
       if (!wgoBoard || !currentProblem || gmActive) return;
       initBoard(currentProblem.size || 19);
       if (window._studyRedraw) window._studyRedraw(); else renderProblem(currentProblem);
@@ -7859,6 +8557,7 @@
       tryAutoSync(true).then(async ok => { if (ok) await syncDeletedRuns(); loadCollections(); });
       gmInitControls();
       jsInitControls(); // J3
+      aiInitControls(); // IA3
 	  if ('serviceWorker' in navigator) {
 		navigator.serviceWorker.register('/tsumevault/sw.js?' + SW_VERSION).then(() => {
 		  updateSwVersionLabel();
