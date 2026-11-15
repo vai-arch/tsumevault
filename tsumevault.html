@@ -1772,6 +1772,11 @@
             <option value="8000">8s</option>
             <option value="10000">10s</option>
           </select>
+          <!-- AN2: análisis con KataGo (servidor) -->
+          <button class="ctrl-btn" id="gm-btn-graph" title="Gráfica de la ventaja estimada a lo largo de la partida">📈 Gráfica</button>
+          <button class="ctrl-btn" id="gm-btn-an" title="Analizar esta posición: mejores jugadas y coste de la jugada hecha">🔍 Analizar</button>
+          <button class="ctrl-btn" id="gm-btn-pv" style="display:none" title="Mostrar u ocultar la secuencia de la mejor jugada">🔢 Secuencia</button>
+          <div id="gm-graph" style="display:none;flex-basis:100%;margin-top:4px;"></div>
         </div>
         <!-- J3: controles del modo aprender de josekis -->
         <div id="js-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
@@ -1883,7 +1888,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261114-2350';
+	const SW_VERSION = 'tsumevault-20261115-0958';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -7293,6 +7298,7 @@
           sgf = await res.text();
         }
         const kifu = WGo.Kifu.fromSgf(sgf);
+        gmSgfText = sgf; anReset(); // AN2
         gmRootNode = kifu.root;
         const size = parseInt((sgf.match(/SZ\[(\d+)\]/) || [, '19'])[1]);
         gmNodeStack = [];
@@ -7380,6 +7386,7 @@
       cb.textContent = node.comment || '';
       // Handler de click
       gmSetupBoardClick();
+      anAfterRender(); // AN2
     }
 
     function gmSetupBoardClick() {
@@ -7487,10 +7494,186 @@
       document.getElementById('gm-btn-branch').addEventListener('click', () => { gmStopTimer(); gmGoToBranchStart(); });
       document.getElementById('gm-btn-next').addEventListener('click', () => { gmStopTimer(); gmNext(); });
       document.getElementById('gm-btn-play').addEventListener('click', gmToggleTimer);
+      anInitControls(); // AN2
       document.getElementById('gm-timer-sel').addEventListener('change', e => {
         gmTimerDelay = parseInt(e.target.value);
         if (gmTimerRunning) { gmStopTimer(); gmStartTimer(); }
       });
+    }
+
+    // ══ AN2: ANÁLISIS EN EL VISOR DE GAMES (gráfica de ventaja + mejores jugadas a petición) ══
+    // Usa /ai/graph y /ai/analyze (ai_engines.py, AN1). Solo con conexión; solo 19×19 normal o con handicap.
+    const AN_MISTAKE = 5, AN_BLUNDER = 10;   // puntos perdidos para marcar error / error grave
+    let gmSgfText = '';
+    let anState = { graph: null, graphOn: false, res: null, pvOn: false, busy: false };
+
+    function anReset() {
+      anState = { graph: null, graphOn: false, res: null, pvOn: false, busy: false };
+      const gw = document.getElementById('gm-graph'); if (gw) { gw.style.display = 'none'; gw.textContent = ''; }
+      anUpdateButtons();
+    }
+    function anPersp() { return (gmCurrentGame && gmCurrentGame.persp) || 'B'; }
+    function anRootStones() {
+      const g = new WGo.Game(boardSize); g.allow_rewrite = true;
+      const save = gmGame; gmGame = g; gmApplyNodeToGame(gmRootNode); gmGame = save;
+      const pos = g.getPosition(), out = [];
+      for (let x = 0; x < boardSize; x++) for (let y = 0; y < boardSize; y++) {
+        const v = pos.get(x, y); if (v === WGo.B) out.push({ x, y, c: 1 }); else if (v === WGo.W) out.push({ x, y, c: -1 });
+      }
+      return out;
+    }
+    const anMoveOf = (n) => (n && n.move && (n.move.c === 1 || n.move.c === -1)) ? { c: n.move.c, x: n.move.x, y: n.move.y } : null;
+    function anMainLine() {
+      const out = []; let n = gmRootNode;
+      while (n && n.children && n.children.length) { n = n.children[0]; const m = anMoveOf(n); if (m) out.push(m); }
+      return out;
+    }
+    function anCurrentMoves() { return [...gmNodeStack, gmCurrentNode].filter(n => n !== gmRootNode).map(anMoveOf).filter(Boolean); }
+    function anOnMainLine() {
+      let n = gmRootNode; const path = [...gmNodeStack, gmCurrentNode];
+      if (path[0] !== gmRootNode) return false;
+      for (let i = 1; i < path.length; i++) { if (!n.children || n.children[0] !== path[i]) return false; n = path[i]; }
+      return true;
+    }
+    function anBody(moves) {
+      const p = anPosition(boardSize, anRootStones(), moves, gmSgfText);
+      if (!p.ok) { anMsg('Análisis no disponible: ' + p.reason); return null; }
+      return p.body;
+    }
+    function anMsg(t) { const h = document.getElementById('board-hint'); if (h) { h.textContent = t; h.className = ''; } }
+    function anUpdateButtons() {
+      const g = document.getElementById('gm-btn-graph'), a = document.getElementById('gm-btn-an'), pv = document.getElementById('gm-btn-pv');
+      if (!g) return;
+      g.disabled = a.disabled = anState.busy || !gmRootNode;
+      g.classList.toggle('active', anState.graphOn);
+      const showPv = !!(anState.res && anState.res.node === gmCurrentNode && anState.res.data.candidates[0].pv.length);
+      pv.style.display = showPv ? '' : 'none';
+      pv.classList.toggle('active', anState.pvOn);
+    }
+
+    // ── gráfica ──
+    async function anToggleGraph() {
+      if (anState.graphOn) { anState.graphOn = false; document.getElementById('gm-graph').style.display = 'none'; anUpdateButtons(); return; }
+      anState.graphOn = true;
+      if (!anState.graph) {
+        const moves = anMainLine();
+        const body = anBody(moves); if (!body) { anState.graphOn = false; return; }
+        if (moves.length > 600) { anMsg('Partida demasiado larga para la gráfica'); anState.graphOn = false; return; }
+        const game = gmCurrentGame;
+        anState.busy = true; anUpdateButtons(); anMsg('Calculando la gráfica…');
+        try {
+          const data = await aiPost('/ai/graph', body, 180000);
+          if (gmCurrentGame !== game) return;
+          anState.graph = { leads: data.white_leads, moves: body.moves };
+          anMsg((gmCurrentGame && gmCurrentGame.name || '').replace(/\.sgf$/i, ''));
+        } catch (e) {
+          anState.graphOn = false; anMsg('No se pudo calcular la gráfica (' + e.message + ')');
+        } finally { anState.busy = false; anUpdateButtons(); }
+        if (!anState.graph) return;
+      }
+      document.getElementById('gm-graph').style.display = '';
+      anDrawGraph(); anUpdateButtons();
+    }
+    function anDrawGraph() {
+      const wrap = document.getElementById('gm-graph');
+      if (!wrap || !anState.graphOn || !anState.graph) return;
+      const { leads, moves } = anState.graph, persp = anPersp(), sg = persp === 'B' ? -1 : 1;
+      const vals = leads.map(v => sg * v), n = vals.length - 1;
+      const W = 600, H = 120, pad = 6, maxAbs = Math.max(10, ...vals.map(Math.abs));
+      const X = (i) => pad + (W - 2 * pad) * (n ? i / n : 0), Y = (v) => H / 2 - (H / 2 - pad) * (v / maxAbs);
+      const ns = 'http://www.w3.org/2000/svg', mk = (t, a) => { const e = document.createElementNS(ns, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
+      wrap.textContent = '';
+      const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, preserveAspectRatio: 'none', style: 'width:100%;height:120px;display:block;cursor:pointer;background:var(--panel);border:1px solid var(--border);' });
+      svg.appendChild(mk('line', { x1: pad, x2: W - pad, y1: H / 2, y2: H / 2, stroke: 'var(--border2)', 'stroke-width': 1 }));
+      const pts = vals.map((v, i) => `${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(' ');
+      svg.appendChild(mk('polygon', { points: `${X(0)},${H / 2} ${pts} ${X(n)},${H / 2}`, fill: 'rgba(212,168,74,.18)' }));
+      svg.appendChild(mk('polyline', { points: pts, fill: 'none', stroke: 'var(--gold)', 'stroke-width': 1.5, 'vector-effect': 'non-scaling-stroke' }));
+      for (const m of anMistakes(leads, moves, AN_MISTAKE)) {
+        const c = mk('circle', { cx: X(m.i), cy: Y(vals[m.i]), r: m.loss >= AN_BLUNDER ? 4 : 3, fill: m.loss >= AN_BLUNDER ? 'var(--accent)' : '#e0a030' });
+        const t = mk('title', {}); t.textContent = `Jugada ${m.i} (${m.color === 'B' ? 'negras' : 'blancas'}): −${m.loss}`; c.appendChild(t);
+        svg.appendChild(c);
+      }
+      if (anOnMainLine()) {
+        const cur = anCurrentMoves().length;
+        svg.appendChild(mk('line', { x1: X(cur), x2: X(cur), y1: 0, y2: H, stroke: 'var(--text)', 'stroke-width': 1, 'stroke-dasharray': '3,3', 'vector-effect': 'non-scaling-stroke' }));
+      }
+      svg.addEventListener('click', (e) => {
+        const r = svg.getBoundingClientRect();
+        const i = Math.round(((e.clientX - r.left) / r.width * W - pad) / (W - 2 * pad) * n);
+        anGoToMove(Math.max(0, Math.min(n, i)));
+      });
+      wrap.appendChild(svg);
+      const cur = anOnMainLine() ? anCurrentMoves().length : null;
+      const v = cur != null ? vals[cur] : null;
+      const who = persp === 'B' ? 'negras' : 'ti';
+      wrap.appendChild(Object.assign(document.createElement('div'), {
+        style: 'font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:2px;',
+        textContent: `Ventaja estimada para ${who} (arriba = mejor) · ● error ≥${AN_MISTAKE} pts · ● grave ≥${AN_BLUNDER}` + (v != null ? ` · jugada ${cur}: ${v > 0 ? '+' : ''}${v}` : '') + ' · toca para ir a una jugada',
+      }));
+    }
+    function anGoToMove(i) {
+      gmStopTimer();
+      gmNodeStack = []; gmCurrentNode = gmRootNode;
+      let k = 0;
+      while (k < i && gmCurrentNode.children && gmCurrentNode.children.length) {
+        gmNodeStack.push(gmCurrentNode); gmCurrentNode = gmCurrentNode.children[0];
+        if (anMoveOf(gmCurrentNode)) k++;
+      }
+      gmRenderCurrentNode(); gmUpdateControls();
+    }
+
+    // ── análisis de la posición actual ──
+    async function anAnalyze() {
+      const node = gmCurrentNode, moves = anCurrentMoves();
+      const next = (node.children && node.children[0]) ? anMoveOf(node.children[0]) : null;
+      const body = anBody(moves); if (!body) return;
+      const last = moves[moves.length - 1];
+      const toPlay = next ? (next.c === 1 ? 'B' : 'W') : last ? (last.c === 1 ? 'W' : 'B') : (body.handicap_stones.length ? 'W' : 'B');
+      body.to_play = toPlay;
+      if (next) body.played = next.x === undefined ? 'pass' : aiToGtp(next.x, next.y);
+      anState.busy = true; anUpdateButtons(); anMsg('Analizando… (unos segundos)');
+      try {
+        const data = await aiPost('/ai/analyze', body, 120000);
+        if (gmCurrentNode !== node) return;
+        anState.res = { node, data }; anState.pvOn = false;
+        gmRenderCurrentNode();
+      } catch (e) {
+        anMsg('No se pudo analizar (' + e.message + ')');
+      } finally { anState.busy = false; anUpdateButtons(); }
+    }
+    function anTogglePv() { if (!anState.res) return; anState.pvOn = !anState.pvOn; gmRenderCurrentNode(); }
+    // Llamada al final de gmRenderCurrentNode: repinta lo que corresponde al nodo actual.
+    function anAfterRender() {
+      const r = anState.res;
+      if (r && r.node === gmCurrentNode) {
+        const d = r.data, side = d.to_play === 'B' ? 'negras' : 'blancas', cs = d.candidates, best = cs[0];
+        const pos = gmGame.getPosition();
+        if (anState.pvOn) {
+          best.pv.forEach((v, k) => {
+            const p = aiFromGtp(v); if (!p || pos.get(p.x, p.y) !== 0) return;
+            const col = ((k % 2 === 0) === (d.to_play === 'B')) ? 1 : -1;
+            wgoBoard.addObject({ x: p.x, y: p.y, c: col, type: 'outline' });
+            wgoBoard.addObject({ x: p.x, y: p.y, type: WGo.Board.drawHandlers['LB'], text: String(k + 1), c: col === 1 ? '#000' : '#fff' });
+          });
+        } else {
+          cs.forEach((c, k) => {
+            const p = aiFromGtp(c.move); if (!p || pos.get(p.x, p.y) !== 0) return;
+            wgoBoard.addObject({ x: p.x, y: p.y, type: WGo.Board.drawHandlers['LB'], text: k === 0 ? '★' : String(k + 1), c: k === 0 ? '#1a7a2a' : '#1a1aff' });
+          });
+        }
+        const fmt = (v) => (v > 0 ? '+' : '') + v;
+        let txt = `Juegan ${side}. Mejor: ${best.move} (${fmt(best.scoreLead)})` + cs.slice(1).map((c, k) => ` · ${k + 2}ª ${c.move} (${fmt(c.scoreLead)})`).join('');
+        if (d.played) txt += d.played.loss <= 0.5 ? ` · Se jugó ${d.played.move}: buena jugada` : ` · Se jugó ${d.played.move}: −${d.played.loss} respecto a la mejor`;
+        const cb = document.getElementById('comment-box');
+        cb.textContent = (gmCurrentNode.comment ? gmCurrentNode.comment + '\n\n' : '') + txt + (anState.pvOn ? `\nSecuencia: ${best.pv.join(' ')}` : '');
+      }
+      anDrawGraph();
+      anUpdateButtons();
+    }
+    function anInitControls() {
+      document.getElementById('gm-btn-graph').addEventListener('click', anToggleGraph);
+      document.getElementById('gm-btn-an').addEventListener('click', anAnalyze);
+      document.getElementById('gm-btn-pv').addEventListener('click', anTogglePv);
     }
 
     // ══ J3: JOSEKIS — pestaña y modo aprender (REQUISITOS_JOSEKI.md J-30..J-43) ══
@@ -7991,6 +8174,35 @@
       }
       return out;
     }
+    // AN2: análisis de partidas en el visor de Games. Solo 19×19 con piedras iniciales negras
+    // (partidas normales o con handicap 2..9). stones: piedras iniciales {x,y,c} (c 1 negras, -1
+    // blancas); moves: [{c, x, y}] con x undefined = pase. Devuelve {ok, body} o {ok:false, reason}.
+    function anPosition(size, stones, moves, sgfText) {
+      if (size !== 19) return { ok: false, reason: 'solo tableros de 19×19' };
+      if (stones.some(s => s.c !== 1)) return { ok: false, reason: 'posición con piedras blancas iniciales' };
+      if (stones.length === 1 || stones.length > 9) return { ok: false, reason: 'posición inicial no soportada' };
+      const km = /KM\[([^\]]*)\]/.exec(sgfText || ''), ru = /RU\[([^\]]*)\]/.exec(sgfText || '');
+      let komi = km ? parseFloat(km[1]) : NaN;
+      if (!Number.isFinite(komi)) komi = stones.length ? 0.5 : 6.5;
+      komi = Math.max(-50, Math.min(50, Math.round(komi * 2) / 2));
+      const rules = ru && /chin|aga|nz|tromp/i.test(ru[1]) ? 'chinese' : 'japanese';
+      return { ok: true, body: {
+        rules, komi,
+        handicap_stones: stones.map(s => aiToGtp(s.x, s.y)),
+        moves: moves.map(m => [m.c === 1 ? 'B' : 'W', m.x === undefined ? 'pass' : aiToGtp(m.x, m.y)]),
+      } };
+    }
+    // Errores a partir de la gráfica: whiteLeads[i] = ventaja de blancas antes de la jugada i
+    // (i = 0..n). Pérdida de la jugada i = cuánto empeora la ventaja de quien la hizo.
+    function anMistakes(whiteLeads, moves, minLoss) {
+      const out = [];
+      for (let i = 0; i < moves.length && i + 1 < whiteLeads.length; i++) {
+        const sign = moves[i][0] === 'B' ? -1 : 1;
+        const loss = Math.round((sign * whiteLeads[i] - sign * whiteLeads[i + 1]) * 10) / 10;
+        if (loss >= minLoss) out.push({ i: i + 1, color: moves[i][0], loss });
+      }
+      return out;
+    }
     // ── fin IA3 funciones puras ──
 
     const AI_GAME_KEY = 'ai_current_game', AI_FORM_KEY = 'ai_form', AI_DELAY_KEY = 'ai_min_delay_ms';
@@ -8387,12 +8599,12 @@
     }
     // Revisar una partida en el visor de la pestaña Games (sin tocar sus colecciones).
     function aiReviewGame(uuid) {
-      const r = dbQueryOne('SELECT sgf, played_at, ai_level, handicap, score FROM ai_games WHERE uuid=?', [uuid]);
+      const r = dbQueryOne('SELECT sgf, played_at, ai_level, handicap, score, my_color FROM ai_games WHERE uuid=?', [uuid]);
       if (!r) return;
       closeAiStats();
       switchTab('games');
       const d = new Date(r.played_at);
-      gmOpenGame({ id: null, sgf: r.sgf,
+      gmOpenGame({ id: null, sgf: r.sgf, persp: r.my_color, // AN2: gráfica desde mi punto de vista
         name: `${localDateStr(d)} · IA ${aiLevelLabel(r.ai_level)} · H${r.handicap > 0 ? '+' : ''}${r.handicap} · ${r.score > 0 ? '+' : ''}${r.score}` });
     }
     function openAiStats() { document.getElementById('ai-stats-overlay').style.display = 'flex'; renderAiStats(); }
