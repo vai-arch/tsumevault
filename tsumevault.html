@@ -443,6 +443,11 @@
       color: #1a1710;
     }
 
+    /* RL2: la barra es el reloj en las partidas con reloj (tocarla = pulsarlo) */
+    #board-hint.clk { cursor: pointer; font-size: 13px; font-weight: 600; user-select: none; -webkit-user-select: none; }
+    #board-hint.clk-press { background: var(--gold); color: #1a1710; }
+    #board-hint.clk-over { background: var(--accent); color: #fff; }
+
     #comment-box {
       width: 100%;
       max-width: 560px;
@@ -1836,6 +1841,7 @@
         <div id="ai-controls" style="display:none;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
           <button class="ctrl-btn" id="ai-btn-back" title="Deshacer tu última jugada y la respuesta de la IA">← Atrás</button>
           <button class="ctrl-btn" id="ai-btn-pass" title="Pasar (dos pases seguidos terminan la partida)">Pasar</button>
+          <button class="ctrl-btn" id="ai-btn-pause" style="display:none" title="Pausar el reloj (P)">⏸ Pausa</button>
           <button class="ctrl-btn" id="ai-btn-est" title="Estimar el resultado y mostrar el territorio (vuelve a pulsar para ocultarlo)">📊 Estimar</button>
           <button class="ctrl-btn" id="ai-btn-resign" title="Abandonar (cuenta como derrota)">🏳 Abandonar</button>
           <button class="ctrl-btn" id="ai-btn-discard" title="Descartar la partida: no cuenta en el histórico ni en las estadísticas">🗑 Descartar</button>
@@ -1933,7 +1939,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261115-2012';
+	const SW_VERSION = 'tsumevault-20261115-2127';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -7246,7 +7252,7 @@
       else { const segmentMs = Date.now() - pausedAt; totalPaused += segmentMs; if (activeRunId) dbExec(`UPDATE runs SET paused_ms=paused_ms+? WHERE id=?`, [segmentMs, activeRunId]); overlay.style.display = 'none'; boardWrap.style.visibility = 'visible'; document.getElementById('btn-pause').textContent = '⏸'; }
     }
     document.getElementById('btn-pause').addEventListener('click', togglePause);
-    document.getElementById('pause-overlay').addEventListener('click', () => { if (isPaused) togglePause(); });
+    document.getElementById('pause-overlay').addEventListener('click', () => { if (aiActive && document.getElementById('pause-overlay').dataset.ai === '1') { aiTogglePause(); return; } if (isPaused) togglePause(); }); // RL2
     function updateSessionUI() {
       const ok = runMode ? runItems.filter(i => i.result === 'correct').length : sessionOk;
       const no = runMode ? runItems.filter(i => i.result === 'wrong').length : sessionNo;
@@ -7270,6 +7276,12 @@
     window.addEventListener('keydown', e => {
       if (e.code !== 'Escape' && window._studyExploring && window._studyExploring()) return; // T31: en Explorar solo Escape (cerrar modales)
       if (e.code !== 'Escape' && jsActive) return; // J3: en Josekis no aplican Enter/Espacio/Alt+N/P de problemas
+      if (aiActive && (e.code === 'Space' || e.code === 'KeyP') && !/^(INPUT|SELECT|TEXTAREA)$/.test((document.activeElement || {}).tagName || '')) { // RL2: Espacio = reloj, P = pausa
+        e.preventDefault();
+        if (document.activeElement && document.activeElement.tagName === 'BUTTON') document.activeElement.blur();   // que Espacio no pulse además el último botón
+        if (e.code === 'Space') aiPress(); else aiTogglePause();
+        return;
+      }
       if (e.code !== 'Escape' && aiActive) return; // IA3: ni en la partida contra la IA
       if ((e.code === 'Enter' || e.code === 'Space') && waitingForNext && !runMode) { e.preventDefault(); nextProblem(); }
       if (e.altKey && e.code === 'KeyN' && !runMode) { e.preventDefault(); nextProblem(); }
@@ -8307,7 +8319,13 @@
       let s = `(;GM[1]FF[4]CA[UTF-8]AP[TsumeVault]SZ[19]KM[${game.komi}]RU[${game.rules === 'chinese' ? 'Chinese' : 'Japanese'}]`;
       if (game.hc_stones.length) s += `HA[${game.hc_stones.length}]AB` + game.hc_stones.map(v => `[${aiSgfCoord(v)}]`).join('');
       s += `DT[${aiSgfText(date)}]PB[${aiSgfText(pb)}]PW[${aiSgfText(pw)}]RE[${aiResultString(endType, score, game.my_color)}]`;
-      for (const [c, v] of game.moves) s += `;${c}[${v === 'pass' ? '' : aiSgfCoord(v)}]`;
+      const tc = game.tc && game.tc.type === 'byoyomi' ? game.tc : null;   // RL1: sistema de tiempo y tiempos por jugada
+      if (tc) s += `TM[${tc.main}]OT[${tcSgfOT(tc)}]`;
+      game.moves.forEach(([c, v], i) => {
+        s += `;${c}[${v === 'pass' ? '' : aiSgfCoord(v)}]`;
+        const rec = game.tlog && game.tlog[i];
+        if (rec && c === game.my_color) s += tcMoveProps(c, rec);
+      });
       return s + ')';
     }
     // IA4: estadísticas (Excel de Victor). Solo cuentan partidas con nivel humano de KataGo
@@ -8526,6 +8544,130 @@
         s.cache && s.cache.rows != null && `caché ${s.cache.rows} posiciones (${MB(s.cache.bytes)})`].filter(Boolean).join(' · ')]);
       return { level: warn.length ? 'warn' : 'ok', warn, lines };
     }
+    // RL1: reloj de entrenamiento (solo del jugador; WORKPLAN_IA.md, sección RL). Tiempos en ms.
+    // Sistema: {type:'none'} | {type:'byoyomi', main (s), periods, period (s)}. El tipo deja sitio
+    // a otros sistemas (canadiense) sin tocar el resto. Estado entre turnos: {mainMs, periods,
+    // overMs, expired}; dentro del turno todo se deriva de e = ms pensados en este turno (sin pausas).
+    const TC_LIMITS = { main: [0, 10800], periods: [1, 30], period: [1, 600] };
+    function tcNormalize(c) {
+      if (!c || c.type !== 'byoyomi') return { type: 'none' };
+      const cl = (v, [lo, hi], def) => { const n = v == null || v === '' ? NaN : Math.round(Number(v)); return Number.isFinite(n) ? Math.max(lo, Math.min(hi, n)) : def; };
+      return { type: 'byoyomi', main: cl(c.main, TC_LIMITS.main, 0), periods: cl(c.periods, TC_LIMITS.periods, 5), period: cl(c.period, TC_LIMITS.period, 30) };
+    }
+    function tcStart(sys) {
+      return sys && sys.type === 'byoyomi' ? { mainMs: sys.main * 1000, periods: sys.periods, overMs: 0, expired: false } : null;
+    }
+    // Reloj tras pensar e ms en el turno que empezó en st. phase: 'main' | 'byo' | 'over'.
+    // En byoyomi un periodo se consume entero solo si se agota; al pulsar, el siguiente vuelve lleno.
+    function tcAt(sys, st, e) {
+      const P = sys.period * 1000;
+      if (st.expired) return { phase: 'over', mainMs: 0, periods: 0, periodMs: 0, overMs: st.overMs + e };
+      if (e < st.mainMs) return { phase: 'main', mainMs: st.mainMs - e, periods: st.periods, periodMs: P, overMs: 0 };
+      const rest = e - st.mainMs, used = Math.floor(rest / P);
+      if (used < st.periods) return { phase: 'byo', mainMs: 0, periods: st.periods - used, periodMs: P - rest % P, overMs: 0 };
+      return { phase: 'over', mainMs: 0, periods: 0, periodMs: 0, overMs: rest - st.periods * P };
+    }
+    // Estado para el turno siguiente al pulsar el reloj tras e ms. Pasado el último periodo, el
+    // reloj se queda en negativo y sigue acumulando (solo aviso: la partida no termina).
+    function tcPress(sys, st, e) {
+      const a = tcAt(sys, st, e);
+      if (a.phase === 'over') return { mainMs: 0, periods: 0, overMs: a.overMs, expired: true };
+      return { mainMs: a.mainMs, periods: a.periods, overMs: 0, expired: false };
+    }
+    // Avisos del turno (instantes desde el inicio del turno): entrada en byoyomi, cuenta atrás de
+    // cada periodo (desde min(9, periodo-1) hasta 1), periodo consumido (left = los que quedan)
+    // y fin del último periodo. tcEvents devuelve los de (e0, e1], en orden.
+    function tcEventTimes(sys, st) {
+      if (!sys || sys.type !== 'byoyomi' || st.expired) return [];
+      const P = sys.period * 1000, out = [], t0 = st.mainMs;
+      if (t0 > 0) out.push({ t: t0, kind: 'byo_start', periods: st.periods });
+      for (let k = 0; k < st.periods; k++) {
+        const ts = t0 + k * P, left = st.periods - k;
+        for (let n = Math.min(9, sys.period - 1); n >= 1; n--) out.push({ t: ts + P - n * 1000, kind: 'count', n });
+        out.push(left > 1 ? { t: ts + P, kind: 'period_used', left: left - 1 } : { t: ts + P, kind: 'timeout' });
+      }
+      return out;
+    }
+    function tcEvents(sys, st, e0, e1) { return tcEventTimes(sys, st).filter(ev => ev.t > e0 && ev.t <= e1); }
+    function tcFmt(ms, up) {
+      const s = up ? Math.floor(ms / 1000) : Math.ceil(ms / 1000), h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, ss = String(s % 60).padStart(2, '0');
+      return h ? `${h}:${String(m).padStart(2, '0')}:${ss}` : `${m}:${ss}`;
+    }
+    function tcLabel(a) {
+      if (a.phase === 'main') return tcFmt(a.mainMs);
+      if (a.phase === 'byo') return `${a.periods} × ${tcFmt(a.periodMs)}`;
+      return '−' + tcFmt(a.overMs, true);
+    }
+    function tcSgfOT(sys) { return `${sys.periods}x${sys.period} byo-yomi`; }
+    // Propiedades SGF de una jugada mía: TT = segundos pensados (propiedad propia de TsumeVault,
+    // se mide también sin reloj); con reloj, BL/WL = tiempo restante (del periodo en byoyomi) y
+    // OB/OW = periodos restantes; OB[0] = me pasé del último periodo.
+    function tcMoveProps(color, rec) {
+      const s1 = (ms) => String(Math.round(ms / 100) / 10);
+      let s = `TT[${s1(rec.t)}]`;
+      const a = rec.a;
+      if (a) {
+        if (a.phase === 'main') s += `${color}L[${s1(a.mainMs)}]`;
+        else if (a.phase === 'byo') s += `${color}L[${s1(a.periodMs)}]O${color}[${a.periods}]`;
+        else s += `${color}L[0]O${color}[0]`;
+      }
+      return s;
+    }
+    // Resumen de tiempos de una partida guardada (histórico): media pensada por jugada mía, jugada
+    // en la que entré en byoyomi y en la que se me acabó el tiempo (null si no hay datos).
+    function tcSgfSummary(sgf, myColor) {
+      const re = /;([BW])\[([a-s]{0,2})\]((?:[A-Z]+\[[^\]]*\])*)/g;
+      let m, n = 0, sum = 0, cnt = 0, byoMove = null, timeoutMove = null, hasClock = false;
+      while ((m = re.exec(String(sgf || '')))) {
+        n++;
+        if (m[1] !== myColor) continue;
+        const prop = (k) => { const r = new RegExp('(?:^|\\])' + k + '\\[([^\\]]*)\\]').exec(m[3]); return r ? r[1] : null; };
+        const tt = prop('TT'), ob = prop('O' + myColor);
+        if (tt != null && Number.isFinite(parseFloat(tt))) { sum += parseFloat(tt); cnt++; }
+        if (prop(myColor + 'L') != null) hasClock = true;
+        if (ob != null && byoMove == null) byoMove = n;
+        if (ob === '0' && timeoutMove == null) timeoutMove = n;
+      }
+      const ot = /\bOT\[([^\]]*)\]/.exec(String(sgf || '')), tm = /\bTM\[([\d.]+)\]/.exec(String(sgf || ''));
+      return { avgMs: cnt ? Math.round(sum / cnt * 1000) : null, timed: cnt, byoMove, timeoutMove, clock: hasClock, ot: ot ? ot[1] : null, tm: tm ? parseFloat(tm[1]) : null };
+    }
+    // RL4: texto del histórico a partir de tcSgfSummary: corto para la fila y largo para el título.
+    // null si la partida no tiene tiempos (anteriores al reloj).
+    function tcHistoryText(sm) {
+      if (!sm || sm.avgMs == null) return null;
+      const sec = sm.avgMs / 1000, avg = sec < 60 ? `${sec < 10 ? sec.toFixed(1) : Math.round(sec)} s` : tcFmt(sm.avgMs);
+      let short = `⏱ ${avg}/jug`, long = `Media pensada por jugada: ${avg} (${sm.timed} jugadas)`;
+      if (sm.ot) {
+        const m = /^(\d+)x(\d+) byo-yomi$/.exec(sm.ot), main = sm.tm || 0;
+        const mainTxt = main % 60 ? `${main} s` : `${main / 60} min`;
+        long += ` · reloj ${m ? `${mainTxt} + ${m[1]} × ${m[2]} s` : sm.ot}`;
+      }
+      if (sm.byoMove != null) { short += ` · byo ${sm.byoMove}`; long += ` · entraste en byoyomi en la jugada ${sm.byoMove}`; }
+      if (sm.timeoutMove != null) { short += ` · ⏰ ${sm.timeoutMove}`; long += ` · se te acabó el tiempo en la jugada ${sm.timeoutMove}`; }
+      return { short, long };
+    }
+    // RL3: qué decir y cómo vibrar en cada aviso del reloj. key = nombre de la grabación propia
+    // (audio/clock/<key>.mp3); si no existe, se dice text con la voz del navegador.
+    function tcEventCue(ev) {
+      const W = ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve'];
+      switch (ev.kind) {
+        case 'byo_start': return ev.periods === 1 ? { key: 'ultimo_periodo', text: 'Byoyomi. Último periodo', vib: [300, 100, 300] }
+          : { key: 'byoyomi', text: 'Byoyomi', vib: [300] };
+        case 'count': return { key: String(ev.n), text: W[ev.n] || String(ev.n), vib: [60] };
+        case 'period_used': return ev.left === 1 ? { key: 'ultimo_periodo', text: 'Último periodo', vib: [300, 100, 300] }
+          : { key: 'quedan_' + ev.left, text: 'Quedan ' + ev.left, vib: [400] };
+        case 'timeout': return { key: 'fuera_de_tiempo', text: 'Fuera de tiempo', vib: [500, 150, 500, 150, 500] };
+        default: return null;
+      }
+    }
+    // Grabaciones que puede usar una partida con este sistema (para precargarlas).
+    function tcCueKeys(sys) {
+      if (!sys || sys.type !== 'byoyomi') return [];
+      const k = ['byoyomi', 'ultimo_periodo', 'fuera_de_tiempo'];
+      for (let n = 1; n <= Math.min(9, sys.period - 1); n++) k.push(String(n));
+      for (let n = 2; n < sys.periods; n++) k.push('quedan_' + n);
+      return k;
+    }
     // ── fin IA3 funciones puras ──
 
     const AI_GAME_KEY = 'ai_current_game', AI_FORM_KEY = 'ai_form', AI_DELAY_KEY = 'ai_min_delay_ms';
@@ -8540,6 +8682,158 @@
     let aiEstimating = false;
     function aiSetBusy() { const t = {}; aiBusyTok = t; aiBusy = true; return t; }
     function aiClearBusy(t) { if (aiBusyTok === t) { aiBusyTok = null; aiBusy = false; } }
+
+    // ── RL2: reloj de entrenamiento (lógica en tc*, funciones puras) ──
+    // En la partida (localStorage): tc (sistema o null), clk (estado al empezar mi turno), tlog[i]
+    // (lo pensado en mi jugada i), turnSpent (ms pensados en el turno sin contar el tramo en marcha),
+    // paused y pending (jugada puesta y aún sin pulsar el reloj; no está en moves, así que no se
+    // envía al servidor). El tiempo se mide siempre; con reloj, además, se pulsa a mano.
+    const AI_CLOCK_KEY = 'ai_clock';
+    const aiClk = { segStart: null, lastE: 0, timer: null, lastSave: 0 };
+    function aiClockOn(g) { return !!(g && g.tc && g.tc.type === 'byoyomi' && g.clk); }
+    function aiClockPrefs() { try { return tcNormalize(JSON.parse(lsGet(AI_CLOCK_KEY) || 'null')); } catch (e) { return { type: 'none' }; } }
+    function aiTurnE(g) { return (g.turnSpent || 0) + (aiClk.segStart != null ? performance.now() - aiClk.segStart : 0); }
+    function aiEstShown(g) { return !!(aiEst && aiEst.n === g.moves.length); }
+    function aiClockShouldRun(g) {
+      return !!g && aiActive && g.status === 'playing' && !aiBusy && aiToPlay(g) === g.my_color
+        && !g.paused && !aiEstShown(g) && document.visibilityState === 'visible';
+    }
+    // Arranca o para el tramo en marcha según el estado; se llama tras cada cambio (aiRenderStatus).
+    function aiClockSync() {
+      const g = aiGame, run = aiClockShouldRun(g);
+      if (run && aiClk.segStart == null) {
+        aiClk.segStart = performance.now(); aiClk.lastE = g.turnSpent || 0; aiClk.lastSave = aiClk.segStart;
+        if (!aiClk.timer) aiClk.timer = setInterval(aiClockTick, 200);
+      } else if (!run && aiClk.segStart != null) {
+        if (g) { g.turnSpent = aiTurnE(g); aiSave(); }
+        aiClk.segStart = null;
+      }
+      if (!run && aiClk.timer) { clearInterval(aiClk.timer); aiClk.timer = null; }
+      aiWakeSync();   // RL3
+    }
+    function aiClockTick() {
+      const g = aiGame;
+      if (!aiClockShouldRun(g) || aiClk.segStart == null) { aiClockSync(); return; }
+      const e = aiTurnE(g);
+      if (aiClockOn(g)) for (const ev of tcEvents(g.tc, g.clk, aiClk.lastE, e)) if (e - ev.t < 1500) aiClockEvent(ev);   // si la app estuvo congelada, no se recitan los atrasados
+      aiClk.lastE = e;
+      const now = performance.now();
+      if (now - aiClk.lastSave > 5000) { g.turnSpent = e; aiClk.segStart = now; aiClk.lastSave = now; aiSave(); }   // por si se cierra la app de golpe
+      if (aiClockOn(g)) aiRenderHint();
+    }
+    // ── RL3: avisos (voz del navegador o grabaciones propias, y vibración) ──
+    // Grabaciones: audio/clock/<key>.mp3 (byoyomi, 1…9, quedan_2…, ultimo_periodo, fuera_de_tiempo).
+    // Se comprueba primero byoyomi.mp3: si no está, todo va con voz sin pedir más ficheros. Las que
+    // falten de un juego incompleto también se dicen con voz. El silencio general de ⚙ las calla;
+    // la vibración va siempre.
+    const aiVoice = { probe: null, audio: {}, ok: {}, primed: false, voice: null };
+    function aiClockPreload(g) {
+      if (!aiClockOn(g) || aiVoice.probe === 'missing') return;
+      const load = (key, onDone) => {
+        if (aiVoice.audio[key]) { if (onDone) onDone(aiVoice.ok[key]); return; }
+        const a = new Audio(`audio/clock/${key}.mp3`); a.preload = 'auto';
+        aiVoice.audio[key] = a;
+        a.addEventListener('canplaythrough', () => { aiVoice.ok[key] = true; if (onDone) onDone(true); onDone = null; }, { once: true });
+        a.addEventListener('error', () => { aiVoice.ok[key] = false; if (onDone) onDone(false); onDone = null; }, { once: true });
+        a.load();
+      };
+      const rest = () => tcCueKeys(g.tc).forEach(k => load(k));
+      if (aiVoice.probe === 'ok') { rest(); return; }
+      if (aiVoice.probe === 'loading') return;
+      aiVoice.probe = 'loading';
+      load('byoyomi', (ok) => { aiVoice.probe = ok ? 'ok' : 'missing'; if (ok && aiClockOn(aiGame)) tcCueKeys(aiGame.tc).forEach(k => load(k)); });
+    }
+    function aiSpeak(text) {
+      const ss = window.speechSynthesis; if (!ss || typeof SpeechSynthesisUtterance === 'undefined') return;
+      try {
+        if (!aiVoice.voice) { const vs = ss.getVoices() || []; aiVoice.voice = vs.find(v => v.lang === 'es-ES') || vs.find(v => /^es/i.test(v.lang)) || null; }
+        ss.cancel();   // la cuenta atrás no se acumula: cada número sustituye al anterior
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'es-ES'; if (aiVoice.voice) u.voice = aiVoice.voice;
+        u.rate = 1.15; u.volume = sfxVolume / 100;
+        ss.speak(u);
+      } catch (e) { }
+    }
+    // Algunos móviles solo dejan hablar después de un toque: se "despierta" la voz en uno.
+    function aiSpeechPrime() {
+      if (aiVoice.primed || !window.speechSynthesis || typeof SpeechSynthesisUtterance === 'undefined') return;
+      aiVoice.primed = true;
+      try { const u = new SpeechSynthesisUtterance(' '); u.lang = 'es-ES'; u.volume = 0; window.speechSynthesis.speak(u); } catch (e) { }
+    }
+    function aiClockEvent(ev) {
+      const cue = tcEventCue(ev); if (!cue) return;
+      try { if (navigator.vibrate) navigator.vibrate(cue.vib); } catch (e) { }
+      if (!soundEnabled) return;
+      const a = aiVoice.ok[cue.key] ? aiVoice.audio[cue.key] : null;
+      if (a) {
+        try { if (window.speechSynthesis) window.speechSynthesis.cancel(); a.currentTime = 0; a.volume = sfxVolume / 100; a.play().catch(() => aiSpeak(cue.text)); }
+        catch (e) { aiSpeak(cue.text); }
+      } else aiSpeak(cue.text);
+    }
+    // Pantalla encendida mientras haya una partida con reloj en marcha (si se apagara, se pausaría).
+    let aiWake = null, aiWakeReq = false;
+    function aiWakeSync() {
+      const g = aiGame, want = aiClockOn(g) && aiActive && g.status === 'playing' && !g.paused && document.visibilityState === 'visible';
+      if (want && !aiWake && !aiWakeReq && navigator.wakeLock) {
+        aiWakeReq = true;
+        navigator.wakeLock.request('screen').then(l => {
+          aiWakeReq = false; aiWake = l; l.addEventListener('release', () => { if (aiWake === l) aiWake = null; });
+          if (!(aiClockOn(aiGame) && aiActive && aiGame.status === 'playing' && !aiGame.paused)) aiWakeSync();
+        }).catch(() => { aiWakeReq = false; });
+      } else if (!want && aiWake) { const l = aiWake; aiWake = null; l.release().catch(() => { }); }
+    }
+    // Empieza mi turno (aparece la jugada de la IA, o empiezo yo): el contador vuelve a 0.
+    function aiTurnStart(g) { g.turnSpent = 0; g.pending = null; aiClk.segStart = null; aiClk.lastE = 0; }
+    // Jugada confirmada (con reloj, al pulsarlo): registra lo pensado y el reloj del turno siguiente.
+    function aiCommit(vertex) {
+      const g = aiGame, e = Math.round(aiTurnE(g));
+      aiClk.segStart = null;
+      if (!Array.isArray(g.tlog)) g.tlog = [];
+      const on = aiClockOn(g);
+      g.tlog[g.moves.length] = { t: e, a: on ? tcAt(g.tc, g.clk, e) : null };
+      if (on) g.clk = tcPress(g.tc, g.clk, e);
+      g.turnSpent = 0; g.pending = null;
+      aiPlayMine(vertex);
+    }
+    function aiPress() {
+      const g = aiGame;
+      aiSpeechPrime();   // RL3
+      if (!aiActive || !aiClockOn(g) || !aiIsMyTurn() || g.paused || !g.pending) return;
+      aiCommit(g.pending);
+    }
+    function aiTogglePause() {
+      const g = aiGame;
+      if (!aiActive || !aiClockOn(g) || g.status !== 'playing') return;
+      g.paused = !g.paused;
+      aiSpeechPrime();
+      aiClockSync(); aiSave(); aiRender();
+    }
+    // Pausa automática (pantalla apagada, otra app, otra pestaña de TsumeVault). Sin reloj solo se
+    // detiene la medida y sigue sola al volver.
+    function aiClockAutoPause() {
+      const g = aiGame;
+      if (aiClockOn(g) && g.status === 'playing' && aiToPlay(g) === g.my_color && !g.paused) { g.paused = true; aiSave(); }
+      aiClockSync();
+    }
+    function aiClockText(g) {
+      if (!aiClockOn(g) || g.status !== 'playing') return null;
+      const mine = aiToPlay(g) === g.my_color, a = tcAt(g.tc, g.clk, mine ? aiTurnE(g) : 0);
+      const lbl = a.phase === 'byo' ? 'byoyomi ' + tcLabel(a) : a.phase === 'over' ? tcLabel(a) + ' fuera de tiempo' : tcLabel(a);
+      const dot = g.my_color === 'B' ? '●' : '○';
+      if (!mine) return { txt: (aiBusy ? 'La IA está pensando…' : 'Turno de la IA') + ` · ⏱ ${lbl}`, cls: 'clk' };
+      if (g.paused) return { txt: `⏸ En pausa · ⏱ ${lbl}`, cls: 'clk' };
+      if (aiEstShown(g)) return null;
+      const cls = 'clk ' + (a.phase === 'over' ? 'clk-over' : g.pending ? 'clk-press' : g.my_color === 'B' ? 'board-hint-black' : 'board-hint-white');
+      const lastMv = g.moves[g.moves.length - 1], aiPassed = lastMv && lastMv[1] === 'pass' && lastMv[0] !== g.my_color;
+      return { txt: `${dot} ${lbl} · ` + (g.pending ? (g.pending === 'pass' ? 'pasas — pulsa el reloj' : 'pulsa el reloj') : 'te toca') + (aiPassed ? ' · la IA ha pasado' : ''), cls };
+    }
+    function aiRenderHint() {
+      const hint = document.getElementById('board-hint'), c = aiClockText(aiGame);
+      if (!hint || !c || aiError) return false;
+      hint.textContent = c.txt; hint.className = c.cls;
+      return true;
+    }
+    function aiClockDesc(tc) { return tc && tc.type === 'byoyomi' ? `${tc.main % 60 ? tc.main + ' s' : tc.main / 60 + ' min'} + ${tc.periods} × ${tc.period} s` : 'sin reloj'; }
 
     function aiDelayMs() { const v = parseInt(lsGet(AI_DELAY_KEY), 10); return v >= 0 && v <= 10000 ? v : 1000; }
     function aiLoad() { try { const g = JSON.parse(lsGet(AI_GAME_KEY) || 'null'); return g && Array.isArray(g.moves) ? g : null; } catch (e) { return null; } }
@@ -8581,13 +8875,15 @@
       if (!aiGame) return;
       if (!wgoBoard || boardSize !== 19) initBoard(19);
       clearBoard();
-      const pos = aiPosition(aiGame).getPosition();
+      const pend = aiGame.status === 'playing' && aiGame.pending && aiGame.pending !== 'pass' ? aiGame.pending : null;   // RL2
+      const pos = aiPosition(pend ? Object.assign({}, aiGame, { moves: aiGame.moves.concat([[aiGame.my_color, pend]]) }) : aiGame).getPosition();
       for (let x = 0; x < 19; x++) for (let y = 0; y < 19; y++) {
         const v = pos.get(x, y);
         if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 }); else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 });
       }
       const last = aiGame.moves[aiGame.moves.length - 1];
       if (last && aiGame.status === 'playing') { const p = aiFromGtp(last[1]); if (p) wgoBoard.addObject({ x: p.x, y: p.y, type: 'CR' }); }
+      if (pend) { const p = aiFromGtp(pend); wgoBoard.addObject({ x: p.x, y: p.y, type: 'TR' }); }   // puesta, sin pulsar el reloj
       for (const v of (aiGame.dead || [])) { const p = aiFromGtp(v); if (p) wgoBoard.addObject({ x: p.x, y: p.y, type: 'MA' }); }
       if (aiEst && aiEst.n === aiGame.moves.length && aiGame.status === 'playing' && aiEst.ownership) {
         for (let y = 0; y < 19; y++) for (let x = 0; x < 19; x++) {
@@ -8620,10 +8916,21 @@
       if (aiError && !aiBusy) { txt = '⚠ ' + aiError + ' — pulsa Reintentar'; cls = ''; }
       hint.textContent = txt;
       hint.className = cls;
+      aiClockSync();   // RL2: antes de pintar el reloj, para que refleje el estado nuevo
+      if (!(aiError && !aiBusy)) aiRenderHint();
+      const pz = document.getElementById('ai-btn-pause');
+      pz.style.display = aiClockOn(g) && g.status === 'playing' ? '' : 'none';
+      pz.textContent = g.paused ? '▶ Seguir' : '⏸ Pausa';
+      const ov = document.getElementById('pause-overlay');   // en pausa no se ve el tablero (como en los problemas)
+      const showOv = aiActive && aiClockOn(g) && g.status === 'playing' && !!g.paused;
+      if (showOv || ov.dataset.ai === '1') {
+        ov.style.display = showOv ? 'flex' : 'none'; ov.dataset.ai = showOv ? '1' : '';
+        document.getElementById('board-wrap').style.visibility = showOv ? 'hidden' : 'visible';
+      }
       const bw = document.getElementById('board-wrap');   // borde rojo mientras haya un error de conexión
       if (bw) { bw.classList.remove('board-ok', 'board-choice'); bw.classList.toggle('board-bad', !!aiError && !aiBusy); }
       const hcTxt = g.handicap > 0 ? `recibes ${g.handicap}` : g.handicap < 0 ? `das ${-g.handicap}` : 'igualada';
-      cb.textContent = `IA ${aiLevelLabel(g.level)} · tú con ${g.my_color === 'B' ? 'negras' : 'blancas'} · ${hcTxt} · komi ${g.komi} · ${g.rules === 'chinese' ? 'chinas' : 'japonesas'} · ${g.moves.length} jugadas`;
+      cb.textContent = `IA ${aiLevelLabel(g.level)} · tú con ${g.my_color === 'B' ? 'negras' : 'blancas'} · ${hcTxt} · komi ${g.komi} · ${g.rules === 'chinese' ? 'chinas' : 'japonesas'} · ${g.moves.length} jugadas` + (aiClockOn(g) ? ` · ⏱ ${aiClockDesc(g.tc)}` : '');
       const busyOrDone = !aiIsMyTurn();
       document.getElementById('ai-btn-pass').disabled = busyOrDone;
       document.getElementById('ai-btn-resign').disabled = g.status !== 'playing' || aiBusy;
@@ -8670,6 +8977,7 @@
           if (!p || !Array.isArray(aiPosition(g).play(p.x, p.y, color === 'B' ? WGo.B : WGo.W))) throw new Error('jugada ilegal de la IA: ' + data.move);
         }
         g.moves.push([color, data.move]);
+        if (aiToPlay(g) === g.my_color) aiTurnStart(g);   // RL2: mi reloj arranca al aparecer su piedra
         aiSave();
         if (aiActive) { aiRender(); if (data.move !== 'pass') playSound('stone'); }
         if (aiTwoPasses(g)) aiFinish('passes');
@@ -8692,13 +9000,19 @@
       if (!aiActive || !aiIsMyTurn()) return;
       const c = aiGame.my_color === 'B' ? WGo.B : WGo.W;
       if (!Array.isArray(aiPosition(aiGame).play(x, y, c))) return;   // ocupada, suicidio o ko
+      if (aiClockOn(aiGame)) {   // RL2: la piedra queda puesta; se envía al pulsar el reloj (se puede cambiar antes)
+        if (aiGame.paused) return;
+        aiGame.pending = aiToGtp(x, y); aiSave(); aiRender();
+        playSound('stone');
+        return;
+      }
       if (tapConfirm && !(aiPendingTap && aiPendingTap.x === x && aiPendingTap.y === y)) {
         if (aiPendingTap) wgoBoard.removeObject({ x: aiPendingTap.x, y: aiPendingTap.y, type: 'outline' });
         aiPendingTap = { x, y };
         wgoBoard.addObject({ x, y, c: c === WGo.B ? 1 : -1, type: 'outline' });
         return;
       }
-      aiPlayMine(aiToGtp(x, y));
+      aiCommit(aiToGtp(x, y));
     }
     function aiBack() {
       const g = aiGame;
@@ -8707,6 +9021,8 @@
       if (n == null) return;
       if (!confirm('¿Deshacer tu última jugada (y la respuesta de la IA)?')) return;
       g.moves.length = n;
+      if (Array.isArray(g.tlog)) g.tlog.length = Math.min(g.tlog.length, n);   // RL2: el tiempo gastado no se devuelve (clk y turnSpent siguen)
+      g.pending = null;
       aiError = ''; aiEst = null;
       aiSave();
       aiRender();
@@ -8728,7 +9044,11 @@
         if (aiActive && aiGame === g) aiRender();
       }
     }
-    function aiPass() { if (aiIsMyTurn()) aiPlayMine('pass'); }
+    function aiPass() {
+      if (!aiIsMyTurn()) return;
+      if (aiClockOn(aiGame)) { if (!aiGame.paused) { aiGame.pending = 'pass'; aiSave(); aiRender(); } return; }   // RL2: pasar + pulsar
+      aiCommit('pass');
+    }
     function aiResign() {
       if (!aiGame || aiGame.status !== 'playing' || aiBusy) return;
       if (!confirm('¿Abandonar la partida? Cuenta como derrota.')) return;
@@ -8740,19 +9060,25 @@
       if (!aiGame || aiGame.status === 'done') return;
       if (!confirm('¿Descartar la partida? No contará en el histórico ni en las estadísticas.')) return;
       aiGame = null; aiBusy = false; aiBusyTok = null; aiError = '';
+      aiClockSync();   // RL2: para el reloj y quita la pausa
+      { const ov = document.getElementById('pause-overlay'); if (ov.dataset.ai === '1') { ov.style.display = 'none'; ov.dataset.ai = ''; } }
       aiSave();
       clearBoard();
-      const bw = document.getElementById('board-wrap'); if (bw) bw.classList.remove('board-bad', 'board-ok', 'board-choice');
+      const bw = document.getElementById('board-wrap'); if (bw) { bw.classList.remove('board-bad', 'board-ok', 'board-choice'); bw.style.visibility = 'visible'; }
       const hint = document.getElementById('board-hint'); if (hint) { hint.textContent = 'Partida descartada'; hint.className = ''; }
       document.getElementById('comment-box').textContent = '';
       aiEst = null;
       ['ai-btn-pass', 'ai-btn-resign', 'ai-btn-discard', 'ai-btn-back', 'ai-btn-est'].forEach(id => { document.getElementById(id).disabled = true; });
+      document.getElementById('ai-btn-pause').style.display = 'none';
       document.getElementById('ai-btn-retry').style.display = 'none';
       aiRenderPanel();
       switchToPanel();
     }
     function aiFinish(endType) {
       aiGame.status = 'scoring'; aiGame.end_type = endType;
+      if (aiClk.segStart != null) aiGame.turnSpent = aiTurnE(aiGame);
+      aiGame.pending = null; aiGame.paused = false;
+      aiClockSync();
       aiSave();
       aiScore();
     }
@@ -8823,6 +9149,8 @@
         const sec = el('div', null, null, 'fp-section');
         sec.appendChild(el('div', null, 'Última partida', 'fp-label'));
         sec.appendChild(el('div', `font-family:var(--mono);font-size:10px;color:${g.score > 0 ? 'var(--ok-bright)' : 'var(--accent)'};`, `IA ${aiLevelLabel(g.level)} · ${aiResultText(g)}`));
+        const tt = tcHistoryText(tcSgfSummary(aiBuildSgf(g, { endType: g.end_type, score: g.score, date: '', myName: '', aiName: '' }), g.my_color));   // RL4
+        if (tt) sec.appendChild(el('div', 'font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:2px;', tt.long));
         const b = el('button', 'margin-top:6px;', '👁 Ver tablero final', 'ctrl-btn');
         b.addEventListener('click', () => { closeMobilePanel(); initBoard(19); aiRender(); switchToBoard(); });
         sec.appendChild(b);
@@ -8847,6 +9175,23 @@
       const dl = row('Espera mínima de la IA (ms)', el('input', 'cursor:text;margin-bottom:0', null, 'fsel'));
       dl.type = 'number'; dl.min = '0'; dl.max = '10000'; dl.step = '250'; dl.value = String(aiDelayMs());
       dl.addEventListener('change', () => { const v = parseInt(dl.value, 10); if (v >= 0 && v <= 10000) lsSet(AI_DELAY_KEY, String(v)); else dl.value = String(aiDelayMs()); });
+      // RL2: reloj (solo el mío). Se recuerda lo último usado en este dispositivo.
+      const cp = aiClockPrefs(); let last = {}; try { last = JSON.parse(lsGet(AI_CLOCK_KEY) || 'null') || {}; } catch (e) { }
+      const clSel = row('Reloj', el('select', 'margin-bottom:0', null, 'fsel'));
+      opt(clSel, 'none', 'Sin reloj'); opt(clSel, 'byoyomi', 'Byoyomi'); clSel.value = cp.type;
+      const clRow = el('div', 'display:flex;gap:6px;margin-bottom:6px;');
+      const num = (label, value, min, max, step) => {
+        const d = el('div', 'flex:1;min-width:0;'); d.appendChild(el('div', 'font-family:var(--mono);font-size:9px;color:var(--dim2);margin-bottom:2px;', label));
+        const i = el('input', 'cursor:text;margin-bottom:0;width:100%;box-sizing:border-box;', null, 'fsel'); i.type = 'number'; i.min = min; i.max = max; i.step = step; i.value = value;
+        d.appendChild(i); clRow.appendChild(d); return i;
+      };
+      const base = tcNormalize(Object.assign({ main: 600, periods: 5, period: 30 }, last, { type: 'byoyomi' }));
+      const clMain = num('Principal (min)', String(base.main / 60), '0', '180', 'any');
+      const clPer = num('Periodos', String(base.periods), '1', '30', '1');
+      const clSec = num('Segundos', String(base.period), '1', '600', '1');
+      f.appendChild(clRow);
+      const clSync = () => { clRow.style.display = clSel.value === 'byoyomi' ? 'flex' : 'none'; };
+      clSel.addEventListener('change', clSync); clSync();
       const sync = () => { const h = hcSel.value !== '0'; hoSel.disabled = !h; coSel.disabled = h; hoSel.style.opacity = h ? '' : '.45'; coSel.style.opacity = h ? '.45' : ''; };
       hcSel.addEventListener('change', sync); sync();
       const go = el('button', null, '▶ Empezar', 'fp-btn');
@@ -8854,6 +9199,9 @@
       go.addEventListener('click', () => {
         const p = { level: lvSel.value, hc: parseInt(hcSel.value, 10), holder: hoSel.value, color: coSel.value, rules: ruSel.value };
         lsSet(AI_FORM_KEY, JSON.stringify(p));
+        const tc = tcNormalize({ type: clSel.value, main: Math.round(parseFloat(clMain.value) * 60), periods: clPer.value, period: clSec.value });
+        lsSet(AI_CLOCK_KEY, JSON.stringify(tc.type === 'none' ? Object.assign({}, base, { type: 'none' }) : tc));   // sin reloj: guarda también los números
+        p.tc = tc;
         aiStartGame(p);
       });
       f.appendChild(go);
@@ -8862,6 +9210,10 @@
     function aiStartGame(p) {
       aiGame = Object.assign(aiNewGame({ level: p.level, handicap: p.hc, holder: p.holder, myColor: p.color, rules: p.rules }),
         { uuid: makeUUID(), started_at: aiNowIso() });
+      const tc = p.tc && p.tc.type === 'byoyomi' ? p.tc : null;   // RL2
+      Object.assign(aiGame, { tc, clk: tcStart(tc), tlog: [], turnSpent: 0, paused: false, pending: null });
+      aiClk.segStart = null; aiClk.lastE = 0;
+      if (tc) { aiSpeechPrime(); aiClockPreload(aiGame); }   // RL3: el toque de Empezar despierta la voz
       aiError = ''; aiBusy = false; aiBusyTok = null; aiEst = null;
       aiSave();
       closeMobilePanel();
@@ -8878,6 +9230,9 @@
     }
     function aiEnterTab() {
       aiGame = aiLoad();
+      aiClk.segStart = null;
+      if (aiClockOn(aiGame) && aiGame.status === 'playing' && aiToPlay(aiGame) === aiGame.my_color) aiGame.paused = true;   // RL2: al volver, en pausa
+      if (aiClockOn(aiGame) && aiGame.status === 'playing') aiClockPreload(aiGame);   // RL3
       window._boardClickHandler = aiBoardClick;
       aiRenderPanel();
       if (aiGame) { initBoard(19); aiRender(); }
@@ -8892,6 +9247,9 @@
       document.getElementById('ai-btn-back').addEventListener('click', aiBack);
       document.getElementById('ai-btn-est').addEventListener('click', aiEstimate);
       document.getElementById('ai-btn-retry').addEventListener('click', aiRetry);
+      document.getElementById('ai-btn-pause').addEventListener('click', aiTogglePause);   // RL2
+      document.getElementById('board-hint').addEventListener('click', () => { if (aiActive) aiPress(); });
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') aiClockAutoPause(); else if (aiActive && aiGame) aiRenderStatus(); });
     }
 
     // ══ IA4: ESTADÍSTICAS de partidas contra la IA (ventana #ai-stats-overlay) ══
@@ -8904,7 +9262,7 @@
       } catch (e) { return { target: 'katago:rank_15k', rules: AI_CLOSE_RULES.map(r => Object.assign({}, r)) }; }
     }
     function localAiGames() {
-      return dbQuery('SELECT uuid, played_at, my_color, ai_level, model, handicap, rules, komi, end_type, score, deleted, updated_at FROM ai_games WHERE deleted=0 ORDER BY played_at DESC', []);
+      return dbQuery('SELECT uuid, played_at, my_color, ai_level, model, handicap, rules, komi, end_type, score, sgf, deleted, updated_at FROM ai_games WHERE deleted=0 ORDER BY played_at DESC', []);   // RL4: sgf para los tiempos
     }
     function localAiGameDelete(uuid) {
       const r = dbQueryOne('SELECT updated_at FROM ai_games WHERE uuid=?', [uuid]);
@@ -9044,7 +9402,11 @@
         row.appendChild(el('span', 'min-width:56px;color:var(--text);', aiLevelLabel(g.ai_level)));
         row.appendChild(el('span', 'min-width:28px;text-align:right;', (g.handicap > 0 ? '+' : '') + g.handicap));
         row.appendChild(el('span', `min-width:56px;text-align:right;color:${g.score > 0 ? 'var(--ok-bright)' : 'var(--accent)'};`, (g.score > 0 ? '+' : '') + g.score));
-        row.appendChild(el('span', 'flex:1;color:var(--dim2);', g.end_type === 'resign_me' ? 'abandono' : g.end_type === 'resign_ai' ? 'abandona la IA' : ''));
+        row.appendChild(el('span', 'color:var(--dim2);', g.end_type === 'resign_me' ? 'abandono' : g.end_type === 'resign_ai' ? 'abandona la IA' : ''));
+        const tt = tcHistoryText(tcSgfSummary(g.sgf, g.my_color));   // RL4
+        const ts = el('span', `flex:1;color:${tt && /⏰/.test(tt.short) ? 'var(--accent)' : 'var(--dim2)'};`, tt ? tt.short : '');
+        if (tt) ts.title = tt.long;
+        row.appendChild(ts);
         const vw = el('button', null, '👁'); vw.className = 'chap-btn'; vw.title = 'Revisar la partida en el visor de Games';
         vw.addEventListener('click', () => aiReviewGame(g.uuid));
         row.appendChild(vw);
@@ -9065,7 +9427,7 @@
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === `tab-${name}`));
       // J3: los controles de josekis solo existen dentro de su pestaña
       if (name !== 'josekis') { jsActive = false; document.getElementById('js-controls').style.display = 'none'; jsClosePop(); /* J3.1 */ }
-      if (name !== 'play') { aiActive = false; document.getElementById('ai-controls').style.display = 'none'; } // IA3
+      if (name !== 'play') { if (aiActive) { aiClockAutoPause(); aiActive = false; aiClockSync(); const ov = document.getElementById('pause-overlay'); if (ov.dataset.ai === '1') { ov.style.display = 'none'; ov.dataset.ai = ''; document.getElementById('board-wrap').style.visibility = 'visible'; } } aiActive = false; document.getElementById('ai-controls').style.display = 'none'; } // IA3 / RL2
       { // sin panel de problemas en Play y Joseki; en Games, ficha de la partida. Al cambiar, el tablero se recalcula (listener de resize)
         const app = document.getElementById('app'), noSide = ['play', 'josekis'].includes(name), gmSide = name === 'games';
         if (app.classList.contains('no-side') !== noSide || app.classList.contains('side-games') !== gmSide) {
