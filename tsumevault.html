@@ -1207,6 +1207,25 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Visor de Games: dos filas compactas de botones solo con icono */
+    .gm-row { flex-basis: 100%; display: flex; justify-content: center; align-items: center; gap: 4px; }
+    .ctrl-btn.gm-ico { padding: 3px 9px; min-width: 32px; }
+    /* Textos del análisis: misma letra que la barra del tablero ("Analizando…"), con más contraste */
+    .gm-an-box { flex-basis: 100%; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; line-height: 1.6;
+                 color: var(--text); background: rgba(0, 0, 0, .6); padding: 5px 10px; text-align: center; white-space: pre-line; }
+
+    /* Panel lateral de problemas oculto en Games, Play y Joseki (#app.no-side, ver switchTab).
+       Va al final para ganar a las reglas de cada tamaño de pantalla. */
+    #app.no-side #sidebar { display: none !important; }
+    #app.no-side { grid-template-columns: 300px 1fr; grid-template-areas: "hdr hdr" "left main"; }
+    @media (min-width:768px) and (max-width:1023px) {
+      #app.no-side { grid-template-columns: 1fr; grid-template-areas: "hdr" "main"; }
+    }
+    @media (max-width:767px) {
+      #app.no-side { grid-template-columns: 1fr; grid-template-areas: "hdr" "mob-view"; }
+      #app.no-side.mob-board { grid-template-columns: 100vw; grid-template-rows: 42px 1fr; grid-template-areas: "hdr" "mob-view"; }
+    }
   </style>
 </head>
 
@@ -1760,23 +1779,31 @@
           <button class="ctrl-btn" id="btn-hide-problem" style="display:none" title="Hide this problem everywhere (history kept; reversible only in the server DB) — T13" aria-label="Hide problem">🚫</button>
           <button class="ctrl-btn" id="btn-next" title="Next problem" aria-label="Next">→</button>
         </div>
-        <div id="gm-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
-          <button class="ctrl-btn" id="gm-btn-prev">← Prev</button>
-          <button class="ctrl-btn" id="gm-btn-branch">↩ Branch</button>
-          <button class="ctrl-btn" id="gm-btn-play">▶</button>
-          <button class="ctrl-btn" id="gm-btn-next">Next →</button>
-          <select id="gm-timer-sel" style="font-family:var(--mono);font-size:9px;background:var(--panel);color:var(--dim);border:1px solid var(--border2);border-radius:2px;padding:3px 5px;cursor:pointer;">
-            <option value="2000">2s</option>
-            <option value="3000" selected>3s</option>
-            <option value="5000">5s</option>
-            <option value="8000">8s</option>
-            <option value="10000">10s</option>
-          </select>
-          <!-- AN2: análisis con KataGo (servidor) -->
-          <button class="ctrl-btn" id="gm-btn-graph" title="Gráfica de la ventaja estimada a lo largo de la partida">📈 Gráfica</button>
-          <button class="ctrl-btn" id="gm-btn-an" title="Analizar esta posición: mejores jugadas y coste de la jugada hecha">🔍 Analizar</button>
-          <button class="ctrl-btn" id="gm-btn-pv" style="display:none" title="Mostrar u ocultar la secuencia de la mejor jugada">🔢 Secuencia</button>
-          <div id="gm-graph" style="display:none;flex-basis:100%;margin-top:4px;"></div>
+        <div id="gm-controls" style="display:none;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap;margin-top:6px;">
+          <!-- fila 1: navegación por la partida -->
+          <div class="gm-row">
+            <button class="ctrl-btn gm-ico" id="gm-btn-prev" title="Jugada anterior">◀</button>
+            <button class="ctrl-btn gm-ico" id="gm-btn-branch" title="Volver al inicio de la rama">↩</button>
+            <button class="ctrl-btn gm-ico" id="gm-btn-play" title="Reproducción automática">▷</button>
+            <button class="ctrl-btn gm-ico" id="gm-btn-next" title="Jugada siguiente">▶</button>
+            <select id="gm-timer-sel" title="Velocidad de la reproducción automática" style="font-family:var(--mono);font-size:9px;background:var(--panel);color:var(--dim);border:1px solid var(--border2);border-radius:2px;padding:3px 5px;cursor:pointer;">
+              <option value="2000">2s</option>
+              <option value="3000" selected>3s</option>
+              <option value="5000">5s</option>
+              <option value="8000">8s</option>
+              <option value="10000">10s</option>
+            </select>
+          </div>
+          <!-- fila 2 (AN2): análisis con KataGo (servidor) -->
+          <div class="gm-row">
+            <button class="ctrl-btn gm-ico" id="gm-btn-graph" title="Gráfica de la ventaja estimada a lo largo de la partida">📈</button>
+            <button class="ctrl-btn gm-ico" id="gm-btn-an" title="Analizar esta posición: mejores jugadas y coste de la jugada hecha">🔍</button>
+            <button class="ctrl-btn gm-ico" id="gm-btn-pv" style="display:none" title="Mostrar u ocultar la secuencia de la mejor jugada">🔢</button>
+            <button class="ctrl-btn gm-ico" id="gm-btn-err-prev" style="display:none" title="Error anterior (te deja justo antes de la jugada)">◀✕</button>
+            <button class="ctrl-btn gm-ico" id="gm-btn-err-next" style="display:none" title="Error siguiente (te deja justo antes de la jugada)">✕▶</button>
+          </div>
+          <div id="gm-an-text" class="gm-an-box" style="display:none"></div>
+          <div id="gm-graph" style="display:none;flex-basis:100%;margin-top:2px;"></div>
         </div>
         <!-- J3: controles del modo aprender de josekis -->
         <div id="js-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
@@ -1888,7 +1915,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261115-0958';
+	const SW_VERSION = 'tsumevault-20261115-1112';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -7437,7 +7464,7 @@
     function gmStartTimer() {
       if (gmTimer) clearInterval(gmTimer);
       gmTimerRunning = true;
-      document.getElementById('gm-btn-play').textContent = '⏸';
+      document.getElementById('gm-btn-play').textContent = '⏸';  // ▷ parado / ⏸ reproduciendo
       gmTimer = setInterval(() => {
         const children = (gmCurrentNode.children || []);
         if (children.length === 0) { gmStopTimer(); return; }  // fin de partida
@@ -7452,7 +7479,7 @@
       if (gmTimer) { clearInterval(gmTimer); gmTimer = null; }
       gmTimerRunning = false;
       const btn = document.getElementById('gm-btn-play');
-      if (btn) btn.textContent = '▶';
+      if (btn) btn.textContent = '▷';
     }
 
     function gmToggleTimer() {
@@ -7510,6 +7537,7 @@
     function anReset() {
       anState = { graph: null, graphOn: false, res: null, pvOn: false, busy: false };
       const gw = document.getElementById('gm-graph'); if (gw) { gw.style.display = 'none'; gw.textContent = ''; }
+      const at = document.getElementById('gm-an-text'); if (at) at.style.display = 'none';
       anUpdateButtons();
     }
     function anPersp() { return (gmCurrentGame && gmCurrentGame.persp) || 'B'; }
@@ -7549,7 +7577,25 @@
       const showPv = !!(anState.res && anState.res.node === gmCurrentNode && anState.res.data.candidates[0].pv.length);
       pv.style.display = showPv ? '' : 'none';
       pv.classList.toggle('active', anState.pvOn);
+      const ep = document.getElementById('gm-btn-err-prev'), en = document.getElementById('gm-btn-err-next');
+      const has = !!anState.graph;
+      ep.style.display = en.style.display = has ? '' : 'none';
+      if (has) {
+        ep.disabled = anState.busy || anMistakeTarget(-1) == null;
+        en.disabled = anState.busy || anMistakeTarget(1) == null;
+      }
     }
+    // Errores: posición JUSTO ANTES de la jugada mala (jugada i -> posición i-1), para que
+    // 🔍 Analizar diga qué había que jugar y cuánto costó lo jugado.
+    function anMistakeTarget(dir) {
+      if (!anState.graph) return null;
+      const cur = anOnMainLine() ? anCurrentMoves().length : -1;
+      const ts = anMistakes(anState.graph.leads, anState.graph.moves, AN_MISTAKE).map(m => m.i - 1);
+      if (dir > 0) return ts.find(t => t > cur) ?? null;
+      const prev = ts.filter(t => t < cur);
+      return prev.length ? prev[prev.length - 1] : null;
+    }
+    function anJumpMistake(dir) { const t = anMistakeTarget(dir); if (t != null) anGoToMove(t); }
 
     // ── gráfica ──
     async function anToggleGraph() {
@@ -7603,12 +7649,9 @@
         anGoToMove(Math.max(0, Math.min(n, i)));
       });
       wrap.appendChild(svg);
-      const cur = anOnMainLine() ? anCurrentMoves().length : null;
-      const v = cur != null ? vals[cur] : null;
-      const who = persp === 'B' ? 'negras' : 'ti';
       wrap.appendChild(Object.assign(document.createElement('div'), {
-        style: 'font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:2px;',
-        textContent: `Ventaja estimada para ${who} (arriba = mejor) · ● error ≥${AN_MISTAKE} pts · ● grave ≥${AN_BLUNDER}` + (v != null ? ` · jugada ${cur}: ${v > 0 ? '+' : ''}${v}` : '') + ' · toca para ir a una jugada',
+        className: 'gm-an-box', style: 'margin-top:3px;',
+        textContent: anGraphCaption(leads, moves, persp, anOnMainLine() ? anCurrentMoves().length : null),
       }));
     }
     function anGoToMove(i) {
@@ -7662,10 +7705,14 @@
           });
         }
         const fmt = (v) => (v > 0 ? '+' : '') + v;
-        let txt = `Juegan ${side}. Mejor: ${best.move} (${fmt(best.scoreLead)})` + cs.slice(1).map((c, k) => ` · ${k + 2}ª ${c.move} (${fmt(c.scoreLead)})`).join('');
-        if (d.played) txt += d.played.loss <= 0.5 ? ` · Se jugó ${d.played.move}: buena jugada` : ` · Se jugó ${d.played.move}: −${d.played.loss} respecto a la mejor`;
-        const cb = document.getElementById('comment-box');
-        cb.textContent = (gmCurrentNode.comment ? gmCurrentNode.comment + '\n\n' : '') + txt + (anState.pvOn ? `\nSecuencia: ${best.pv.join(' ')}` : '');
+        let txt = `Juegan ${side} · Mejor: ★ ${best.move} (${fmt(best.scoreLead)})`;
+        if (cs.length > 1) txt += '\nOtras: ' + cs.slice(1).map((c, k) => `${k + 2} ${c.move} (${fmt(c.scoreLead)})`).join(' · ');
+        if (d.played) txt += '\n' + (d.played.loss <= 0.5 ? `Se jugó ${d.played.move}: buena jugada` : `Se jugó ${d.played.move}: −${d.played.loss} respecto a la mejor`);
+        const at = document.getElementById('gm-an-text');
+        at.textContent = txt + (anState.pvOn ? `\nSecuencia: ${best.pv.join(' ')}` : '');
+        at.style.display = '';
+      } else {
+        document.getElementById('gm-an-text').style.display = 'none';
       }
       anDrawGraph();
       anUpdateButtons();
@@ -7674,6 +7721,8 @@
       document.getElementById('gm-btn-graph').addEventListener('click', anToggleGraph);
       document.getElementById('gm-btn-an').addEventListener('click', anAnalyze);
       document.getElementById('gm-btn-pv').addEventListener('click', anTogglePv);
+      document.getElementById('gm-btn-err-prev').addEventListener('click', () => anJumpMistake(-1));
+      document.getElementById('gm-btn-err-next').addEventListener('click', () => anJumpMistake(1));
     }
 
     // ══ J3: JOSEKIS — pestaña y modo aprender (REQUISITOS_JOSEKI.md J-30..J-43) ══
@@ -8202,6 +8251,19 @@
         if (loss >= minLoss) out.push({ i: i + 1, color: moves[i][0], loss });
       }
       return out;
+    }
+    // Texto bajo la gráfica para la jugada actual cur (null = fuera de la línea principal):
+    // lo que ganó o perdió quien la hizo y la ventaja tras ella, desde persp ('B' negras o el jugador).
+    function anGraphCaption(whiteLeads, moves, persp, cur) {
+      const fmt = (v) => (v > 0 ? '+' : v < 0 ? '−' : '±') + Math.abs(v);
+      const sg = persp === 'B' ? -1 : 1, who = persp === 'B' ? 'negras' : 'tú';
+      if (cur == null) return 'Fuera de la línea principal';
+      const adv = `Ventaja ${who}: ${fmt(Math.round(sg * whiteLeads[cur] * 10) / 10)}`;
+      if (cur === 0 || cur > moves.length) return 'Inicio · ' + adv;
+      const mc = moves[cur - 1][0], ms = mc === 'B' ? -1 : 1;
+      const d = Math.round((ms * whiteLeads[cur] - ms * whiteLeads[cur - 1]) * 10) / 10;
+      const tag = d <= -10 ? ' (error grave)' : d <= -5 ? ' (error)' : '';
+      return `Jugada ${cur} · ${mc === 'B' ? 'negras' : 'blancas'}: ${fmt(d)}${tag} · ${adv}`;
     }
     // ── fin IA3 funciones puras ──
 
@@ -8743,6 +8805,13 @@
       // J3: los controles de josekis solo existen dentro de su pestaña
       if (name !== 'josekis') { jsActive = false; document.getElementById('js-controls').style.display = 'none'; jsClosePop(); /* J3.1 */ }
       if (name !== 'play') { aiActive = false; document.getElementById('ai-controls').style.display = 'none'; } // IA3
+      { // sin panel de problemas en Games, Play y Joseki; al cambiar, el tablero se recalcula (listener de resize)
+        const app = document.getElementById('app'), noSide = ['games', 'play', 'josekis'].includes(name);
+        if (app.classList.contains('no-side') !== noSide) {
+          app.classList.toggle('no-side', noSide);
+          requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
+        }
+      }
       if (name === 'games') {
         gmActive = true;
         gmLoadCollections();
@@ -8816,6 +8885,7 @@
     window.addEventListener('resize', () => { clearTimeout(rsTO); rsTO = setTimeout(() => {
       if (wgoBoard && jsActive && jsData) { initBoard(19); jsRender(null); return; } // J3
       if (wgoBoard && aiActive && aiGame) { initBoard(19); aiRender(); return; } // IA3
+      if (wgoBoard && gmActive && gmRootNode) { initBoard(boardSize); gmRenderCurrentNode(); return; } // visor de Games
       if (!wgoBoard || !currentProblem || gmActive) return;
       initBoard(currentProblem.size || 19);
       if (window._studyRedraw) window._studyRedraw(); else renderProblem(currentProblem);
