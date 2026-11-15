@@ -1791,7 +1791,7 @@
           <button class="ctrl-btn" id="btn-hide-problem" style="display:none" title="Hide this problem everywhere (history kept; reversible only in the server DB) — T13" aria-label="Hide problem">🚫</button>
           <button class="ctrl-btn" id="btn-next" title="Next problem" aria-label="Next">→</button>
         </div>
-        <div id="gm-controls" style="display:none;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap;margin-top:6px;">
+        <div id="gm-controls" style="display:none;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap;margin-top:6px;min-width:0;max-width:100%;">
           <!-- fila 1: navegación por la partida -->
           <div class="gm-row">
             <button class="ctrl-btn gm-ico" id="gm-btn-prev" title="Jugada anterior">◀</button>
@@ -1816,7 +1816,7 @@
             <button class="ctrl-btn gm-ico" id="gm-btn-err-next" style="display:none" title="Error siguiente">✕▶</button>
           </div>
           <div id="gm-an-text" class="gm-an-box" style="display:none"></div>
-          <div id="gm-graph" style="display:none;flex-basis:100%;margin-top:2px;"></div>
+          <div id="gm-graph" style="display:none;flex-basis:100%;width:100%;min-width:0;max-width:100%;margin-top:2px;"></div>
         </div>
         <!-- J3: controles del modo aprender de josekis -->
         <div id="js-controls" style="display:none;align-items:center;gap:6px;flex-wrap:wrap;margin-top:6px;">
@@ -1933,7 +1933,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261115-1301';
+	const SW_VERSION = 'tsumevault-20261115-2012';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -7582,11 +7582,11 @@
     // Usa /ai/graph y /ai/analyze (ai_engines.py, AN1). Solo con conexión; solo 19×19 normal o con handicap.
     const AN_MISTAKE = 5, AN_BLUNDER = 10;   // puntos perdidos para marcar error / error grave
     let gmSgfText = '';
-    let anState = { graph: null, graphOn: false, res: null, pvOn: false, busy: false, errColor: 'all' };
+    let anState = { graph: null, graphOn: false, resByNode: new Map(), pvOn: false, busy: false, errColor: 'all' };
 
     function anReset() {
       // filtro de errores: en tus partidas contra la IA, solo los tuyos; en las demás, todos
-      anState = { graph: null, graphOn: false, graphLoading: false, res: null, pvOn: false, busy: false, errColor: (gmCurrentGame && gmCurrentGame.persp) || 'all' };
+      anState = { graph: null, graphOn: false, graphLoading: false, resByNode: new Map(), pvOn: false, busy: false, errColor: (gmCurrentGame && gmCurrentGame.persp) || 'all' };
       anRenderInfo();
       const gw = document.getElementById('gm-graph'); if (gw) { gw.style.display = 'none'; gw.textContent = ''; }
       const at = document.getElementById('gm-an-text'); if (at) at.style.display = 'none';
@@ -7626,7 +7626,8 @@
       if (!g) return;
       g.disabled = a.disabled = anState.busy || !gmRootNode;
       g.classList.toggle('active', anState.graphOn);
-      const showPv = !!(anState.res && anState.res.node === gmCurrentNode && anState.res.data.candidates[0].pv.length);
+      const cr = anState.resByNode.get(gmCurrentNode);
+      const showPv = !!(cr && cr.data.candidates[0].pv.length);
       pv.style.display = showPv ? '' : 'none';
       pv.classList.toggle('active', anState.pvOn);
       const ep = document.getElementById('gm-btn-err-prev'), en = document.getElementById('gm-btn-err-next'), ef = document.getElementById('gm-btn-err-filter');
@@ -7753,7 +7754,8 @@
       const ns = 'http://www.w3.org/2000/svg', mk = (t, a) => { const e = document.createElementNS(ns, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
       wrap.textContent = '';
       const scroller = document.createElement('div');
-      scroller.style.cssText = 'overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;border:1px solid var(--border);background:var(--panel);scrollbar-width:thin;scrollbar-color:var(--border2) transparent;';
+      // width:0 + min-width:100%: el ancho de la gráfica no ensancha los contenedores (#board-wrap es flexible)
+      scroller.style.cssText = 'width:0;min-width:100%;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;border:1px solid var(--border);background:var(--panel);scrollbar-width:thin;scrollbar-color:var(--border2) transparent;';
       const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, style: `display:block;cursor:pointer;width:${W}px;height:${H}px;` });
       // marcas cada 50 jugadas para orientarse al desplazar
       for (let k = 50; k < n; k += 50) {
@@ -7776,7 +7778,11 @@
         const cur = anCurrentMoves().length;
         svg.appendChild(mk('line', { x1: X(cur), x2: X(cur), y1: 0, y2: H, stroke: 'var(--text)', 'stroke-width': 1, 'stroke-dasharray': '3,3', 'vector-effect': 'non-scaling-stroke' }));
       }
+      let down = null;   // si el dedo se ha movido (desplazamiento), no es un toque
+      svg.addEventListener('pointerdown', (e) => { down = { x: e.clientX, y: e.clientY, sl: scroller.scrollLeft }; });
       svg.addEventListener('click', (e) => {
+        if (down && (Math.abs(e.clientX - down.x) > 8 || Math.abs(e.clientY - down.y) > 8 || Math.abs(scroller.scrollLeft - down.sl) > 2)) { down = null; return; }
+        down = null;
         const r = svg.getBoundingClientRect();
         const i = Math.round(((e.clientX - r.left) - pad) / (W - 2 * pad) * n);
         anGoToMove(Math.max(0, Math.min(n, i)));
@@ -7805,7 +7811,8 @@
     // Modelo 1: se analiza la ÚLTIMA jugada del tablero (la que se ve marcada): la posición de
     // antes, con esa jugada como "played". En el inicio (sin jugadas) se analiza la primera jugada.
     async function anAnalyze() {
-      const node = gmCurrentNode, moves = anCurrentMoves();
+      const node = gmCurrentNode, moves = anCurrentMoves(), st = anState;
+      if (st.resByNode.has(node)) { gmRenderCurrentNode(); return; }   // ya analizada: se muestra
       const last = moves[moves.length - 1];
       const body = anBody(last ? moves.slice(0, -1) : moves); if (!body) return;
       if (last) {
@@ -7817,18 +7824,25 @@
       anState.busy = true; anUpdateButtons(); anMsg('Analizando… (unos segundos)');
       try {
         const data = await aiPost('/ai/analyze', body, 120000);
-        if (gmCurrentNode !== node) return;
-        anState.res = { node, data, moveNo: last ? moves.length : null }; anState.pvOn = false;
-        gmRenderCurrentNode();
+        if (anState !== st) return;   // se abrió otra partida
+        // Se guarda aunque se haya cambiado de jugada mientras tanto: se verá al volver a ella.
+        st.resByNode.set(node, { node, data, moveNo: last ? moves.length : null });
+        if (gmCurrentNode === node) {
+          st.pvOn = false;
+          anMsg((gmCurrentGame && gmCurrentGame.name || '').replace(/\.sgf$/i, ''));
+          gmRenderCurrentNode();
+        } else {
+          anMsg(`Análisis de la jugada ${last ? moves.length : 0} listo: vuelve a ella para verlo`);
+        }
       } catch (e) {
-        anMsg('No se pudo analizar (' + e.message + ')');
-      } finally { anState.busy = false; anUpdateButtons(); }
+        if (anState === st) anMsg('No se pudo analizar (' + e.message + ')');
+      } finally { st.busy = false; if (anState === st) anUpdateButtons(); }
     }
-    function anTogglePv() { if (!anState.res) return; anState.pvOn = !anState.pvOn; gmRenderCurrentNode(); }
+    function anTogglePv() { if (!anState.resByNode.get(gmCurrentNode)) return; anState.pvOn = !anState.pvOn; gmRenderCurrentNode(); }
     // Llamada al final de gmRenderCurrentNode: repinta lo que corresponde al nodo actual.
     function anAfterRender() {
-      const r = anState.res;
-      if (r && r.node === gmCurrentNode) {
+      const r = anState.resByNode.get(gmCurrentNode);
+      if (r) {
         const d = r.data, cs = d.candidates, best = cs[0];
         const pos = gmGame.getPosition();
         // Las candidatas y la secuencia son de la posición ANTERIOR: el punto de la jugada hecha
