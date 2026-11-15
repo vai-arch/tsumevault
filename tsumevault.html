@@ -1337,6 +1337,12 @@
               <span class="s-rem" id="cfg-pill-rem">—</span>
               <span class="s-tot" id="cfg-pill-total"></span>
             </div>
+            <!-- ST1: estado del servidor -->
+            <div class="cfg-section">
+              <div class="cfg-section-title" style="display:flex;align-items:center;gap:8px;">Estado del servidor
+                <button id="cfg-srv-refresh" type="button" title="Actualizar" style="margin-left:auto;font-family:var(--mono);font-size:10px;background:transparent;border:1px solid var(--border2);color:var(--dim);border-radius:2px;padding:1px 7px;cursor:pointer;">↻</button></div>
+              <div id="cfg-srv-status" style="font-family:var(--mono);font-size:10px;line-height:1.7;color:var(--dim);">—</div>
+            </div>
             <!-- FILTRO MOSTRAR -->
             <div class="cfg-section">
               <div class="cfg-section-title">Visibilidad</div>
@@ -1927,7 +1933,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261115-1226';
+	const SW_VERSION = 'tsumevault-20261115-1301';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -4249,6 +4255,9 @@
       // T23: etiquetas (listeners con guard dataset.bound: el modal persiste)
       renderCfgTags();
       renderCfgCacheSources();   // T27
+      renderServerStatus();      // ST1
+      const srvBtn = document.getElementById('cfg-srv-refresh');
+      if (!srvBtn.dataset.bound) { srvBtn.dataset.bound = '1'; srvBtn.addEventListener('click', renderServerStatus); }
       const tagAdd = document.getElementById('cfg-tag-add'), tagNew = document.getElementById('cfg-tag-new');
       if (!tagAdd.dataset.bound) { tagAdd.dataset.bound = '1'; tagAdd.addEventListener('click', cfgAddTag); }
       if (!tagNew.dataset.bound) { tagNew.dataset.bound = '1'; tagNew.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') { ev.preventDefault(); cfgAddTag(); } }); }
@@ -7540,6 +7549,35 @@
       });
     }
 
+    // ══ ST1: ESTADO DEL SERVIDOR (sección de ⚙) ══
+    async function renderServerStatus() {
+      const box = document.getElementById('cfg-srv-status'); if (!box) return;
+      box.textContent = 'Consultando…';
+      let data = null, ms = 0;
+      const t0 = Date.now();
+      try {
+        const r = await syncFetch('/server/status', { signal: AbortSignal.timeout(8000) });
+        ms = Date.now() - t0;
+        if (r.ok) data = await r.json();
+        else if (r.status === 404) { box.textContent = 'El servidor es de una versión anterior (sin /server/status).'; return; }
+        else if (r.status === 401) { box.textContent = 'Token incorrecto o no configurado.'; return; }
+      } catch (e) { /* sin respuesta: rojo */ }
+      const sum = srvStatusSummary(data, ms, new Date().toISOString());
+      box.textContent = '';
+      const head = document.createElement('div');
+      const col = { ok: 'var(--ok-bright)', warn: 'var(--gold)', bad: 'var(--accent)' }[sum.level];
+      head.style.cssText = `color:${col};font-size:11px;margin-bottom:2px;`;
+      head.textContent = '● ' + ({ ok: 'Todo en orden', warn: 'Hay algo que mirar', bad: 'Sin conexión con el servidor' }[sum.level]);
+      box.appendChild(head);
+      for (const w of sum.warn) { const d = document.createElement('div'); d.style.color = col; d.textContent = '· ' + w; box.appendChild(d); }
+      for (const [k, v] of sum.lines) {
+        const d = document.createElement('div');
+        const a = document.createElement('span'); a.style.color = 'var(--dim2)'; a.textContent = k + ': ';
+        const b = document.createElement('span'); b.style.color = 'var(--text)'; b.textContent = v;
+        d.appendChild(a); d.appendChild(b); box.appendChild(d);
+      }
+    }
+
     // ══ AN2: ANÁLISIS EN EL VISOR DE GAMES (gráfica de ventaja + mejores jugadas a petición) ══
     // Usa /ai/graph y /ai/analyze (ai_engines.py, AN1). Solo con conexión; solo 19×19 normal o con handicap.
     const AN_MISTAKE = 5, AN_BLUNDER = 10;   // puntos perdidos para marcar error / error grave
@@ -7642,32 +7680,65 @@
     // AN3: la gráfica se pide por tramos (búsqueda corta por posición, ~1 s cada una; el servidor
     // guarda lo calculado y lo ya visto sale al instante) y se dibuja según llega. Si se abre otra
     // partida, el bucle se detiene. Ocultar la gráfica no lo detiene: termina y queda guardada.
+    // AN4: lo calcula el servidor en segundo plano (sigue aunque la app se cierre o el móvil apague
+    // la pantalla); la app pinta lo que ya hay y consulta el progreso cada pocos segundos. Si el
+    // servidor no tiene análisis automático (antiguo o apagado), se calcula por tramos desde aquí.
     async function anLoadGraph() {
       const st = anState;
       if (st.graphLoading) { anDrawGraph(); return; }
       const moves = anMainLine();
       const body = anBody(moves); if (!body) { st.graphOn = false; document.getElementById('gm-graph').style.display = 'none'; anUpdateButtons(); return; }
       if (moves.length > 600) { anMsg('Partida demasiado larga para la gráfica'); st.graphOn = false; document.getElementById('gm-graph').style.display = 'none'; anUpdateButtons(); return; }
-      const n = moves.length, CHUNK = 20;
+      const n = moves.length;
       if (!st.graph) st.graph = { leads: new Array(n + 1).fill(null), moves: body.moves, complete: false };
       st.graphLoading = true; anUpdateButtons();
+      const fill = (d) => { d.white_leads.forEach((v, k) => { if (v != null) st.graph.leads[k] = v; }); st.graph.complete = st.graph.leads.indexOf(null) < 0; };
+      const cachedOnly = () => aiPost('/ai/graph', Object.assign({}, body, { from: 0, to: n, cached_only: true }), 20000);
+      const done = () => { anMsg((gmCurrentGame && gmCurrentGame.name || '').replace(/\.sgf$/i, '')); };
       try {
-        for (let from = st.graph.leads.indexOf(null); from >= 0 && from <= n; from = st.graph.leads.indexOf(null)) {
-          const to = Math.min(n, from + CHUNK - 1);
-          anMsg(`Calculando la gráfica… ${from}/${n}`);
-          const data = await aiPost('/ai/graph', Object.assign({}, body, { from, to }), 120000);
-          if (anState !== st) return;   // se abrió otra partida
-          data.white_leads.forEach((v, k) => { st.graph.leads[from + k] = v; });
-          anDrawGraph(); anUpdateButtons();
+        anMsg('Consultando la gráfica…');
+        fill(await cachedOnly());
+        if (anState !== st) return;
+        anDrawGraph(); anUpdateButtons();
+        if (st.graph.complete) { done(); return; }
+        let job = null;
+        try { job = await aiPost('/ai/graph_job', Object.assign({}, body, { label: (gmCurrentGame && gmCurrentGame.name || '').replace(/\.sgf$/i, '').slice(0, 80) }), 15000); } catch (e) { job = null; }
+        if (anState !== st) return;
+        if (job && job.enabled) {
+          let fails = 0;
+          while (anState === st && !st.graph.complete && st.graphOn) {
+            const k = st.graph.leads.filter(v => v != null).length;
+            anMsg(`Analizando en el servidor… ${k}/${n + 1}` + (fails ? ' · reintentando' : ' · sigue aunque cierres la app'));
+            await new Promise(r => setTimeout(r, 2500));
+            if (anState !== st) return;
+            try { fill(await cachedOnly()); fails = 0; } catch (e) { fails++; }
+            if (anState !== st) return;
+            anDrawGraph(); anUpdateButtons();
+          }
+          if (st.graph.complete) done();
+          return;   // oculta: el servidor sigue; al volver a mostrarla se retoma la consulta
         }
-        st.graph.complete = true;
-        anMsg((gmCurrentGame && gmCurrentGame.name || '').replace(/\.sgf$/i, ''));
+        await anLoadGraphChunks(st, body, n);
       } catch (e) {
-        if (anState === st) anMsg('Gráfica incompleta: ' + e.message + ' — pulsa 📈 dos veces para continuar');
+        if (anState === st) anMsg('No se pudo consultar la gráfica: ' + e.message + ' — pulsa 📈 dos veces para reintentar');
       } finally {
         st.graphLoading = false;
         if (anState === st) { anDrawGraph(); anUpdateButtons(); }
       }
+    }
+    // AN3: cálculo por tramos desde la app (servidor sin análisis automático).
+    async function anLoadGraphChunks(st, body, n) {
+      const CHUNK = 20;
+      for (let from = st.graph.leads.indexOf(null); from >= 0 && from <= n; from = st.graph.leads.indexOf(null)) {
+        const to = Math.min(n, from + CHUNK - 1);
+        anMsg(`Calculando la gráfica… ${from}/${n}`);
+        const data = await aiPost('/ai/graph', Object.assign({}, body, { from, to }), 120000);
+        if (anState !== st) return;   // se abrió otra partida
+        data.white_leads.forEach((v, k) => { st.graph.leads[from + k] = v; });
+        anDrawGraph(); anUpdateButtons();
+      }
+      st.graph.complete = true;
+      anMsg((gmCurrentGame && gmCurrentGame.name || '').replace(/\.sgf$/i, ''));
     }
     function anDrawGraph() {
       const wrap = document.getElementById('gm-graph');
@@ -8408,6 +8479,38 @@
       const adv = (d.to_play === persp ? 1 : -1) * best.scoreLead;
       lines.push(`${mine ? 'Tu ventaja' : 'Ventaja ' + (persp === 'B' ? 'negras' : 'blancas')} con la mejor: ${fmt(adv)}`);
       return lines.join('\n');
+    }
+    // ST1: resumen del estado del servidor para ⚙. s = respuesta de /server/status (null si no
+    // respondió), ms = tiempo de respuesta. Devuelve {level: 'ok'|'warn'|'bad', warn: [...], lines: [[título, texto]]}.
+    function srvStatusSummary(s, ms, nowIso) {
+      if (!s) return { level: 'bad', warn: ['El servidor no responde'], lines: [] };
+      const GB = (b) => b == null ? '?' : (b / 1073741824).toFixed(1) + ' GB';
+      const MB = (b) => b == null ? '?' : (b / 1048576).toFixed(1) + ' MB';
+      const up = (t) => t >= 86400 ? `${Math.floor(t / 86400)} d ${Math.floor(t % 86400 / 3600)} h` : t >= 3600 ? `${Math.floor(t / 3600)} h ${Math.floor(t % 3600 / 60)} min` : `${Math.floor(t / 60)} min`;
+      const warn = [], ai = s.ai || {}, w = ai.worker || null;
+      if (!ai.available) warn.push('KataGo no disponible' + (ai.engine_reason ? ` (${ai.engine_reason})` : ''));
+      if (s.disk && s.disk.free / s.disk.total < 0.1) warn.push('Poco disco libre');
+      if (s.mem && s.mem.available != null && s.mem.available / s.mem.total < 0.1) warn.push('Poca memoria libre');
+      if (w && w.queue > 20) warn.push(`Cola de análisis larga (${w.queue})`);
+      const errAt = w && w.last_error && Date.parse(w.last_error.at), now = Date.parse(nowIso || s.time);
+      if (errAt && now - errAt < 86400000) warn.push('Error reciente en el análisis automático');
+      const lines = [
+        ['Conexión', `responde en ${ms} ms · BD v${s.schema_version} · en marcha ${up(s.uptime_s || 0)}`],
+        ['KataGo', !ai.available ? `no disponible${ai.engine_reason ? ' · ' + ai.engine_reason : ''}`
+          : `disponible · ${ai.engine_running ? 'cargado' : 'dormido'}` + (ai.move_ms_avg != null ? ` · jugada media ${(ai.move_ms_avg / 1000).toFixed(1)} s` : '')],
+      ];
+      if (w) {
+        let t = w.enabled ? `activado · en cola ${w.queue}` : 'desactivado';
+        if (w.current) t += ` · analizando ${w.current.label || 'partida'} (${w.current.done}/${w.current.total})`;
+        if (w.enabled) t += ` · hoy ${w.done_today}`;
+        if (w.last_error) t += ` · último error: ${w.last_error.msg} (${w.last_error.at.slice(0, 16).replace('T', ' ')})`;
+        lines.push(['Análisis', t]);
+      }
+      lines.push(['Máquina', [s.disk && `disco ${GB(s.disk.free)} libres de ${GB(s.disk.total)}`,
+        s.mem && s.mem.available != null && `memoria ${GB(s.mem.available)} libres de ${GB(s.mem.total)}`,
+        s.load && `carga ${s.load.join(' ')}${s.cpus ? ` (${s.cpus} CPU)` : ''}`,
+        s.cache && s.cache.rows != null && `caché ${s.cache.rows} posiciones (${MB(s.cache.bytes)})`].filter(Boolean).join(' · ')]);
+      return { level: warn.length ? 'warn' : 'ok', warn, lines };
     }
     // ── fin IA3 funciones puras ──
 
