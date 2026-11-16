@@ -32,6 +32,21 @@ Endpoints:
     FC1 (Focus):
     GET  /sync/focus/pull?since=ISO   -> {focus, focus_chapters, focus_sessions}
     POST /sync/focus/push             {focus:[...], focus_chapters:[...], focus_sessions:[...]}
+
+    IA2 (partidas contra la IA; LWW por updated_at, cursor por server_at):
+    GET  /sync/ai_games/pull?since=ISO -> {ai_games:[...]}   (server_at >= since)
+    POST /sync/ai_games/push           {ai_games:[...]}
+
+    IA1 (jugar contra la IA; motor en ai_engines.py, SIN DB_LOCK):
+    GET  /ai/status                   -> {available, engines, levels}
+    POST /ai/move    {level, rules, komi, handicap_stones, moves, to_play} -> {move, model, ms}
+    POST /ai/score   {mode: final|estimate, rules, komi, handicap_stones, moves} -> {result, score_white, dead}
+    POST /ai/graph   {rules, komi, handicap_stones, moves} -> {white_leads: [jugadas+1]}            (AN1)
+                     con from/to: tramo con búsqueda corta y caché; con cached_only: solo lo guardado (AN3/AN4)
+    POST /ai/graph_job {rules, komi, handicap_stones, moves, label} -> encola la gráfica en segundo plano (AN4)
+    GET  /server/status -> estado del servidor para ⚙ (ST1)
+    POST /ai/analyze {rules, komi, handicap_stones, moves, to_play, visits?, played?}
+                     -> {candidates:[{move, scoreLead, winrate, visits, pv}], root, played:{loss}}  (AN1)
 """
 
 import gzip
@@ -44,6 +59,7 @@ import re
 import signal
 import sqlite3
 import sys
+import shutil
 import threading
 import time
 from datetime import datetime, timedelta, timezone
@@ -78,6 +94,7 @@ MAX_BODY_BYTES = 10 * 1024 * 1024  # 10 MB
 # servicio). Este lock serializa TODO el acceso a SQLite, preservando
 # exactamente la semántica single-thread previa: cero carreras SQL nuevas.
 DB_LOCK = threading.Lock()
+START_MONO = time.monotonic()  # ST1: tiempo en marcha para /server/status
 
 log = logging.getLogger("tsumevault")
 
@@ -576,6 +593,22 @@ def run_audit(con, limit=20, skip_integrity=False):
             add("J2c", "JOSEKI", "tarjeta con intentos y SIN joseki_sm2", rows, "WARNING",
                 note="los intentos y el estado SM-2 viajan en pushes distintos: puede ser ventana de sync", t=t)
 
+    # ── [AI_GAMES] (IA2) ──
+    if _audit_has_table(con, "ai_games"):
+        t = time.perf_counter()
+        rows = q("""SELECT uuid, played_at, my_color, ai_level, handicap, rules, end_type, deleted FROM ai_games
+                    WHERE my_color NOT IN ('B','W') OR rules NOT IN ('japanese','chinese')
+                       OR end_type NOT IN ('passes','resign_me','resign_ai')
+                       OR deleted NOT IN (0,1) OR handicap NOT BETWEEN -9 AND 9""")
+        add("IA2a", "AI_GAMES", "ai_games con campos fuera de dominio", rows, "ERROR",
+            note="el push valida todos estos campos: indicaría edición manual", t=t)
+        t = time.perf_counter()
+        rows = q("""SELECT uuid, played_at, end_type, score FROM ai_games
+                    WHERE deleted = 0 AND ((end_type = 'resign_me' AND score >= 0)
+                       OR (end_type = 'resign_ai' AND score <= 0))""")
+        add("IA2b", "AI_GAMES", "abandono con score de signo contrario", rows, "WARNING",
+            note="quien abandona pierde (WORKPLAN_IA): el cliente fuerza el signo; indicaría un cliente con bug", t=t)
+
     # ── [VIRTUAL] ──
     if _audit_has_table(con, "virtual_items"):
         t = time.perf_counter()
@@ -955,6 +988,61 @@ def _migrate_v5_focus(con):
     con.execute("PRAGMA user_version = 5")  # FC1: sellar la version
     con.commit()
     log.info("[migrate] Migraciones completadas (schema_version=5).")
+    _migrate_v6_ai_games(con)  # IA2: encadenar v6
+
+
+def _migrate_v6_ai_games(con):
+    """IA2: schema v6 — partidas terminadas contra la IA (WORKPLAN_IA.md).
+
+    LWW por updated_at; el borrado es lógico (deleted=1 viaja por LWW).
+    server_at es SOLO del servidor: hora (del servidor) de la última escritura
+    aceptada, y es el cursor del pull. No se usa updated_at como cursor porque
+    una partida terminada offline llega con un updated_at anterior al cursor
+    de los demás dispositivos y se la saltarían. Idempotente.
+    """
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS ai_games (
+            uuid       TEXT PRIMARY KEY,
+            played_at  TEXT NOT NULL,
+            my_color   TEXT NOT NULL,
+            ai_level   TEXT NOT NULL,
+            model      TEXT NOT NULL,
+            handicap   INTEGER NOT NULL,
+            rules      TEXT NOT NULL,
+            komi       REAL NOT NULL,
+            end_type   TEXT NOT NULL,
+            score      REAL NOT NULL,
+            sgf        TEXT NOT NULL,
+            deleted    INTEGER NOT NULL DEFAULT 0,
+            updated_at TEXT NOT NULL,
+            server_at  TEXT NOT NULL)"""
+    )
+    con.execute("CREATE INDEX IF NOT EXISTS idx_ai_games_server_at ON ai_games(server_at)")
+    con.execute("PRAGMA user_version = 6")  # IA2: sellar la version
+    con.commit()
+    log.info("[migrate] Migraciones completadas (schema_version=6).")
+    _migrate_v7_ai_cache(con)  # AN3: encadenar v7
+
+
+def _migrate_v7_ai_cache(con):
+    """AN3: schema v7 — caché de análisis de KataGo (solo servidor, no se sincroniza).
+
+    Genérica a propósito (WORKPLAN_IA, AN3): cada fila es un resultado identificado por
+    'key' = hash de (versión de la caché, modelo, tipo, posición, parámetros). 'kind' dice
+    qué es (p. ej. 'pos_eval' para la gráfica, 'analyze' para 🔍; en el futuro, el análisis
+    por niveles del modelo humano) y 'params' guarda los parámetros legibles. Idempotente.
+    """
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS ai_analysis_cache (
+            key        TEXT PRIMARY KEY,
+            kind       TEXT NOT NULL,
+            params     TEXT NOT NULL,
+            result     TEXT NOT NULL,
+            created_at TEXT NOT NULL)"""
+    )
+    con.execute("PRAGMA user_version = 7")  # AN3: sellar la version
+    con.commit()
+    log.info("[migrate] Migraciones completadas (schema_version=7).")
 
 
 def migrate_db():
@@ -964,8 +1052,16 @@ def migrate_db():
         # CREATE ... IF NOT EXISTS y dedup re-ejecutable) quedan bajo la
         # version 1. Migraciones futuras: "if version < N: ...; sellar N".
         version = con.execute("PRAGMA user_version").fetchone()[0]
-        if version >= 5:
+        if version >= 7:
             log.info("[migrate] schema_version=%d — nada que migrar.", version)
+            return
+        if version >= 6:
+            # AN3: v6 ya aplicada — solo falta v7 (caché de análisis).
+            _migrate_v7_ai_cache(con)
+            return
+        if version >= 5:
+            # IA2: v5 ya aplicada — solo falta v6 (ai_games).
+            _migrate_v6_ai_games(con)
             return
         if version >= 4:
             # FC1: v4 ya aplicada — solo falta v5 (Focus).
@@ -2680,6 +2776,266 @@ def handle_sync_focus_push(body):
     return {"ok": True, "applied": applied}
 
 
+# ── IA2: partidas contra la IA (tabla ai_games) ──────────────────────────────
+
+_AI_GAME_COLS = ("uuid", "played_at", "my_color", "ai_level", "model", "handicap", "rules",
+                 "komi", "end_type", "score", "sgf", "deleted", "updated_at")
+_AI_LEVEL_RE = re.compile(r"^[a-z0-9]+:[a-z0-9_]+$")
+_AI_SGF_MAX = 200_000
+
+
+def _ai_num(v, lo, hi):
+    return not isinstance(v, bool) and isinstance(v, (int, float)) and lo <= v <= hi
+
+
+def _ai_game_validate(r):
+    """IA2: devuelve la tupla en el orden de _AI_GAME_COLS o None si no es válida."""
+    if not isinstance(r, dict):
+        return None
+    for k in ("uuid", "model"):
+        if not _focus_str(r.get(k)):
+            return None
+    for k in ("played_at", "updated_at"):
+        if not _focus_str(r.get(k), 40):
+            return None
+    lv = r.get("ai_level")
+    if not isinstance(lv, str) or len(lv) > 40 or not _AI_LEVEL_RE.match(lv):
+        return None
+    hc = r.get("handicap")
+    if isinstance(hc, bool) or not isinstance(hc, int) or not -9 <= hc <= 9:
+        return None
+    if (r.get("my_color") not in ("B", "W") or r.get("rules") not in ("japanese", "chinese")
+            or r.get("end_type") not in ("passes", "resign_me", "resign_ai")):
+        return None
+    if not _ai_num(r.get("komi"), -50, 50) or not _ai_num(r.get("score"), -500, 500):
+        return None
+    sgf = r.get("sgf")
+    if not isinstance(sgf, str) or not sgf or len(sgf) > _AI_SGF_MAX:
+        return None
+    if not _focus_flag(r.get("deleted")):
+        return None
+    return tuple(int(r[c]) if c == "deleted" else r[c] for c in _AI_GAME_COLS)
+
+
+def handle_sync_ai_games_pull(qs):
+    """IA2: partidas escritas en el servidor desde el cursor (server_at >= since:
+    la frontera se reenvía y el LWW del cliente la hace inocua)."""
+    since = qs.get("since", ["1970-01-01T00:00:00Z"])[0]
+    with db_connect() as con:
+        rows = rows_to_list(
+            con.execute(
+                f"SELECT {', '.join(_AI_GAME_COLS)}, server_at FROM ai_games "
+                "WHERE server_at >= ? ORDER BY server_at ASC",
+                (since,),
+            ).fetchall()
+        )
+    return {"ai_games": rows}
+
+
+def handle_sync_ai_games_push(body):
+    """IA2: LWW por updated_at (solo gana uno estrictamente mayor). Valida todo
+    antes de escribir nada. Cada fila aceptada recibe server_at = ahora."""
+    rows = body.get("ai_games", [])
+    if not isinstance(rows, list):
+        return {"error": "ai_games must be a list"}, 400
+    norm = []
+    for r in rows:
+        t = _ai_game_validate(r)
+        if t is None:
+            return {"error": "invalid ai_games entry"}, 400
+        norm.append(t)
+    applied = 0
+    to_analyze = []   # AN4
+    now = now_iso()
+    upd = ", ".join(f"{c}=excluded.{c}" for c in _AI_GAME_COLS[1:]) + ", server_at=excluded.server_at"
+    with db_connect() as con:
+        for t in norm:
+            ex = con.execute("SELECT updated_at FROM ai_games WHERE uuid=?", (t[0],)).fetchone()
+            if ex is None or t[_AI_GAME_COLS.index("updated_at")] > ex[0]:
+                if not t[_AI_GAME_COLS.index("deleted")]:
+                    to_analyze.append(t)
+                con.execute(
+                    f"""INSERT INTO ai_games ({', '.join(_AI_GAME_COLS)}, server_at)
+                        VALUES ({', '.join('?' * (len(_AI_GAME_COLS) + 1))})
+                        ON CONFLICT(uuid) DO UPDATE SET {upd}""",
+                    t + (now,),
+                )
+                applied += 1
+        con.commit()
+    _ai_enqueue_games(to_analyze)   # AN4: análisis automático (nunca afecta a la respuesta)
+    return {"ok": True, "applied": applied}
+
+
+def _ai_game_label(t):
+    return f"{t[_AI_GAME_COLS.index('played_at')][:10]} · {t[_AI_GAME_COLS.index('ai_level')].split(':')[-1]}"
+
+
+def _ai_enqueue_games(rows):
+    """AN4: pone en la cola de análisis automático las partidas recibidas. Solo memoria
+    (sin BD ni motor): rápido aunque se llame con DB_LOCK tomado. Nunca lanza."""
+    if not rows or AI_SERVICE is None:
+        return
+    for t in rows:
+        try:
+            AI_SERVICE.enqueue_sgf(t[_AI_GAME_COLS.index("sgf")], _ai_game_label(t),
+                                   mine=t[_AI_GAME_COLS.index("my_color")])   # solo mis errores
+        except Exception:  # noqa: BLE001
+            logging.getLogger("tsumevault").exception("[ai] encolar partida")
+
+
+def ai_startup_scan():
+    """AN4: al arrancar, encola las partidas guardadas (las más recientes primero); las ya
+    analizadas se resuelven al instante desde la caché. En su propio hilo y protegido."""
+    try:
+        if AI_SERVICE is None or not AI_SERVICE.worker.enabled:
+            return
+        with DB_LOCK, db_connect() as con:
+            if not _audit_has_table(con, "ai_games"):
+                return
+            rows = [tuple(r) for r in con.execute(
+                f"SELECT {', '.join(_AI_GAME_COLS)} FROM ai_games WHERE deleted=0 ORDER BY played_at DESC").fetchall()]
+        _ai_enqueue_games(rows)
+        logging.getLogger("tsumevault").info("[ai] revisión al arrancar: %d partidas a la cola de análisis", len(rows))
+    except Exception:  # noqa: BLE001
+        logging.getLogger("tsumevault").exception("[ai] revisión al arrancar")
+
+
+# ── IA1: jugar contra la IA (motor GTP en ai_engines.py) ──────────────────────
+# Si ai_engines.py falta o el motor no está configurado (variables KATAGO_*),
+# /ai/* responde 503 y el resto del servidor funciona igual.
+class AnalysisCache:
+    """AN3: caché de análisis en la BD del servidor. Las rutas /ai/* corren fuera de
+    DB_LOCK, así que cada acceso toma el candado solo lo justo. Cualquier error se
+    registra y se ignora: la caché nunca debe romper un análisis."""
+
+    def get(self, key):
+        try:
+            with DB_LOCK, db_connect() as con:
+                r = con.execute("SELECT result FROM ai_analysis_cache WHERE key=?", (key,)).fetchone()
+            return json.loads(r[0]) if r else None
+        except Exception:  # noqa: BLE001
+            logging.getLogger("tsumevault").exception("[ai] cache get")
+            return None
+
+    def get_many(self, keys):
+        try:
+            out = {}
+            with DB_LOCK, db_connect() as con:
+                for i in range(0, len(keys), 500):
+                    chunk = keys[i:i + 500]
+                    q = "SELECT key, result FROM ai_analysis_cache WHERE key IN (%s)" % ",".join("?" * len(chunk))
+                    for k, v in con.execute(q, chunk).fetchall():
+                        out[k] = json.loads(v)
+            return out
+        except Exception:  # noqa: BLE001
+            logging.getLogger("tsumevault").exception("[ai] cache get_many")
+            return {}
+
+    def put(self, key, kind, params, result):
+        try:
+            with DB_LOCK, db_connect() as con:
+                con.execute("INSERT OR REPLACE INTO ai_analysis_cache (key, kind, params, result, created_at) VALUES (?,?,?,?,?)",
+                            (key, kind, json.dumps(params, sort_keys=True), json.dumps(result), now_iso()))
+                con.commit()
+        except Exception:  # noqa: BLE001
+            logging.getLogger("tsumevault").exception("[ai] cache put")
+
+
+try:
+    import ai_engines
+    AI_SERVICE = ai_engines.AiService(cache=AnalysisCache())
+except Exception:  # noqa: BLE001 — un fallo aquí nunca debe tumbar el sync
+    logging.getLogger("tsumevault").exception("[ai] ai_engines no disponible")
+    ai_engines = None
+    AI_SERVICE = None
+
+
+def _ai_call(fn_name, arg):
+    if AI_SERVICE is None:
+        return {"error": "ai engine not available"}, 503
+    try:
+        return getattr(AI_SERVICE, fn_name)(arg)
+    except ai_engines.AiError as e:
+        return {"error": str(e)}, e.code
+
+
+def handle_ai_status(qs):
+    if AI_SERVICE is None:
+        return {"available": False, "engines": {}, "levels": []}
+    return AI_SERVICE.status(qs)
+
+
+def handle_ai_move(body):
+    return _ai_call("move", body)
+
+
+def handle_ai_score(body):
+    return _ai_call("score", body)
+
+
+def handle_ai_graph(body):  # AN1
+    return _ai_call("graph", body)
+
+
+def handle_ai_analyze(body):  # AN1
+    return _ai_call("analyze", body)
+
+
+def handle_ai_graph_job(body):  # AN4
+    return _ai_call("graph_job", body)
+
+
+def _meminfo():
+    try:
+        with open("/proc/meminfo", encoding="ascii") as f:
+            kv = {ln.split(":")[0]: int(ln.split()[1]) * 1024 for ln in f if ln.split()}
+        return {"total": kv.get("MemTotal"), "available": kv.get("MemAvailable")}
+    except (OSError, ValueError, IndexError):
+        return None
+
+
+def handle_server_status(qs):
+    """ST1: estado del servidor para ⚙ (solo lectura). Pensado para detectar si algo va mal;
+    el detalle se mira por ssh."""
+    with db_connect() as con:
+        uv = con.execute("PRAGMA user_version").fetchone()[0]
+        db_bytes = con.execute("PRAGMA page_count").fetchone()[0] * con.execute("PRAGMA page_size").fetchone()[0]
+        cache_rows = cache_bytes = None
+        if _audit_has_table(con, "ai_analysis_cache"):
+            r = con.execute("SELECT COUNT(*), COALESCE(SUM(LENGTH(result) + LENGTH(params) + 120), 0) FROM ai_analysis_cache").fetchone()
+            cache_rows, cache_bytes = r[0], r[1]
+        n_games = con.execute("SELECT COUNT(*) FROM ai_games WHERE deleted=0").fetchone()[0] if _audit_has_table(con, "ai_games") else 0
+    try:
+        du = shutil.disk_usage(os.path.dirname(os.path.abspath(DB_PATH)))
+        disk = {"total": du.total, "free": du.free}
+    except OSError:
+        disk = None
+    load = os.getloadavg() if hasattr(os, "getloadavg") else None
+    return {
+        "ok": True, "time": now_iso(), "uptime_s": int(time.monotonic() - START_MONO),
+        "schema_version": uv, "db_bytes": db_bytes, "ai_games": n_games,
+        "cache": {"rows": cache_rows, "bytes": cache_bytes},
+        "disk": disk, "mem": _meminfo(), "load": [round(x, 2) for x in load] if load else None,
+        "cpus": os.cpu_count(),
+        "ai": AI_SERVICE.server_status() if AI_SERVICE is not None else {"available": False, "engine_reason": "ai_engines.py no cargado"},
+    }
+
+
+# IA1: estas rutas se despachan SIN DB_LOCK (no tocan la BD y una jugada tarda
+# segundos: bajo el candado, cualquier sync esperaria a que la IA piense).
+AI_GET_ROUTES = {
+    "/ai/status": handle_ai_status,
+}
+
+AI_POST_ROUTES = {
+    "/ai/move": handle_ai_move,
+    "/ai/score": handle_ai_score,
+    "/ai/graph": handle_ai_graph,      # AN1
+    "/ai/analyze": handle_ai_analyze,  # AN1
+    "/ai/graph_job": handle_ai_graph_job,  # AN4
+}
+
+
 GET_ROUTES = {
     "/db/collections": handle_get_collections,
     "/db/chapters": handle_get_chapters,
@@ -2692,6 +3048,7 @@ GET_ROUTES = {
     "/db/run/items": handle_get_run_items,
     "/db/difficulty_range": handle_get_difficulty_range,
     "/db/audit": handle_get_audit,  # T20
+    "/server/status": handle_server_status,  # ST1
     "/sync/snapshot": handle_sync_snapshot,
     "/sync/pull": handle_sync_pull,
     "/sync/static_version": handle_sync_static_version,
@@ -2702,6 +3059,7 @@ GET_ROUTES = {
     "/sync/joseki_sm2/pull": handle_sync_joseki_sm2_pull,  # J2
     "/sync/joseki_attempts/pull": handle_sync_joseki_attempts_pull,  # J2
     "/sync/focus/pull": handle_sync_focus_pull,  # FC1
+    "/sync/ai_games/pull": handle_sync_ai_games_pull,  # IA2
 }
 
 
@@ -2720,6 +3078,7 @@ POST_ROUTES = {
     "/sync/joseki_sm2/push": handle_sync_joseki_sm2_push,  # J2
     "/sync/joseki_attempts/push": handle_sync_joseki_attempts_push,  # J2
     "/sync/focus/push": handle_sync_focus_push,  # FC1
+    "/sync/ai_games/push": handle_sync_ai_games_push,  # IA2
 }
 
 PUT_ROUTES = {
@@ -2773,10 +3132,13 @@ class Handler(BaseHTTPRequestHandler):
                 return False
         return True
 
-    def _dispatch(self, handler, arg):
+    def _dispatch(self, handler, arg, db_lock=True):
         try:
-            with DB_LOCK:
-                result = handler(arg)
+            if db_lock:
+                with DB_LOCK:
+                    result = handler(arg)
+            else:
+                result = handler(arg)  # IA1: rutas /ai/* (no tocan la BD)
         except (ValueError, TypeError, KeyError) as e:
             # Parámetros/payload malformados → 400 (Fase 1, 3.11).
             log.warning("bad request %s: %r", self.path, e)
@@ -2794,23 +3156,25 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urlparse(self.path)
-        handler = GET_ROUTES.get(parsed.path)
+        ai_handler = AI_GET_ROUTES.get(parsed.path)  # IA1
+        handler = ai_handler or GET_ROUTES.get(parsed.path)
         if not handler:
             self._respond(404, {"error": "not found"})
             return
         if not self._gate(write=False):
             return
-        self._dispatch(handler, parse_qs(parsed.query))
+        self._dispatch(handler, parse_qs(parsed.query), db_lock=ai_handler is None)
 
     def do_POST(self):
-        self._handle_write(POST_ROUTES)
+        self._handle_write(POST_ROUTES, AI_POST_ROUTES)
 
     def do_PUT(self):
         self._handle_write(PUT_ROUTES)
 
-    def _handle_write(self, routes):
+    def _handle_write(self, routes, ai_routes=None):
         parsed = urlparse(self.path)
-        handler = routes.get(parsed.path)
+        ai_handler = (ai_routes or {}).get(parsed.path)  # IA1
+        handler = ai_handler or routes.get(parsed.path)
         if not handler:
             self._respond(404, {"error": "not found"})
             return
@@ -2821,7 +3185,7 @@ class Handler(BaseHTTPRequestHandler):
         except _BodyError as e:
             self._respond(e.code, {"error": str(e)})
             return
-        self._dispatch(handler, body)
+        self._dispatch(handler, body, db_lock=ai_handler is None)
 
     def _read_body(self):
         """Lee y parsea el body JSON. Lanza _BodyError si es inválido.
@@ -2891,6 +3255,7 @@ if __name__ == "__main__":
         )
     log.info("Orígenes permitidos: %s", ", ".join(sorted(ALLOWED_ORIGINS)))
     migrate_db()
+    threading.Thread(target=ai_startup_scan, name="ai-startup-scan", daemon=True).start()  # AN4
 
     server = ThreadingHTTPServer(("0.0.0.0", PORT), Handler)
     server.daemon_threads = True
@@ -2906,5 +3271,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, _shutdown)
     server.serve_forever()
     server.server_close()
+    if AI_SERVICE is not None:
+        AI_SERVICE.shutdown()  # IA1: cerrar el motor (no dejar KataGo huerfano)
     log.info("Servidor detenido.")
     sys.exit(0)

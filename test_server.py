@@ -47,6 +47,7 @@ def req(path, method="GET", body=None, headers=None, origin=None, token=None):
 def make_db():
     os.makedirs(TESTDIR, exist_ok=True)
     import shutil; shutil.copy(os.path.join(HERE, "tsumevault_server.py"), TESTDIR)
+    shutil.copy(os.path.join(HERE, "ai_engines.py"), TESTDIR)  # IA1
     if os.path.exists(DB): os.remove(DB)
     con = sqlite3.connect(DB)
     with open(os.path.join(HERE, "db_schema.sql"), encoding="utf-8", errors="replace") as f:
@@ -605,6 +606,68 @@ try:
     con.execute("DELETE FROM attempts WHERE uuid IN ('fc1-a1','fc1-a3')")
     con.commit(); con.close()
 
+    # ── IA2: ai_games — tabla v6, push LWW, pull por cursor server_at, borrado lógico ──
+    con = sqlite3.connect(DB)
+    gcols = [r[1] for r in con.execute("PRAGMA table_info(ai_games)")]
+    con.close()
+    check("IA2: migración legacy crea ai_games con server_at", "uuid" in gcols and "server_at" in gcols, f"{gcols}")
+    g1 = {"uuid": "ia2-g1", "played_at": "2026-11-13T18:00:00Z", "my_color": "B", "ai_level": "katago:rank_15k",
+          "model": "humanv0", "handicap": 2, "rules": "japanese", "komi": 0.5, "end_type": "passes",
+          "score": 12.5, "sgf": "(;GM[1]SZ[19];B[pd])", "deleted": 0, "updated_at": "2026-11-13T18:00:00Z"}
+    g2 = dict(g1, uuid="ia2-g2", my_color="W", handicap=-3, end_type="resign_me", score=-0.5,
+              played_at="2026-11-12T10:00:00Z", updated_at="2026-11-12T10:00:00Z")   # partida "offline" más antigua
+    st, body, _ = req("/sync/ai_games/push", "POST", {"ai_games": [g1]})
+    check("IA2: push aplica una partida", st == 200 and body.get("applied") == 1, f"st={st} body={body}")
+    st, body, _ = req("/sync/ai_games/pull")
+    rows = body.get("ai_games", [])
+    cur = rows[0]["server_at"] if rows else None
+    check("IA2: pull completo devuelve la partida con server_at y todos sus campos", st == 200 and len(rows) == 1
+          and all(rows[0][k] == g1[k] for k in g1) and cur, f"rows={rows}")
+    st, body, _ = req("/sync/ai_games/push", "POST", {"ai_games": [g1]})
+    check("IA2: push repetido (mismo updated_at) no aplica (LWW estricto)", st == 200 and body.get("applied") == 0, f"{body}")
+    time.sleep(1.1)
+    st, body, _ = req("/sync/ai_games/push", "POST", {"ai_games": [g2]})
+    st, body, _ = req(f"/sync/ai_games/pull?since={cur}")
+    got = [r["uuid"] for r in body.get("ai_games", [])]
+    check("IA2: una partida antigua subida tarde (offline) SÍ llega a quien ya tenía cursor (server_at)",
+          "ia2-g2" in got, f"got={got}")
+    check("IA2 anti-vacío: con cursor por updated_at esa partida se habría perdido", g2["updated_at"] < cur, f"{g2['updated_at']} vs {cur}")
+    st, body, _ = req("/sync/ai_games/push", "POST", {"ai_games": [dict(g1, deleted=1, updated_at="2026-11-13T19:00:00Z")]})
+    con = sqlite3.connect(DB)
+    d1 = con.execute("SELECT deleted, sgf FROM ai_games WHERE uuid='ia2-g1'").fetchone()
+    con.close()
+    check("IA2: borrado lógico por LWW (deleted=1, la fila y su SGF se conservan)", st == 200
+          and body.get("applied") == 1 and d1 == (1, g1["sgf"]), f"body={body} row={d1}")
+    st, body, _ = req("/sync/ai_games/push", "POST", {"ai_games": [dict(g1, deleted=0, updated_at="2026-11-13T18:30:00Z")]})
+    con = sqlite3.connect(DB)
+    d1 = con.execute("SELECT deleted FROM ai_games WHERE uuid='ia2-g1'").fetchone()[0]
+    con.close()
+    check("IA2: LWW — un cambio más antiguo no resucita la partida borrada", body.get("applied") == 0 and d1 == 1, f"{body} {d1}")
+    for label, bad in (("color", dict(g1, uuid="x", my_color="X")),
+                       ("nivel sin motor", dict(g1, uuid="x", ai_level="rank_15k")),
+                       ("handicap fuera", dict(g1, uuid="x", handicap=10)),
+                       ("handicap booleano", dict(g1, uuid="x", handicap=True)),
+                       ("reglas", dict(g1, uuid="x", rules="aga")),
+                       ("end_type", dict(g1, uuid="x", end_type="timeout")),
+                       ("score no numérico", dict(g1, uuid="x", score="12")),
+                       ("sgf vacío", dict(g1, uuid="x", sgf="")),
+                       ("sgf enorme", dict(g1, uuid="x", sgf="(" + "x" * 200_001)),
+                       ("deleted fuera", dict(g1, uuid="x", deleted=2)),
+                       ("sin updated_at", {k: v for k, v in g1.items() if k != "updated_at"} | {"uuid": "x"})):
+        st, _, _ = req("/sync/ai_games/push", "POST", {"ai_games": [dict(g2, uuid="y"), bad]})
+        check(f"IA2: push con {label} -> 400", st == 400, f"st={st}")
+    con = sqlite3.connect(DB)
+    n_xy = con.execute("SELECT COUNT(*) FROM ai_games WHERE uuid IN ('x','y')").fetchone()[0]
+    con.close()
+    check("IA2: un push con una fila inválida no escribe ninguna (validación previa)", n_xy == 0, f"n={n_xy}")
+    st, _, _ = req("/sync/ai_games/push", "POST", {"ai_games": "no-list"})
+    check("IA2: push no-lista -> 400", st == 400, f"st={st}")
+    st, _, _ = req("/sync/ai_games/push", "POST", {"ai_games": []}, origin="https://evil.example")
+    check("IA2: push con Origin ajeno -> 403", st == 403, f"st={st}")
+    con = sqlite3.connect(DB)
+    con.execute("DELETE FROM ai_games")   # limpieza: no contaminar audit (Fase C)
+    con.commit(); con.close()
+
     # T11-A: schema_version formal sellado tras las migraciones
     con = sqlite3.connect(DB)
     uv = con.execute("PRAGMA user_version").fetchone()[0]
@@ -612,8 +675,9 @@ try:
     # T13: la migracion v2 (problems.hidden) sellaba schema_version=2.
     # T23: la migracion v3 (tags/problem_tags) sellaba schema_version=3.
     # J2: la migracion v4 (josekis) sellaba schema_version=4.
-    # FC1: la migracion v5 (Focus) sella ahora schema_version=5.
-    check("user_version sellado a 5 tras migrar DB legacy", uv == 5, f"uv={uv}")
+    # FC1: la migracion v5 (Focus) sellaba schema_version=5.
+    # IA2: la migracion v6 (ai_games) sella ahora schema_version=6.
+    check("user_version sellado a 7 tras migrar DB legacy (AN3)", uv == 7, f"uv={uv}")
 
     # T11-D: query params no numericos → 400 (no 500)
     st, _, _ = req("/sync/pull?since_attempt_id=abc&since_run_id=0")
@@ -630,6 +694,14 @@ try:
     check("Origin no permitido → 403", st == 403, f"st={st}")
     st, _, _ = req("/sync/check_runs", "POST", {"uuids": []}, origin=GH)
     check("Origin permitido → 200", st == 200, f"st={st}")
+
+    # ── IA1: sin motor configurado, /ai/* responde 503 y no afecta al resto ──
+    st, body, _ = req("/ai/status")
+    check("IA1: /ai/status sin motor -> available=false", st == 200 and body.get("available") is False
+          and body.get("levels") == [], f"st={st} body={body}")
+    st, body, _ = req("/ai/move", "POST", {"level": "katago:rank_15k", "rules": "japanese", "komi": 6.5,
+                                           "handicap_stones": [], "moves": [], "to_play": "B"})
+    check("IA1: /ai/move sin motor -> 503", st == 503, f"st={st} body={body}")
 
     # CORS: refleja solo orígenes permitidos
     st, _, h = req("/sync/static_version", origin=GH)
@@ -725,6 +797,13 @@ con.executescript("""
     INSERT INTO problem_tags (source,problem_id,tag,active,updated_at) VALUES ('aud_src','9101','tag_huerfano',1,'2026-01-02T10:00:00Z');
     INSERT INTO problem_tags (source,problem_id,tag,active,updated_at) VALUES ('aud_src','424242','aud_tag',1,'2026-01-02T10:00:00Z');
     INSERT INTO problem_tags (source,problem_id,tag,active,updated_at) VALUES ('aud_src','9102','aud_tag',5,'2026-01-02T10:00:00Z');
+    -- IA2: ai_games — una coherente (NO debe aparecer) + una fuera de dominio + un abandono con signo contrario
+    INSERT INTO ai_games (uuid,played_at,my_color,ai_level,model,handicap,rules,komi,end_type,score,sgf,deleted,updated_at,server_at)
+        VALUES ('aud-g-ok','2026-01-02T10:00:00Z','B','katago:rank_15k','humanv0',0,'japanese',6.5,'resign_me',-0.5,'(;)',0,'2026-01-02T10:00:00Z','2026-01-02T10:00:00Z');
+    INSERT INTO ai_games (uuid,played_at,my_color,ai_level,model,handicap,rules,komi,end_type,score,sgf,deleted,updated_at,server_at)
+        VALUES ('aud-g-mal','2026-01-02T10:00:00Z','X','katago:rank_15k','humanv0',12,'japanese',6.5,'passes',3,'(;)',0,'2026-01-02T10:00:00Z','2026-01-02T10:00:00Z');
+    INSERT INTO ai_games (uuid,played_at,my_color,ai_level,model,handicap,rules,komi,end_type,score,sgf,deleted,updated_at,server_at)
+        VALUES ('aud-g-signo','2026-01-02T10:00:00Z','W','katago:max','b15c192',0,'chinese',7.5,'resign_me',4.5,'(;)',0,'2026-01-02T10:00:00Z','2026-01-02T10:00:00Z');
     -- J2: josekis — una cadena coherente (NO debe aparecer) + 3 anomalias
     INSERT INTO joseki_sm2 (card_id,due_date,interval,easiness,repetitions,updated_at)
         VALUES ('aud#ok#B','2026-01-10',6,2.5,1,'2026-01-04T10:00:00Z');
@@ -799,6 +878,13 @@ try:
     exj2c = found.get("J2c", {}).get("examples", [])
     check("J2 audit detecta intentos sin joseki_sm2 (J2c=WARNING) y no la tarjeta con estado",
           _sev("J2c") == "WARNING" and _cnt("J2c") == 1 and exj2c and exj2c[0].get("card_id") == "aud#huerfana#W", f"{found.get('J2c')}")
+    # IA2: checks de partidas contra la IA
+    exia = found.get("IA2a", {}).get("examples", [])
+    check("IA2 audit detecta ai_games fuera de dominio (IA2a=ERROR) y no marca la coherente",
+          _sev("IA2a") == "ERROR" and _cnt("IA2a") == 1 and exia and exia[0].get("uuid") == "aud-g-mal", f"{found.get('IA2a')}")
+    exib = found.get("IA2b", {}).get("examples", [])
+    check("IA2 audit detecta abandono con score de signo contrario (IA2b=WARNING)",
+          _sev("IA2b") == "WARNING" and _cnt("IA2b") == 1 and exib and exib[0].get("uuid") == "aud-g-signo", f"{found.get('IA2b')}")
     # T20.3: A10 eliminado (inventario permanente sin valor; el check 11 cubre
     # cualquier huérfano real con id de texto)
     check("T20.3 el check A10 ya no existe", "A10" not in found, f"{found.get('A10')}")
@@ -853,7 +939,7 @@ try:
     jt = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
     n_tags = con.execute("SELECT COUNT(*) FROM tags").fetchone()[0]
     con.close()
-    check("J2: v3 -> v4 crea las tablas y sella 5 (FC1: v5 encadenada)", uv == 5 and {"joseki_sm2", "joseki_attempts"} <= jt, f"uv={uv} {sorted(jt)}")
+    check("J2: v3 -> v4 crea las tablas y sella 7 (FC1 v5, IA2 v6 y AN3 v7 encadenadas)", uv == 7 and {"joseki_sm2", "joseki_attempts"} <= jt, f"uv={uv} {sorted(jt)}")
     check("J2: la migración v4 no toca datos de v3 (tags intactos)", n_tags == 1, f"n_tags={n_tags}")
     st, body, _ = req("/sync/joseki_sm2/push", "POST", {"joseki_sm2": [{"card_id": "persist#B", "due_date": "2026-11-01",
                       "interval": 6, "easiness": 2.5, "repetitions": 1, "updated_at": "2026-10-16T10:00:00Z"}]})
@@ -866,7 +952,7 @@ try:
     uv = con.execute("PRAGMA user_version").fetchone()[0]
     n = con.execute("SELECT COUNT(*) FROM joseki_sm2 WHERE card_id='persist#B'").fetchone()[0]
     con.close()
-    check("J2: rearranque sobre v4 es idempotente (sella 5, conserva filas)", uv == 5 and n == 1, f"uv={uv} n={n}")
+    check("J2: rearranque sobre v4 es idempotente (sella 7, conserva filas)", uv == 7 and n == 1, f"uv={uv} n={n}")
 finally:
     stop(p)
 
@@ -893,8 +979,8 @@ try:
     n_att = con.execute("SELECT COUNT(*) FROM attempts").fetchone()[0]
     n_js = con.execute("SELECT COUNT(*) FROM joseki_sm2").fetchone()[0]
     con.close()
-    check("FC1: v4 -> v5 crea las tablas de Focus y la columna, y sella 5",
-          uv == 5 and {"focus", "focus_chapters", "focus_sessions"} <= ft and "session_uuid" in acols,
+    check("FC1: v4 -> v5 crea las tablas de Focus y la columna, y sella 7 (IA2 y AN3 encadenadas)",
+          uv == 7 and {"focus", "focus_chapters", "focus_sessions"} <= ft and "session_uuid" in acols,
           f"uv={uv} {sorted(ft)} cols={acols}")
     check("FC1: la migración v5 no toca datos previos (attempts y josekis intactos)",
           n_att == n_att_before and n_js == 1, f"att={n_att}/{n_att_before} js={n_js}")
@@ -909,7 +995,451 @@ try:
     uv = con.execute("PRAGMA user_version").fetchone()[0]
     n = con.execute("SELECT COUNT(*) FROM focus WHERE uuid='persist-f'").fetchone()[0]
     con.close()
-    check("FC1: rearranque sobre v5 es idempotente (sella 5, conserva filas)", uv == 5 and n == 1, f"uv={uv} n={n}")
+    check("FC1: rearranque sobre v5 es idempotente (sella 7, conserva filas)", uv == 7 and n == 1, f"uv={uv} n={n}")
+finally:
+    stop(p)
+
+# ══ FASE H: IA2 — migración v5 -> v6 sobre una BD ya en v5, e idempotencia ══
+con = sqlite3.connect(DB)
+con.execute("DROP TABLE ai_games")
+con.execute("PRAGMA user_version = 5")
+con.commit()
+gt = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+n_focus_before = con.execute("SELECT COUNT(*) FROM focus").fetchone()[0]
+con.close()
+check("IA2 anti-vacío: BD simulada en v5 sin ai_games", "ai_games" not in gt and n_focus_before == 1, f"{sorted(gt)} focus={n_focus_before}")
+p = start_server({})
+try:
+    con = sqlite3.connect(DB)
+    uv = con.execute("PRAGMA user_version").fetchone()[0]
+    gt = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    n_focus = con.execute("SELECT COUNT(*) FROM focus").fetchone()[0]
+    con.close()
+    check("IA2: v5 -> v6 crea ai_games y sella 7 (AN3 encadenada) sin tocar datos previos", uv == 7 and "ai_games" in gt and n_focus == 1,
+          f"uv={uv} {sorted(gt)} focus={n_focus}")
+    st, body, _ = req("/sync/ai_games/push", "POST", {"ai_games": [{"uuid": "persist-g", "played_at": "2026-11-13T18:00:00Z",
+        "my_color": "B", "ai_level": "katago:max", "model": "b15c192", "handicap": 0, "rules": "chinese", "komi": 7.5,
+        "end_type": "passes", "score": -3.5, "sgf": "(;)", "deleted": 0, "updated_at": "2026-11-13T18:00:00Z"}]})
+    check("IA2: push tras migrar v5 -> v6 ok", st == 200 and body.get("applied") == 1, f"st={st} body={body}")
+finally:
+    stop(p)
+p = start_server({})
+try:
+    con = sqlite3.connect(DB)
+    uv = con.execute("PRAGMA user_version").fetchone()[0]
+    n = con.execute("SELECT COUNT(*) FROM ai_games WHERE uuid='persist-g'").fetchone()[0]
+    con.close()
+    check("IA2: rearranque sobre v6 es idempotente (sella 7, conserva filas)", uv == 7 and n == 1, f"uv={uv} n={n}")
+finally:
+    stop(p)
+
+# ══ FASE H2: AN3 — migración v6 -> v7 (caché de análisis) ══
+con = sqlite3.connect(DB)
+con.execute("DROP TABLE IF EXISTS ai_analysis_cache")
+con.execute("PRAGMA user_version = 6")
+con.commit()
+n_games = con.execute("SELECT COUNT(*) FROM ai_games").fetchone()[0]
+con.close()
+p = start_server({})
+try:
+    con = sqlite3.connect(DB)
+    uv = con.execute("PRAGMA user_version").fetchone()[0]
+    tt = {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    n_games2 = con.execute("SELECT COUNT(*) FROM ai_games").fetchone()[0]
+    con.close()
+    check("AN3: v6 -> v7 crea ai_analysis_cache y sella 7 sin tocar las partidas", uv == 7 and "ai_analysis_cache" in tt and n_games2 == n_games == 1,
+          f"uv={uv} {sorted(tt)} {n_games} {n_games2}")
+finally:
+    stop(p)
+
+# ══ FASE F: IA1 — /ai/* con el motor GTP falso (fake_gtp.py) ══
+FAKE = os.path.join(HERE, "fake_gtp.py")
+GTP_LOG = os.path.join(TESTDIR, "gtp_cmds.log")
+DIE = os.path.join(TESTDIR, "gtp_die")
+AI_ENV = {"KATAGO_BIN": FAKE, "KATAGO_CFG": FAKE, "KATAGO_MODEL": FAKE, "KATAGO_HUMAN_MODEL": FAKE,
+          "KATAGO_LOG": os.path.join(TESTDIR, "katago_stderr.log"), "FAKE_GTP_LOG": GTP_LOG,
+          "FAKE_GTP_DIE_FILE": DIE,
+          "KATAGO_BACKGROUND": "0"}   # AN4: sin análisis automático en las fases F/G (se prueba en la fase I)
+for f_ in (GTP_LOG, DIE):
+    if os.path.exists(f_): os.remove(f_)
+def gtp_cmds():
+    try:
+        with open(GTP_LOG, encoding="utf-8") as f: return [l.rstrip("\n") for l in f]
+    except FileNotFoundError:
+        return []
+POS = {"rules": "japanese", "komi": 0.5, "handicap_stones": ["D4", "Q16"], "moves": [["W", "Q4"]]}
+p = start_server(AI_ENV)
+try:
+    st, body, _ = req("/ai/status")
+    lv = body.get("levels", [])
+    check("IA1: status con motor -> available, niveles 20k..9d + max, aún parado",
+          st == 200 and body.get("available") is True and len(lv) == 30 and lv[0] == "katago:rank_20k"
+          and "katago:rank_9d" in lv and lv[-1] == "katago:max"
+          and body["engines"]["katago"]["running"] is False, f"st={st} body={body}")
+    check("IA1 anti-vacío: el motor no arranca hasta la primera jugada", gtp_cmds() == [], f"{gtp_cmds()}")
+    for label, bad in (("nivel sin motor", dict(POS, level="rank_15k", to_play="B")),
+                       ("nivel desconocido", dict(POS, level="katago:rank_25k", to_play="B")),
+                       ("motor desconocido", dict(POS, level="gnugo:10", to_play="B")),
+                       ("reglas", dict(POS, rules="aga", level="katago:rank_15k", to_play="B")),
+                       ("komi no múltiplo de 0,5", dict(POS, komi=6.3, level="katago:rank_15k", to_play="B")),
+                       ("komi booleano", dict(POS, komi=True, level="katago:rank_15k", to_play="B")),
+                       ("una sola piedra de handicap", dict(POS, handicap_stones=["D4"], level="katago:rank_15k", to_play="B")),
+                       ("vértice con I", dict(POS, moves=[["W", "I5"]], level="katago:rank_15k", to_play="B")),
+                       ("vértice fuera (T20)", dict(POS, moves=[["W", "T20"]], level="katago:rank_15k", to_play="B")),
+                       ("inyección de comando", dict(POS, moves=[["W", "D5\nquit"]], level="katago:rank_15k", to_play="B")),
+                       ("color inválido", dict(POS, moves=[["X", "D5"]], level="katago:rank_15k", to_play="B")),
+                       ("to_play inválido", dict(POS, level="katago:rank_15k", to_play="black")),
+                       ("moves no-lista", dict(POS, moves="D5", level="katago:rank_15k", to_play="B"))):
+        st, _, _ = req("/ai/move", "POST", bad)
+        check(f"IA1: /ai/move con {label} -> 400", st == 400, f"st={st}")
+    st, _, _ = req("/ai/score", "POST", dict(POS, mode="exact"))
+    check("IA1: /ai/score con mode inválido -> 400", st == 400, f"st={st}")
+    check("IA1: las peticiones inválidas no llegan al motor", gtp_cmds() == [], f"{gtp_cmds()}")
+
+    st, body, _ = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B"))
+    check("IA1: /ai/move nivel humano -> jugada legal y modelo humano", st == 200
+          and body.get("move") == "D16" and body.get("model") == "humanv0" and isinstance(body.get("ms"), int),
+          f"st={st} body={body}")
+    c = gtp_cmds()
+    seq = ["boardsize 19", "clear_board", "kata-set-rules japanese", "komi 0.5", "set_free_handicap D4 Q16",
+           "play W Q4", "kata-set-param humanSLProfile rank_15k", "kata-set-param humanSLChosenMoveProp 1",
+           "kata-set-param maxVisits 2", "genmove B"]
+    idx = [c.index(x) if x in c else -1 for x in seq]
+    check("IA1: posición reconstruida en orden (reglas antes que komi, nivel antes de genmove)",
+          -1 not in idx and idx == sorted(idx) and c[0] == "protocol_version", f"idx={idx} cmds={c}")
+    st, body, _ = req("/ai/status")
+    check("IA1: tras jugar, el motor queda arrancado", body.get("engines", {}).get("katago", {}).get("running") is True, f"{body}")
+
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/move", "POST", dict(POS, level="katago:max", to_play="B"))
+    c = gtp_cmds()[n0:]
+    check("IA1: /ai/move Máximo -> modelo principal, búsqueda sin humano, sin reiniciar el motor", st == 200
+          and body.get("model") == "b15c192" and "kata-set-param humanSLChosenMoveProp 0" in c
+          and "kata-set-param maxVisits 50" in c and not any("humanSLProfile" in x for x in c)
+          and "protocol_version" not in c, f"st={st} body={body} cmds={c}")
+
+    # ── AN1: gráfica y análisis ──
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/graph", "POST", dict(POS, moves=[["W", "Q4"], ["B", "C3"], ["W", "pass"]]))
+    wl = body.get("white_leads", [])
+    check("AN1: /ai/graph -> una ventaja por posición (jugadas + 1), en orden", st == 200 and wl == [-2.9, -2.4, -1.9, -1.9], f"st={st} {body}")
+    c = gtp_cmds()[n0:]
+    check("AN1: la gráfica evalúa antes de cada jugada y tras la última", c.count("kata-raw-nn 0") == 4 and c.index("play W Q4") > c.index("kata-raw-nn 0"), f"{c}")
+    st, body, _ = req("/ai/graph", "POST", dict(POS, moves=[["W", "Q4"], ["B", "Q4"]]))
+    check("AN1: /ai/graph con jugada ilegal -> 400", st == 400 and "illegal move 1" in body.get("error", ""), f"{st} {body}")
+    st, body, _ = req("/ai/graph", "POST", dict(POS, moves=[["B", "pass"]] * 601))
+    check("AN1: /ai/graph con más de 600 jugadas -> 400", st == 400, f"{st}")
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/analyze", "POST", dict(POS, to_play="B"))
+    cands = body.get("candidates", [])
+    check("AN1: /ai/analyze -> candidatas ordenadas, de la última línea info, con secuencia", st == 200 and len(cands) == 3
+          and cands[0]["scoreLead"] == 3.5 and cands[0]["order"] == 0 and len(cands[0]["pv"]) == 2
+          and body.get("root", {}).get("scoreLead") == 3.4 and body.get("played") is None, f"st={st} {body}")
+    c = gtp_cmds()[n0:]
+    check("AN1: el análisis usa la búsqueda del modelo principal con 100 visitas por defecto",
+          "kata-set-param humanSLChosenMoveProp 0" in c and "kata-set-param maxVisits 100" in c
+          and any(x.startswith("kata-search_analyze B") for x in c), f"{c}")
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/analyze", "POST", dict(POS, to_play="B", visits=50, played="C3"))
+    pl = body.get("played") or {}
+    c = gtp_cmds()[n0:]
+    check("AN1: coste de la jugada hecha fuera de las candidatas (búsqueda corta tras jugarla)",
+          st == 200 and pl.get("move") == "C3" and pl.get("scoreLead") == -3.4 and pl.get("loss") == 6.9
+          and "play B C3" in c and "kata-set-param maxVisits 30" in c and any(x.startswith("kata-search_analyze W") for x in c), f"st={st} {body} {c}")
+    st, body, _ = req("/ai/analyze", "POST", dict(POS, to_play="B", played="K10"))
+    pl = body.get("played") or {}
+    check("AN1: jugada hecha entre las candidatas con visitas suficientes -> usa su valor (1.2, coste 2.3)",
+          st == 200 and pl.get("scoreLead") == 1.2 and pl.get("loss") == 2.3, f"{body}")
+    best = (body.get("candidates") or [{}])[0].get("move")
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/analyze", "POST", dict(POS, to_play="B", played=best))
+    pl = body.get("played") or {}
+    check("AN1: si la jugada hecha es la mejor candidata, coste 0 sin segunda búsqueda",
+          st == 200 and pl.get("loss") == 0 and sum(x.startswith("kata-search_analyze") for x in gtp_cmds()[n0:]) == 1, f"{body}")
+    for label, bad in (("to_play inválido", dict(POS, to_play="X")), ("visits fuera", dict(POS, to_play="B", visits=5)),
+                       ("visits booleano", dict(POS, to_play="B", visits=True)), ("played inválido", dict(POS, to_play="B", played="I5")),
+                       ("played con inyección", dict(POS, to_play="B", played="D4\nquit"))):
+        st, _, _ = req("/ai/analyze", "POST", bad)
+        check(f"AN1: /ai/analyze con {label} -> 400", st == 400, f"st={st}")
+
+    # ── AN3: gráfica precisa por tramos y caché en el servidor ──
+    G3 = dict(POS, moves=[["W", "Q4"], ["B", "C3"], ["W", "pass"]])
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/graph", "POST", dict(G3, **{"from": 0, "to": 3}))
+    c = gtp_cmds()[n0:]
+    check("AN3: tramo de gráfica con búsqueda corta: ventaja de blancas según a quién le toca",
+          st == 200 and body.get("white_leads") == [3.4, -3.4, 3.4, -3.4] and body.get("cached") == 0, f"st={st} {body}")
+    check("AN3: una búsqueda de 16 visitas por posición, no la evaluación instantánea",
+          sum(x.startswith("kata-search_analyze") for x in c) == 4 and "kata-set-param maxVisits 16" in c and "kata-raw-nn 0" not in c, f"{c}")
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/graph", "POST", dict(G3, **{"from": 1, "to": 3}))
+    check("AN3: posiciones ya calculadas salen de la caché sin tocar el motor",
+          st == 200 and body.get("white_leads") == [-3.4, 3.4, -3.4] and body.get("cached") == 3 and gtp_cmds()[n0:] == [], f"{body} {gtp_cmds()[n0:]}")
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/graph", "POST", dict(G3, moves=G3["moves"] + [["B", "K10"]], **{"from": 2, "to": 4}))
+    check("AN3: partida que comparte el principio: solo se calcula lo nuevo",
+          st == 200 and body.get("cached") == 2 and sum(x.startswith("kata-search_analyze") for x in gtp_cmds()[n0:]) == 1, f"{body}")
+    st, body, _ = req("/ai/graph", "POST", dict(G3, komi=7.5, **{"from": 0, "to": 0}))
+    check("AN3: otro komi es otra posición (no reutiliza la caché)", st == 200 and body.get("cached") == 0, f"{body}")
+    for label, rng in (("to > jugadas", {"from": 0, "to": 4}), ("from > to", {"from": 2, "to": 1}), ("negativo", {"from": -1, "to": 1}),
+                       ("más de 40 posiciones", {"from": 0, "to": 3}), ("booleano", {"from": True, "to": 2}), ("solo from", {"from": 0})):
+        b = dict(G3, **rng)
+        if label == "más de 40 posiciones":
+            b = dict(G3, moves=[["B", "pass"], ["W", "pass"]] * 30, **{"from": 0, "to": 40})
+        st, _, _ = req("/ai/graph", "POST", b)
+        check(f"AN3: tramo inválido ({label}) -> 400", st == 400, f"st={st}")
+    n0 = len(gtp_cmds())
+    st, b1, _ = req("/ai/analyze", "POST", dict(POS, to_play="B", played="C3"))
+    st2, b2, _ = req("/ai/analyze", "POST", dict(POS, to_play="B", played="C3"))
+    check("AN3: el mismo análisis la segunda vez sale de la caché, idéntico y sin tocar el motor",
+          st == 200 and st2 == 200 and b1.get("cached") is False and b2.get("cached") is True
+          and b2.get("candidates") == b1.get("candidates") and b2.get("played") == b1.get("played")
+          and sum(x.startswith("kata-search_analyze") for x in gtp_cmds()[n0:]) == 2, f"{b1} {b2}")
+    st, b3, _ = req("/ai/analyze", "POST", dict(POS, to_play="B", played="R3"))
+    check("AN3: otra jugada hecha es otro análisis (no reutiliza el anterior)", st == 200 and b3.get("cached") is False, f"{b3}")
+
+    for hc, lvl, prof, label in ((-9, "rank_20k", "rank_20k_11k", "doy 9 a un 20k"),
+                                (3, "rank_12k", "rank_15k_12k", "recibo 3 de un 12k"),
+                                (3, "rank_18k", "rank_18k", "fuera de escala (21k) -> normal"),
+                                (-4, "rank_7d", "rank_7d", "fuera de escala (11d) -> normal"),
+                                (0, "rank_12k", "rank_12k", "igualada -> normal")):
+        n0 = len(gtp_cmds())
+        st, body, _ = req("/ai/move", "POST", dict(POS, level=f"katago:{lvl}", to_play="B", handicap=hc))
+        c = gtp_cmds()[n0:]
+        check(f"IA handicap: {label} -> {prof}", st == 200 and f"kata-set-param humanSLProfile {prof}" in c, f"st={st} {c}")
+    for bad in (10, -10, True, "3", 1.5):
+        st, _, _ = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B", handicap=bad))
+        check(f"IA handicap: valor inválido {bad!r} -> 400", st == 400, f"st={st}")
+
+    st, body, _ = req("/ai/move", "POST", dict(POS, moves=[["W", "Q4"], ["B", "Q4"]], level="katago:rank_15k", to_play="W"))
+    check("IA1: jugada ilegal en el historial -> 400 con su índice", st == 400 and "illegal move 1" in body.get("error", ""), f"st={st} body={body}")
+
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/score", "POST", dict(POS, mode="final"))
+    c = gtp_cmds()[n0:]
+    check("IA1: /ai/score final -> resultado, score con signo y muertas", st == 200
+          and body.get("result") == "W+3.5" and body.get("score_white") == 3.5
+          and body.get("dead") == ["D4", "E5", "Q16"] and body.get("mode") == "final", f"st={st} body={body}")
+    check("IA1: el recuento final usa la búsqueda del modelo principal",
+          "kata-set-param humanSLChosenMoveProp 0" in c and c.index("kata-set-param humanSLChosenMoveProp 0") < c.index("final_score"), f"{c}")
+    st, body, _ = req("/ai/score", "POST", dict(POS, mode="estimate"))
+    check("IA1: /ai/score estimate -> whiteLead redondeado (B+2.4)", st == 200
+          and body.get("score_white") == -2.4 and body.get("result") == "B+2.4" and body.get("dead") == [],
+          f"st={st} body={body}")
+    own = body.get("ownership") or []
+    check("IA1: estimate devuelve el mapa de propiedad (361 valores, fila a fila desde arriba)",
+          len(own) == 361 and own[0] == -0.8 and own[9] == 0.0 and own[18] == 0.9 and own[19 * 18] == -0.8,
+          f"len={len(own)} {own[:20]}")
+
+    open(DIE, "w").close()
+    st, body, _ = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B"))
+    check("IA1: el motor muere a mitad de jugada -> 502", st == 502, f"st={st} body={body}")
+    st, body, _ = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B"))
+    check("IA1: la petición siguiente relanza el motor -> 200", st == 200 and body.get("move")
+          and gtp_cmds().count("protocol_version") == 2, f"st={st} body={body}")
+    st, _, _ = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B"), origin="https://evil.example")
+    check("IA1: /ai/move con Origin ajeno -> 403", st == 403, f"st={st}")
+finally:
+    stop(p)
+time.sleep(0.5)
+check("IA1: al parar el servidor se cierra el motor (quit)", gtp_cmds()[-1:] == ["quit"], f"{gtp_cmds()[-3:]}")
+
+# ══ FASE G: IA1 — el motor no bloquea el sync, cierre por inactividad, token ══
+if os.path.exists(GTP_LOG): os.remove(GTP_LOG)
+import threading as _th
+p = start_server(dict(AI_ENV, FAKE_GTP_DELAY="2.5", KATAGO_IDLE_S="2", TSUMEVAULT_TOKEN="tok-test"))
+try:
+    st, _, _ = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B"))
+    check("IA1: /ai/move sin token -> 401", st == 401, f"st={st}")
+    st, body, _ = req("/ai/graph", "POST", dict(POS, moves=[["W", "Q4"], ["B", "C3"], ["W", "pass"]], **{"from": 0, "to": 3}), token="tok-test")
+    check("AN3: la caché sobrevive al reinicio del servidor (está en la BD)",
+          st == 200 and body.get("cached") == 4 and gtp_cmds() == [], f"{body} {gtp_cmds()}")
+    res = {}
+    def _slow():
+        res["r"] = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B"), token="tok-test")
+    th = _th.Thread(target=_slow); th.start()
+    time.sleep(1.0)
+    t0 = time.monotonic()
+    st, _, _ = req("/sync/pull?since_attempt_id=0&since_run_id=0", token="tok-test")
+    dt = time.monotonic() - t0
+    alive = th.is_alive()
+    th.join(timeout=15)
+    check("IA1: un sync durante una jugada lenta no espera a la IA", st == 200 and dt < 1.0 and alive, f"st={st} dt={dt:.2f} alive={alive}")
+    check("IA1 anti-vacío: la jugada lenta terminó bien", res.get("r", (0,))[0] == 200, f"{res}")
+    time.sleep(4.0)
+    st, body, _ = req("/ai/status", token="tok-test")
+    check("IA1: el motor se cierra solo tras KATAGO_IDLE_S sin uso", body.get("engines", {}).get("katago", {}).get("running") is False
+          and gtp_cmds()[-1:] == ["quit"], f"{body} {gtp_cmds()[-2:]}")
+finally:
+    stop(p)
+
+# Sin ai_engines.py junto al servidor: el sync sigue funcionando y /ai/* da 503
+os.remove(os.path.join(TESTDIR, "ai_engines.py"))
+import shutil as _sh; _sh.rmtree(os.path.join(TESTDIR, "__pycache__"), ignore_errors=True)
+p = start_server(AI_ENV)
+try:
+    st1, b1, _ = req("/ai/status")
+    st2, _, _ = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B"))
+    st3, _, _ = req("/sync/static_version")
+    check("IA1: sin ai_engines.py -> /ai/status available=false, /ai/move 503 y el sync intacto",
+          st1 == 200 and b1.get("available") is False and st2 == 503 and st3 == 200, f"{st1} {b1} {st2} {st3}")
+finally:
+    stop(p)
+
+# ══ FASE I: AN4 — análisis automático en segundo plano y estado del servidor (ST1) ══
+import json as _json
+BG_ENV = dict(AI_ENV, KATAGO_BACKGROUND="1", FAKE_GTP_SEARCH_DELAY="0.25")
+_sh.copy(os.path.join(HERE, "ai_engines.py"), TESTDIR)   # la fase anterior lo quitó a propósito
+for f_ in (GTP_LOG, DIE):
+    if os.path.exists(f_): os.remove(f_)
+
+def poll_graph(body, timeout=20):
+    t_end = time.time() + timeout
+    last = None
+    while time.time() < t_end:
+        n = len(body["moves"])
+        st, last, _ = req("/ai/graph", "POST", dict(body, **{"from": 0, "to": n, "cached_only": True}))
+        if st == 200 and last.get("complete"):
+            return last
+        time.sleep(0.3)
+    return last
+
+p = start_server(BG_ENV)
+try:
+    time.sleep(1.5)   # revisión al arrancar (partidas guardadas por fases anteriores)
+    st, body, _ = req("/server/status")
+    ai = body.get("ai", {})
+    check("ST1: /server/status responde con versión de BD, disco, memoria, caché y motor",
+          st == 200 and body.get("ok") is True and body.get("schema_version") == 7 and body.get("uptime_s", -1) >= 0
+          and body.get("disk", {}).get("free", 0) > 0 and "rows" in body.get("cache", {}) and ai.get("available") is True
+          and ai.get("worker", {}).get("enabled") is True, f"st={st} {body}")
+    GJ = {"rules": "japanese", "komi": 5.5, "handicap_stones": [], "moves": [["B", "R16"], ["W", "C4"], ["B", "pass"]]}
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/graph", "POST", dict(GJ, **{"from": 0, "to": 3, "cached_only": True}))
+    check("AN4: cached_only no calcula: devuelve null donde falta y complete=false, sin tocar el motor",
+          st == 200 and body.get("white_leads") == [None, None, None, None] and body.get("complete") is False
+          and gtp_cmds()[n0:] == [], f"{body} {gtp_cmds()[n0:]}")
+    st, body, _ = req("/ai/graph_job", "POST", dict(GJ, label="prueba"))
+    check("AN4: /ai/graph_job encola la gráfica", st == 200 and body.get("enabled") is True and body.get("queued") is True, f"st={st} {body}")
+    g = poll_graph(GJ)
+    check("AN4: el trabajador calcula toda la gráfica en segundo plano (misma caché que los tramos)",
+          g and g.get("complete") is True and g.get("white_leads") == [-3.4, 3.4, -3.4, 3.4], f"{g}")
+    # AN5: tras la gráfica, el trabajador deja hechos los análisis de los errores
+    t_end = time.time() + 20
+    while time.time() < t_end:
+        st, sb, _ = req("/server/status")
+        w = sb.get("ai", {}).get("worker", {})
+        if not w.get("current") and w.get("queue") == 0:
+            break
+        time.sleep(0.3)
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/analyze", "POST", dict(GJ, moves=[], to_play="B", played="R16"))
+    check("AN5: el análisis de un error de la gráfica ya está hecho (🔍 sale de la caché, sin motor)",
+          st == 200 and body.get("cached") is True and body.get("played", {}).get("move") == "R16"
+          and gtp_cmds()[n0:] == [], f"st={st} {body} {gtp_cmds()[n0:]}")
+    st, body, _ = req("/ai/analyze", "POST", dict(GJ, moves=GJ["moves"][:1], to_play="W", played="C4"))
+    check("AN5: también el error del otro color", st == 200 and body.get("cached") is True, f"{body}")
+    # solo mis errores: con mine=B, tras la gráfica se preparan los de negras y no los de blancas
+    GM = {"rules": "japanese", "komi": 4.5, "handicap_stones": [], "moves": [["B", "R16"], ["W", "C4"], ["B", "R4"], ["W", "C16"]]}
+    st, body, _ = req("/ai/graph_job", "POST", dict(GM, label="mías", mine="B"))
+    g = poll_graph(GM)
+    t_end = time.time() + 20
+    while time.time() < t_end:
+        st, sb, _ = req("/server/status")
+        w = sb.get("ai", {}).get("worker", {})
+        if not w.get("current") and w.get("queue") == 0:
+            break
+        time.sleep(0.3)
+    n0 = len(gtp_cmds())
+    st1, b1, _ = req("/ai/analyze", "POST", dict(GM, moves=GM["moves"][:2], to_play="B", played="R4"))
+    n1 = len(gtp_cmds())
+    st2, b2, _ = req("/ai/analyze", "POST", dict(GM, moves=GM["moves"][:1], to_play="W", played="C4"))
+    check("AN5c: con mine=B se preparan los errores de negras (≥6 pts) y no los de blancas",
+          g and g.get("complete") and st1 == 200 and b1.get("cached") is True and n1 == n0
+          and st2 == 200 and b2.get("cached") is False, f"g={g} b1={b1.get('cached')} b2={b2.get('cached')} {gtp_cmds()[n0:]}")
+    st, _, _ = req("/ai/graph_job", "POST", dict(GJ, moves=[["B", "I5"]]))
+    check("AN4: /ai/graph_job con posición inválida -> 400", st == 400, f"st={st}")
+    # una partida guardada por sync entra sola en la cola
+    sg = {"uuid": "an4-g1", "played_at": "2026-11-15T10:00:00Z", "my_color": "B", "ai_level": "katago:rank_15k",
+          "model": "humanv0", "handicap": 0, "rules": "japanese", "komi": 6.5, "end_type": "passes", "score": 3.5,
+          "sgf": "(;GM[1]SZ[19]KM[6.5]RU[Japanese];B[pd];W[dp];B[pp];W[dd];B[])", "deleted": 0, "updated_at": "2026-11-15T10:00:00Z"}
+    st, body, _ = req("/sync/ai_games/push", "POST", {"ai_games": [sg]})
+    check("AN4: el push de la partida responde igual que siempre", st == 200 and body.get("applied") == 1, f"{st} {body}")
+    GP = {"rules": "japanese", "komi": 6.5, "handicap_stones": [], "moves": [["B", "Q16"], ["W", "D4"], ["B", "Q4"], ["W", "D16"], ["B", "pass"]]}
+    g = poll_graph(GP)
+    check("AN4: una partida recibida por sync se analiza sola (posiciones en la caché)", g and g.get("complete") is True, f"{g}")
+    # prioridad: con un análisis largo en marcha, una jugada no espera a que termine
+    GL = {"rules": "japanese", "komi": 6.5, "handicap_stones": [], "moves": [["B", "pass"], ["W", "pass"]] * 20}
+    req("/ai/graph_job", "POST", dict(GL, label="larga"))
+    t_end, cur = time.time() + 20, None
+    while time.time() < t_end:   # espera a que termine lo anterior (gráfica + errores) y empiece la larga
+        st, body, _ = req("/server/status")
+        cur = body.get("ai", {}).get("worker", {}).get("current")
+        if cur and cur.get("label") == "larga" and cur.get("done", 0) > 0:
+            break
+        time.sleep(0.2)
+    check("ST1: el estado muestra la partida que se está analizando y su progreso",
+          cur and cur.get("label") == "larga" and 0 < cur.get("done", 0) < cur.get("total", 0) == 41, f"{body.get('ai')}")
+    t0 = time.monotonic()
+    st, body, _ = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B"))
+    dt = time.monotonic() - t0
+    check("AN4: una jugada con el análisis en marcha espera como mucho un turno del trabajador (< 1.5 s)",
+          st == 200 and dt < 1.5, f"st={st} dt={dt:.2f}")
+    st, body, _ = req("/server/status")
+    check("ST1: el estado incluye el tiempo medio de las jugadas", (body.get("ai", {}).get("move_ms_avg") or -1) >= 0, f"{body.get('ai')}")
+finally:
+    stop(p)
+
+# mecanismo de prioridad, en el propio proceso: el trabajador no toma el motor mientras haya
+# una petición interactiva esperando (protección extra además del reparto del candado)
+sys.path.insert(0, HERE)
+import importlib, threading as _th2
+_ae = importlib.import_module("ai_engines")
+_svc = _ae.AiService(env={})
+_svc._waiting = 1
+_done = []
+_t = _th2.Thread(target=lambda: (_svc._yield_to_interactive(), _done.append(time.monotonic())))
+_t0 = time.monotonic(); _t.start(); time.sleep(0.4)
+_blocked = not _done
+_svc._waiting = 0; _t.join(2)
+check("AN4: el trabajador espera mientras hay una petición interactiva y sigue al quedar libre",
+      _blocked and _done and _done[0] - _t0 >= 0.35, f"blocked={_blocked} done={_done}")
+
+# la clave de la caché no depende del orden de las piedras de handicap: el trabajador las lee
+# del SGF (D4, Q16, Q4) y la app las manda recorriendo el tablero por columnas (D4, Q4, Q16)
+_sgf_hc = "(;GM[1]FF[4]SZ[19]KM[0.5]RU[Japanese]HA[3]AB[dp][pd][pp];W[cc];B[dd])"
+_pos_srv = _svc._position(dict(_ae.sgf_to_position(_sgf_hc)))
+_pos_app = _svc._position({"rules": "japanese", "komi": 0.5, "handicap_stones": ["D4", "Q4", "Q16"], "moves": [["W", "C17"], ["B", "D16"]]})
+_k = lambda pos: _ae.cache_key("m", "graph", pos, pos["moves"], {"visits": 16})
+check("AN5b: misma posición con handicap en otro orden -> misma clave de caché (gráfica y errores del trabajador sirven a la app)",
+      _pos_srv["handicap_stones"] != _pos_app["handicap_stones"] and _k(_pos_srv) == _k(_pos_app),
+      f"{_pos_srv['handicap_stones']} {_pos_app['handicap_stones']}")
+check("AN5b: posiciones distintas siguen dando claves distintas",
+      _k(_pos_srv) != _k(dict(_pos_app, handicap_stones=["D4", "Q4", "D16"])))
+
+# reinicio: la revisión al arrancar encola las partidas guardadas y las ya analizadas salen de la caché
+p = start_server(BG_ENV)
+try:
+    t_end, ok = time.time() + 10, False
+    while time.time() < t_end and not ok:
+        st, body, _ = req("/server/status")
+        w = body.get("ai", {}).get("worker", {})
+        ok = w.get("done_today", 0) >= 1
+        time.sleep(0.3)
+    check("AN4: al arrancar, el servidor revisa las partidas guardadas (done_today >= 1)", ok, f"{body.get('ai')}")
+finally:
+    stop(p)
+
+# interruptor: KATAGO_BACKGROUND=0 apaga el análisis automático
+p = start_server(dict(BG_ENV, KATAGO_BACKGROUND="0"))
+try:
+    st, body, _ = req("/ai/graph_job", "POST", dict(GJ, label="x"))
+    st2, b2, _ = req("/sync/ai_games/push", "POST", {"ai_games": [dict(sg, uuid="an4-g2", updated_at="2026-11-15T11:00:00Z")]})
+    st3, b3, _ = req("/server/status")
+    w = b3.get("ai", {}).get("worker", {})
+    check("AN4: con KATAGO_BACKGROUND=0 no se encola nada y la app sabe que debe calcular por tramos",
+          st == 200 and body.get("enabled") is False and st2 == 200 and w.get("enabled") is False and w.get("queue") == 0 and not w.get("current"),
+          f"{body} {b3.get('ai')}")
 finally:
     stop(p)
 
