@@ -19,6 +19,8 @@ Endpoints:
     GET  /db/struggling?source=X[&set_id=X][&chapter_id=X]
     GET  /sync/player_state            -> {studied:[ids], recorded:[ids]}
     POST /sync/player_state            {kind,id,value[,t]} | {ops:[...]}
+    GET  /sync/chapter_mostrar_by_name?source=X -> {chapters:[{collection, chapter, mostrar}]}   (LP1)
+    PUT  /sync/chapter_mostrar_by_name {source, collection, chapter, mostrar} -> {collection, chapter, mostrar}  (LP1)
     POST /db/attempt   { source, problem_id, run_id?, result, time_ms? }
     POST /db/run       { source, set_id?, chapter_id?, vc_id?, type }
     PUT  /db/run       { id, status? }
@@ -2420,6 +2422,62 @@ def handle_sync_chapter_visibility(body):
     return {"chapters": rows, "updated": updated}
 
 
+def handle_get_chapter_mostrar_by_name(qs):
+    """LP1: flag mostrar de los capítulos de una source, identificados por
+    nombre de colección + nombre de capítulo (clave estable entre BDs; los id
+    son autoincrementales). Lo usa lessons.html para el botón Show."""
+    source = qs.get("source", [None])[0]
+    if not source:
+        return {"error": "source required"}, 400
+    with db_connect() as con:
+        rows = rows_to_list(
+            con.execute(
+                """SELECT col.name AS collection, ch.name AS chapter, ch.mostrar
+                   FROM chapters ch
+                   JOIN collections col ON col.source = ch.source AND col.set_id = ch.set_id
+                   WHERE ch.source = ?
+                   ORDER BY col.set_id, ch.chapter_num""",
+                (source,),
+            ).fetchall()
+        )
+    return {"chapters": rows}
+
+
+def handle_put_chapter_mostrar_by_name(body):
+    """LP1: cambia mostrar de UN capítulo identificado por source + nombre de
+    colección + nombre de capítulo. Mismo UPDATE que T34; el cliente
+    tsumevault.html lo recibe en su siguiente sync (/sync/chapter_visibility).
+    No crea filas: si no existe (o el nombre es ambiguo) responde 404."""
+    source = body.get("source")
+    collection = body.get("collection")
+    chapter = body.get("chapter")
+    mostrar = body.get("mostrar")
+    if not all(isinstance(v, str) and v for v in (source, collection, chapter)) \
+            or mostrar not in (0, 1) or isinstance(mostrar, bool):
+        return {"error": "source, collection, chapter (text) and mostrar (0/1) required"}, 400
+    with db_connect() as con:
+        ids = [
+            r[0]
+            for r in con.execute(
+                """SELECT ch.id FROM chapters ch
+                   JOIN collections col ON col.source = ch.source AND col.set_id = ch.set_id
+                   WHERE ch.source = ? AND col.name = ? AND ch.name = ?""",
+                (source, collection, chapter),
+            ).fetchall()
+        ]
+        if len(ids) != 1:
+            return {"error": "chapter not found"}, 404
+        cur = con.execute(
+            "UPDATE chapters SET mostrar=? WHERE id=? AND mostrar<>?",
+            (mostrar, ids[0], mostrar),
+        )
+        con.commit()
+        final = con.execute("SELECT mostrar FROM chapters WHERE id=?", (ids[0],)).fetchone()[0]
+    if cur.rowcount:
+        log.info("chapter_mostrar_by_name: %s / %s / %s -> %d", source, collection, chapter, mostrar)
+    return {"collection": collection, "chapter": chapter, "mostrar": final}
+
+
 def handle_sync_problems_hidden(body):
     """T13: merge de problemas ocultos (borrado lógico).
 
@@ -3054,6 +3112,7 @@ GET_ROUTES = {
     "/sync/static_version": handle_sync_static_version,
     "/sync/games": handle_sync_games,
     "/sync/player_state": handle_get_player_state,  # estado del player
+    "/sync/chapter_mostrar_by_name": handle_get_chapter_mostrar_by_name,  # LP1
     "/sync/sm2/pull": handle_sync_sm2_pull,
     "/sync/problem_tags/pull": handle_sync_problem_tags_pull,  # T23
     "/sync/joseki_sm2/pull": handle_sync_joseki_sm2_pull,  # J2
@@ -3084,6 +3143,7 @@ POST_ROUTES = {
 PUT_ROUTES = {
     "/db/run": handle_put_run,
     "/sync/chapter_visibility": handle_sync_chapter_visibility,  # T34
+    "/sync/chapter_mostrar_by_name": handle_put_chapter_mostrar_by_name,  # LP1
     "/sync/problems_hidden": handle_sync_problems_hidden,  # T13
     "/sync/tags": handle_sync_tags,  # T23
 }

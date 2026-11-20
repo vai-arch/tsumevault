@@ -60,6 +60,11 @@ tbody td.status{text-align:center;width:36px;}
 .tog.on{color:var(--gold);}
 .tog.off{color:var(--dim2);}
 .tog:hover{color:var(--gold);}
+.shw{cursor:pointer;font-size:12px;line-height:1;background:none;border:none;padding:0;transition:opacity .15s,filter .15s;}
+.shw.on{opacity:1;}
+.shw.off{opacity:.3;filter:grayscale(1);}
+.shw:hover{opacity:1;filter:none;}
+.shw:disabled{cursor:wait;}
 </style>
 </head>
 <body>
@@ -104,6 +109,7 @@ tbody td.status{text-align:center;width:36px;}
           <th data-col="lessonLength" style="width:70px">Min</th>
           <th data-col="numPubProbs" style="width:70px">Probs</th>
           <th data-col="studied" style="width:52px;text-align:center">Done</th>
+          <th data-col="show" style="width:52px;text-align:center">Show</th>
         </tr>
       </thead>
       <tbody id="tbody"></tbody>
@@ -121,11 +127,15 @@ const PLAYER_URL    = 'player';
 const LS_KEY        = 'go_studied';
 const LS_KEY_OPS    = 'go_pending_ops';
 const LS_FILTERS_KEY = 'go_lessons_filters';
+// LP1: visibilidad (chapters.mostrar) del capitulo de problemas de cada leccion
+const SHOW_URL    = 'https://tsumevault.duckdns.org/sync/chapter_mostrar_by_name';
+const SHOW_SOURCE = 'awesome_lessons';
 
 // ── State ──
 let allRows = [], filtered = [], sortCol = 'lessonName', sortDir = 1;
 const statusCache = {};
 let studied = new Set(); // lessonId (number)
+let chapterShow = null;  // LP1: Map "coleccion\u0000capitulo" -> 0/1; null = no se pudo cargar
 
 // ── Studied: servidor (/sync/player_state) + copia local y cola offline ──
 let pendingOps = [];
@@ -177,6 +187,55 @@ function exportStudied() {
 }
 window.addEventListener('online', flushPending);
 
+// ── LP1: Show (mostrar del capitulo de problemas; sin cola offline) ──
+function showKey(r) {
+  return r.problemCollection && r.problemChapter ? r.problemCollection + '\u0000' + r.problemChapter : null;
+}
+function showState(r) {               // 1 / 0, o null si no hay capitulo o no se sabe
+  const k = showKey(r);
+  if (!k || !chapterShow || !chapterShow.has(k)) return null;
+  return chapterShow.get(k);
+}
+async function loadChapterShow() {
+  try {
+    const r = await fetch(SHOW_URL + '?source=' + encodeURIComponent(SHOW_SOURCE), {cache:'no-cache'});
+    if (!r.ok) return;
+    const d = await r.json();
+    const m = new Map();
+    for (const c of (d.chapters||[])) m.set(c.collection + '\u0000' + c.chapter, c.mostrar ? 1 : 0);
+    chapterShow = m;
+  } catch {}
+}
+function paintShowButtons(key) {      // todas las filas del mismo curso
+  document.querySelectorAll('#tbody .shw').forEach(btn => {
+    const row = allRows.find(x => x.lessonId === Number(btn.dataset.id));
+    if (!row || showKey(row) !== key) return;
+    const on = chapterShow.get(key) === 1;
+    btn.className = `shw ${on?'on':'off'}`;
+  });
+}
+async function toggleShow(id, btn) {
+  const row = allRows.find(x => x.lessonId === id);
+  const key = row && showKey(row);
+  if (!key || !chapterShow || !chapterShow.has(key)) return;
+  const nuevo = chapterShow.get(key) === 1 ? 0 : 1;
+  const msg = `¿${nuevo ? 'Mostrar' : 'Ocultar'} el capítulo "${row.problemChapter}" (${row.problemCollection})?`;
+  if (!confirm(msg)) return;
+  btn.disabled = true;
+  try {
+    const r = await fetch(SHOW_URL, {method:'PUT', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({source:SHOW_SOURCE, collection:row.problemCollection, chapter:row.problemChapter, mostrar:nuevo})});
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const d = await r.json();
+    chapterShow.set(key, d.mostrar ? 1 : 0);
+    paintShowButtons(key);
+  } catch (e) {
+    alert(`No se pudo cambiar el capítulo "${row.problemChapter}": ${e.message || e}`);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
 // ── Filtros: persistencia ──
 function saveFilters() {
   const state = {
@@ -209,7 +268,7 @@ function lessonDir(r) {
 
 // ── Load ──
 async function loadData() {
-  await loadStudied();
+  await Promise.all([loadStudied(), loadChapterShow()]);
   const res = await fetch(LESSONS_JSON);
   const data = await res.json();
   allRows = data.rows.filter(Boolean);
@@ -276,6 +335,10 @@ function sortRows() {
       const av=studied.has(a.lessonId)?1:0, bv=studied.has(b.lessonId)?1:0;
       return (av-bv)*sortDir;
     }
+    if (sortCol==='show') {
+      const av=showState(a)??-1, bv=showState(b)??-1;
+      return (av-bv)*sortDir;
+    }
     let av = a[sortCol]??'', bv = b[sortCol]??'';
     if (typeof av==='string') return av.localeCompare(bv)*sortDir;
     return (av-bv)*sortDir;
@@ -296,6 +359,8 @@ function renderTable() {
                  : '<span class="st-chk">◌</span>';
     const fullName = r.lessonSuffix ? `${r.lessonName} — ${r.lessonSuffix}` : (r.lessonName||'—');
     const isDone = studied.has(r.lessonId);
+    const shw = showState(r);
+    const shwCell = shw===null ? '' : `<button class="shw ${shw?'on':'off'}" data-id="${r.lessonId}">👁</button>`;
     tr.innerHTML = `
       <td class="status">${stCell}</td>
       <td style="font-size:9px;color:var(--dim2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px">${r.typeName||'—'}</td>
@@ -304,9 +369,10 @@ function renderTable() {
       <td class="diff" style="text-align:center;color:var(--gold)">${r.lessonDifficulty||'—'}</td>
       <td class="len">${r.lessonLength||'—'}</td>
       <td class="probs">${r.numPubProbs||'—'}</td>
-      <td style="text-align:center"><button class="tog ${isDone?'on':'off'}" data-id="${r.lessonId}">${isDone?'✓':'○'}</button></td>`;
+      <td style="text-align:center"><button class="tog ${isDone?'on':'off'}" data-id="${r.lessonId}">${isDone?'✓':'○'}</button></td>
+      <td style="text-align:center">${shwCell}</td>`;
     tr.addEventListener('click', e => {
-  if (e.target.closest('.tog')) return;
+  if (e.target.closest('.tog') || e.target.closest('.shw')) return;
 
   const url = new URL(PLAYER_URL, window.location.href);
   url.searchParams.set("id", r.lessonId);
@@ -328,6 +394,13 @@ document.getElementById('tbody').addEventListener('click', e => {
   btn.textContent = studied.has(id) ? '✓' : '○';
   // if studied filter active, re-filter
   if (document.getElementById('sel-studied').value) applyFilters();
+});
+
+// ── LP1: Toggle show ──
+document.getElementById('tbody').addEventListener('click', e => {
+  const btn = e.target.closest('.shw');
+  if (!btn || btn.disabled) return;
+  toggleShow(Number(btn.dataset.id), btn);
 });
 
 // ── Status check ──

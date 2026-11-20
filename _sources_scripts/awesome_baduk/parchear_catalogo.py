@@ -5,6 +5,11 @@ Parche del catalogo de lecciones de Awesome Baduk (awesome_baduk_lessons.json):
      lecciones_problemas.py para las colecciones de problemas), y
   2) quita del catalogo cursos sobrantes (Test, New course vacios) y el curso duplicado
      f8SCiK... con audio incompleto (lecciones 900359 y 900361). Los ficheros de esas lecciones NO se tocan.
+  3) LP1: anade a cada leccion el capitulo de problemas de su CURSO en awesome_lessons
+     (problemCollection + problemChapter), leido de awesome_lessons_links.json (lo escribe
+     lecciones_problemas.py) cruzando sourceCourseId con courseId; asi todas las lecciones del
+     curso lo llevan, tengan o no problemas propias. lessons.html lo usa para el boton Show.
+     Las lecciones de cursos sin capitulo no llevan esos campos.
 
 Es idempotente: se puede ejecutar de nuevo (por ejemplo tras regenerar el catalogo desde
 all_lessons.new.json). Solo rellena dificultades que estan vacias; si una fila ya tiene OTRO valor,
@@ -14,6 +19,7 @@ Uso (PowerShell, desde _sources_scripts\\awesome_baduk):
     python parchear_catalogo.py --dry-run     # cuenta lo que haria, sin escribir
     python parchear_catalogo.py               # aplica el parche
     python parchear_catalogo.py otro.json     # otro catalogo
+    python parchear_catalogo.py --enlaces otra\ruta\awesome_lessons_links.json
 
 Despues: python merge_lessons.py ... (ver merge_lessons.bat) para regenerar all_lessons.json.
 """
@@ -26,6 +32,7 @@ from datetime import datetime
 from pathlib import Path
 
 CATALOGO = r"..\..\player\lessons_sources\awesome_baduk_lessons.json"
+ENLACES = "awesome_lessons_links.json"   # LP1: courseId -> coleccion/capitulo de problemas
 
 # courseId -> dificultad. El 0 va como TEXTO "0": el player trata el numero 0 como "sin dificultad".
 DIFICULTAD = {
@@ -57,10 +64,42 @@ QUITAR_CURSOS = {
 QUITAR_LECCIONES = {}
 
 
+def enlazar_capitulos(filas, ruta):
+    """LP1: problemCollection/problemChapter por curso (sourceCourseId == courseId). Idempotente:
+    solo rellena lo vacio; si una fila ya tiene OTRO valor, avisa y no la toca."""
+    if not ruta.exists():
+        raise SystemExit(f"No encuentro {ruta} (lo genera lecciones_problemas.py); usa --enlaces RUTA")
+    cap = {}
+    for curso in json.loads(ruta.read_text(encoding="utf-8-sig")):
+        cid, par = curso.get("courseId"), (curso["collection"], curso["chapter"])
+        if not cid:
+            continue
+        if cid in cap and cap[cid] != par:
+            print(f"AVISO: el curso {cid} aparece en dos capitulos {cap[cid]} y {par}; uso el primero")
+            continue
+        cap[cid] = par
+    enlazadas = ya_bien = choques = 0
+    for r in filas:
+        par = cap.get(r.get("sourceCourseId"))
+        if not par:
+            continue
+        actual = (r.get("problemCollection"), r.get("problemChapter"))
+        if actual == (None, None):
+            r["problemCollection"], r["problemChapter"] = par
+            enlazadas += 1
+        elif actual == par:
+            ya_bien += 1
+        else:
+            choques += 1
+            print(f"AVISO: leccion {r.get('lessonId')} ya enlazada a {actual}, no la cambio (enlaces: {par})")
+    return enlazadas, ya_bien, choques
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("catalogo", nargs="?", default=CATALOGO)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--enlaces", default=ENLACES)
     args = ap.parse_args()
 
     ruta = Path(args.catalogo)
@@ -98,6 +137,8 @@ def main():
                 print(f"AVISO: leccion {lid} ({cid}) ya tiene dificultad {actual!r}, no la cambio (tabla: {nuevo!r})")
         nuevas.append(r)
 
+    enlazadas, ya_enlazadas, choques = enlazar_capitulos(nuevas, Path(args.enlaces))
+
     sin_dif = [r for r in nuevas if r.get("lessonDifficulty") in ("", None)]
     print(f"filas antes: {antes} | despues: {len(nuevas)} | quitadas: {sum(quitadas.values())}")
     for k, n in quitadas.items():
@@ -110,11 +151,14 @@ def main():
     print(f"lecciones que siguen sin dificultad: {len(sin_dif)}")
     for r in sin_dif[:10]:
         print(f"   {r.get('lessonId')} {r.get('collectionName')!r} ({r.get('sourceCourseId')})")
+    sin_cap = sum(1 for r in nuevas if not r.get("problemChapter"))
+    print(f"capitulo de problemas: enlazadas ahora {enlazadas} | ya correctas {ya_enlazadas}"
+          f" | con otro valor (sin tocar) {choques} | lecciones sin capitulo {sin_cap}")
 
     if args.dry_run:
         print("\n(--dry-run: no se ha escrito nada)")
         return
-    if len(nuevas) == antes and not fijadas:
+    if len(nuevas) == antes and not fijadas and not enlazadas:
         print("\nNada que cambiar; no se escribe.")
         return
     copia = ruta.with_name(ruta.name + ".bak-" + datetime.now().strftime("%Y%m%d-%H%M%S"))
