@@ -60,10 +60,10 @@ tbody td.status{text-align:center;width:36px;}
 .tog.on{color:var(--gold);}
 .tog.off{color:var(--dim2);}
 .tog:hover{color:var(--gold);}
-.shw{cursor:pointer;font-size:13px;line-height:1;background:none;border:none;padding:0;transition:color .15s;}
+.shw{cursor:pointer;font-size:13px;line-height:1;background:none;border:none;padding:0;transition:color .15s,opacity .15s,filter .15s;}
 .shw.on{color:var(--gold);}
-.shw.off{color:var(--dim2);}
-.shw:hover{color:var(--gold);}
+.shw.off{color:var(--dim2);opacity:.55;filter:grayscale(1);}
+.shw:hover{color:var(--gold);opacity:1;filter:none;}
 .shw:disabled{cursor:wait;}
 </style>
 </head>
