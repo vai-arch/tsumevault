@@ -60,10 +60,10 @@ tbody td.status{text-align:center;width:36px;}
 .tog.on{color:var(--gold);}
 .tog.off{color:var(--dim2);}
 .tog:hover{color:var(--gold);}
-.shw{cursor:pointer;font-size:12px;line-height:1;background:none;border:none;padding:0;transition:opacity .15s,filter .15s;}
-.shw.on{opacity:1;}
-.shw.off{opacity:.3;filter:grayscale(1);}
-.shw:hover{opacity:1;filter:none;}
+.shw{cursor:pointer;font-size:13px;line-height:1;background:none;border:none;padding:0;transition:color .15s;}
+.shw.on{color:var(--gold);}
+.shw.off{color:var(--dim2);}
+.shw:hover{color:var(--gold);}
 .shw:disabled{cursor:wait;}
 </style>
 </head>
@@ -360,7 +360,7 @@ function renderTable() {
     const fullName = r.lessonSuffix ? `${r.lessonName} — ${r.lessonSuffix}` : (r.lessonName||'—');
     const isDone = studied.has(r.lessonId);
     const shw = showState(r);
-    const shwCell = shw===null ? '' : `<button class="shw ${shw?'on':'off'}" data-id="${r.lessonId}">👁</button>`;
+    const shwCell = shw===null ? '' : `<button class="shw ${shw?'on':'off'}" data-id="${r.lessonId}">👁\uFE0E</button>`;
     tr.innerHTML = `
       <td class="status">${stCell}</td>
       <td style="font-size:9px;color:var(--dim2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:160px">${r.typeName||'—'}</td>
