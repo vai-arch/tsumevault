@@ -358,3 +358,144 @@ Solo para el jugador (la IA no lleva tiempo). Objetivo: acostumbrarse a gestiona
 ### Idea en análisis — Accuracy como medida de progreso
 - KaTrain (`katrain/core/ai.py`, `game_report`): pérdida por jugada = ventaja antes − después (desde quien juega). Accuracy = 100 × 0,75^(pérdida ponderada); peso de cada jugada = complejidad (media de pointsLost de las candidatas ponderada por prior, tope 1), ajustado a max(0,05, min(1, max(complejidad, pérdida/4))). Mean Point Loss = media simple. Best move % = 1.ª de KataGo; Top 5 % = 1.ª o de las 5 primeras con pérdida < 0,5. Tramos: apertura < 14 % del tablero (jugada 51), medio medio hasta 40 % (145), final después. Umbrales del histograma: 0,5 · 1,5 · 3 · 6 · 12.
 - Recomendación: Accuracy como métrica única de progreso. Requiere guardar las candidatas (prior y scoreLead) de la búsqueda de la gráfica, no solo la ventaja.
+
+
+## PA — Mejoras de la pestaña Play y del visor (plan aprobado y entregado el 22-nov-2026)
+
+Seis requisitos cerrados con Victor el 22-nov-2026 (backlog de Notion "TsumeVault — Requisitos pendientes"). Todos de dificultad baja. Orden propuesto: de menos a más riesgo; solo PA6 toca el servidor.
+
+### PA1 — Reglas de cierre y "Para superar" en desplegables (estadísticas)
+- `renderAiStats`: las tres reglas de cierre y "Reglas por defecto" pasan a un `<details>` "Reglas de cierre". El selector de **nivel objetivo sigue visible** fuera, porque mueve el borde dorado de la rejilla.
+- El bloque "Para superar N" (igualadas y handicaps pendientes) pasa a otro `<details>`, con el título del bloque como resumen.
+- Los dos empiezan cerrados. El estado abierto o cerrado se guarda en `localStorage['ai_stats_open']` = `{rules, summary}`, solo en este dispositivo.
+- Pruebas: prueba de humo en Chromium (abrir, cerrar, recargar y comprobar que se recuerda).
+
+### PA2 — Empezar una partida pulsando una casilla de la rejilla
+- Cada casilla de la rejilla nivel × handicap (también las vacías y las "–") es pulsable, con cursor de mano y título "Jugar contra 9k recibiendo 3".
+- Al pulsar: `confirm("¿Empezar una partida contra 9k recibiendo 3?")`. Si aceptas, se cierra la ventana, se pasa a la pestaña Play y se llama a `aiStartGame`.
+- Función pura nueva `aiCellGameParams(games, i, h)` que devuelve `{level, hc, holder, color}`:
+  - `level = aiRankLevel(i)`; `hc = |h|`; `holder = h > 0 ? 'me' : 'ai'`.
+  - Igualada (`h = 0`): el color contrario al de la **última igualada no borrada contra ese mismo nivel** (por `played_at`); si no hay ninguna, negras.
+  - Con handicap, el color lo fija `aiNewGame` como siempre.
+- El resto de la configuración sale de los valores por defecto ya guardados: reglas del último formulario (`ai_form`), reloj (`ai_clock`) y espera mínima de la IA. **El formulario recordado no se modifica.**
+- Con una partida en curso no se empieza otra (una partida a la vez): aviso "Termina o abandona la partida en curso antes de empezar otra", sin confirmación.
+- Pruebas: `test_ai.js` (alternancia, sin igualadas previas, ignora borradas y otros niveles, signo del handicap, handicap ±1).
+
+### PA3 — Tiempo mínimo de reflexión
+- Panel de partida nueva, junto a "Espera mínima de la IA": campo "Tiempo mínimo para pensar (s) · 0 = sin mínimo". Se guarda en `localStorage['ai_min_think_s']` al cambiarlo, con 10 por defecto y valores enteros de 0 a 120.
+- Lo pensado es `aiTurnE(g)`, el mismo contador de lo pensado que ya existe. Empieza al aparecer la piedra de la IA (o al empezar la partida si empiezas tú) y se para con la pausa, con la estimación en pantalla y con la app en segundo plano. Así se cumple "si pausa el reloj, el contador también se pausa", también en partidas sin reloj.
+- Función pura `aiThinkLeft(minS, spentMs)` que devuelve los ms que faltan (0 si ya se puede).
+- Mientras falte tiempo:
+  - `aiBoardClick` no hace nada: ni piedra, ni fantasma del doble toque, ni sonido. Con reloj tampoco se puede dejar la piedra pendiente, así que tampoco hay nada que pulsar.
+  - Pasar queda deshabilitado (con reloj no se puede dejar el pase pendiente).
+  - Abandonar, Descartar, Estimar, Pausa y Atrás no se bloquean.
+- La barra bajo el tablero muestra la cuenta atrás: "● ⏳ piensa 7 s" en lugar de "te toca" (con reloj, junto al tiempo del reloj). El tic de 200 ms que ya existe la refresca y vuelve a habilitar Pasar al llegar a 0.
+- Cosas que se dan por aceptadas:
+  - "← Atrás" no reinicia la espera, porque el tiempo pensado ya cuenta (igual que el reloj no devuelve tiempo).
+  - Con la piedra de la IA ya en el tablero al volver a la pestaña, la espera sigue donde estaba.
+- Pruebas: `test_ai.js` (`aiThinkLeft`) y prueba de extremo a extremo en Chromium con el servidor simulado (bloqueo, cuenta atrás, desbloqueo, pausa que congela, 0 = sin mínimo).
+
+### PA4 — Estimador de territorio en todas las partidas
+- **Play, partida terminada:** 📊 Estimar se habilita también con `status === 'done'`. Pinta el mapa de propiedad sobre el tablero final, conserva las ✕ de las muertas y la barra muestra el número de la estimación. Un segundo toque lo oculta. Hay que cambiar las condiciones `status === 'playing'` de `aiEstimate`, `aiRender` y `aiRenderStatus` por `status !== 'scoring'`. La estimación no cambia el resultado guardado.
+- **Visor de Games** (partidas abiertas desde el histórico y cualquier otra partida de 19×19 que admita análisis, porque es "el mismo botón en todas las partidas"):
+  - Botón 📊 nuevo en la fila de análisis. Llama a `/ai/score` (`mode: 'estimate'`) con la posición del tablero, usando `anBody` como 📈 y 🔍.
+  - Pinta los mismos cuadraditos (`AI_OWN_HANDLER`) y en la barra pone "Estimación: ventaja negras +7", o "tu ventaja" en tus partidas contra la IA.
+  - La estimación es de la posición que se ve: al cambiar de jugada desaparece y el botón queda desactivado, como en Play.
+- Pruebas: prueba en Chromium (Play terminada y visor).
+
+### PA5 — Barra de tiempo pensado por jugada en el analizador
+- Función pura `anMoveTimes(sgf)`: segundos de `TT` por jugada de la línea principal (índice 1..n, `null` sin dato). Usa el mismo recorrido de jugadas que `tcSgfSummary`.
+- `anDrawGraph`: si la partida tiene algún `TT`, el SVG crece unos 40 px. Debajo de la gráfica va una barra por cada jugada con tiempo, alineada con `X(i)` y con el mismo desplazamiento horizontal.
+  - Escala: hasta el mayor tiempo de la partida, con un tope de 120 s; una barra que pasa del tope se dibuja entera con una marca arriba.
+  - Color: normal en dorado tenue. Si esa jugada es un error ≥ 6 va en naranja, y si es ≥ 12 en rojo, que es lo que permite ver "si los errores llegan jugando deprisa".
+  - Las partidas sin `TT` se ven exactamente como hoy.
+- Texto: `anAnalysisText(d, moveNo, persp, mine, thinkS)` añade "· pensaste N s" a la línea de la jugada. El pie de la gráfica (`anGraphCaption`) también lo muestra en la jugada actual.
+- Pruebas: `test_ai.js` (`anMoveTimes` con pases, handicap y jugadas sin `TT`; texto con y sin tiempo) y una prueba visual en Chromium.
+
+### PA6 — Indicador de partida ya analizada (servidor + cliente)
+**Servidor (`ai_engines.py`):**
+- Al terminar una partida (gráfica y errores), `GraphWorker._process` guarda en la caché una marca `kind='graph_done'`. La clave es `cache_key(model, 'graph_done', pos, moves, {'visits': 16, 'mine': mine})`. No hay tabla ni migración nueva: sigue la v7.
+- La marca de una partida sin `mine` (los dos colores) también vale para cuando se piden solo los míos.
+- `GraphWorker` expone el estado de un trabajo: en cola, en curso (con fase "gráfica" o "errores" y progreso `done`/`total`) o nada.
+- `AiService.analysis_status(positions)` devuelve, para cada partida: `done`, `running` (con fase y progreso), `queued` o `none` (sin marca y fuera de la cola, por ejemplo con el análisis automático apagado o si falló).
+
+**Servidor (`tsumevault_server.py`):**
+- `POST /ai/analysis_status {uuids: [...]}`, con un máximo de 200 por petición y uuids de texto (si no, 400).
+- Va en `AI_POST_ROUTES`, fuera de `DB_LOCK`. Toma el candado solo para leer los SGF de `ai_games`, como `ai_startup_scan`.
+- Respuesta: `{status: {uuid: {state, phase?, done?, total?}}}`. Si un uuid no existe o está borrado, da `none`.
+- Mismo `_gate` que las demás rutas: token, Origin y límite del body.
+
+**Partidas ya analizadas antes de esto:** no tienen marca. La revisión al arrancar ya encola todas las partidas, y como el análisis sale de la caché, las marcas se escriben en pocos segundos tras reiniciar el servidor.
+
+**Cliente:**
+- Histórico de estadísticas: una sola petición con los uuids de las filas al pintar la ventana. Cada fila muestra ✓ (`done`) o ⏳ (`running` o `queued`) junto al 👁, y nada con `none`.
+- Mientras quede alguna con ⏳ y la ventana esté abierta, se vuelve a consultar cada 10 s.
+- Sin conexión, o con un servidor antiguo (404), no se muestra ningún icono.
+- Visor: `aiReviewGame` pasa también el `uuid`. Para esas partidas, junto al 📈 va un texto corto: "✓", o mientras se calcula "⏳ gráfica 120/251" o "⏳ errores 12/30". Se consulta cada 5 s mientras esa partida siga abierta y no esté terminada. Las partidas de colecciones no llevan indicador.
+
+**Pruebas:**
+- `test_server.py`: marca escrita al terminar, los cuatro estados, que la marca sin `mine` sirve para `mine=B`, validaciones 400, Origin ajeno 403 y token 401. El motor falso no cambia.
+- `test_ai.js`: texto del indicador a partir del estado (función pura `anStatusText`).
+
+**Despliegue:** primero el servidor (sin migración), luego el cliente. El cliente nuevo con el servidor antiguo simplemente no muestra iconos.
+
+### Validación de la tanda
+Lo de siempre:
+- CRLF byte a byte en `tsumevault.html`, `node --check` del script y `ast.parse` de los `.py`;
+- `extract_ai.py` + `test_ai.js` y `test_clock.js` con recuentos estables más los nuevos;
+- `test_server.py` completo;
+- ediciones con `assert content.count(old) == 1`;
+- diff del bundle de `extract_bundle.py` idéntico, porque ninguna tarea toca su perímetro.
+
+Checklist manual al final:
+- M-PA1: desplegables cerrados al abrir y recordados.
+- M-PA2: casilla → confirmación → partida con el handicap y el color correctos.
+- M-PA3: no deja poner piedra ni pasar antes de 10 s; la pausa congela la cuenta.
+- M-PA4: 📊 al terminar y en el visor.
+- M-PA5: barras bajo la gráfica en una partida con reloj.
+- M-PA6: ✓ / ⏳ en el histórico y progreso en el visor.
+
+### Entrega (22-nov-2026)
+- Ficheros: `tsumevault.html`, `ai_engines.py`, `tsumevault_server.py`, `test_ai.js` y `test_server.py`. Sin migración (sigue la v7).
+- Pruebas:
+  - `test_ai.js`: 95 PASS (antes 75).
+  - `test_clock.js`: 76 PASS (sin cambios).
+  - `test_server.py`: 320 PASS (antes 302). La prueba de "done" se comprobó con un mutante: sin la marca, falla.
+  - Bundle de `extract_bundle.py` byte-idéntico.
+  - CRLF intacto; `node --check` y `ast.parse` OK.
+- Prueba de humo en Chrome con el servidor real y el KataGo falso: 25 comprobaciones, en dos ejecuciones seguidas.
+  - PA3: cuenta atrás, bloqueo de piedra y de pasar, la estimación congela la cuenta, 0 = sin mínimo.
+  - PA4: 📊 con la partida terminada y en el visor; desaparece al cambiar de jugada.
+  - PA1: desplegables cerrados y recordados.
+  - PA6: ✓ en el histórico y en el visor tras el análisis del servidor.
+  - PA2: aviso con una partida en curso; igualada con el color alternado; +3 recibiendo.
+  - PA5: franja de tiempos y "pensaste" en el pie y en el análisis.
+- Detalles de implementación que no estaban en el plan:
+  - En la rejilla, el título de cada casilla añade "Toca para jugar contra …".
+  - El estado del indicador usa las fases `grafica`/`errores` (campo `phase` del trabajador).
+  - La escala de la franja de tiempos es como mínimo de 10 s, para que una jugada rápida se vea corta.
+- Pendiente en la máquina de Victor: `run_all.sh` completo, el checklist manual M-PA1..M-PA6 y el despliegue (servidor primero).
+
+## PB — Ajustes tras probar PA (22-nov-2026, entregado)
+
+- **PB1 · Que se note el fin del tiempo mínimo para pensar.** Elegidas las opciones A y C.
+  - Mientras esperas, la barra va apagada (clase `think-wait`: fondo `#46423a`, texto `#8f897c`) y el tablero lleva un borde gris (`board-wait`).
+  - Al llegar a 0, la barra vuelve al estilo del color del jugador y el borde da un destello de 1 s con ese color (`board-go-b` / `board-go-w`, con un halo del color contrario para que se vea sobre el fondo oscuro).
+  - Con reloj, la barra se apaga igual mientras esperas, salvo con piedra pendiente o fuera de tiempo.
+  - Al salir de Play y al descartar se quitan las clases.
+  - Descartadas por ahora: la barra que se vacía y la vibración o sonido al desbloquear.
+- **PB2 · Botón ⏱ para la franja de tiempos.**
+  - Va en la fila de análisis, junto al 📈 y su estado. Solo aparece con la gráfica a la vista y si la partida tiene tiempos.
+  - La franja está oculta por defecto y la elección se guarda en `localStorage['an_times_on']`.
+  - El «pensaste N s» del pie de la gráfica y del análisis se sigue viendo con la franja oculta.
+- **Pruebas:**
+  - `test_ai.js` 95 y `test_clock.js` 76, sin cambios.
+  - Bundle idéntico; CRLF intacto y `node --check` OK.
+  - Prueba de humo en Chrome: 32 comprobaciones (7 nuevas), en dos ejecuciones seguidas.
+  - El servidor no cambia respecto a PA.
+- **PB3 · 🔍 como interruptor del análisis** (opción elegida por Victor para no tener dos botones para lo mismo).
+  - En una jugada ya analizada, el 🔍 oculta el análisis entero (texto y marcas ★ 2 3…) y otro toque lo vuelve a mostrar sin recalcular.
+  - Al cambiar de jugada se vuelve a ver: el estado no se recuerda.
+  - El 🔍 se ve activo mientras el análisis está a la vista. La línea de la estimación (📊) va aparte y no se oculta con el 🔍.
+  - Prueba de humo: 36 comprobaciones, en dos ejecuciones seguidas.
+

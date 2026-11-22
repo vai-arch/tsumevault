@@ -199,5 +199,49 @@ ctx.__st3 = JSON.parse(J(ST)); ctx.__st3.ai = { available: false, engine_reason:
 SS = f("srvStatusSummary(__st3, 90)");
 check('estado: KataGo no disponible -> ámbar (el sync sigue funcionando)', SS.level === 'warn' && SS.lines[1][1].startsWith('no disponible') && SS.lines.length === 3, J(SS));
 
+// ── PA2: partida desde una casilla de la rejilla ──
+ctx.__pg = [G('9k', 0, 5, { my_color: 'B', played_at: day(1) }), G('9k', 0, -3, { my_color: 'W', played_at: day(3) }),
+  G('9k', 0, 9, { my_color: 'B', played_at: day(5), deleted: 1 }), G('9k', 2, 4, { my_color: 'B', played_at: day(6) }),
+  G('12k', 0, 4, { my_color: 'W', played_at: day(7) })];
+const cp = (i, h) => f(`aiCellGameParams(__pg, ${i}, ${h})`);
+const i9 = f("aiRankIdx('katago:rank_9k')"), i12 = f("aiRankIdx('katago:rank_12k')"), i5 = f("aiRankIdx('katago:rank_5k')");
+check('PA2 igualada: color contrario a la última igualada no borrada contra ese nivel (W -> B)', J(cp(i9, 0)) === J({ level: 'katago:rank_9k', hc: 0, holder: 'me', color: 'B' }), J(cp(i9, 0)));
+check('PA2 igualada: no mira otros niveles ni partidas con handicap (12k jugó W -> B; 5k sin partidas -> B)', cp(i12, 0).color === 'B' && cp(i5, 0).color === 'B');
+ctx.__pg2 = [G('9k', 0, 5, { my_color: 'B', played_at: day(8) })];
+check('PA2 igualada: última con negras -> blancas', f(`aiCellGameParams(__pg2, ${i9}, 0)`).color === 'W');
+check('PA2 handicap: recibo 3 (me), doy 6 (ai), ±1', J(cp(i9, 3)) === J({ level: 'katago:rank_9k', hc: 3, holder: 'me', color: 'B' })
+  && cp(i9, -6).holder === 'ai' && cp(i9, -6).hc === 6 && cp(i9, 1).holder === 'me' && cp(i9, -1).holder === 'ai' && cp(i9, -1).hc === 1);
+check('PA2 los parámetros dan la partida esperada con aiNewGame (doy 4 -> blancas, -4)', (() => {
+  const p = cp(i9, -4); ctx.__p = p;
+  const g = f("aiNewGame({ level: __p.level, handicap: __p.hc, holder: __p.holder, myColor: __p.color, rules: 'japanese' })");
+  return g.my_color === 'W' && g.handicap === -4 && g.level === 'katago:rank_9k';
+})());
+check('PA2 sin lista de partidas: negras', f(`aiCellGameParams(null, ${i9}, 0)`).color === 'B');
+
+// ── PA3: tiempo mínimo de reflexión ──
+check('PA3 falta tiempo: 10 s con 3,2 s pensados -> 6800 ms', f('aiThinkLeft(10, 3200)') === 6800);
+check('PA3 ya pensado o 0 = sin mínimo -> 0', f('aiThinkLeft(10, 10000)') === 0 && f('aiThinkLeft(10, 15000)') === 0 && f('aiThinkLeft(0, 0)') === 0);
+check('PA3 valores raros no bloquean de más', f('aiThinkLeft(null, 0)') === 0 && f('aiThinkLeft(-5, 0)') === 0 && f('aiThinkLeft(10, undefined)') === 10000);
+
+// ── PA4: texto de la estimación del visor ──
+check('PA4 estimación desde negras (score_white −7 -> +7)', f("anEstText(-7, 'B', false)") === 'Estimación: ventaja negras +7');
+check('PA4 estimación en mi partida con blancas', f("anEstText(-2.36, 'W', true)") === 'Estimación: tu ventaja −2.4' && f("anEstText(0, 'B', false)").endsWith('±0'));
+
+// ── PA5: tiempos pensados por jugada ──
+const T = f("anMoveTimes('(;GM[1]SZ[19]HA[2]AB[dp][pd];W[pp];B[dd]TT[12.5]BL[40];W[];B[]TT[3];W[cc];B[qq]TT[75])')");
+check('PA5 tiempos: índice por jugada, pases incluidos, null sin TT', J(T) === J([null, null, 12.5, null, 3, null, 75]), J(T));
+check('PA5 tiempos: SGF sin tiempos o vacío', J(f("anMoveTimes('(;GM[1];B[aa];W[bb])')")) === J([null, null, null]) && J(f("anMoveTimes('')")) === J([null]));
+check('PA5 texto de tiempo', f('anThinkTxt(3)') === '3 s' && f('anThinkTxt(4.25)') === '4.3 s' && f('anThinkTxt(12.5)') === '13 s' && f('anThinkTxt(95)') === '1:35' && f('anThinkTxt(null)') === '');
+check('PA5 análisis con "pensaste"', f("anAnalysisText(__d, 83, 'B', false, 4)").split('\n')[0] === 'Jugada 83 (negras): P1 · −14.3 respecto a la mejor · pensaste 4 s');
+check('PA5 análisis sin tiempo: igual que antes', f("anAnalysisText(__d, 83, 'B', false, null)") === f("anAnalysisText(__d, 83, 'B', false)"));
+
+// ── PA6: texto del estado del análisis ──
+const S6 = (s) => { ctx.__s6 = s; return f('anStatusText(__s6)'); };
+check('PA6 hecha -> ✓', S6({ state: 'done' }).icon === '✓' && S6({ state: 'done' }).text === '✓');
+check('PA6 en cola -> ⏳', S6({ state: 'queued' }).icon === '⏳' && S6({ state: 'queued' }).text === '⏳ en cola');
+check('PA6 calculándose: fase y progreso', S6({ state: 'running', phase: 'errores', done: 12, total: 30 }).text === '⏳ errores 12/30'
+  && S6({ state: 'running', phase: 'grafica', done: 120, total: 251 }).text === '⏳ gráfica 120/251' && S6({ state: 'running', phase: 'errores', done: 12, total: 30 }).icon === '⏳');
+check('PA6 sin análisis, desconocido o sin respuesta -> nada', S6({ state: 'none' }).icon === '' && S6(null).text === '' && S6(undefined).icon === '' && S6({ state: 'x' }).text === '');
+
 console.log('\nRESULTADO AI:', fails.length ? `${fails.length} FALLOS: ${fails.join(' | ')}` : 'TODO OK');
 process.exit(fails.length ? 1 : 0);

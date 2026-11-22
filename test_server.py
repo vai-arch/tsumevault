@@ -702,6 +702,17 @@ try:
     st, body, _ = req("/ai/move", "POST", {"level": "katago:rank_15k", "rules": "japanese", "komi": 6.5,
                                            "handicap_stones": [], "moves": [], "to_play": "B"})
     check("IA1: /ai/move sin motor -> 503", st == 503, f"st={st} body={body}")
+    # ── PA6: /ai/analysis_status (validación; sin motor, todo "none") ──
+    st, body, _ = req("/ai/analysis_status", "POST", {"uuids": ["no-existe", "no-existe"]})
+    check("PA6: sin motor -> 200 y 'none' (uuids repetidos una vez)", st == 200 and body.get("status") == {"no-existe": {"state": "none"}}, f"st={st} {body}")
+    st, body, _ = req("/ai/analysis_status", "POST", {"uuids": []})
+    check("PA6: lista vacía -> status vacío", st == 200 and body.get("status") == {}, f"st={st} {body}")
+    for label, bad in (("sin uuids", {}), ("uuids no-lista", {"uuids": "x"}), ("más de 200", {"uuids": [f"u{i}" for i in range(201)]}),
+                       ("uuid no texto", {"uuids": [5]}), ("uuid vacío", {"uuids": [""]}), ("uuid de más de 64", {"uuids": ["x" * 65]})):
+        st, _, _ = req("/ai/analysis_status", "POST", bad)
+        check(f"PA6: analysis_status con {label} -> 400", st == 400, f"st={st}")
+    st, _, _ = req("/ai/analysis_status", "POST", {"uuids": []}, origin="https://evil.example")
+    check("PA6: analysis_status con Origin ajeno -> 403", st == 403, f"st={st}")
 
     # CORS: refleja solo orígenes permitidos
     st, _, h = req("/sync/static_version", origin=GH)
@@ -1251,6 +1262,8 @@ p = start_server(dict(AI_ENV, FAKE_GTP_DELAY="2.5", KATAGO_IDLE_S="2", TSUMEVAUL
 try:
     st, _, _ = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B"))
     check("IA1: /ai/move sin token -> 401", st == 401, f"st={st}")
+    st, _, _ = req("/ai/analysis_status", "POST", {"uuids": []})
+    check("PA6: analysis_status sin token -> 401", st == 401, f"st={st}")
     st, body, _ = req("/ai/graph", "POST", dict(POS, moves=[["W", "Q4"], ["B", "C3"], ["W", "pass"]], **{"from": 0, "to": 3}), token="tok-test")
     check("AN3: la caché sobrevive al reinicio del servidor (está en la BD)",
           st == 200 and body.get("cached") == 4 and gtp_cmds() == [], f"{body} {gtp_cmds()}")
@@ -1283,6 +1296,8 @@ try:
     st3, _, _ = req("/sync/static_version")
     check("IA1: sin ai_engines.py -> /ai/status available=false, /ai/move 503 y el sync intacto",
           st1 == 200 and b1.get("available") is False and st2 == 503 and st3 == 200, f"{st1} {b1} {st2} {st3}")
+    st4, _, _ = req("/ai/analysis_status", "POST", {"uuids": ["x"]})
+    check("PA6: sin ai_engines.py -> analysis_status 503", st4 == 503, f"st={st4}")
 finally:
     stop(p)
 
@@ -1368,6 +1383,16 @@ try:
     GP = {"rules": "japanese", "komi": 6.5, "handicap_stones": [], "moves": [["B", "Q16"], ["W", "D4"], ["B", "Q4"], ["W", "D16"], ["B", "pass"]]}
     g = poll_graph(GP)
     check("AN4: una partida recibida por sync se analiza sola (posiciones en la caché)", g and g.get("complete") is True, f"{g}")
+    # PA6: al terminar (gráfica y errores) queda la marca y el indicador dice "done"
+    t_end, sa = time.time() + 20, {}
+    while time.time() < t_end:
+        st, body, _ = req("/ai/analysis_status", "POST", {"uuids": ["an4-g1", "no-existe"]})
+        sa = body.get("status", {})
+        if sa.get("an4-g1", {}).get("state") == "done":
+            break
+        time.sleep(0.3)
+    check("PA6: partida analizada por el trabajador -> done; uuid desconocido -> none",
+          st == 200 and sa.get("an4-g1") == {"state": "done"} and sa.get("no-existe") == {"state": "none"}, f"st={st} {sa}")
     # prioridad: con un análisis largo en marcha, una jugada no espera a que termine
     GL = {"rules": "japanese", "komi": 6.5, "handicap_stones": [], "moves": [["B", "pass"], ["W", "pass"]] * 20}
     req("/ai/graph_job", "POST", dict(GL, label="larga"))
@@ -1380,6 +1405,17 @@ try:
         time.sleep(0.2)
     check("ST1: el estado muestra la partida que se está analizando y su progreso",
           cur and cur.get("label") == "larga" and 0 < cur.get("done", 0) < cur.get("total", 0) == 41, f"{body.get('ai')}")
+    # PA6: una partida guardada con la misma posición que la que se está calculando -> running con progreso;
+    # otra distinta, recibida mientras tanto -> queued
+    long_sgf = "(;GM[1]SZ[19]KM[6.5]RU[Japanese]" + ";B[];W[]" * 20 + ")"
+    gl1 = dict(sg, uuid="pa6-long", sgf=long_sgf, updated_at="2026-11-22T10:00:00Z")
+    gl2 = dict(sg, uuid="pa6-next", sgf="(;GM[1]SZ[19]KM[3.5]RU[Japanese];B[pd];W[dp])", updated_at="2026-11-22T10:00:00Z")
+    req("/sync/ai_games/push", "POST", {"ai_games": [gl1, gl2]})
+    st, body, _ = req("/ai/analysis_status", "POST", {"uuids": ["pa6-long", "pa6-next"]})
+    sl, sn = body.get("status", {}).get("pa6-long", {}), body.get("status", {}).get("pa6-next", {})
+    check("PA6: la partida que se está calculando -> running, fase gráfica y progreso",
+          st == 200 and sl.get("state") == "running" and sl.get("phase") == "grafica" and sl.get("total") == 41 and 0 < sl.get("done", 0) < 41, f"st={st} {sl}")
+    check("PA6: una partida en espera -> queued", sn == {"state": "queued"}, f"{sn}")
     t0 = time.monotonic()
     st, body, _ = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B"))
     dt = time.monotonic() - t0
@@ -1416,6 +1452,28 @@ check("AN5b: misma posición con handicap en otro orden -> misma clave de caché
       f"{_pos_srv['handicap_stones']} {_pos_app['handicap_stones']}")
 check("AN5b: posiciones distintas siguen dando claves distintas",
       _k(_pos_srv) != _k(dict(_pos_app, handicap_stones=["D4", "Q4", "D16"])))
+
+# PA6: estado sin servidor (caché en memoria): marca de los dos colores sirve para mine; SGF ilegible -> none
+class _MemCache:
+    def __init__(self): self.d = {}
+    def get(self, k): return self.d.get(k)
+    def get_many(self, ks): return {k: self.d[k] for k in ks if k in self.d}
+    def put(self, k, kind, params, res): self.d[k] = res
+_svc3 = _ae.AiService(env={"KATAGO_BACKGROUND": "0"}, cache=_MemCache())
+_sgf3 = "(;GM[1]SZ[19]KM[6.5]RU[Japanese];B[pd];W[dp];B[pp])"
+_pos3 = _svc3._position(dict(_ae.sgf_to_position(_sgf3)))
+check("PA6 anti-vacío: sin marca -> none", _svc3.analysis_status([("u1", _sgf3, "B")]) == {"u1": {"state": "none"}})
+_svc3.cache.put(_svc3.worker.done_key(_pos3, None), "graph_done", {}, {"at": "x"})
+check("PA6: la marca de una partida analizada para los dos colores vale para mine=B",
+      _svc3.analysis_status([("u1", _sgf3, "B"), ("u2", "(;GM[1]SZ[13];B[aa])", "B"), ("u3", "no es sgf", "W")])
+      == {"u1": {"state": "done"}, "u2": {"state": "none"}, "u3": {"state": "none"}})
+_svc4 = _ae.AiService(env={"KATAGO_BACKGROUND": "0"}, cache=_MemCache())
+_svc4.cache.put(_svc4.worker.done_key(_pos3, "W"), "graph_done", {}, {"at": "x"})
+check("PA6: la marca de 'solo blancas' no vale para negras", _svc4.analysis_status([("u1", _sgf3, "B")]) == {"u1": {"state": "none"}}
+      and _svc4.analysis_status([("u1", _sgf3, "W")]) == {"u1": {"state": "done"}})
+_jid = _ae.cache_key(_svc4._model_id(), "graph_job", _pos3, _pos3["moves"], {"visits": _ae.AN_GRAPH_VISITS})
+_svc4.worker.ids.add(_jid)
+check("PA6: en la cola del trabajador -> queued (antes que la marca)", _svc4.analysis_status([("u1", _sgf3, "W")]) == {"u1": {"state": "queued"}})
 
 # reinicio: la revisión al arrancar encola las partidas guardadas y las ya analizadas salen de la caché
 p = start_server(BG_ENV)

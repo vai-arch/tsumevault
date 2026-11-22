@@ -46,6 +46,7 @@ Endpoints:
     POST /ai/graph   {rules, komi, handicap_stones, moves} -> {white_leads: [jugadas+1]}            (AN1)
                      con from/to: tramo con búsqueda corta y caché; con cached_only: solo lo guardado (AN3/AN4)
     POST /ai/graph_job {rules, komi, handicap_stones, moves, label} -> encola la gráfica en segundo plano (AN4)
+    POST /ai/analysis_status {uuids: [...]} -> {status: {uuid: {state: done|running|queued|none, ...}}} (PA6)
     GET  /server/status -> estado del servidor para ⚙ (ST1)
     POST /ai/analyze {rules, komi, handicap_stones, moves, to_play, visits?, played?}
                      -> {candidates:[{move, scoreLead, winrate, visits, pv}], root, played:{loss}}  (AN1)
@@ -3043,6 +3044,34 @@ def handle_ai_graph_job(body):  # AN4
     return _ai_call("graph_job", body)
 
 
+AI_STATUS_MAX_UUIDS = 200
+
+
+def handle_ai_analysis_status(body):  # PA6
+    """Estado del análisis automático de partidas contra la IA (✓ / ⏳ en la app). Fuera de
+    DB_LOCK como el resto de /ai/*: toma el candado solo para leer los SGF de ai_games."""
+    if AI_SERVICE is None:
+        return {"error": "ai engine not available"}, 503
+    uuids = body.get("uuids") if isinstance(body, dict) else None
+    if not isinstance(uuids, list) or len(uuids) > AI_STATUS_MAX_UUIDS:
+        return {"error": f"uuids must be a list of at most {AI_STATUS_MAX_UUIDS}"}, 400
+    if any(not isinstance(u, str) or not u or len(u) > 64 for u in uuids):
+        return {"error": "invalid uuid"}, 400
+    uuids = list(dict.fromkeys(uuids))
+    rows = []
+    if uuids:
+        with DB_LOCK, db_connect() as con:
+            if _audit_has_table(con, "ai_games"):
+                q = "SELECT uuid, sgf, my_color FROM ai_games WHERE deleted=0 AND uuid IN (%s)" % ",".join("?" * len(uuids))
+                rows = [tuple(r) for r in con.execute(q, uuids).fetchall()]
+    try:
+        found = AI_SERVICE.analysis_status(rows)
+    except Exception:  # noqa: BLE001 — el indicador nunca debe dar un 500
+        logging.getLogger("tsumevault").exception("[ai] analysis_status")
+        found = {}
+    return {"status": {u: found.get(u, {"state": "none"}) for u in uuids}}
+
+
 def _meminfo():
     try:
         with open("/proc/meminfo", encoding="ascii") as f:
@@ -3091,6 +3120,7 @@ AI_POST_ROUTES = {
     "/ai/graph": handle_ai_graph,      # AN1
     "/ai/analyze": handle_ai_analyze,  # AN1
     "/ai/graph_job": handle_ai_graph_job,  # AN4
+    "/ai/analysis_status": handle_ai_analysis_status,  # PA6
 }
 
 

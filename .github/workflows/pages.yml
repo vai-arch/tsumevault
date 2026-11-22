@@ -3,7 +3,11 @@
 # superaba el tiempo de espera del despliegue. Aqui:
 #   - se publica solo lo que usa la web (fuera scripts, docs, tests...);
 #   - no se ejecuta Jekyll;
-#   - el despliegue puede esperar hasta 30 minutos.
+#   - dos jobs: "build" prepara y sube el sitio, "deploy" lo publica. Si falla
+#     solo la publicacion, se puede relanzar el job "deploy" ("Re-run failed jobs")
+#     sin volver a subir el sitio: con un unico job, el reintento subia un segundo
+#     artefacto "github-pages" y deploy-pages fallaba con "Multiple artifacts".
+#   - GitHub limita el despliegue de Pages a 10 minutos (timeout 600000 ms).
 # Requiere: Settings -> Pages -> Build and deployment -> Source: "GitHub Actions".
 name: Deploy Pages
 
@@ -22,12 +26,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -59,7 +60,15 @@ jobs:
         with:
           path: ${{ runner.temp }}/site
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - id: deployment
         uses: actions/deploy-pages@v4
         with:
-          timeout: 1800000
+          timeout: 600000

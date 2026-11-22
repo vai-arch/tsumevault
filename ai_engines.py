@@ -685,7 +685,7 @@ class GraphWorker:
                     return
                 job = self.q.popleft()
                 self.ids.discard(job["id"])
-                self.cur = dict(job, done=0, total=len(job["pos"]["moves"]) + 1)
+                self.cur = dict(job, done=0, total=len(job["pos"]["moves"]) + 1, phase="grafica")   # PA6: fase visible
                 self._cur_job = job   # la partida en curso (para fijar "mine" si se vuelve a pedir)
             try:
                 self._process(job)
@@ -728,26 +728,46 @@ class GraphWorker:
             svc._run("katago", lambda eng: katago_graph_search(d, eng, pos, frm, to, dict(have), store), interactive=False)
             with self.cv:
                 self.cur["done"] = len(have)
-        self._precompute_mistakes(job, have)
+        finished, mine = self._precompute_mistakes(job, have)
+        if finished and svc.cache and not self.stopped:
+            # PA6: marca de "partida analizada" (gráfica y errores listos) para /ai/analysis_status
+            svc.cache.put(self.done_key(pos, mine), "graph_done", {"visits": AN_GRAPH_VISITS, "mine": mine},
+                          {"at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())})
+
+    def done_key(self, pos, mine):
+        """PA6: clave de la marca de partida analizada. mine=None = errores de los dos colores."""
+        return cache_key(self.svc._model_id(), "graph_done", pos, pos["moves"], {"visits": AN_GRAPH_VISITS, "mine": mine})
+
+    def job_state(self, pos):
+        """PA6: estado de la partida en el trabajador: {'state': 'running', phase, done, total},
+        {'state': 'queued'} o None si no está en cola ni en curso."""
+        jid = cache_key(self.svc._model_id(), "graph_job", pos, pos["moves"], {"visits": AN_GRAPH_VISITS})
+        with self.cv:
+            if self.cur and self.cur["id"] == jid:
+                return {"state": "running", "phase": self.cur.get("phase", "grafica"),
+                        "done": self.cur["done"], "total": self.cur["total"]}
+            if jid in self.ids:
+                return {"state": "queued"}
+        return None
 
     def _precompute_mistakes(self, job, leads):
         """AN5: deja en la caché el análisis de cada error (los mismos parámetros que usa 🔍
         en la app: posición anterior, quien jugó, la jugada hecha, visitas por defecto), para
         que al pulsar 🔍 sobre un error la respuesta sea instantánea."""
         svc, pos = self.svc, job["pos"]
-        if not svc.cache:
-            return
         mine = job.get("mine")
+        if not svc.cache:
+            return False, mine
         errs = [e for e in graph_mistakes(pos, leads) if not mine or pos["moves"][e[0] - 1][0] == mine]
         errs = sorted(errs, key=lambda x: -x[1])[:AN_PRE_MAX]   # los mayores primero
         if not errs:
-            return
+            return True, mine
         d, model = svc.drivers["katago"], svc._model_id()
         with self.cv:
-            self.cur.update(label=job["label"] + " · errores", done=0, total=len(errs))
+            self.cur.update(label=job["label"] + " · errores", done=0, total=len(errs), phase="errores")
         for k, (i, _loss) in enumerate(errs):
             if self.stopped:
-                return
+                return False, mine
             color, vertex = pos["moves"][i - 1]
             before = dict(pos, moves=pos["moves"][:i - 1])
             params = {"visits": AN_VISITS_DEFAULT, "to_play": color, "played": vertex}
@@ -759,6 +779,7 @@ class GraphWorker:
                 svc.cache.put(key, "analyze", params, res)
             with self.cv:
                 self.cur["done"] = k + 1
+        return True, mine
 
 
 # ── Servicio ─────────────────────────────────────────────────────────────────
@@ -1013,6 +1034,29 @@ class AiService:
                 "engine_reason": eng.get("reason"),
                 "move_ms_avg": int(sum(ms) / len(ms)) if ms else None, "move_samples": len(ms),
                 "worker": self.worker.status()}
+
+    def analysis_status(self, games):
+        """PA6: estado del análisis automático de partidas guardadas. games = [(uuid, sgf, my_color)].
+        Devuelve {uuid: {'state': 'done'|'running'|'queued'|'none', ...}}. No toca el motor: solo la
+        cola del trabajador y las marcas de la caché. Una partida que no se puede leer da 'none'."""
+        out, want = {}, {}
+        for uuid, sgf, mine in games:
+            try:
+                pos = self._position(dict(sgf_to_position(sgf)))
+            except Exception:  # noqa: BLE001 — SGF que el análisis no admite
+                out[uuid] = {"state": "none"}
+                continue
+            st = self.worker.job_state(pos)
+            if st:
+                out[uuid] = st
+                continue
+            mine = mine if mine in ("B", "W") else None
+            # la marca de una partida analizada para los dos colores también vale para "solo los míos"
+            want[uuid] = [self.worker.done_key(pos, mine)] + ([self.worker.done_key(pos, None)] if mine else [])
+        hit = self.cache.get_many([k for ks in want.values() for k in ks]) if (self.cache and want) else {}
+        for uuid, ks in want.items():
+            out[uuid] = {"state": "done" if any(k in hit for k in ks) else "none"}
+        return out
 
     def analyze(self, body):
         pos = self._position(body)
