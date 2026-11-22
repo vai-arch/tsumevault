@@ -1814,7 +1814,9 @@
           <!-- fila 2 (AN2): análisis con KataGo (servidor) -->
           <div class="gm-row">
             <button class="ctrl-btn gm-ico" id="gm-btn-graph" title="Gráfica de la ventaja estimada a lo largo de la partida">📈</button>
+            <span id="gm-an-status" style="display:none;font-family:var(--mono);font-size:10px;color:var(--dim);align-self:center;white-space:nowrap;"></span>
             <button class="ctrl-btn gm-ico" id="gm-btn-an" title="Analizar la última jugada: cuánto costó y cuáles eran las mejores">🔍</button>
+            <button class="ctrl-btn gm-ico" id="gm-btn-est" title="Estimar el resultado y mostrar el territorio de esta posición (vuelve a pulsar para ocultarlo)">📊</button>
             <button class="ctrl-btn gm-ico" id="gm-btn-pv" style="display:none" title="Mostrar u ocultar la secuencia de la mejor jugada">🔢</button>
             <button class="ctrl-btn gm-ico" id="gm-btn-err-filter" style="display:none" title="De quién son los errores: todos / negras / blancas">●○</button>
             <button class="ctrl-btn gm-ico" id="gm-btn-err-prev" style="display:none" title="Error anterior">◀✕</button>
@@ -1939,7 +1941,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261120-1810';
+	const SW_VERSION = 'tsumevault-20261122-1821';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -7598,8 +7600,11 @@
 
     function anReset() {
       // filtro de errores: en tus partidas contra la IA, solo los tuyos; en las demás, todos
-      anState = { graph: null, graphOn: false, graphLoading: false, resByNode: new Map(), pvOn: false, busy: false, errColor: (gmCurrentGame && gmCurrentGame.persp) || 'all' };
+      anState = { graph: null, graphOn: false, graphLoading: false, resByNode: new Map(), pvOn: false, busy: false, errColor: (gmCurrentGame && gmCurrentGame.persp) || 'all',
+        est: null, times: undefined };   // PA4: estimación de la posición vista · PA5: tiempos pensados (se leen al dibujar)
       anRenderInfo();
+      { const s = document.getElementById('gm-an-status'); if (s) { s.style.display = 'none'; s.textContent = ''; } }
+      if (gmCurrentGame && gmCurrentGame.uuid) anStatusPoll(anState);   // PA6
       const gw = document.getElementById('gm-graph'); if (gw) { gw.style.display = 'none'; gw.textContent = ''; }
       const at = document.getElementById('gm-an-text'); if (at) at.style.display = 'none';
       anUpdateButtons();
@@ -7637,6 +7642,9 @@
       const g = document.getElementById('gm-btn-graph'), a = document.getElementById('gm-btn-an'), pv = document.getElementById('gm-btn-pv');
       if (!g) return;
       g.disabled = a.disabled = anState.busy || !gmRootNode;
+      const es = document.getElementById('gm-btn-est');   // PA4
+      es.disabled = anState.busy || !gmRootNode;
+      es.classList.toggle('active', !!(anState.est && anState.est.node === gmCurrentNode));
       g.classList.toggle('active', anState.graphOn);
       const cr = anState.resByNode.get(gmCurrentNode);
       const showPv = !!(cr && cr.data.candidates[0].pv.length);
@@ -7761,6 +7769,7 @@
       const done = vals.indexOf(null) < 0 ? n : vals.indexOf(null) - 1;   // AN3: último punto ya calculado
       // Ancho fijo por jugada (se desplaza en horizontal si no cabe) y centrado en la jugada actual
       const AN_PX_PER_MOVE = 6, pad = 8, H = 170;
+      const tms = anTimes(), TB = tms ? 44 : 0;   // PA5: franja de tiempos pensados bajo la gráfica
       const W = Math.max((wrap.clientWidth || 300) - 2, n * AN_PX_PER_MOVE + 2 * pad), maxAbs = Math.max(10, ...vals.filter(v => v != null).map(Math.abs));
       const X = (i) => pad + (W - 2 * pad) * (n ? i / n : 0), Y = (v) => H / 2 - (H / 2 - pad) * (v / maxAbs);
       const ns = 'http://www.w3.org/2000/svg', mk = (t, a) => { const e = document.createElementNS(ns, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
@@ -7768,7 +7777,7 @@
       const scroller = document.createElement('div');
       // width:0 + min-width:100%: el ancho de la gráfica no ensancha los contenedores (#board-wrap es flexible)
       scroller.style.cssText = 'width:0;min-width:100%;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;border:1px solid var(--border);background:var(--panel);scrollbar-width:thin;scrollbar-color:var(--border2) transparent;';
-      const svg = mk('svg', { viewBox: `0 0 ${W} ${H}`, width: W, height: H, style: `display:block;cursor:pointer;width:${W}px;height:${H}px;` });
+      const svg = mk('svg', { viewBox: `0 0 ${W} ${H + TB}`, width: W, height: H + TB, style: `display:block;cursor:pointer;width:${W}px;height:${H + TB}px;` });
       // marcas cada 50 jugadas para orientarse al desplazar
       for (let k = 50; k < n; k += 50) {
         svg.appendChild(mk('line', { x1: X(k), x2: X(k), y1: 0, y2: H, stroke: 'var(--border)', 'stroke-width': 1 }));
@@ -7786,9 +7795,26 @@
         const t = mk('title', {}); t.textContent = `Jugada ${m.i} (${m.color === 'B' ? 'negras' : 'blancas'}): −${m.loss}`; c.appendChild(t);
         svg.appendChild(c);
       }
+      if (tms) {   // PA5: una barra por jugada con tiempo (las mías); naranja/rojo si fue error
+        const loss = new Map(anMistakes(leads, moves, AN_MISTAKE).map(m => [m.i, m.loss]));
+        const CAP = 120, top = H + 6, hMax = TB - 10;
+        const maxT = Math.max(10, Math.min(CAP, ...tms.filter(v => v != null)));
+        const bw = Math.max(1.5, Math.min(5, (W - 2 * pad) / Math.max(1, n) * 0.7));
+        svg.appendChild(mk('line', { x1: pad, x2: W - pad, y1: H + 1, y2: H + 1, stroke: 'var(--border)', 'stroke-width': 1 }));
+        const lt = mk('text', { x: pad, y: top + 6, fill: 'var(--dim2)', 'font-size': 9, 'font-family': 'monospace' }); lt.textContent = '⏱'; svg.appendChild(lt);
+        for (let i = 1; i <= n; i++) {
+          const t = tms[i]; if (t == null) continue;
+          const h = Math.max(1, Math.min(t, maxT) / maxT * hMax), l = loss.get(i);
+          const col = l >= AN_BLUNDER ? 'var(--accent)' : l >= AN_MISTAKE ? '#e0a030' : 'rgba(212,168,74,.55)';
+          const b = mk('rect', { x: X(i) - bw / 2, y: top + hMax - h, width: bw, height: h, fill: col });
+          const bt = mk('title', {}); bt.textContent = `Jugada ${i}: pensaste ${anThinkTxt(t)}` + (l >= AN_MISTAKE ? ` · −${l}` : ''); b.appendChild(bt);
+          svg.appendChild(b);
+          if (t > maxT) svg.appendChild(mk('line', { x1: X(i) - bw, x2: X(i) + bw, y1: top, y2: top, stroke: col, 'stroke-width': 1.5 }));   // pasa del tope
+        }
+      }
       if (anOnMainLine()) {
         const cur = anCurrentMoves().length;
-        svg.appendChild(mk('line', { x1: X(cur), x2: X(cur), y1: 0, y2: H, stroke: 'var(--text)', 'stroke-width': 1, 'stroke-dasharray': '3,3', 'vector-effect': 'non-scaling-stroke' }));
+        svg.appendChild(mk('line', { x1: X(cur), x2: X(cur), y1: 0, y2: H + TB, stroke: 'var(--text)', 'stroke-width': 1, 'stroke-dasharray': '3,3', 'vector-effect': 'non-scaling-stroke' }));
       }
       let down = null;   // si el dedo se ha movido (desplazamiento), no es un toque
       svg.addEventListener('pointerdown', (e) => { down = { x: e.clientX, y: e.clientY, sl: scroller.scrollLeft }; });
@@ -7805,7 +7831,8 @@
       if (curX != null) scroller.scrollLeft = Math.max(0, curX - scroller.clientWidth / 2);
       wrap.appendChild(Object.assign(document.createElement('div'), {
         className: 'gm-an-box', style: 'margin-top:3px;',
-        textContent: anGraphCaption(leads, moves, persp, anOnMainLine() ? anCurrentMoves().length : null),
+        textContent: anGraphCaption(leads, moves, persp, anOnMainLine() ? anCurrentMoves().length : null)
+          + (tms && anOnMainLine() && tms[anCurrentMoves().length] != null ? ` · pensaste ${anThinkTxt(tms[anCurrentMoves().length])}` : ''),   // PA5
       }));
     }
     function anGoToMove(i) {
@@ -7850,6 +7877,44 @@
         if (anState === st) anMsg('No se pudo analizar (' + e.message + ')');
       } finally { st.busy = false; if (anState === st) anUpdateButtons(); }
     }
+    // PA4: estimación (número + territorio) de la posición que se ve. Al cambiar de jugada desaparece.
+    async function anEstimate() {
+      const st = anState, node = gmCurrentNode;
+      if (st.est && st.est.node === node) { st.est = null; gmRenderCurrentNode(); return; }   // segundo toque: ocultar
+      const body = anBody(anCurrentMoves()); if (!body) return;
+      st.busy = true; anUpdateButtons(); anMsg('Estimando…');
+      try {
+        const d = await aiPost('/ai/score', Object.assign({}, body, { mode: 'estimate' }), 30000);
+        if (anState !== st) return;
+        if (gmCurrentNode !== node) { anMsg('Estimación lista, pero has cambiado de jugada: vuelve a pulsar 📊'); return; }
+        st.est = { node, sw: d.score_white, own: d.ownership || null };
+        anMsg((gmCurrentGame && gmCurrentGame.name || '').replace(/\.sgf$/i, ''));
+        gmRenderCurrentNode();
+      } catch (e) {
+        if (anState === st) anMsg('No se pudo estimar (' + e.message + ')');
+      } finally { st.busy = false; if (anState === st) anUpdateButtons(); }
+    }
+    // PA6: estado del análisis automático de esta partida contra la IA, junto al 📈. Mientras no
+    // esté hecha, se vuelve a consultar cada 5 s; se detiene al abrir otra partida.
+    async function anStatusPoll(st) {
+      const uuid = gmCurrentGame && gmCurrentGame.uuid, box = document.getElementById('gm-an-status');
+      if (!uuid || !box) return;
+      let s = null;
+      try { const d = await aiPost('/ai/analysis_status', { uuids: [uuid] }, 10000); s = d && d.status ? d.status[uuid] : null; }
+      catch (e) { s = null; }
+      if (anState !== st) return;
+      const t = anStatusText(s);
+      box.textContent = t.text; box.title = t.title; box.style.display = t.text ? '' : 'none';
+      if (s && (s.state === 'queued' || s.state === 'running')) setTimeout(() => { if (anState === st) anStatusPoll(st); }, 5000);
+    }
+    // PA5: tiempos pensados de la partida (TT del SGF), solo si cuadran con la línea principal.
+    function anTimes() {
+      if (anState.times === undefined) {
+        const t = anMoveTimes(gmSgfText);
+        anState.times = t.length - 1 === anMainLine().length && t.some(v => v != null) ? t : null;
+      }
+      return anState.times;
+    }
     function anTogglePv() { if (!anState.resByNode.get(gmCurrentNode)) return; anState.pvOn = !anState.pvOn; gmRenderCurrentNode(); }
     // Llamada al final de gmRenderCurrentNode: repinta lo que corresponde al nodo actual.
     function anAfterRender() {
@@ -7876,12 +7941,26 @@
               c: onStone ? (pos.get(p.x, p.y) === WGo.B ? '#fff' : '#000') : (k === 0 ? '#1a7a2a' : '#1a1aff') });
           });
         }
-        const txt = anAnalysisText(d, r.moveNo, anPersp(), !!(gmCurrentGame && gmCurrentGame.persp));
+        const tms = anTimes();   // PA5
+        const txt = anAnalysisText(d, r.moveNo, anPersp(), !!(gmCurrentGame && gmCurrentGame.persp), tms && r.moveNo != null ? tms[r.moveNo] : null);
         const at = document.getElementById('gm-an-text');
         at.textContent = txt + (anState.pvOn ? `\nSecuencia: ${best.pv.join(' ')}` : '');
         at.style.display = '';
       } else {
         document.getElementById('gm-an-text').style.display = 'none';
+      }
+      // PA4: estimación de esta posición (cuadraditos de territorio y su texto encima del análisis)
+      if (anState.est && anState.est.node !== gmCurrentNode) anState.est = null;
+      if (anState.est) {
+        const e = anState.est, pos = gmGame.getPosition();
+        if (e.own) for (let y = 0; y < 19; y++) for (let x = 0; x < 19; x++) {
+          const o = e.own[x + 19 * y], s = pos.get(x, y);
+          const show = s === 0 ? Math.abs(o) >= 0.15 : (s === WGo.B ? o >= 0.5 : o <= -0.5);
+          if (show) wgoBoard.addObject({ x, y, type: AI_OWN_HANDLER, own: o });
+        }
+        const at = document.getElementById('gm-an-text'), line = anEstText(e.sw, anPersp(), !!(gmCurrentGame && gmCurrentGame.persp));
+        at.textContent = r ? line + '\n' + at.textContent : line;
+        at.style.display = '';
       }
       anDrawGraph();
       anUpdateButtons();
@@ -7889,6 +7968,7 @@
     function anInitControls() {
       document.getElementById('gm-btn-graph').addEventListener('click', anToggleGraph);
       document.getElementById('gm-btn-an').addEventListener('click', anAnalyze);
+      document.getElementById('gm-btn-est').addEventListener('click', anEstimate);   // PA4
       document.getElementById('gm-btn-pv').addEventListener('click', anTogglePv);
       document.getElementById('gm-btn-err-filter').addEventListener('click', anCycleErrColor);
       document.getElementById('gm-btn-err-prev').addEventListener('click', () => anJumpMistake(-1));
@@ -8500,13 +8580,14 @@
     // d: respuesta de /ai/analyze sobre la posición ANTERIOR a esa jugada (to_play = quien la hizo);
     // moveNo: nº de esa jugada (null = inicio, sin jugada todavía); persp: 'B' o 'W' para la ventaja;
     // mine: true si persp es el jugador (partidas contra la IA) -> "tu ventaja".
-    function anAnalysisText(d, moveNo, persp, mine) {
+    function anAnalysisText(d, moveNo, persp, mine, thinkS) {
       const fmt = (v) => (v > 0 ? '+' : v < 0 ? '−' : '±') + Math.abs(Math.round(v * 10) / 10);
       const cs = d.candidates, best = cs[0], side = d.to_play === 'B' ? 'negras' : 'blancas';
       const lines = [];
       if (moveNo == null) lines.push(`Inicio · juegan ${side}`);
       else if (d.played) lines.push(`Jugada ${moveNo} (${side}): ${d.played.move} · ` +
-        (d.played.loss <= 0.5 ? 'buena jugada' : `${fmt(-d.played.loss)} respecto a la mejor`));
+        (d.played.loss <= 0.5 ? 'buena jugada' : `${fmt(-d.played.loss)} respecto a la mejor`) +
+        (thinkS != null && Number.isFinite(+thinkS) ? ` · pensaste ${anThinkTxt(thinkS)}` : ''));   // PA5
       lines.push(`Mejor: ★ ${best.move}` + cs.slice(1).map((c, k) => ` · ${k + 2} ${c.move} (${fmt(c.scoreLead - best.scoreLead)})`).join(''));
       const adv = (d.to_play === persp ? 1 : -1) * best.scoreLead;
       lines.push(`${mine ? 'Tu ventaja' : 'Ventaja ' + (persp === 'B' ? 'negras' : 'blancas')} con la mejor: ${fmt(adv)}`);
@@ -8668,9 +8749,63 @@
       for (let n = 2; n < sys.periods; n++) k.push('quedan_' + n);
       return k;
     }
+    // PA2: partida pedida desde una casilla de la rejilla (i = índice de rango, h = handicap con
+    // signo: + recibo, − doy). En igualadas, el color contrario al de la última igualada no borrada
+    // contra ese nivel (por played_at); si no hay ninguna, negras. Con handicap el color lo fija aiNewGame.
+    function aiCellGameParams(games, i, h) {
+      const level = aiRankLevel(i);
+      if (h !== 0) return { level, hc: Math.abs(h), holder: h > 0 ? 'me' : 'ai', color: 'B' };
+      let last = null;
+      for (const g of games || []) {
+        if (g.deleted || g.ai_level !== level || g.handicap !== 0) continue;
+        if (!last || String(g.played_at) > String(last.played_at)) last = g;
+      }
+      return { level, hc: 0, holder: 'me', color: last ? (last.my_color === 'B' ? 'W' : 'B') : 'B' };
+    }
+    // PA3: ms que faltan para poder jugar con un mínimo de minS segundos pensados (0 = ya se puede).
+    function aiThinkLeft(minS, spentMs) {
+      const m = Math.max(0, Math.round(+minS || 0)) * 1000;
+      return Math.max(0, Math.ceil(m - (+spentMs || 0)));
+    }
+    // PA5: segundos pensados (TT) por jugada de la línea principal; out[i] = jugada i (1..n), null sin dato.
+    function anMoveTimes(sgf) {
+      const re = /;([BW])\[([a-s]{0,2})\]((?:[A-Z]+\[[^\]]*\])*)/g, out = [null];
+      let m;
+      while ((m = re.exec(String(sgf || '')))) {
+        const r = /(?:^|\])TT\[([^\]]*)\]/.exec(m[3]), v = r ? parseFloat(r[1]) : NaN;
+        out.push(Number.isFinite(v) ? v : null);
+      }
+      return out;
+    }
+    function anThinkTxt(s) {
+      if (s == null || !Number.isFinite(+s)) return '';
+      s = +s;
+      if (s >= 60) { const t = Math.round(s); return `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`; }
+      return (s < 10 ? String(Math.round(s * 10) / 10) : String(Math.round(s))) + ' s';
+    }
+    // PA4: texto de la estimación del visor (score_white con signo: + ganan blancas).
+    function anEstText(scoreWhite, persp, mine) {
+      const v = Math.round((persp === 'B' ? -1 : 1) * scoreWhite * 10) / 10;
+      const fmt = (v > 0 ? '+' : v < 0 ? '−' : '±') + Math.abs(v);
+      return `Estimación: ${mine ? 'tu ventaja' : 'ventaja ' + (persp === 'B' ? 'negras' : 'blancas')} ${fmt}`;
+    }
+    // PA6: estado del análisis automático de una partida (respuesta de /ai/analysis_status).
+    // icon para el histórico; text para junto al 📈 del visor; title al pasar el ratón.
+    function anStatusText(s) {
+      const st = s && s.state;
+      if (st === 'done') return { icon: '✓', text: '✓', title: 'Analizada: gráfica y errores listos' };
+      if (st === 'queued') return { icon: '⏳', text: '⏳ en cola', title: 'En la cola de análisis del servidor' };
+      if (st === 'running') {
+        const what = s.phase === 'errores' ? 'errores' : 'gráfica';
+        const prog = Number.isFinite(s.done) && Number.isFinite(s.total) ? ` ${s.done}/${s.total}` : '';
+        return { icon: '⏳', text: `⏳ ${what}${prog}`, title: `Analizándose en el servidor: ${what}${prog}` };
+      }
+      return { icon: '', text: '', title: '' };
+    }
     // ── fin IA3 funciones puras ──
 
     const AI_GAME_KEY = 'ai_current_game', AI_FORM_KEY = 'ai_form', AI_DELAY_KEY = 'ai_min_delay_ms';
+    const AI_THINK_KEY = 'ai_min_think_s';   // PA3: segundos mínimos pensados antes de poder jugar (0 = sin mínimo)
     let aiActive = false;     // pestaña Play activa (análogo a gmActive/jsActive)
     let aiGame = null;        // partida en curso o la última terminada (localStorage)
     let aiBusy = false;       // esperando al servidor (jugada o recuento)
@@ -8719,7 +8854,9 @@
       aiClk.lastE = e;
       const now = performance.now();
       if (now - aiClk.lastSave > 5000) { g.turnSpent = e; aiClk.segStart = now; aiClk.lastSave = now; aiSave(); }   // por si se cierra la app de golpe
-      if (aiClockOn(g)) aiRenderHint();
+      const lk = aiThinkMs(g) > 0;   // PA3: cuenta atrás del mínimo y, al llegar a 0, Pasar vuelve a estar disponible
+      if (lk || aiClk.thinkLock) { aiClk.thinkLock = lk; aiRenderStatus(); }
+      else if (aiClockOn(g)) aiRenderHint();
     }
     // ── RL3: avisos (voz del navegador o grabaciones propias, y vibración) ──
     // Grabaciones: audio/clock/<key>.mp3 (byoyomi, 1…9, quedan_2…, ultimo_periodo, fuera_de_tiempo).
@@ -8825,7 +8962,8 @@
       if (aiEstShown(g)) return null;
       const cls = 'clk ' + (a.phase === 'over' ? 'clk-over' : g.pending ? 'clk-press' : g.my_color === 'B' ? 'board-hint-black' : 'board-hint-white');
       const lastMv = g.moves[g.moves.length - 1], aiPassed = lastMv && lastMv[1] === 'pass' && lastMv[0] !== g.my_color;
-      return { txt: `${dot} ${lbl} · ` + (g.pending ? (g.pending === 'pass' ? 'pasas — pulsa el reloj' : 'pulsa el reloj') : 'te toca') + (aiPassed ? ' · la IA ha pasado' : ''), cls };
+      const wait = aiThinkMs(g);   // PA3
+      return { txt: `${dot} ${lbl} · ` + (g.pending ? (g.pending === 'pass' ? 'pasas — pulsa el reloj' : 'pulsa el reloj') : wait ? `⏳ piensa ${Math.ceil(wait / 1000)} s` : 'te toca') + (aiPassed ? ' · la IA ha pasado' : ''), cls };
     }
     function aiRenderHint() {
       const hint = document.getElementById('board-hint'), c = aiClockText(aiGame);
@@ -8835,6 +8973,10 @@
     }
     function aiClockDesc(tc) { return tc && tc.type === 'byoyomi' ? `${tc.main % 60 ? tc.main + ' s' : tc.main / 60 + ' min'} + ${tc.periods} × ${tc.period} s` : 'sin reloj'; }
 
+    function aiMinThinkS() { const v = parseInt(lsGet(AI_THINK_KEY), 10); return v >= 0 && v <= 120 ? v : 10; }
+    // PA3: en mi turno, mientras no haya pensado el mínimo no puedo poner piedra ni pasar. Lo pensado
+    // es aiTurnE: arranca al aparecer la piedra de la IA y se para con la pausa, la estimación y la app oculta.
+    function aiThinkMs(g) { return g && g === aiGame && aiIsMyTurn() ? aiThinkLeft(aiMinThinkS(), aiTurnE(g)) : 0; }
     function aiDelayMs() { const v = parseInt(lsGet(AI_DELAY_KEY), 10); return v >= 0 && v <= 10000 ? v : 1000; }
     function aiLoad() { try { const g = JSON.parse(lsGet(AI_GAME_KEY) || 'null'); return g && Array.isArray(g.moves) ? g : null; } catch (e) { return null; } }
     function aiSave() { if (aiGame) lsSet(AI_GAME_KEY, JSON.stringify(aiGame)); else { try { localStorage.removeItem(AI_GAME_KEY); } catch (e) { } } }
@@ -8885,7 +9027,7 @@
       if (last && aiGame.status === 'playing') { const p = aiFromGtp(last[1]); if (p) wgoBoard.addObject({ x: p.x, y: p.y, type: 'CR' }); }
       if (pend) { const p = aiFromGtp(pend); wgoBoard.addObject({ x: p.x, y: p.y, type: 'TR' }); }   // puesta, sin pulsar el reloj
       for (const v of (aiGame.dead || [])) { const p = aiFromGtp(v); if (p) wgoBoard.addObject({ x: p.x, y: p.y, type: 'MA' }); }
-      if (aiEst && aiEst.n === aiGame.moves.length && aiGame.status === 'playing' && aiEst.ownership) {
+      if (aiEst && aiEst.n === aiGame.moves.length && aiGame.status !== 'scoring' && aiEst.ownership) {   // PA4: también terminada
         for (let y = 0; y < 19; y++) for (let x = 0; x < 19; x++) {
           const o = aiEst.ownership[x + 19 * y], st = pos.get(x, y);
           // vacíos con dueño claro, y piedras que se dan por muertas (dueño contrario a su color)
@@ -8905,12 +9047,16 @@
       if (g.status === 'done') txt = aiResultText(g);
       else if (g.status === 'scoring') txt = aiBusy ? 'Contando…' : 'Recuento pendiente';
       else if (aiBusy) txt = aiEstimating ? 'Estimando…' : 'La IA está pensando…';
-      else if (toPlay === g.my_color) { txt = (toPlay === 'B' ? '● Negras' : '○ Blancas') + ' — te toca'; cls = toPlay === 'B' ? 'board-hint-black' : 'board-hint-white'; }
+      else if (toPlay === g.my_color) {
+        const wait = aiThinkMs(g);   // PA3
+        txt = (toPlay === 'B' ? '● Negras' : '○ Blancas') + (wait ? ` — ⏳ piensa ${Math.ceil(wait / 1000)} s` : ' — te toca');
+        cls = toPlay === 'B' ? 'board-hint-black' : 'board-hint-white';
+      }
       else txt = 'Turno de la IA';
       if (g.status === 'playing' && lastMv && lastMv[1] === 'pass') txt += ' · ' + (lastMv[0] === g.my_color ? 'has pasado' : 'la IA ha pasado');
-      if (aiEst && aiEst.n === g.moves.length && g.status === 'playing' && !aiBusy) {
+      if (aiEst && aiEst.n === g.moves.length && g.status !== 'scoring' && !aiBusy) {   // PA4: también terminada
         const sc = aiEst.score;
-        txt = sc > 0 ? `Estimación: vas ganando por ${sc}` : sc < 0 ? `Estimación: vas perdiendo por ${-sc}` : 'Estimación: igualado';
+        txt = (g.status === 'done' ? aiResultText(g) + ' · ' : '') + (sc > 0 ? `Estimación: vas ganando por ${sc}` : sc < 0 ? `Estimación: vas perdiendo por ${-sc}` : 'Estimación: igualado');
         cls = '';
       }
       if (aiError && !aiBusy) { txt = '⚠ ' + aiError + ' — pulsa Reintentar'; cls = ''; }
@@ -8932,11 +9078,11 @@
       const hcTxt = g.handicap > 0 ? `recibes ${g.handicap}` : g.handicap < 0 ? `das ${-g.handicap}` : 'igualada';
       cb.textContent = `IA ${aiLevelLabel(g.level)} · tú con ${g.my_color === 'B' ? 'negras' : 'blancas'} · ${hcTxt} · komi ${g.komi} · ${g.rules === 'chinese' ? 'chinas' : 'japonesas'} · ${g.moves.length} jugadas` + (aiClockOn(g) ? ` · ⏱ ${aiClockDesc(g.tc)}` : '');
       const busyOrDone = !aiIsMyTurn();
-      document.getElementById('ai-btn-pass').disabled = busyOrDone;
+      document.getElementById('ai-btn-pass').disabled = busyOrDone || aiThinkMs(g) > 0;   // PA3
       document.getElementById('ai-btn-resign').disabled = g.status !== 'playing' || aiBusy;
       document.getElementById('ai-btn-discard').disabled = g.status === 'done';
       document.getElementById('ai-btn-back').disabled = g.status !== 'playing' || aiBusy || aiUndoLength(g) == null;
-      document.getElementById('ai-btn-est').disabled = g.status !== 'playing' || aiBusy;
+      document.getElementById('ai-btn-est').disabled = g.status === 'scoring' || aiBusy;   // PA4: también con la partida terminada
       const retry = document.getElementById('ai-btn-retry');
       retry.style.display = !aiBusy && aiError && (g.status === 'scoring' || (g.status === 'playing' && toPlay !== g.my_color)) ? '' : 'none';
     }
@@ -8998,6 +9144,7 @@
     }
     function aiBoardClick(x, y) {
       if (!aiActive || !aiIsMyTurn()) return;
+      if (aiThinkMs(aiGame) > 0) return;   // PA3: aún no ha pensado el mínimo (ni piedra, ni fantasma, ni sonido)
       const c = aiGame.my_color === 'B' ? WGo.B : WGo.W;
       if (!Array.isArray(aiPosition(aiGame).play(x, y, c))) return;   // ocupada, suicidio o ko
       if (aiClockOn(aiGame)) {   // RL2: la piedra queda puesta; se envía al pulsar el reloj (se puede cambiar antes)
@@ -9030,7 +9177,7 @@
     }
     async function aiEstimate() {
       const g = aiGame;
-      if (!g || g.status !== 'playing' || aiBusy) return;
+      if (!g || (g.status !== 'playing' && g.status !== 'done') || aiBusy) return;   // PA4: también terminada
       if (aiEst && aiEst.n === g.moves.length) { aiEst = null; aiRender(); return; }   // segundo toque: ocultar
       const tok = aiSetBusy(); aiEstimating = true; aiRenderStatus();
       try {
@@ -9045,7 +9192,7 @@
       }
     }
     function aiPass() {
-      if (!aiIsMyTurn()) return;
+      if (!aiIsMyTurn() || aiThinkMs(aiGame) > 0) return;   // PA3
       if (aiClockOn(aiGame)) { if (!aiGame.paused) { aiGame.pending = 'pass'; aiSave(); aiRender(); } return; }   // RL2: pasar + pulsar
       aiCommit('pass');
     }
@@ -9076,6 +9223,7 @@
     }
     function aiFinish(endType) {
       aiGame.status = 'scoring'; aiGame.end_type = endType;
+      aiEst = null;   // PA4: la estimación de antes de terminar no se arrastra al tablero final
       if (aiClk.segStart != null) aiGame.turnSpent = aiTurnE(aiGame);
       aiGame.pending = null; aiGame.paused = false;
       aiClockSync();
@@ -9175,6 +9323,9 @@
       const dl = row('Espera mínima de la IA (ms)', el('input', 'cursor:text;margin-bottom:0', null, 'fsel'));
       dl.type = 'number'; dl.min = '0'; dl.max = '10000'; dl.step = '250'; dl.value = String(aiDelayMs());
       dl.addEventListener('change', () => { const v = parseInt(dl.value, 10); if (v >= 0 && v <= 10000) lsSet(AI_DELAY_KEY, String(v)); else dl.value = String(aiDelayMs()); });
+      const th = row('Tiempo mínimo para pensar (s) · 0 = sin mínimo', el('input', 'cursor:text;margin-bottom:0', null, 'fsel'));   // PA3
+      th.type = 'number'; th.min = '0'; th.max = '120'; th.step = '1'; th.value = String(aiMinThinkS());
+      th.addEventListener('change', () => { const v = Number(th.value); if (Number.isInteger(v) && v >= 0 && v <= 120) lsSet(AI_THINK_KEY, String(v)); else th.value = String(aiMinThinkS()); });
       // RL2: reloj (solo el mío). Se recuerda lo último usado en este dispositivo.
       const cp = aiClockPrefs(); let last = {}; try { last = JSON.parse(lsGet(AI_CLOCK_KEY) || 'null') || {}; } catch (e) { }
       const clSel = row('Reloj', el('select', 'margin-bottom:0', null, 'fsel'));
@@ -9254,6 +9405,8 @@
 
     // ══ IA4: ESTADÍSTICAS de partidas contra la IA (ventana #ai-stats-overlay) ══
     const AI_STATS_KEY = 'ai_stats_cfg';   // solo en este dispositivo: {target, rules}
+    const AI_STATS_OPEN_KEY = 'ai_stats_open';   // PA1: desplegables abiertos {rules, summary}
+    function aiStatsOpen() { try { const o = JSON.parse(lsGet(AI_STATS_OPEN_KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
     function aiStatsCfg() {
       try {
         const c = JSON.parse(lsGet(AI_STATS_KEY) || '{}');
@@ -9285,11 +9438,48 @@
       closeAiStats();
       switchTab('games');
       const d = new Date(r.played_at);
-      gmOpenGame({ id: null, sgf: r.sgf, persp: r.my_color, // AN2: gráfica desde mi punto de vista
+      gmOpenGame({ id: null, sgf: r.sgf, persp: r.my_color, uuid, // AN2: gráfica desde mi punto de vista; PA6: estado del análisis
         name: `${localDateStr(d)} · IA ${aiLevelLabel(r.ai_level)} · H${r.handicap > 0 ? '+' : ''}${r.handicap} · ${r.score > 0 ? '+' : ''}${r.score}` });
     }
-    function openAiStats() { document.getElementById('ai-stats-overlay').style.display = 'flex'; renderAiStats(); }
-    function closeAiStats() { const o = document.getElementById('ai-stats-overlay'); if (o) o.style.display = 'none'; }
+    // PA2: casilla de la rejilla -> confirmación -> partida con ese rival y handicap; el resto de la
+    // configuración, la de por defecto ya guardada (reglas del último formulario, reloj, espera).
+    function aiStartFromCell(i, h) {
+      const cur = aiLoad();
+      if (cur && cur.status !== 'done') { alert('Termina o abandona la partida en curso antes de empezar otra.'); return; }
+      const p = aiCellGameParams(localAiGames(), i, h);
+      const what = h > 0 ? `recibiendo ${h}` : h < 0 ? `dando ${-h}` : `igualada, con ${p.color === 'B' ? 'negras' : 'blancas'}`;
+      if (!confirm(`¿Empezar una partida contra ${aiLevelLabel(p.level)} ${what}?`)) return;
+      const pr = aiFormPrefs();
+      closeAiStats();
+      switchTab('play');
+      aiStartGame({ level: p.level, hc: p.hc, holder: p.holder, color: p.color, rules: pr.rules, tc: aiClockPrefs() });
+    }
+    function openAiStats() { document.getElementById('ai-stats-overlay').style.display = 'flex'; renderAiStats(); aiStatsFetchStatus(); }
+    function closeAiStats() { const o = document.getElementById('ai-stats-overlay'); if (o) o.style.display = 'none'; if (aiAnSt.timer) { clearTimeout(aiAnSt.timer); aiAnSt.timer = null; } }
+    // PA6: ✓ / ⏳ en el histórico (estado del análisis automático en el servidor). Una petición con
+    // las partidas de la lista; mientras quede alguna en cola o calculándose, otra cada 10 s. Sin
+    // conexión o con un servidor antiguo no se muestra ningún icono.
+    const aiAnSt = { map: {}, timer: null, inflight: false };
+    async function aiStatsFetchStatus() {
+      if (aiAnSt.timer) { clearTimeout(aiAnSt.timer); aiAnSt.timer = null; }
+      const ov = document.getElementById('ai-stats-overlay');
+      if (aiAnSt.inflight || !ov || ov.style.display !== 'flex' || !db) return;
+      const uuids = localAiGames().map(g => g.uuid).slice(0, 200);
+      if (!uuids.length) return;
+      aiAnSt.inflight = true;
+      try { const d = await aiPost('/ai/analysis_status', { uuids }, 10000); aiAnSt.map = (d && d.status) || {}; }
+      catch (e) { aiAnSt.map = {}; }
+      finally { aiAnSt.inflight = false; }
+      aiStatsPaintStatus();
+      const pending = Object.values(aiAnSt.map).some(s => s && (s.state === 'queued' || s.state === 'running'));
+      if (pending && ov.style.display === 'flex') aiAnSt.timer = setTimeout(aiStatsFetchStatus, 10000);
+    }
+    function aiStatsPaintStatus() {
+      document.querySelectorAll('#ai-stats-body [data-an-uuid]').forEach(sp => {
+        const t = anStatusText(aiAnSt.map[sp.dataset.anUuid]);
+        sp.textContent = t.icon; sp.title = t.title;
+      });
+    }
     function onAiStatsOverlayClick(e) { if (e.target === document.getElementById('ai-stats-overlay')) closeAiStats(); }
     function renderAiStats() {
       const body = document.getElementById('ai-stats-body'); if (!body || !db) return;
@@ -9301,6 +9491,14 @@
       const fmtH = (h) => h > 0 ? `recibiendo ${h}` : h < 0 ? `dando ${-h}` : 'igualada';
       const scroll = body.scrollTop;
       body.textContent = '';
+      // PA1: bloques plegables (cerrados por defecto); se recuerda si se dejaron abiertos
+      const openSt = aiStatsOpen();
+      const fold = (key, label, css) => {
+        const d = el('details', css || 'margin-top:10px;'); d.open = !!openSt[key];
+        d.appendChild(el('summary', 'cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);user-select:none;', label));
+        d.addEventListener('toggle', () => { const o = aiStatsOpen(); o[key] = d.open; lsSet(AI_STATS_OPEN_KEY, JSON.stringify(o)); });
+        return d;
+      };
 
       // ── configuración ──
       const cf = el('div', 'display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;font-family:var(--mono);font-size:10px;color:var(--dim);');
@@ -9309,6 +9507,7 @@
       tSel.value = cfg.target;
       const tWrap = el('label', 'display:flex;flex-direction:column;gap:2px;'); tWrap.appendChild(el('span', null, 'Nivel objetivo')); tWrap.appendChild(tSel);
       cf.appendChild(tWrap);
+      const rcf = el('div', 'display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;font-family:var(--mono);font-size:10px;color:var(--dim);margin-top:8px;');   // PA1
       const ruleInputs = cfg.rules.map((r, ri) => {
         const w = el('div', 'display:flex;flex-direction:column;gap:2px;');
         w.appendChild(el('span', null, ri < 2 ? `Cierre ${ri + 1}: a las N` : 'Cierre 3: desde N'));
@@ -9319,7 +9518,7 @@
           row.appendChild(i); row.appendChild(el('span', null, suffix)); return i;
         };
         const ins = { n: mk(r.n, 1, 99, 1, 'p'), pct: mk(r.pct, 0, 100, 5, '%'), avg: mk(r.avg, -100, 361, 0.5, '>pts') };
-        w.appendChild(row); cf.appendChild(w); return ins;
+        w.appendChild(row); rcf.appendChild(w); return ins;
       });
       const save = () => {
         const rules = ruleInputs.map(x => ({ n: parseInt(x.n.value, 10), pct: parseFloat(x.pct.value), avg: parseFloat(x.avg.value) }));
@@ -9331,11 +9530,14 @@
       ruleInputs.forEach(x => Object.values(x).forEach(i => i.addEventListener('change', save)));
       const rst = el('button', null, 'Reglas por defecto'); rst.className = 'ctrl-btn';
       rst.addEventListener('click', () => { lsSet(AI_STATS_KEY, JSON.stringify({ target: tSel.value, rules: AI_CLOSE_RULES })); renderAiStats(); });
-      cf.appendChild(rst);
+      rcf.appendChild(rst);
       body.appendChild(cf);
+      const rulesFold = fold('rules', 'Reglas de cierre');   // PA1
+      rulesFold.appendChild(rcf);
+      body.appendChild(rulesFold);
 
       // ── resumen: qué falta para superar el nivel objetivo ──
-      body.appendChild(title(`Para superar ${lbl(t)}`));
+      const sumFold = fold('summary', `Para superar ${lbl(t)}`, 'margin:16px 0 0;');   // PA1
       const own = ladder.find(r => r.i === t);
       const sum = el('div', 'font-family:var(--mono);font-size:11px;color:var(--text);line-height:1.8;');
       sum.appendChild(el('div', `color:${own && own.closed ? 'var(--ok-bright)' : 'var(--gold)'};`,
@@ -9347,7 +9549,9 @@
           : '✔ Todos los handicaps superados');
       if (pend.length) pendEl.title = pend.map(r => `${lbl(r.i)} ${fmtH(r.hReq)}`).join('\n');   // forma larga al pasar el ratón
       sum.appendChild(pendEl);
-      body.appendChild(sum);
+      sum.style.marginTop = '8px';
+      sumFold.appendChild(sum);
+      body.appendChild(sumFold);
 
       // ── rejilla nivel × handicap (como el Excel: +9 … −9) ──
       body.appendChild(title('Media de puntos por nivel y handicap (+ recibo / − doy)'));
@@ -9368,6 +9572,9 @@
           const td = el('td', `padding:2px 3px;text-align:center;border:1px solid ${isReq ? 'var(--gold)' : 'var(--border)'};`);
           if (c) { td.textContent = c.avg; td.title = `${lbl(i)} ${fmtH(h)}: ${c.n} partida(s), media ${c.avg}`; td.style.background = c.avg > 0 ? 'rgba(92,184,104,.28)' : 'rgba(212,80,48,.22)'; }
           else if (aiCellImplied(cells, i, h)) { td.textContent = '–'; td.style.background = 'rgba(92,184,104,.14)'; td.style.color = 'var(--ok-bright)'; td.title = 'Superada (ya ganaste con un handicap más difícil)'; }
+          td.title = (td.title ? td.title + '\n' : '') + `Toca para jugar contra ${lbl(i)} ${fmtH(h)}`;   // PA2
+          td.style.cursor = 'pointer';
+          td.addEventListener('click', () => aiStartFromCell(i, h));
           tr.appendChild(td);
         }
         tb.appendChild(tr);
@@ -9407,6 +9614,8 @@
         const ts = el('span', `flex:1;color:${tt && /⏰/.test(tt.short) ? 'var(--accent)' : 'var(--dim2)'};`, tt ? tt.short : '');
         if (tt) ts.title = tt.long;
         row.appendChild(ts);
+        const an = el('span', 'min-width:14px;text-align:center;color:var(--ok-bright);'); an.dataset.anUuid = g.uuid;   // PA6
+        row.appendChild(an);
         const vw = el('button', null, '👁'); vw.className = 'chap-btn'; vw.title = 'Revisar la partida en el visor de Games';
         vw.addEventListener('click', () => aiReviewGame(g.uuid));
         row.appendChild(vw);
@@ -9420,6 +9629,7 @@
         body.appendChild(row);
       }
       body.scrollTop = scroll;
+      aiStatsPaintStatus();   // PA6: con lo último consultado (se refresca aparte)
     }
 
     function switchTab(name) {
