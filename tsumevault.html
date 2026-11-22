@@ -1827,7 +1827,7 @@
             <button class="ctrl-btn gm-ico" id="gm-btn-graph" title="Gráfica de la ventaja estimada a lo largo de la partida">📈</button>
             <span id="gm-an-status" style="display:none;font-family:var(--mono);font-size:10px;color:var(--dim);align-self:center;white-space:nowrap;"></span>
             <button class="ctrl-btn gm-ico" id="gm-btn-times" style="display:none" title="Mostrar u ocultar el tiempo pensado en cada jugada bajo la gráfica">⏱</button>
-            <button class="ctrl-btn gm-ico" id="gm-btn-an" title="Analizar la última jugada: cuánto costó y cuáles eran las mejores">🔍</button>
+            <button class="ctrl-btn gm-ico" id="gm-btn-an" title="Analizar la última jugada: cuánto costó y cuáles eran las mejores (si ya está analizada, toca para ocultar o mostrar el análisis)">🔍</button>
             <button class="ctrl-btn gm-ico" id="gm-btn-est" title="Estimar el resultado y mostrar el territorio de esta posición (vuelve a pulsar para ocultarlo)">📊</button>
             <button class="ctrl-btn gm-ico" id="gm-btn-pv" style="display:none" title="Mostrar u ocultar la secuencia de la mejor jugada">🔢</button>
             <button class="ctrl-btn gm-ico" id="gm-btn-err-filter" style="display:none" title="De quién son los errores: todos / negras / blancas">●○</button>
@@ -1953,7 +1953,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261122-1922';
+	const SW_VERSION = 'tsumevault-20261122-2003';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -7661,7 +7661,8 @@
       es.disabled = anState.busy || !gmRootNode;
       es.classList.toggle('active', !!(anState.est && anState.est.node === gmCurrentNode));
       g.classList.toggle('active', anState.graphOn);
-      const cr = anState.resByNode.get(gmCurrentNode);
+      const cr0 = anState.resByNode.get(gmCurrentNode), cr = cr0 && anState.anHidden !== gmCurrentNode ? cr0 : null;   // PB3
+      a.classList.toggle('active', !!cr);
       const showPv = !!(cr && cr.data.candidates[0].pv.length);
       pv.style.display = showPv ? '' : 'none';
       pv.classList.toggle('active', anState.pvOn);
@@ -7866,7 +7867,10 @@
     // antes, con esa jugada como "played". En el inicio (sin jugadas) se analiza la primera jugada.
     async function anAnalyze() {
       const node = gmCurrentNode, moves = anCurrentMoves(), st = anState;
-      if (st.resByNode.has(node)) { gmRenderCurrentNode(); return; }   // ya analizada: se muestra
+      if (st.resByNode.has(node)) {   // PB3: ya analizada: el 🔍 la oculta o la vuelve a mostrar (sin recalcular)
+        st.anHidden = st.anHidden === node ? null : node;
+        gmRenderCurrentNode(); return;
+      }
       const last = moves[moves.length - 1];
       const body = anBody(last ? moves.slice(0, -1) : moves); if (!body) return;
       if (last) {
@@ -7937,7 +7941,8 @@
     function anTogglePv() { if (!anState.resByNode.get(gmCurrentNode)) return; anState.pvOn = !anState.pvOn; gmRenderCurrentNode(); }
     // Llamada al final de gmRenderCurrentNode: repinta lo que corresponde al nodo actual.
     function anAfterRender() {
-      const r = anState.resByNode.get(gmCurrentNode);
+      if (anState.anHidden && anState.anHidden !== gmCurrentNode) anState.anHidden = null;   // PB3: al cambiar de jugada se vuelve a ver
+      const r0 = anState.resByNode.get(gmCurrentNode), r = r0 && anState.anHidden !== gmCurrentNode ? r0 : null;
       if (r) {
         const d = r.data, cs = d.candidates, best = cs[0];
         const pos = gmGame.getPosition();
