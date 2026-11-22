@@ -447,6 +447,8 @@
     #board-hint.clk { cursor: pointer; font-size: 13px; font-weight: 600; user-select: none; -webkit-user-select: none; }
     #board-hint.clk-press { background: var(--gold); color: #1a1710; }
     #board-hint.clk-over { background: var(--accent); color: #fff; }
+    /* PB1: esperando el tiempo mínimo para pensar: barra apagada (al terminar vuelve al color del jugador) */
+    #board-hint.think-wait { background: #46423a; color: #8f897c; }
 
     #comment-box {
       width: 100%;
@@ -531,6 +533,15 @@
     .board-bad {
       outline: 4px solid var(--accent);
     }
+
+    /* PB1: tablero con borde gris mientras no se puede jugar; destello del color del jugador al terminar */
+    .board-wait {
+      outline: 4px solid #5a564d;
+    }
+    .board-go-b { animation: boardGoB 1s ease-out forwards; }
+    .board-go-w { animation: boardGoW 1s ease-out forwards; }
+    @keyframes boardGoB { 0% { outline: 4px solid #000; box-shadow: 0 0 0 8px #f0ece0; } 100% { outline: 4px solid transparent; box-shadow: 0 0 0 8px transparent; } }
+    @keyframes boardGoW { 0% { outline: 4px solid #f0ece0; box-shadow: 0 0 0 8px #000; } 100% { outline: 4px solid transparent; box-shadow: 0 0 0 8px transparent; } }
 
     /* AV-07: posición de elección (el azul de los fantasmas ¿y si?) */
     .board-choice {
@@ -1815,6 +1826,7 @@
           <div class="gm-row">
             <button class="ctrl-btn gm-ico" id="gm-btn-graph" title="Gráfica de la ventaja estimada a lo largo de la partida">📈</button>
             <span id="gm-an-status" style="display:none;font-family:var(--mono);font-size:10px;color:var(--dim);align-self:center;white-space:nowrap;"></span>
+            <button class="ctrl-btn gm-ico" id="gm-btn-times" style="display:none" title="Mostrar u ocultar el tiempo pensado en cada jugada bajo la gráfica">⏱</button>
             <button class="ctrl-btn gm-ico" id="gm-btn-an" title="Analizar la última jugada: cuánto costó y cuáles eran las mejores">🔍</button>
             <button class="ctrl-btn gm-ico" id="gm-btn-est" title="Estimar el resultado y mostrar el territorio de esta posición (vuelve a pulsar para ocultarlo)">📊</button>
             <button class="ctrl-btn gm-ico" id="gm-btn-pv" style="display:none" title="Mostrar u ocultar la secuencia de la mejor jugada">🔢</button>
@@ -1941,7 +1953,7 @@
     const MUSIC_PLAYLIST_KEY = 'music_playlist_file';
     const MUSIC_TRACK_IDX_KEY = 'music_track_idx';
     const MUSIC_BASE = 'audio/background_music/';
-	const SW_VERSION = 'tsumevault-20261122-1821';
+	const SW_VERSION = 'tsumevault-20261122-1859';
 
     let SYNC_SERVER = localStorage.getItem(SYNC_SERVER_KEY) || 'https://tsumevault.duckdns.org';
     // ── Fase 1 (§4.1): token estático opcional. Si no hay token guardado, las
@@ -7642,6 +7654,9 @@
       const g = document.getElementById('gm-btn-graph'), a = document.getElementById('gm-btn-an'), pv = document.getElementById('gm-btn-pv');
       if (!g) return;
       g.disabled = a.disabled = anState.busy || !gmRootNode;
+      const tb = document.getElementById('gm-btn-times');   // PB2: solo con la gráfica a la vista y si la partida tiene tiempos
+      tb.style.display = anState.graphOn && gmRootNode && anTimes() ? '' : 'none';
+      tb.classList.toggle('active', anTimesOn());
       const es = document.getElementById('gm-btn-est');   // PA4
       es.disabled = anState.busy || !gmRootNode;
       es.classList.toggle('active', !!(anState.est && anState.est.node === gmCurrentNode));
@@ -7769,7 +7784,7 @@
       const done = vals.indexOf(null) < 0 ? n : vals.indexOf(null) - 1;   // AN3: último punto ya calculado
       // Ancho fijo por jugada (se desplaza en horizontal si no cabe) y centrado en la jugada actual
       const AN_PX_PER_MOVE = 6, pad = 8, H = 170;
-      const tms = anTimes(), TB = tms ? 44 : 0;   // PA5: franja de tiempos pensados bajo la gráfica
+      const tmsAll = anTimes(), tms = tmsAll && anTimesOn() ? tmsAll : null, TB = tms ? 44 : 0;   // PA5: franja de tiempos pensados bajo la gráfica (PB2: a petición)
       const W = Math.max((wrap.clientWidth || 300) - 2, n * AN_PX_PER_MOVE + 2 * pad), maxAbs = Math.max(10, ...vals.filter(v => v != null).map(Math.abs));
       const X = (i) => pad + (W - 2 * pad) * (n ? i / n : 0), Y = (v) => H / 2 - (H / 2 - pad) * (v / maxAbs);
       const ns = 'http://www.w3.org/2000/svg', mk = (t, a) => { const e = document.createElementNS(ns, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
@@ -7832,7 +7847,7 @@
       wrap.appendChild(Object.assign(document.createElement('div'), {
         className: 'gm-an-box', style: 'margin-top:3px;',
         textContent: anGraphCaption(leads, moves, persp, anOnMainLine() ? anCurrentMoves().length : null)
-          + (tms && anOnMainLine() && tms[anCurrentMoves().length] != null ? ` · pensaste ${anThinkTxt(tms[anCurrentMoves().length])}` : ''),   // PA5
+          + (tmsAll && anOnMainLine() && tmsAll[anCurrentMoves().length] != null ? ` · pensaste ${anThinkTxt(tmsAll[anCurrentMoves().length])}` : ''),   // PA5 (con la franja oculta también)
       }));
     }
     function anGoToMove(i) {
@@ -7908,6 +7923,10 @@
       if (s && (s.state === 'queued' || s.state === 'running')) setTimeout(() => { if (anState === st) anStatusPoll(st); }, 5000);
     }
     // PA5: tiempos pensados de la partida (TT del SGF), solo si cuadran con la línea principal.
+    // PB2: la franja de tiempos bajo la gráfica se muestra a petición (oculta por defecto; se recuerda en el dispositivo)
+    const AN_TIMES_KEY = 'an_times_on';
+    function anTimesOn() { return lsGet(AN_TIMES_KEY) === '1'; }
+    function anToggleTimes() { lsSet(AN_TIMES_KEY, anTimesOn() ? '0' : '1'); anDrawGraph(); anUpdateButtons(); }
     function anTimes() {
       if (anState.times === undefined) {
         const t = anMoveTimes(gmSgfText);
@@ -7969,6 +7988,7 @@
       document.getElementById('gm-btn-graph').addEventListener('click', anToggleGraph);
       document.getElementById('gm-btn-an').addEventListener('click', anAnalyze);
       document.getElementById('gm-btn-est').addEventListener('click', anEstimate);   // PA4
+      document.getElementById('gm-btn-times').addEventListener('click', anToggleTimes);   // PB2
       document.getElementById('gm-btn-pv').addEventListener('click', anTogglePv);
       document.getElementById('gm-btn-err-filter').addEventListener('click', anCycleErrColor);
       document.getElementById('gm-btn-err-prev').addEventListener('click', () => anJumpMistake(-1));
@@ -8855,7 +8875,10 @@
       const now = performance.now();
       if (now - aiClk.lastSave > 5000) { g.turnSpent = e; aiClk.segStart = now; aiClk.lastSave = now; aiSave(); }   // por si se cierra la app de golpe
       const lk = aiThinkMs(g) > 0;   // PA3: cuenta atrás del mínimo y, al llegar a 0, Pasar vuelve a estar disponible
-      if (lk || aiClk.thinkLock) { aiClk.thinkLock = lk; aiRenderStatus(); }
+      if (lk || aiClk.thinkLock) {
+        const was = aiClk.thinkLock; aiClk.thinkLock = lk; aiRenderStatus();
+        if (was && !lk) aiFlashGo(g);   // PB1: destello al poder jugar
+      }
       else if (aiClockOn(g)) aiRenderHint();
     }
     // ── RL3: avisos (voz del navegador o grabaciones propias, y vibración) ──
@@ -8963,7 +8986,8 @@
       const cls = 'clk ' + (a.phase === 'over' ? 'clk-over' : g.pending ? 'clk-press' : g.my_color === 'B' ? 'board-hint-black' : 'board-hint-white');
       const lastMv = g.moves[g.moves.length - 1], aiPassed = lastMv && lastMv[1] === 'pass' && lastMv[0] !== g.my_color;
       const wait = aiThinkMs(g);   // PA3
-      return { txt: `${dot} ${lbl} · ` + (g.pending ? (g.pending === 'pass' ? 'pasas — pulsa el reloj' : 'pulsa el reloj') : wait ? `⏳ piensa ${Math.ceil(wait / 1000)} s` : 'te toca') + (aiPassed ? ' · la IA ha pasado' : ''), cls };
+      return { txt: `${dot} ${lbl} · ` + (g.pending ? (g.pending === 'pass' ? 'pasas — pulsa el reloj' : 'pulsa el reloj') : wait ? `⏳ piensa ${Math.ceil(wait / 1000)} s` : 'te toca') + (aiPassed ? ' · la IA ha pasado' : ''),
+        cls: wait && !g.pending && a.phase !== 'over' ? 'clk think-wait' : cls };   // PB1: apagada mientras espera
     }
     function aiRenderHint() {
       const hint = document.getElementById('board-hint'), c = aiClockText(aiGame);
@@ -8977,6 +9001,14 @@
     // PA3: en mi turno, mientras no haya pensado el mínimo no puedo poner piedra ni pasar. Lo pensado
     // es aiTurnE: arranca al aparecer la piedra de la IA y se para con la pausa, la estimación y la app oculta.
     function aiThinkMs(g) { return g && g === aiGame && aiIsMyTurn() ? aiThinkLeft(aiMinThinkS(), aiTurnE(g)) : 0; }
+    // PB1: destello breve del borde del tablero con el color del jugador cuando ya puede jugar.
+    function aiFlashGo(g) {
+      const bw = document.getElementById('board-wrap'); if (!bw || !g) return;
+      const cls = g.my_color === 'B' ? 'board-go-b' : 'board-go-w';
+      bw.classList.remove('board-go-b', 'board-go-w'); void bw.offsetWidth;   // reinicia la animación
+      bw.classList.add(cls);
+      setTimeout(() => bw.classList.remove(cls), 1100);
+    }
     function aiDelayMs() { const v = parseInt(lsGet(AI_DELAY_KEY), 10); return v >= 0 && v <= 10000 ? v : 1000; }
     function aiLoad() { try { const g = JSON.parse(lsGet(AI_GAME_KEY) || 'null'); return g && Array.isArray(g.moves) ? g : null; } catch (e) { return null; } }
     function aiSave() { if (aiGame) lsSet(AI_GAME_KEY, JSON.stringify(aiGame)); else { try { localStorage.removeItem(AI_GAME_KEY); } catch (e) { } } }
@@ -9050,7 +9082,7 @@
       else if (toPlay === g.my_color) {
         const wait = aiThinkMs(g);   // PA3
         txt = (toPlay === 'B' ? '● Negras' : '○ Blancas') + (wait ? ` — ⏳ piensa ${Math.ceil(wait / 1000)} s` : ' — te toca');
-        cls = toPlay === 'B' ? 'board-hint-black' : 'board-hint-white';
+        cls = wait ? 'think-wait' : toPlay === 'B' ? 'board-hint-black' : 'board-hint-white';   // PB1: apagada mientras espera
       }
       else txt = 'Turno de la IA';
       if (g.status === 'playing' && lastMv && lastMv[1] === 'pass') txt += ' · ' + (lastMv[0] === g.my_color ? 'has pasado' : 'la IA ha pasado');
@@ -9074,7 +9106,10 @@
         document.getElementById('board-wrap').style.visibility = showOv ? 'hidden' : 'visible';
       }
       const bw = document.getElementById('board-wrap');   // borde rojo mientras haya un error de conexión
-      if (bw) { bw.classList.remove('board-ok', 'board-choice'); bw.classList.toggle('board-bad', !!aiError && !aiBusy); }
+      if (bw) {
+        bw.classList.remove('board-ok', 'board-choice'); bw.classList.toggle('board-bad', !!aiError && !aiBusy);
+        bw.classList.toggle('board-wait', !(aiError && !aiBusy) && aiActive && aiThinkMs(g) > 0);   // PB1
+      }
       const hcTxt = g.handicap > 0 ? `recibes ${g.handicap}` : g.handicap < 0 ? `das ${-g.handicap}` : 'igualada';
       cb.textContent = `IA ${aiLevelLabel(g.level)} · tú con ${g.my_color === 'B' ? 'negras' : 'blancas'} · ${hcTxt} · komi ${g.komi} · ${g.rules === 'chinese' ? 'chinas' : 'japonesas'} · ${g.moves.length} jugadas` + (aiClockOn(g) ? ` · ⏱ ${aiClockDesc(g.tc)}` : '');
       const busyOrDone = !aiIsMyTurn();
@@ -9211,7 +9246,7 @@
       { const ov = document.getElementById('pause-overlay'); if (ov.dataset.ai === '1') { ov.style.display = 'none'; ov.dataset.ai = ''; } }
       aiSave();
       clearBoard();
-      const bw = document.getElementById('board-wrap'); if (bw) { bw.classList.remove('board-bad', 'board-ok', 'board-choice'); bw.style.visibility = 'visible'; }
+      const bw = document.getElementById('board-wrap'); if (bw) { bw.classList.remove('board-bad', 'board-ok', 'board-choice', 'board-wait', 'board-go-b', 'board-go-w'); bw.style.visibility = 'visible'; }   // PB1
       const hint = document.getElementById('board-hint'); if (hint) { hint.textContent = 'Partida descartada'; hint.className = ''; }
       document.getElementById('comment-box').textContent = '';
       aiEst = null;
@@ -9637,7 +9672,7 @@
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.toggle('active', p.id === `tab-${name}`));
       // J3: los controles de josekis solo existen dentro de su pestaña
       if (name !== 'josekis') { jsActive = false; document.getElementById('js-controls').style.display = 'none'; jsClosePop(); /* J3.1 */ }
-      if (name !== 'play') { if (aiActive) { aiClockAutoPause(); aiActive = false; aiClockSync(); const ov = document.getElementById('pause-overlay'); if (ov.dataset.ai === '1') { ov.style.display = 'none'; ov.dataset.ai = ''; document.getElementById('board-wrap').style.visibility = 'visible'; } } aiActive = false; document.getElementById('ai-controls').style.display = 'none'; } // IA3 / RL2
+      if (name !== 'play') { { const bw = document.getElementById('board-wrap'); if (bw) bw.classList.remove('board-wait', 'board-go-b', 'board-go-w'); } /* PB1 */ if (aiActive) { aiClockAutoPause(); aiActive = false; aiClockSync(); const ov = document.getElementById('pause-overlay'); if (ov.dataset.ai === '1') { ov.style.display = 'none'; ov.dataset.ai = ''; document.getElementById('board-wrap').style.visibility = 'visible'; } } aiActive = false; document.getElementById('ai-controls').style.display = 'none'; } // IA3 / RL2
       { // sin panel de problemas en Play y Joseki; en Games, ficha de la partida. Al cambiar, el tablero se recalcula (listener de resize)
         const app = document.getElementById('app'), noSide = ['play', 'josekis'].includes(name), gmSide = name === 'games';
         if (app.classList.contains('no-side') !== noSide || app.classList.contains('side-games') !== gmSide) {
