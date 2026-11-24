@@ -6,6 +6,13 @@
       "level": "10",
       "label": "GNU Go 10",
       "argv": ["/usr/games/gnugo", "--mode", "gtp", "--level", "10"]
+    },
+    {
+      "name": "pachi",
+      "level": "sims_20000",
+      "label": "Pachi 20000",
+      "argv": ["/opt/pachi/pachi", "-d", "0", "-t", "=20000"],
+      "rules_cmd": "kgs-rules {rules}"
     }
   ]
 }
