@@ -40,7 +40,7 @@ Endpoints:
     POST /sync/ai_games/push           {ai_games:[...]}
 
     IA1 (jugar contra la IA; motor en ai_engines.py, SIN DB_LOCK):
-    GET  /ai/status                   -> {available, engines, levels}
+    GET  /ai/status                   -> {available, engines, levels, labels}
     POST /ai/move    {level, rules, komi, handicap_stones, moves, to_play} -> {move, model, ms}
     POST /ai/score   {mode: final|estimate, rules, komi, handicap_stones, moves} -> {result, score_white, dead}
     POST /ai/graph   {rules, komi, handicap_stones, moves} -> {white_leads: [jugadas+1]}            (AN1)

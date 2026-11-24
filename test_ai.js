@@ -31,7 +31,15 @@ check('handicap: 0 y 1 sin piedras', f('aiHandicapStones(0)').length === 0 && f(
 check('handicap: devuelve copia (no comparte la tabla)', (() => { const a = f('aiHandicapStones(2)'); a.push('X'); return f('aiHandicapStones(2)').length === 2; })());
 
 // Niveles
-check('niveles: etiquetas', f("aiLevelLabel('katago:rank_15k')") === '15k' && f("aiLevelLabel('katago:rank_3d')") === '3d' && f("aiLevelLabel('katago:max')") === 'Máximo');
+check('niveles: etiquetas', f("aiLevelName('katago:rank_15k')") === '15k' && f("aiLevelName('katago:rank_3d')") === '3d' && f("aiLevelName('katago:max')") === 'Máximo');
+// Motores extra (ai_engines.json): etiqueta del servidor; sin ella, 'motor nivel'
+check('motores extra: etiqueta publicada por el servidor', f("aiLevelName('gnugo:10', { 'gnugo:10': 'GNU Go 10' })") === 'GNU Go 10');
+check('motores extra: sin etiqueta guardada -> "gnugo 10"; las de KataGo no cambian con etiquetas ajenas',
+  f("aiLevelName('gnugo:10')") === 'gnugo 10' && f("aiLevelName('gnugo:10', {})") === 'gnugo 10' && f("aiLevelName('fuego:sims_3000', null)") === 'fuego sims_3000'
+  && f("aiLevelName('katago:rank_15k', { 'gnugo:10': 'GNU Go 10' })") === '15k' && f("aiLevelName('toString', {})") === 'toString');
+check('motores extra: qué niveles lo son', f("aiIsExtraLevel('gnugo:10')") && f("aiIsExtraLevel('fuego:sims_3000')")
+  && !f("aiIsExtraLevel('katago:rank_15k')") && !f("aiIsExtraLevel('katago:max')") && !f("aiIsExtraLevel('rank_15k')")
+  && !f("aiIsExtraLevel('')") && !f("aiIsExtraLevel(null)") && !f("aiIsExtraLevel('GnuGo:10')"));
 const lv = f('aiDefaultLevels()');
 check('niveles: lista por defecto = la del servidor (20k..1k, 1d..9d, max)', lv.length === 30 && lv[0] === 'katago:rank_20k' && lv[19] === 'katago:rank_1k' && lv[20] === 'katago:rank_1d' && lv[29] === 'katago:max');
 
@@ -96,6 +104,23 @@ const cells = f('aiGrid(__games)');
 check('rejilla: media por casilla (15k dando 6: +75 y -20 -> 27.5, 2 partidas)', cells['5|-6'].n === 2 && cells['5|-6'].avg === 27.5, J(cells));
 check('rejilla: ignora borradas y Máximo', !('6|-2' in cells) && Object.keys(cells).length === 5, J(Object.keys(cells)));
 ctx.__cells = cells;
+// Motores extra: su propia fila ('motor:nivel|h'), sin tocar las de KataGo ni la diagonal para superar niveles
+const GX = (lvl, h, score, extra = {}) => Object.assign(G('15k', h, score, extra), { ai_level: lvl });
+ctx.__gx = ctx.__games.concat([GX('gnugo:10', 0, 12), GX('gnugo:10', 0, -4), GX('gnugo:10', -3, 20), GX('gnugo:10', 2, 9, { deleted: 1 }), GX('fuego:x', 9, -30)]);
+const cellsX = f('aiGrid(__gx)');
+check('rejilla extra: media por casilla del motor (igualada +12 y -4 -> 4), borradas fuera',
+  cellsX['gnugo:10|0']?.n === 2 && cellsX['gnugo:10|0']?.avg === 4 && cellsX['gnugo:10|-3']?.avg === 20 && !('gnugo:10|2' in cellsX)
+  && cellsX['fuego:x|9']?.avg === -30 && Object.keys(cellsX).length === 5 + 3, J(Object.keys(cellsX)));
+ctx.__cellsX = cellsX;
+check('rejilla extra: no cambia la diagonal para superar niveles',
+  J(f('aiHandicapStatus(__cellsX, 8)')) === J(f('aiHandicapStatus(__cells, 8)')));
+check('rejilla extra: casilla implícita en la fila del motor (ganó dando 3 -> dando 1 superada; recibiendo 9 no)',
+  f("aiCellImplied(__cellsX, 'gnugo:10', -1)") === true && f("aiCellImplied(__cellsX, 'fuego:x', 9)") === false);
+check('filas extra: primero las del servidor en su orden, luego las que solo están en partidas (ordenadas); sin KataGo ni borradas',
+  J(f("aiExtraLevels(__gx, ['katago:rank_15k', 'katago:max', 'pachi:x', 'gnugo:10'])")) === J(['pachi:x', 'gnugo:10', 'fuego:x'])
+  && J(f("aiExtraLevels(__gx, null)")) === J(['fuego:x', 'gnugo:10'])
+  && J(f("aiExtraLevels([{ ai_level: 'zz:1', deleted: 1 }], [])")) === J([])
+  && J(f("aiExtraLevels(null, ['gnugo:10', 'gnugo:10'])")) === J(['gnugo:10']));
 const st = f('aiHandicapStatus(__cells, 8)');   // objetivo 12k
 const row = (lvl) => st.find(r => r.i === f(`aiRankIdx('katago:rank_${lvl}')`));
 check('handicap requerido: 9k recibe 3, 15k da 3, 3k recibe 9 (objetivo 12k)', row('9k').hReq === 3 && row('15k').hReq === -3 && row('3k').hReq === 9);
@@ -203,12 +228,12 @@ check('estado: KataGo no disponible -> ámbar (el sync sigue funcionando)', SS.l
 ctx.__pg = [G('9k', 0, 5, { my_color: 'B', played_at: day(1) }), G('9k', 0, -3, { my_color: 'W', played_at: day(3) }),
   G('9k', 0, 9, { my_color: 'B', played_at: day(5), deleted: 1 }), G('9k', 2, 4, { my_color: 'B', played_at: day(6) }),
   G('12k', 0, 4, { my_color: 'W', played_at: day(7) })];
-const cp = (i, h) => f(`aiCellGameParams(__pg, ${i}, ${h})`);
+const cp = (i, h) => f(`aiCellGameParams(__pg, aiRankLevel(${i}), ${h})`);
 const i9 = f("aiRankIdx('katago:rank_9k')"), i12 = f("aiRankIdx('katago:rank_12k')"), i5 = f("aiRankIdx('katago:rank_5k')");
 check('PA2 igualada: color contrario a la última igualada no borrada contra ese nivel (W -> B)', J(cp(i9, 0)) === J({ level: 'katago:rank_9k', hc: 0, holder: 'me', color: 'B' }), J(cp(i9, 0)));
 check('PA2 igualada: no mira otros niveles ni partidas con handicap (12k jugó W -> B; 5k sin partidas -> B)', cp(i12, 0).color === 'B' && cp(i5, 0).color === 'B');
 ctx.__pg2 = [G('9k', 0, 5, { my_color: 'B', played_at: day(8) })];
-check('PA2 igualada: última con negras -> blancas', f(`aiCellGameParams(__pg2, ${i9}, 0)`).color === 'W');
+check('PA2 igualada: última con negras -> blancas', f(`aiCellGameParams(__pg2, aiRankLevel(${i9}), 0)`).color === 'W');
 check('PA2 handicap: recibo 3 (me), doy 6 (ai), ±1', J(cp(i9, 3)) === J({ level: 'katago:rank_9k', hc: 3, holder: 'me', color: 'B' })
   && cp(i9, -6).holder === 'ai' && cp(i9, -6).hc === 6 && cp(i9, 1).holder === 'me' && cp(i9, -1).holder === 'ai' && cp(i9, -1).hc === 1);
 check('PA2 los parámetros dan la partida esperada con aiNewGame (doy 4 -> blancas, -4)', (() => {
@@ -216,7 +241,12 @@ check('PA2 los parámetros dan la partida esperada con aiNewGame (doy 4 -> blanc
   const g = f("aiNewGame({ level: __p.level, handicap: __p.hc, holder: __p.holder, myColor: __p.color, rules: 'japanese' })");
   return g.my_color === 'W' && g.handicap === -4 && g.level === 'katago:rank_9k';
 })());
-check('PA2 sin lista de partidas: negras', f(`aiCellGameParams(null, ${i9}, 0)`).color === 'B');
+check('PA2 sin lista de partidas: negras', f(`aiCellGameParams(null, aiRankLevel(${i9}), 0)`).color === 'B');
+ctx.__pgx = ctx.__pg.concat([GX('gnugo:10', 0, 3, { my_color: 'B', played_at: day(9) })]);
+check('PA2 motor extra: igualada alterna color contra ese motor; handicap igual que en KataGo',
+  J(f("aiCellGameParams(__pgx, 'gnugo:10', 0)")) === J({ level: 'gnugo:10', hc: 0, holder: 'me', color: 'W' })
+  && J(f("aiCellGameParams(__pgx, 'gnugo:10', -5)")) === J({ level: 'gnugo:10', hc: 5, holder: 'ai', color: 'B' })
+  && f(`aiCellGameParams(__pgx, aiRankLevel(${i9}), 0)`).color === 'B');
 
 // ── PA3: tiempo mínimo de reflexión ──
 check('PA3 falta tiempo: 10 s con 3,2 s pensados -> 6800 ms', f('aiThinkLeft(10, 3200)') === 6800);

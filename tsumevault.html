@@ -8353,11 +8353,32 @@
     }
     function aiSgfCoord(v) { const p = aiFromGtp(v); return p ? String.fromCharCode(97 + p.x) + String.fromCharCode(97 + p.y) : ''; }
     function aiHandicapStones(n) { return (AI_HC_STONES[n] || []).slice(); }
-    function aiLevelLabel(level) {
-      const lv = String(level || '').split(':').pop();
+    // Etiqueta de un nivel. labels = etiquetas que publica el servidor para los motores extra
+    // ({'gnugo:10': 'GNU Go 10'}); sin ella, un motor extra se ve como 'gnugo 10'.
+    function aiLevelName(level, labels) {
+      const s = String(level || '');
+      if (labels && Object.prototype.hasOwnProperty.call(labels, s) && labels[s]) return String(labels[s]);
+      if (aiIsExtraLevel(s)) return s.replace(':', ' ');
+      const lv = s.split(':').pop();
       if (lv === 'max') return 'Máximo';
       const m = /^rank_(\d+)([kd])$/.exec(lv);
       return m ? m[1] + m[2] : lv;
+    }
+    // Motores rivales extra (GNU Go, Fuego…; ai_engines.json en el servidor): todo nivel
+    // 'motor:nivel' que no sea de KataGo. Un solo nivel cada uno; no cuentan para superar niveles.
+    function aiIsExtraLevel(level) {
+      const s = String(level || '');
+      return /^[a-z0-9]+:[a-z0-9_]+$/.test(s) && !s.startsWith('katago:');
+    }
+    // Filas extra de la rejilla: los motores que publica el servidor (en su orden) y después,
+    // ordenados, los que solo aparecen en partidas guardadas (motor ya retirado o sin conexión).
+    function aiExtraLevels(games, serverLevels) {
+      const out = [], old = [];
+      for (const lv of serverLevels || []) if (aiIsExtraLevel(lv) && !out.includes(lv)) out.push(lv);
+      for (const g of games || []) {
+        if (!g.deleted && aiIsExtraLevel(g.ai_level) && !out.includes(g.ai_level) && !old.includes(g.ai_level)) old.push(g.ai_level);
+      }
+      return out.concat(old.sort());
     }
     function aiDefaultLevels() {
       const out = [];
@@ -8433,8 +8454,9 @@
       });
       return s + ')';
     }
-    // IA4: estadísticas (Excel de Victor). Solo cuentan partidas con nivel humano de KataGo
-    // ('katago:rank_*'); 'max' y otros motores quedan fuera. Índice de rango: 20k=0 … 1k=19, 1d=20 … 9d=28.
+    // IA4: estadísticas (Excel de Victor). Para superar niveles solo cuentan partidas con nivel
+    // humano de KataGo ('katago:rank_*'); 'max' queda fuera y los motores extra solo tienen su fila
+    // en la rejilla. Índice de rango: 20k=0 … 1k=19, 1d=20 … 9d=28.
     function aiRankIdx(level) {
       const m = /^katago:rank_(\d+)([kd])$/.exec(String(level || ''));
       if (!m) return null;
@@ -8443,14 +8465,16 @@
       return n >= 1 && n <= 9 ? 19 + n : null;
     }
     function aiRankLevel(i) { return i < 20 ? `katago:rank_${20 - i}k` : `katago:rank_${i - 19}d`; }
-    // Rejilla nivel × handicap: celdas "i|h" con nº de partidas y media de score (h con signo: + recibo).
+    // Rejilla nivel × handicap: celdas "i|h" (i = índice de rango) o "motor:nivel|h" (motores extra)
+    // con nº de partidas y media de score (h con signo: + recibo).
     function aiGrid(games) {
       const cells = {};
       for (const g of games) {
         if (g.deleted) continue;
         const i = aiRankIdx(g.ai_level);
-        if (i == null) continue;
-        const k = i + '|' + g.handicap, c = cells[k] || (cells[k] = { n: 0, sum: 0, avg: 0 });
+        const row = i != null ? i : aiIsExtraLevel(g.ai_level) ? g.ai_level : null;
+        if (row == null) continue;
+        const k = row + '|' + g.handicap, c = cells[k] || (cells[k] = { n: 0, sum: 0, avg: 0 });
         c.n++; c.sum += g.score; c.avg = Math.round(c.sum / c.n * 10) / 10;
       }
       return cells;
@@ -8777,8 +8801,7 @@
     // PA2: partida pedida desde una casilla de la rejilla (i = índice de rango, h = handicap con
     // signo: + recibo, − doy). En igualadas, el color contrario al de la última igualada no borrada
     // contra ese nivel (por played_at); si no hay ninguna, negras. Con handicap el color lo fija aiNewGame.
-    function aiCellGameParams(games, i, h) {
-      const level = aiRankLevel(i);
+    function aiCellGameParams(games, level, h) {
       if (h !== 0) return { level, hc: Math.abs(h), holder: h > 0 ? 'me' : 'ai', color: 'B' };
       let last = null;
       for (const g of games || []) {
@@ -8835,6 +8858,10 @@
     let aiGame = null;        // partida en curso o la última terminada (localStorage)
     let aiBusy = false;       // esperando al servidor (jugada o recuento)
     let aiStatusInfo = null;  // respuesta de /ai/status
+    // Etiquetas de los motores extra: las últimas que publicó el servidor, guardadas para verlas sin conexión
+    const AI_LABELS_KEY = 'ai_level_labels';
+    let aiLabels = (() => { try { const o = JSON.parse(lsGet(AI_LABELS_KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } })();
+    function aiLevelLabel(level) { return aiLevelName(level, aiLabels); }
     let aiPendingTap = null;  // doble toque (tapConfirm)
     let aiError = '';         // último error de red, se muestra con el botón Reintentar
     let aiBusyTok = null;     // dueño de aiBusy: una petición solo libera el ocupado que ella tomó
@@ -9280,7 +9307,7 @@
         if (aiGame !== g) return;
         const score = aiMyScore(g.end_type, data.score_white, g.my_color), now = aiNowIso();
         const lvl = aiLevelLabel(g.level);
-        const sgf = aiBuildSgf(g, { endType: g.end_type, score, date: now.slice(0, 10), myName: 'Jugador', aiName: `KataGo ${lvl}` });
+        const sgf = aiBuildSgf(g, { endType: g.end_type, score, date: now.slice(0, 10), myName: 'Jugador', aiName: aiIsExtraLevel(g.level) ? lvl : `KataGo ${lvl}` });
         localAiGameInsert({ uuid: g.uuid, played_at: now, my_color: g.my_color, ai_level: g.level,
           model: g.model || (g.level.endsWith(':max') ? 'b15c192' : 'humanv0'), handicap: g.handicap, rules: g.rules,
           komi: g.komi, end_type: g.end_type, score, sgf, deleted: 0, updated_at: now });
@@ -9416,6 +9443,10 @@
       try {
         const r = await syncFetch('/ai/status', { signal: AbortSignal.timeout(8000) });
         aiStatusInfo = r.ok ? await r.json() : { available: false };
+        if (aiStatusInfo.labels && typeof aiStatusInfo.labels === 'object') {
+          aiLabels = Object.assign({}, aiLabels, aiStatusInfo.labels);
+          lsSet(AI_LABELS_KEY, JSON.stringify(aiLabels));
+        }
       } catch (e) { aiStatusInfo = { available: false }; }
       if (aiActive && !(aiGame && aiGame.status !== 'done')) aiRenderPanel();
     }
@@ -9483,10 +9514,10 @@
     }
     // PA2: casilla de la rejilla -> confirmación -> partida con ese rival y handicap; el resto de la
     // configuración, la de por defecto ya guardada (reglas del último formulario, reloj, espera).
-    function aiStartFromCell(i, h) {
+    function aiStartFromCell(level, h) {
       const cur = aiLoad();
       if (cur && cur.status !== 'done') { alert('Termina o abandona la partida en curso antes de empezar otra.'); return; }
-      const p = aiCellGameParams(localAiGames(), i, h);
+      const p = aiCellGameParams(localAiGames(), level, h);
       const what = h > 0 ? `recibiendo ${h}` : h < 0 ? `dando ${-h}` : `igualada, con ${p.color === 'B' ? 'negras' : 'blancas'}`;
       if (!confirm(`¿Empezar una partida contra ${aiLevelLabel(p.level)} ${what}?`)) return;
       const pr = aiFormPrefs();
@@ -9602,23 +9633,32 @@
       for (const h of hs) hr.appendChild(el('th', `padding:2px 3px;color:${h === 0 ? 'var(--gold)' : 'var(--dim2)'};font-weight:normal;min-width:26px;`, (h > 0 ? '+' : '') + h));
       tb.appendChild(hr);
       const req = new Map(hc.map(r => [r.i, r]));
+      // Casilla de la fila "row" (índice de rango o nivel de un motor extra) para el handicap h
+      const cellTd = (row, level, name, h, isReq) => {
+        const c = cells[row + '|' + h];
+        const td = el('td', `padding:2px 3px;text-align:center;border:1px solid ${isReq ? 'var(--gold)' : 'var(--border)'};`);
+        if (c) { td.textContent = c.avg; td.title = `${name} ${fmtH(h)}: ${c.n} partida(s), media ${c.avg}`; td.style.background = c.avg > 0 ? 'rgba(92,184,104,.28)' : 'rgba(212,80,48,.22)'; }
+        else if (aiCellImplied(cells, row, h)) { td.textContent = '–'; td.style.background = 'rgba(92,184,104,.14)'; td.style.color = 'var(--ok-bright)'; td.title = 'Superada (ya ganaste con un handicap más difícil)'; }
+        td.title = (td.title ? td.title + '\n' : '') + `Toca para jugar contra ${name} ${fmtH(h)}`;   // PA2
+        td.style.cursor = 'pointer';
+        td.addEventListener('click', () => aiStartFromCell(level, h));
+        return td;
+      };
       for (let i = 0; i <= 28; i++) {
         const tr = el('tr');
         const rs = req.get(i);
         tr.appendChild(el('td', `padding:2px 6px;white-space:nowrap;color:${i === t ? 'var(--gold)' : rs ? (rs.done ? 'var(--ok-bright)' : 'var(--text)') : 'var(--dim2)'};`,
           lbl(i) + (i === t ? ' ◀' : rs && rs.done ? ' ✔' : '')));
-        for (const h of hs) {
-          const c = cells[i + '|' + h], isReq = rs && rs.hReq === h;
-          const td = el('td', `padding:2px 3px;text-align:center;border:1px solid ${isReq ? 'var(--gold)' : 'var(--border)'};`);
-          if (c) { td.textContent = c.avg; td.title = `${lbl(i)} ${fmtH(h)}: ${c.n} partida(s), media ${c.avg}`; td.style.background = c.avg > 0 ? 'rgba(92,184,104,.28)' : 'rgba(212,80,48,.22)'; }
-          else if (aiCellImplied(cells, i, h)) { td.textContent = '–'; td.style.background = 'rgba(92,184,104,.14)'; td.style.color = 'var(--ok-bright)'; td.title = 'Superada (ya ganaste con un handicap más difícil)'; }
-          td.title = (td.title ? td.title + '\n' : '') + `Toca para jugar contra ${lbl(i)} ${fmtH(h)}`;   // PA2
-          td.style.cursor = 'pointer';
-          td.addEventListener('click', () => aiStartFromCell(i, h));
-          tr.appendChild(td);
-        }
+        for (const h of hs) tr.appendChild(cellTd(i, aiRankLevel(i), lbl(i), h, rs && rs.hReq === h));
         tb.appendChild(tr);
       }
+      // Motores extra (GNU Go, Fuego…): una fila cada uno bajo las de KataGo; no cuentan para superar niveles
+      aiExtraLevels(games, aiStatusInfo && aiStatusInfo.levels).forEach((lv, k) => {
+        const tr = el('tr', k === 0 ? 'border-top:2px solid var(--border2);' : '');
+        tr.appendChild(el('td', `padding:${k === 0 ? 6 : 2}px 6px 2px;white-space:nowrap;color:var(--text);`, aiLevelLabel(lv)));
+        for (const h of hs) tr.appendChild(cellTd(lv, lv, aiLevelLabel(lv), h, false));
+        tb.appendChild(tr);
+      });
       gw.appendChild(tb); body.appendChild(gw);
       body.appendChild(el('div', 'font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:4px;', 'Borde dorado: handicap que toca contra cada rival para superar el nivel objetivo.'));
 

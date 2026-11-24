@@ -4,8 +4,9 @@ ai_engines.py — Motores de Go para jugar contra la IA en TsumeVault (IA1).
 Tres piezas:
   - GtpEngine: proceso GTP genérico (lanzar, enviar comando, leer respuesta,
     cerrar). No sabe nada de ningún motor concreto.
-  - Drivers: lo específico de cada motor. Hoy solo KataGoDriver; añadir otro
-    motor (p. ej. GNU Go) es escribir su driver y registrarlo en AiService.
+  - Drivers: lo específico de cada motor. KataGoDriver (código propio) y
+    GtpDriver: motores GTP sencillos (GNU Go, Fuego, Pachi...) declarados en
+    ai_engines.json, sin tocar código (ver load_gtp_drivers).
   - AiService: valida las peticiones de /ai/*, elige motor por el prefijo del
     nivel ("katago:rank_15k"), reconstruye la posición en cada petición y
     cierra los motores tras un rato sin uso.
@@ -20,6 +21,8 @@ resto del servidor funciona igual):
     KATAGO_HUMAN_MODEL  modelo humano (b18c384nbt-humanv0...)
     KATAGO_IDLE_S       segundos sin uso antes de cerrar el proceso (900)
     KATAGO_LOG          fichero para el stderr del motor (opcional)
+    AI_ENGINES_JSON     motores rivales extra (por defecto ai_engines.json junto a
+                        este fichero; si no existe, solo KataGo)
 """
 
 import collections
@@ -29,6 +32,7 @@ import logging
 import os
 import queue
 import re
+import shutil
 import subprocess
 import sys
 import threading
@@ -185,6 +189,18 @@ class GtpEngine:
 # ── Drivers ──────────────────────────────────────────────────────────────────
 
 
+def gtp_genmove(eng, color):
+    """genmove estándar: 'pass' | 'resign' | vértice en mayúsculas (Q16)."""
+    mv = eng.must(f"genmove {color}", GENMOVE_TIMEOUT_S).strip()
+    low = mv.lower()
+    if low in ("pass", "resign"):
+        return low
+    mv = mv.upper()
+    if not VERTEX_RE.match(mv):
+        raise AiError(502, "bad move from engine")
+    return mv
+
+
 def _rank_idx(level):
     """'rank_20k' -> 0 … 'rank_1k' -> 19, 'rank_1d' -> 20 … 'rank_9d' -> 28; None si no es un rango."""
     m = re.match(r"^rank_(\d+)([kd])$", level or "")
@@ -259,6 +275,9 @@ class KataGoDriver:
     def model_for(self, level):
         return self.model_max if level == "max" else self.model_human
 
+    def labels(self):
+        return {}   # las etiquetas de KataGo (15k, Máximo) las pone la app
+
     def set_position(self, eng, pos):
         eng.must("boardsize 19")
         eng.must("clear_board")
@@ -280,14 +299,7 @@ class KataGoDriver:
             eng.must(f"kata-set-param {k} {v}")
 
     def genmove(self, eng, color):
-        mv = eng.must(f"genmove {color}", GENMOVE_TIMEOUT_S).strip()
-        low = mv.lower()
-        if low in ("pass", "resign"):
-            return low
-        mv = mv.upper()
-        if not VERTEX_RE.match(mv):
-            raise AiError(502, "bad move from engine")
-        return mv
+        return gtp_genmove(eng, color)
 
     def score_final(self, eng):
         # Recuento preciso (decide piedras muertas) con la búsqueda del modelo principal
@@ -306,6 +318,120 @@ class KataGoDriver:
         lead = round(float(m.group(1)), 1)
         return {"result": _format_result(lead), "score_white": lead, "dead": [],
                 "ownership": _parse_ownership(text)}
+
+
+# ── Motores GTP sencillos por configuración (ai_engines.json) ───────────────────
+#
+# Rivales extra (GNU Go, Fuego, Pachi...): un solo nivel cada uno; solo eligen las
+# jugadas. Recuento, estimación y análisis siguen siendo de KataGo. Formato:
+#   {"engines": [{"name": "gnugo", "level": "10", "label": "GNU Go 10",
+#                 "argv": ["/usr/games/gnugo", "--mode", "gtp", "--level", "10"],
+#                 "rules_cmd": "go_rules {rules}"}]}      <- opcional
+# rules_cmd: comando GTP para fijar las reglas ({rules} = japanese|chinese); sin él,
+# el motor juega con sus reglas por defecto. Las claves que empiezan por "_" se
+# ignoran (sirven de comentario). Un argv[0] relativo se busca junto al json o en el
+# PATH; un .py se lanza con el Python actual (motor falso de los tests).
+
+_GTP_NAME_RE = re.compile(r"^[a-z0-9]+$")
+_GTP_LEVEL_RE = re.compile(r"^[a-z0-9_]+$")
+_GTP_KEYS = {"name", "level", "label", "argv", "rules_cmd"}
+
+
+class GtpDriver:
+    def __init__(self, name, level, label, argv, rules_cmd=None, base_dir=""):
+        self.name = name
+        self.level = level
+        self.label = label
+        self.rules_cmd = rules_cmd
+        exe = argv[0]
+        if not os.path.isabs(exe) and os.path.isfile(os.path.join(base_dir, exe)):
+            exe = os.path.join(base_dir, exe)
+        self.exe = exe
+        self.args = list(argv[1:])
+
+    def unavailable_reason(self):
+        if os.path.isfile(self.exe) or (not os.path.dirname(self.exe) and shutil.which(self.exe)):
+            return None
+        return "executable not found"
+
+    def argv(self):
+        base = [sys.executable, self.exe] if self.exe.endswith(".py") else [self.exe]
+        return base + self.args
+
+    def levels(self):
+        return [self.level]
+
+    def labels(self):
+        return {f"{self.name}:{self.level}": self.label}
+
+    def model_for(self, _level):
+        return self.name
+
+    def set_position(self, eng, pos):
+        eng.must("boardsize 19")
+        eng.must("clear_board")
+        if self.rules_cmd:
+            eng.must(self.rules_cmd.replace("{rules}", pos["rules"]))
+        eng.must(f"komi {pos['komi']}")
+        if pos["handicap_stones"]:
+            eng.must("set_free_handicap " + " ".join(pos["handicap_stones"]))
+        for i, (color, vertex) in enumerate(pos["moves"]):
+            ok, _text = eng.command(f"play {color} {vertex}")
+            if not ok:
+                raise AiError(400, f"illegal move {i}: {color} {vertex}")
+
+    def set_level(self, eng, level, handicap=0):
+        pass   # un solo nivel, fijado en los argumentos; el handicap con signo es solo para KataGo
+
+    def genmove(self, eng, color):
+        return gtp_genmove(eng, color)
+
+
+def load_gtp_drivers(path):
+    """Lee ai_engines.json. Sin fichero: []. JSON roto o entrada no válida: aviso en
+    el log y se ignora (el fichero entero o esa entrada); KataGo sigue igual."""
+    if not path or not os.path.isfile(path):
+        return []
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, ValueError) as e:
+        log.warning("[ai] %s no se puede leer: %s", path, e)
+        return []
+    items = data.get("engines") if isinstance(data, dict) else None
+    if not isinstance(items, list):
+        log.warning("[ai] %s: falta la lista 'engines'", path)
+        return []
+    out, seen = [], {"katago"}
+    for n, it in enumerate(items):
+        err = None
+        if not isinstance(it, dict):
+            err = "no es un objeto"
+        else:
+            it = {k: v for k, v in it.items() if not k.startswith("_")}
+            name, level, label = it.get("name"), it.get("level"), it.get("label")
+            argv, rules_cmd = it.get("argv"), it.get("rules_cmd")
+            if set(it) - _GTP_KEYS:
+                err = "claves desconocidas: " + ", ".join(sorted(set(it) - _GTP_KEYS))
+            elif not isinstance(name, str) or not _GTP_NAME_RE.match(name):
+                err = "name no válido"
+            elif name in seen:
+                err = f"name repetido o reservado: {name}"
+            elif not isinstance(level, str) or not _GTP_LEVEL_RE.match(level):
+                err = "level no válido"
+            elif not isinstance(label, str) or not label.strip() or len(label) > 40:
+                err = "label no válido"
+            elif (not isinstance(argv, list) or not argv
+                  or any(not isinstance(a, str) or not a for a in argv)):
+                err = "argv no válido"
+            elif rules_cmd is not None and (not isinstance(rules_cmd, str) or "{rules}" not in rules_cmd):
+                err = "rules_cmd debe contener {rules}"
+        if err:
+            log.warning("[ai] %s: motor %d ignorado (%s)", path, n, err)
+            continue
+        seen.add(name)
+        out.append(GtpDriver(name, level, label.strip(), argv, rules_cmd, os.path.dirname(os.path.abspath(path))))
+    return out
 
 
 # ── AN1: análisis de partidas (gráfica de ventaja y mejores jugadas) ────────────
@@ -797,7 +923,11 @@ class AiService:
         except ValueError:
             self.idle_s = 900.0
         self.log_path = env.get("KATAGO_LOG", "").strip() or None
-        self.drivers = {"katago": KataGoDriver(env)}   # futuro: "gnugo": GnuGoDriver(env)
+        self.drivers = {"katago": KataGoDriver(env)}
+        cfg = env.get("AI_ENGINES_JSON", "").strip() or os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), "ai_engines.json")
+        for d in load_gtp_drivers(cfg):
+            self.drivers[d.name] = d
         self.engines = {}
         self._engines_lock = threading.Lock()
         self._watcher = None
@@ -811,15 +941,16 @@ class AiService:
         return d is not None and d.unavailable_reason() is None
 
     def status(self, _qs=None):
-        out = {"available": False, "engines": {}, "levels": []}
+        # Sin KataGo no hay recuento: entonces no se ofrece ningún rival.
+        out = {"available": self._available("katago"), "engines": {}, "levels": [], "labels": {}}
         for name, d in self.drivers.items():
             reason = d.unavailable_reason()
             eng = self.engines.get(name)
             out["engines"][name] = {"available": reason is None, "reason": reason,
                                     "running": bool(eng and eng.running())}
-            if reason is None:
-                out["available"] = True
+            if reason is None and out["available"]:
                 out["levels"] += [f"{name}:{lv}" for lv in d.levels()]
+                out["labels"].update(d.labels())
         return out
 
     # ── motores ──
@@ -933,6 +1064,7 @@ class AiService:
         if to_play not in ("B", "W"):
             raise AiError(400, "to_play must be B|W")
         self._check_available(name)
+        self._check_available("katago")   # el recuento de la partida será de KataGo
 
         def go(eng):
             t0 = time.monotonic()

@@ -42,7 +42,8 @@ for raw in sys.stdin:
         occupied.clear()
         last_play = None
         out(True)
-    elif cmd in ("boardsize", "komi", "kata-set-rules", "kata-set-param", "protocol_version"):
+    elif cmd in ("boardsize", "komi", "kata-set-rules", "kata-set-param", "protocol_version",
+                 "go_rules"):   # go_rules: rules_cmd de un motor extra (ai_engines.json) en los tests
         out(True, "2" if cmd == "protocol_version" else "")
     elif cmd == "set_free_handicap":
         occupied.update(args)

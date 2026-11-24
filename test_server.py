@@ -1501,6 +1501,120 @@ try:
 finally:
     stop(p)
 
+# ══ FASE M: motores rivales extra por configuración (ai_engines.json, GtpDriver) ══
+import logging as _logging
+_logging.disable(_logging.WARNING)   # los avisos de entradas no válidas son lo esperado aquí
+_cfg_dir = os.path.join(TESTDIR, "cfg_unit")
+os.makedirs(_cfg_dir, exist_ok=True)
+def _load(obj, raw=None):
+    path = os.path.join(_cfg_dir, "ai_engines.json")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(raw if raw is not None else json.dumps(obj))
+    return _ae.load_gtp_drivers(path)
+_ok = {"name": "gnugo", "level": "10", "label": "GNU Go 10", "argv": ["/usr/games/gnugo", "--mode", "gtp"]}
+check("M: sin fichero -> ningún motor extra", _ae.load_gtp_drivers(os.path.join(_cfg_dir, "no_existe.json")) == [])
+check("M: JSON roto -> ningún motor extra", _load(None, raw="{engines: [") == [])
+check("M: sin lista 'engines' -> ningún motor extra", _load({"motores": [_ok]}) == [] and _load([_ok]) == [])
+_ds = _load({"_comment": "x", "engines": [
+    dict(_ok, _nota="comentario"),
+    dict(_ok, name="Bad Name"), dict(_ok, name="katago"), dict(_ok),                  # nombre: formato, reservado, repetido
+    dict(_ok, name="a1", level="10:x"), dict(_ok, name="a2", label=""), dict(_ok, name="a3", label="x" * 41),
+    dict(_ok, name="a4", argv=[]), dict(_ok, name="a5", argv="gnugo"), dict(_ok, name="a6", argv=["gnugo", ""]),
+    dict(_ok, name="a7", rules_cmd="go_rules japanese"), dict(_ok, name="a8", extra=1), "no es objeto",
+    dict(_ok, name="fuego", level="sims_3000", label=" Fuego ", rules_cmd="go_rules {rules}")]})
+check("M: solo las entradas válidas, en orden; '_' ignoradas, etiqueta recortada",
+      [(d.name, d.level, d.label) for d in _ds] == [("gnugo", "10", "GNU Go 10"), ("fuego", "sims_3000", "Fuego")],
+      f"{[(d.name, d.level, d.label) for d in _ds]}")
+check("M anti-vacío: cada entrada inválida falla sola (con su nombre válido sí carga)",
+      [d.name for d in _load({"engines": [dict(_ok, name="a7", rules_cmd="go_rules {rules}"), dict(_ok, name="a2")]})] == ["a7", "a2"])
+_g = _ds[0]
+check("M: GtpDriver -> un nivel, etiqueta, modelo = nombre del motor, argv tal cual",
+      _g.levels() == ["10"] and _g.labels() == {"gnugo:10": "GNU Go 10"} and _g.model_for("10") == "gnugo"
+      and _g.argv() == ["/usr/games/gnugo", "--mode", "gtp"])
+check("M: ejecutable inexistente -> no disponible", _ae.GtpDriver("x", "1", "X", ["/no/existe/x"]).unavailable_reason() == "executable not found")
+check("M: ejecutable en el PATH o relativo al json -> disponible; .py con el Python actual",
+      _ae.GtpDriver("x", "1", "X", ["python3"]).unavailable_reason() is None
+      and _ae.GtpDriver("x", "1", "X", ["fake_gtp.py"], base_dir=HERE).unavailable_reason() is None
+      and _ae.GtpDriver("x", "1", "X", ["fake_gtp.py", "-q"], base_dir=HERE).argv() == [sys.executable, FAKE, "-q"])
+
+# servidor con dos motores extra (falsos) y uno sin ejecutable
+EXTRA_JSON = os.path.join(TESTDIR, "extra_engines.json")
+import shutil as _sh; _sh.copy(FAKE, os.path.join(TESTDIR, "fake_gtp.py"))
+with open(EXTRA_JSON, "w", encoding="utf-8") as f:
+    json.dump({"engines": [
+        {"name": "gnugo", "level": "10", "label": "GNU Go 10", "argv": [FAKE, "--mode", "gtp", "--level", "10"]},
+        {"name": "fuego", "level": "x", "label": "Fuego", "argv": ["fake_gtp.py"], "rules_cmd": "go_rules {rules}"},
+        {"name": "pachi", "level": "x", "label": "Pachi", "argv": ["/no/existe/pachi"]},
+        {"name": "Roto", "level": "x", "label": "Roto", "argv": [FAKE]}]}, f)
+M_ENV = dict(AI_ENV, AI_ENGINES_JSON=EXTRA_JSON)
+if os.path.exists(GTP_LOG): os.remove(GTP_LOG)
+p = start_server(M_ENV)
+try:
+    st, body, _ = req("/ai/status")
+    lv, en = body.get("levels", []), body.get("engines", {})
+    check("M: status -> 30 niveles de KataGo y detrás los extra disponibles, con sus etiquetas",
+          st == 200 and body.get("available") is True and len(lv) == 32 and lv[29] == "katago:max"
+          and lv[30:] == ["gnugo:10", "fuego:x"] and body.get("labels") == {"gnugo:10": "GNU Go 10", "fuego:x": "Fuego"},
+          f"st={st} {body}")
+    check("M: motor sin ejecutable -> no disponible y fuera de la lista; la entrada inválida ni aparece",
+          en.get("pachi", {}).get("available") is False and en["pachi"].get("reason") == "executable not found"
+          and "pachi:x" not in lv and "Roto" not in en and set(en) == {"katago", "gnugo", "fuego", "pachi"}, f"{en}")
+    st, body, _ = req("/ai/move", "POST", dict(POS, level="gnugo:10", to_play="B", handicap=5))
+    c = gtp_cmds()
+    seq = ["protocol_version", "boardsize 19", "clear_board", "komi 0.5", "set_free_handicap D4 Q16", "play W Q4", "genmove B"]
+    check("M: /ai/move gnugo:10 -> jugada del motor extra, modelo 'gnugo'", st == 200 and body.get("move") == "D16"
+          and body.get("model") == "gnugo" and body.get("level") == "gnugo:10", f"st={st} {body}")
+    check("M: GNU Go recibe solo GTP estándar, en orden, sin kata-* (el handicap con signo no le llega)",
+          c == seq, f"{c}")
+    st, body, _ = req("/ai/status")
+    en = body.get("engines", {})
+    check("M: arranca solo el motor extra; KataGo sigue parado", en["gnugo"]["running"] is True and en["katago"]["running"] is False, f"{en}")
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/move", "POST", dict(POS, rules="chinese", level="fuego:x", to_play="B"))
+    c = gtp_cmds()[n0:]
+    check("M: rules_cmd -> reglas antes que el komi; ejecutable relativo al json",
+          st == 200 and body.get("model") == "fuego" and "go_rules chinese" in c and c.index("go_rules chinese") < c.index("komi 0.5")
+          and not any(x.startswith("kata-") for x in c), f"st={st} {body} {c}")
+    st, _, _ = req("/ai/move", "POST", dict(POS, level="pachi:x", to_play="B"))
+    check("M: motor extra no disponible -> 503", st == 503, f"st={st}")
+    st, _, _ = req("/ai/move", "POST", dict(POS, level="gnugo:11", to_play="B"))
+    check("M: nivel que el motor extra no tiene -> 400", st == 400, f"st={st}")
+    n0 = len(gtp_cmds())
+    st, body, _ = req("/ai/score", "POST", dict(POS, mode="final"))
+    c = gtp_cmds()[n0:]
+    check("M: el recuento lo hace KataGo", st == 200 and body.get("result") == "W+3.5" and "kata-set-rules japanese" in c
+          and "final_score" in c, f"st={st} {body} {c}")
+    st, body, _ = req("/ai/status")
+    check("M: cada motor en su proceso (KataGo y GNU Go arrancados a la vez)",
+          body["engines"]["katago"]["running"] is True and body["engines"]["gnugo"]["running"] is True, f"{body['engines']}")
+finally:
+    stop(p)
+
+# json roto: el servidor arranca y KataGo sigue igual
+with open(EXTRA_JSON, "w", encoding="utf-8") as f: f.write("{roto")
+p = start_server(M_ENV)
+try:
+    st, body, _ = req("/ai/status")
+    st2, b2, _ = req("/ai/move", "POST", dict(POS, level="katago:rank_15k", to_play="B"))
+    check("M: ai_engines.json roto -> solo KataGo, que juega igual", st == 200 and len(body.get("levels", [])) == 30
+          and body.get("labels") == {} and set(body.get("engines", {})) == {"katago"} and st2 == 200, f"{body} {st2}")
+finally:
+    stop(p)
+
+# sin KataGo no se ofrece ningún rival (no habría recuento)
+with open(EXTRA_JSON, "w", encoding="utf-8") as f:
+    json.dump({"engines": [{"name": "gnugo", "level": "10", "label": "GNU Go 10", "argv": [FAKE]}]}, f)
+p = start_server({"AI_ENGINES_JSON": EXTRA_JSON, "KATAGO_BACKGROUND": "0"})
+try:
+    st, body, _ = req("/ai/status")
+    st2, _, _ = req("/ai/move", "POST", dict(POS, level="gnugo:10", to_play="B"))
+    check("M: sin KataGo -> no disponible, sin niveles, y GNU Go responde 503",
+          st == 200 and body.get("available") is False and body.get("levels") == [] and body["engines"]["gnugo"]["available"] is True
+          and st2 == 503, f"{body} {st2}")
+finally:
+    stop(p)
+_logging.disable(_logging.NOTSET)
+
 print()
 print("RESULTADO:", "TODO OK" if not FAILS else f"{len(FAILS)} FALLOS: {FAILS}")
 sys.exit(1 if FAILS else 0)

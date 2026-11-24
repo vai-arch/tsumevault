@@ -499,3 +499,41 @@ Checklist manual al final:
   - El 🔍 se ve activo mientras el análisis está a la vista. La línea de la estimación (📊) va aparte y no se oculta con el 🔍.
   - Prueba de humo: 36 comprobaciones, en dos ejecuciones seguidas.
 
+
+## ME — Motores rivales extra por configuración (24-nov-2026, entregado en la rama `motores-gtp`)
+
+Requisitos (Notion, 23-nov): GNU Go primero; después Fuego y Pachi. Cada motor extra tiene un solo nivel y una fila en las estadísticas con todos los handicaps; no cuenta para superar niveles; juega dando y recibiendo handicap; solo elige las jugadas (recuento, estimación, análisis y gráfica siguen con KataGo). Se añaden por configuración, sin tocar código.
+
+- **Configuración: `ai_engines.json`** en la raíz del repo (en git), junto a `ai_engines.py`. `AI_ENGINES_JSON` permite otra ruta (tests).
+  - Formato: `{"engines": [{"name", "level", "label", "argv", "rules_cmd"?}]}`. Las claves que empiezan por `_` son comentarios.
+  - `rules_cmd` (opcional, con `{rules}` = `japanese|chinese`): comando GTP para fijar las reglas en el rival. Sin él, el motor juega con sus reglas por defecto (GNU Go).
+  - Fichero ausente o roto, o una entrada no válida: aviso en el log y se ignora (el fichero o esa entrada). KataGo sigue igual.
+  - Excluido de GitHub Pages (`pages.yml`) y subido al VPS con `_subir_servidor.bat`. Tras cambiarlo, reiniciar el servicio.
+- **Servidor (`ai_engines.py`):**
+  - `GtpDriver`: GTP estándar (`boardsize`, `clear_board`, `rules_cmd`, `komi`, `set_free_handicap`, `play`, `genmove`); nunca `kata-*`. El handicap con signo de `/ai/move` solo lo usa KataGo. `model` = nombre del motor (va a `ai_games.model`).
+  - `gtp_genmove()` compartido con `KataGoDriver`.
+  - `/ai/status`: `available` = KataGo disponible (sin KataGo no hay recuento, así que no se ofrece ningún rival). `levels` = los de KataGo y detrás los extra disponibles. `labels` = `{"gnugo:10": "GNU Go 10"}`.
+  - `/ai/move` con un motor extra exige también KataGo (503 si falta). Cada motor tiene su proceso y su cierre por inactividad (`KATAGO_IDLE_S`).
+- **Cliente (`tsumevault.html`):**
+  - `aiLevelName(level, labels)` (pura) y `aiLevelLabel(level)` con `aiLabels`: las últimas etiquetas del servidor, guardadas en `localStorage['ai_level_labels']` para verlas sin conexión. Sin etiqueta: `gnugo 10`.
+  - `aiIsExtraLevel`, `aiExtraLevels(games, serverLevels)`: filas extra de la rejilla (primero las del servidor en su orden, luego las que solo están en partidas).
+  - `aiGrid` guarda las casillas extra como `motor:nivel|h`; `aiHandicapStatus`, la escalera y el nivel objetivo no cambian.
+  - Rejilla: fila por motor bajo las de KataGo, separada por una línea, con las casillas pulsables. `aiStartFromCell` y `aiCellGameParams` reciben el nivel en lugar del índice de rango.
+  - En el SGF, el rival es la etiqueta del motor ("GNU Go 10"), sin el prefijo "KataGo".
+- **Pruebas:**
+  - `test_server.py` 320 → 340: fase M, con carga y validación del json y servidor con dos motores falsos y uno sin ejecutable. Comprobado con mutantes: orden reglas/komi y exigencia de KataGo.
+  - `test_ai.js` 95 → 103 (con mutantes); `test_clock.js` 76 sin cambios.
+  - `fake_gtp.py` acepta `go_rules`.
+- **Despliegue:**
+  1. Copia de seguridad en el VPS de los `.py` y de la BD (con `.backup`).
+  2. En el PC, `git switch motores-gtp` y `_subir_servidor.bat`.
+  3. Comprobar `/ai/status`.
+  4. Merge en `main` y push (Pages).
+  - GNU Go 3.8 ya está instalado en el VPS (`/usr/games/gnugo`, apt).
+- **Checklist manual en producción:**
+  - M-ME1: el selector muestra "GNU Go 10" al final.
+  - M-ME2: igualada y con handicap (dando y recibiendo) contra GNU Go, hasta el recuento final.
+  - M-ME3: el histórico y el SGF descargado con el nombre "GNU Go 10".
+  - M-ME4: la fila de GNU Go en la rejilla y su casilla pulsable, sin cambios en "Para superar…".
+  - M-ME5: el análisis automático de esa partida.
+- **Siguiente:** Fuego y Pachi. Compilarlos en el VPS (ARM; Pachi con `DCNN=0`) y añadir una entrada en el json para cada uno, con el número de simulaciones fijo en `argv`. Calibrarlos con gomill contra GNU Go.
