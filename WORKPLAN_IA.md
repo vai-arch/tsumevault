@@ -544,3 +544,10 @@ Requisitos (Notion, 23-nov): GNU Go primero; después Fuego y Pachi. Cada motor 
     - Sigue su libro de aperturas mientras se pueda, así que esas jugadas salen al instante y siempre iguales.
   - Pendiente: calibrar los dos con gomill contra GNU Go 10 y ajustar las simulaciones. Si cambian, cambiar también `level` y `label`, para que salgan en otra fila de las estadísticas.
 - Orden en el selector y en la rejilla (el del json): GNU Go, Fuego, Pachi, de más débil a más fuerte según lo esperado.
+
+## Estadísticas: filas ocultas y retoques (24-nov-2026, rama `stats-filas`)
+- `aiHiddenRows(cells, t, keep)` (pura): se ocultan las filas de KataGo con la casilla −9 en verde, y las que están a más de 3 rangos por encima del rango más fuerte con alguna casilla en verde, si no tienen partidas. Si no hay ninguna casilla en verde, no se oculta nada por distancia. Nunca se ocultan el nivel objetivo, las filas de borde dorado (`keep`) ni los motores extra.
+- El botón "Mostrar todos (N ocultos)" / "Ocultar los rivales que no interesan" bajo la rejilla, recordado en `ai_stats_open.allRows`. Solo sale si hay algo que ocultar.
+- La cabecera +9 … −9 se repite al final de las filas de KataGo.
+- Retirados el título "Media de puntos por nivel y handicap…" y la nota del borde dorado. En "Igualadas por nivel", la columna Cerrado pasa a "✔ regla N", sin el número de partidas.
+- `test_ai.js` 103 → 107 (con mutantes).

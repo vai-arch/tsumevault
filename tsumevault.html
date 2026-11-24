@@ -8483,6 +8483,27 @@
     // Casilla sin jugar "dada por superada": hay una más difícil de la misma fila en verde
     // (más difícil = recibir menos / dar más = h menor).
     function aiCellImplied(cells, i, h) { for (let x = -9; x < h; x++) if (aiCellGreen(cells, i, x)) return true; return false; }
+    // Filas de KataGo que se ocultan en la rejilla por no interesar: las que ya se ganan dando 9
+    // (casilla −9 en verde) y las que están a más de 3 rangos por encima del rango más fuerte con
+    // alguna casilla en verde, si no tienen partidas. Nunca el nivel objetivo t ni las de keep
+    // (las de borde dorado). Los motores extra no son filas de rango: no entran aquí.
+    function aiHiddenRows(cells, t, keep) {
+      let best = -1;
+      const played = new Set();
+      for (const k of Object.keys(cells)) {
+        const r = k.slice(0, k.lastIndexOf('|'));
+        if (!/^\d+$/.test(r)) continue;
+        const i = Number(r);
+        played.add(i);
+        if (cells[k].avg > 0 && i > best) best = i;
+      }
+      const out = [];
+      for (let i = 0; i <= 28; i++) {
+        if (i === t || (keep && keep.has(i))) continue;
+        if (aiCellGreen(cells, i, -9) || (best >= 0 && i > best + 3 && !played.has(i))) out.push(i);
+      }
+      return out;
+    }
     // Handicap que corresponde contra el rival i para superar el nivel objetivo t (+ recibo).
     function aiHcRequired(i, t) { return i - t; }
     // Diagonal de handicaps para superar el nivel t: cada rival i ≠ t con |h| ≤ 9 está superado
@@ -9476,7 +9497,7 @@
 
     // ══ IA4: ESTADÍSTICAS de partidas contra la IA (ventana #ai-stats-overlay) ══
     const AI_STATS_KEY = 'ai_stats_cfg';   // solo en este dispositivo: {target, rules}
-    const AI_STATS_OPEN_KEY = 'ai_stats_open';   // PA1: desplegables abiertos {rules, summary}
+    const AI_STATS_OPEN_KEY = 'ai_stats_open';   // PA1: desplegables abiertos {rules, summary} y allRows (rejilla completa)
     function aiStatsOpen() { try { const o = JSON.parse(lsGet(AI_STATS_OPEN_KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } }
     function aiStatsCfg() {
       try {
@@ -9625,14 +9646,15 @@
       body.appendChild(sumFold);
 
       // ── rejilla nivel × handicap (como el Excel: +9 … −9) ──
-      body.appendChild(title('Media de puntos por nivel y handicap (+ recibo / − doy)'));
-      const gw = el('div', 'overflow-x:auto;');
+      const gw = el('div', 'overflow-x:auto;margin-top:16px;');
       const tb = el('table', 'border-collapse:collapse;font-family:var(--mono);font-size:9px;');
       const hs = []; for (let h = 9; h >= -9; h--) hs.push(h);
       const hr = el('tr'); hr.appendChild(el('th', 'padding:2px 6px;color:var(--dim2);font-weight:normal;', 'rival'));
       for (const h of hs) hr.appendChild(el('th', `padding:2px 3px;color:${h === 0 ? 'var(--gold)' : 'var(--dim2)'};font-weight:normal;min-width:26px;`, (h > 0 ? '+' : '') + h));
       tb.appendChild(hr);
       const req = new Map(hc.map(r => [r.i, r]));
+      const hidden = new Set(aiHiddenRows(cells, t, new Set(req.keys())));   // rivales que no interesan
+      const showAll = !!openSt.allRows;
       // Casilla de la fila "row" (índice de rango o nivel de un motor extra) para el handicap h
       const cellTd = (row, level, name, h, isReq) => {
         const c = cells[row + '|' + h];
@@ -9645,6 +9667,7 @@
         return td;
       };
       for (let i = 0; i <= 28; i++) {
+        if (hidden.has(i) && !showAll) continue;
         const tr = el('tr');
         const rs = req.get(i);
         tr.appendChild(el('td', `padding:2px 6px;white-space:nowrap;color:${i === t ? 'var(--gold)' : rs ? (rs.done ? 'var(--ok-bright)' : 'var(--text)') : 'var(--dim2)'};`,
@@ -9652,6 +9675,7 @@
         for (const h of hs) tr.appendChild(cellTd(i, aiRankLevel(i), lbl(i), h, rs && rs.hReq === h));
         tb.appendChild(tr);
       }
+      tb.appendChild(hr.cloneNode(true));   // cabecera también al final: la rejilla es larga
       // Motores extra (GNU Go, Fuego…): una fila cada uno bajo las de KataGo; no cuentan para superar niveles
       aiExtraLevels(games, aiStatusInfo && aiStatusInfo.levels).forEach((lv, k) => {
         const tr = el('tr', k === 0 ? 'border-top:2px solid var(--border2);' : '');
@@ -9660,7 +9684,13 @@
         tb.appendChild(tr);
       });
       gw.appendChild(tb); body.appendChild(gw);
-      body.appendChild(el('div', 'font-family:var(--mono);font-size:9px;color:var(--dim2);margin-top:4px;', 'Borde dorado: handicap que toca contra cada rival para superar el nivel objetivo.'));
+      if (hidden.size) {
+        const tg = el('button', 'margin-top:6px;', showAll ? 'Ocultar los rivales que no interesan' : `Mostrar todos (${hidden.size} ocultos)`);
+        tg.className = 'ctrl-btn';
+        tg.title = 'Ocultos: los que ya ganas dando 9 y los que están a más de 3 rangos de lo más fuerte que has ganado (sin partidas)';
+        tg.addEventListener('click', () => { const o = aiStatsOpen(); o.allRows = !showAll; lsSet(AI_STATS_OPEN_KEY, JSON.stringify(o)); renderAiStats(); });
+        body.appendChild(tg);
+      }
 
       // ── escalera de igualadas ──
       body.appendChild(title('Igualadas por nivel'));
@@ -9672,7 +9702,7 @@
         lt.appendChild(h2);
         for (const r of ladder) {
           const tr = el('tr', r.i === t ? 'background:rgba(212,168,74,.08);' : '');
-          for (const v of [lbl(r.i), r.n, r.wins, r.winrate + '%', r.avg, r.closed ? `✔ regla ${r.closed.rule + 1} (${r.closed.at})` : '—'])
+          for (const v of [lbl(r.i), r.n, r.wins, r.winrate + '%', r.avg, r.closed ? `✔ regla ${r.closed.rule + 1}` : '—'])
             tr.appendChild(el('td', `padding:3px 8px;text-align:right;color:${r.closed ? 'var(--ok-bright)' : 'var(--text)'};`, v));
           lt.appendChild(tr);
         }

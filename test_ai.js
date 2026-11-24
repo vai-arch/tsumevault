@@ -104,6 +104,24 @@ const cells = f('aiGrid(__games)');
 check('rejilla: media por casilla (15k dando 6: +75 y -20 -> 27.5, 2 partidas)', cells['5|-6'].n === 2 && cells['5|-6'].avg === 27.5, J(cells));
 check('rejilla: ignora borradas y Máximo', !('6|-2' in cells) && Object.keys(cells).length === 5, J(Object.keys(cells)));
 ctx.__cells = cells;
+// Filas ocultas de la rejilla: ganadas dando 9, o a más de 3 rangos del más fuerte en verde y sin partidas
+const RI = (lv) => f(`aiRankIdx('katago:rank_${lv}')`);
+ctx.__hg = [G('15k', -9, 5), G('12k', -9, -3), G('10k', 2, 8), G('6k', 9, -20), G('3k', 9, 4, { deleted: 1 }),
+  Object.assign(G('15k', -9, 30), { ai_level: 'gnugo:10' }), Object.assign(G('15k', 9, 30), { ai_level: 'pachi:sims_20000' })];
+ctx.__hc = f('aiGrid(__hg)');
+const hid = (t, keep) => f(`aiHiddenRows(__hc, ${t}, ${keep ? 'new Set(' + J(keep) + ')' : 'null'})`);
+{
+  const exp = [RI('15k')];
+  for (let i = RI('10k') + 4; i <= 28; i++) if (i !== RI('6k') && i !== RI('1d')) exp.push(i);
+  check('filas ocultas: ganada dando 9 (15k) y lejanas sin partidas (más de 3 sobre 10k), salvo la jugada (6k) y la dorada (1d)',
+    J(hid(RI('8k'), [RI('1d')])) === J(exp), J(hid(RI('8k'), [RI('1d')])));
+}
+check('filas ocultas: dando 9 en rojo no oculta (12k); justo 3 por encima (7k) se ve; borradas y motores extra no cuentan',
+  !hid(0).includes(RI('12k')) && !hid(0).includes(RI('7k')) && hid(0).includes(RI('6k') + 1) && hid(0).includes(RI('3k')));
+check('filas ocultas: el nivel objetivo y las doradas nunca, aunque se ganen dando 9',
+  !hid(RI('15k')).includes(RI('15k')) && !hid(0, [RI('15k')]).includes(RI('15k')) && hid(0).includes(RI('15k')));
+ctx.__hc0 = f("aiGrid([{ ai_level: 'katago:rank_15k', handicap: 0, score: -10, deleted: 0 }])");
+check('filas ocultas: sin ninguna casilla en verde no se oculta nada por distancia', J(f('aiHiddenRows(__hc0, 0, null)')) === J([]));
 // Motores extra: su propia fila ('motor:nivel|h'), sin tocar las de KataGo ni la diagonal para superar niveles
 const GX = (lvl, h, score, extra = {}) => Object.assign(G('15k', h, score, extra), { ai_level: lvl });
 ctx.__gx = ctx.__games.concat([GX('gnugo:10', 0, 12), GX('gnugo:10', 0, -4), GX('gnugo:10', -3, 20), GX('gnugo:10', 2, 9, { deleted: 1 }), GX('fuego:x', 9, -30)]);
