@@ -1,10 +1,17 @@
 @echo off
 
+call "%~dp0_sqlite_path.bat"
+if not defined SQLITE (
+    echo ERROR: no encuentro sqlite3 ^(ni en conda ni en el PATH^). Anade su ruta en _sqlite_path.bat.
+    pause
+    exit /b 1
+)
+
 echo Parando servidores...
 REM call _paraServidor.bat
 
 echo Cerrando WAL de SQLite...
-C:\Users\Usuario\miniconda3\Library\bin\sqlite3 tsumeVault.db "PRAGMA wal_checkpoint(TRUNCATE)"
+"%SQLITE%" tsumeVault.db "PRAGMA wal_checkpoint(TRUNCATE)"
 
 del tsumeVault.db
 
@@ -17,7 +24,7 @@ pause
 echo Descargando...
 scp root@46.225.97.185:/opt/tsumevault/tsumevault_snapshot.db "%~dp0tsumeVault.db"
 echo Verificando la copia local...
-C:\Users\Usuario\miniconda3\Library\bin\sqlite3 "%~dp0tsumeVault.db" "PRAGMA integrity_check;"
+"%SQLITE%" "%~dp0tsumeVault.db" "PRAGMA integrity_check;"
 echo ^^^ Debe imprimir "ok". Hecho.
 
 

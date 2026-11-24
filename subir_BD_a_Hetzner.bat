@@ -8,12 +8,8 @@ rem ============================================================
 set "HOST=root@46.225.97.185"
 set "RDIR=/opt/tsumevault"
 set "SERVICE=tsumevault"
-set "SQLITE=C:\Users\Usuario\miniconda3\Library\bin\sqlite3.exe"
-if exist "%SQLITE%" goto :sqlite_ok
-where sqlite3 >nul 2>&1
-if errorlevel 1 goto :no_sqlite
-set "SQLITE=sqlite3"
-:sqlite_ok
+call "%~dp0_sqlite_path.bat"
+if not defined SQLITE goto :no_sqlite
 set "LOCAL=%~dp0tsumeVault.db"
 set "ORIG=%~dp0tsumeVault.downloaded.db"
 set "T1=%TEMP%\tsv_subir_1.txt"
@@ -170,6 +166,6 @@ exit /b 1
 :no_sqlite
 echo.
 echo ERROR: no encuentro sqlite3 en esta maquina ^(ni en la ruta de SQLITE ni en el PATH^).
-echo Ejecuta "where sqlite3" en cmd, o corrige la linea set "SQLITE=..." al principio.
+echo Ejecuta "where sqlite3" en cmd, o anade su ruta en _sqlite_path.bat.
 pause
 exit /b 1
