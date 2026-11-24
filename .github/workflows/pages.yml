@@ -47,7 +47,7 @@ jobs:
             --exclude='*.py' --exclude='*.pyc' \
             --exclude='*.bat' --exclude='*.sh' \
             --exclude='*.md' --exclude='*.txt' --exclude='*.sql' \
-            --exclude='Caddyfile' --exclude='ai_engines.json' \
+            --exclude='Caddyfile' --exclude='ai_engines.json' --exclude='fuego_tv.cfg' \
             --exclude='harness.js' --exclude='test_*.js' --exclude='*_bundle.js' \
             --exclude='tsumeVault.downloaded.db' \
             ./ "$RUNNER_TEMP/site/"

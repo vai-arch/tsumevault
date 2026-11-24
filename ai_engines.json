@@ -1,11 +1,18 @@
 {
-  "_comment": "Rivales extra para jugar contra la IA (ai_engines.py, load_gtp_drivers). Cada motor: un solo nivel; recuento y análisis siempre con KataGo. Se sube al VPS con _subir_servidor.bat; tras cambiarlo, reiniciar el servicio.",
+  "_comment": "Rivales extra para jugar contra la IA (ai_engines.py, load_gtp_drivers). Cada motor: un solo nivel; recuento y análisis siempre con KataGo. Se sube al VPS con _subir_servidor.bat; tras cambiarlo, reiniciar el servicio. Fuego lee sus simulaciones de fuego_tv.cfg (max_games): si cambian, cambiar tambien level y label.",
   "engines": [
     {
       "name": "gnugo",
       "level": "10",
       "label": "GNU Go 10",
       "argv": ["/usr/games/gnugo", "--mode", "gtp", "--level", "10"]
+    },
+    {
+      "name": "fuego",
+      "level": "sims_5000",
+      "label": "Fuego 5000",
+      "argv": ["/opt/fuego/fuegomain/fuego", "--quiet", "--config", "/opt/tsumevault/fuego_tv.cfg"],
+      "rules_cmd": "go_rules {rules}"
     },
     {
       "name": "pachi",

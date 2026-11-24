@@ -536,4 +536,11 @@ Requisitos (Notion, 23-nov): GNU Go primero; después Fuego y Pachi. Cada motor 
   - M-ME3: el histórico y el SGF descargado con el nombre "GNU Go 10".
   - M-ME4: la fila de GNU Go en la rejilla y su casilla pulsable, sin cambios en "Para superar…".
   - M-ME5: el análisis automático de esa partida.
-- **Siguiente:** Fuego y Pachi. Compilarlos en el VPS (ARM; Pachi con `DCNN=0`) y añadir una entrada en el json para cada uno, con el número de simulaciones fijo en `argv`. Calibrarlos con gomill contra GNU Go.
+- **24-nov, Pachi y Fuego añadidos** (solo `ai_engines.json`, sin cambios de código):
+  - **Pachi 12.90**, compilado en `/opt/pachi` con `make DCNN=0`: `-d 0 -t =20000` y `kgs-rules`. Unos 4 s por jugada en el VPS y 66 MB de memoria.
+  - **Fuego** (SVN r2038), compilado en `/opt/fuego` con C++14 y Boost 1.83 sin parches: `--quiet --config /opt/tsumevault/fuego_tv.cfg` y `go_rules`.
+    - `fuego_tv.cfg` va en git, se sube con `_subir_servidor.bat` y está forzado a LF en `.gitattributes`. Fija 5000 simulaciones (`max_games`), ignora el reloj, usa 2 hilos y limita el árbol a 500.000 nodos (sin el límite reserva 1 GB).
+    - Unos 3,5 s por jugada fuera del libro y unos 325 MB.
+    - Sigue su libro de aperturas mientras se pueda, así que esas jugadas salen al instante y siempre iguales.
+  - Pendiente: calibrar los dos con gomill contra GNU Go 10 y ajustar las simulaciones. Si cambian, cambiar también `level` y `label`, para que salgan en otra fila de las estadísticas.
+- Orden en el selector y en la rejilla (el del json): GNU Go, Fuego, Pachi, de más débil a más fuerte según lo esperado.
