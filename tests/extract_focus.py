@@ -39,7 +39,7 @@ for m in ("function dbExec(", "function dbQuery(", "function dbQueryOne(", "func
           "function localFocusArchive(", "function localFocusReopen(", "function localFocusSessionProblems(",
           "function localFocusSessionStart(", "function localFocusSessionComplete(", "function focusFirstAttempts(",
           "function focusPct(", "function localFocusSessionStats(", "function localFocusProgress(",
-          "function localFocusWorkPct(", "function localFocusTodayStatus("):
+          "function localFocusWorkPct(", "function localFocusSuggested(", "function localFocusTodayStatus("):
     grab(m)
 bundle = "\n\n".join(chunks)
 io.open(os.path.join(_HERE, "focus_bundle.js"), "w", encoding="utf-8", newline="").write(bundle)

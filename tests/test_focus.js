@@ -199,6 +199,60 @@ function check(name, cond, extra = '') { console.log((cond ? 'PASS ' : 'FAIL ') 
   check('no se escriben filas sin updated_at (todas las escrituras dejan synced=0 con fecha)',
     q1('SELECT COUNT(*) c FROM focus_chapters WHERE updated_at IS NULL OR updated_at=\'\'').c === 0);
 
+  // ── FC15: sugerencia de capítulos listos para promocionar ──
+  {
+    run(`
+      dbExec("INSERT INTO collections (source,set_id,name,folder) VALUES ('th',9,'Col S','s')", []);
+      dbExec("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar,name) VALUES (6,'th',9,1,0,'Seis'),(7,'th',9,2,0,'Siete')", []);
+      dbExec("INSERT INTO problems (source,problem_id,set_id,chapter_id,order_in_chapter,sgf_path) VALUES ('th','a1',9,6,1,'x'),('th','a2',9,6,2,'x'),('th','b1',9,7,1,'x'),('th','b2',9,7,2,'x')", []);
+    `);
+    const K = ctx.localFocusCreate('Sugerencias').uuid;
+    ctx.localFocusAddChapter(K, 6); ctx.localFocusAddChapter(K, 7);
+    run(`dbExec("UPDATE focus_chapters SET updated_at='2026-10-01T00:00:00Z' WHERE focus_uuid=?", ['${K}'])`);
+    let n = 0;
+    const sess = (day, res, completed = 1) => {   // res: {problem_id: 'correct'|'wrong'}
+      const u = 'sg-' + (++n), t = `2026-10-${String(day).padStart(2, '0')}T10:00:00Z`;
+      run(`dbExec("INSERT INTO focus_sessions (uuid,focus_uuid,started_at,ended_at,completed,updated_at,synced) VALUES (?,?,?,?,?,?,0)", ['${u}','${K}','${t}',${completed ? `'${t}'` : 'null'},${completed},'${t}'])`);
+      for (const [pid, r] of Object.entries(res)) run(`localInsertAttempt('th', '${pid}', null, '${r}', 100, '${u}')`);
+      return u;
+    };
+    const ok = { a1: 'correct', a2: 'correct', b1: 'correct', b2: 'correct' };
+    const sug = (thr = 90) => [...ctx.localFocusSuggested(K, ctx.localFocusChapters(K), thr)].sort();
+    check('FC15: sin sesiones no hay sugerencias', J(sug()) === J([]));
+    sess(2, ok); sess(3, ok);
+    check('FC15: con solo 2 sesiones buenas no hay sugerencia', J(sug()) === J([]));
+    check('FC15 (no vacío): los capítulos tienen intentos en las sesiones', ctx.localFocusProgress(K).byChapter[6]?.total === 2 && ctx.localFocusProgress(K).byChapter[7]?.total === 2);
+    sess(4, { a1: 'correct', a2: 'correct', b1: 'correct', b2: 'wrong' });
+    check('FC15: 3 sesiones ≥ umbral → sugerido; una al 50% → no', J(sug()) === J([6]), J(sug()));
+    check('FC15: no vale la media (100,100,50 = 83% ≥ 80 pero una sesión < 80)', J(sug(80)) === J([6]), J(sug(80)));
+    check('FC15: justo en el umbral cuenta (≥, no >): 100% con umbral 100', J(sug(100)) === J([6]), J(sug(100)));
+    sess(5, ok); sess(6, ok);
+    sess(7, ok, 0);
+    check('FC15: una sesión incompleta no cuenta (las 3 últimas completadas siguen incluyendo el 50%)', J(sug()) === J([6]), J(sug()));
+    sess(8, ok);
+    check('FC15: con 3 sesiones completadas buenas tras el 50% → sugerido', J(sug()) === J([6, 7]), J(sug()));
+    ctx.localFocusSetPromoted(K, 6, true);
+    check('FC15: un capítulo listo para Run no se sugiere', J(sug()) === J([7]) && ctx.localFocusChapters(K).find(c => c.chapter_id === 6).state === 'ready');
+    run(`dbExec("UPDATE focus_chapters SET updated_at='2026-10-01T00:00:00Z' WHERE focus_uuid=? AND chapter_id=6", ['${K}'])`);
+    check('FC15: listo para Run no se sugiere aunque sus sesiones sean buenas y posteriores a su fecha', J(sug()) === J([7]), J(sug()));
+    ctx.localFocusSetPromoted(K, 6, false);
+    check('FC15: devuelto a En trabajo empieza de cero (sus sesiones anteriores no cuentan)', J(sug()) === J([7]), J(sug()));
+    ctx.localFocusRemoveChapter(K, 7); ctx.localFocusAddChapter(K, 7);
+    check('FC15: sacado y vuelto a meter también empieza de cero', J(sug()) === J([]), J(sug()));
+    {
+      const L = ctx.localFocusCreate('Incompletas').uuid;
+      run(`dbExec("INSERT INTO chapters (id,source,set_id,chapter_num,mostrar,name) VALUES (8,'th',9,3,0,'Ocho')", []); dbExec("INSERT INTO problems (source,problem_id,set_id,chapter_id,order_in_chapter,sgf_path) VALUES ('th','c1',9,8,1,'x')", [])`);
+      ctx.localFocusAddChapter(L, 8);
+      run(`dbExec("UPDATE focus_chapters SET updated_at='2026-10-01T00:00:00Z' WHERE focus_uuid=?", ['${L}'])`);
+      const s2 = (day, completed) => { const u = 'inc-' + day, t = `2026-10-${String(day).padStart(2, '0')}T10:00:00Z`;
+        run(`dbExec("INSERT INTO focus_sessions (uuid,focus_uuid,started_at,ended_at,completed,updated_at,synced) VALUES (?,?,?,?,?,?,0)", ['${u}','${L}','${t}',${completed ? `'${t}'` : 'null'},${completed},'${t}'])`);
+        run(`localInsertAttempt('th', 'c1', null, 'correct', 100, '${u}')`); };
+      s2(2, 1); s2(3, 1); s2(4, 0);
+      check('FC15: 2 completadas + 1 incompleta (todas al 100%) → no sugerido', ctx.localFocusSuggested(L, ctx.localFocusChapters(L), 90).size === 0);
+    }
+    check('FC15: un Focus sin capítulos En trabajo → conjunto vacío', ctx.localFocusSuggested(G, [], 90).size === 0);
+  }
+
   console.log('\n' + (fails.length === 0 ? 'TODO OK' : `FALLOS: ${fails.length}`));
   process.exit(fails.length === 0 ? 0 : 1);
 })();

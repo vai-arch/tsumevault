@@ -2812,13 +2812,13 @@
     }
     // Capitulos de un Focus con su estado. missing=true: el capitulo ya no existe (reimportado).
     function localFocusChapters(uuid) {
-      return dbQuery(`SELECT fc.chapter_id, fc.promoted, ch.id AS ch_id, ch.name AS chapter_name, ch.chapter_num, ch.source, ch.set_id,
+      return dbQuery(`SELECT fc.chapter_id, fc.promoted, fc.updated_at, ch.id AS ch_id, ch.name AS chapter_name, ch.chapter_num, ch.source, ch.set_id,
           c.name AS collection_name, (SELECT COUNT(*) FROM problems p WHERE p.chapter_id=fc.chapter_id AND p.hidden=0) AS problems
         FROM focus_chapters fc LEFT JOIN chapters ch ON ch.id=fc.chapter_id
         LEFT JOIN collections c ON c.source=ch.source AND c.set_id=ch.set_id
         WHERE fc.focus_uuid=? AND fc.active=1
         ORDER BY c.name COLLATE NOCASE, ch.name COLLATE NOCASE, fc.chapter_id`, [uuid]).map(r => ({
-          chapter_id: r.chapter_id, promoted: r.promoted, missing: r.ch_id == null,
+          chapter_id: r.chapter_id, promoted: r.promoted, since: r.updated_at, missing: r.ch_id == null,
           chapter_name: r.chapter_name ?? (r.chapter_num != null ? `Ch ${r.chapter_num}` : null),
           collection_name: r.collection_name, source: r.source, set_id: r.set_id, problems: r.problems,
           state: focusChapterState(r.promoted, r.chapter_id)
@@ -2916,6 +2916,32 @@
         if (p) { ok += p.ok; total += p.total; }
       }
       return { ok, total, pct: focusPct(ok, total) };
+    }
+    // FC15: capitulos En trabajo sugeridos para promocionar (solo pista; decide Victor):
+    // sus 3 ultimas sesiones completadas, empezadas desde que entro en En trabajo
+    // (since = updated_at de su fila; añadir, devolver o sacar y volver a meter reinicia
+    // la cuenta), tienen cada una % (primer intento) >= threshold. Devuelve Set de chapter_id.
+    function localFocusSuggested(uuid, chapters, threshold) {
+      const N = 3, out = new Set();
+      const work = new Map(chapters.filter(c => c.state === 'work' && !c.missing && c.since).map(c => [c.chapter_id, c.since]));
+      if (!work.size) return out;
+      const minSince = [...work.values()].reduce((m, v) => (v < m ? v : m));
+      const sess = dbQuery('SELECT uuid, started_at FROM focus_sessions WHERE focus_uuid=? AND completed=1 AND started_at>=? ORDER BY ended_at DESC, uuid DESC', [uuid, minSince]);
+      if (sess.length < N) return out;
+      const info = new Map(sess.map((s, i) => [s.uuid, { idx: i, started: s.started_at }]));
+      const byCh = new Map();   // chapter_id -> Map(idx -> {ok, total})
+      for (const r of focusFirstAttempts(sess.map(s => s.uuid))) {
+        const since = work.get(r.chapter_id), s = info.get(r.session_uuid);
+        if (since == null || !s || s.started < since) continue;
+        let m = byCh.get(r.chapter_id); if (!m) { m = new Map(); byCh.set(r.chapter_id, m); }
+        let c = m.get(s.idx); if (!c) { c = { ok: 0, total: 0 }; m.set(s.idx, c); }
+        c.total++; if (r.result === 'correct') c.ok++;
+      }
+      for (const [cid, m] of byCh) {
+        const last = [...m.keys()].sort((a, b) => a - b).slice(0, N).map(i => m.get(i));
+        if (last.length === N && last.every(c => focusPct(c.ok, c.total) >= threshold)) out.add(cid);
+      }
+      return out;
     }
     // Estado de hoy de cada Focus activo. work = capitulos En trabajo con problemas visibles;
     // pending = hay algo que hacer y ninguna sesion suya se ha completado hoy (dia local).
@@ -6211,8 +6237,11 @@
       secP.appendChild(listP); pane.appendChild(secP);
       // Datos de cada Focus
       const focuses = localFocusList(true).filter(f => focusShowArchived || !f.archived).sort((a, b) => a.archived - b.archived);
-      const data = focuses.map(f => ({ f, chapters: localFocusChapters(f.uuid), progress: localFocusProgress(f.uuid),
-        hasSessions: !!dbQueryOne('SELECT 1 FROM focus_sessions WHERE focus_uuid=?', [f.uuid]) }));
+      const data = focuses.map(f => {
+        const chapters = localFocusChapters(f.uuid);
+        return { f, chapters, progress: localFocusProgress(f.uuid), suggested: localFocusSuggested(f.uuid, chapters, PCT_GREEN), // FC15
+          hasSessions: !!dbQueryOne('SELECT 1 FROM focus_sessions WHERE focus_uuid=?', [f.uuid]) };
+      });
       const counts = { work: 0, ready: 0, promoted: 0 };
       for (const d of data) if (!d.f.archived) for (const c of d.chapters) counts[c.state]++;
       const saved = lsGet(FOCUS_FILTER_KEY);
@@ -6243,12 +6272,17 @@
       for (const d of data) pane.appendChild(renderFocusCard(d, filter, el, btn, pctChip));
       pane.scrollTop = scroll;
     }
-    function renderFocusCard({ f, chapters, progress, hasSessions }, filter, el, btn, pctChip) {
+    function renderFocusCard({ f, chapters, progress, suggested, hasSessions }, filter, el, btn, pctChip) {
       const open = focusExpanded.has(f.uuid);
       const card = el('div', null, null, 'col-item' + (open ? ' expanded' : ''));
       const head = el('div', null, null, 'col-name');
       head.appendChild(el('span', null, '▶', 'col-arrow'));
       head.appendChild(el('span', 'flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;', f.name + (f.archived ? ' (archivado)' : '')));
+      if (suggested.size) { // FC15
+        const sg = el('span', 'flex-shrink:0;font-family:var(--mono);font-size:10px;color:var(--gold);', `⭐ ${suggested.size}`);
+        sg.title = `${suggested.size} capítulo${suggested.size === 1 ? '' : 's'} En trabajo con las últimas 3 sesiones ≥ ${PCT_GREEN}%: candidato${suggested.size === 1 ? '' : 's'} a promocionar`;
+        head.appendChild(sg);
+      }
       head.appendChild(pctChip(localFocusWorkPct(chapters, progress).pct)); // FC9
       head.title = 'Acierto de los capítulos En trabajo (última sesión de cada uno)';
       head.addEventListener('click', () => { if (open) focusExpanded.delete(f.uuid); else focusExpanded.add(f.uuid); renderFocusTab(); });
@@ -6288,18 +6322,19 @@
         if (state === 'promoted') gh.addEventListener('click', e => { e.stopPropagation(); if (folded) focusPromotedOpen.add(f.uuid); else focusPromotedOpen.delete(f.uuid); renderFocusTab(); });
         body.appendChild(gh);
         if (folded) continue;
-        for (const c of rows) body.appendChild(renderFocusChapterRow(f, c, progress.byChapter[c.chapter_id], el, btn, pctChip));
+        for (const c of rows) body.appendChild(renderFocusChapterRow(f, c, progress.byChapter[c.chapter_id], suggested.has(c.chapter_id), el, btn, pctChip));
       }
       card.appendChild(body);
       return card;
     }
-    function renderFocusChapterRow(f, c, prog, el, btn, pctChip) {
+    function renderFocusChapterRow(f, c, prog, sugg, el, btn, pctChip) {
       const row = el('div', 'display:flex;align-items:center;gap:6px;padding:4px 0 4px 10px;font-family:var(--mono);font-size:10px;flex-wrap:wrap;');
       const name = el('span', 'flex:1;min-width:120px;color:var(--dim);');
       if (c.missing) { name.textContent = `⚠ Capítulo no encontrado (id ${c.chapter_id})`; name.style.color = 'var(--accent)'; name.title = 'Ya no existe (¿reimportado con otro id?). Sácalo del Focus.'; }
       else { name.textContent = `${c.collection_name || '—'} · ${c.chapter_name || '—'} `; name.appendChild(el('span', 'color:var(--dim2)', `${c.source} · ${c.problems}p`)); }
       row.appendChild(name);
       row.appendChild(pctChip(prog ? prog.pct : null));
+      if (sugg) { const sg = el('span', 'flex-shrink:0;', '⭐'); sg.title = `Últimas 3 sesiones ≥ ${PCT_GREEN}%: lista para promocionar`; row.appendChild(sg); } // FC15
       if (!f.archived) {
         if (c.missing) row.appendChild(btn('✕ Sacar', 'Quitar del Focus', () => { if (!focusAlertErr(localFocusRemoveChapter(f.uuid, c.chapter_id))) focusAfterChange(); }));
         else if (c.state === 'work') row.appendChild(btn('⬆ Promocionar', 'Listo para su Run (activa show para que entre en Review)', () => focusPromote(f, c)));
