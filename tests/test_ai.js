@@ -37,6 +37,11 @@ check('motores extra: etiqueta publicada por el servidor', f("aiLevelName('gnugo
 check('motores extra: sin etiqueta guardada -> "gnugo 10"; las de KataGo no cambian con etiquetas ajenas',
   f("aiLevelName('gnugo:10')") === 'gnugo 10' && f("aiLevelName('gnugo:10', {})") === 'gnugo 10' && f("aiLevelName('fuego:sims_3000', null)") === 'fuego sims_3000'
   && f("aiLevelName('katago:rank_15k', { 'gnugo:10': 'GNU Go 10' })") === '15k' && f("aiLevelName('toString', {})") === 'toString');
+check('motores extra: fuerza publicada por el servidor', f("aiLevelStrength('gnugo:10', { 'gnugo:10': '~7k' })") === '~7k');
+check('motores extra: sin fuerza -> null (mapa sin la clave, vacío, null, valor vacío o propiedad heredada)',
+  f("aiLevelStrength('fuego:sims_1000', { 'gnugo:10': '~7k' })") === null && f("aiLevelStrength('gnugo:10', {})") === null
+  && f("aiLevelStrength('gnugo:10', null)") === null && f("aiLevelStrength('gnugo:10', { 'gnugo:10': '' })") === null
+  && f("aiLevelStrength('toString', {})") === null);
 check('motores extra: qué niveles lo son', f("aiIsExtraLevel('gnugo:10')") && f("aiIsExtraLevel('fuego:sims_3000')")
   && !f("aiIsExtraLevel('katago:rank_15k')") && !f("aiIsExtraLevel('katago:max')") && !f("aiIsExtraLevel('rank_15k')")
   && !f("aiIsExtraLevel('')") && !f("aiIsExtraLevel(null)") && !f("aiIsExtraLevel('GnuGo:10')"));

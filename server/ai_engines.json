@@ -1,16 +1,18 @@
 {
-  "_comment": "Rivales extra para jugar contra la IA (ai_engines.py, load_gtp_drivers). Cada motor: un solo nivel; recuento y análisis siempre con KataGo. Se sube al VPS con _subir_servidor.bat; tras cambiarlo, reiniciar el servicio. Fuego lee sus simulaciones de fuego_tv.cfg (max_games): si cambian, cambiar tambien level y label. Calibrados el 25-nov-2026 contra KataGo humano: GNU Go 10 ~7k, Fuego 1000 ~5k, Pachi 4000 ~3k (docs/WORKPLAN_IA.md).",
+  "_comment": "Rivales extra para jugar contra la IA (ai_engines.py, load_gtp_drivers). Cada motor: un solo nivel; recuento y análisis siempre con KataGo. Se sube al VPS con _subir_servidor.bat; tras cambiarlo, reiniciar el servicio. Fuego lee sus simulaciones de fuego_tv.cfg (max_games): si cambian, cambiar tambien level, label y strength (fuerza aproximada que la app enseña en un tooltip). Calibrados el 25-nov-2026 contra KataGo humano: GNU Go 10 ~7k, Fuego 1000 ~5k, Pachi 4000 ~3k (docs/WORKPLAN_IA.md).",
   "engines": [
     {
       "name": "gnugo",
       "level": "10",
       "label": "GNU Go 10",
+      "strength": "~7k",
       "argv": ["/usr/games/gnugo", "--mode", "gtp", "--level", "10"]
     },
     {
       "name": "fuego",
       "level": "sims_1000",
       "label": "Fuego 1000",
+      "strength": "~5k",
       "argv": ["/opt/fuego/fuegomain/fuego", "--quiet", "--config", "/opt/tsumevault/fuego_tv.cfg"],
       "rules_cmd": "go_rules {rules}"
     },
@@ -18,6 +20,7 @@
       "name": "pachi",
       "level": "sims_4000",
       "label": "Pachi 4000",
+      "strength": "~3k",
       "argv": ["/opt/pachi/pachi", "-d", "0", "-t", "=4000"],
       "rules_cmd": "kgs-rules {rules}"
     }

@@ -278,6 +278,9 @@ class KataGoDriver:
     def labels(self):
         return {}   # las etiquetas de KataGo (15k, Máximo) las pone la app
 
+    def strengths(self):
+        return {}   # los niveles de KataGo ya son su fuerza
+
     def set_position(self, eng, pos):
         eng.must("boardsize 19")
         eng.must("clear_board")
@@ -326,22 +329,25 @@ class KataGoDriver:
 # jugadas. Recuento, estimación y análisis siguen siendo de KataGo. Formato:
 #   {"engines": [{"name": "gnugo", "level": "10", "label": "GNU Go 10",
 #                 "argv": ["/usr/games/gnugo", "--mode", "gtp", "--level", "10"],
-#                 "rules_cmd": "go_rules {rules}"}]}      <- opcional
+#                 "rules_cmd": "go_rules {rules}",      <- opcional
+#                 "strength": "~7k"}]}                   <- opcional
 # rules_cmd: comando GTP para fijar las reglas ({rules} = japanese|chinese); sin él,
-# el motor juega con sus reglas por defecto. Las claves que empiezan por "_" se
+# el motor juega con sus reglas por defecto. strength: fuerza aproximada en la escala
+# del KataGo humano (máx. 20 caracteres); la app la enseña en un tooltip. Las claves que empiezan por "_" se
 # ignoran (sirven de comentario). Un argv[0] relativo se busca junto al json o en el
 # PATH; un .py se lanza con el Python actual (motor falso de los tests).
 
 _GTP_NAME_RE = re.compile(r"^[a-z0-9]+$")
 _GTP_LEVEL_RE = re.compile(r"^[a-z0-9_]+$")
-_GTP_KEYS = {"name", "level", "label", "argv", "rules_cmd"}
+_GTP_KEYS = {"name", "level", "label", "argv", "rules_cmd", "strength"}
 
 
 class GtpDriver:
-    def __init__(self, name, level, label, argv, rules_cmd=None, base_dir=""):
+    def __init__(self, name, level, label, argv, rules_cmd=None, base_dir="", strength=None):
         self.name = name
         self.level = level
         self.label = label
+        self.strength = strength
         self.rules_cmd = rules_cmd
         exe = argv[0]
         if not os.path.isabs(exe) and os.path.isfile(os.path.join(base_dir, exe)):
@@ -363,6 +369,9 @@ class GtpDriver:
 
     def labels(self):
         return {f"{self.name}:{self.level}": self.label}
+
+    def strengths(self):
+        return {f"{self.name}:{self.level}": self.strength} if self.strength else {}
 
     def model_for(self, _level):
         return self.name
@@ -410,7 +419,7 @@ def load_gtp_drivers(path):
         else:
             it = {k: v for k, v in it.items() if not k.startswith("_")}
             name, level, label = it.get("name"), it.get("level"), it.get("label")
-            argv, rules_cmd = it.get("argv"), it.get("rules_cmd")
+            argv, rules_cmd, strength = it.get("argv"), it.get("rules_cmd"), it.get("strength")
             if set(it) - _GTP_KEYS:
                 err = "claves desconocidas: " + ", ".join(sorted(set(it) - _GTP_KEYS))
             elif not isinstance(name, str) or not _GTP_NAME_RE.match(name):
@@ -426,11 +435,14 @@ def load_gtp_drivers(path):
                 err = "argv no válido"
             elif rules_cmd is not None and (not isinstance(rules_cmd, str) or "{rules}" not in rules_cmd):
                 err = "rules_cmd debe contener {rules}"
+            elif strength is not None and (not isinstance(strength, str) or not strength.strip() or len(strength) > 20):
+                err = "strength no válido"
         if err:
             log.warning("[ai] %s: motor %d ignorado (%s)", path, n, err)
             continue
         seen.add(name)
-        out.append(GtpDriver(name, level, label.strip(), argv, rules_cmd, os.path.dirname(os.path.abspath(path))))
+        out.append(GtpDriver(name, level, label.strip(), argv, rules_cmd, os.path.dirname(os.path.abspath(path)),
+                             strength.strip() if strength is not None else None))
     return out
 
 
@@ -942,7 +954,7 @@ class AiService:
 
     def status(self, _qs=None):
         # Sin KataGo no hay recuento: entonces no se ofrece ningún rival.
-        out = {"available": self._available("katago"), "engines": {}, "levels": [], "labels": {}}
+        out = {"available": self._available("katago"), "engines": {}, "levels": [], "labels": {}, "strengths": {}}
         for name, d in self.drivers.items():
             reason = d.unavailable_reason()
             eng = self.engines.get(name)
@@ -951,6 +963,7 @@ class AiService:
             if reason is None and out["available"]:
                 out["levels"] += [f"{name}:{lv}" for lv in d.levels()]
                 out["labels"].update(d.labels())
+                out["strengths"].update(d.strengths())
         return out
 
     # ── motores ──

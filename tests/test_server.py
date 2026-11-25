@@ -1532,6 +1532,14 @@ _g = _ds[0]
 check("M: GtpDriver -> un nivel, etiqueta, modelo = nombre del motor, argv tal cual",
       _g.levels() == ["10"] and _g.labels() == {"gnugo:10": "GNU Go 10"} and _g.model_for("10") == "gnugo"
       and _g.argv() == ["/usr/games/gnugo", "--mode", "gtp"])
+_st = _load({"engines": [dict(_ok, strength=" ~7k "), dict(_ok, name="b1", strength=7), dict(_ok, name="b2", strength="  "),
+                         dict(_ok, name="b3", strength="x" * 21), dict(_ok, name="b4", strength="x" * 20)]})
+check("M: strength opcional -> recortado y publicado; no texto, vacío o > 20 caracteres -> motor ignorado",
+      [(d.name, d.strength) for d in _st] == [("gnugo", "~7k"), ("b4", "x" * 20)]
+      and _st[0].strengths() == {"gnugo:10": "~7k"}, f"{[(d.name, d.strength) for d in _st]}")
+check("M: sin strength -> no aparece en strengths()", _g.strength is None and _g.strengths() == {})
+check("M anti-vacío: las entradas con strength inválido cargan con uno válido",
+      [d.name for d in _load({"engines": [dict(_ok, name="b1", strength="~5k"), dict(_ok, name="b3", strength="~3k")]})] == ["b1", "b3"])
 check("M: ejecutable inexistente -> no disponible", _ae.GtpDriver("x", "1", "X", ["/no/existe/x"]).unavailable_reason() == "executable not found")
 check("M: ejecutable en el PATH o relativo al json -> disponible; .py con el Python actual",
       _ae.GtpDriver("x", "1", "X", ["python3"]).unavailable_reason() is None
@@ -1543,9 +1551,9 @@ EXTRA_JSON = os.path.join(TESTDIR, "extra_engines.json")
 import shutil as _sh; _sh.copy(FAKE, os.path.join(TESTDIR, "fake_gtp.py"))
 with open(EXTRA_JSON, "w", encoding="utf-8") as f:
     json.dump({"engines": [
-        {"name": "gnugo", "level": "10", "label": "GNU Go 10", "argv": [FAKE, "--mode", "gtp", "--level", "10"]},
+        {"name": "gnugo", "level": "10", "label": "GNU Go 10", "strength": "~7k", "argv": [FAKE, "--mode", "gtp", "--level", "10"]},
         {"name": "fuego", "level": "x", "label": "Fuego", "argv": ["fake_gtp.py"], "rules_cmd": "go_rules {rules}"},
-        {"name": "pachi", "level": "x", "label": "Pachi", "argv": ["/no/existe/pachi"]},
+        {"name": "pachi", "level": "x", "label": "Pachi", "strength": "~3k", "argv": ["/no/existe/pachi"]},
         {"name": "Roto", "level": "x", "label": "Roto", "argv": [FAKE]}]}, f)
 M_ENV = dict(AI_ENV, AI_ENGINES_JSON=EXTRA_JSON)
 if os.path.exists(GTP_LOG): os.remove(GTP_LOG)
@@ -1557,6 +1565,8 @@ try:
           st == 200 and body.get("available") is True and len(lv) == 32 and lv[29] == "katago:max"
           and lv[30:] == ["gnugo:10", "fuego:x"] and body.get("labels") == {"gnugo:10": "GNU Go 10", "fuego:x": "Fuego"},
           f"st={st} {body}")
+    check("M: status publica strengths solo de los motores disponibles que la tienen",
+          body.get("strengths") == {"gnugo:10": "~7k"}, f"{body.get('strengths')}")
     check("M: motor sin ejecutable -> no disponible y fuera de la lista; la entrada inválida ni aparece",
           en.get("pachi", {}).get("available") is False and en["pachi"].get("reason") == "executable not found"
           and "pachi:x" not in lv and "Roto" not in en and set(en) == {"katago", "gnugo", "fuego", "pachi"}, f"{en}")

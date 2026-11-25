@@ -8399,6 +8399,11 @@
       const m = /^rank_(\d+)([kd])$/.exec(lv);
       return m ? m[1] + m[2] : lv;
     }
+    // Fuerza aproximada de un motor extra que publica el servidor ({'gnugo:10': '~7k'}), o null.
+    function aiLevelStrength(level, strengths) {
+      const s = String(level || '');
+      return strengths && Object.prototype.hasOwnProperty.call(strengths, s) && strengths[s] ? String(strengths[s]) : null;
+    }
     // Motores rivales extra (GNU Go, Fuego…; ai_engines.json en el servidor): todo nivel
     // 'motor:nivel' que no sea de KataGo. Un solo nivel cada uno; no cuentan para superar niveles.
     function aiIsExtraLevel(level) {
@@ -8924,6 +8929,8 @@
     const AI_LABELS_KEY = 'ai_level_labels';
     let aiLabels = (() => { try { const o = JSON.parse(lsGet(AI_LABELS_KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } })();
     function aiLevelLabel(level) { return aiLevelName(level, aiLabels); }
+    const AI_STRENGTHS_KEY = 'ai_level_strengths';
+    let aiStrengths = (() => { try { const o = JSON.parse(lsGet(AI_STRENGTHS_KEY) || '{}'); return o && typeof o === 'object' ? o : {}; } catch (e) { return {}; } })();
     let aiPendingTap = null;  // doble toque (tapConfirm)
     let aiError = '';         // último error de red, se muestra con el botón Reintentar
     let aiBusyTok = null;     // dueño de aiBusy: una petición solo libera el ocupado que ella tomó
@@ -9540,6 +9547,10 @@
           aiLabels = Object.assign({}, aiLabels, aiStatusInfo.labels);
           lsSet(AI_LABELS_KEY, JSON.stringify(aiLabels));
         }
+        if (aiStatusInfo.strengths && typeof aiStatusInfo.strengths === 'object') {
+          aiStrengths = Object.assign({}, aiStrengths, aiStatusInfo.strengths);
+          lsSet(AI_STRENGTHS_KEY, JSON.stringify(aiStrengths));
+        }
       } catch (e) { aiStatusInfo = { available: false }; }
       if (aiActive && !(aiGame && aiGame.status !== 'done')) aiRenderPanel();
     }
@@ -9762,7 +9773,10 @@
       // Motores extra (GNU Go, Fuego…): una fila cada uno bajo las de KataGo; no cuentan para superar niveles
       aiExtraLevels(games, aiStatusInfo && aiStatusInfo.levels).forEach((lv, k) => {
         const tr = el('tr', k === 0 ? 'border-top:2px solid var(--border2);' : '');
-        tr.appendChild(el('td', `padding:${k === 0 ? 6 : 2}px 6px 2px;white-space:nowrap;color:var(--text);`, aiLevelLabel(lv)));
+        const name = el('td', `padding:${k === 0 ? 6 : 2}px 6px 2px;white-space:nowrap;color:var(--text);`, aiLevelLabel(lv));
+        const strength = aiLevelStrength(lv, aiStrengths);
+        if (strength) name.title = `≈ ${strength.replace(/^~/, '')} (escala del KataGo humano)`;
+        tr.appendChild(name);
         for (const h of hs) tr.appendChild(cellTd(lv, lv, aiLevelLabel(lv), h, false));
         tb.appendChild(tr);
       });
