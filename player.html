@@ -859,6 +859,24 @@ audio.addEventListener('seeked', () => renderDraw(audio.currentTime || 0));
 audio.addEventListener('pause',   () => { setStatus('PAUSED');  document.getElementById('btn-play').textContent='▶'; });
 audio.addEventListener('ended',   () => { setStatus('ENDED');   document.getElementById('btn-play').textContent='▶'; });
 
+// Pantalla encendida mientras la lección suena (igual que el reloj de Play). Al pausar,
+// terminar el clip o salir del reproductor se libera. El navegador la suelta solo al
+// pasar la página a segundo plano; al volver, si sigue sonando, se pide de nuevo.
+let wakeLock = null, wakeReq = false;
+function wakeSync() {
+  const want = !audio.paused && !audio.ended && document.visibilityState === 'visible';
+  if (want && !wakeLock && !wakeReq && navigator.wakeLock) {
+    wakeReq = true;
+    navigator.wakeLock.request('screen').then(l => {
+      wakeReq = false; wakeLock = l;
+      l.addEventListener('release', () => { if (wakeLock === l) wakeLock = null; });
+      wakeSync();   // por si se pausó mientras llegaba la respuesta
+    }).catch(() => { wakeReq = false; });
+  } else if (!want && wakeLock) { const l = wakeLock; wakeLock = null; l.release().catch(() => { }); }
+}
+for (const ev of ['playing', 'pause', 'ended']) audio.addEventListener(ev, wakeSync);
+document.addEventListener('visibilitychange', wakeSync);
+
 // Transport
 document.getElementById('btn-play').addEventListener('click', () => {
   if (audio.paused) audio.play(); else audio.pause();
