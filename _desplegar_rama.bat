@@ -24,9 +24,9 @@ git merge --ff-only origin/main || goto :error
 
 echo.
 echo Cambios de la rama %RAMA%:
-git diff --stat main origin/%RAMA% || goto :error
+git --no-pager diff --stat main origin/%RAMA% || goto :error
 set "CLIENTE="
-for /f %%F in ('git diff --name-only main origin/%RAMA% -- tsumevault.html sw.js') do set "CLIENTE=1"
+for /f %%F in ('git --no-pager diff --name-only main origin/%RAMA% -- tsumevault.html sw.js') do set "CLIENTE=1"
 
 echo.
 echo Fusionando %RAMA% en main...
