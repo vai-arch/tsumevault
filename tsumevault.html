@@ -8751,11 +8751,12 @@
     }
     function tcSgfOT(sys) { return `${sys.periods}x${sys.period} byo-yomi`; }
     // Propiedades SGF de una jugada mía: TT = segundos pensados (propiedad propia de TsumeVault,
-    // se mide también sin reloj); con reloj, BL/WL = tiempo restante (del periodo en byoyomi) y
-    // OB/OW = periodos restantes; OB[0] = me pasé del último periodo.
+    // se mide también sin reloj); TS[1] = me salté el tiempo mínimo de reflexión (propia también);
+    // con reloj, BL/WL = tiempo restante (del periodo en byoyomi) y OB/OW = periodos restantes;
+    // OB[0] = me pasé del último periodo.
     function tcMoveProps(color, rec) {
       const s1 = (ms) => String(Math.round(ms / 100) / 10);
-      let s = `TT[${s1(rec.t)}]`;
+      let s = `TT[${s1(rec.t)}]` + (rec.s ? 'TS[1]' : '');
       const a = rec.a;
       if (a) {
         if (a.phase === 'main') s += `${color}L[${s1(a.mainMs)}]`;
@@ -8765,22 +8766,24 @@
       return s;
     }
     // Resumen de tiempos de una partida guardada (histórico): media pensada por jugada mía, jugada
-    // en la que entré en byoyomi y en la que se me acabó el tiempo (null si no hay datos).
+    // en la que entré en byoyomi y en la que se me acabó el tiempo (null si no hay datos), y cuántas
+    // veces me salté el tiempo mínimo de reflexión (TS[1]).
     function tcSgfSummary(sgf, myColor) {
       const re = /;([BW])\[([a-s]{0,2})\]((?:[A-Z]+\[[^\]]*\])*)/g;
-      let m, n = 0, sum = 0, cnt = 0, byoMove = null, timeoutMove = null, hasClock = false;
+      let m, n = 0, sum = 0, cnt = 0, byoMove = null, timeoutMove = null, hasClock = false, skips = 0;
       while ((m = re.exec(String(sgf || '')))) {
         n++;
         if (m[1] !== myColor) continue;
         const prop = (k) => { const r = new RegExp('(?:^|\\])' + k + '\\[([^\\]]*)\\]').exec(m[3]); return r ? r[1] : null; };
         const tt = prop('TT'), ob = prop('O' + myColor);
         if (tt != null && Number.isFinite(parseFloat(tt))) { sum += parseFloat(tt); cnt++; }
+        if (prop('TS') === '1') skips++;
         if (prop(myColor + 'L') != null) hasClock = true;
         if (ob != null && byoMove == null) byoMove = n;
         if (ob === '0' && timeoutMove == null) timeoutMove = n;
       }
       const ot = /\bOT\[([^\]]*)\]/.exec(String(sgf || '')), tm = /\bTM\[([\d.]+)\]/.exec(String(sgf || ''));
-      return { avgMs: cnt ? Math.round(sum / cnt * 1000) : null, timed: cnt, byoMove, timeoutMove, clock: hasClock, ot: ot ? ot[1] : null, tm: tm ? parseFloat(tm[1]) : null };
+      return { avgMs: cnt ? Math.round(sum / cnt * 1000) : null, timed: cnt, byoMove, timeoutMove, clock: hasClock, ot: ot ? ot[1] : null, tm: tm ? parseFloat(tm[1]) : null, skips };
     }
     // RL4: texto del histórico a partir de tcSgfSummary: corto para la fila y largo para el título.
     // null si la partida no tiene tiempos (anteriores al reloj).
@@ -8795,6 +8798,7 @@
       }
       if (sm.byoMove != null) { short += ` · byo ${sm.byoMove}`; long += ` · entraste en byoyomi en la jugada ${sm.byoMove}`; }
       if (sm.timeoutMove != null) { short += ` · ⏰ ${sm.timeoutMove}`; long += ` · se te acabó el tiempo en la jugada ${sm.timeoutMove}`; }
+      if (sm.skips) { short += ` · ⏭ ${sm.skips}`; long += ` · te saltaste la espera ${sm.skips} ${sm.skips === 1 ? 'vez' : 'veces'}`; }
       return { short, long };
     }
     // RL3: qué decir y cómo vibrar en cada aviso del reloj. key = nombre de la grabación propia
@@ -8832,7 +8836,9 @@
       return { level, hc: 0, holder: 'me', color: last ? (last.my_color === 'B' ? 'W' : 'B') : 'B' };
     }
     // PA3: ms que faltan para poder jugar con un mínimo de minS segundos pensados (0 = ya se puede).
-    function aiThinkLeft(minS, spentMs) {
+    // skipped: la espera de este turno se saltó con doble toque (jugada obvia).
+    function aiThinkLeft(minS, spentMs, skipped) {
+      if (skipped) return 0;
       const m = Math.max(0, Math.round(+minS || 0)) * 1000;
       return Math.max(0, Math.ceil(m - (+spentMs || 0)));
     }
@@ -8930,7 +8936,7 @@
       const lk = aiThinkMs(g) > 0;   // PA3: cuenta atrás del mínimo y, al llegar a 0, Pasar vuelve a estar disponible
       if (lk || aiClk.thinkLock) {
         const was = aiClk.thinkLock; aiClk.thinkLock = lk; aiRenderStatus();
-        if (was && !lk) aiFlashGo(g);   // PB1: destello al poder jugar
+        if (was && !lk) { aiFlashGo(g); aiGoCue(); }   // PB1: destello (y vibración y tic) al poder jugar
       }
       else if (aiClockOn(g)) aiRenderHint();
     }
@@ -8996,16 +9002,16 @@
       } else if (!want && aiWake) { const l = aiWake; aiWake = null; l.release().catch(() => { }); }
     }
     // Empieza mi turno (aparece la jugada de la IA, o empiezo yo): el contador vuelve a 0.
-    function aiTurnStart(g) { g.turnSpent = 0; g.pending = null; aiClk.segStart = null; aiClk.lastE = 0; }
+    function aiTurnStart(g) { g.turnSpent = 0; g.pending = null; g.thinkSkip = false; aiClk.segStart = null; aiClk.lastE = 0; }
     // Jugada confirmada (con reloj, al pulsarlo): registra lo pensado y el reloj del turno siguiente.
     function aiCommit(vertex) {
       const g = aiGame, e = Math.round(aiTurnE(g));
       aiClk.segStart = null;
       if (!Array.isArray(g.tlog)) g.tlog = [];
       const on = aiClockOn(g);
-      g.tlog[g.moves.length] = { t: e, a: on ? tcAt(g.tc, g.clk, e) : null };
+      g.tlog[g.moves.length] = Object.assign({ t: e, a: on ? tcAt(g.tc, g.clk, e) : null }, g.thinkSkip ? { s: 1 } : {});
       if (on) g.clk = tcPress(g.tc, g.clk, e);
-      g.turnSpent = 0; g.pending = null;
+      g.turnSpent = 0; g.pending = null; g.thinkSkip = false;
       aiPlayMine(vertex);
     }
     function aiPress() {
@@ -9053,7 +9059,38 @@
     function aiMinThinkS() { const v = parseInt(lsGet(AI_THINK_KEY), 10); return v >= 0 && v <= 120 ? v : 10; }
     // PA3: en mi turno, mientras no haya pensado el mínimo no puedo poner piedra ni pasar. Lo pensado
     // es aiTurnE: arranca al aparecer la piedra de la IA y se para con la pausa, la estimación y la app oculta.
-    function aiThinkMs(g) { return g && g === aiGame && aiIsMyTurn() ? aiThinkLeft(aiMinThinkS(), aiTurnE(g)) : 0; }
+    function aiThinkMs(g) { return g && g === aiGame && aiIsMyTurn() ? aiThinkLeft(aiMinThinkS(), aiTurnE(g), g.thinkSkip) : 0; }
+    // Doble toque en la barra "⏳ piensa N s": jugada obvia, se salta la espera de este turno (sin aviso:
+    // ya lo sabe). Queda marcado en la jugada (TS[1]) y se cuenta en el histórico.
+    function aiSkipThink() {
+      const g = aiGame;
+      if (!g || !aiIsMyTurn() || g.thinkSkip || aiThinkMs(g) <= 0) return;
+      g.thinkSkip = true; aiClk.thinkLock = false;
+      aiSave(); aiRender();
+    }
+    // Aviso al terminar sola la espera: vibración corta y un "tic" generado (respeta sonido y volumen).
+    let aiTickCtx = null;
+    function aiTickPrime() {
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext; if (!Ctx) return null;
+        if (!aiTickCtx) aiTickCtx = new Ctx();
+        if (aiTickCtx.state === 'suspended') aiTickCtx.resume().catch(() => { });
+        return aiTickCtx;
+      } catch (e) { return null; }
+    }
+    function aiGoCue() {
+      try { if (navigator.vibrate) navigator.vibrate(40); } catch (e) { }
+      if (!soundEnabled || !(sfxVolume > 0)) return;
+      const c = aiTickPrime(); if (!c) return;
+      try {
+        const t = c.currentTime, o = c.createOscillator(), gn = c.createGain();
+        o.type = 'sine'; o.frequency.value = 1320;
+        gn.gain.setValueAtTime(0.0001, t);
+        gn.gain.exponentialRampToValueAtTime(0.3 * sfxVolume / 100, t + 0.005);
+        gn.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
+        o.connect(gn); gn.connect(c.destination); o.start(t); o.stop(t + 0.07);
+      } catch (e) { }
+    }
     // PB1: destello breve del borde del tablero con el color del jugador cuando ya puede jugar.
     function aiFlashGo(g) {
       const bw = document.getElementById('board-wrap'); if (!bw || !g) return;
@@ -9491,7 +9528,18 @@
       document.getElementById('ai-btn-est').addEventListener('click', aiEstimate);
       document.getElementById('ai-btn-retry').addEventListener('click', aiRetry);
       document.getElementById('ai-btn-pause').addEventListener('click', aiTogglePause);   // RL2
-      document.getElementById('board-hint').addEventListener('click', () => { if (aiActive) aiPress(); });
+      let aiHintTap = 0;   // doble toque en la barra durante la espera = saltarla (jugada obvia)
+      document.getElementById('board-hint').addEventListener('click', () => {
+        if (!aiActive) return;
+        aiTickPrime();   // algunos móviles solo dejan sonar después de un toque
+        if (aiThinkMs(aiGame) > 0) {
+          aiSpeechPrime();
+          const now = performance.now();
+          if (now - aiHintTap < 400) { aiHintTap = 0; aiSkipThink(); } else aiHintTap = now;
+          return;
+        }
+        aiPress();
+      });
       document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') aiClockAutoPause(); else if (aiActive && aiGame) aiRenderStatus(); });
     }
 

@@ -108,6 +108,18 @@ check('propiedades de jugada sin reloj: solo TT', ctx.tcMoveProps('B', { t: 1234
 check('propiedades en principal: BL', ctx.tcMoveProps('B', { t: 2000, a: at(S, st0, 2000) }) === 'TT[2]BL[58]');
 check('propiedades en byoyomi: WL del periodo y OW', ctx.tcMoveProps('W', { t: 64000, a: at(S, st0, 64000) }) === 'TT[64]WL[6]OW[3]');
 check('propiedades fuera de tiempo: OB[0]', ctx.tcMoveProps('B', { t: 95000, a: at(S, st0, 95000) }) === 'TT[95]BL[0]OB[0]');
+check('propiedades con la espera saltada: TS[1] tras TT, con y sin reloj',
+  ctx.tcMoveProps('B', { t: 1200, a: null, s: 1 }) === 'TT[1.2]TS[1]' && ctx.tcMoveProps('B', { t: 2000, a: at(S, st0, 2000), s: 1 }) === 'TT[2]TS[1]BL[58]');
+{
+  const sk = '(;GM[1];B[aa]TT[1.2]TS[1];W[bb]TT[3]TS[1];B[cc]TT[12];B[dd]TT[0.8]TS[1]BL[40])';
+  const smk = ctx.tcSgfSummary(sk, 'B');
+  check('resumen: cuenta solo mis saltos de espera (TS[1])', smk.skips === 2 && smk.timed === 3 && ctx.tcSgfSummary(sk, 'W').skips === 1);
+  const tk = ctx.tcHistoryText(smk), t1 = ctx.tcHistoryText(ctx.tcSgfSummary('(;GM[1];B[aa]TT[2]TS[1])', 'B'));
+  check('histórico: saltos en la fila y en el texto largo (vez/veces)',
+    / · ⏭ 2$/.test(tk.short) && / · te saltaste la espera 2 veces$/.test(tk.long) && / · te saltaste la espera 1 vez$/.test(t1.long));
+  const t0 = ctx.tcHistoryText(ctx.tcSgfSummary('(;GM[1];B[aa]TT[2];B[bb]TT[4])', 'B'));
+  check('histórico: sin saltos no aparece nada nuevo', ctx.tcSgfSummary('(;GM[1];B[aa]TT[2])', 'B').skips === 0 && !/⏭|saltaste/.test(t0.short + t0.long));
+}
 
 const g = f("aiNewGame({ level: 'katago:rank_15k', handicap: 0, myColor: 'B', rules: 'japanese' })");
 g.moves = [['B', 'D4'], ['W', 'Q16'], ['B', 'pass'], ['W', 'Q4'], ['B', 'C3']];

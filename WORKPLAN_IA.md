@@ -551,3 +551,20 @@ Requisitos (Notion, 23-nov): GNU Go primero; después Fuego y Pachi. Cada motor 
 - La cabecera +9 … −9 se repite al final de las filas de KataGo.
 - Retirados el título "Media de puntos por nivel y handicap…" y la nota del borde dorado. En "Igualadas por nivel", la columna Cerrado pasa a "✔ regla N", sin el número de partidas.
 - `test_ai.js` 103 → 107 (con mutantes).
+
+## Saltarse el tiempo mínimo de reflexión y aviso de fin de espera (25-nov-2026, rama `salto-espera`)
+- **Doble toque** (dos toques en menos de 400 ms) en la barra "⏳ piensa N s", con reloj o sin él: `aiSkipThink()` pone `g.thinkSkip` y la espera de ese turno pasa a 0. `aiThinkLeft(minS, spentMs, skipped)` (pura) devuelve 0 si `skipped`.
+  - `thinkSkip` se borra al empezar el turno (`aiTurnStart`) y al jugar (`aiCommit`).
+  - Un toque suelto en la barra sigue pulsando el reloj, como antes.
+- **Registro:** sin límite. La jugada lleva `s: 1` en `tlog`, que en el SGF es `TS[1]` (propiedad propia, junto a `TT`).
+  - `tcSgfSummary` devuelve `skips` (solo los míos).
+  - `tcHistoryText` añade "⏭ N" en la fila y "te saltaste la espera N vez/veces" en el texto largo.
+- **Aviso al terminar sola la espera:** `aiGoCue()` junto al destello del borde. Es una vibración de 40 ms (no existe en iPhone) y un "tic" de unos 60 ms a 1320 Hz generado con WebAudio, que respeta el sonido y el volumen de efectos.
+  - No avisa si la espera se saltó ni si el mínimo es 0.
+  - `aiTickPrime()` desbloquea el audio con un toque en la barra.
+- **Pruebas:** `test_ai.js` 107 → 108 y `test_clock.js` 76 → 80, con mutantes.
+- **Checklist manual en el móvil:**
+  - M-SE1: el doble toque durante la espera deja jugar al momento, y un toque suelto no.
+  - M-SE2: en la jugada siguiente vuelve la espera normal.
+  - M-SE3: al terminar sola la espera, vibra y suena el tic (con el sonido desactivado, solo vibra).
+  - M-SE4: en el histórico aparece "⏭ N" en la partida.

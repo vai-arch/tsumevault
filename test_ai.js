@@ -270,6 +270,8 @@ check('PA2 motor extra: igualada alterna color contra ese motor; handicap igual 
 check('PA3 falta tiempo: 10 s con 3,2 s pensados -> 6800 ms', f('aiThinkLeft(10, 3200)') === 6800);
 check('PA3 ya pensado o 0 = sin mínimo -> 0', f('aiThinkLeft(10, 10000)') === 0 && f('aiThinkLeft(10, 15000)') === 0 && f('aiThinkLeft(0, 0)') === 0);
 check('PA3 valores raros no bloquean de más', f('aiThinkLeft(null, 0)') === 0 && f('aiThinkLeft(-5, 0)') === 0 && f('aiThinkLeft(10, undefined)') === 10000);
+check('espera saltada con doble toque (jugada obvia) -> 0; sin salto, igual que antes',
+  f('aiThinkLeft(10, 3200, true)') === 0 && f('aiThinkLeft(10, 3200, false)') === 6800 && f('aiThinkLeft(10, 3200, undefined)') === 6800);
 
 // ── PA4: texto de la estimación del visor ──
 check('PA4 estimación desde negras (score_white −7 -> +7)', f("anEstText(-7, 'B', false)") === 'Estimación: ventaja negras +7');
