@@ -4,12 +4,15 @@ la IA (entre sus marcadores) a ai_bundle.js, para probarlo en Node con test_ai.j
 Aborta si no encuentra los marcadores: se prueba el código real, no una copia."""
 import io
 import re
+import os
+_HERE = os.path.dirname(os.path.abspath(__file__))   # tests/: el bundle queda aquí
+_ROOT = os.path.dirname(_HERE)                         # raíz del repo: tsumevault.html
 
-html = io.open("tsumevault.html", encoding="utf-8", newline="").read()
+html = io.open(os.path.join(_ROOT, "tsumevault.html"), encoding="utf-8", newline="").read()
 src = max(re.findall(r"<script>(.*?)</script>", html, re.S), key=len)
 a = src.find("// ── IA3: funciones puras")
 b = src.find("// ── fin IA3 funciones puras ──")
 if a < 0 or b < 0 or b < a:
     raise SystemExit("marcadores IA3 no encontrados")
-io.open("ai_bundle.js", "w", encoding="utf-8", newline="").write(src[a:b])
+io.open(os.path.join(_HERE, "ai_bundle.js"), "w", encoding="utf-8", newline="").write(src[a:b])
 print(f"ai_bundle: {b - a} chars")

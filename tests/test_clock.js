@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /* test_clock.js — RL1: funciones puras del reloj de entrenamiento (tc*, en el bloque de
  * funciones puras de tsumevault.html que extract_ai.py extrae a ai_bundle.js). Uso:
- *     python extract_ai.py && node test_clock.js
+ *     python tests/extract_ai.py && node tests/test_clock.js
  */
 'use strict';
 const fs = require('fs');
 const vm = require('node:vm');
 const ctx = {};
 vm.createContext(ctx);
-vm.runInContext(fs.readFileSync('ai_bundle.js', 'utf8'), ctx);
+vm.runInContext(fs.readFileSync(require('path').join(__dirname, 'ai_bundle.js'), 'utf8'), ctx);
 const fails = [];
 function check(name, cond, extra = '') { console.log((cond ? 'PASS ' : 'FAIL ') + name + (cond ? '' : '  ' + extra)); if (!cond) fails.push(name); }
 const J = JSON.stringify;

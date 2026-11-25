@@ -5,7 +5,7 @@ set HOST=root@46.225.97.185
 set SSH_OPTS=-o ServerAliveInterval=20 -o ServerAliveCountMax=12
 
 echo Subiendo Caddyfile a /opt/tsumevault/Caddyfile...
-scp %SSH_OPTS% "%~dp0Caddyfile" %HOST%:/opt/tsumevault/Caddyfile
+scp %SSH_OPTS% "%~dp0server\Caddyfile" %HOST%:/opt/tsumevault/Caddyfile
 if errorlevel 1 (
   echo.
   echo ERROR subiendo Caddyfile.

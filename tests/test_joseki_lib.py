@@ -19,7 +19,8 @@ import tempfile
 import unittest
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, HERE)
+TOOLS = os.path.join(os.path.dirname(HERE), "tools")   # joseki_lib.py, import_joseki.py
+sys.path.insert(0, TOOLS)
 
 from joseki_lib import compile_joseki, is_endpoint, serialize  # noqa: E402
 
@@ -302,7 +303,7 @@ class TestImporterCli(unittest.TestCase):
         shutil.rmtree(self.tmp)
 
     def cli(self, *extra):
-        p = subprocess.run([sys.executable, os.path.join(HERE, "import_joseki.py"), self.folder] + list(extra),
+        p = subprocess.run([sys.executable, os.path.join(TOOLS, "import_joseki.py"), self.folder] + list(extra),
                            capture_output=True, text=True, encoding="utf-8")
         return p.returncode, p.stdout
 
@@ -354,7 +355,7 @@ class TestImporterCli(unittest.TestCase):
         self.assertTrue(os.path.isfile(os.path.join(self.folder, "b.json")))
 
     def test_missing_folder(self):
-        p = subprocess.run([sys.executable, os.path.join(HERE, "import_joseki.py"),
+        p = subprocess.run([sys.executable, os.path.join(TOOLS, "import_joseki.py"),
                             os.path.join(self.tmp, "no-existe")], capture_output=True, text=True)
         self.assertEqual(p.returncode, 2)
 

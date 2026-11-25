@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /* test_ai.js — IA3: funciones puras de la partida contra la IA (ai_bundle.js,
  * extraído de tsumevault.html con extract_ai.py). Uso:
- *     python extract_ai.py && node test_ai.js
+ *     python tests/extract_ai.py && node tests/test_ai.js
  */
 'use strict';
 const fs = require('fs');
 const vm = require('node:vm');
 const ctx = {};
 vm.createContext(ctx);
-vm.runInContext(fs.readFileSync('ai_bundle.js', 'utf8'), ctx);
+vm.runInContext(fs.readFileSync(require('path').join(__dirname, 'ai_bundle.js'), 'utf8'), ctx);
 const fails = [];
 function check(name, cond, extra = '') { console.log((cond ? 'PASS ' : 'FAIL ') + name + (cond ? '' : '  ' + extra)); if (!cond) fails.push(name); }
 const J = JSON.stringify;

@@ -3,7 +3,10 @@
 probarla en Node contra un sql.js real. Mismo patrón que extract_tags.py.
 Uso: python3 extract_focus.py && node test_focus.js"""
 import io, re
-_html = io.open("tsumevault.html", encoding="utf-8", newline="").read()
+import os
+_HERE = os.path.dirname(os.path.abspath(__file__))   # tests/: el bundle queda aquí
+_ROOT = os.path.dirname(_HERE)                         # raíz del repo: tsumevault.html
+_html = io.open(os.path.join(_ROOT, "tsumevault.html"), encoding="utf-8", newline="").read()
 src = max(re.findall(r"<script>(.*?)</script>", _html, re.S), key=len)
 lines = src.split("\r\n")
 def find_line(startswith, from_line=0):
@@ -39,5 +42,5 @@ for m in ("function dbExec(", "function dbQuery(", "function dbQueryOne(", "func
           "function localFocusWorkPct(", "function localFocusTodayStatus("):
     grab(m)
 bundle = "\n\n".join(chunks)
-io.open("focus_bundle.js", "w", encoding="utf-8", newline="").write(bundle)
+io.open(os.path.join(_HERE, "focus_bundle.js"), "w", encoding="utf-8", newline="").write(bundle)
 print(f"focus_bundle: {len(bundle)} chars, {len(chunks)} bloques")

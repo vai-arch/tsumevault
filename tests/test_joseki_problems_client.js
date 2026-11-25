@@ -3,7 +3,7 @@
 // tsumevault.html que preparan un problema (parseSgfTree, getSetupStones,
 // getPlayerToMove, getMarkup).
 //
-//     python test_generate_joseki.py && node test_joseki_problems_client.js
+//     python tests/test_generate_joseki.py && node tests/test_joseki_problems_client.js
 //
 // Lee los SGF que deja test_generate_joseki.py en jp_test_out/.
 const fs = require('fs'), path = require('path'), vm = require('vm');
@@ -15,10 +15,10 @@ ctx.window = ctx; ctx.self = ctx;
 ctx.document = { createElement: () => ({ getContext: () => ({}), style: {} }), getElementsByTagName: () => [{ src: 'wgo/wgo.min.js' }], querySelector: () => null };
 ctx.navigator = { userAgent: 'node' };
 vm.createContext(ctx);
-for (const f of ['wgo.min.js', 'sgfparser.js', 'kifu.js']) vm.runInContext(fs.readFileSync(path.join(__dirname, 'wgo', f), 'utf8'), ctx, { filename: f });
+for (const f of ['wgo.min.js', 'sgfparser.js', 'kifu.js']) vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'wgo', f), 'utf8'), ctx, { filename: f });
 
 // funciones reales del cliente
-const html = fs.readFileSync(path.join(__dirname, 'tsumevault.html'), 'utf8');
+const html = fs.readFileSync(path.join(__dirname, '..', 'tsumevault.html'), 'utf8');
 function grab(sig) {
   const i = html.indexOf(sig); if (i < 0) throw new Error('no encontrado: ' + sig);
   let d = 0, j = html.indexOf('{', i);

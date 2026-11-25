@@ -5,5 +5,5 @@ if not defined SQLITE (
     pause
     exit /b 1
 )
-"%SQLITE%" tsumeVault.db "PRAGMA wal_checkpoint(TRUNCATE)"
+"%SQLITE%" "%~dp0server\tsumeVault.db" "PRAGMA wal_checkpoint(TRUNCATE)"
 pause

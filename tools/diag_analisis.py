@@ -5,7 +5,10 @@ Para cada partida reciente: cuántas posiciones de la gráfica hay en caché, cu
 (>= 5 pts) salen y cuáles tienen ya su análisis 🔍 guardado (con la clave actual y con la
 antigua, sin ordenar las piedras de handicap). No escribe nada."""
 import inspect, json, hashlib, os, re, sqlite3, sys
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_SRV = os.path.join(os.path.dirname(_HERE), "server")
+SERVER_DIR = _SRV if os.path.isdir(_SRV) else _HERE   # en el VPS se copia junto al servidor
+sys.path.insert(0, SERVER_DIR)
 import ai_engines as ae
 
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 3
@@ -20,7 +23,7 @@ def key(kind, pos, moves, params, sort_hc):
                       sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(blob.encode("utf-8")).hexdigest()
 
-con = sqlite3.connect("file:" + os.path.join(os.path.dirname(os.path.abspath(__file__)), "tsumeVault.db") + "?mode=ro", uri=True)
+con = sqlite3.connect("file:" + os.path.join(SERVER_DIR, "tsumeVault.db") + "?mode=ro", uri=True)
 def get(k):
     r = con.execute("SELECT result, created_at FROM ai_analysis_cache WHERE key=?", (k,)).fetchone()
     return (json.loads(r[0]), r[1]) if r else (None, None)

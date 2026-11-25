@@ -16,7 +16,7 @@ Uso:
     ... --apply                                                      (borra)
 
 Opciones:
-    --db PATH     Ruta de la BD (por defecto tsumeVault.db junto al script).
+    --db PATH     Ruta de la BD (por defecto server/tsumeVault.db).
     --apply       Ejecuta el borrado (hace copia de seguridad antes).
     --force       Continua aunque el servidor parezca estar en marcha.
     --port N      Puerto del servidor para la comprobacion (por defecto 3002).
@@ -41,6 +41,9 @@ import sqlite3
 import sys
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+# En el repo el servidor y su BD están en ../server; en el VPS va todo junto en /opt/tsumevault.
+_SRV = os.path.join(os.path.dirname(SCRIPT_DIR), "server")
+SERVER_DIR = _SRV if os.path.isdir(_SRV) else SCRIPT_DIR
 
 
 def die(msg, code=1):
@@ -205,8 +208,8 @@ def run_audit_summary(db_path):
     saved_argv = sys.argv
     try:
         sys.argv = [saved_argv[0]]  # el servidor interpreta argv[1] como puerto
-        if SCRIPT_DIR not in sys.path:
-            sys.path.insert(0, SCRIPT_DIR)
+        if SERVER_DIR not in sys.path:
+            sys.path.insert(0, SERVER_DIR)
         srv = importlib.import_module("tsumevault_server")
     except Exception as e:
         print(f"(auditoria omitida: no se pudo importar tsumevault_server.py: {e})")
@@ -234,7 +237,7 @@ def main():
     ap.add_argument("--collection")
     ap.add_argument("--chapter")
     ap.add_argument("--chapter-id", type=int)
-    ap.add_argument("--db", default=os.path.join(SCRIPT_DIR, "tsumeVault.db"))
+    ap.add_argument("--db", default=os.path.join(SERVER_DIR, "tsumeVault.db"))
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--port", type=int, default=3002)

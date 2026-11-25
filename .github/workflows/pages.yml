@@ -37,9 +37,12 @@ jobs:
       - name: Preparar el sitio (solo lo publicable)
         run: |
           # Lo mismo que ya excluia Jekyll (nombres que empiezan por "_" o ".")
-          # mas los ficheros de desarrollo. tsumeVault.db SI se publica: la app
-          # lo descarga como plan B cuando no hay BD local ni servidor.
+          # mas los ficheros de desarrollo. De server/ solo se publica
+          # tsumeVault.db: la app la descarga como plan B cuando no hay BD local
+          # ni servidor. tests/ y tools/ no se publican.
           rsync -a \
+            --include='/server/' --include='/server/tsumeVault.db' --exclude='/server/*' \
+            --exclude='/tests/' --exclude='/tools/' \
             --exclude='.*' \
             --exclude='_*' \
             --exclude='docs/' \
@@ -47,9 +50,6 @@ jobs:
             --exclude='*.py' --exclude='*.pyc' \
             --exclude='*.bat' --exclude='*.sh' \
             --exclude='*.md' --exclude='*.txt' --exclude='*.sql' \
-            --exclude='Caddyfile' --exclude='ai_engines.json' --exclude='fuego_tv.cfg' \
-            --exclude='harness.js' --exclude='test_*.js' --exclude='*_bundle.js' \
-            --exclude='tsumeVault.downloaded.db' \
             ./ "$RUNNER_TEMP/site/"
           echo "Ficheros publicados: $(find "$RUNNER_TEMP/site" -type f | wc -l)"
           du -sh "$RUNNER_TEMP/site"

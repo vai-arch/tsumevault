@@ -144,8 +144,8 @@ def main():
     )
     parser.add_argument(
         "--games-dir",
-        default=os.path.join(SCRIPT_DIR, "games"),
-        help="Carpeta 'games/' a escanear (por defecto: junto a este script)",
+        default=os.path.join(os.path.dirname(SCRIPT_DIR), "games"),
+        help="Carpeta 'games/' a escanear (por defecto: la de la raíz del repo)",
     )
     parser.add_argument(
         "--dry-run",

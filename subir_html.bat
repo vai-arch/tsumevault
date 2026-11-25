@@ -1,7 +1,7 @@
 @echo off
 
 echo Actualizando versión SW...
-python bump_version.py
+python "%~dp0tools\bump_version.py"
 
 echo subiendo HTML y sw.js
 git add -f tsumevault.html

@@ -17,8 +17,8 @@ borrarlos) y re-apuntarlos a NULL.
 Uso:
     python3 fix_orphan_attempts.py [ruta_db] [--dry-run]
 
-Sin argumentos, usa tsumeVault.db en el mismo directorio que este script
-(igual convención que tsumevault_server.py: DB_PATH = SCRIPT_DIR/tsumeVault.db).
+Sin argumentos, usa la tsumeVault.db de server/ (en el VPS, la que está junto al script,
+igual convención que tsumevault_server.py: DB_PATH = SCRIPT_DIR/tsumeVault.db).
 
 Seguro de ejecutar con el servidor corriendo: la base está en WAL mode
 (igual que db_connect() del servidor) y esto es una única transacción corta
@@ -30,7 +30,10 @@ import sqlite3
 import sys
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_DB_PATH = os.path.join(SCRIPT_DIR, "tsumeVault.db")
+# En el repo el servidor y su BD están en ../server; en el VPS va todo junto en /opt/tsumevault.
+_SRV = os.path.join(os.path.dirname(SCRIPT_DIR), "server")
+SERVER_DIR = _SRV if os.path.isdir(_SRV) else SCRIPT_DIR
+DEFAULT_DB_PATH = os.path.join(SERVER_DIR, "tsumeVault.db")
 
 ORPHAN_COUNT_SQL = """
 SELECT COUNT(*) FROM attempts a

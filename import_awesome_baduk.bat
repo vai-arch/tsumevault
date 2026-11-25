@@ -16,7 +16,7 @@ if errorlevel 1 (
   goto :error
 )
 
-python import_my_collections.py awesome_baduk --source awesome_baduk --sgf-prefix awesome_baduk --server https://tsumevault.duckdns.org
+python tools\import_my_collections.py awesome_baduk --source awesome_baduk --sgf-prefix awesome_baduk --server https://tsumevault.duckdns.org
 if errorlevel 1 (
   echo.
   echo El importador ha fallado o ha rechazado la carga. No se sube nada a GitHub.

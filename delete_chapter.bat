@@ -13,7 +13,7 @@ cd /d "%~dp0"
 echo.
 echo === DRY-RUN (no se modifica nada) ===
 echo.
-python delete_chapter.py --source "%SOURCE%" --collection "%COLLECTION%" --chapter "%CHAPTER%"
+python tools\delete_chapter.py --source "%SOURCE%" --collection "%COLLECTION%" --chapter "%CHAPTER%"
 if errorlevel 1 (
     echo.
     echo El dry-run ha fallado. No se ha borrado nada.
@@ -37,6 +37,6 @@ if errorlevel 2 (
 echo.
 echo === BORRADO REAL ===
 echo.
-python delete_chapter.py --source "%SOURCE%" --collection "%COLLECTION%" --chapter "%CHAPTER%" --apply
+python tools\delete_chapter.py --source "%SOURCE%" --collection "%COLLECTION%" --chapter "%CHAPTER%" --apply
 echo.
 pause

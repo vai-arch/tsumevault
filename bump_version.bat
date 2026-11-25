@@ -1,1 +1,1 @@
-python bump_version.py
+python "%~dp0tools\bump_version.py"

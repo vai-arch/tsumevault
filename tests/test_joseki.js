@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* J3: batería del modo aprender de josekis.
- *   python3 extract_joseki.py && node test_joseki.js
+ *   python3 tests/extract_joseki.py && node tests/test_joseki.js
  * Parte 1: funciones PURAS extraídas del cliente real (joseki_bundle.js) contra
  *          el JSON real de "4-4 Joseki" compilado por import_joseki.py
  *          (test_joseki_fixture.json, versión con las dos correcciones) y, para
@@ -11,6 +11,9 @@
  */
 'use strict';
 const fs = require('fs');
+const path = require('path');
+const T = (f) => path.join(__dirname, f);          // tests/: bundles y fixtures
+const R = (f) => path.join(__dirname, '..', f);    // raíz del repo: sw.js
 const vm = require('node:vm');
 
 const fails = [];
@@ -24,10 +27,10 @@ function check(name, cond, extra = '') {
 // ── Parte 1: funciones puras ──
 const ctx = {};
 vm.createContext(ctx);
-vm.runInContext(fs.readFileSync('joseki_bundle.js', 'utf8'), ctx);
+vm.runInContext(fs.readFileSync(T('joseki_bundle.js'), 'utf8'), ctx);
 const { jsXform, jsXformInv, jsMarkInfo, jsOptions, jsIsEndpoint, jsSignal, jsNamePath, jsGhostsVisible } = ctx;
-const J = JSON.parse(fs.readFileSync('test_joseki_fixture.json', 'utf8'));
-const JC = JSON.parse(fs.readFileSync('test_joseki_fixture_ctx.json', 'utf8'));   // J3.2
+const J = JSON.parse(fs.readFileSync(T('test_joseki_fixture.json'), 'utf8'));
+const JC = JSON.parse(fs.readFileSync(T('test_joseki_fixture_ctx.json'), 'utf8'));   // J3.2
 
 // navegación por coordenadas: walk(['pd','nc',...]) -> nodo (los pases implícitos
 // se recorren con 'pass', y los contextos con su token 'ctx-…')
@@ -181,7 +184,7 @@ check('J3.2 ruta de nombres: el nombre del contexto aparece', /SAN-SAN with O-Ke
       self: { addEventListener: (t, f) => { listeners[t] = f; }, skipWaiting: () => {}, clients: { claim: () => {} } },
     };
     vm.createContext(ctx2);
-    vm.runInContext(fs.readFileSync('sw.js', 'utf8'), ctx2);
+    vm.runInContext(fs.readFileSync(R('sw.js'), 'utf8'), ctx2);
     const go = async (url) => {
       let p = null;
       listeners.fetch({ request: { url }, respondWith: x => { p = x; } });
@@ -266,8 +269,8 @@ check('J3.2 ruta de nombres: el nombre del contexto aparece', /SAN-SAN with O-Ke
     const board = { objs: [], addObject(o) { this.objs.push(o); },
       element: { getBoundingClientRect: () => ({ left: 100, top: 50 }) }, left: 20, top: 20, fieldWidth: 20, fieldHeight: 20, pixelRatio: 1 };
     const lsStore = new Map();
-    const fixtureText = fs.readFileSync('test_joseki_fixture.json', 'utf8');
-    const fixtureCtxText = fs.readFileSync('test_joseki_fixture_ctx.json', 'utf8');   // J3.2
+    const fixtureText = fs.readFileSync(T('test_joseki_fixture.json'), 'utf8');
+    const fixtureCtxText = fs.readFileSync(T('test_joseki_fixture_ctx.json'), 'utf8');   // J3.2
     let uiOnline = true;
     const ui = {
       console, Object, JSON, String, Set, Map, encodeURIComponent,
@@ -286,7 +289,7 @@ check('J3.2 ruta de nombres: el nombre del contexto aparece', /SAN-SAN with O-Ke
       },
     };
     vm.createContext(ui);
-    vm.runInContext(fs.readFileSync('joseki_ui_bundle.js', 'utf8') + '\n;this.__api = { jsLoadManifest, jsOpenFile, jsBack, jsRestart, jsRotate, jsInitControls, jsRender, get stack() { return jsStack; }, get sym() { return jsSym; }, setActive(v) { jsActive = v; }, setWhatif(v) { jsShowWhatif = v; }, get showAll() { return jsShowAll; }, get whatif() { return jsShowWhatif; } };', ui);
+    vm.runInContext(fs.readFileSync(T('joseki_ui_bundle.js'), 'utf8') + '\n;this.__api = { jsLoadManifest, jsOpenFile, jsBack, jsRestart, jsRotate, jsInitControls, jsRender, get stack() { return jsStack; }, get sym() { return jsSym; }, setActive(v) { jsActive = v; }, setWhatif(v) { jsShowWhatif = v; }, get showAll() { return jsShowAll; }, get whatif() { return jsShowWhatif; } };', ui);
     const A = ui.__api;
     const hint = () => els['board-hint'].textContent;
     const ghosts = () => board.objs.filter(o => o.type === 'outline');

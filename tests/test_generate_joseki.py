@@ -15,6 +15,8 @@ import shutil
 import sys
 import tempfile
 
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))   # generate_joseki_problems, joseki_lib, sgf_lib
+
 import generate_joseki_problems as G
 from joseki_lib import compile_joseki
 from sgf_lib import parse_sgf, validate_problem

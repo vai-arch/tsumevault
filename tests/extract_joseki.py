@@ -8,7 +8,10 @@ extract_tags.py: si algo no se encuentra, aborta.
     python3 extract_joseki.py && node test_joseki.js
 """
 import io, re
-_html = io.open("tsumevault.html", encoding="utf-8", newline="").read()
+import os
+_HERE = os.path.dirname(os.path.abspath(__file__))   # tests/: el bundle queda aquí
+_ROOT = os.path.dirname(_HERE)                         # raíz del repo: tsumevault.html
+_html = io.open(os.path.join(_ROOT, "tsumevault.html"), encoding="utf-8", newline="").read()
 src = max(re.findall(r"<script>(.*?)</script>", _html, re.S), key=len)
 lines = src.split("\r\n")
 def find_line(startswith, from_line=0):
@@ -34,7 +37,7 @@ for m in ("function jsXform(", "function jsXformInv(", "function jsMarkInfo(", "
           "function jsIsEndpoint(", "function jsSignal(", "function jsNamePath(", "function jsGhostsVisible("):
     grab(m)
 bundle = "\n\n".join(chunks)
-io.open("joseki_bundle.js", "w", encoding="utf-8", newline="").write(bundle)
+io.open(os.path.join(_HERE, "joseki_bundle.js"), "w", encoding="utf-8", newline="").write(bundle)
 print(f"joseki_bundle: {len(bundle)} chars, {len(chunks)} bloques")
 
 # Bloque completo J3 (puras + UI) para la prueba de humo de UI con DOM/WGo
@@ -42,5 +45,5 @@ print(f"joseki_bundle: {len(bundle)} chars, {len(chunks)} bloques")
 i0 = find_line("// ══ J3: JOSEKIS")
 i1 = find_line("function switchTab(")
 ui = "\n".join(lines[i0:i1])
-io.open("joseki_ui_bundle.js", "w", encoding="utf-8", newline="").write(ui)
+io.open(os.path.join(_HERE, "joseki_ui_bundle.js"), "w", encoding="utf-8", newline="").write(ui)
 print(f"joseki_ui_bundle: {len(ui)} chars")

@@ -10,8 +10,8 @@ set "RDIR=/opt/tsumevault"
 set "SERVICE=tsumevault"
 call "%~dp0_sqlite_path.bat"
 if not defined SQLITE goto :no_sqlite
-set "LOCAL=%~dp0tsumeVault.db"
-set "ORIG=%~dp0tsumeVault.downloaded.db"
+set "LOCAL=%~dp0server\tsumeVault.db"
+set "ORIG=%~dp0server\tsumeVault.downloaded.db"
 set "T1=%TEMP%\tsv_subir_1.txt"
 set "T2=%TEMP%\tsv_subir_2.txt"
 
@@ -96,7 +96,7 @@ if errorlevel 1 goto :fail_start
 
 echo.
 echo Hecho. Copia previa en el servidor: %RDIR%/tsumeVault_pre_subida_%TS%.db
-echo Siguiente: subir los .sgf nuevos e importar ^(import_my_collections.py^).
+echo Siguiente: subir los .sgf nuevos e importar ^(tools\import_my_collections.py^).
 pause
 exit /b 0
 

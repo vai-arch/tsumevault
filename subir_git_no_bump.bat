@@ -11,9 +11,9 @@ echo Parando servidores...
 REM call _paraServidor.bat
 
 echo Cerrando WAL de SQLite...
-"%SQLITE%" tsumeVault.db "PRAGMA wal_checkpoint(TRUNCATE)"
+"%SQLITE%" "%~dp0server\tsumeVault.db" "PRAGMA wal_checkpoint(TRUNCATE)"
 
-del tsumeVault.db
+del "%~dp0server\tsumeVault.db"
 
 echo Bajando base de datos de Hetzner...
 
@@ -22,17 +22,17 @@ ssh root@46.225.97.185 "cd /opt/tsumevault && rm -f tsumevault_snapshot.db && sq
 echo ^^^ Debe haber impreso "ok". Si no, NO continues.
 pause
 echo Descargando...
-scp root@46.225.97.185:/opt/tsumevault/tsumevault_snapshot.db "%~dp0tsumeVault.db"
+scp root@46.225.97.185:/opt/tsumevault/tsumevault_snapshot.db "%~dp0server\tsumeVault.db"
 echo Verificando la copia local...
-"%SQLITE%" "%~dp0tsumeVault.db" "PRAGMA integrity_check;"
+"%SQLITE%" "%~dp0server\tsumeVault.db" "PRAGMA integrity_check;"
 echo ^^^ Debe imprimir "ok". Hecho.
 
 
 echo Actualizando versión SW...
-python bump_version.py
+python "%~dp0tools\bump_version.py"
 
 echo Añadiendo base de datos...
-git add -f tsumeVault.db
+git add -f server/tsumeVault.db
 
 echo Commit y push...
 git add -A && git commit -m "update" && git push

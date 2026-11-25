@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """LP1: pruebas de /sync/chapter_mostrar_by_name contra tsumevault_server.py.
 
-Uso:  python test_lp1.py   (necesita tsumevault_server.py y db_schema.sql al lado)
+Uso:  python test_lp1.py   (usa tsumevault_server.py y db_schema.sql de ../server)
 """
 import json, os, shutil, sqlite3, subprocess, sys, time, urllib.request, urllib.error
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+SERVER = os.path.join(os.path.dirname(HERE), "server")   # tsumevault_server.py y db_schema.sql
 TESTDIR = os.path.join(HERE, "t_lp1")
 DB = os.path.join(TESTDIR, "tsumeVault.db")
 PORT = 3478
@@ -42,9 +43,9 @@ def make_db():
     if os.path.isdir(TESTDIR):
         shutil.rmtree(TESTDIR)
     os.makedirs(TESTDIR)
-    shutil.copy(os.path.join(HERE, "tsumevault_server.py"), TESTDIR)
+    shutil.copy(os.path.join(SERVER, "tsumevault_server.py"), TESTDIR)
     con = sqlite3.connect(DB)
-    with open(os.path.join(HERE, "db_schema.sql"), encoding="utf-8", errors="replace") as f:
+    with open(os.path.join(SERVER, "db_schema.sql"), encoding="utf-8", errors="replace") as f:
         sql = f.read().replace("CREATE TABLE sqlite_sequence(name,seq);", "")
     con.executescript(sql)
     con.executescript("""

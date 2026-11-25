@@ -1,3 +1,3 @@
-python import_games.py
+python tools\import_games.py
 
 pause

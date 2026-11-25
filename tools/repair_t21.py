@@ -59,7 +59,9 @@ if not os.path.isfile(DB):
 LIMIT = None if VERBOSE else 20
 
 sys.argv = [sys.argv[0]]  # neutralizar antes del import (PORT = int(sys.argv[1]))
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_SRV = os.path.join(os.path.dirname(_HERE), "server")   # en el repo, ../server; en el VPS, junto al script
+sys.path.insert(0, _SRV if os.path.isdir(_SRV) else _HERE)
 from tsumevault_server import run_audit  # noqa: E402
 
 con = sqlite3.connect(DB)

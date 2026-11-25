@@ -8,6 +8,7 @@ ids (viejo) y uuids (nuevo), validaciones 400, migración de duplicados.
 import json, os, sqlite3, subprocess, sys, time, urllib.request, urllib.error, gzip
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+SERVER = os.path.join(os.path.dirname(HERE), "server")   # tsumevault_server.py, ai_engines.py, db_schema.sql
 TESTDIR = os.path.join(HERE, "t_run")
 DB = os.path.join(TESTDIR, "tsumeVault.db")
 PORT = 3477
@@ -46,11 +47,11 @@ def req(path, method="GET", body=None, headers=None, origin=None, token=None):
 
 def make_db():
     os.makedirs(TESTDIR, exist_ok=True)
-    import shutil; shutil.copy(os.path.join(HERE, "tsumevault_server.py"), TESTDIR)
-    shutil.copy(os.path.join(HERE, "ai_engines.py"), TESTDIR)  # IA1
+    import shutil; shutil.copy(os.path.join(SERVER, "tsumevault_server.py"), TESTDIR)
+    shutil.copy(os.path.join(SERVER, "ai_engines.py"), TESTDIR)  # IA1
     if os.path.exists(DB): os.remove(DB)
     con = sqlite3.connect(DB)
-    with open(os.path.join(HERE, "db_schema.sql"), encoding="utf-8", errors="replace") as f:
+    with open(os.path.join(SERVER, "db_schema.sql"), encoding="utf-8", errors="replace") as f:
         sql = f.read()
     # el dump trae sqlite_sequence; crearla vía tabla dummy autoincrement ya está en schema
     sql = sql.replace("CREATE TABLE sqlite_sequence(name,seq);", "")
@@ -1304,7 +1305,7 @@ finally:
 # ══ FASE I: AN4 — análisis automático en segundo plano y estado del servidor (ST1) ══
 import json as _json
 BG_ENV = dict(AI_ENV, KATAGO_BACKGROUND="1", FAKE_GTP_SEARCH_DELAY="0.25")
-_sh.copy(os.path.join(HERE, "ai_engines.py"), TESTDIR)   # la fase anterior lo quitó a propósito
+_sh.copy(os.path.join(SERVER, "ai_engines.py"), TESTDIR)   # la fase anterior lo quitó a propósito
 for f_ in (GTP_LOG, DIE):
     if os.path.exists(f_): os.remove(f_)
 
@@ -1428,7 +1429,7 @@ finally:
 
 # mecanismo de prioridad, en el propio proceso: el trabajador no toma el motor mientras haya
 # una petición interactiva esperando (protección extra además del reparto del candado)
-sys.path.insert(0, HERE)
+sys.path.insert(0, SERVER)
 import importlib, threading as _th2
 _ae = importlib.import_module("ai_engines")
 _svc = _ae.AiService(env={})

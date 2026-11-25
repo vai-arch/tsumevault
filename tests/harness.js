@@ -9,7 +9,7 @@ const vm = require('node:vm');
 const nodeCrypto = require('crypto');
 const initSqlJs = require('sql.js');
 
-const BUNDLE = fs.readFileSync('harness_bundle.js', 'utf8');
+const BUNDLE = fs.readFileSync(require('path').join(__dirname, 'harness_bundle.js'), 'utf8');
 const SERVER = process.env.TEST_SERVER || 'http://127.0.0.1:3488';
 const OFFLINE = 'http://127.0.0.1:9';   // puerto cerrado: simula sin conexión
 

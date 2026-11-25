@@ -2,7 +2,7 @@
 setlocal
 rem ============================================================
 rem  Baja una copia consistente de la BD de Hetzner.
-rem  Deja DOS ficheros junto a este .bat:
+rem  Deja DOS ficheros en server\ (junto al servidor local):
 rem    tsumeVault.downloaded.db  copia ORIGINAL (no la toques; la usa subir_BD_a_Hetzner.bat)
 rem    tsumeVault.db             copia de TRABAJO (la que usa el servidor local)
 rem ============================================================
@@ -10,8 +10,8 @@ set "HOST=root@46.225.97.185"
 set "RDIR=/opt/tsumevault"
 call "%~dp0_sqlite_path.bat"
 if not defined SQLITE goto :no_sqlite
-set "LOCAL=%~dp0tsumeVault.db"
-set "ORIG=%~dp0tsumeVault.downloaded.db"
+set "LOCAL=%~dp0server\tsumeVault.db"
+set "ORIG=%~dp0server\tsumeVault.downloaded.db"
 set "TMPF=%TEMP%\tsv_bajar.txt"
 
 rem --- Aviso si la BD local de trabajo tiene cambios que aun no se han subido ---
@@ -61,7 +61,7 @@ copy /y "%ORIG%" "%LOCAL%" >nul
 if errorlevel 1 goto :fail
 
 echo.
-echo Hecho. La copia de trabajo es tsumeVault.db; cuando acabes, subela con subir_BD_a_Hetzner.bat.
+echo Hecho. La copia de trabajo es server\tsumeVault.db; cuando acabes, subela con subir_BD_a_Hetzner.bat.
 echo NO abras la app en ningun dispositivo hasta terminar todo el proceso.
 pause
 exit /b 0
