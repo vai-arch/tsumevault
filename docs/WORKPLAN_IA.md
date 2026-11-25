@@ -542,7 +542,16 @@ Requisitos (Notion, 23-nov): GNU Go primero; después Fuego y Pachi. Cada motor 
     - `fuego_tv.cfg` va en git, se sube con `_subir_servidor.bat` y está forzado a LF en `.gitattributes`. Fija 5000 simulaciones (`max_games`), ignora el reloj, usa 2 hilos y limita el árbol a 500.000 nodos (sin el límite reserva 1 GB).
     - Unos 3,5 s por jugada fuera del libro y unos 325 MB.
     - Sigue su libro de aperturas mientras se pueda, así que esas jugadas salen al instante y siempre iguales.
-  - Pendiente: calibrar los dos con gomill contra GNU Go 10 y ajustar las simulaciones. Si cambian, cambiar también `level` y `label`, para que salgan en otra fila de las estadísticas.
+  - **Calibración** (24–25-nov, gomill en el portátil, todos los motores en el VPS por ssh; reglas chinas, komi 7,5; KataGo humano `tv_human.cfg` sin abandonar).
+    - Contra GNU Go 10: Fuego 5000 gana 4–0 y Pachi 20000 gana 3–0. GNU Go 10 ≈ KataGo 7k (torneo del 14-nov).
+    - Fuego contra KataGo 6k: 1500 gana 5–0, 500 pierde 2–4, 150 y 50 pierden 0–6.
+    - Fuego contra KataGo 5k: 5000 gana 6–0, 2000 gana 7–1 y **1000 empata 4–4**.
+    - Pachi contra KataGo 4k: 10000 gana 4–1, 5000 gana 6–0, **2000 empata 3–3** y 700 pierde 1–5.
+    - Pachi contra KataGo 3k: 20000 gana 4–2, 14000 gana 7–1, 7000 gana 6–2 y **4000 pierde 4–6**.
+    - La fuerza baja muy despacio al quitar simulaciones (pesa el conocimiento previo: patrones y features) hasta cifras bajas, donde se desploma.
+    - Ojo: es fuerza contra el modelo humano de KataGo, que comete errores humanos que estos motores aprovechan bien.
+  - **Escalera elegida por Victor:** GNU Go 10 ≈ 7k, **Fuego 1000 ≈ 5k** y **Pachi 4000 ≈ 3k**. Cada cambio de simulaciones cambia `level` y `label`, así que sale como fila nueva en las estadísticas.
+  - Incidencia: con reglas chinas, Fuego rechazó una vez una jugada de KataGo por superko posicional (jugada 316). Con las reglas japonesas por defecto no aplica.
 - Orden en el selector y en la rejilla (el del json): GNU Go, Fuego, Pachi, de más débil a más fuerte según lo esperado.
 
 ## Estadísticas: filas ocultas y retoques (24-nov-2026, rama `stats-filas`)
