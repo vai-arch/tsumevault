@@ -9702,7 +9702,7 @@
         lt.appendChild(h2);
         for (const r of ladder) {
           const tr = el('tr', r.i === t ? 'background:rgba(212,168,74,.08);' : '');
-          for (const v of [lbl(r.i), r.n, r.wins, r.winrate + '%', r.avg, r.closed ? `✔ regla ${r.closed.rule + 1}` : '—'])
+          for (const v of [lbl(r.i), r.n, r.wins, r.winrate + '%', r.avg, r.closed ? '✔' : '—'])
             tr.appendChild(el('td', `padding:3px 8px;text-align:right;color:${r.closed ? 'var(--ok-bright)' : 'var(--text)'};`, v));
           lt.appendChild(tr);
         }
