@@ -8404,6 +8404,7 @@
       const s = String(level || '');
       return strengths && Object.prototype.hasOwnProperty.call(strengths, s) && strengths[s] ? String(strengths[s]) : null;
     }
+    function aiStrengthText(strength) { return strength ? '≈ ' + String(strength).replace(/^~\s*/, '') : ''; }   // '~7k' -> '≈ 7k'
     // Motores rivales extra (GNU Go, Fuego…; ai_engines.json en el servidor): todo nivel
     // 'motor:nivel' que no sea de KataGo. Un solo nivel cada uno; no cuentan para superar niveles.
     function aiIsExtraLevel(level) {
@@ -9553,6 +9554,8 @@
         }
       } catch (e) { aiStatusInfo = { available: false }; }
       if (aiActive && !(aiGame && aiGame.status !== 'done')) aiRenderPanel();
+      const so = document.getElementById('ai-stats-overlay');   // estadísticas abiertas antes de llegar el estado: repintar
+      if (so && so.style.display === 'flex') renderAiStats();
     }
     function aiEnterTab() {
       aiGame = aiLoad();
@@ -9640,7 +9643,10 @@
       switchTab('play');
       aiStartGame({ level: p.level, hc: p.hc, holder: p.holder, color: p.color, rules: pr.rules, tc: aiClockPrefs() });
     }
-    function openAiStats() { document.getElementById('ai-stats-overlay').style.display = 'flex'; renderAiStats(); aiStatsFetchStatus(); }
+    function openAiStats() {
+      document.getElementById('ai-stats-overlay').style.display = 'flex'; renderAiStats(); aiStatsFetchStatus();
+      if (!aiStatusInfo || !Object.keys(aiStrengths).length) aiRefreshStatus();   // sin fuerzas guardadas: pedirlas (repinta al llegar)
+    }
     function closeAiStats() { const o = document.getElementById('ai-stats-overlay'); if (o) o.style.display = 'none'; if (aiAnSt.timer) { clearTimeout(aiAnSt.timer); aiAnSt.timer = null; } }
     // PA6: ✓ / ⏳ en el histórico (estado del análisis automático en el servidor). Una petición con
     // las partidas de la lista; mientras quede alguna en cola o calculándose, otra cada 10 s. Sin
@@ -9775,7 +9781,13 @@
         const tr = el('tr', k === 0 ? 'border-top:2px solid var(--border2);' : '');
         const name = el('td', `padding:${k === 0 ? 6 : 2}px 6px 2px;white-space:nowrap;color:var(--text);`, aiLevelLabel(lv));
         const strength = aiLevelStrength(lv, aiStrengths);
-        if (strength) name.title = `≈ ${strength.replace(/^~/, '')} (escala del KataGo humano)`;
+        if (strength) {   // tooltip (ratón / S Pen) y, al tocar, la fuerza en pequeño junto al nombre
+          name.title = `${aiStrengthText(strength)} (escala del KataGo humano)`;
+          name.style.cursor = 'pointer';
+          const sp = el('span', 'display:none;margin-left:6px;font-size:10px;color:var(--dim);', aiStrengthText(strength));
+          name.appendChild(sp);
+          name.addEventListener('click', () => { sp.style.display = sp.style.display === 'none' ? '' : 'none'; });
+        }
         tr.appendChild(name);
         for (const h of hs) tr.appendChild(cellTd(lv, lv, aiLevelLabel(lv), h, false));
         tb.appendChild(tr);

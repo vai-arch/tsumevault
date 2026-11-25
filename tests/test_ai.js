@@ -42,6 +42,8 @@ check('motores extra: sin fuerza -> null (mapa sin la clave, vacío, null, valor
   f("aiLevelStrength('fuego:sims_1000', { 'gnugo:10': '~7k' })") === null && f("aiLevelStrength('gnugo:10', {})") === null
   && f("aiLevelStrength('gnugo:10', null)") === null && f("aiLevelStrength('gnugo:10', { 'gnugo:10': '' })") === null
   && f("aiLevelStrength('toString', {})") === null);
+check('motores extra: texto de la fuerza', f("aiStrengthText('~7k')") === '≈ 7k' && f("aiStrengthText('~ 5k')") === '≈ 5k'
+  && f("aiStrengthText('3k')") === '≈ 3k' && f("aiStrengthText(null)") === '' && f("aiStrengthText('')") === '');
 check('motores extra: qué niveles lo son', f("aiIsExtraLevel('gnugo:10')") && f("aiIsExtraLevel('fuego:sims_3000')")
   && !f("aiIsExtraLevel('katago:rank_15k')") && !f("aiIsExtraLevel('katago:max')") && !f("aiIsExtraLevel('rank_15k')")
   && !f("aiIsExtraLevel('')") && !f("aiIsExtraLevel(null)") && !f("aiIsExtraLevel('GnuGo:10')"));
