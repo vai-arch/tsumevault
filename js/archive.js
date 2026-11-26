@@ -117,6 +117,24 @@ function arCrumb(tree, st) {
   return { parts, total };
 }
 
+// ficha del torneo (datos de kifumaster): null si no hay torneo elegido; con edición elegida añade su línea
+function arTournamentCard(tree, st) {
+  const { t, e } = arFind(tree, st);
+  if (!t) return null;
+  const fmt = n => Number(n || 0).toLocaleString('en-US');
+  const games = n => `${fmt(n)} game${n === 1 ? '' : 's'}`;
+  const nEd = (t.editions || []).length;
+  const facts = [t.years || '', `${games(t.games)} · ${fmt(t.sgf)} with SGF`, `${nEd} edition${nEd === 1 ? '' : 's'}`].filter(Boolean);
+  let edition = null;
+  if (e) {
+    const span = [e.from, e.to].filter(Boolean);
+    const dates = span.length === 2 && span[0] !== span[1] ? `${span[0]} – ${span[1]}` : (span[0] || '');
+    edition = [`${e.label || e.slug}: ${games(e.games)} · ${fmt(e.sgf)} with SGF`, dates].filter(Boolean).join(' · ');
+  }
+  const history = (Array.isArray(t.history) ? t.history : []).filter(x => typeof x === 'string' && x.trim());
+  return { title: t.name, local: t.local && t.local !== t.name ? t.local : '', facts, edition, history };
+}
+
 // texto de una fila de la lista; global = búsqueda por todo el archivo (se añade torneo y edición)
 function arRowParts(g, ctx) {
   const extra = [];
@@ -132,7 +150,7 @@ function arCountText(shown, total, filtered) {
 }
 
 // ══ Página ══
-let arTree = null, arState = arEmptyState(), arOpen = {}, arGames = [], arTotal = 0, arSeq = 0, arSelected = null;
+let arTree = null, arState = arEmptyState(), arOpen = {}, arGames = [], arTotal = 0, arSeq = 0, arSelected = null, arInfoVisible = false;
 
 function arLoadState() {
   try { arState = arSanitizeState(JSON.parse(lsGet(AR_STATE_KEY) || 'null')); } catch (e) { arState = arEmptyState(); }
@@ -235,6 +253,47 @@ function arSelect(sel) {
   arSaveState();
   arRenderTree();
   arReloadList();
+  if (!gmActive || arInfoVisible) arShowInfo(false);   // sin partida abierta, la ficha ocupa el sitio del tablero
+}
+
+// muestra la ficha del torneo elegido en #main (en móvil, jump=true pasa a esa pantalla); sin torneo, la quita
+function arShowInfo(jump) {
+  const card = arTree ? arTournamentCard(arTree, arState) : null;
+  if (!card) { arHideInfo(); return false; }
+  const box = document.getElementById('t-info');
+  box.innerHTML = '';
+  if (gmActive) {
+    const back = arEl('button', 'ctrl-btn back', '← Back to the game');
+    back.onclick = () => arHideInfo();
+    box.appendChild(back);
+  }
+  box.appendChild(arEl('h2', '', card.title));
+  if (card.local) box.appendChild(arEl('div', 'loc', card.local));
+  box.appendChild(arEl('div', 'facts', card.facts.join(' · ')));
+  if (card.edition) box.appendChild(arEl('div', 'facts ed', card.edition));
+  if (card.history.length) for (const para of card.history) box.appendChild(arEl('p', '', para));
+  else box.appendChild(arEl('p', 'none', 'No description on kifumaster.'));
+  if (typeof gmStopTimer === 'function') gmStopTimer();
+  for (const id of ['welcome', 'board-wrap', 'gm-controls', 'comment-box']) document.getElementById(id).style.display = 'none';
+  box.style.display = 'block';
+  box.scrollTop = 0;
+  arInfoVisible = true;
+  if (jump) switchToBoard();
+  return true;
+}
+
+// quita la ficha: vuelve la partida abierta o, si no hay, el "Select a game"
+function arHideInfo() {
+  document.getElementById('t-info').style.display = 'none';
+  const was = arInfoVisible;
+  arInfoVisible = false;
+  if (gmActive) {
+    if (was) {
+      document.getElementById('gm-controls').style.display = 'flex';
+      document.getElementById('comment-box').style.display = 'block';
+      initBoard(boardSize); gmRenderCurrentNode();   // vuelve a mostrar #board-wrap con el tamaño actual
+    }
+  } else document.getElementById('welcome').style.display = '';
 }
 
 function arRenderCrumb() {
@@ -246,6 +305,10 @@ function arRenderCrumb() {
     const x = arEl('span', 'x', '✕');
     x.title = 'Search the whole archive';
     x.onclick = () => arSelect({ t: null, e: null, s: null, ph: null });
+    const i = arEl('span', 'i', 'ⓘ');
+    i.title = 'About this tournament';
+    i.onclick = () => arShowInfo(true);
+    box.appendChild(i);
     box.appendChild(x);
   } else box.appendChild(arEl('span', '', 'Whole archive'));
   const n = arEl('span', 'n', arCountText(arTotal, total, arHasFilters(arState)));
@@ -317,6 +380,8 @@ async function arOpenGame(g, row) {
     arSelected = g.id;
     document.querySelectorAll('.g-row.sel').forEach(r => r.classList.remove('sel'));
     if (row) row.classList.add('sel');
+    document.getElementById('t-info').style.display = 'none';
+    arInfoVisible = false;
     await gmOpenGame({ name: `${g.black || '?'} – ${g.white || '?'}`, sgf: data.sgf });
     document.getElementById('gm-controls').style.display = 'flex';   // en tsumevault.html lo hace switchTab('games')
     document.getElementById('comment-box').style.display = 'block';
@@ -419,9 +484,9 @@ function arInit() {
   let rt = null;
   window.addEventListener('resize', () => {
     clearTimeout(rt);
-    rt = setTimeout(() => { if (gmActive && wgoBoard) { initBoard(boardSize); gmRenderCurrentNode(); } }, 200);
+    rt = setTimeout(() => { if (gmActive && wgoBoard && !arInfoVisible) { initBoard(boardSize); gmRenderCurrentNode(); } }, 200);
   });
-  arLoadTree().then(arReloadList);
+  arLoadTree().then(() => { arReloadList(); arShowInfo(false); });
   // sin conexión: el service worker de TsumeVault (ámbito /tsumevault/) ya sirve esta página; solo se registra
   // aquí si aún no hay ninguno, con la misma URL que usa tsumevault.html, para no pelearse con el suyo
   if ('serviceWorker' in navigator) {

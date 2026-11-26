@@ -74,5 +74,18 @@ check('tooltip: evento, fase, resultado largo, id y aviso si no está descargada
 check('fila con datos que faltan', eq(R(`(({ date, players, result }) => [date, players, result])(arRowParts({}, { global: true, phaseChosen: false }))`), ['—', '? – ?', '']));
 check('recuento: "12 of 85" con filtro; "85 games" sin filtro o sin total', R('arCountText(12, 85, true)') === '12 of 85' && R('arCountText(85, 85, false)') === '85 games' && R('arCountText(1, null, true)') === '1 game');
 
+// ficha del torneo
+ctx.TREE.tournaments[2].years = '1976-2026';
+ctx.TREE.tournaments[2].history = ['The Meijin is one of the big three.', '  ', 7, 'Second paragraph.'];
+ctx.TREE.tournaments[2].editions[0].from = '2025-09-01'; ctx.TREE.tournaments[2].editions[0].to = '2026-10-20';
+const card = R(`arTournamentCard(TREE, ${JSON.stringify(S({ t: 'meijin' }))})`);
+check('ficha: nombre, nombre local, años, partidas con SGF y ediciones', eq(card, { title: 'Meijin', local: '名人戦',
+  facts: ['1976-2026', '6 games · 1 with SGF', '1 edition'], edition: null, history: ['The Meijin is one of the big three.', 'Second paragraph.'] }), JSON.stringify(card));
+check('ficha: con edición elegida añade su línea con fechas', R(`arTournamentCard(TREE, ${JSON.stringify(S({ t: 'meijin', e: 3, s: 7 }))}).edition`) === '52nd: 6 games · 1 with SGF · 2025-09-01 – 2026-10-20');
+const bare = R(`arTournamentCard(TREE, ${JSON.stringify(S({ t: 'samsung-cup' }))})`);
+check('ficha: sin historia ni años; miles con separador', eq(bare.facts, ['2,407 games · 0 with SGF', '0 editions']) && eq(bare.history, []) && bare.local === '삼성화재배', JSON.stringify(bare));
+check('ficha: sin torneo (o que ya no existe) no hay ficha', R('arTournamentCard(TREE, arEmptyState())') === null && R(`arTournamentCard(TREE, ${JSON.stringify(S({ t: 'nada' }))})`) === null);
+check('ficha: nombre local igual al nombre no se repite', R(`arTournamentCard({ tournaments: [{ slug: 'x', name: 'X', local: 'X', games: 1, sgf: 0, editions: [] }] }, ${JSON.stringify(S({ t: 'x' }))}).local`) === '');
+
 console.log(`\n${N - FAILS}/${N} PASS`);
 process.exit(FAILS ? 1 : 0);

@@ -62,6 +62,7 @@
     #crumb { font-family: var(--mono); font-size: 10px; color: var(--gold); padding: 5px 8px 0; display: flex; gap: 6px; align-items: center; min-height: 20px; }
     #crumb .x { color: var(--dim); cursor: pointer; } #crumb .x:hover { color: var(--accent); }
     #crumb .n { margin-left: auto; color: var(--dim); }
+    #crumb .i { color: var(--gold-dim); cursor: pointer; font-size: 12px; line-height: 1; } #crumb .i:hover { color: var(--gold); }
 
     /* lista */
     #list { flex: 1; overflow-y: auto; font-family: var(--mono); font-size: 11px; padding: 4px 0 10px; }
@@ -91,6 +92,15 @@
                    border-top: 1px solid var(--border); font-family: var(--serif); font-size: 12px; line-height: 1.6; color: var(--text); text-align: center;
                    display: block; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--border2) transparent; }
     #welcome { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; color: var(--dim); pointer-events: none; }
+    /* ficha del torneo: ocupa el sitio del tablero mientras no hay partida abierta (o al pulsar ⓘ) */
+    #t-info { width: 100%; max-width: 640px; padding: 18px 26px 28px; color: var(--text); }
+    #t-info h2 { font-family: var(--serif); font-weight: normal; font-size: 22px; color: var(--gold); margin: 0; }
+    #t-info .loc { font-family: var(--serif); font-size: 14px; color: var(--dim); margin-top: 2px; }
+    #t-info .facts { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--dim); margin-top: 10px; }
+    #t-info .facts.ed { color: var(--gold-dim); margin-top: 4px; }
+    #t-info p { font-family: var(--serif); font-size: 13px; line-height: 1.7; margin: 14px 0 0; }
+    #t-info p.none { color: var(--dim); font-style: italic; }
+    #t-info .back { margin-bottom: 12px; }
     #welcome .kanji { font-size: 56px; opacity: .12; line-height: 1; }
     #welcome p { font-family: var(--mono); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; }
     .ctrl-btn { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; padding: 4px 14px; background: transparent; border: 1px solid var(--border2);
@@ -159,6 +169,7 @@
 
     <div id="main">
       <div id="welcome"><div class="kanji">棋譜</div><p>Select a game</p></div>
+      <div id="t-info" style="display:none"></div>
       <div id="board-wrap" style="display:none">
         <div id="board"></div>
         <div id="board-hint">—</div>
