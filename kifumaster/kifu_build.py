@@ -450,11 +450,13 @@ def write_lists(con):
             f.writelines(f"{gid}\n" for gid, _ in rows)
         with open(os.path.join(d, "games_pendientes.txt"), "w", encoding="utf-8", newline="\n") as f:
             f.writelines(f"{gid}\n" for gid, has in rows if not has)
-    for d, _, files in os.walk(LISTS):
+    for d, _, files in os.walk(LISTS, topdown=False):
         if os.path.normcase(os.path.abspath(d)) not in current:
             for n in ("games.txt", "games_pendientes.txt"):
                 if n in files:
                     os.remove(os.path.join(d, n))
+            if d != LISTS and not os.listdir(d):
+                os.rmdir(d)                            # solo carpetas que se han quedado vacías (sin SGF)
 
 
 if __name__ == "__main__":

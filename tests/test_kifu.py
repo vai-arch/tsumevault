@@ -186,6 +186,9 @@ try:
     os.makedirs(os.path.join(DATA, "lists", "viejo", "1"))
     open(os.path.join(DATA, "lists", "viejo", "1", "games.txt"), "w").write("x\n")
     open(os.path.join(DATA, "lists", "viejo", "1", "f" * 32 + ".sgf"), "w").write("(;GM[1])")
+    os.makedirs(os.path.join(DATA, "lists", "otros-viejo", "3"))           # carpeta de un build anterior, solo con listas
+    open(os.path.join(DATA, "lists", "otros-viejo", "3", "games.txt"), "w").write("x\n")
+    open(os.path.join(DATA, "lists", "otros-viejo", "3", "games_pendientes.txt"), "w").write("x\n")
     rc, out = build()
     check("kifu_build termina bien", rc == 0, out[-800:])
     db = sqlite3.connect(os.path.join(DATA, "archive.db"))
@@ -230,6 +233,8 @@ try:
     check("otros ocultos: sin carpetas otros-… en lists/ y sus partidas con visible=0 y sin sgf_path", lanke == "otros-lanke-cup"
           and not any(d.startswith("otros-") for d in os.listdir(os.path.join(DATA, "lists")))
           and q("SELECT visible, sgf_path FROM ar_games WHERE id=?", E(1)) == [(0, None)] and q("SELECT visible FROM ar_games WHERE id=?", M[0]) == [(1,)])
+    check("carpetas que se quedan vacías se borran; las que tienen un SGF, no", not os.path.exists(os.path.join(DATA, "lists", "otros-viejo"))
+          and os.path.isdir(os.path.join(DATA, "lists", "viejo", "1")))
     check("carpeta vieja: se quita su games.txt pero el SGF desconocido no se toca (y se avisa)",
           not os.path.exists(os.path.join(DATA, "lists", "viejo", "1", "games.txt")) and os.path.exists(os.path.join(DATA, "lists", "viejo", "1", "f" * 32 + ".sgf")) and "no está en el catálogo" in out, out[-600:])
     check("ya no hay carpeta _sin_clasificar", not os.path.exists(os.path.join(DATA, "lists", "_sin_clasificar")))
