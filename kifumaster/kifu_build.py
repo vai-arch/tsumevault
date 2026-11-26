@@ -11,9 +11,10 @@ sección, en ese orden, y las primeras son la tabla principal (comprobado con el
 
 Listas (por edición): data/lists/<torneo>/<edición>/games.txt con una línea por partida
 "<id> archive/sgf/<xx>/<id>.sgf", y games_pendientes.txt con las que aún no están en esa ruta (relativa a
-la raíz del repo). Las partidas que no están en ninguna edición van a data/lists/_sin_clasificar/.
+la raíz del repo). Las partidas de eventos que kifumaster no organiza en torneos (~37 %) se agrupan en "otros eventos"
+(kind='otros', slug otros-…) por la regla de otros_family: el número o año del principio es la edición.
 """
-import csv, datetime, io, json, os, sqlite3, sys
+import csv, datetime, hashlib, io, json, os, re, sqlite3, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.environ.get("KIFU_DATA", os.path.join(HERE, "data"))
@@ -21,13 +22,14 @@ RAW = os.path.join(DATA, "raw")
 REPO = os.environ.get("KIFU_REPO", os.path.dirname(HERE))      # raíz del repo: allí está archive/sgf/
 DB = os.path.join(DATA, "archive.db")
 LISTS = os.path.join(DATA, "lists")
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 SCHEMA = """
 CREATE TABLE ar_meta (key TEXT PRIMARY KEY, value TEXT);
 CREATE TABLE ar_tournaments (
   slug TEXT PRIMARY KEY, name TEXT NOT NULL, name_local TEXT, lang TEXT, years TEXT,
-  game_count INTEGER NOT NULL DEFAULT 0, history TEXT              -- JSON: lista de párrafos
+  game_count INTEGER NOT NULL DEFAULT 0, history TEXT,             -- JSON: lista de párrafos
+  kind TEXT NOT NULL DEFAULT 'kifumaster'                          -- 'kifumaster' | 'otros' (agrupados por nombre, ver otros_family)
 );
 CREATE TABLE ar_editions (
   id INTEGER PRIMARY KEY, tournament_slug TEXT NOT NULL REFERENCES ar_tournaments(slug),
@@ -66,6 +68,32 @@ CREATE INDEX ix_g_white ON ar_games(white_id, date);
 CREATE INDEX ix_g_date ON ar_games(date);
 CREATE INDEX ix_alias ON ar_player_aliases(alias);
 """
+
+
+# "2nd Lanke Cup" → ("Lanke Cup", "2"); "2016 National League" → ("National League", "2016");
+# "2017-2018 Pro-Ama League" → ("Pro-Ama League", "2017-2018"); sin número → (evento, ""); sin evento → ("Sin evento", año)
+_ORD = re.compile(r"^(\d{1,3})(?:st|nd|rd|th)\s+(\S.*)$")
+_YEAR = re.compile(r"^((?:1[89]|20)\d\d(?:[-–/](?:\d\d){1,2})?)\s+(\S.*)$")
+
+
+def otros_family(event, date):
+    """(torneo, edición, número para ordenar las ediciones) de un evento que kifumaster no organiza."""
+    ev = (event or "").strip()
+    if not ev:
+        y = (date or "")[:4]
+        return "Sin evento", y if y.isdigit() else "", int(y) if y.isdigit() else None
+    m = _ORD.match(ev)
+    if m:
+        return m.group(2), m.group(1), int(m.group(1))
+    m = _YEAR.match(ev)
+    if m:
+        return m.group(2), m.group(1), int(m.group(1)[:4])
+    return ev, "", None
+
+
+def slugify(name):
+    s = re.sub(r"[^\w]+", "-", name.lower(), flags=re.UNICODE).strip("-_")
+    return s[:60] or hashlib.sha1(name.encode("utf-8")).hexdigest()[:10]
 
 
 def sgf_rel(gid):
@@ -156,7 +184,7 @@ def main():
     ed_id = {}
     for slug in sorted(t):
         v = t[slug]
-        con.execute("INSERT INTO ar_tournaments VALUES (?,?,?,?,?,?,?)",
+        con.execute("INSERT INTO ar_tournaments VALUES (?,?,?,?,?,?,?,'kifumaster')",
                     (slug, v.get("n") or slug, v.get("l"), v.get("ll"), v.get("y"), v.get("g") or 0,
                      json.dumps(v.get("t") or [], ensure_ascii=False)))
         for o, s in enumerate(v.get("s") or []):
@@ -219,6 +247,38 @@ def main():
         if gm.get("edition_id") is None and gm.get("event_name") in te:
             gm["edition_id"] = ed_id.get(te[gm["event_name"]])
 
+    # el resto (eventos que kifumaster no organiza en torneos): "otros eventos", agrupados por nombre
+    otros = {}
+    for gid, gm in games.items():
+        if gm.get("edition_id") is None:
+            fam, ed, num = otros_family(gm.get("event_name"), gm.get("date"))
+            otros.setdefault(fam, {}).setdefault(ed, []).append(gid)
+            gm["_otros"] = (fam, ed, num)
+    used = set(r[0] for r in con.execute("SELECT slug FROM ar_tournaments"))
+    for fam in sorted(otros):
+        base = "otros-" + slugify(fam)
+        slug, k = base, 2
+        while slug in used:
+            slug, k = f"{base}-{k}", k + 1
+        used.add(slug)
+        eds = otros[fam]
+        dates = [games[x].get("date") for e in eds.values() for x in e if games[x].get("date")]
+        years = f"{min(dates)[:4]}-{max(dates)[:4]}" if dates else None
+        con.execute("INSERT INTO ar_tournaments (slug, name, years, game_count, kind) VALUES (?,?,?,?, 'otros')",
+                    (slug, fam, years, sum(len(v) for v in eds.values())))
+        # ediciones: la más reciente primero (como kifumaster); la edición sin número, al final
+        order = sorted(eds, key=lambda e: (-games[eds[e][0]]["_otros"][2] if games[eds[e][0]]["_otros"][2] is not None else float("inf"), e))
+        for o, ed in enumerate(order):
+            ids = sorted(eds[ed], key=lambda x: (games[x].get("date") or "", x), reverse=True)
+            ds = [games[x].get("date") for x in ids if games[x].get("date")]
+            cur = con.execute("INSERT INTO ar_editions (tournament_slug, slug, label, game_count, date_from, date_to, ord) VALUES (?,?,?,?,?,?,?)",
+                              (slug, ed or "unica", ed or None, len(ids), min(ds) if ds else None, max(ds) if ds else None, o))
+            e = cur.lastrowid
+            ev = games[ids[0]].get("event_name")
+            sid = con.execute("INSERT INTO ar_sections (edition_id, event_name, ord) VALUES (?,?,0)", (e, ev or "")).lastrowid
+            for k2, x in enumerate(ids):
+                games[x].update(edition_id=e, section_id=sid, phase="", ord=k2)
+
     n_sgf = 0
     for gid, gm in games.items():
         has = os.path.exists(os.path.join(REPO, *sgf_rel(gid).split("/")))
@@ -238,8 +298,10 @@ def main():
     # recuentos reales por torneo/edición (los de kifumaster se guardan aparte en game_count de seo/t)
     con.commit()
     stats = dict(
-        torneos=con.execute("SELECT COUNT(*) FROM ar_tournaments").fetchone()[0],
-        ediciones=con.execute("SELECT COUNT(*) FROM ar_editions").fetchone()[0],
+        torneos=con.execute("SELECT COUNT(*) FROM ar_tournaments WHERE kind='kifumaster'").fetchone()[0],
+        otros_eventos=con.execute("SELECT COUNT(*) FROM ar_tournaments WHERE kind='otros'").fetchone()[0],
+        partidas_en_otros=con.execute("SELECT COUNT(*) FROM ar_games g JOIN ar_editions e ON e.id=g.edition_id JOIN ar_tournaments t ON t.slug=e.tournament_slug WHERE t.kind='otros'").fetchone()[0],
+        ediciones=con.execute("SELECT COUNT(*) FROM ar_editions e JOIN ar_tournaments t ON t.slug=e.tournament_slug WHERE t.kind='kifumaster'").fetchone()[0],
         secciones=con.execute("SELECT COUNT(*) FROM ar_sections").fetchone()[0],
         partidas=len(games),
         en_seccion=con.execute("SELECT COUNT(*) FROM ar_games WHERE section_id IS NOT NULL").fetchone()[0],
@@ -277,9 +339,6 @@ def write_lists(con):
     groups = {}
     for tslug, eslug, gid, has in con.execute(q):
         groups.setdefault((tslug, eslug), []).append((gid, has))
-    rest = [(gid, has) for gid, has in con.execute("SELECT id, has_sgf FROM ar_games WHERE edition_id IS NULL ORDER BY date DESC, id")]
-    if rest:
-        groups[("_sin_clasificar", "")] = rest
     for (tslug, eslug), rows in groups.items():
         d = os.path.join(LISTS, tslug, eslug) if eslug else os.path.join(LISTS, tslug)
         os.makedirs(d, exist_ok=True)

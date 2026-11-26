@@ -44,7 +44,11 @@ FILES = {
             [M[4], "Omote Yuto", "U Boi", "2026-07-15", "W+R"], [M[5], "Tanaka Koyu", "Yuki Satoshi", "2026-07-08", "W+R"]]}]}},
     "seo/g/4c.json": {gid: {"b": "X", "w": "Y", "e": "52nd Meijin", "d": "2026-01-01", "r": "Black wins by resignation"} for gid in M + [TM]},
     "seo/g/cd.json": {LOOSE_TE: {"b": "Seto Taiki", "w": "Hane Naoki", "e": "51st Meijin", "d": "2025-03-01", "r": "White wins by 0.5 points"}},
-    "seo/g/04.json": {LOOSE: {"b": "Nadie", "w": "Hane Naoki", "e": "Evento suelto", "d": "1999-01-01", "r": "Jigo"}},
+    "seo/g/04.json": {LOOSE: {"b": "Nadie", "w": "Hane Naoki", "e": "Evento suelto", "d": "1999-01-01", "r": "Jigo"},
+                      **{f"{i:02x}" + "e" * 30: {"b": "A", "w": "B", "e": ev, "d": d, "r": "Jigo"} for i, (ev, d) in enumerate([
+                          ("1st Lanke Cup", "2019-05-01"), ("2nd Lanke Cup", "2020-05-01"), ("2nd Lanke Cup", "2020-06-01"), ("4th Lanke Cup", "2022-05-01"),
+                          ("2016 National League", "2016-04-01"), ("2017-2018 Pro-Ama League", "2017-09-01"), ("Jubango (10-Game Match)", "1939-01-01"),
+                          (None, "1980-02-02"), (None, "1980-03-03"), (None, ""), ("Lanke Cup", "2018-01-01"), ("第3回テスト杯", "2001-01-01")])}},
 }
 
 
@@ -179,9 +183,9 @@ try:
     check("kifu_build termina bien", rc == 0, out[-800:])
     db = sqlite3.connect(os.path.join(DATA, "archive.db"))
     q = lambda s, *a: db.execute(s, a).fetchall()
-    check("torneo con nombre local e historia", q("SELECT name, name_local, years, game_count FROM ar_tournaments") == [("Meijin", "名人戦", "1974-2026", 4189)])
-    check("ediciones en el orden de kifumaster", q("SELECT slug, label, ord FROM ar_editions ORDER BY ord") == [("52", "52nd", 0), ("51", "51st", 1)])
-    check("dos secciones en la 52: Title Match y principal", q("SELECT event_name, ord FROM ar_sections ORDER BY ord") == [("52nd Meijin Title Match", 0), ("52nd Meijin", 1)])
+    check("torneo con nombre local e historia", q("SELECT name, name_local, years, game_count FROM ar_tournaments WHERE kind='kifumaster'") == [("Meijin", "名人戦", "1974-2026", 4189)])
+    check("ediciones en el orden de kifumaster", q("SELECT slug, label, ord FROM ar_editions WHERE tournament_slug='meijin' ORDER BY ord") == [("52", "52nd", 0), ("51", "51st", 1)])
+    check("dos secciones en la 52: Title Match y principal", q("SELECT s.event_name, s.ord FROM ar_sections s JOIN ar_editions e ON e.id=s.edition_id WHERE e.tournament_slug='meijin' AND e.slug='52' ORDER BY s.ord") == [("52nd Meijin Title Match", 0), ("52nd Meijin", 1)])
     ph = dict(q("SELECT id, phase FROM ar_games WHERE section_id IS NOT NULL"))
     check("fases: las 3 primeras principal, luego 2 Preliminary B y 1 Preliminary C",
           [ph[x] for x in M] == ["", "", "", "Preliminary B", "Preliminary B", "Preliminary C"], str([ph[x] for x in M]))
@@ -189,7 +193,19 @@ try:
     check("resultado corto (ts) y largo (g)", q("SELECT result, result_text FROM ar_games WHERE id=?", M[2]) == [("B+3.5", "Black wins by resignation")])
     check("jugadores con el nombre de ts (no el del índice)", q("SELECT p.name FROM ar_games g JOIN ar_players p ON p.id=g.black_id WHERE g.id=?", M[0]) == [("Hane Naoki",)])
     check("sin sección pero con te: edición 51 asignada", q("SELECT e.slug, g.section_id FROM ar_games g JOIN ar_editions e ON e.id=g.edition_id WHERE g.id=?", LOOSE_TE) == [("51", None)])
-    check("sin te: sin edición", q("SELECT edition_id FROM ar_games WHERE id=?", LOOSE) == [(None,)])
+    check("ya no queda ninguna partida sin edición", q("SELECT COUNT(*) FROM ar_games WHERE edition_id IS NULL") == [(0,)])
+    oe = lambda gid: q("SELECT t.name, t.kind, e.slug, e.label, s.event_name, g.phase FROM ar_games g JOIN ar_editions e ON e.id=g.edition_id "
+                       "JOIN ar_tournaments t ON t.slug=e.tournament_slug JOIN ar_sections s ON s.id=g.section_id WHERE g.id=?", gid)
+    E = lambda i: f"{i:02x}" + "e" * 30
+    check("otros: evento sin número = torneo de una sola edición", oe(LOOSE) == [("Evento suelto", "otros", "unica", None, "Evento suelto", "")], str(oe(LOOSE)))
+    check("otros: «2nd Lanke Cup» → Lanke Cup, edición 2", oe(E(1)) == [("Lanke Cup", "otros", "2", "2", "2nd Lanke Cup", "")], str(oe(E(1))))
+    check("otros: «2016 National League» → National League, 2016", oe(E(4))[0][:3] == ("National League", "otros", "2016"))
+    check("otros: «2017-2018 Pro-Ama League» → Pro-Ama League, 2017-2018", oe(E(5))[0][:3] == ("Pro-Ama League", "otros", "2017-2018"))
+    check("otros: paréntesis y caracteres japoneses se quedan como nombre", oe(E(6))[0][0] == "Jubango (10-Game Match)" and oe(E(11))[0][0] == "第3回テスト杯")
+    check("otros: sin evento → «Sin evento» por año (y sin fecha, edición única)", oe(E(7))[0][:3] == ("Sin evento", "otros", "1980") and oe(E(9))[0][:3] == ("Sin evento", "otros", "unica"))
+    check("otros: Lanke Cup con ediciones 4, 2, 1 y la sin número al final", q("SELECT e.slug FROM ar_editions e JOIN ar_tournaments t ON t.slug=e.tournament_slug WHERE t.name='Lanke Cup' ORDER BY e.ord") == [("4",), ("2",), ("1",), ("unica",)])
+    check("otros: recuento y años del torneo", q("SELECT game_count, years FROM ar_tournaments WHERE name='Lanke Cup'") == [(5, "2018-2022")])
+    check("kifumaster: el Meijin sigue siendo kind=kifumaster", q("SELECT kind FROM ar_tournaments WHERE slug='meijin'") == [("kifumaster",)])
     check("alias japonés → jugador", q("SELECT p.name FROM ar_player_aliases a JOIN ar_players p ON p.id=a.player_id WHERE a.alias=?", "瀬戸大樹") == [("Seto Taiki",)])
     check("nacionalidad del CSV; 0 se ignora", q("SELECT nationality FROM ar_players WHERE name IN ('Seto Taiki','Nadie') ORDER BY name") == [(None,), ("JP",)])
     check("rangos y alias de evento cargados", q("SELECT canonical FROM ar_rank_aliases WHERE variant='九段'") == [("9p",)] and q("SELECT canonical FROM ar_event_aliases") == [("52nd Meijin",)])
@@ -198,7 +214,10 @@ try:
     g52 = lst("meijin", "52", "games.txt")
     check("games.txt de la 52: 7 líneas en el orden de la página", g52 == [f"{x} archive/sgf/{x[:2]}/{x}.sgf" for x in [TM] + M], "\n".join(g52))
     check("games_pendientes.txt sin la que ya está", lst("meijin", "52", "games_pendientes.txt") == [l for l in g52 if not l.startswith(M[0])])
-    check("lista de la 51 y de las sin clasificar", lst("meijin", "51", "games.txt") == [f"{LOOSE_TE} archive/sgf/cd/{LOOSE_TE}.sgf"] and lst("_sin_clasificar", "games.txt") == [f"{LOOSE} archive/sgf/04/{LOOSE}.sgf"])
+    check("lista de la 51", lst("meijin", "51", "games.txt") == [f"{LOOSE_TE} archive/sgf/cd/{LOOSE_TE}.sgf"])
+    lanke = q("SELECT slug FROM ar_tournaments WHERE name='Lanke Cup'")[0][0]
+    check("listas de otros: otros-lanke-cup/2 con sus 2 partidas, la más reciente primero", lanke == "otros-lanke-cup" and lst(lanke, "2", "games.txt") == [f"{E(2)} archive/sgf/02/{E(2)}.sgf", f"{E(1)} archive/sgf/01/{E(1)}.sgf"])
+    check("ya no hay carpeta _sin_clasificar", not os.path.exists(os.path.join(DATA, "lists", "_sin_clasificar")))
     fs = dict(q("SELECT id, first_seen FROM ar_games"))
     db.close()
     rc, out = build()

@@ -22,6 +22,7 @@ Plan completo: `docs/WORKPLAN_ARCHIVO.md`. Mientras el proceso no esté controla
 | `seo/te/xx.json` | evento → `torneo/edición` (`"52nd Meijin" → "meijin/52"`) |
 | `seo/t/xx.json` | torneo: `n` nombre, `l` nombre local, `t` historia, `g` nº de partidas, `y` años, `s` ediciones `[{k etiqueta, u slug, n partidas, p jugadores, a desde, z hasta}]` |
 | `seo/ts/xx.json` | edición: `c` secciones `[{a evento, g [[id, negras, blancas, fecha, resultado corto]], t [[fase, nº]]}]`. Las partidas de cada fase de `t` son bloques consecutivos al **final** de `g`, en ese orden; las primeras, la tabla principal |
+| (otros eventos) | las partidas de eventos que kifumaster no organiza en torneos (~37 %) se agrupan por nombre en torneos `otros-…`: el ordinal o año del principio es la edición ("2nd Lanke Cup" → Lanke Cup / 2); sin evento, "Sin evento" por año |
 | `database/*.csv` | alias de jugadores (`canonical,alias,script,nationality`), de eventos, de rangos (`九段 → 9p`) y familias de torneos |
 
 ## Estructura de `data/`
