@@ -220,6 +220,9 @@ try:
     check("ya no hay carpeta _sin_clasificar", not os.path.exists(os.path.join(DATA, "lists", "_sin_clasificar")))
     fs = dict(q("SELECT id, first_seen FROM ar_games"))
     db.close()
+    # Windows no deja sustituir un fichero abierto: kifu_build no debe dejar abierta la base anterior
+    src = open(BUILD, encoding="utf-8").read()
+    check("kifu_build cierra la base anterior antes de sustituirla (Windows)", "with sqlite3.connect(" not in src and "old.close()" in src)
     rc, out = build()
     db = sqlite3.connect(os.path.join(DATA, "archive.db"))
     check("reconstruir conserva first_seen y no cuenta nuevas", rc == 0 and dict(db.execute("SELECT id, first_seen FROM ar_games")) == fs and "nuevas: 0" in out, out[-300:])

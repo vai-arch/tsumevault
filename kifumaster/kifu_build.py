@@ -144,11 +144,15 @@ def main():
     # first_seen de la base anterior, para no perderlo al reconstruir
     first_seen = {}
     if os.path.exists(DB):
-        try:
-            with sqlite3.connect(DB) as old:
-                first_seen = dict(old.execute("SELECT id, first_seen FROM ar_games"))
+        old = None
+        try:   # ojo: usar connect() como gestor de contexto NO cierra la conexión, y en Windows un fichero abierto no se puede sustituir
+            old = sqlite3.connect(DB)
+            first_seen = dict(old.execute("SELECT id, first_seen FROM ar_games"))
         except sqlite3.Error:
             pass
+        finally:
+            if old is not None:
+                old.close()
     now = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
 
     tmp = DB + ".tmp"
@@ -313,7 +317,12 @@ def main():
     )
     write_lists(con)
     con.close()
-    os.replace(tmp, DB)
+    try:
+        os.replace(tmp, DB)
+    except PermissionError:
+        print(f"No puedo sustituir {DB}: otro programa lo tiene abierto (¿DB Browser, el servidor, otra consola?).\n"
+              f"Ciérralo y vuelve a lanzar kifu_build. El catálogo nuevo está en {tmp}.")
+        return 5
 
     lines = [f"{k}: {v}" for k, v in stats.items()] + [f"AVISO: {w}" for w in warnings]
     with open(os.path.join(DATA, "logs", "build_" + datetime.date.today().strftime("%Y%m%d") + ".log"), "a", encoding="utf-8") as f:
