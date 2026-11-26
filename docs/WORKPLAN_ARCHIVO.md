@@ -157,6 +157,14 @@ Tests: `tests/test_kifu.py` (51 checks) con un servidor HTTP falso: reanudación
 
 ---
 
+## Cambio de estructura de los SGF (26-nov, decidido por Victor) ✔ (rama `archivo-sgf-por-edicion`)
+
+Los SGF se guardan **en la carpeta de su edición**, junto a sus listas: `kifumaster/data/lists/<torneo>/<edición>/<id>.sgf` en el portátil y `/opt/tsumevault/archive/sgf/<torneo>/<edición>/<id>.sgf` en el servidor (sustituye a `archive/sgf/<xx>/`). `games.txt` y `games_pendientes.txt` pasan a una sola columna (el id): la carpeta ya es el destino.
+- `kifu_build`: ya no vacía `lists/` (allí viven los SGF); reescribe las listas, quita las de carpetas que ya no son ediciones, guarda `sgf_path` en `ar_games` (esquema v3) y **mueve** a su carpeta cualquier SGF que esté en otra (partida que cambió de edición o el antiguo `archive/sgf/<xx>/`); avisa de repetidos y de SGF de partidas que no están en el catálogo, sin borrar nada.
+- `kifu_upload`: sube por carpeta de edición; si el servidor ya tiene el SGF en otra ruta lo **mueve allí** (`mv -n`) en vez de volver a subirlo; al acabar toca `sgf/.stamp`.
+- `archive_api`: recorre `sgf/` entero (también la ruta antigua) y lo guarda en caché; recalcula cuando cambia `sgf/.stamp` o la raíz, y cada 5 min como red de seguridad. La ficha devuelve la ruta en el portátil.
+- Tests: `test_kifu.py` 57 checks y `test_archive_server.py` 36; mutaciones (no mover, vaciar `lists/`, subir en vez de mover, ignorar `.stamp`, no tocarlo): todas fallan.
+
 ## AR2 — Endpoints del servidor ✔ (rama `archivo-ar2`)
 
 Decidido con Victor (26-nov): mientras el descargador corre en el portátil, `archive.db` se construye allí y **viaja al VPS** con `_subir_archivo.bat` (`kifumaster/kifu_upload.py`) junto con los SGF nuevos. Cuando el proceso esté controlado, el descargador pasará al VPS y la base dejará de viajar.

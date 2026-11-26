@@ -54,11 +54,17 @@ for path, v in raw.items():
     with open(p, "w", encoding="utf-8") as f:
         f.write(v if isinstance(v, str) else json.dumps(v, ensure_ascii=False))
 REPO = os.path.join(TMP, "repo")
-def put_sgf(root, g, text):
-    d = os.path.join(root, "archive", "sgf", g[:2]); os.makedirs(d, exist_ok=True)
+def put_at(d, g, text):
+    os.makedirs(d, exist_ok=True)
     with open(os.path.join(d, g + ".sgf"), "w", encoding="utf-8") as f:
         f.write(text)
-put_sgf(REPO, A[0], "(;GM[1]SZ[19]PB[井山裕太]PW[瀬戸大樹];B[pd])")
+LISTS = os.path.join(TMP, "data", "lists")
+put_at(os.path.join(LISTS, "meijin", "52"), A[0], "(;GM[1]SZ[19]PB[井山裕太]PW[瀬戸大樹];B[pd])")
+def put_sgf(root, g, text, rel="meijin/52"):          # en el servidor: archive/sgf/<torneo>/<edición>/
+    put_at(os.path.join(root, "archive", "sgf", *rel.split("/")), g, text)
+def touch_stamp():
+    with open(os.path.join(SRV, "archive", "sgf", ".stamp"), "w") as f:
+        f.write(str(time.time()))
 ENV = dict(os.environ, KIFU_DATA=os.path.join(TMP, "data"), KIFU_REPO=REPO, PYTHONIOENCODING="utf-8")
 b = subprocess.run([sys.executable, os.path.join(ROOT, "kifumaster", "kifu_build.py")], env=ENV, capture_output=True, text=True, encoding="utf-8")
 check("kifu_build del fixture", b.returncode == 0, b.stdout + b.stderr)
@@ -157,7 +163,7 @@ try:
     # ── ficha y SGF ──
     st, g, _ = req(f"/archive/game?id={A[0]}")
     check("game: ficha con edición, fase, enlace a kifumaster y ruta", st == 200 and g["edition"] == "52nd" and g["phase"] == "" and g["has_sgf"]
-          and g["kifumaster_url"].endswith(A[0]) and g["sgf_path"] == f"archive/sgf/4c/{A[0]}.sgf", str(g))
+          and g["kifumaster_url"].endswith(A[0]) and g["sgf_path"] == f"kifumaster/data/lists/meijin/52/{A[0]}.sgf", str(g))
     st, s, _ = req(f"/archive/sgf?id={A[0]}")
     check("sgf: devuelve el texto (UTF-8 con japonés)", st == 200 and "井山裕太" in s.get("sgf", ""))
     st, s, _ = req(f"/archive/sgf?id={A[1]}")
@@ -167,12 +173,21 @@ try:
 
     # ── el disco manda: un SGF nuevo aparece sin reiniciar ni reconstruir ──
     time.sleep(0.02)
-    put_sgf(SRV, A[2], "(;GM[1])")
-    put_sgf(SRV, TM, "(;GM[1])")            # otra carpeta (ab/): con varias carpetas también tiene que ir
+    put_sgf(SRV, A[2], "(;GM[1])")          # en una carpeta que ya existía: la raíz no cambia
+    st0, r0, _ = q("has_sgf=1")
+    check("sin tocar .stamp un fichero nuevo aún no se ve (caché: no recorre miles de carpetas en cada petición)", r0.get("total") == 1, str(r0.get("total")))
+    put_sgf(SRV, TM, "(;GM[1])", rel="4c")  # el antiguo sgf/<xx>/ también se encuentra (varias carpetas)
+    touch_stamp()
     st, r, _ = q("has_sgf=1")
     st2, tree2, _ = req("/archive/tree")
     m = ([t for t in tree2.get("tournaments", []) if t["slug"] == "meijin"] or [{"editions": [{"sgf": None}]}])[0]["editions"][0]
-    check("SGF subidos en caliente (dos carpetas): aparecen en la lista y en los recuentos del árbol", st == 200 and r.get("total") == 3 and m["sgf"] == 3 and tree2.get("version") != tree["version"], f"{st} {r}")
+    check("SGF subidos en caliente y .stamp tocado (dos carpetas): aparecen en la lista y en los recuentos del árbol", st == 200 and r.get("total") == 3 and m["sgf"] == 3 and tree2.get("version") != tree["version"], f"{st} {r}")
+
+    time.sleep(0.02)
+    put_sgf(SRV, A[3], "(;GM[1])")          # carpeta existente + solo .stamp: tiene que verse
+    touch_stamp()
+    st, r, _ = q("has_sgf=1")
+    check(".stamp basta para ver un SGF nuevo en una carpeta existente", r.get("total") == 4, str(r.get("total")))
 
     # ── sin archive.db: 503 y el resto de la app sigue ──
     os.rename(os.path.join(SRV, "archive", "archive.db"), os.path.join(SRV, "archive", "x.db"))
@@ -196,20 +211,24 @@ if shutil.which("bash"):
     UENV = dict(ENV, KIFU_SSH=f"{sys.executable} {os.path.join(FAKE, 'fake_ssh.py')}", KIFU_SCP=f"{sys.executable} {os.path.join(FAKE, 'fake_scp.py')}",
                 KIFU_HOST="fake", KIFU_REMOTE_DIR=REMOTE)
     up = lambda *a: subprocess.run([sys.executable, os.path.join(ROOT, "kifumaster", "kifu_upload.py"), *a], env=UENV, capture_output=True, text=True, encoding="utf-8")
-    put_sgf(REPO, A[3], "﻿  (;GM[1]SZ[19])")
-    put_sgf(REPO, gid("77", 1), "no soy un sgf")
+    put_at(os.path.join(LISTS, "meijin", "52"), A[3], "﻿  (;GM[1]SZ[19])")
+    put_at(os.path.join(LISTS, "meijin", "52"), gid("77", 1), "no soy un sgf")
+    put_at(os.path.join(REMOTE, "sgf", "4c"), A[0], "(;GM[1])")          # en el servidor en la ruta antigua: se mueve, no se sube
     r = up("--simular")
-    check("subir --simular: no copia nada", r.returncode == 1 and not os.listdir(os.path.join(REMOTE, "sgf")) and not os.path.exists(os.path.join(REMOTE, "archive.db")), r.stdout + r.stderr)
+    check("subir --simular: no copia ni mueve nada", r.returncode == 1 and os.listdir(os.path.join(REMOTE, "sgf")) == ["4c"] and not os.path.exists(os.path.join(REMOTE, "archive.db")), r.stdout + r.stderr)
     r = up()
-    check("subir: 2 SGF válidos + archive.db; salta el que no es SGF (código 1)", r.returncode == 1 and "2 por subir" in r.stdout and "no parece un SGF" in r.stdout
-          and os.path.exists(os.path.join(REMOTE, "sgf", "4c", A[3] + ".sgf")) and not os.path.exists(os.path.join(REMOTE, "sgf", "77"))
+    R52 = os.path.join(REMOTE, "sgf", "meijin", "52")
+    check("subir: 1 SGF nuevo, 1 movido de la ruta antigua, archive.db; salta el que no es SGF (código 1)", r.returncode == 1 and "1 por subir, 1 por mover" in r.stdout and "no parece un SGF" in r.stdout
+          and os.path.exists(os.path.join(R52, A[3] + ".sgf")) and os.path.exists(os.path.join(R52, A[0] + ".sgf"))
+          and not os.path.exists(os.path.join(REMOTE, "sgf", "4c", A[0] + ".sgf")) and not os.path.exists(os.path.join(R52, gid("77", 1) + ".sgf"))
+          and os.path.exists(os.path.join(REMOTE, "sgf", ".stamp"))
           and os.path.exists(os.path.join(REMOTE, "archive.db")), r.stdout + r.stderr)
     check("subir: comprueba que el servidor lee la base nueva (9 partidas)", "el servidor la lee: 9 partidas" in r.stdout, r.stdout)
     check("subir: la base sustituida es idéntica y no queda .new", open(os.path.join(REMOTE, "archive.db"), "rb").read() == open(os.path.join(TMP, "data", "archive.db"), "rb").read()
           and not os.path.exists(os.path.join(REMOTE, "archive.db.new")))
-    os.remove(os.path.join(REPO, "archive", "sgf", "77", gid("77", 1) + ".sgf"))
+    os.remove(os.path.join(LISTS, "meijin", "52", gid("77", 1) + ".sgf"))
     r = up()
-    check("subir otra vez: nada nuevo ni base distinta", r.returncode == 0 and "0 por subir" in r.stdout and "igual que la del servidor" in r.stdout, r.stdout + r.stderr)
+    check("subir otra vez: nada nuevo ni base distinta", r.returncode == 0 and "0 por subir, 0 por mover" in r.stdout and "igual que la del servidor" in r.stdout, r.stdout + r.stderr)
     with sqlite3.connect(os.path.join(TMP, "data", "archive.db")) as c:
         c.execute("UPDATE ar_meta SET value='x' WHERE key='built_at'")
     c.close()

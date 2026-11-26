@@ -12,8 +12,8 @@ Plan completo: `docs/WORKPLAN_ARCHIVO.md`. Mientras el proceso no esté controla
 |---|---|---|
 | `kifu_probe.py` | `kifu_probe.bat` | AR1.0: baja 7 muestras a `data/probe/` y escribe `resumen.txt` (código, tamaño, tipo, si hay ETag/Last-Modified, nº de claves de los JSON). |
 | `kifu_crawl.py` | `kifu_crawl.bat` | AR1: baja a `data/raw/` los 4 CSV y `seo/{te,t,ts,g}/00…ff.json` (1028 ficheros, ~2 h el primer ciclo). Reanudable; `--nuevo-ciclo` para buscar novedades (condicional por ETag: lo que no cambió no se baja); `--limite N` para pruebas. Log en `data/logs/`. |
-| `kifu_build.py` | `kifu_build.bat` | AR1: construye `data/archive.db` y `data/lists/<torneo>/<edición>/games.txt` + `games_pendientes.txt` desde `data/raw/`, sin red. Se puede repetir cuando se quiera. |
-| `kifu_upload.py` | `_subir_archivo.bat` | AR2: sube al VPS (`/opt/tsumevault/archive/`) los SGF nuevos de `archive/sgf/` y `data/archive.db` si cambió (huella sha256; sube como `.new` y sustituye con `mv`). Nunca borra nada. `--simular` para ver qué haría. |
+| `kifu_build.py` | `kifu_build.bat` | AR1: construye `data/archive.db` y, por edición, `data/lists/<torneo>/<edición>/games.txt` + `games_pendientes.txt` (un id por línea) desde `data/raw/`, sin red. Se puede repetir cuando se quiera: no borra nada, y si un SGF está en otra carpeta lo mueve a la de su edición. |
+| `kifu_upload.py` | `_subir_archivo.bat` | AR2: sube al VPS (`/opt/tsumevault/archive/sgf/<torneo>/<edición>/`) los SGF nuevos de `data/lists/` (y mueve allí los que estén en otra ruta) y `data/archive.db` si cambió (huella sha256; sube como `.new` y sustituye con `mv`). Nunca borra nada. `--simular` para ver qué haría. |
 
 ## Qué es cada fichero de kifumaster
 
@@ -33,6 +33,13 @@ data/
   probe/       muestras de AR1.0
   raw/         copia tal cual de lo descargado (para rehacer el catálogo sin volver a pedir nada)
   archive.db   catálogo
-  lists/       games.txt y games_pendientes.txt por edición
+  lists/       una carpeta por edición: games.txt, games_pendientes.txt y los SGF (<id>.sgf) que bajas a mano
   logs/
 ```
+
+## Cómo guardar una partida
+
+1. Abre `data/lists/<torneo>/<edición>/games_pendientes.txt` (un id por línea).
+2. Descárgala desde `https://kifumaster.org/game/<id>` con el botón de la web.
+3. Guárdala como `<id>.sgf` en **esa misma carpeta**.
+4. `_subir_archivo.bat` la sube; el siguiente `kifu_build.bat` la quita de `games_pendientes.txt`.

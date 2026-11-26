@@ -1,8 +1,9 @@
 """archive_api.py — AR2 (docs/WORKPLAN_ARCHIVO.md): consultas de SOLO LECTURA al archivo de partidas.
 
 El catálogo (archive/archive.db) lo genera kifumaster/kifu_build.py en el portátil y lo sube
-kifumaster/kifu_upload.py (sustitución atómica con mv). Los SGF viven en archive/sgf/<xx>/<id>.sgf y
-la verdad sobre cuáles hay es el disco del servidor, no la columna has_sgf de la base.
+kifumaster/kifu_upload.py (sustitución atómica con mv). Los SGF viven en archive/sgf/<torneo>/<edición>/
+<id>.sgf (la misma estructura que kifumaster/data/lists/ en el portátil) y la verdad sobre cuáles hay es
+el disco del servidor, no la columna has_sgf de la base.
 
 Se despacha SIN DB_LOCK (no toca tsumeVault.db). Rutas, todas GET y con el mismo token que el resto:
     /archive/tree                     torneos → ediciones → secciones (con fases) y recuentos
@@ -16,11 +17,12 @@ import os
 import re
 import sqlite3
 import threading
+import time
 
 ARCHIVE_DIR = os.environ.get("TSUMEVAULT_ARCHIVE_DIR") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "archive")
 _ID = re.compile(r"^[0-9a-f]{32}$")
 _LOCK = threading.Lock()
-_SGF_CACHE = {"key": None, "ids": frozenset()}
+_SGF_CACHE = {"key": None, "ids": {}}
 _TREE_CACHE = {"key": None, "tree": None}
 MAX_LIMIT = 500
 SGF_MAX_BYTES = 2 * 1024 * 1024
@@ -47,27 +49,35 @@ def _connect():
     return con
 
 
-def sgf_ids():
-    """Ids con SGF en disco. Se recalcula solo si cambia alguna de las 256 carpetas (su mtime)."""
+def sgf_map():
+    """id → ruta de los SGF en disco (sgf/<torneo>/<edición>/<id>.sgf; también el antiguo sgf/<xx>/<id>.sgf).
+    Recorrer ~6.000 carpetas en cada petición sería caro: se recalcula cuando cambia sgf/.stamp (lo toca
+    kifu_upload.py al subir o mover) o la propia carpeta sgf/, y como red de seguridad cada 5 minutos."""
     d = sgf_dir()
     try:
-        subs = sorted((e for e in os.scandir(d) if e.is_dir() and len(e.name) == 2), key=lambda e: e.name)
+        st_root = os.stat(d).st_mtime_ns
     except FileNotFoundError:
-        return frozenset()
-    key = tuple((e.name, e.stat().st_mtime_ns) for e in subs)
+        return {}
+    try:
+        st_stamp = os.stat(os.path.join(d, ".stamp")).st_mtime_ns
+    except FileNotFoundError:
+        st_stamp = 0
+    key = (st_root, st_stamp, int(time.time() // 300))
     with _LOCK:
         if _SGF_CACHE["key"] == key:
             return _SGF_CACHE["ids"]
-    ids = set()
-    for e in subs:
-        for f in os.scandir(e.path):
-            n = f.name
-            if n.endswith(".sgf") and _ID.match(n[:-4]) and n.startswith(e.name):
-                ids.add(n[:-4])
-    ids = frozenset(ids)
+    found = {}
+    for root, _, files in os.walk(d):
+        for n in files:
+            if n.endswith(".sgf") and _ID.match(n[:-4]):
+                found.setdefault(n[:-4], os.path.join(root, n))
     with _LOCK:
-        _SGF_CACHE.update(key=key, ids=ids)
-    return ids
+        _SGF_CACHE.update(key=key, ids=found)
+    return found
+
+
+def sgf_ids():
+    return sgf_map().keys()
 
 
 def _one(qs, name, default=None):
@@ -98,7 +108,7 @@ def handle_tree(qs):
     try:
         built = con.execute("SELECT value FROM ar_meta WHERE key='built_at'").fetchone()
         have = sgf_ids()
-        key = (os.stat(db_path()).st_mtime_ns, built[0] if built else None, len(have), hash(have))
+        key = (os.stat(db_path()).st_mtime_ns, built[0] if built else None, len(have), hash(frozenset(have)))
         with _LOCK:
             if _TREE_CACHE["key"] == key:
                 return _TREE_CACHE["tree"]
@@ -237,7 +247,8 @@ def handle_game(qs):
         d = dict(r)
         d["has_sgf"] = gid in sgf_ids()
         d["kifumaster_url"] = f"https://kifumaster.org/game/{gid}"
-        d["sgf_path"] = f"archive/sgf/{gid[:2]}/{gid}.sgf"
+        # dónde guardarlo en el portátil: la carpeta de su edición
+        d["sgf_path"] = (f"kifumaster/data/lists/{d['tournament']}/{d['edition_slug']}/{gid}.sgf" if d.get("tournament") else None)
         return d
     finally:
         con.close()
@@ -245,8 +256,8 @@ def handle_game(qs):
 
 def handle_sgf(qs):
     gid = _gid(qs)
-    p = os.path.join(sgf_dir(), gid[:2], gid + ".sgf")
-    if not os.path.isfile(p):
+    p = sgf_map().get(gid)
+    if not p or not os.path.isfile(p):
         return {"error": "not found"}, 404
     if os.path.getsize(p) > SGF_MAX_BYTES:
         return {"error": "sgf too large"}, 413

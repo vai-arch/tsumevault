@@ -177,8 +177,15 @@ try:
     check("…y el ciclo 4 se completa", rc == 0 and state()["cycle_finished"])
 
     # ── 5. catálogo ──
+    # SGF: uno en el antiguo archive/sgf/<xx>/ y otro en una edición equivocada → kifu_build los mueve
     os.makedirs(os.path.join(REPO, "archive", "sgf", "4c"))
     open(os.path.join(REPO, "archive", "sgf", "4c", M[0] + ".sgf"), "w").write("(;GM[1])")
+    os.makedirs(os.path.join(DATA, "lists", "meijin", "51"))
+    open(os.path.join(DATA, "lists", "meijin", "51", M[1] + ".sgf"), "w").write("(;GM[1])")
+    # carpeta vieja (torneo que ya no existe) con su lista y un SGF de una partida desconocida
+    os.makedirs(os.path.join(DATA, "lists", "viejo", "1"))
+    open(os.path.join(DATA, "lists", "viejo", "1", "games.txt"), "w").write("x\n")
+    open(os.path.join(DATA, "lists", "viejo", "1", "f" * 32 + ".sgf"), "w").write("(;GM[1])")
     rc, out = build()
     check("kifu_build termina bien", rc == 0, out[-800:])
     db = sqlite3.connect(os.path.join(DATA, "archive.db"))
@@ -209,14 +216,20 @@ try:
     check("alias japonés → jugador", q("SELECT p.name FROM ar_player_aliases a JOIN ar_players p ON p.id=a.player_id WHERE a.alias=?", "瀬戸大樹") == [("Seto Taiki",)])
     check("nacionalidad del CSV; 0 se ignora", q("SELECT nationality FROM ar_players WHERE name IN ('Seto Taiki','Nadie') ORDER BY name") == [(None,), ("JP",)])
     check("rangos y alias de evento cargados", q("SELECT canonical FROM ar_rank_aliases WHERE variant='九段'") == [("9p",)] and q("SELECT canonical FROM ar_event_aliases") == [("52nd Meijin",)])
-    check("has_sgf según el fichero en archive/sgf", q("SELECT id FROM ar_games WHERE has_sgf=1") == [(M[0],)])
+    L52 = os.path.join(DATA, "lists", "meijin", "52")
+    check("SGF del antiguo archive/sgf/4c movido a lists/meijin/52", os.path.exists(os.path.join(L52, M[0] + ".sgf")) and not os.path.exists(os.path.join(REPO, "archive", "sgf", "4c", M[0] + ".sgf")) and "sgf_movidos: 2" in out, out[-500:])
+    check("SGF en una edición equivocada (51) movido a la suya (52)", os.path.exists(os.path.join(L52, M[1] + ".sgf")) and not os.path.exists(os.path.join(DATA, "lists", "meijin", "51", M[1] + ".sgf")))
+    check("has_sgf y sgf_path según el fichero en su edición", q("SELECT id, sgf_path FROM ar_games WHERE has_sgf=1 ORDER BY id") == sorted([(M[0], f"meijin/52/{M[0]}.sgf"), (M[1], f"meijin/52/{M[1]}.sgf")]))
+    check("sgf_path también para las que aún no tienen SGF", q("SELECT sgf_path FROM ar_games WHERE id=?", LOOSE_TE) == [(f"meijin/51/{LOOSE_TE}.sgf",)])
     lst = lambda *p: open(os.path.join(DATA, "lists", *p), encoding="utf-8").read().splitlines()
     g52 = lst("meijin", "52", "games.txt")
-    check("games.txt de la 52: 7 líneas en el orden de la página", g52 == [f"{x} archive/sgf/{x[:2]}/{x}.sgf" for x in [TM] + M], "\n".join(g52))
-    check("games_pendientes.txt sin la que ya está", lst("meijin", "52", "games_pendientes.txt") == [l for l in g52 if not l.startswith(M[0])])
-    check("lista de la 51", lst("meijin", "51", "games.txt") == [f"{LOOSE_TE} archive/sgf/cd/{LOOSE_TE}.sgf"])
+    check("games.txt de la 52: un id por línea, 7, en el orden de la página", g52 == [TM] + M, "\n".join(g52))
+    check("games_pendientes.txt sin las que ya están", lst("meijin", "52", "games_pendientes.txt") == [x for x in [TM] + M if x not in (M[0], M[1])])
+    check("lista de la 51", lst("meijin", "51", "games.txt") == [LOOSE_TE])
     lanke = q("SELECT slug FROM ar_tournaments WHERE name='Lanke Cup'")[0][0]
-    check("listas de otros: otros-lanke-cup/2 con sus 2 partidas, la más reciente primero", lanke == "otros-lanke-cup" and lst(lanke, "2", "games.txt") == [f"{E(2)} archive/sgf/02/{E(2)}.sgf", f"{E(1)} archive/sgf/01/{E(1)}.sgf"])
+    check("listas de otros: otros-lanke-cup/2 con sus 2 partidas, la más reciente primero", lanke == "otros-lanke-cup" and lst(lanke, "2", "games.txt") == [E(2), E(1)])
+    check("carpeta vieja: se quita su games.txt pero el SGF desconocido no se toca (y se avisa)",
+          not os.path.exists(os.path.join(DATA, "lists", "viejo", "1", "games.txt")) and os.path.exists(os.path.join(DATA, "lists", "viejo", "1", "f" * 32 + ".sgf")) and "no está en el catálogo" in out, out[-600:])
     check("ya no hay carpeta _sin_clasificar", not os.path.exists(os.path.join(DATA, "lists", "_sin_clasificar")))
     fs = dict(q("SELECT id, first_seen FROM ar_games"))
     db.close()
@@ -226,6 +239,7 @@ try:
     rc, out = build()
     db = sqlite3.connect(os.path.join(DATA, "archive.db"))
     check("reconstruir conserva first_seen y no cuenta nuevas", rc == 0 and dict(db.execute("SELECT id, first_seen FROM ar_games")) == fs and "nuevas: 0" in out, out[-300:])
+    check("reconstruir no borra los SGF de las carpetas", os.path.exists(os.path.join(L52, M[0] + ".sgf")) and os.path.exists(os.path.join(L52, M[1] + ".sgf")) and "sgf_movidos: 0" in out)
     db.close()
 finally:
     srv.shutdown()

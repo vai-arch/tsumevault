@@ -9,9 +9,10 @@ Estructura: torneo → edición → sección (evento: "8th Kisei Title Match", "
 seo/ts: [[fase, nº de partidas], …]; esas partidas son bloques consecutivos al FINAL de la lista de la
 sección, en ese orden, y las primeras son la tabla principal (comprobado con el Meijin 52: 30+16+39).
 
-Listas (por edición): data/lists/<torneo>/<edición>/games.txt con una línea por partida
-"<id> archive/sgf/<xx>/<id>.sgf", y games_pendientes.txt con las que aún no están en esa ruta (relativa a
-la raíz del repo). Las partidas de eventos que kifumaster no organiza en torneos (~37 %) se agrupan en "otros eventos"
+Carpeta por edición (decidido por Victor el 26-nov): data/lists/<torneo>/<edición>/ contiene games.txt
+(un id por línea, en el orden de la página), games_pendientes.txt (los ids cuyo SGF aún no está) y los
+propios SGF, guardados a mano como <id>.sgf en esa misma carpeta. Si un SGF aparece en otra carpeta (la
+partida cambió de edición, o está en el antiguo archive/sgf/<xx>/), kifu_build lo mueve a la suya y avisa. Las partidas de eventos que kifumaster no organiza en torneos (~37 %) se agrupan en "otros eventos"
 (kind='otros', slug otros-…) por la regla de otros_family: el número o año del principio es la edición.
 """
 import csv, datetime, hashlib, io, json, os, re, sqlite3, sys
@@ -19,10 +20,10 @@ import csv, datetime, hashlib, io, json, os, re, sqlite3, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.environ.get("KIFU_DATA", os.path.join(HERE, "data"))
 RAW = os.path.join(DATA, "raw")
-REPO = os.environ.get("KIFU_REPO", os.path.dirname(HERE))      # raíz del repo: allí está archive/sgf/
+REPO = os.environ.get("KIFU_REPO", os.path.dirname(HERE))      # raíz del repo: allí estaba el antiguo archive/sgf/
 DB = os.path.join(DATA, "archive.db")
 LISTS = os.path.join(DATA, "lists")
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 SCHEMA = """
 CREATE TABLE ar_meta (key TEXT PRIMARY KEY, value TEXT);
@@ -60,6 +61,7 @@ CREATE TABLE ar_games (
   phase TEXT,                                                       -- '' = tabla principal; NULL = sin sección
   ord INTEGER,                                                      -- posición dentro de la sección
   has_sgf INTEGER NOT NULL DEFAULT 0,
+  sgf_path TEXT,                                                    -- <torneo>/<edición>/<id>.sgf (relativo a lists/ y al sgf/ del servidor)
   first_seen TEXT NOT NULL                                          -- se conserva entre reconstrucciones
 );
 CREATE INDEX ix_g_edition ON ar_games(edition_id, section_id, ord);
@@ -96,8 +98,24 @@ def slugify(name):
     return s[:60] or hashlib.sha1(name.encode("utf-8")).hexdigest()[:10]
 
 
-def sgf_rel(gid):
-    return f"archive/sgf/{gid[:2]}/{gid}.sgf"
+_IDRE = re.compile(r"^[0-9a-f]{32}$")
+
+
+def edition_dir(tslug, eslug):
+    return f"{tslug}/{eslug}"
+
+
+def find_sgf():
+    """id → [rutas] de todos los SGF que hay: en lists/<torneo>/<edición>/ y en el antiguo archive/sgf/<xx>/."""
+    found = {}
+    for root in (LISTS, os.path.join(REPO, "archive", "sgf")):
+        if not os.path.isdir(root):
+            continue
+        for d, _, files in os.walk(root):
+            for n in files:
+                if n.lower().endswith(".sgf") and _IDRE.match(n[:-4].lower()):
+                    found.setdefault(n[:-4].lower(), []).append(os.path.join(d, n))
+    return found
 
 
 def load_family(fam, warn):
@@ -283,14 +301,36 @@ def main():
             for k2, x in enumerate(ids):
                 games[x].update(edition_id=e, section_id=sid, phase="", ord=k2)
 
-    n_sgf = 0
+    # SGF: cada uno en la carpeta de su edición; los que estén en otro sitio se mueven
+    ed_dir = {r[0]: edition_dir(r[1], r[2]) for r in con.execute("SELECT id, tournament_slug, slug FROM ar_editions")}
+    found = find_sgf()
+    n_sgf, moved = 0, []
     for gid, gm in games.items():
-        has = os.path.exists(os.path.join(REPO, *sgf_rel(gid).split("/")))
+        rel = f"{ed_dir[gm['edition_id']]}/{gid}.sgf" if gm.get("edition_id") in ed_dir else None
+        has = False
+        if rel:
+            want = os.path.join(LISTS, *rel.split("/"))
+            here = [p for p in found.get(gid, []) if os.path.normcase(os.path.abspath(p)) != os.path.normcase(os.path.abspath(want))]
+            if os.path.exists(want):
+                has = True
+                for p in here:
+                    warn(f"SGF repetido de {gid}: se queda {rel}; sobra {p} (no lo borro)")
+            elif here:
+                os.makedirs(os.path.dirname(want), exist_ok=True)
+                os.replace(here[0], want)
+                moved.append((here[0], rel)); has = True
+                for p in here[1:]:
+                    warn(f"SGF repetido de {gid}: movido {here[0]} → {rel}; sobra {p} (no lo borro)")
         n_sgf += has
-        con.execute("INSERT INTO ar_games VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        con.execute("INSERT INTO ar_games VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                     (gid, gm.get("event_name"), gm.get("date"), pid(gm.get("b")), pid(gm.get("w")), gm.get("result"),
                      gm.get("result_text"), gm.get("edition_id"), gm.get("section_id"), gm.get("phase"), gm.get("ord"),
-                     int(has), first_seen.get(gid, now)))
+                     int(has), rel, first_seen.get(gid, now)))
+    for gid in found:
+        if gid not in games:
+            warn(f"SGF de una partida que no está en el catálogo: {found[gid][0]} (no lo toco)")
+    for src, rel in moved:
+        print(f"  movido: {src} → lists/{rel}")
 
     # alias de los jugadores que aparecen en alguna partida
     for r in alias_rows:
@@ -313,6 +353,7 @@ def main():
         sin_edicion=con.execute("SELECT COUNT(*) FROM ar_games WHERE edition_id IS NULL").fetchone()[0],
         jugadores=len(players),
         con_sgf=n_sgf,
+        sgf_movidos=len(moved),
         nuevas=sum(1 for gid in games if gid not in first_seen) if first_seen else 0,
     )
     write_lists(con)
@@ -337,10 +378,10 @@ def main():
 
 
 def write_lists(con):
-    """Una carpeta por edición con games.txt y games_pendientes.txt, en el orden de la página."""
-    import shutil
-    if os.path.exists(LISTS):
-        shutil.rmtree(LISTS)
+    """Una carpeta por edición con games.txt y games_pendientes.txt (un id por línea, en el orden de la
+    página). NO se borra nada: en estas carpetas viven también los SGF. Las listas de carpetas que ya no
+    son ediciones (torneo renombrado…) se quitan para que no confundan; sus SGF ya los movió main()."""
+    current = set()
     q = """SELECT e.tournament_slug, e.slug, g.id, g.has_sgf FROM ar_games g
            JOIN ar_editions e ON e.id = g.edition_id
            LEFT JOIN ar_sections s ON s.id = g.section_id
@@ -349,12 +390,18 @@ def write_lists(con):
     for tslug, eslug, gid, has in con.execute(q):
         groups.setdefault((tslug, eslug), []).append((gid, has))
     for (tslug, eslug), rows in groups.items():
-        d = os.path.join(LISTS, tslug, eslug) if eslug else os.path.join(LISTS, tslug)
+        d = os.path.join(LISTS, tslug, eslug)
+        current.add(os.path.normcase(os.path.abspath(d)))
         os.makedirs(d, exist_ok=True)
         with open(os.path.join(d, "games.txt"), "w", encoding="utf-8", newline="\n") as f:
-            f.writelines(f"{gid} {sgf_rel(gid)}\n" for gid, _ in rows)
+            f.writelines(f"{gid}\n" for gid, _ in rows)
         with open(os.path.join(d, "games_pendientes.txt"), "w", encoding="utf-8", newline="\n") as f:
-            f.writelines(f"{gid} {sgf_rel(gid)}\n" for gid, has in rows if not has)
+            f.writelines(f"{gid}\n" for gid, has in rows if not has)
+    for d, _, files in os.walk(LISTS):
+        if os.path.normcase(os.path.abspath(d)) not in current:
+            for n in ("games.txt", "games_pendientes.txt"):
+                if n in files:
+                    os.remove(os.path.join(d, n))
 
 
 if __name__ == "__main__":
