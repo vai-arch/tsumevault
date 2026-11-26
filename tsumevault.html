@@ -2031,13 +2031,37 @@
     let syncStatusTimer = null;    // T6/3.10: temporizador unico de setSyncStatus
 
     const SFX = {
-      stone: new Audio('audio/stone.mp3'),
       right: new Audio('audio/right.mp3'),
       wrong: new Audio('audio/wrong.mp3'),
       variant: new Audio('audio/variant.mp3'),   // T26: paso a una variante del MISMO problema (no es el cierre del problema)
       choice: new Audio('audio/variant.mp3'),    // AV-10: aviso de posición de elección (mismo fichero por ahora; elemento propio para poder cambiarlo)
     };
     function playSound(n) { if (!soundEnabled) return; try { SFX[n].currentTime = 0; SFX[n].volume = sfxVolume / 100; SFX[n].play(); } catch (e) { } }
+    // ── SFX: funciones puras (extract_sfx.py las extrae para test_sfx.js; sin DOM ni estado global) ──
+    // Índice al azar en 0..n-1 distinto de `last` cuando n > 1 (con un solo sonido, siempre 0).
+    // rnd en [0,1); un `last` fuera de rango (p. ej. -1 al empezar) no excluye nada.
+    function sfxPickIndex(n, last, rnd) {
+      if (n <= 1) return 0;
+      if (!(last >= 0 && last < n)) return Math.min(n - 1, Math.floor(rnd * n));
+      const i = Math.min(n - 2, Math.floor(rnd * (n - 1)));
+      return i >= last ? i + 1 : i;
+    }
+    // ── fin SFX funciones puras ──
+    // Sonido de piedra variado: put01..05 al poner, cap01..05 si la jugada captura (solo la captura).
+    // Un <audio> por fichero, así dos jugadas seguidas pueden solaparse en vez de cortarse.
+    const STONE_SFX = {
+      stone: [1, 2, 3, 4, 5].map(i => new Audio('audio/put0' + i + '.mp3')),
+      capture: [1, 2, 3, 4, 5].map(i => new Audio('audio/cap0' + i + '.mp3')),
+    };
+    const stoneSfxLast = { stone: -1, capture: -1 };
+    function playStoneSound(captured) {
+      if (!soundEnabled) return;
+      const k = captured ? 'capture' : 'stone', pool = STONE_SFX[k];
+      const i = sfxPickIndex(pool.length, stoneSfxLast[k], Math.random()); stoneSfxLast[k] = i;
+      try { pool[i].currentTime = 0; pool[i].volume = sfxVolume / 100; pool[i].play(); } catch (e) { }
+    }
+    // WGo.Game.play devuelve el array de piedras capturadas si la jugada es legal (código numérico si no).
+    function capturedAny(r) { return Array.isArray(r) && r.length > 0; }
 
     // ── Musica de fondo ──────────────────────────────────────────────
     // Completamente independiente de SFX/playSound: <audio> propio, jamas
@@ -6930,7 +6954,7 @@
       function restoreSnapshot(snap) { game = new WGo.Game(boardSize); game.allow_rewrite = true; for (const { x, y, v } of snap.stones) game.setStone(x, y, v); lastMoveMarker = snap.marker; redrawFromGame(); }
       function redrawFrom(g, marker) { clearBoard(); const pos = g.getPosition(); for (let x = 0; x < boardSize; x++)for (let y = 0; y < boardSize; y++) { const v = pos.get(x, y); if (v === WGo.B) wgoBoard.addObject({ x, y, c: 1 }); else if (v === WGo.W) wgoBoard.addObject({ x, y, c: -1 }); } if (marker) addLastMoveMark(marker.x, marker.y, marker.q); /* T33: simbolo de calidad o circulo */ } // T31: parametrizada (Explorar pinta su propio game)
       function redrawFromGame() { redrawFrom(game, lastMoveMarker); }
-      function placeStone(x, y, c) { game.play(x, y, c === 1 ? WGo.B : WGo.W); redrawFromGame(); hintMarker = null; }
+      function placeStone(x, y, c) { const r = game.play(x, y, c === 1 ? WGo.B : WGo.W); redrawFromGame(); hintMarker = null; return r; }
       // T33: el marcador guarda tambien el simbolo de calidad (q) de la jugada; gameSnapshot/restoreSnapshot
       // y redrawFrom lo conservan igual que la posicion, asi que resize, Back y salto de variante lo respetan.
       function drawLastMoveDot(x, y, node) { if (lastMoveMarker) { wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: 'CR' }); if (lastMoveMarker.q) wgoBoard.removeObject({ x: lastMoveMarker.x, y: lastMoveMarker.y, type: WGo.Board.drawHandlers['LB'] }); } const q = moveQualityMark(node); addLastMoveMark(x, y, q); lastMoveMarker = { x, y, q }; }
@@ -7052,7 +7076,7 @@
         }
         const oppNode = node.children[idx];
         oppPending = true; // T31
-        setTimeout(() => { oppPending = false; if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y, oppNode); playSound('stone'); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; refreshGhosts(); /* T37 */ maybeChoiceAlert(oppNode); /* AV-03 */ }, 400);
+        setTimeout(() => { oppPending = false; if (oppNode.move && !oppNode.move.pass) { const { x, y } = oppNode.move; const r = placeStone(x, y, oppNode.move.c); drawLastMoveDot(x, y, oppNode); playStoneSound(capturedAny(r)); } renderLabels(oppNode); if (checkResult(oppNode)) return; currentNode = oppNode; answered = false; refreshGhosts(); /* T37 */ maybeChoiceAlert(oppNode); /* AV-03 */ }, 400);
       }
       function resetGame() { game = new WGo.Game(boardSize); game.allow_rewrite = true; for (const s of setupB) game.setStone(s.x, s.y, WGo.B); for (const s of setupW) game.setStone(s.x, s.y, WGo.W); lastMoveMarker = null; }
       // T5/3.9: rehidratacion tras resize. Repinta la posicion ACTUAL desde el
@@ -7137,7 +7161,7 @@
         const r = explore.game.play(x, y, explore.turn === 1 ? WGo.B : WGo.W);
         if (!Array.isArray(r)) return; // WGo.Game.play: array de capturas si legal; codigo numerico (fuera, ocupado, suicidio, ko) si no
         explore.moves.push({ x, y, c: explore.turn }); explore.lastMark = { x, y }; explore.turn = -explore.turn;
-        playSound('stone'); exploreRedraw(); exploreSetHint();
+        playStoneSound(capturedAny(r)); exploreRedraw(); exploreSetHint();
       }
       window._studyExploring = () => !!explore; // T31: consultado por los atajos de teclado globales
       window._studyExploreToggle = () => {
@@ -7240,7 +7264,7 @@
         if (!match) { if (currentProblem && currentProblem._isReveal) return; checkResult({ comment: 'WRONG' }); hadWrong = true; if (freeMode) waitingForNext = false; return; }
         history.push({ node: currentNode, snap: gameSnapshot() }); answered = true;
         if (!firstMoveDone) { clearCrossMarks(); firstMoveDone = true; }
-        placeStone(x, y, playerC); drawLastMoveDot(x, y, match); renderLabels(match); playSound('stone');
+        const placed = placeStone(x, y, playerC); drawLastMoveDot(x, y, match); renderLabels(match); playStoneSound(capturedAny(placed));
         if (checkResult(match)) return; playOpponent(match);
       }
       if (!wgoBoard._globalListenerSet) { wgoBoard.addEventListener('click', (x, y) => { if (window._boardClickHandler) window._boardClickHandler(x, y); }); wgoBoard._globalListenerSet = true; }
@@ -7435,10 +7459,12 @@
           if (node.properties.AW) { const aw = Array.isArray(node.properties.AW) ? node.properties.AW : [node.properties.AW]; aw.forEach(v => { const c = toCoord(v); gmGame.setStone(c.x, c.y, WGo.W); }); }
         }
       }
+      gmLastCaptured = false;
       if (node.move && node.move.x !== undefined) {
-        gmGame.play(node.move.x, node.move.y, node.move.c === 1 ? WGo.B : WGo.W);
+        gmLastCaptured = capturedAny(gmGame.play(node.move.x, node.move.y, node.move.c === 1 ? WGo.B : WGo.W));
       }
     }
+    let gmLastCaptured = false;   // la última jugada aplicada por gmApplyNodeToGame capturó
 
     function gmRebuildGameFromStack() {
       // Reconstruye WGo.Game desde cero siguiendo el stack + nodo actual
@@ -7520,6 +7546,7 @@
       gmCurrentNode = children[idx];
       gmRenderCurrentNode();
       gmUpdateControls();
+      if (gmCurrentNode.move && gmCurrentNode.move.x !== undefined) playStoneSound(gmLastCaptured);   // solo al avanzar de una en una; los saltos no suenan
       // Parar timer si hay comentario o variaciones
       if (gmTimerRunning && gmShouldPauseTimer()) gmStopTimer();
     }
@@ -8173,7 +8200,9 @@
       // Posición: WGo.Game aplica capturas; la legalidad ya la validó el importador.
       const game = new WGo.Game(19, 'NONE', true, false);
       const ctxPts = [];   // J3.2: piedras de contexto de la pila (para el cuadrado)
+      let lastCaptured = false;   // la última entrada de la pila capturó (sonido de captura)
       for (const n of jsStack) {
+        lastCaptured = false;
         if (n.ctx) {         // J3.2: el contexto añade piedras, sin capturas ni cambio de turno
           for (const c of ['B', 'W']) for (const m of (n.ctx[c] || [])) {
             const p = jsXy(jsXform(m, jsSym));
@@ -8184,7 +8213,7 @@
         }
         if (n.m === 'pass') continue;
         const p = jsXy(jsXform(n.m, jsSym));
-        game.play(p.x, p.y, n.c === 'B' ? WGo.B : WGo.W);
+        lastCaptured = capturedAny(game.play(p.x, p.y, n.c === 'B' ? WGo.B : WGo.W));
       }
       const pos = game.getPosition();
       for (let x = 0; x < 19; x++) for (let y = 0; y < 19; y++) {
@@ -8238,7 +8267,7 @@
       bw.classList.remove('board-ok', 'board-bad', 'board-choice');
       if (signal && signal.bad) { bw.classList.add('board-bad'); playSound('wrong'); }
       else if (signal && signal.end) { bw.classList.add('board-ok'); playSound('right'); }
-      else if (signal && signal.moved) playSound('stone');
+      else if (signal && signal.moved) playStoneSound(lastCaptured);
       // Cabecera: fichero + ruta de nombres + estado
       const parts = [jsData.file];
       const names = jsNamePath(jsStack);
@@ -9286,14 +9315,17 @@
         g.model = data.model || g.model;
         aiClearBusy(tok);
         if (data.move === 'resign') { aiFinish('resign_ai'); return; }
+        let aiCaptured = false;
         if (data.move !== 'pass') {
           const p = aiFromGtp(data.move);
-          if (!p || !Array.isArray(aiPosition(g).play(p.x, p.y, color === 'B' ? WGo.B : WGo.W))) throw new Error('jugada ilegal de la IA: ' + data.move);
+          const r = p ? aiPosition(g).play(p.x, p.y, color === 'B' ? WGo.B : WGo.W) : null;
+          if (!Array.isArray(r)) throw new Error('jugada ilegal de la IA: ' + data.move);
+          aiCaptured = r.length > 0;
         }
         g.moves.push([color, data.move]);
         if (aiToPlay(g) === g.my_color) aiTurnStart(g);   // RL2: mi reloj arranca al aparecer su piedra
         aiSave();
-        if (aiActive) { aiRender(); if (data.move !== 'pass') playSound('stone'); }
+        if (aiActive) { aiRender(); if (data.move !== 'pass') playStoneSound(aiCaptured); }
         if (aiTwoPasses(g)) aiFinish('passes');
       } catch (e) {
         aiError = 'sin respuesta de la IA (' + e.message + ')';
@@ -9304,21 +9336,24 @@
     }
     function aiPlayMine(vertex) {
       const g = aiGame;
+      const p = vertex !== 'pass' ? aiFromGtp(vertex) : null;
+      const captured = !!p && capturedAny(aiPosition(g).play(p.x, p.y, g.my_color === 'B' ? WGo.B : WGo.W));   // antes de añadirla
       g.moves.push([g.my_color, vertex]);
       aiSave();
       aiRender();
-      if (vertex !== 'pass') playSound('stone');
+      if (vertex !== 'pass') playStoneSound(captured);
       if (aiTwoPasses(g)) aiFinish('passes'); else aiRequestMove();
     }
     function aiBoardClick(x, y) {
       if (!aiActive || !aiIsMyTurn()) return;
       if (aiThinkMs(aiGame) > 0) return;   // PA3: aún no ha pensado el mínimo (ni piedra, ni fantasma, ni sonido)
       const c = aiGame.my_color === 'B' ? WGo.B : WGo.W;
-      if (!Array.isArray(aiPosition(aiGame).play(x, y, c))) return;   // ocupada, suicidio o ko
+      const placed = aiPosition(aiGame).play(x, y, c);
+      if (!Array.isArray(placed)) return;   // ocupada, suicidio o ko
       if (aiClockOn(aiGame)) {   // RL2: la piedra queda puesta; se envía al pulsar el reloj (se puede cambiar antes)
         if (aiGame.paused) return;
         aiGame.pending = aiToGtp(x, y); aiSave(); aiRender();
-        playSound('stone');
+        playStoneSound(placed.length > 0);
         return;
       }
       if (tapConfirm && !(aiPendingTap && aiPendingTap.x === x && aiPendingTap.y === y)) {
