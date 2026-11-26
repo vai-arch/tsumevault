@@ -132,10 +132,11 @@ def handle_tree(qs):
                 "games": sum(s["games"] for s in secs), "sgf": sum(s["sgf"] for s in secs), "sections": secs})
         tournaments = []
         # los torneos 'otros' están ocultos (solo se ven los de kifumaster y los promocionados)
-        for r in con.execute("SELECT slug, name, name_local, kind, years, country FROM ar_tournaments WHERE kind <> 'otros'"):
+        for r in con.execute("SELECT slug, name, name_local, kind, years, country, history FROM ar_tournaments WHERE kind <> 'otros'"):
             eds = editions.get(r["slug"], [])
             tournaments.append({"slug": r["slug"], "name": r["name"], "local": r["name_local"], "kind": r["kind"], "years": r["years"],
                                 "country": r["country"] or "other",
+                                "history": json.loads(r["history"]) if r["history"] else [],   # párrafos de kifumaster (ficha del torneo)
                                 "games": sum(e["games"] for e in eds), "sgf": sum(e["sgf"] for e in eds), "editions": eds})
         # por país (Japón, Corea, China, Taiwán, internacionales, otros) y dentro, alfabético (Victor, 26-nov)
         order = {c: i for i, c in enumerate(COUNTRY_ORDER)}

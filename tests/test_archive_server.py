@@ -130,6 +130,7 @@ try:
     check("tree: dentro de un país, orden alfabético (Ago Cup, Honinbo, Meijin; no por nº de partidas)", [t["name"] for t in tree["tournaments"]] == ["Ago Cup", "Honinbo", "Meijin"] and ts["meijin"]["kind"] == "kifumaster", str([t["name"] for t in tree["tournaments"]]))
     m52 = ts["meijin"]["editions"][0]
     check("tree: edición 52 con 6 partidas, 1 con SGF y 2 secciones", m52["games"] == 6 and m52["sgf"] == 1 and len(m52["sections"]) == 2, json.dumps(m52)[:300])
+    check("tree: la historia del torneo viaja con el árbol (ficha)", ts["meijin"]["history"] == ["x"] and all(isinstance(t["history"], list) for t in ts.values()))
     check("tree: fases de la sección principal", m52["sections"][1]["phases"] == [["Preliminary B", 2], ["Preliminary C", 1]])
     check("tree: los otros eventos no aparecen (ocultos)", list(ts) == ["zzz", "honinbo", "meijin"], str(list(ts)))
 

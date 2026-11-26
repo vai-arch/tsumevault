@@ -228,6 +228,13 @@ Más comprobaciones: sin declaraciones duplicadas ni dependencias sin resolver (
 
 ---
 
+### Ficha del torneo (26-nov, decidido por Victor: opción B) ✔ (rama `archivo-ficha-torneo`)
+- `/archive/tree` lleva `history` (párrafos de kifumaster, `t` de `seo/t`) en cada torneo: son 57 y unos pocos párrafos, así que viaja con el árbol y queda sin conexión.
+- Portátil/tableta: al elegir torneo o edición sin partida abierta, la ficha ocupa el sitio del tablero (nombre, nombre local, años, partidas · con SGF, ediciones; con edición elegida, su línea con fechas; luego la historia). Abrir una partida la sustituye.
+- ⓘ en la miga ("Meijin › 52nd ⓘ ✕"): en móvil abre la ficha a pantalla completa y ← vuelve a la lista; con una partida abierta (cualquier tamaño) muestra la ficha con "← Back to the game", que deja el tablero como estaba. Con la partida abierta, elegir en el árbol no la quita.
+- Validación: `arTournamentCard` 5 checks en `test_archive_page.js` (34/34), 1 check nuevo en `test_archive_server.py`, e2e en Chrome 34/34 (9 de ficha), capturas de escritorio y móvil.
+- No hace falta reconstruir `archive.db` ni subir nada: la historia ya estaba en la base.
+
 ## AR4 — Listas, subida y escaneo
 
 **Dificultad: Baja-Media.**
