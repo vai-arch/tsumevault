@@ -1,7 +1,9 @@
 @echo off
 setlocal
 rem Despliega una rama preparada por Claude: la fusiona en main, sube el servidor
-rem al VPS (_subir_servidor.bat) y deja main igual en GitHub.
+rem al VPS (_subir_servidor.bat) y deja main igual en GitHub. Si la rama cambia el
+rem cliente, sube tambien la version del service worker (tools\bump_version.py) para
+rem que los moviles no se queden con la copia en cache.
 rem Uso:  .\_desplegar_rama.bat nombre-de-la-rama      (por ejemplo: pachi)
 if "%~1"=="" (
     echo Uso: %~nx0 nombre-de-la-rama
@@ -26,7 +28,7 @@ echo.
 echo Cambios de la rama %RAMA%:
 git --no-pager diff --stat main origin/%RAMA% || goto :error
 set "CLIENTE="
-for /f %%F in ('git --no-pager diff --name-only main origin/%RAMA% -- tsumevault.html sw.js') do set "CLIENTE=1"
+for /f %%F in ('git --no-pager diff --name-only main origin/%RAMA% -- tsumevault.html lessons.html player.html sw.js manifest.json js wgo') do set "CLIENTE=1"
 
 echo.
 echo Fusionando %RAMA% en main...
@@ -36,16 +38,18 @@ git merge --ff-only origin/%RAMA% || (
     exit /b 1
 )
 
+if defined CLIENTE (
+    echo.
+    echo La rama cambia el cliente: subiendo la version del service worker...
+    python "%~dp0tools\bump_version.py" || goto :error
+    git add sw.js tsumevault.html || goto :error
+    git commit -m "bump service worker (%RAMA%)" || goto :error
+)
+
 call "%~dp0_subir_servidor.bat"
 
 echo Subiendo main a GitHub...
 git push || goto :error
-
-if defined CLIENTE (
-    echo.
-    echo AVISO: esta rama cambia el cliente. Ejecuta ahora _subir_git.bat para
-    echo publicarlo con la version nueva del service worker.
-)
 echo.
 echo Hecho: %RAMA% desplegada.
 pause
