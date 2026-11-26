@@ -57,3 +57,7 @@ otros-national-league   korean-national-league   Korean National League
 ```
 
 Después `kifu_build.bat` y `_subir_archivo.bat`. Si la carpeta nueva choca con un torneo que ya existe, se avisa y se promociona con su nombre de siempre. Para ocultarlo otra vez, borra la línea: sus listas desaparecen, pero los SGF que ya tengas no se tocan.
+
+## País de cada torneo (árbol de la página)
+
+`kifu_build` lo deduce del idioma del nombre original (`ja` → japan, `ko` → korea, `zh-Hans` → china, `zh-Hant` → taiwan). Las excepciones van en `kifumaster/paises.txt` (en git): `<torneo> <japan|korea|china|taiwan|international|other>`. Regla: si juegan jugadores de más de un país, es `international`. Los promocionados, sin entrada, salen en `other`.

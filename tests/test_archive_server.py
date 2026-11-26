@@ -206,6 +206,7 @@ try:
     ts3 = {t["slug"]: t for t in tree3.get("tournaments", [])}
     check("promocionado: aparece tras los de kifumaster, sin «otros-» y con sus 2 ediciones", b.returncode == 0 and [t["slug"] for t in tree3["tournaments"]] == ["meijin", "lanke-cup"]
           and ts3["lanke-cup"]["kind"] == "promocionado" and [e["slug"] for e in ts3["lanke-cup"]["editions"]] == ["2", "1"], str(list(ts3)))
+    check("tree: país de cada torneo (Meijin japan, el promocionado other)", ts3["meijin"]["country"] == "japan" and ts3["lanke-cup"]["country"] == "other")
     st, r, _ = q("tournament=lanke-cup")
     check("promocionado: sus partidas se ven", r["total"] == 2 and r["games"][0]["tournament_name"] == "Lanke Cup")
 

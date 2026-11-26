@@ -8,6 +8,8 @@ const STATIC_ASSETS = [
   '/tsumevault/js/board_core.js',
   '/tsumevault/js/ai_pure.js',
   '/tsumevault/js/game_viewer.js',
+  '/tsumevault/js/archive.js',
+  '/tsumevault/archive.html',
   '/tsumevault/audio/put01.mp3',
   '/tsumevault/audio/put02.mp3',
   '/tsumevault/audio/put03.mp3',
@@ -54,7 +56,8 @@ self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
 
   // API del servidor — nunca cachear
-  if (url.port === '3002' || url.pathname.startsWith('/db/') || url.pathname.startsWith('/sync/')) {
+  // AR3b: /archive/* también (archive.js guarda su propia copia para usarla sin conexión)
+  if (url.port === '3002' || url.pathname.startsWith('/db/') || url.pathname.startsWith('/sync/') || url.pathname.startsWith('/archive/')) {
     return;
   }
 

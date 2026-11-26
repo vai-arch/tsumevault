@@ -216,6 +216,8 @@ try:
     check("otros: Lanke Cup con ediciones 4, 2, 1 y la sin número al final", q("SELECT e.slug FROM ar_editions e JOIN ar_tournaments t ON t.slug=e.tournament_slug WHERE t.name='Lanke Cup' ORDER BY e.ord") == [("4",), ("2",), ("1",), ("unica",)])
     check("otros: recuento y años del torneo", q("SELECT game_count, years FROM ar_tournaments WHERE name='Lanke Cup'") == [(5, "2018-2022")])
     check("kifumaster: el Meijin sigue siendo kind=kifumaster", q("SELECT kind FROM ar_tournaments WHERE slug='meijin'") == [("kifumaster",)])
+    check("país por idioma: Meijin (ja) → japan; los de otros → other", q("SELECT country FROM ar_tournaments WHERE slug='meijin'") == [("japan",)]
+          and q("SELECT DISTINCT country FROM ar_tournaments WHERE kind='otros'") == [("other",)])
     check("alias japonés → jugador", q("SELECT p.name FROM ar_player_aliases a JOIN ar_players p ON p.id=a.player_id WHERE a.alias=?", "瀬戸大樹") == [("Seto Taiki",)])
     check("nacionalidad del CSV; 0 se ignora", q("SELECT nationality FROM ar_players WHERE name IN ('Seto Taiki','Nadie') ORDER BY name") == [(None,), ("JP",)])
     check("rangos y alias de evento cargados", q("SELECT canonical FROM ar_rank_aliases WHERE variant='九段'") == [("9p",)] and q("SELECT canonical FROM ar_event_aliases") == [("52nd Meijin",)])
@@ -279,6 +281,18 @@ try:
           and not os.path.exists(os.path.join(DATA, "lists", "lanke-cup", "2", "games.txt")) and os.path.exists(os.path.join(DATA, "lists", "lanke-cup", "2", E(2) + ".sgf"))
           and db.execute("SELECT has_sgf, visible FROM ar_games WHERE id=?", (E(2),)).fetchall() == [(1, 0)])
     ENV.pop("KIFU_PROMO")
+    # paises.txt: excepción, nombre desconocido y país no válido
+    paises = os.path.join(TMP, "paises.txt")
+    with open(paises, "w", encoding="utf-8") as f:
+        f.write("# excepciones\nmeijin international\nno-existe japan\nlanke-cup marte\n")
+    ENV["KIFU_PAISES"] = paises
+    rc, out = build()
+    db = sqlite3.connect(os.path.join(DATA, "archive.db"))
+    log = open(os.path.join(DATA, "logs", sorted(f for f in os.listdir(os.path.join(DATA, "logs")) if f.startswith("build_"))[-1]), encoding="utf-8").read()
+    check("paises.txt: la excepción gana al idioma (Meijin → international)", rc == 0 and db.execute("SELECT country FROM ar_tournaments WHERE slug='meijin'").fetchall() == [("international",)])
+    check("paises.txt: torneo desconocido y país no válido se avisan", "'no-existe' no es ningún torneo" in log and "línea 4" in log, log[-600:])
+    db.close()
+    ENV.pop("KIFU_PAISES")
     db.close()
 finally:
     srv.shutdown()

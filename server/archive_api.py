@@ -25,6 +25,7 @@ _LOCK = threading.Lock()
 _SGF_CACHE = {"key": None, "ids": {}}
 _TREE_CACHE = {"key": None, "tree": None}
 MAX_LIMIT = 500
+COUNTRY_ORDER = ("japan", "korea", "china", "taiwan", "international", "other")
 SGF_MAX_BYTES = 2 * 1024 * 1024
 
 
@@ -131,10 +132,14 @@ def handle_tree(qs):
                 "games": sum(s["games"] for s in secs), "sgf": sum(s["sgf"] for s in secs), "sections": secs})
         tournaments = []
         # los torneos 'otros' están ocultos (solo se ven los de kifumaster y los promocionados)
-        for r in con.execute("SELECT slug, name, name_local, kind, years FROM ar_tournaments WHERE kind <> 'otros' ORDER BY kind = 'promocionado', name COLLATE NOCASE"):
+        for r in con.execute("SELECT slug, name, name_local, kind, years, country FROM ar_tournaments WHERE kind <> 'otros'"):
             eds = editions.get(r["slug"], [])
             tournaments.append({"slug": r["slug"], "name": r["name"], "local": r["name_local"], "kind": r["kind"], "years": r["years"],
+                                "country": r["country"] or "other",
                                 "games": sum(e["games"] for e in eds), "sgf": sum(e["sgf"] for e in eds), "editions": eds})
+        # por país (Japón, Corea, China, Taiwán, internacionales, otros) y dentro, por nº de partidas
+        order = {c: i for i, c in enumerate(COUNTRY_ORDER)}
+        tournaments.sort(key=lambda t: (order.get(t["country"], len(order)), -t["games"], t["name"].lower()))
         tree = {"version": f"{built[0] if built else ''}|{len(have)}", "tournaments": tournaments}
         with _LOCK:
             _TREE_CACHE.update(key=key, tree=tree)

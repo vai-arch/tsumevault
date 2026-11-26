@@ -1,6 +1,6 @@
 # WORKPLAN_ARCHIVO — Archivo de partidas profesionales (estructura de kifumaster)
 
-Estado: **Plan aprobado por Victor (26-nov-2026). AR0 ✔ desplegada y probada. AR1.0 ✔. AR1 ✔ (primer ciclo real hecho en el portátil). AR2 ✔ desplegada. AR3a ✔ entregada (rama `ar3a-board-core`), pendiente de probar en el móvil; AR3b después.**
+Estado: **Plan aprobado por Victor (26-nov-2026). AR0 ✔ desplegada y probada. AR1.0 ✔. AR1 ✔ (primer ciclo real hecho en el portátil). AR2 ✔ desplegada. AR3a ✔ desplegada y probada. AR3b ✔ entregada (rama `ar3b-archive-page`), pendiente de desplegar y de la checklist M-AR3.**
 Base revisada: `main` del 26-nov-2026 (`tsumevault.html` 10.135 líneas, `server/tsumevault_server.py` 3.367 líneas).
 
 ---
@@ -216,6 +216,14 @@ Más comprobaciones: sin declaraciones duplicadas ni dependencias sin resolver (
 - Caché sin conexión: `/archive/tree` y las listas abiertas en IndexedDB; SGF ya vistos, en caché.
 - `sw.js`: `archive.html`, `js/board_core.js`, `js/ai_pure.js` en `STATIC_ASSETS`.
 - Tests: `tests/test_archive_page.js` (árbol y agrupación por país, filtros encadenados y "Meijin › 52nd ✕", construcción de la query, filas y tooltips, gris sin acción, estado recordado, caché sin conexión con fetch simulado) + prueba en Chrome sin interfaz contra un servidor local con el fixture de `test_archive_server.py`.
+**AR3b entregada (26-nov, rama `ar3b-archive-page`)**:
+- `archive.html` (marcado + estilos del visor copiados de `tsumevault.html`, ~70 líneas de CSS) y `js/archive.js` (funciones puras arriba, DOM abajo). Botón 棋 en la cabecera de `tsumevault.html` y 碁 de vuelta.
+- País: `kifu_build` guarda `country` (esquema v5) por idioma + `kifumaster/paises.txt` (9 internacionales: Samsung, LG, Nongshim, Chunlan, Mlily, Ing, Fujitsu, Japan-China Go Friendly, Agon Kiriyama China-Japan Final; regla de Victor: si hay más de un país, internacional). `/archive/tree` ordena por país y nº de partidas.
+- Árbol: la sección principal se muestra con su nombre de evento ("52nd Meijin") y su tabla principal como fase "Main". Filtros, miga "Meijin › 52nd ✕", filas con fase abreviada y, en búsquedas globales, torneo y edición; sin SGF en gris y sin acción; estado recordado en `localStorage`; árbol y listas abiertas en la Cache API para usarlos sin conexión (red primero). `sw.js`: `archive.html` y `js/archive.js` en `STATIC_ASSETS` y `/archive/*` fuera de su caché. La página solo registra el service worker si no lo ha hecho ya `tsumevault.html` (misma URL), para no pelearse con él.
+- Al abrir una partida se muestran los controles del visor (en `tsumevault.html` lo hacía el cambio de pestaña) y la ficha en el panel lateral.
+- Limitación conocida: el juego de piedras elegido en ⚙ no se aplica en el archivo (su carga vive en el script principal de `tsumevault.html`); el fondo del tablero y el sonido sí.
+- Tests: `tests/test_archive_page.js` (29 checks de las funciones puras; 3 mutaciones que fallan), `test_kifu.py` (país por idioma, excepciones y avisos) y `test_archive_server.py` (país en el árbol). Prueba de punta a punta en Chrome sin interfaz contra el servidor real con el fixture (25 checks: árbol por país, edición con secciones y fases, fase, fila gris sin acción, abrir partida y ▶, fondo de los ajustes, autocompletado por alias japonés, color, enfrentamientos, años, solo SGF, estado al recargar, sin conexión desde la copia, móvil lista ↔ tablero, sin token, sin errores de JavaScript). Baterías de siempre sin cambios (server 344, ai 111, clock 80, focus 72, sfx 23, lp1, visor 28, división 15).
+
 - Checklist manual M-AR3 (portátil y móvil): árbol por país, Meijin › 52nd › Preliminary B, buscar "瀬戸大樹" y "Seto Taiki", enfrentamientos, años, solo con SGF, abrir una partida con SGF y analizar, fila gris sin acción, modo avión, volver a `tsumevault.html`.
 
 ---

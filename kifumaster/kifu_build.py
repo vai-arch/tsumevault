@@ -23,14 +23,15 @@ RAW = os.path.join(DATA, "raw")
 REPO = os.environ.get("KIFU_REPO", os.path.dirname(HERE))      # raíz del repo: allí estaba el antiguo archive/sgf/
 DB = os.path.join(DATA, "archive.db")
 LISTS = os.path.join(DATA, "lists")
-SCHEMA_VERSION = 4
+SCHEMA_VERSION = 5
 
 SCHEMA = """
 CREATE TABLE ar_meta (key TEXT PRIMARY KEY, value TEXT);
 CREATE TABLE ar_tournaments (
   slug TEXT PRIMARY KEY, name TEXT NOT NULL, name_local TEXT, lang TEXT, years TEXT,
   game_count INTEGER NOT NULL DEFAULT 0, history TEXT,             -- JSON: lista de párrafos
-  kind TEXT NOT NULL DEFAULT 'kifumaster'                          -- 'kifumaster' | 'otros' (ocultos) | 'promocionado' (de otros, ver promocionados.txt)
+  kind TEXT NOT NULL DEFAULT 'kifumaster',                         -- 'kifumaster' | 'otros' (ocultos) | 'promocionado' (de otros, ver promocionados.txt)
+  country TEXT                                                      -- japan | korea | china | taiwan | international | other (idioma + paises.txt)
 );
 CREATE TABLE ar_editions (
   id INTEGER PRIMARY KEY, tournament_slug TEXT NOT NULL REFERENCES ar_tournaments(slug),
@@ -96,6 +97,26 @@ def otros_family(event, date):
 
 
 PROMO = os.environ.get("KIFU_PROMO", os.path.join(HERE, "promocionados.txt"))
+COUNTRIES_FILE = os.environ.get("KIFU_PAISES", os.path.join(HERE, "paises.txt"))
+COUNTRIES = ("japan", "korea", "china", "taiwan", "international", "other")
+LANG_COUNTRY = {"ja": "japan", "ko": "korea", "zh-Hans": "china", "zh-Hant": "taiwan"}
+
+
+def read_countries(warn):
+    """paises.txt: "<torneo> <país>" por línea (# comenta). Solo las excepciones al idioma."""
+    out = {}
+    if not os.path.exists(COUNTRIES_FILE):
+        return out
+    with open(COUNTRIES_FILE, encoding="utf-8-sig") as f:
+        for n, line in enumerate(f, 1):
+            line = line.split("#", 1)[0].strip()
+            if not line:
+                continue
+            parts = line.split()
+            if len(parts) != 2 or parts[1] not in COUNTRIES:
+                warn(f"paises.txt línea {n}: se espera '<torneo> <{'|'.join(COUNTRIES)}>'; se ignora"); continue
+            out[parts[0]] = parts[1]
+    return out
 
 
 def read_promotions(warn):
@@ -231,7 +252,7 @@ def main():
     ed_id = {}
     for slug in sorted(t):
         v = t[slug]
-        con.execute("INSERT INTO ar_tournaments VALUES (?,?,?,?,?,?,?,'kifumaster')",
+        con.execute("INSERT INTO ar_tournaments VALUES (?,?,?,?,?,?,?,'kifumaster',NULL)",
                     (slug, v.get("n") or slug, v.get("l"), v.get("ll"), v.get("y"), v.get("g") or 0,
                      json.dumps(v.get("t") or [], ensure_ascii=False)))
         for o, s in enumerate(v.get("s") or []):
@@ -388,6 +409,16 @@ def main():
             con.execute("INSERT OR IGNORE INTO ar_player_aliases VALUES (?,?,?)", (r[1], players[r[0]], r[2] if len(r) > 2 else None))
     for name, p in players.items():
         con.execute("INSERT OR IGNORE INTO ar_player_aliases VALUES (?,?,?)", (name, p, "canonical"))
+
+    # país de cada torneo visible: excepción de paises.txt o, si no, el idioma de su nombre original
+    overrides = read_countries(warn)
+    known = {r[0] for r in con.execute("SELECT slug FROM ar_tournaments")}
+    for slug in overrides:
+        if slug not in known:
+            warn(f"paises.txt: {slug!r} no es ningún torneo; se ignora")
+    for slug, lang, kind in con.execute("SELECT slug, lang, kind FROM ar_tournaments").fetchall():
+        c = overrides.get(slug) or (LANG_COUNTRY.get(lang) if kind == "kifumaster" else None) or "other"
+        con.execute("UPDATE ar_tournaments SET country=? WHERE slug=?", (c, slug))
 
     # recuentos reales por torneo/edición (los de kifumaster se guardan aparte en game_count de seo/t)
     con.commit()

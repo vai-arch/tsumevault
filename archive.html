@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0e0c08">
+  <title>TsumeVault · Archive</title>
+  <link rel="icon" href="img/icons/icon-192.png">
+  <script src="wgo/wgo.min.js"></script>
+  <script src="wgo/sgfparser.js"></script>
+  <script src="wgo/kifu.js"></script>
+  <!-- AR3b (docs/WORKPLAN_ARCHIVO.md): archivo de partidas. El tablero, el visor y el análisis son los mismos
+       que en tsumevault.html (js/board_core.js, js/ai_pure.js, js/game_viewer.js); misma origen, así que
+       comparte servidor, token y ajustes (fondo, piedras, sonido) por localStorage. -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Noto+Serif+JP:wght@300;400&display=swap');
+    :root { --bg:#0e0c08; --panel:#161410; --border:#2e2a1e; --border2:#3a3526; --gold:#d4a84a; --gold-dim:#7a5e22; --text:#ede4cc;
+            --dim:#a89880; --dim2:#7a6e60; --accent:#d45030; --ok:#4a8a50; --ok-bright:#5cb868; --mono:'IBM Plex Mono',monospace; --serif:'Noto Serif JP',serif; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--serif); overflow: hidden; }
+
+    /* ── distribución: cabecera · archivo (árbol + filtros + lista) · tablero · ficha ── */
+    #app { height: 100vh; display: grid; grid-template-rows: 42px 1fr; grid-template-columns: 360px 1fr 230px;
+           grid-template-areas: "hdr hdr hdr" "left main side"; overflow: hidden; }
+    #hdr { grid-area: hdr; display: flex; align-items: center; gap: 12px; padding: 0 14px; border-bottom: 1px solid var(--border); background: var(--panel); }
+    .logo { font-family: var(--mono); font-size: 11px; letter-spacing: .32em; color: var(--gold); text-transform: uppercase; }
+    .hdr-btn { background: transparent; border: 1px solid var(--border2); color: var(--dim); font-size: 13px; cursor: pointer; padding: 3px 9px; border-radius: 2px; font-family: var(--mono); }
+    .hdr-btn:hover { color: var(--gold); border-color: var(--gold-dim); }
+    #hdr .grow { flex: 1; }
+    #mob-back { display: none; }
+    #left { grid-area: left; display: flex; flex-direction: column; min-height: 0; border-right: 1px solid var(--border); background: var(--panel); }
+    #sidebar { grid-area: side; border-left: 1px solid var(--border); background: var(--panel); padding: 14px; overflow-y: auto; }
+
+    /* árbol */
+    #tree-box { flex: 0 1 45%; min-height: 80px; display: flex; flex-direction: column; border-bottom: 1px solid var(--border); }
+    #tree-filter { margin: 8px; }
+    #tree { overflow-y: auto; flex: 1; padding: 0 4px 8px; font-family: var(--mono); font-size: 11px; }
+    .tr-country { color: var(--gold); letter-spacing: .25em; text-transform: uppercase; font-size: 9px; padding: 8px 6px 3px; }
+    .tr-row { display: flex; gap: 6px; align-items: baseline; padding: 2px 6px; cursor: pointer; border-radius: 2px; color: var(--dim); white-space: nowrap; }
+    .tr-row:hover { background: rgba(212, 168, 74, .08); color: var(--text); }
+    .tr-row.sel { background: rgba(212, 168, 74, .18); color: var(--text); }
+    .tr-row .nm { overflow: hidden; text-overflow: ellipsis; }
+    .tr-row .lc { color: var(--dim2); font-family: var(--serif); overflow: hidden; text-overflow: ellipsis; }
+    .tr-row .ct { margin-left: auto; color: var(--dim2); font-size: 10px; }
+    .tr-row .ct b { color: var(--ok-bright); font-weight: 400; }
+    .tr-l1 { padding-left: 18px; } .tr-l2 { padding-left: 32px; } .tr-l3 { padding-left: 46px; }
+
+    /* filtros */
+    #filters { padding: 6px 8px; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; border-bottom: 1px solid var(--border); position: relative; }
+    .fin { font-family: var(--mono); font-size: 10px; background: transparent; border: 1px solid var(--border2); color: var(--text); padding: 4px 7px; border-radius: 2px; min-width: 0; }
+    .fin:focus { outline: none; border-color: var(--gold-dim); }
+    .fin.yr { width: 58px; }
+    .fpl { position: relative; flex: 1 1 120px; display: flex; }
+    .fpl .fin { width: 100%; }
+    .chip { font-family: var(--mono); font-size: 10px; color: var(--text); border: 1px solid var(--gold-dim); border-radius: 2px; padding: 3px 6px; white-space: nowrap; cursor: pointer; }
+    .chip:hover { color: var(--gold); }
+    .sugg { position: absolute; top: 100%; left: 0; right: 0; z-index: 10; background: var(--panel); border: 1px solid var(--border2); max-height: 220px; overflow-y: auto; }
+    .sugg div { font-family: var(--mono); font-size: 10px; padding: 4px 7px; cursor: pointer; color: var(--dim); }
+    .sugg div:hover { background: rgba(212, 168, 74, .12); color: var(--text); }
+    .flab { font-family: var(--mono); font-size: 10px; color: var(--dim); display: flex; align-items: center; gap: 4px; cursor: pointer; }
+    #crumb { font-family: var(--mono); font-size: 10px; color: var(--gold); padding: 5px 8px 0; display: flex; gap: 6px; align-items: center; min-height: 20px; }
+    #crumb .x { color: var(--dim); cursor: pointer; } #crumb .x:hover { color: var(--accent); }
+    #crumb .n { margin-left: auto; color: var(--dim); }
+
+    /* lista */
+    #list { flex: 1; overflow-y: auto; font-family: var(--mono); font-size: 11px; padding: 4px 0 10px; }
+    .g-row { display: flex; gap: 8px; padding: 3px 8px; white-space: nowrap; align-items: baseline; }
+    .g-row.has { cursor: pointer; color: var(--text); }
+    .g-row.has:hover { background: rgba(212, 168, 74, .08); }
+    .g-row.no { color: var(--dim2); opacity: .55; cursor: default; }
+    .g-row.sel { background: rgba(212, 168, 74, .18); }
+    .g-row .d { color: var(--dim); flex: 0 0 78px; }
+    .g-row.no .d { color: inherit; }
+    .g-row .p { overflow: hidden; text-overflow: ellipsis; flex: 1; }
+    .g-row .r { flex: 0 0 auto; }
+    .g-row .x { flex: 0 0 auto; color: var(--dim2); font-size: 10px; }
+    .g-row.has .x { color: var(--gold-dim); }
+    #more { margin: 6px auto; display: block; }
+    .msg { font-family: var(--mono); font-size: 10px; color: var(--dim); padding: 10px; text-align: center; letter-spacing: .08em; }
+
+    /* ── tablero y visor: mismos estilos que tsumevault.html ── */
+    #main { grid-area: main; min-width: 0; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 10px 0; position: relative; overflow-y: auto; }
+    #board-wrap { position: relative; box-shadow: 0 0 0 1px var(--gold-dim), 0 12px 48px rgba(0, 0, 0, .75); border-radius: 1px; flex-shrink: 0; }
+    #board-wrap canvas { display: block; }
+    #board-hint { height: 28px; background: rgba(0, 0, 0, .6); display: flex; align-items: center; justify-content: center; font-family: var(--mono);
+                  font-size: 11px; letter-spacing: .15em; color: var(--dim); text-transform: uppercase; }
+    #board-hint.board-hint-black { background: rgba(0, 0, 0, .75); color: var(--text); }
+    #board-hint.board-hint-white { background: #f0ece0; color: #1a1710; }
+    #comment-box { width: 100%; max-width: 560px; height: calc(12px * 1.6 * 6 + 14px); padding: 7px 14px; background: rgba(22, 20, 16, .9);
+                   border-top: 1px solid var(--border); font-family: var(--serif); font-size: 12px; line-height: 1.6; color: var(--text); text-align: center;
+                   display: block; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--border2) transparent; }
+    #welcome { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; color: var(--dim); pointer-events: none; }
+    #welcome .kanji { font-size: 56px; opacity: .12; line-height: 1; }
+    #welcome p { font-family: var(--mono); font-size: 10px; letter-spacing: .22em; text-transform: uppercase; }
+    .ctrl-btn { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; padding: 4px 14px; background: transparent; border: 1px solid var(--border2);
+                color: var(--dim); cursor: pointer; border-radius: 2px; transition: all .18s; }
+    .ctrl-btn:hover { border-color: var(--gold-dim); color: var(--gold); }
+    .ctrl-btn.active { background: var(--gold); border-color: var(--gold); color: #000; }
+    .ctrl-btn.active:hover { color: #000; }
+    .ctrl-btn:disabled { opacity: .35; cursor: default; }
+    .ctrl-btn:disabled:hover { border-color: var(--border2); color: var(--dim); }
+    .gm-row { flex-basis: 100%; display: flex; justify-content: center; align-items: center; gap: 4px; }
+    .ctrl-btn.gm-ico { padding: 3px 9px; min-width: 32px; }
+    .gm-an-box { flex-basis: 100%; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; line-height: 1.6;
+                 color: var(--text); background: rgba(0, 0, 0, .6); padding: 5px 10px; text-align: center; white-space: pre-line; }
+    .sb-label { font-family: var(--mono); font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: var(--dim); margin-bottom: 8px; }
+    .sb-row { font-family: var(--mono); font-size: 11px; line-height: 2; color: var(--dim); }
+    #gm-info .sb-row { display: flex; gap: 8px; }
+    #gm-info .sb-row .k { color: var(--dim2); flex: 0 0 72px; }
+    #gm-info .sb-row .v { color: var(--text); overflow-wrap: anywhere; }
+
+    /* tablet: sin ficha lateral (va bajo la lista) */
+    @media (min-width:768px) and (max-width:1023px) {
+      #app { grid-template-columns: 320px 1fr; grid-template-areas: "hdr hdr" "left main"; }
+      #sidebar { display: none; }
+    }
+    /* móvil: lista o tablero, de uno en uno (como tsumevault.html con #app.mob-board) */
+    @media (max-width:767px) {
+      #app { grid-template-columns: 100vw; grid-template-areas: "hdr" "view"; }
+      #left, #main { grid-area: view; }
+      #sidebar { display: none; }
+      #app:not(.mob-board) #main { display: none; }
+      #app.mob-board #left { display: none; }
+      #app.mob-board #mob-back { display: inline-block; }
+      #tree-box { flex-basis: 40%; }
+      #main { justify-content: flex-start; padding-top: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <header id="hdr">
+      <button class="hdr-btn" id="mob-back" title="Back to the list">←</button>
+      <span class="logo">Archive</span>
+      <span class="grow"></span>
+      <button class="hdr-btn" id="to-app" title="Back to TsumeVault">碁</button>
+    </header>
+
+    <section id="left">
+      <div id="tree-box">
+        <input class="fin" id="tree-filter" placeholder="tournament…" title="Filter tournaments by name (also in Japanese, Korean, Chinese)">
+        <div id="tree"><div class="msg">Loading…</div></div>
+      </div>
+      <div id="filters">
+        <div class="fpl" id="f-p1-box"><input class="fin" id="f-p1" placeholder="player" title="Player: name or alias (e.g. 井山裕太). Pick one from the list" autocomplete="off"></div>
+        <select class="fin" id="f-color" title="Colour of the first player" style="display:none">
+          <option value="any">●○</option><option value="b">●</option><option value="w">○</option>
+        </select>
+        <div class="fpl" id="f-p2-box" style="display:none"><input class="fin" id="f-p2" placeholder="vs" title="Second player: games between both, any colour" autocomplete="off"></div>
+        <input class="fin yr" id="f-y1" placeholder="from" inputmode="numeric" maxlength="4" title="From year">
+        <input class="fin yr" id="f-y2" placeholder="to" inputmode="numeric" maxlength="4" title="To year (included)">
+        <label class="flab" title="Only games whose SGF you already have"><input type="checkbox" id="f-sgf"> SGF</label>
+      </div>
+      <div id="crumb"></div>
+      <div id="list"></div>
+    </section>
+
+    <div id="main">
+      <div id="welcome"><div class="kanji">棋譜</div><p>Select a game</p></div>
+      <div id="board-wrap" style="display:none">
+        <div id="board"></div>
+        <div id="board-hint">—</div>
+      </div>
+      <div id="gm-controls" style="display:none;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap;margin-top:6px;min-width:0;max-width:100%;">
+        <div class="gm-row">
+          <button class="ctrl-btn gm-ico" id="gm-btn-prev" title="Jugada anterior">◀</button>
+          <button class="ctrl-btn gm-ico" id="gm-btn-branch" title="Volver al inicio de la rama">↩</button>
+          <button class="ctrl-btn gm-ico" id="gm-btn-play" title="Reproducción automática">▷</button>
+          <button class="ctrl-btn gm-ico" id="gm-btn-next" title="Jugada siguiente">▶</button>
+          <select id="gm-timer-sel" title="Velocidad de la reproducción automática" style="font-family:var(--mono);font-size:9px;background:var(--panel);color:var(--dim);border:1px solid var(--border2);border-radius:2px;padding:3px 5px;cursor:pointer;">
+            <option value="2000">2s</option><option value="3000" selected>3s</option><option value="5000">5s</option><option value="8000">8s</option><option value="10000">10s</option>
+          </select>
+        </div>
+        <div class="gm-row">
+          <button class="ctrl-btn gm-ico" id="gm-btn-graph" title="Gráfica de la ventaja estimada a lo largo de la partida">📈</button>
+          <span id="gm-an-status" style="display:none;font-family:var(--mono);font-size:10px;color:var(--dim);align-self:center;white-space:nowrap;"></span>
+          <button class="ctrl-btn gm-ico" id="gm-btn-times" style="display:none" title="Mostrar u ocultar el tiempo pensado en cada jugada bajo la gráfica">⏱</button>
+          <button class="ctrl-btn gm-ico" id="gm-btn-an" title="Analizar la última jugada: cuánto costó y cuáles eran las mejores (si ya está analizada, toca para ocultar o mostrar el análisis)">🔍</button>
+          <button class="ctrl-btn gm-ico" id="gm-btn-est" title="Estimar el resultado y mostrar el territorio de esta posición (vuelve a pulsar para ocultarlo)">📊</button>
+          <button class="ctrl-btn gm-ico" id="gm-btn-pv" style="display:none" title="Mostrar u ocultar la secuencia de la mejor jugada">🔢</button>
+          <button class="ctrl-btn gm-ico" id="gm-btn-err-filter" style="display:none" title="De quién son los errores: todos / negras / blancas">●○</button>
+          <button class="ctrl-btn gm-ico" id="gm-btn-err-prev" style="display:none" title="Error anterior">◀✕</button>
+          <button class="ctrl-btn gm-ico" id="gm-btn-err-next" style="display:none" title="Error siguiente">✕▶</button>
+        </div>
+        <div id="gm-an-text" class="gm-an-box" style="display:none"></div>
+        <div id="gm-graph" style="display:none;flex-basis:100%;width:100%;min-width:0;max-width:100%;margin-top:2px;"></div>
+      </div>
+      <div id="comment-box" style="display:none"></div>
+    </div>
+
+    <aside id="sidebar">
+      <div id="gm-info">
+        <div class="sb-label">Game</div>
+        <div id="gm-info-rows"><div class="sb-row">—</div></div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="js/board_core.js"></script>
+  <script src="js/ai_pure.js"></script>
+  <script src="js/game_viewer.js"></script>
+  <script src="js/archive.js"></script>
+</body>
+
+</html>
