@@ -149,13 +149,19 @@ Esquema real de `archive.db` (v1; sustituye al borrador de arriba): `ar_tourname
 
 Primer ciclo real (26-nov, portátil): 1028 ficheros sin un error; catálogo con 57 torneos, 1.724 ediciones, 2.541 secciones, 179.994 partidas (113.800 en su sección, 16.237 con fase), 6.772 jugadores. El 37 % (66.193 partidas, 4.237 eventos) son de eventos que kifumaster no organiza en torneos; 13.230 no tienen evento.
 
-**"Otros eventos"** (decidido por Victor el 26-nov): se agrupan en torneos propios con `kind='otros'` (los de kifumaster, `kind='kifumaster'`) y slug `otros-…`. Regla (`otros_family`): un número ordinal o un año al principio del nombre es la edición ("2nd Lanke Cup" → Lanke Cup / 2; "2016 National League" → National League / 2016; "2017-2018 Pro-Ama League" → Pro-Ama League / 2017-2018); sin número, el evento es un torneo de edición única (`unica`); sin evento, "Sin evento" por año. Una sección por edición y sin fases. En la página irán en un bloque aparte, debajo de los 57 torneos.
+**"Otros eventos"** (decidido por Victor el 26-nov): se agrupan en torneos propios con `kind='otros'` (los de kifumaster, `kind='kifumaster'`) y slug `otros-…`. Regla (`otros_family`): un número ordinal o un año al principio del nombre es la edición ("2nd Lanke Cup" → Lanke Cup / 2; "2016 National League" → National League / 2016; "2017-2018 Pro-Ama League" → Pro-Ama League / 2017-2018); sin número, el evento es un torneo de edición única (`unica`); sin evento, "Sin evento" por año. Una sección por edición y sin fases. Ocultos por ahora (ver «Otros eventos ocultos y promocionados»).
 
 Listas (adelantadas de AR4): `data/lists/<torneo>/<edición>/games.txt` (`<id> archive/sgf/<xx>/<id>.sgf`, en el orden de la página) y `games_pendientes.txt` (las que aún no están en esa ruta del repo); las de otros eventos, en `data/lists/otros-…/<edición>/`.
 
 Tests: `tests/test_kifu.py` (51 checks) con un servidor HTTP falso: reanudación, 429/503 con espera, 404, gzip, condicional/304 y cambio detectado, parada ante 503 persistente y ante JSON roto, pausa real entre peticiones, catálogo (secciones, fases, alias, nacionalidad, ediciones por `te`, sin clasificar, `has_sgf`), listas y `first_seen`. Mutaciones comprobadas (fases al principio, sin condicional, sin esperas, sin guardar estado, sin mirar los SGF, sin validar, sin pausa): todas fallan.
 
 ---
+
+## Otros eventos ocultos y promocionados (26-nov, decidido por Victor) ✔ (rama `archivo-promocionados`)
+
+Los 57 torneos de kifumaster (1.724 ediciones, ~113.800 partidas: el 63 % del archivo en el 3 % de los torneos) bastan para empezar. Los "otros eventos" siguen en `archive.db` con `kind='otros'` pero **no se muestran**: `ar_games.visible = 0` (esquema v4, índice `ix_g_visible`), sin `sgf_path` ni carpeta en `lists/`, fuera del árbol, de la lista y del autocompletado (que además solo cuenta partidas visibles).
+- `kifumaster/promocionados.txt` (en git): `<torneo-actual> [carpeta-nueva] [nombre para mostrar]` por línea; sin carpeta nueva se quita el `otros-`. El torneo pasa a `kind='promocionado'` y se muestra tras los de kifumaster. Si la carpeta nueva choca con un torneo existente, se avisa y se promociona con su slug de siempre; los nombres que no existen se avisan y se ignoran. Quitar la línea lo vuelve a ocultar (sus listas se quitan; los SGF no se tocan y siguen contando).
+- Tests: `test_kifu.py` 64 checks, `test_archive_server.py` 41; mutaciones (lista y árbol enseñando ocultos, no quitar el `otros-`, carpetas para ocultos, autocompletar jugadores solo de ocultos): todas fallan.
 
 ## Cambio de estructura de los SGF (26-nov, decidido por Victor) ✔ (rama `archivo-sgf-por-edicion`)
 

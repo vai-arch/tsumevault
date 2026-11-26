@@ -130,7 +130,8 @@ def handle_tree(qs):
                 "id": r["id"], "slug": r["slug"], "label": r["label"], "from": r["date_from"], "to": r["date_to"],
                 "games": sum(s["games"] for s in secs), "sgf": sum(s["sgf"] for s in secs), "sections": secs})
         tournaments = []
-        for r in con.execute("SELECT slug, name, name_local, kind, years FROM ar_tournaments ORDER BY kind='otros', name COLLATE NOCASE"):
+        # los torneos 'otros' están ocultos (solo se ven los de kifumaster y los promocionados)
+        for r in con.execute("SELECT slug, name, name_local, kind, years FROM ar_tournaments WHERE kind <> 'otros' ORDER BY kind = 'promocionado', name COLLATE NOCASE"):
             eds = editions.get(r["slug"], [])
             tournaments.append({"slug": r["slug"], "name": r["name"], "local": r["name_local"], "kind": r["kind"], "years": r["years"],
                                 "games": sum(e["games"] for e in eds), "sgf": sum(e["sgf"] for e in eds), "editions": eds})
@@ -156,7 +157,7 @@ def handle_games(qs):
     player=id [&color=b|w] · player2=id (enfrentamientos de player contra player2, cualquier color)
     year_from=AAAA · year_to=AAAA · has_sgf=1 · offset · limit (≤ 500; 200 por defecto)
     Orden: fecha descendente. Devuelve {total, offset, limit, games: [...]}."""
-    where, args = [], []
+    where, args = ["g.visible = 1"], []          # las partidas de torneos 'otros' no se muestran
     t = _one(qs, "tournament")
     if t is not None:
         where.append("e.tournament_slug = ?"); args.append(t)
@@ -226,11 +227,11 @@ def handle_players(qs):
     try:
         rows = con.execute("""
             SELECT p.id, p.name, p.nationality,
-                   (SELECT COUNT(*) FROM ar_games WHERE black_id = p.id) + (SELECT COUNT(*) FROM ar_games WHERE white_id = p.id) AS games,
+                   (SELECT COUNT(*) FROM ar_games WHERE black_id = p.id AND visible = 1) + (SELECT COUNT(*) FROM ar_games WHERE white_id = p.id AND visible = 1) AS games,
                    MIN(CASE WHEN a.alias = ? THEN 0 WHEN a.alias LIKE ? ESCAPE '\\' THEN 1 ELSE 2 END) AS rank
             FROM ar_player_aliases a JOIN ar_players p ON p.id = a.player_id
             WHERE a.alias LIKE ? ESCAPE '\\'
-            GROUP BY p.id ORDER BY rank, games DESC, p.name LIMIT 20""", (q, like + "%", "%" + like + "%")).fetchall()
+            GROUP BY p.id HAVING games > 0 ORDER BY rank, games DESC, p.name LIMIT 20""", (q, like + "%", "%" + like + "%")).fetchall()
         return {"players": [{"id": r["id"], "name": r["name"], "nationality": r["nationality"], "games": r["games"]} for r in rows]}
     finally:
         con.close()

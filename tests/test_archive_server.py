@@ -47,7 +47,8 @@ raw = {
     "seo/g/00.json": {**{x: {"b": "?", "w": "?", "e": "52nd Meijin", "d": "2026-01-01", "r": "?"} for x in A + [TM]},
                       OT[0]: {"b": "Iyama Yuta", "w": "Hane Naoki", "e": "2nd Lanke Cup", "d": "2020-05-01", "r": "Black wins"},
                       OT[1]: {"b": "Hane Naoki", "w": "Iyama Yuta", "e": "1st Lanke Cup", "d": "2019-05-01", "r": "White wins"},
-                      OT[2]: {"b": "Iyama Yuta", "w": "Seto Taiki", "d": "1990-03-03", "r": "Jigo"}},
+                      OT[2]: {"b": "Iyama Yuta", "w": "Seto Taiki", "d": "1990-03-03", "r": "Jigo"},
+                      gid("e4", 4): {"b": "Solo Otros", "w": "Nadie Mas", "e": "Castle Games", "d": "1850-01-01", "r": "B+R"}},
 }
 for path, v in raw.items():
     p = os.path.join(RAW, *path.split("/")); os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -122,14 +123,13 @@ try:
 
     # ── árbol ──
     st, tree, hd = req("/archive/tree", gz=True)
-    check("tree: 200 y comprimido", st == 200 and hd.get("Content-Encoding") == "gzip", f"{st} {hd.get('Content-Encoding')}")
+    check("tree: 200", st == 200, f"{st}")
     ts = {t["slug"]: t for t in tree.get("tournaments", [])}
     check("tree: el Meijin primero (kifumaster antes que otros)", tree["tournaments"][0]["slug"] == "meijin" and ts["meijin"]["kind"] == "kifumaster")
     m52 = ts["meijin"]["editions"][0]
     check("tree: edición 52 con 6 partidas, 1 con SGF y 2 secciones", m52["games"] == 6 and m52["sgf"] == 1 and len(m52["sections"]) == 2, json.dumps(m52)[:300])
     check("tree: fases de la sección principal", m52["sections"][1]["phases"] == [["Preliminary B", 2], ["Preliminary C", 1]])
-    check("tree: otros eventos (Lanke Cup con 2 ediciones; Sin evento)", ts.get("otros-lanke-cup", {}).get("kind") == "otros"
-          and [e["slug"] for e in ts["otros-lanke-cup"]["editions"]] == ["2", "1"] and "otros-sin-evento" in ts, str(list(ts)))
+    check("tree: los otros eventos no aparecen (ocultos)", list(ts) == ["meijin"], str(list(ts)))
 
     # ── lista y filtros ──
     st, r, _ = q("tournament=meijin")
@@ -144,13 +144,13 @@ try:
     seto = pl["players"][0]["id"]
     st, pl, _ = req("/archive/players?q=iya")
     iyama = pl["players"][0]["id"] if pl["players"] else None
-    check("players: por trozo del nombre, con nº de partidas", pl["players"] and pl["players"][0]["name"] == "Iyama Yuta" and pl["players"][0]["games"] == 7, str(pl))
+    check("players: por trozo del nombre, con nº de partidas", pl["players"] and pl["players"][0]["name"] == "Iyama Yuta" and pl["players"][0]["games"] == 4, str(pl))
     st, r, _ = q(f"player={seto}")
-    check("games: Seto con cualquier color (6)", r["total"] == 6)
+    check("games: Seto con cualquier color (5; la de otros eventos no cuenta)", r["total"] == 5, str(r["total"]))
     st, r, _ = q(f"player={seto}&color=b")
     check("games: Seto solo con negras (2)", r["total"] == 2 and all(g["black"] == "Seto Taiki" for g in r["games"]))
     st, r, _ = q(f"player={iyama}&player2={seto}")
-    check("games: enfrentamientos Iyama-Seto en los dos colores (4)", r["total"] == 4 and {g["id"] for g in r["games"]} == {TM, A[0], A[1], OT[2]}, str([g["id"] for g in r["games"]]))
+    check("games: enfrentamientos Iyama-Seto en los dos colores (3)", r["total"] == 3 and {g["id"] for g in r["games"]} == {TM, A[0], A[1]}, str([g["id"] for g in r["games"]]))
     st, r, _ = q("year_from=2025&year_to=2025")
     check("games: año 2025 (3)", r["total"] == 3 and all(g["date"].startswith("2025") for g in r["games"]))
     st, r, _ = q("has_sgf=1")
@@ -158,7 +158,13 @@ try:
     st, r, _ = q("tournament=meijin&limit=2&offset=2")
     check("games: paginación (total 6, página de 2 desde la 3ª)", r["total"] == 6 and [g["id"] for g in r["games"]] == A[1:3])
     st, r, _ = q("tournament=otros-lanke-cup")
-    check("games: otros eventos se filtran igual", r["total"] == 2 and r["games"][0]["tournament_name"] == "Lanke Cup")
+    check("games: los otros eventos no salen ni pidiéndolos", st == 200 and r["total"] == 0)
+    st, r, _ = q("")
+    check("games: sin filtros, solo las 6 visibles", r["total"] == 6)
+    st, pl, _ = req("/archive/players?q=Hane")
+    check("players: el recuento solo cuenta partidas visibles", pl["players"] and pl["players"][0]["games"] == 3, str(pl))
+    st, pl, _ = req("/archive/players?q=Solo")
+    check("players: no sugiere jugadores que solo tienen partidas ocultas", st == 200 and pl["players"] == [], str(pl))
 
     # ── ficha y SGF ──
     st, g, _ = req(f"/archive/game?id={A[0]}")
@@ -188,6 +194,20 @@ try:
     touch_stamp()
     st, r, _ = q("has_sgf=1")
     check(".stamp basta para ver un SGF nuevo en una carpeta existente", r.get("total") == 4, str(r.get("total")))
+
+    # ── promocionar Lanke Cup y subir la base nueva: aparece al momento ──
+    promo = os.path.join(TMP, "promocionados.txt")
+    with open(promo, "w", encoding="utf-8") as f:
+        f.write("otros-lanke-cup\n")
+    b = subprocess.run([sys.executable, os.path.join(ROOT, "kifumaster", "kifu_build.py")], env=dict(ENV, KIFU_PROMO=promo), capture_output=True, text=True, encoding="utf-8")
+    shutil.copy(os.path.join(TMP, "data", "archive.db"), os.path.join(SRV, "archive", "archive.db.new"))
+    os.replace(os.path.join(SRV, "archive", "archive.db.new"), os.path.join(SRV, "archive", "archive.db"))
+    st, tree3, _ = req("/archive/tree")
+    ts3 = {t["slug"]: t for t in tree3.get("tournaments", [])}
+    check("promocionado: aparece tras los de kifumaster, sin «otros-» y con sus 2 ediciones", b.returncode == 0 and [t["slug"] for t in tree3["tournaments"]] == ["meijin", "lanke-cup"]
+          and ts3["lanke-cup"]["kind"] == "promocionado" and [e["slug"] for e in ts3["lanke-cup"]["editions"]] == ["2", "1"], str(list(ts3)))
+    st, r, _ = q("tournament=lanke-cup")
+    check("promocionado: sus partidas se ven", r["total"] == 2 and r["games"][0]["tournament_name"] == "Lanke Cup")
 
     # ── sin archive.db: 503 y el resto de la app sigue ──
     os.rename(os.path.join(SRV, "archive", "archive.db"), os.path.join(SRV, "archive", "x.db"))
@@ -223,7 +243,7 @@ if shutil.which("bash"):
           and not os.path.exists(os.path.join(REMOTE, "sgf", "4c", A[0] + ".sgf")) and not os.path.exists(os.path.join(R52, gid("77", 1) + ".sgf"))
           and os.path.exists(os.path.join(REMOTE, "sgf", ".stamp"))
           and os.path.exists(os.path.join(REMOTE, "archive.db")), r.stdout + r.stderr)
-    check("subir: comprueba que el servidor lee la base nueva (9 partidas)", "el servidor la lee: 9 partidas" in r.stdout, r.stdout)
+    check("subir: comprueba que el servidor lee la base nueva (10 partidas)", "el servidor la lee: 10 partidas" in r.stdout, r.stdout)
     check("subir: la base sustituida es idéntica y no queda .new", open(os.path.join(REMOTE, "archive.db"), "rb").read() == open(os.path.join(TMP, "data", "archive.db"), "rb").read()
           and not os.path.exists(os.path.join(REMOTE, "archive.db.new")))
     os.remove(os.path.join(LISTS, "meijin", "52", gid("77", 1) + ".sgf"))

@@ -227,7 +227,9 @@ try:
     check("games_pendientes.txt sin las que ya están", lst("meijin", "52", "games_pendientes.txt") == [x for x in [TM] + M if x not in (M[0], M[1])])
     check("lista de la 51", lst("meijin", "51", "games.txt") == [LOOSE_TE])
     lanke = q("SELECT slug FROM ar_tournaments WHERE name='Lanke Cup'")[0][0]
-    check("listas de otros: otros-lanke-cup/2 con sus 2 partidas, la más reciente primero", lanke == "otros-lanke-cup" and lst(lanke, "2", "games.txt") == [E(2), E(1)])
+    check("otros ocultos: sin carpetas otros-… en lists/ y sus partidas con visible=0 y sin sgf_path", lanke == "otros-lanke-cup"
+          and not any(d.startswith("otros-") for d in os.listdir(os.path.join(DATA, "lists")))
+          and q("SELECT visible, sgf_path FROM ar_games WHERE id=?", E(1)) == [(0, None)] and q("SELECT visible FROM ar_games WHERE id=?", M[0]) == [(1,)])
     check("carpeta vieja: se quita su games.txt pero el SGF desconocido no se toca (y se avisa)",
           not os.path.exists(os.path.join(DATA, "lists", "viejo", "1", "games.txt")) and os.path.exists(os.path.join(DATA, "lists", "viejo", "1", "f" * 32 + ".sgf")) and "no está en el catálogo" in out, out[-600:])
     check("ya no hay carpeta _sin_clasificar", not os.path.exists(os.path.join(DATA, "lists", "_sin_clasificar")))
@@ -240,6 +242,38 @@ try:
     db = sqlite3.connect(os.path.join(DATA, "archive.db"))
     check("reconstruir conserva first_seen y no cuenta nuevas", rc == 0 and dict(db.execute("SELECT id, first_seen FROM ar_games")) == fs and "nuevas: 0" in out, out[-300:])
     check("reconstruir no borra los SGF de las carpetas", os.path.exists(os.path.join(L52, M[0] + ".sgf")) and os.path.exists(os.path.join(L52, M[1] + ".sgf")) and "sgf_movidos: 0" in out)
+    db.close()
+
+    # ── 6. promocionar torneos de otros eventos ──
+    promo = os.path.join(TMP, "promocionados.txt")
+    with open(promo, "w", encoding="utf-8") as f:
+        f.write("# comentario\notros-lanke-cup\notros-national-league   korean-national-league   Korean National League   # nombre con espacios\n"
+                "otros-no-existe\notros-pro-ama-league meijin\n\n")
+    ENV["KIFU_PROMO"] = promo
+    rc, out = build()
+    db = sqlite3.connect(os.path.join(DATA, "archive.db"))
+    q = lambda s, *a: db.execute(s, a).fetchall()
+    check("promocionar: sin carpeta nueva se quita el otros- (lanke-cup), kind=promocionado y nombre igual",
+          q("SELECT slug, name, kind FROM ar_tournaments WHERE name='Lanke Cup'") == [("lanke-cup", "Lanke Cup", "promocionado")], str(q("SELECT slug, name, kind FROM ar_tournaments WHERE name='Lanke Cup'")))
+    check("promocionar: carpeta y nombre nuevos", q("SELECT slug, name, kind FROM ar_tournaments WHERE slug='korean-national-league'") == [("korean-national-league", "Korean National League", "promocionado")])
+    check("promocionar: el promocionado tiene sus listas y sus partidas son visibles", rc == 0 and lst("lanke-cup", "2", "games.txt") == [E(2), E(1)]
+          and q("SELECT visible, sgf_path FROM ar_games WHERE id=?", E(1)) == [(1, f"lanke-cup/2/{E(1)}.sgf")])
+    check("promocionar: un nombre que no existe se avisa y se ignora", "otros-no-existe" in open(os.path.join(DATA, "logs", os.listdir(os.path.join(DATA, "logs"))[-1]), encoding="utf-8").read() or "otros-no-existe" in out, out[-500:])
+    check("promocionar: si la carpeta nueva choca (meijin) se promociona con su nombre de siempre",
+          q("SELECT slug, kind FROM ar_tournaments WHERE name='Pro-Ama League'") == [("otros-pro-ama-league", "promocionado")] and q("SELECT kind FROM ar_tournaments WHERE slug='meijin'") == [("kifumaster",)])
+    check("promocionar: el resto sigue oculto", q("SELECT kind FROM ar_tournaments WHERE name='Jubango (10-Game Match)'") == [("otros",)] and "promocionados: 3" in out, out[-400:])
+    db.close()
+    # despromocionar: se quita la línea → vuelve a otros y se quitan sus listas (los SGF no se tocan)
+    open(os.path.join(DATA, "lists", "lanke-cup", "2", E(2) + ".sgf"), "w").write("(;GM[1])")
+    with open(promo, "w", encoding="utf-8") as f:
+        f.write("otros-national-league korean-national-league Korean National League\n")
+    rc, out = build()
+    db = sqlite3.connect(os.path.join(DATA, "archive.db"))
+    check("despromocionar: vuelve a otros, sin listas, el SGF se queda y cuenta",
+          db.execute("SELECT kind FROM ar_tournaments WHERE name='Lanke Cup'").fetchall() == [("otros",)]
+          and not os.path.exists(os.path.join(DATA, "lists", "lanke-cup", "2", "games.txt")) and os.path.exists(os.path.join(DATA, "lists", "lanke-cup", "2", E(2) + ".sgf"))
+          and db.execute("SELECT has_sgf, visible FROM ar_games WHERE id=?", (E(2),)).fetchall() == [(1, 0)])
+    ENV.pop("KIFU_PROMO")
     db.close()
 finally:
     srv.shutdown()

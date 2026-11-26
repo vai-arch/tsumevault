@@ -43,3 +43,17 @@ data/
 2. Descárgala desde `https://kifumaster.org/game/<id>` con el botón de la web.
 3. Guárdala como `<id>.sgf` en **esa misma carpeta**.
 4. `_subir_archivo.bat` la sube; el siguiente `kifu_build.bat` la quita de `games_pendientes.txt`.
+
+## Torneos ocultos y promocionados
+
+Por ahora solo se muestran los **57 torneos de kifumaster** (~113.800 partidas). Los "otros eventos" (`kind='otros'`, ~1.765 torneos, ~66.000 partidas) siguen en `archive.db` pero **ocultos**: no tienen carpeta en `data/lists/`, no salen en la página ni en el buscador de jugadores.
+
+Para mostrar uno como principal, añádelo a `kifumaster/promocionados.txt` (en git), una línea por torneo:
+
+```
+<torneo-actual>  [carpeta-nueva]  [nombre para mostrar]
+otros-lanke-cup                                              ← pasa a lanke-cup, con el mismo nombre
+otros-national-league   korean-national-league   Korean National League
+```
+
+Después `kifu_build.bat` y `_subir_archivo.bat`. Si la carpeta nueva choca con un torneo que ya existe, se avisa y se promociona con su nombre de siempre. Para ocultarlo otra vez, borra la línea: sus listas desaparecen, pero los SGF que ya tengas no se tocan.

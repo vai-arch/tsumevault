@@ -23,14 +23,14 @@ RAW = os.path.join(DATA, "raw")
 REPO = os.environ.get("KIFU_REPO", os.path.dirname(HERE))      # raíz del repo: allí estaba el antiguo archive/sgf/
 DB = os.path.join(DATA, "archive.db")
 LISTS = os.path.join(DATA, "lists")
-SCHEMA_VERSION = 3
+SCHEMA_VERSION = 4
 
 SCHEMA = """
 CREATE TABLE ar_meta (key TEXT PRIMARY KEY, value TEXT);
 CREATE TABLE ar_tournaments (
   slug TEXT PRIMARY KEY, name TEXT NOT NULL, name_local TEXT, lang TEXT, years TEXT,
   game_count INTEGER NOT NULL DEFAULT 0, history TEXT,             -- JSON: lista de párrafos
-  kind TEXT NOT NULL DEFAULT 'kifumaster'                          -- 'kifumaster' | 'otros' (agrupados por nombre, ver otros_family)
+  kind TEXT NOT NULL DEFAULT 'kifumaster'                          -- 'kifumaster' | 'otros' (ocultos) | 'promocionado' (de otros, ver promocionados.txt)
 );
 CREATE TABLE ar_editions (
   id INTEGER PRIMARY KEY, tournament_slug TEXT NOT NULL REFERENCES ar_tournaments(slug),
@@ -61,13 +61,15 @@ CREATE TABLE ar_games (
   phase TEXT,                                                       -- '' = tabla principal; NULL = sin sección
   ord INTEGER,                                                      -- posición dentro de la sección
   has_sgf INTEGER NOT NULL DEFAULT 0,
-  sgf_path TEXT,                                                    -- <torneo>/<edición>/<id>.sgf (relativo a lists/ y al sgf/ del servidor)
+  sgf_path TEXT,                                                    -- <torneo>/<edición>/<id>.sgf (relativo a lists/ y al sgf/ del servidor); NULL si está oculta
+  visible INTEGER NOT NULL DEFAULT 1,                               -- 0 = de un torneo 'otros' (no se muestra en la página)
   first_seen TEXT NOT NULL                                          -- se conserva entre reconstrucciones
 );
 CREATE INDEX ix_g_edition ON ar_games(edition_id, section_id, ord);
 CREATE INDEX ix_g_black ON ar_games(black_id, date);
 CREATE INDEX ix_g_white ON ar_games(white_id, date);
 CREATE INDEX ix_g_date ON ar_games(date, id);
+CREATE INDEX ix_g_visible ON ar_games(visible, date, id);
 CREATE INDEX ix_alias ON ar_player_aliases(alias);
 """
 
@@ -91,6 +93,29 @@ def otros_family(event, date):
     if m:
         return m.group(2), m.group(1), int(m.group(1)[:4])
     return ev, "", None
+
+
+PROMO = os.environ.get("KIFU_PROMO", os.path.join(HERE, "promocionados.txt"))
+
+
+def read_promotions(warn):
+    """promocionados.txt: "<torneo-otros> [carpeta-nueva] [nombre para mostrar]" por línea; # comenta.
+    Sin carpeta nueva, se le quita el "otros-" del principio."""
+    out = {}
+    if not os.path.exists(PROMO):
+        return out
+    with open(PROMO, encoding="utf-8-sig") as f:
+        for n, line in enumerate(f, 1):
+            line = line.split("#", 1)[0].strip()
+            if not line:
+                continue
+            parts = line.split(None, 2)
+            old = parts[0]
+            new = parts[1] if len(parts) > 1 else (old[6:] if old.startswith("otros-") else old)
+            if not re.match(r"^[\w-]+$", new, re.UNICODE):
+                warn(f"promocionados.txt línea {n}: carpeta {new!r} no válida (solo letras, números y -); se ignora la línea"); continue
+            out[old] = (new, parts[2].strip() if len(parts) > 2 else None)
+    return out
 
 
 def slugify(name):
@@ -277,17 +302,36 @@ def main():
             otros.setdefault(fam, {}).setdefault(ed, []).append(gid)
             gm["_otros"] = (fam, ed, num)
     used = set(r[0] for r in con.execute("SELECT slug FROM ar_tournaments"))
+    # primero los slugs "otros-…" de todos (estables), y luego las promociones, que pueden renombrar
+    fam_slug = {}
     for fam in sorted(otros):
         base = "otros-" + slugify(fam)
         slug, k = base, 2
         while slug in used:
             slug, k = f"{base}-{k}", k + 1
         used.add(slug)
+        fam_slug[fam] = slug
+    promo = read_promotions(warn)
+    by_slug = {v: f for f, v in fam_slug.items()}
+    final = {}                                     # fam -> (slug, nombre, kind)
+    for fam, slug in fam_slug.items():
+        final[fam] = (slug, fam, "otros")
+    for old, (new, name) in promo.items():
+        fam = by_slug.get(old)
+        if fam is None:
+            warn(f"promocionados.txt: {old!r} no es ningún torneo de otros eventos; se ignora"); continue
+        if new != old and new in used:
+            warn(f"promocionados.txt: {old!r} → {new!r} choca con un torneo que ya existe; se promociona sin cambiar el nombre de carpeta")
+            new = old
+        used.discard(old); used.add(new)
+        final[fam] = (new, name or fam, "promocionado")
+    for fam in sorted(otros):
+        slug, tname, kind = final[fam]
         eds = otros[fam]
         dates = [games[x].get("date") for e in eds.values() for x in e if games[x].get("date")]
         years = f"{min(dates)[:4]}-{max(dates)[:4]}" if dates else None
-        con.execute("INSERT INTO ar_tournaments (slug, name, years, game_count, kind) VALUES (?,?,?,?, 'otros')",
-                    (slug, fam, years, sum(len(v) for v in eds.values())))
+        con.execute("INSERT INTO ar_tournaments (slug, name, years, game_count, kind) VALUES (?,?,?,?,?)",
+                    (slug, tname, years, sum(len(v) for v in eds.values()), kind))
         # ediciones: la más reciente primero (como kifumaster); la edición sin número, al final
         order = sorted(eds, key=lambda e: (-games[eds[e][0]]["_otros"][2] if games[eds[e][0]]["_otros"][2] is not None else float("inf"), e))
         for o, ed in enumerate(order):
@@ -302,7 +346,11 @@ def main():
                 games[x].update(edition_id=e, section_id=sid, phase="", ord=k2)
 
     # SGF: cada uno en la carpeta de su edición; los que estén en otro sitio se mueven
-    ed_dir = {r[0]: edition_dir(r[1], r[2]) for r in con.execute("SELECT id, tournament_slug, slug FROM ar_editions")}
+    # solo los torneos visibles tienen carpeta; los SGF de los ocultos se dejan donde estén
+    ed_dir = {r[0]: edition_dir(r[1], r[2]) for r in con.execute(
+        "SELECT e.id, e.tournament_slug, e.slug FROM ar_editions e JOIN ar_tournaments t ON t.slug = e.tournament_slug WHERE t.kind <> 'otros'")}
+    hidden_ed = {r[0] for r in con.execute(
+        "SELECT e.id FROM ar_editions e JOIN ar_tournaments t ON t.slug = e.tournament_slug WHERE t.kind = 'otros'")}
     found = find_sgf()
     n_sgf, moved = 0, []
     for gid, gm in games.items():
@@ -321,11 +369,13 @@ def main():
                 moved.append((here[0], rel)); has = True
                 for p in here[1:]:
                     warn(f"SGF repetido de {gid}: movido {here[0]} → {rel}; sobra {p} (no lo borro)")
+        elif gm.get("edition_id") in hidden_ed and found.get(gid):
+            has = True                                 # oculta: el SGF cuenta, pero no se mueve
         n_sgf += has
-        con.execute("INSERT INTO ar_games VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        con.execute("INSERT INTO ar_games VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                     (gid, gm.get("event_name"), gm.get("date"), pid(gm.get("b")), pid(gm.get("w")), gm.get("result"),
                      gm.get("result_text"), gm.get("edition_id"), gm.get("section_id"), gm.get("phase"), gm.get("ord"),
-                     int(has), rel, first_seen.get(gid, now)))
+                     int(has), rel, int(gm.get("edition_id") not in hidden_ed), first_seen.get(gid, now)))
     for gid in found:
         if gid not in games:
             warn(f"SGF de una partida que no está en el catálogo: {found[gid][0]} (no lo toco)")
@@ -343,7 +393,9 @@ def main():
     con.commit()
     stats = dict(
         torneos=con.execute("SELECT COUNT(*) FROM ar_tournaments WHERE kind='kifumaster'").fetchone()[0],
+        promocionados=con.execute("SELECT COUNT(*) FROM ar_tournaments WHERE kind='promocionado'").fetchone()[0],
         otros_eventos=con.execute("SELECT COUNT(*) FROM ar_tournaments WHERE kind='otros'").fetchone()[0],
+        partidas_visibles=con.execute("SELECT COUNT(*) FROM ar_games WHERE visible=1").fetchone()[0],
         partidas_en_otros=con.execute("SELECT COUNT(*) FROM ar_games g JOIN ar_editions e ON e.id=g.edition_id JOIN ar_tournaments t ON t.slug=e.tournament_slug WHERE t.kind='otros'").fetchone()[0],
         ediciones=con.execute("SELECT COUNT(*) FROM ar_editions e JOIN ar_tournaments t ON t.slug=e.tournament_slug WHERE t.kind='kifumaster'").fetchone()[0],
         secciones=con.execute("SELECT COUNT(*) FROM ar_sections").fetchone()[0],
@@ -385,6 +437,7 @@ def write_lists(con):
     q = """SELECT e.tournament_slug, e.slug, g.id, g.has_sgf FROM ar_games g
            JOIN ar_editions e ON e.id = g.edition_id
            LEFT JOIN ar_sections s ON s.id = g.section_id
+           WHERE g.visible = 1
            ORDER BY e.tournament_slug, e.slug, COALESCE(s.ord, 999999), COALESCE(g.ord, 999999), g.date DESC, g.id"""
     groups = {}
     for tslug, eslug, gid, has in con.execute(q):
