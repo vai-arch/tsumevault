@@ -137,9 +137,9 @@ def handle_tree(qs):
             tournaments.append({"slug": r["slug"], "name": r["name"], "local": r["name_local"], "kind": r["kind"], "years": r["years"],
                                 "country": r["country"] or "other",
                                 "games": sum(e["games"] for e in eds), "sgf": sum(e["sgf"] for e in eds), "editions": eds})
-        # por país (Japón, Corea, China, Taiwán, internacionales, otros) y dentro, por nº de partidas
+        # por país (Japón, Corea, China, Taiwán, internacionales, otros) y dentro, alfabético (Victor, 26-nov)
         order = {c: i for i, c in enumerate(COUNTRY_ORDER)}
-        tournaments.sort(key=lambda t: (order.get(t["country"], len(order)), -t["games"], t["name"].lower()))
+        tournaments.sort(key=lambda t: (order.get(t["country"], len(order)), t["name"].lower()))
         tree = {"version": f"{built[0] if built else ''}|{len(have)}", "tournaments": tournaments}
         with _LOCK:
             _TREE_CACHE.update(key=key, tree=tree)

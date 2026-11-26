@@ -36,6 +36,8 @@ raw = {
     "database/aliasesevent.csv": "canonical,,alias\n", "database/aliasesrank.csv": "variant,canonical\n九段,9p\n",
     "database/event_families.csv": "base,numbering,variants,keys,year_map,ord_map,rows\n",
     "seo/te/00.json": {"52nd Meijin": "meijin/52", "52nd Meijin Title Match": "meijin/52"},
+    "seo/t/01.json": {"honinbo": {"n": "Honinbo", "l": "本因坊戦", "ll": "ja", "t": [], "g": 0, "y": "", "s": []},
+                      "zzz": {"n": "Ago Cup", "l": "", "ll": "ja", "t": [], "g": 0, "y": "", "s": []}},
     "seo/t/00.json": {"meijin": {"n": "Meijin", "l": "名人戦", "ll": "ja", "t": ["x"], "g": 6, "y": "2025-2026",
                                  "s": [{"k": "52nd", "u": "52", "n": 6, "a": "2025-11-06", "z": "2026-09-30", "p": 8}]}},
     "seo/ts/00.json": {"meijin/52": {"c": [
@@ -125,11 +127,11 @@ try:
     st, tree, hd = req("/archive/tree", gz=True)
     check("tree: 200", st == 200, f"{st}")
     ts = {t["slug"]: t for t in tree.get("tournaments", [])}
-    check("tree: el Meijin primero (kifumaster antes que otros)", tree["tournaments"][0]["slug"] == "meijin" and ts["meijin"]["kind"] == "kifumaster")
+    check("tree: dentro de un país, orden alfabético (Ago Cup, Honinbo, Meijin; no por nº de partidas)", [t["name"] for t in tree["tournaments"]] == ["Ago Cup", "Honinbo", "Meijin"] and ts["meijin"]["kind"] == "kifumaster", str([t["name"] for t in tree["tournaments"]]))
     m52 = ts["meijin"]["editions"][0]
     check("tree: edición 52 con 6 partidas, 1 con SGF y 2 secciones", m52["games"] == 6 and m52["sgf"] == 1 and len(m52["sections"]) == 2, json.dumps(m52)[:300])
     check("tree: fases de la sección principal", m52["sections"][1]["phases"] == [["Preliminary B", 2], ["Preliminary C", 1]])
-    check("tree: los otros eventos no aparecen (ocultos)", list(ts) == ["meijin"], str(list(ts)))
+    check("tree: los otros eventos no aparecen (ocultos)", list(ts) == ["zzz", "honinbo", "meijin"], str(list(ts)))
 
     # ── lista y filtros ──
     st, r, _ = q("tournament=meijin")
@@ -204,7 +206,7 @@ try:
     os.replace(os.path.join(SRV, "archive", "archive.db.new"), os.path.join(SRV, "archive", "archive.db"))
     st, tree3, _ = req("/archive/tree")
     ts3 = {t["slug"]: t for t in tree3.get("tournaments", [])}
-    check("promocionado: aparece tras los de kifumaster, sin «otros-» y con sus 2 ediciones", b.returncode == 0 and [t["slug"] for t in tree3["tournaments"]] == ["meijin", "lanke-cup"]
+    check("promocionado: aparece tras los de kifumaster, sin «otros-» y con sus 2 ediciones", b.returncode == 0 and [t["slug"] for t in tree3["tournaments"]] == ["zzz", "honinbo", "meijin", "lanke-cup"]
           and ts3["lanke-cup"]["kind"] == "promocionado" and [e["slug"] for e in ts3["lanke-cup"]["editions"]] == ["2", "1"], str(list(ts3)))
     check("tree: país de cada torneo (Meijin japan, el promocionado other)", ts3["meijin"]["country"] == "japan" and ts3["lanke-cup"]["country"] == "other")
     st, r, _ = q("tournament=lanke-cup")
