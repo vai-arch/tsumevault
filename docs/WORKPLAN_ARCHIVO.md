@@ -186,20 +186,35 @@ Tests: `tests/test_archive_server.py` (34 checks): token, ids no válidos (sin p
 
 ---
 
-## AR3 — `archive.html`
+## AR3 — `archive.html` (plan detallado del 26-nov, pendiente de aprobación)
 
-**Dificultad: Media.** Fichero nuevo; no toca `tsumevault.html`.
+### Decisiones de diseño (Victor, 26-nov)
+- **Navegación: árbol desplegable** como la pestaña Collections. Torneos → ediciones (con recuento "85 · 2 con SGF") → secciones/fases. Cuadro para filtrar torneos por nombre; promocionados al final.
+- **Orden de los torneos: por país** (Japón, Corea, China, Taiwán, Internacionales) y dentro, por nº de partidas. El país se deduce del idioma del nombre original (`ll` de `seo/t`); los que no encajen (p. ej. internacionales con nombre en coreano) se corrigen con una tabla pequeña en `kifumaster/paises.txt` (torneo → país), versionada.
+- **Filtros en todo el archivo** (jugador con alias y color, dos jugadores, años, solo con SGF). Si hay algo elegido en el árbol, filtran dentro de ello; arriba "Meijin › 52nd ✕" para quitarlo. La lista dice "12 de 85" cuando hay filtro.
+- **Por defecto se ven todas las partidas**; las que no tienen SGF, en gris y **sin acción** al tocarlas (Victor las baja con los `games_pendientes.txt`).
+- **Fila**: `fecha  negras – blancas  resultado  [fase abreviada]`; en búsquedas por todo el archivo, también "torneo edición". Lo demás (sección, resultado largo, id) en tooltip (S Pen).
+- **Visor**: el de Games completo, con análisis KataGo (AR0).
+- Recuerda la última selección y los filtros; botón ⇄ entre `tsumevault.html` y `archive.html`; mismo servidor y token (misma origen: comparten `localStorage`).
+- Móvil: lista y tablero en dos pantallas; portátil: lado a lado.
 
-- Carga `wgo/*`, `js/board_core.js` y `js/game_viewer.js` (AR0). Mismo estilo visual que la app.
-- Panel izquierdo: filtros del §0 y lista de resultados (fecha · negras · blancas · resultado · indicador con/sin SGF). Etiquetas mínimas; las explicaciones van en tooltips (que funcionen con el S Pen).
-- Navegación: torneo → edición → fase como selects encadenados alimentados por `/archive/tree`.
-- Caché: `/archive/tree` y las listas abiertas en IndexedDB (o `caches` del service worker). Sin conexión: se navega la estructura y las listas ya abiertas; los SGF ya vistos quedan en la caché.
-- Partida sin SGF: datos + enlace "abrir en kifumaster" + su ruta de destino (para copiarla).
-- Partida con SGF: visor compartido completo, con análisis KataGo cuando hay conexión.
-- Enlaces: botón para ir a `archive.html` desde `tsumevault.html` (junto al de lecciones 📚) y para volver.
-- `sw.js`: `archive.html` en `STATIC_ASSETS`.
-- Tests: `tests/extract_archive.py` + `tests/test_archive.js` (filtros encadenados, construcción de la query, render de lista, caché sin conexión con fetch simulado).
-- Checklist manual M-AR3 (portátil y móvil): navegar Meijin 52 por fases, buscar "瀬戸大樹" y "Seto Taiki", enfrentamientos de dos jugadores, rango de años, "solo con SGF", abrir una partida con y sin SGF, análisis, modo avión.
+### AR3a — `js/board_core.js` y `js/ai_pure.js` (refactor sin cambios de comportamiento) · Dificultad Alta
+Lo que el visor necesita de la página, medido con un parser de JS (cierre transitivo de dependencias):
+- **Núcleo del tablero: 35 declaraciones, ~150 líneas, en ~10 sitios** de `tsumevault.html`: `wgoBoard`, `boardSize`, `initBoard`, `clearBoard`, `addLastMoveMark`, `moveQualityMark`, `switchToBoard`, `isMobilePortrait`, `buildStoneHandler`, `getImg`, `imgCache`, `pickVariant`, `currentBoardBg`, `currentStoneSet`, `BOARD_BG_KEY`, sonido (`STONE_SFX`, `playStoneSound`, `capturedAny`, `soundEnabled`, `sfxVolume`, `stoneSfxLast`, `SOUND_KEY`, `SFX_VOLUME_KEY` y el bloque «SFX: funciones puras» con `sfxPickIndex`), almacenamiento y servidor (`lsGet`, `lsSet`, `sgfUrl`, `SGF_BASE`, `syncFetch`, `SYNC_SERVER`, `SYNC_SERVER_KEY`, `SYNC_TOKEN_KEY`), IA (`aiPost`, `AI_OWN_HANDLER`) y `jsMarkInfo` (lo usa `moveQualityMark`).
+- **Funciones puras de la IA: el bloque «IA3: funciones puras» entero** (58 funciones, ~550 líneas: `an*`, `aiToGtp`, `aiFromGtp`, `AI_COLS`…), que ya está diseñado para vivir aparte (sin DOM ni estado global) y no depende de nada de fuera.
+- Ninguna de esas declaraciones necesita, al cargarse, nada que se quede en la página; así que `board_core.js` y `ai_pure.js` se cargan con `<script src>` **antes** de `game_viewer.js` y del script principal, igual que en AR0. Los ajustes (fondo, piedras, volumen) siguen en `localStorage` con las mismas claves, así que `archive.html` los hereda sin hacer nada.
+
+**Garantía principal — reconstrucción byte a byte.** Cada bloque movido deja en la página una línea `// ⇢ js/board_core.js #N` y empieza en el `.js` con `// ⇠ #N (antes en tsumevault.html, …)`. Un script de test (`tests/page_source.py` y su gemelo `.js`) **reconstruye la página tal como era** sustituyendo cada marca por su bloque; se comprueba que el resultado es **idéntico byte a byte** al `tsumevault.html` anterior. Todos los extractores de tests (`extract_ai`, `extract_sfx`, `extract_joseki`, `extract_focus`, `test_joseki_problems_client`…) leen esa página reconstruida, así que sus bundles salen **idénticos** a los de antes y ninguna batería pierde cobertura (también las de josekis, que no se pueden correr en el contenedor).
+
+Más comprobaciones: sin declaraciones duplicadas ni dependencias sin resolver (parser), ninguna declaración movida usa al cargar nada de la página (TDZ), `test_game_viewer.js` ampliado a los tres ficheros, línea base de todas las baterías igual antes y después, `node --check`, y prueba en Chrome sin interfaz de la página real antes/después (problemas, Games con análisis, Play, josekis, ajustes de sonido y tablero) con resultados idénticos y sin errores. Checklist manual en el móvil antes de seguir. Rama propia; nada de AR3b hasta que AR3a esté desplegada y probada.
+
+### AR3b — la página · Dificultad Media
+- `archive.html` nueva: carga `wgo/*`, `board_core.js`, `ai_pure.js`, `game_viewer.js` y su propio script (árbol, filtros, lista, estado). No toca `tsumevault.html` salvo el botón ⇄.
+- País por torneo: `kifu_build` añade `country` a `ar_tournaments` (idioma + `paises.txt`); `/archive/tree` lo devuelve y agrupa.
+- Caché sin conexión: `/archive/tree` y las listas abiertas en IndexedDB; SGF ya vistos, en caché.
+- `sw.js`: `archive.html`, `js/board_core.js`, `js/ai_pure.js` en `STATIC_ASSETS`.
+- Tests: `tests/test_archive_page.js` (árbol y agrupación por país, filtros encadenados y "Meijin › 52nd ✕", construcción de la query, filas y tooltips, gris sin acción, estado recordado, caché sin conexión con fetch simulado) + prueba en Chrome sin interfaz contra un servidor local con el fixture de `test_archive_server.py`.
+- Checklist manual M-AR3 (portátil y móvil): árbol por país, Meijin › 52nd › Preliminary B, buscar "瀬戸大樹" y "Seto Taiki", enfrentamientos, años, solo con SGF, abrir una partida con SGF y analizar, fila gris sin acción, modo avión, volver a `tsumevault.html`.
 
 ---
 
