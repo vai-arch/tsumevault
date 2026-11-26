@@ -223,28 +223,31 @@ finally:
 if shutil.which("bash"):
     FAKE = os.path.join(TMP, "fake"); os.makedirs(FAKE)
     with open(os.path.join(FAKE, "fake_ssh.py"), "w") as f:
-        f.write("import subprocess,sys\nsys.exit(subprocess.run(['bash','-c',sys.argv[-1]]).returncode)\n")
+        f.write("import subprocess,sys,os\nopen(os.environ['FAKE_SSH_LOG'],'a').write(sys.argv[-1]+'\\n')\nsys.exit(subprocess.run(['bash','-c',sys.argv[-1]]).returncode)\n")
     with open(os.path.join(FAKE, "fake_scp.py"), "w") as f:
         f.write("import shutil,sys,os\nargs=[a for a in sys.argv[1:]]\nfiles=[]\ni=0\n"
                 "while i<len(args):\n    if args[i]=='-o': i+=2; continue\n    files.append(args[i]); i+=1\n"
                 "dest=files.pop().split(':',1)[1]\nfor x in files:\n    shutil.copy(x, dest if dest.endswith('/') else dest)\n")
     REMOTE = os.path.join(TMP, "remote")
     UENV = dict(ENV, KIFU_SSH=f"{sys.executable} {os.path.join(FAKE, 'fake_ssh.py')}", KIFU_SCP=f"{sys.executable} {os.path.join(FAKE, 'fake_scp.py')}",
-                KIFU_HOST="fake", KIFU_REMOTE_DIR=REMOTE)
+                KIFU_HOST="fake", KIFU_REMOTE_DIR=REMOTE, FAKE_SSH_LOG=os.path.join(TMP, "ssh.log"))
     up = lambda *a: subprocess.run([sys.executable, os.path.join(ROOT, "kifumaster", "kifu_upload.py"), *a], env=UENV, capture_output=True, text=True, encoding="utf-8")
     put_at(os.path.join(LISTS, "meijin", "52"), A[3], "﻿  (;GM[1]SZ[19])")
+    put_at(os.path.join(LISTS, "meijin", "unica-prueba"), gid("5a", 5), "(;GM[1])")   # otra carpeta: tiene que ir en el mismo tar
     put_at(os.path.join(LISTS, "meijin", "52"), gid("77", 1), "no soy un sgf")
     put_at(os.path.join(REMOTE, "sgf", "4c"), A[0], "(;GM[1])")          # en el servidor en la ruta antigua: se mueve, no se sube
     r = up("--simular")
     check("subir --simular: no copia ni mueve nada", r.returncode == 1 and os.listdir(os.path.join(REMOTE, "sgf")) == ["4c"] and not os.path.exists(os.path.join(REMOTE, "archive.db")), r.stdout + r.stderr)
     r = up()
     R52 = os.path.join(REMOTE, "sgf", "meijin", "52")
-    check("subir: 1 SGF nuevo, 1 movido de la ruta antigua, archive.db; salta el que no es SGF (código 1)", r.returncode == 1 and "1 por subir, 1 por mover" in r.stdout and "no parece un SGF" in r.stdout
+    check("subir: 2 SGF nuevos, 1 movido de la ruta antigua, archive.db; salta el que no es SGF (código 1)", r.returncode == 1 and "2 por subir, 1 por mover" in r.stdout and "no parece un SGF" in r.stdout
           and os.path.exists(os.path.join(R52, A[3] + ".sgf")) and os.path.exists(os.path.join(R52, A[0] + ".sgf"))
           and not os.path.exists(os.path.join(REMOTE, "sgf", "4c", A[0] + ".sgf")) and not os.path.exists(os.path.join(R52, gid("77", 1) + ".sgf"))
           and os.path.exists(os.path.join(REMOTE, "sgf", ".stamp"))
           and os.path.exists(os.path.join(REMOTE, "archive.db")), r.stdout + r.stderr)
     check("subir: comprueba que el servidor lee la base nueva (10 partidas)", "el servidor la lee: 10 partidas" in r.stdout, r.stdout)
+    tars = [l for l in open(os.path.join(TMP, "ssh.log"), encoding="utf-8") if "tar -xf" in l]
+    check("subir: todos los SGF nuevos (dos carpetas) en una sola conexión con tar", len(tars) == 1 and os.path.exists(os.path.join(REMOTE, "sgf", "meijin", "unica-prueba", gid("5a", 5) + ".sgf")), str(len(tars)))
     check("subir: la base sustituida es idéntica y no queda .new", open(os.path.join(REMOTE, "archive.db"), "rb").read() == open(os.path.join(TMP, "data", "archive.db"), "rb").read()
           and not os.path.exists(os.path.join(REMOTE, "archive.db.new")))
     os.remove(os.path.join(LISTS, "meijin", "52", gid("77", 1) + ".sgf"))

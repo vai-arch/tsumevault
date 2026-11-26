@@ -5,7 +5,7 @@
     python kifumaster/kifu_upload.py --simular    enseña lo que haría, sin subir nada
 
 1. SGF: compara kifumaster/data/lists/<torneo>/<edición>/<id>.sgf del portátil con el sgf/ del
-   servidor (misma estructura) y sube solo los que faltan (scp por carpeta, en tandas). Si el servidor
+   servidor (misma estructura) y sube solo los que faltan, todos en un tar por una sola conexión. Si el servidor
    ya lo tiene en otra ruta (la partida cambió de edición, o el antiguo sgf/<xx>/), lo mueve allí mismo
    en vez de subirlo otra vez. Los que no parecen un SGF ("(;" al principio) se saltan y se avisa.
    Al terminar toca sgf/.stamp para que el servidor vea los cambios al momento.
@@ -14,7 +14,7 @@
 
 Nunca borra nada en el servidor. Usa ssh/scp con BatchMode (sin preguntar contraseña).
 """
-import argparse, hashlib, os, re, shutil, subprocess, sys
+import argparse, hashlib, io as _io, os, re, shutil, subprocess, sys, tarfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.environ.get("KIFU_REPO", os.path.dirname(HERE))
@@ -23,7 +23,6 @@ HOST = os.environ.get("KIFU_HOST", "root@46.225.97.185")
 REMOTE = os.environ.get("KIFU_REMOTE_DIR", "/opt/tsumevault/archive")
 OPTS = ["-o", "BatchMode=yes", "-o", "ServerAliveInterval=20", "-o", "ServerAliveCountMax=12"]
 _ID = re.compile(r"^[0-9a-f]{32}$")
-BATCH = 40
 
 
 def tool(name):
@@ -79,6 +78,25 @@ def local_sgf():
     return ok, bad
 
 
+def send_tar(files, dest, simular=False):
+    """Todos los SGF nuevos en UN tar por UNA conexión ssh (antes: un scp por carpeta y tanda, cada uno con
+    su conexión, y eran cientos). Las rutas van relativas: <torneo>/<edición>/<id>.sgf."""
+    buf = _io.BytesIO()
+    with tarfile.open(fileobj=buf, mode="w", format=tarfile.PAX_FORMAT) as tar:
+        for path, rel in files:
+            info = tar.gettarinfo(path, arcname=rel)
+            info.uid = info.gid = 0; info.uname = info.gname = ""; info.mode = 0o644
+            with open(path, "rb") as f:
+                tar.addfile(info, f)
+    data = buf.getvalue()
+    if simular:
+        print(f"  (simulado) tar de {len(files)} fichero(s), {len(data) / 1e6:.1f} MB → {dest}"); return
+    p = subprocess.run(tool("ssh") + OPTS + [HOST, f"mkdir -p {sh_quote(dest)} && tar -xf - -C {sh_quote(dest)} --no-same-owner"],
+                       input=data, capture_output=True)
+    if p.returncode != 0:
+        raise RuntimeError(f"la subida (tar por ssh) falló ({p.returncode}):\n{p.stderr.decode('utf-8', 'replace').strip()}")
+
+
 def sh_quote(s):
     """Comillas para el shell remoto (los slugs pueden llevar caracteres no ASCII)."""
     return "'" + s.replace("'", "'\\''") + "'"
@@ -119,10 +137,8 @@ def main(argv=None):
         ssh(f"mv -n {sh_quote(REMOTE + '/sgf/' + remote[g])} {sh_quote(REMOTE + '/sgf/' + local[g][1])}", a.simular, capture=not a.simular)
     if move:
         print(f"  movidos en el servidor {len(move)}.")
-    for d in sorted({local[g][1].rsplit("/", 1)[0] for g in new}):
-        files = [local[g][0] for g in new if local[g][1].rsplit("/", 1)[0] == d]
-        for i in range(0, len(files), BATCH):
-            scp(files[i:i + BATCH], f"{REMOTE}/sgf/{d}/", a.simular)
+    if new:
+        send_tar([(local[g][0], local[g][1]) for g in new], f"{REMOTE}/sgf", a.simular)
     if new:
         print(f"  subidos {len(new)}.")
     if new or move:
