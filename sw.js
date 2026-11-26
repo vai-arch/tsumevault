@@ -5,6 +5,7 @@ const STATIC_ASSETS = [
   '/tsumevault/wgo/wgo.min.js',
   '/tsumevault/wgo/sgfparser.js',
   '/tsumevault/wgo/kifu.js',
+  '/tsumevault/js/game_viewer.js',
   '/tsumevault/audio/put01.mp3',
   '/tsumevault/audio/put02.mp3',
   '/tsumevault/audio/put03.mp3',
