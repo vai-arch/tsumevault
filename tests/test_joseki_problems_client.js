@@ -18,7 +18,7 @@ vm.createContext(ctx);
 for (const f of ['wgo.min.js', 'sgfparser.js', 'kifu.js']) vm.runInContext(fs.readFileSync(path.join(__dirname, '..', 'wgo', f), 'utf8'), ctx, { filename: f });
 
 // funciones reales del cliente
-const html = fs.readFileSync(path.join(__dirname, '..', 'tsumevault.html'), 'utf8');
+const html = require('./page_source.js').pageSource();   // AR3a: la página tal como era
 function grab(sig) {
   const i = html.indexOf(sig); if (i < 0) throw new Error('no encontrado: ' + sig);
   let d = 0, j = html.indexOf('{', i);

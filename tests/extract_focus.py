@@ -6,7 +6,9 @@ import io, re
 import os
 _HERE = os.path.dirname(os.path.abspath(__file__))   # tests/: el bundle queda aquí
 _ROOT = os.path.dirname(_HERE)                         # raíz del repo: tsumevault.html
-_html = io.open(os.path.join(_ROOT, "tsumevault.html"), encoding="utf-8", newline="").read()
+import sys as _sys; _sys.path.insert(0, _HERE)
+from page_source import page_source   # AR3a: la página tal como era (con board_core.js y ai_pure.js dentro)
+_html = page_source(_ROOT)
 src = max(re.findall(r"<script>(.*?)</script>", _html, re.S), key=len)
 lines = src.split("\r\n")
 def find_line(startswith, from_line=0):

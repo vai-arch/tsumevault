@@ -38,7 +38,9 @@ const decls = (code, indent) => {
   }
   return s;
 };
-const V = decls(viewer, ''), P = decls(inline, '    ');
+// AR3a: el núcleo del tablero y las funciones puras de la IA están en js/board_core.js y js/ai_pure.js
+const core = fs.readFileSync(path.join(ROOT, 'js', 'board_core.js'), 'utf8') + '\n' + fs.readFileSync(path.join(ROOT, 'js', 'ai_pure.js'), 'utf8');
+const V = decls(viewer, ''), P = new Set([...decls(inline, '    '), ...decls(core, '')]);
 check('anti-vacío: el visor declara al menos 55 nombres', V.size >= 55, String(V.size));
 check('anti-vacío: la página declara al menos 500 nombres', P.size >= 500, String(P.size));
 const dup = [...V].filter(x => P.has(x));
@@ -54,7 +56,7 @@ const host = ['wgoBoard', 'boardSize', 'initBoard', 'clearBoard', 'addLastMoveMa
   'anAnalysisText', 'anEstText', 'anGameInfoRows', 'anGraphCaption', 'anMistakes', 'anMoveTimes', 'anPosition',
   'anSgfRootProps', 'anStatusText', 'anThinkTxt'];
 const hostMissing = host.filter(x => !P.has(x));
-check('el contrato con la página está completo en tsumevault.html', hostMissing.length === 0, hostMissing.join(', '));
+check('el contrato con la página está completo (tsumevault.html + board_core.js + ai_pure.js)', hostMissing.length === 0, hostMissing.join(', '));
 check('el contrato está documentado en game_viewer.js', host.every(x => viewer.includes(x)) && viewer.includes('Contrato con la página anfitriona'));
 
 // ── 2. Humo: visor real + WGo real + página simulada ──
