@@ -65,7 +65,7 @@ CREATE TABLE ar_games (
 CREATE INDEX ix_g_edition ON ar_games(edition_id, section_id, ord);
 CREATE INDEX ix_g_black ON ar_games(black_id, date);
 CREATE INDEX ix_g_white ON ar_games(white_id, date);
-CREATE INDEX ix_g_date ON ar_games(date);
+CREATE INDEX ix_g_date ON ar_games(date, id);
 CREATE INDEX ix_alias ON ar_player_aliases(alias);
 """
 

@@ -48,6 +48,9 @@ Endpoints:
     POST /ai/graph_job {rules, komi, handicap_stones, moves, label} -> encola la gráfica en segundo plano (AN4)
     POST /ai/analysis_status {uuids: [...]} -> {status: {uuid: {state: done|running|queued|none, ...}}} (PA6)
     GET  /server/status -> estado del servidor para ⚙ (ST1)
+
+    AR2 (archivo de partidas; solo lectura de archive/archive.db, en archive_api.py, SIN DB_LOCK):
+    GET  /archive/tree | /archive/games?… | /archive/players?q= | /archive/game?id= | /archive/sgf?id=
     POST /ai/analyze {rules, komi, handicap_stones, moves, to_play, visits?, played?}
                      -> {candidates:[{move, scoreLead, winrate, visits, pv}], root, played:{loss}}  (AN1)
 """
@@ -3108,6 +3111,14 @@ def handle_server_status(qs):
     }
 
 
+# AR2: archivo de partidas (archive_api.py). Si falta el módulo, las rutas simplemente no existen.
+try:
+    import archive_api
+    ARCHIVE_GET_ROUTES = archive_api.GET_ROUTES
+except Exception:  # noqa: BLE001 — un fallo aquí nunca debe tumbar el sync
+    logging.getLogger("tsumevault").exception("[archive] archive_api no disponible")
+    ARCHIVE_GET_ROUTES = {}
+
 # IA1: estas rutas se despachan SIN DB_LOCK (no tocan la BD y una jugada tarda
 # segundos: bajo el candado, cualquier sync esperaria a que la IA piense).
 AI_GET_ROUTES = {
@@ -3246,14 +3257,16 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urlparse(self.path)
-        ai_handler = AI_GET_ROUTES.get(parsed.path)  # IA1
+        ai_handler = AI_GET_ROUTES.get(parsed.path) or ARCHIVE_GET_ROUTES.get(parsed.path)  # IA1, AR2: sin DB_LOCK
         handler = ai_handler or GET_ROUTES.get(parsed.path)
         if not handler:
             self._respond(404, {"error": "not found"})
             return
         if not self._gate(write=False):
             return
-        self._dispatch(handler, parse_qs(parsed.query), db_lock=ai_handler is None)
+        # AR2: el archivo necesita los parámetros vacíos (phase= es "tabla principal"); el resto, como siempre
+        qs = parse_qs(parsed.query, keep_blank_values=parsed.path in ARCHIVE_GET_ROUTES)
+        self._dispatch(handler, qs, db_lock=ai_handler is None)
 
     def do_POST(self):
         self._handle_write(POST_ROUTES, AI_POST_ROUTES)

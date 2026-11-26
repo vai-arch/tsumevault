@@ -1,6 +1,6 @@
 # WORKPLAN_ARCHIVO — Archivo de partidas profesionales (estructura de kifumaster)
 
-Estado: **Plan aprobado por Victor (26-nov-2026). AR0 ✔ desplegada y probada. AR1.0 ✔. AR1 ✔ entregada (rama `kifu-crawl`): primer ciclo de descarga pendiente en el portátil.**
+Estado: **Plan aprobado por Victor (26-nov-2026). AR0 ✔ desplegada y probada. AR1.0 ✔. AR1 ✔ (primer ciclo real hecho en el portátil). AR2 ✔ entregada (rama `archivo-ar2`), pendiente de desplegar.**
 Base revisada: `main` del 26-nov-2026 (`tsumevault.html` 10.135 líneas, `server/tsumevault_server.py` 3.367 líneas).
 
 ---
@@ -157,18 +157,18 @@ Tests: `tests/test_kifu.py` (51 checks) con un servidor HTTP falso: reanudación
 
 ---
 
-## AR2 — Endpoints del servidor y SGF estáticos
+## AR2 — Endpoints del servidor ✔ (rama `archivo-ar2`)
 
-**Dificultad: Media.** Toca `tsumevault_server.py` (rutas nuevas, sin cambiar las existentes) y `Caddyfile`.
+Decidido con Victor (26-nov): mientras el descargador corre en el portátil, `archive.db` se construye allí y **viaja al VPS** con `_subir_archivo.bat` (`kifumaster/kifu_upload.py`) junto con los SGF nuevos. Cuando el proceso esté controlado, el descargador pasará al VPS y la base dejará de viajar.
 
-- `archive.db` se abre aparte (solo lectura para las rutas GET; el escaneo de AR4 escribe con su propio bloqueo). No usa `DB_LOCK` de `tsumeVault.db`.
-- Rutas (GET, con el mismo `_gate` de token):
-  - `/archive/tree` → torneos, ediciones y fases con recuentos (total y con SGF). Es la "estructura ligera" que se cachea. Lleva `version` para revalidar barato.
-  - `/archive/games?edition=&phase=&player=&player2=&color=&year_from=&year_to=&has_sgf=&offset=&limit=` → lista paginada (límite por defecto 200) ordenada por fecha descendente.
-  - `/archive/players?q=` → autocompletado (nombre canónico o alias, máx. 20).
-  - `/archive/game?id=` → ficha completa de una partida.
-- SGF: `Caddyfile` sirve `/archive/sgf/*` desde `/opt/tsumevault/archive/sgf` como fichero estático (igual que `/player/*`), con CORS.
-- Tests en `test_server.py`: cada filtro solo y combinado, paginación, jugador por alias en japonés, `player2`, validación de parámetros (400), 401 sin token, servidor arrancando sin `archive.db` (las rutas responden 503 y el resto de la app funciona).
+- `server/archive_api.py` (nuevo, como `ai_engines.py`; `_subir_servidor.bat` lo sube): consultas de **solo lectura** a `/opt/tsumevault/archive/archive.db` (conexión `mode=ro` por petición, así que la sustitución con `mv` es segura), **sin `DB_LOCK`**. Si falta la base: 503, y el resto de la app sigue.
+- Rutas (GET, con el mismo token): `/archive/tree` (torneos → ediciones → secciones con fases y recuentos; ~870 KB sin comprimir, en caché), `/archive/games` (filtros: `tournament`, `edition`, `section`, `phase` —vacío = tabla principal—, `player` [+`color=b|w`], `player2`, `year_from`, `year_to`, `has_sgf=1`, `offset`, `limit` ≤ 500; orden por fecha descendente), `/archive/players?q=` (por nombre o alias, también en japonés/coreano/chino), `/archive/game?id=` (ficha + enlace a kifumaster + ruta del SGF), `/archive/sgf?id=` (el SGF como JSON).
+- **Cambio respecto al borrador: los SGF NO se publican con Caddy** como fichero estático abierto. Son ficheros de kifumaster descargados a mano para estudio personal; servirlos en abierto en internet sería redistribuirlos. Se sirven por `/archive/sgf`, solo con token. `Caddyfile` sin cambios.
+- **El disco manda**: qué partidas tienen SGF lo decide el contenido de `archive/sgf/` en el servidor (cacheado por el mtime de las carpetas), no la columna `has_sgf`; un SGF subido aparece sin reconstruir ni reiniciar.
+- Rendimiento con un catálogo sintético de 180.000 partidas: árbol 155 ms la primera vez y 1 ms en caché; lista sin filtros 12 ms (índice `ix_g_date (date, id)` y recuento sin JOIN cuando no hace falta); con filtros 2–20 ms; autocompletado 2–23 ms; `has_sgf=1` sobre todo el archivo ~400 ms.
+- El servidor conserva los parámetros vacíos solo en `/archive/*` (`parse_qs(keep_blank_values=…)`), para que `phase=` funcione sin cambiar nada en el resto de rutas.
+
+Tests: `tests/test_archive_server.py` (34 checks): token, ids no válidos (sin path traversal), límites, árbol, cada filtro y combinaciones, alias japonés, paginación, otros eventos, ficha, SGF, SGF subido en caliente en varias carpetas, 503 sin base; y la subida con ssh/scp falsos (simular, saltar ficheros que no son SGF, sustitución sin `.new`, no repetir, subir solo la base cambiada, comprobación de lectura en el servidor). Mutaciones comprobadas (sin validar el id, `has_sgf` sin mirar el disco, enfrentamientos en un solo color, subir siempre la base, `phase` vacío ignorado, ordenar carpetas sin clave): todas fallan. Dos fallos reales encontrados y corregidos al probar: `parse_qs` descartaba `phase=` y ordenar entradas de directorio sin clave reventaba con más de una carpeta. `test_server.py` sigue en 344.
 
 ---
 

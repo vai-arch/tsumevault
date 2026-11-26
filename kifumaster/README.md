@@ -13,6 +13,7 @@ Plan completo: `docs/WORKPLAN_ARCHIVO.md`. Mientras el proceso no esté controla
 | `kifu_probe.py` | `kifu_probe.bat` | AR1.0: baja 7 muestras a `data/probe/` y escribe `resumen.txt` (código, tamaño, tipo, si hay ETag/Last-Modified, nº de claves de los JSON). |
 | `kifu_crawl.py` | `kifu_crawl.bat` | AR1: baja a `data/raw/` los 4 CSV y `seo/{te,t,ts,g}/00…ff.json` (1028 ficheros, ~2 h el primer ciclo). Reanudable; `--nuevo-ciclo` para buscar novedades (condicional por ETag: lo que no cambió no se baja); `--limite N` para pruebas. Log en `data/logs/`. |
 | `kifu_build.py` | `kifu_build.bat` | AR1: construye `data/archive.db` y `data/lists/<torneo>/<edición>/games.txt` + `games_pendientes.txt` desde `data/raw/`, sin red. Se puede repetir cuando se quiera. |
+| `kifu_upload.py` | `_subir_archivo.bat` | AR2: sube al VPS (`/opt/tsumevault/archive/`) los SGF nuevos de `archive/sgf/` y `data/archive.db` si cambió (huella sha256; sube como `.new` y sustituye con `mv`). Nunca borra nada. `--simular` para ver qué haría. |
 
 ## Qué es cada fichero de kifumaster
 
