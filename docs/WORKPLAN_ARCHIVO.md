@@ -1,6 +1,6 @@
 # WORKPLAN_ARCHIVO — Archivo de partidas profesionales (estructura de kifumaster)
 
-Estado: **Plan aprobado por Victor (26-nov-2026). AR0 ✔ entregada en la rama `archivo-ar0-visor` (pendiente checklist M-AR0 y despliegue).**
+Estado: **Plan aprobado por Victor (26-nov-2026). AR0 ✔ desplegada y probada. AR1.0 ✔. AR1 ✔ entregada (rama `kifu-crawl`): primer ciclo de descarga pendiente en el portátil.**
 Base revisada: `main` del 26-nov-2026 (`tsumevault.html` 10.135 líneas, `server/tsumevault_server.py` 3.367 líneas).
 
 ---
@@ -135,18 +135,21 @@ CREATE TABLE ar_meta (key TEXT PRIMARY KEY, value TEXT);   -- schema_version, ú
 
 Los jugadores que aparecen en el índice y no en `aliases.csv` se crean igualmente con su nombre del índice.
 
-### `tools/archive_crawl.py`
-- Fases del ciclo: (1) CSV, (2) 256 ficheros `seo/g`, (3) 256 ficheros `seo/te`, (4) páginas de edición con `phases_crawled_at` NULL o con partidas nuevas.
-- Estimación del primer ciclo: 4 + 256 + 256 peticiones + una por edición (miles) → del orden de horas a una cada 5–10 s. Los ciclos mensuales siguientes: pide con `If-None-Match`/`If-Modified-Since` cuando el servidor lo permita; solo vuelve a leer las páginas de edición con partidas nuevas.
-- Reglas de cortesía del §0 (ritmo, backoff, parada, User-Agent, robots).
-- Se puede parar con Ctrl-C o reiniciar en cualquier momento: el estado está en `ar_crawl`.
-- `--dry-run N`: descarga solo N páginas y muestra lo que haría (para la verificación de AR1.0).
-- Al final regenera las listas (ver AR4).
+### Descubrimiento de AR1.0 (26-nov) y diseño final
 
-**AR1.0 — Verificación en el VPS antes de escribir el parser** (comandos ssh que Claude da uno a uno): bajar 1 fichero `seo/g`, 1 `seo/te` y 2 páginas de edición (una con fases y otra sin ellas) para fijar el formato exacto del HTML de las fases y confirmar que hay 256 ficheros `seo/te` (clave de reparto).
+Las páginas de torneo y edición son una carcasa vacía de SvelteKit (6.117 B, iguales todas): el contenido se pinta en el navegador a partir de **JSON públicos**, que son lo que bajamos. No hay que leer HTML.
+- `seo/t/xx.json`: torneos con su lista de ediciones; `seo/ts/xx.json`: ediciones con sus **secciones** (p. ej. "8th Kisei Title Match" y "8th Kisei") y, por sección, partidas `[id, negras, blancas, fecha, resultado]` y fases `t = [[fase, nº], …]`. Las partidas de cada fase son bloques consecutivos al final de la lista, en el orden de `t` (verificado con el Meijin 52 contra las tablas de la página: 30 + 16 + 39 = 85).
+- Las cuatro familias (`g`, `te`, `t`, `ts`) tienen 256 repartos y llevan ETag. Total: 1028 peticiones, ~2 h el primer ciclo a 6–8 s.
 
-Tests: `tests/test_archive_crawl.py` con fixtures locales (sin red): parseo de índice, te, CSV y páginas de edición; reanudación tras corte; backoff ante 429/503 con un servidor falso; idempotencia (dos ciclos seguidos = mismas filas); partida nueva en un ciclo posterior.
-Ejecución periódica: `systemd timer` mensual en el VPS (o `cron`), con log en `/opt/tsumevault/logs/archive_crawl.log`.
+Mientras el proceso no esté controlado, todo corre en el portátil de Victor, en `kifumaster/` (scripts en git, `kifumaster/data/` fuera). Dos pasos separados:
+1. `kifumaster/kifu_crawl.py` (`kifu_crawl.bat`): **solo descarga**, tal cual, a `data/raw/`. Reglas de cortesía del §0, petición condicional (ETag/Last-Modified → 304), backoff 1/5/30 min ante 429/5xx y parada, validación del contenido (no guarda un JSON roto), estado en `data/raw/_estado.json` tras cada petición, ciclos (`--nuevo-ciclo` para el mensual).
+2. `kifumaster/kifu_build.py` (`kifu_build.bat`): construye `data/archive.db` y las listas **sin red**; se repite cuando se quiera (conserva `first_seen`).
+
+Esquema real de `archive.db` (v1; sustituye al borrador de arriba): `ar_tournaments` (slug, nombre, nombre local, años, nº de partidas, historia), `ar_editions` (etiqueta, slug, nº de partidas y de jugadores, fechas, orden), `ar_sections` (evento, orden, fases tal cual), `ar_games` (id, evento, fecha, negras, blancas, resultado corto y largo, edición, sección, **fase** — `''` = tabla principal —, orden en la sección, `has_sgf`, `first_seen`), `ar_players`, `ar_player_aliases`, `ar_event_aliases`, `ar_rank_aliases`, `ar_meta`. Se eliminan `ar_phases` y `ar_crawl` del borrador: la fase es un texto de la partida y el estado de descarga vive en `_estado.json`. Los datos que salen del SGF (rangos, komi, lugar…) se añaden en AR4.
+
+Listas (adelantadas de AR4): `data/lists/<torneo>/<edición>/games.txt` (`<id> archive/sgf/<xx>/<id>.sgf`, en el orden de la página) y `games_pendientes.txt` (las que aún no están en esa ruta del repo); las partidas sin edición, en `data/lists/_sin_clasificar/`.
+
+Tests: `tests/test_kifu.py` (40 checks) con un servidor HTTP falso: reanudación, 429/503 con espera, 404, gzip, condicional/304 y cambio detectado, parada ante 503 persistente y ante JSON roto, pausa real entre peticiones, catálogo (secciones, fases, alias, nacionalidad, ediciones por `te`, sin clasificar, `has_sgf`), listas y `first_seen`. Mutaciones comprobadas (fases al principio, sin condicional, sin esperas, sin guardar estado, sin mirar los SGF, sin validar, sin pausa): todas fallan.
 
 ---
 

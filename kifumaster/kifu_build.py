@@ -1,0 +1,293 @@
+#!/usr/bin/env python3
+"""AR1 (WORKPLAN_ARCHIVO.md): construye kifumaster/data/archive.db y las listas games.txt a partir de
+lo que kifu_crawl.py dejó en kifumaster/data/raw/. No usa la red: se puede repetir cuando se quiera.
+
+    python kifumaster/kifu_build.py
+
+Estructura: torneo → edición → sección (evento: "8th Kisei Title Match", "8th Kisei"…) → fase
+("" = tabla principal, "Preliminary B"…) → partida. Las fases salen del campo t de cada sección de
+seo/ts: [[fase, nº de partidas], …]; esas partidas son bloques consecutivos al FINAL de la lista de la
+sección, en ese orden, y las primeras son la tabla principal (comprobado con el Meijin 52: 30+16+39).
+
+Listas (por edición): data/lists/<torneo>/<edición>/games.txt con una línea por partida
+"<id> archive/sgf/<xx>/<id>.sgf", y games_pendientes.txt con las que aún no están en esa ruta (relativa a
+la raíz del repo). Las partidas que no están en ninguna edición van a data/lists/_sin_clasificar/.
+"""
+import csv, datetime, io, json, os, sqlite3, sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+DATA = os.environ.get("KIFU_DATA", os.path.join(HERE, "data"))
+RAW = os.path.join(DATA, "raw")
+REPO = os.environ.get("KIFU_REPO", os.path.dirname(HERE))      # raíz del repo: allí está archive/sgf/
+DB = os.path.join(DATA, "archive.db")
+LISTS = os.path.join(DATA, "lists")
+SCHEMA_VERSION = 1
+
+SCHEMA = """
+CREATE TABLE ar_meta (key TEXT PRIMARY KEY, value TEXT);
+CREATE TABLE ar_tournaments (
+  slug TEXT PRIMARY KEY, name TEXT NOT NULL, name_local TEXT, lang TEXT, years TEXT,
+  game_count INTEGER NOT NULL DEFAULT 0, history TEXT              -- JSON: lista de párrafos
+);
+CREATE TABLE ar_editions (
+  id INTEGER PRIMARY KEY, tournament_slug TEXT NOT NULL REFERENCES ar_tournaments(slug),
+  slug TEXT NOT NULL, label TEXT, game_count INTEGER, player_count INTEGER,
+  date_from TEXT, date_to TEXT, ord INTEGER NOT NULL,              -- ord: orden de kifumaster (la más reciente primero)
+  UNIQUE (tournament_slug, slug)
+);
+CREATE TABLE ar_sections (
+  id INTEGER PRIMARY KEY, edition_id INTEGER NOT NULL REFERENCES ar_editions(id),
+  event_name TEXT NOT NULL, ord INTEGER NOT NULL,
+  phases TEXT                                                       -- JSON tal cual: [["Preliminary B",16],…] o NULL
+);
+CREATE TABLE ar_players (id INTEGER PRIMARY KEY, name TEXT NOT NULL UNIQUE, nationality TEXT);
+CREATE TABLE ar_player_aliases (
+  alias TEXT NOT NULL, player_id INTEGER NOT NULL REFERENCES ar_players(id), script TEXT,
+  PRIMARY KEY (alias, player_id)
+);
+CREATE TABLE ar_event_aliases (alias TEXT NOT NULL, canonical TEXT NOT NULL, PRIMARY KEY (alias, canonical));
+CREATE TABLE ar_rank_aliases (variant TEXT PRIMARY KEY, canonical TEXT NOT NULL);
+CREATE TABLE ar_games (
+  id TEXT PRIMARY KEY,                                              -- 32 hex de kifumaster
+  event_name TEXT, date TEXT,
+  black_id INTEGER REFERENCES ar_players(id), white_id INTEGER REFERENCES ar_players(id),
+  result TEXT,                                                      -- corto (B+R), de seo/ts
+  result_text TEXT,                                                 -- largo, de seo/g
+  edition_id INTEGER REFERENCES ar_editions(id),
+  section_id INTEGER REFERENCES ar_sections(id),
+  phase TEXT,                                                       -- '' = tabla principal; NULL = sin sección
+  ord INTEGER,                                                      -- posición dentro de la sección
+  has_sgf INTEGER NOT NULL DEFAULT 0,
+  first_seen TEXT NOT NULL                                          -- se conserva entre reconstrucciones
+);
+CREATE INDEX ix_g_edition ON ar_games(edition_id, section_id, ord);
+CREATE INDEX ix_g_black ON ar_games(black_id, date);
+CREATE INDEX ix_g_white ON ar_games(white_id, date);
+CREATE INDEX ix_g_date ON ar_games(date);
+CREATE INDEX ix_alias ON ar_player_aliases(alias);
+"""
+
+
+def sgf_rel(gid):
+    return f"archive/sgf/{gid[:2]}/{gid}.sgf"
+
+
+def load_family(fam, warn):
+    """Une los 256 ficheros seo/<fam>/xx.json. Los que no existan (404) se saltan."""
+    out, n = {}, 0
+    d = os.path.join(RAW, "seo", fam)
+    for i in range(256):
+        p = os.path.join(d, f"{i:02x}.json")
+        if not os.path.exists(p):
+            continue
+        n += 1
+        with open(p, encoding="utf-8") as f:
+            part = json.load(f)
+        for k, v in part.items():
+            if k in out and out[k] != v:
+                warn(f"seo/{fam}: clave {k!r} repetida en dos repartos con valores distintos; me quedo con la primera")
+                continue
+            out[k] = v
+    return out, n
+
+
+def read_csv(name):
+    p = os.path.join(RAW, "database", name)
+    if not os.path.exists(p):
+        return []
+    with open(p, encoding="utf-8-sig", newline="") as f:
+        return list(csv.reader(io.StringIO(f.read())))
+
+
+def main():
+    os.makedirs(os.path.join(DATA, "logs"), exist_ok=True)
+    warnings = []
+    warn = warnings.append
+    g, ng = load_family("g", warn)
+    te, nte = load_family("te", warn)
+    t, nt = load_family("t", warn)
+    ts, nts = load_family("ts", warn)
+    if not g:
+        print("No hay índice (seo/g) en data/raw/: ejecuta antes kifu_crawl.py.")
+        return 1
+    print(f"Leído: seo/g {ng} ficheros ({len(g)} partidas), seo/te {nte} ({len(te)} eventos), "
+          f"seo/t {nt} ({len(t)} torneos), seo/ts {nts} ({len(ts)} ediciones)")
+
+    # first_seen de la base anterior, para no perderlo al reconstruir
+    first_seen = {}
+    if os.path.exists(DB):
+        try:
+            with sqlite3.connect(DB) as old:
+                first_seen = dict(old.execute("SELECT id, first_seen FROM ar_games"))
+        except sqlite3.Error:
+            pass
+    now = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+
+    tmp = DB + ".tmp"
+    if os.path.exists(tmp):
+        os.remove(tmp)
+    con = sqlite3.connect(tmp)
+    con.executescript(SCHEMA)
+    con.execute("INSERT INTO ar_meta VALUES ('schema_version', ?), ('built_at', ?)", (str(SCHEMA_VERSION), now))
+
+    # ── alias (CSV) ──
+    nat = {}
+    alias_rows = read_csv("aliases.csv")[1:]
+    for r in alias_rows:
+        if len(r) >= 4 and r[3] not in ("", "0", "?") and r[0] not in nat:
+            nat[r[0]] = r[3]
+    for r in read_csv("aliasesevent.csv")[1:]:
+        if len(r) >= 3 and r[0] and r[2]:
+            con.execute("INSERT OR IGNORE INTO ar_event_aliases VALUES (?,?)", (r[2], r[0]))
+    for r in read_csv("aliasesrank.csv")[1:]:
+        if len(r) >= 2 and r[0] and r[1]:
+            con.execute("INSERT OR IGNORE INTO ar_rank_aliases VALUES (?,?)", (r[0], r[1]))
+
+    players = {}
+    def pid(name):
+        if not name:
+            return None
+        if name not in players:
+            cur = con.execute("INSERT INTO ar_players (name, nationality) VALUES (?,?)", (name, nat.get(name)))
+            players[name] = cur.lastrowid
+        return players[name]
+
+    # ── torneos y ediciones (seo/t) ──
+    ed_id = {}
+    for slug in sorted(t):
+        v = t[slug]
+        con.execute("INSERT INTO ar_tournaments VALUES (?,?,?,?,?,?,?)",
+                    (slug, v.get("n") or slug, v.get("l"), v.get("ll"), v.get("y"), v.get("g") or 0,
+                     json.dumps(v.get("t") or [], ensure_ascii=False)))
+        for o, s in enumerate(v.get("s") or []):
+            cur = con.execute("INSERT INTO ar_editions (tournament_slug, slug, label, game_count, player_count, date_from, date_to, ord) "
+                              "VALUES (?,?,?,?,?,?,?,?)", (slug, str(s.get("u")), s.get("k"), s.get("n"), s.get("p"), s.get("a"), s.get("z"), o))
+            ed_id[f"{slug}/{s.get('u')}"] = cur.lastrowid
+
+    # ── partidas: primero el índice completo (seo/g) ──
+    games = {}
+    for gid, v in g.items():
+        games[gid] = {"event_name": v.get("e"), "date": v.get("d"), "b": v.get("b"), "w": v.get("w"),
+                      "result": None, "result_text": v.get("r"), "edition_id": None, "section_id": None, "phase": None, "ord": None}
+
+    # ── secciones y fases (seo/ts) ──
+    for key in sorted(ts):
+        e = ed_id.get(key)
+        if e is None:
+            slug = key.split("/")[0]
+            if slug not in t:
+                warn(f"seo/ts {key}: el torneo {slug!r} no está en seo/t; se crea sin datos")
+                con.execute("INSERT OR IGNORE INTO ar_tournaments (slug, name) VALUES (?,?)", (slug, slug))
+            cur = con.execute("INSERT INTO ar_editions (tournament_slug, slug, label, ord) VALUES (?,?,?,?)",
+                              (slug, key.split("/", 1)[1], key.split("/", 1)[1], 9999))
+            e = ed_id[key] = cur.lastrowid
+            warn(f"seo/ts {key}: edición que no figura en la lista del torneo; añadida al final")
+        for so, sec in enumerate(ts[key].get("c") or []):
+            rows = sec.get("g") or []
+            phases = sec.get("t")
+            cur = con.execute("INSERT INTO ar_sections (edition_id, event_name, ord, phases) VALUES (?,?,?,?)",
+                              (e, sec.get("a") or "", so, json.dumps(phases, ensure_ascii=False) if phases else None))
+            sid = cur.lastrowid
+            # fase de cada posición: bloques al final, en el orden de t; el resto, tabla principal ("")
+            labels = [""] * len(rows)
+            if phases:
+                total = sum(int(n) for _, n in phases)
+                if total > len(rows):
+                    warn(f"seo/ts {key} «{sec.get('a')}»: las fases suman {total} pero hay {len(rows)} partidas; sin fases")
+                else:
+                    pos = len(rows) - total
+                    for name, n in phases:
+                        for k in range(pos, pos + int(n)):
+                            labels[k] = name
+                        pos += int(n)
+            for o, r in enumerate(rows):
+                gid, b, w, d, res = (list(r) + [None] * 5)[:5]
+                gm = games.get(gid)
+                if gm is None:
+                    gm = games[gid] = {"event_name": sec.get("a"), "date": d, "b": b, "w": w, "result_text": None}
+                elif gm.get("section_id") is not None:
+                    warn(f"partida {gid} en dos secciones ({key}); me quedo con la primera")
+                    continue
+                gm.update(result=res, edition_id=e, section_id=sid, phase=labels[o], ord=o)
+                # manda la edición (es lo que pinta la página); el índice solo rellena lo que falte
+                gm.update({k: val for k, val in (("b", b), ("w", w), ("date", d)) if val})
+                if not gm.get("event_name"):
+                    gm["event_name"] = sec.get("a")
+
+    # partidas del índice que no están en ninguna sección: edición por el mapa evento → edición (seo/te)
+    for gid, gm in games.items():
+        if gm.get("edition_id") is None and gm.get("event_name") in te:
+            gm["edition_id"] = ed_id.get(te[gm["event_name"]])
+
+    n_sgf = 0
+    for gid, gm in games.items():
+        has = os.path.exists(os.path.join(REPO, *sgf_rel(gid).split("/")))
+        n_sgf += has
+        con.execute("INSERT INTO ar_games VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                    (gid, gm.get("event_name"), gm.get("date"), pid(gm.get("b")), pid(gm.get("w")), gm.get("result"),
+                     gm.get("result_text"), gm.get("edition_id"), gm.get("section_id"), gm.get("phase"), gm.get("ord"),
+                     int(has), first_seen.get(gid, now)))
+
+    # alias de los jugadores que aparecen en alguna partida
+    for r in alias_rows:
+        if len(r) >= 2 and r[0] in players and r[1]:
+            con.execute("INSERT OR IGNORE INTO ar_player_aliases VALUES (?,?,?)", (r[1], players[r[0]], r[2] if len(r) > 2 else None))
+    for name, p in players.items():
+        con.execute("INSERT OR IGNORE INTO ar_player_aliases VALUES (?,?,?)", (name, p, "canonical"))
+
+    # recuentos reales por torneo/edición (los de kifumaster se guardan aparte en game_count de seo/t)
+    con.commit()
+    stats = dict(
+        torneos=con.execute("SELECT COUNT(*) FROM ar_tournaments").fetchone()[0],
+        ediciones=con.execute("SELECT COUNT(*) FROM ar_editions").fetchone()[0],
+        secciones=con.execute("SELECT COUNT(*) FROM ar_sections").fetchone()[0],
+        partidas=len(games),
+        en_seccion=con.execute("SELECT COUNT(*) FROM ar_games WHERE section_id IS NOT NULL").fetchone()[0],
+        con_fase=con.execute("SELECT COUNT(*) FROM ar_games WHERE phase <> ''").fetchone()[0],
+        sin_edicion=con.execute("SELECT COUNT(*) FROM ar_games WHERE edition_id IS NULL").fetchone()[0],
+        jugadores=len(players),
+        con_sgf=n_sgf,
+        nuevas=sum(1 for gid in games if gid not in first_seen) if first_seen else 0,
+    )
+    write_lists(con)
+    con.close()
+    os.replace(tmp, DB)
+
+    lines = [f"{k}: {v}" for k, v in stats.items()] + [f"AVISO: {w}" for w in warnings]
+    with open(os.path.join(DATA, "logs", "build_" + datetime.date.today().strftime("%Y%m%d") + ".log"), "a", encoding="utf-8") as f:
+        f.write(f"── {now}\n" + "\n".join(lines) + "\n")
+    print("\n".join(lines[:len(stats)]))
+    if warnings:
+        print(f"{len(warnings)} avisos (ver data/logs/). Primeros:")
+        for w in warnings[:5]:
+            print("  " + w)
+    print(f"Catálogo: {DB}\nListas: {LISTS}")
+    return 0
+
+
+def write_lists(con):
+    """Una carpeta por edición con games.txt y games_pendientes.txt, en el orden de la página."""
+    import shutil
+    if os.path.exists(LISTS):
+        shutil.rmtree(LISTS)
+    q = """SELECT e.tournament_slug, e.slug, g.id, g.has_sgf FROM ar_games g
+           JOIN ar_editions e ON e.id = g.edition_id
+           LEFT JOIN ar_sections s ON s.id = g.section_id
+           ORDER BY e.tournament_slug, e.slug, COALESCE(s.ord, 999999), COALESCE(g.ord, 999999), g.date DESC, g.id"""
+    groups = {}
+    for tslug, eslug, gid, has in con.execute(q):
+        groups.setdefault((tslug, eslug), []).append((gid, has))
+    rest = [(gid, has) for gid, has in con.execute("SELECT id, has_sgf FROM ar_games WHERE edition_id IS NULL ORDER BY date DESC, id")]
+    if rest:
+        groups[("_sin_clasificar", "")] = rest
+    for (tslug, eslug), rows in groups.items():
+        d = os.path.join(LISTS, tslug, eslug) if eslug else os.path.join(LISTS, tslug)
+        os.makedirs(d, exist_ok=True)
+        with open(os.path.join(d, "games.txt"), "w", encoding="utf-8", newline="\n") as f:
+            f.writelines(f"{gid} {sgf_rel(gid)}\n" for gid, _ in rows)
+        with open(os.path.join(d, "games_pendientes.txt"), "w", encoding="utf-8", newline="\n") as f:
+            f.writelines(f"{gid} {sgf_rel(gid)}\n" for gid, has in rows if not has)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
