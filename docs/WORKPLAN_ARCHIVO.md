@@ -1,6 +1,6 @@
 # WORKPLAN_ARCHIVO — Archivo de partidas profesionales (estructura de kifumaster)
 
-Estado: **Borrador para revisión de Victor (26-nov-2026). Nada implementado.**
+Estado: **Plan aprobado por Victor (26-nov-2026). AR0 ✔ entregada en la rama `archivo-ar0-visor` (pendiente checklist M-AR0 y despliegue).**
 Base revisada: `main` del 26-nov-2026 (`tsumevault.html` 10.135 líneas, `server/tsumevault_server.py` 3.367 líneas).
 
 ---
@@ -51,14 +51,17 @@ Lo que hay hoy (líneas aprox. del 26-nov):
 - Dependencias del núcleo de tablero compartido con problemas/josekis/Play: `wgoBoard`, `boardSize`, `initBoard`, `clearBoard`, `addLastMoveMark`, `moveQualityMark`, `playStoneSound`, `capturedAny`, `sgfUrl`.
 - Usos desde fuera: la pestaña Play llama a ~10 funciones `an*` (`anGameInfoRows`, `anMistakes`, `anPosition`, …); los cambios de pestaña tocan `gmActive`; el repintado al girar llama a `gmRenderCurrentNode`.
 
-Trabajo:
-1. `js/board_core.js`: núcleo de tablero y utilidades comunes (sin estado de problema).
-2. `js/game_viewer.js`: visor + AN2. Recibe por un `init({...})` lo que hoy toma de globales específicos de la app (SGF a cargar, contenedor de controles, URL del servidor de análisis). La lista de colecciones de Games **se queda** en `tsumevault.html`.
-3. `tsumevault.html` carga ambos con `<script src>` y se comporta exactamente igual.
-4. `sw.js`: añadir los dos ficheros a `STATIC_ASSETS`.
-5. Tests: adaptar `extract_*.py`/harness para que concatenen los nuevos `.js` con el script de la página. La referencia "bundle byte-idéntico" pasa a ser "bundle equivalente": mismo código, otro orden de ficheros.
+Ajuste de diseño al implementar (26-nov): el núcleo de tablero (`initBoard`, `clearBoard`, marcas, sonidos…) está muy ligado al estado de la app (fondo y juego de piedras, volumen, `comment-box`, `welcome`). Sacarlo en AR0 multiplicaba el riesgo sin beneficio inmediato, así que **AR0 mueve solo el visor y AN2, tal cual**, y el núcleo de tablero se extrae en AR3, cuando `archive.html` lo necesite.
 
-Validación: línea base antes del cambio y mismas cifras después (`python tests/test_server.py`, `python tests/extract_ai.py && node tests/test_ai.js && node tests/test_clock.js`, joseki, focus, sfx), `node --check` de cada `.js`, mutaciones que demuestren que el harness carga de verdad los ficheros nuevos.
+Entregado:
+1. `js/game_viewer.js` (644 líneas): estado del visor, `gmOpenGame`…`gmInitControls` y todo AN2, movidos sin cambiar una línea (solo sin la sangría). Se carga con `<script src>` justo antes del script principal y comparte con él el ámbito global.
+2. Se quedan en `tsumevault.html`: la lista de colecciones de Games (`gmCollections`, `gmLoadCollections`, `gmLoadGameList` y su listener) y el estado del servidor (ST1).
+3. Contrato con la página documentado al final de `game_viewer.js`: 26 nombres que el visor toma de la página (tablero, sonido, `sgfUrl`, `lsGet/lsSet`, `aiPost/aiToGtp/aiFromGtp/AI_OWN_HANDLER` y las funciones puras `an*` del bloque IA3) y 6 que la página toma del visor. Calculado con un parser de JS: ninguna declaración duplicada y ninguna dependencia sin resolver.
+4. `sw.js`: `/tsumevault/js/game_viewer.js` en `STATIC_ASSETS`.
+5. `tests/test_game_viewer.js` (28 checks): estructura (etiqueta y orden, nada duplicado, nada olvidado en la página, contrato completo) y prueba de humo del visor real con el WGo real (abrir, ▶ ◀, comentario, variantes, ↩, captura con su sonido, cambio de tamaño). Mutaciones comprobadas: sin `<script src>`, `gmActive` duplicado, ▶ siguiendo la variante equivocada, la página sin `clearBoard`, sin sonido al avanzar → todas fallan.
+
+Validación: misma línea base antes y después (server 344, ai 111, clock 80, focus 72, sfx 23, lp1 OK; joseki no se puede correr en el contenedor por fixtures no versionados), los cinco bundles extraídos por los tests (ai, focus, sfx, joseki, joseki_ui) idénticos byte a byte, `node --check`, y prueba en Chrome sin interfaz de la página real antes/después con resultados idénticos y sin errores de JavaScript.
+
 Checklist manual (M-AR0): Games (abrir, navegar, timer, variantes, comentarios, análisis), revisión de partidas de Play (gráfica, errores), josekis, Run/Free/Review de un problema, giro de pantalla en el móvil, funcionamiento sin conexión tras actualizar el service worker.
 Despliegue: rama `archivo-ar0-visor`; `_desplegar_rama.bat` + `_subir_git.bat` (toca `sw.js`).
 
