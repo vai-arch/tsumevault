@@ -463,6 +463,7 @@ async function arLoadTree() {
 }
 
 function arInit() {
+  bsApply('archive');   // estilo del tablero del archivo (⚙ de la app, «Apply to: Archive»); js/board_style.js
   arLoadState();
   gmInitControls();
   arRenderP1 = arPlayerInput('f-p1', 'f-p1-box', 'p1');

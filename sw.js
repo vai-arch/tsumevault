@@ -6,6 +6,7 @@ const STATIC_ASSETS = [
   '/tsumevault/wgo/sgfparser.js',
   '/tsumevault/wgo/kifu.js',
   '/tsumevault/js/board_core.js',
+  '/tsumevault/js/board_style.js',
   '/tsumevault/js/ai_pure.js',
   '/tsumevault/js/game_viewer.js',
   '/tsumevault/js/archive.js',
