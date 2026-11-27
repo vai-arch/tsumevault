@@ -16,19 +16,13 @@ Todos los `.bat` están en la raíz del proyecto.
    Actualiza en cada edición los ficheros `games.txt` y `games_pendientes.txt` y crea las carpetas de las ediciones nuevas.
    No borra ni toca tus SGF.
 
-3. **`.\_subir_archivo.bat`**
+3. Ejecutar python download_games.py desde la carpeta kifumaster
+
+4. **`.\_subir_archivo.bat`**
    Sube al servidor la base de datos nueva (solo si ha cambiado) y los SGF que hayas bajado. No borra nada en el servidor.
    Con `--simular` enseña lo que haría sin subir nada.
 
 Después, en la página del archivo ya aparecen los torneos, ediciones y partidas nuevas (en gris las que aún no tienes).
-
-## Bajar partidas (a mano)
-
-1. Ve a la carpeta de la edición: `kifumaster\data\lists\<torneo>\<edición>\`.
-2. Abre `games_pendientes.txt`: un identificador de partida por línea.
-3. Baja cada partida que quieras de `https://kifumaster.org/game/<identificador>` y guárdala **en esa misma carpeta** como `<identificador>.sgf`.
-4. Cuando acabes: `.\_subir_archivo.bat` (las partidas salen ya en blanco en la página).
-   Si además quieres que `games_pendientes.txt` deje de listar las que ya tienes, ejecuta antes `.\kifu_build.bat`.
 
 Si guardas un SGF en la carpeta equivocada, `kifu_build.bat` lo mueve a la suya.
 
@@ -42,3 +36,12 @@ Si guardas un SGF en la carpeta equivocada, `kifu_build.bat` lo mueve a la suya.
 - `kifu_build.bat` dice que no puede reemplazar `archive.db`: cierra lo que la tenga abierta (DB Browser, otra ventana) y repite.
 - `kifu_crawl.bat` se para tras varios errores seguidos: es a propósito, para no molestar al servidor de kifumaster. Prueba otro día.
 - Detalles técnicos: `kifumaster\README.md` y `docs\WORKPLAN_ARCHIVO.md`.
+
+## Notas
+La base de datos no cambia por bajar SGF:
+
+archive.db solo guarda lo que viene de kifumaster: torneos, ediciones, partidas y jugadores. Cambia únicamente cuando ejecutas kifu_build.bat después de un ciclo de descarga.
+Qué partidas tienen SGF no lo saca el servidor de la base de datos, sino de mirar los ficheros que tiene en disco. Al subir, el script avisa al servidor de que hay ficheros nuevos, y la página ya muestra en blanco esas 2.126 partidas.
+
+Si ahora ejecutas .\kifu_build.bat (por ejemplo, para que games_pendientes.txt deje de listar las que ya tienes), la base de datos sí cambiará un poco, porque también anota qué partidas tienen SGF. El siguiente _subir_archivo.bat la subirá. No pasa nada: el servidor seguirá fiándose de los ficheros.
+
