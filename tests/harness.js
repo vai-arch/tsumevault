@@ -52,7 +52,7 @@ function makeDevice(name, opts = {}) {
     SQL: SQLHost,
     db: null,
     activeRunId: null,
-    filterMostrar: false,
+    editMostrar: true,   // VC1: equivale al antiguo filterMostrar: false
     lightMode: true,
     syncInProgress: false,
   };
