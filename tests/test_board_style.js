@@ -88,7 +88,7 @@ run(`globalThis.mkCtx = () => { const c = { ops: [], arc(x, y, r) { this.ops.pus
   stroke() { this.ops.push(['stroke']); }, createRadialGradient() { return { addColorStop() { } }; } }; return c; };
   globalThis.BD = { getX: x => 100 + x * 20, getY: y => 100 + y * 20, stoneRadius: 10, fieldWidth: 20, fieldHeight: 20 };
   globalThis.FH = bsFlatHandler();`);
-run(`currentJitter = false; globalThis.cB = mkCtx(); FH.stone.draw.call(cB, { x: 3, y: 4, c: WGo.B }, BD); globalThis.cW = mkCtx(); FH.stone.draw.call(cW, { x: 3, y: 4, c: WGo.W }, BD);`);
+run(`currentStoneSet = { label: 'Flat', flat: true }; currentJitter = false; globalThis.cB = mkCtx(); FH.stone.draw.call(cB, { x: 3, y: 4, c: WGo.B }, BD); globalThis.cW = mkCtx(); FH.stone.draw.call(cW, { x: 3, y: 4, c: WGo.W }, BD);`);
 check('plana: centrada en la intersección y con radio menor que la casilla', run('cB.ops[0][1] === 160 && cB.ops[0][2] === 180 && Math.abs(cB.ops[0][3] - 9.2) < 1e-9'));
 check('plana: negra sin borde; blanca con borde fino', run('cB.ops.some(o => o[0] === "stroke")') === false && run('cW.ops.some(o => o[0] === "stroke")') === true);
 run(`currentJitter = true; globalThis.cJ = mkCtx(); FH.stone.draw.call(cJ, { x: 3, y: 4, c: WGo.B }, BD); globalThis.cS = mkCtx(); FH.shadow.draw.call(cS, { x: 3, y: 4, c: WGo.B }, BD); globalThis.JJ = bsJitter(3, 4);`);
@@ -99,6 +99,26 @@ run(`globalThis.IH = buildStoneHandler({ label: 'X', black: ['b.png'], white: ['
 check('piedras de imagen con descolocación: se mueven y se dibujan del tamaño de las planas (no se pisan)', Math.abs(run('cI.args[0]') - (160 + run('JJ[0]') * 20 - 9.2)) < 1e-9 && Math.abs(run('cI.args[2]') - 18.4) < 1e-9);
 run(`currentJitter = false; IH.stone.draw.call(cI, { x: 3, y: 4, c: WGo.B }, BD);`);
 check('piedras de imagen sin descolocación: centradas y de tamaño completo, como siempre', run('cI.args[0]') === 150 && run('cI.args[2]') === 20);
+// marcas sobre piedras descolocadas
+run(`globalThis.mkMarkCtx = () => ({ ops: [], save() { this.ops.push('save'); }, restore() { this.ops.push('restore'); }, translate(x, y) { this.ops.push(['tr', x, y]); } });
+  globalThis.MB = { fieldWidth: 20, fieldHeight: 20, obj_arr: [] }; for (let i = 0; i < 19; i++) { MB.obj_arr.push([]); for (let j = 0; j < 19; j++) MB.obj_arr[i].push([]); }
+  MB.obj_arr[3][4].push({ x: 3, y: 4, c: WGo.B }); MB.obj_arr[3][4].push({ x: 3, y: 4, type: 'CR' });
+  globalThis.MH = { stone: { draw(a, b) { this.ops.push('draw'); }, clear(a, b) { this.ops.push('clear'); } }, grid: { draw() { this.ops.push('grid'); } } };
+  bsWrapHandler(MH); bsWrapHandler(MH);   // dos veces: no se envuelve dos veces
+  globalThis.markOps = (jit, set, x, y, fn) => { currentJitter = jit; currentStoneSet = set; const c = mkMarkCtx(); MH.stone[fn || 'draw'].call(c, { x, y }, MB); return c.ops; };`);
+const JM = run('bsJitter(3, 4)');
+check('marca sobre piedra descolocada: se desplaza lo mismo que la piedra', eq(run(`markOps(true, { flat: true }, 3, 4)`), ['save', ['tr', JM[0] * 20, JM[1] * 20], 'draw', 'restore']), JSON.stringify(run(`markOps(true, { flat: true }, 3, 4)`)));
+check('al borrar la marca también (clear desplazado)', eq(run(`markOps(true, { flat: true }, 3, 4, 'clear')`), ['save', ['tr', JM[0] * 20, JM[1] * 20], 'clear', 'restore']));
+check('marca en intersección vacía: en el centro', eq(run(`markOps(true, { flat: true }, 5, 5)`), ['draw']));
+check('sin descolocación, o con piedras realistas: marcas en el centro', eq(run(`markOps(false, { flat: true }, 3, 4)`), ['draw']) && eq(run(`markOps(true, null, 3, 4)`), ['draw']));
+check('envolver dos veces no duplica el desplazamiento', run(`markOps(true, { flat: true }, 3, 4)`).filter(o => o === 'save').length === 1);
+check('el tablero envuelve los tipos de marca al añadirlos (por nombre o por objeto), sin cambiar su identidad',
+  run(`(() => { const custom = { stone: { draw() { } } }; const fake = { _bsAddObject(o) { this.got = o; } };
+    WGo.Board.prototype.addObject.call(fake, { x: 0, y: 0, type: 'TR' }); const t1 = WGo.Board.drawHandlers.TR.stone._bsWrapped === true;
+    const o = { x: 0, y: 0, type: custom }; WGo.Board.prototype.addObject.call(fake, o); return t1 && custom.stone._bsWrapped === true && fake.got === o && o.type === custom; })()`));
+run('currentJitter = true; currentStoneSet = null;');
+check('con piedras realistas tampoco se descolocan las piedras planas/imagen (no aplica)', run('eq0 = bsStonePos({ x: 3, y: 4 }, BD); eq0[0] === 160 && eq0[1] === 180'));
+run(`currentStoneSet = { label: 'Flat', flat: true };`);
 check('buildStoneHandler: null → realistas; Flat → planas', run('buildStoneHandler(null) === WGo.Board.drawHandlers.REALISTIC') && run(`typeof buildStoneHandler({ flat: true }).shadow.draw`) === 'function');
 
 // 7. carga de stones.json / boards.json (una sola vez)

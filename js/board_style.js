@@ -111,10 +111,12 @@ function bsStyleBoard(board) {
   board.theme = flat ? { ...board._bsTheme, gridLinesColor: 'rgba(26,31,26,0.9)', starColor: '#1a1f1a' } : { ...board._bsTheme };
   board.element.style.boxShadow = flat ? '0 1px 3px rgba(0,0,0,.3), 0 4px 12px rgba(0,0,0,.14)' : '';
 }
+// la descolocación solo se aplica a piedras planas y de imagen (las realistas las dibuja WGo por su cuenta)
+function bsJitterOn() { return currentJitter && !!currentStoneSet; }
 // centro de la piedra, con la descolocación si está activada
 function bsStonePos(a, board) {
   let x = board.getX(a.x), y = board.getY(a.y);
-  if (currentJitter) { const [dx, dy] = bsJitter(a.x, a.y); x += dx * board.fieldWidth; y += dy * board.fieldHeight; }
+  if (bsJitterOn()) { const [dx, dy] = bsJitter(a.x, a.y); x += dx * board.fieldWidth; y += dy * board.fieldHeight; }
   return [x, y];
 }
 // piedras planas: sombra propia (en la capa de sombras de WGo, que ya va desplazada abajo a la derecha) y piedra
@@ -138,6 +140,41 @@ function bsFlatHandler() {
         } else { this.fillStyle = '#0d0d0d'; this.fill(); }
       }
     }
+  };
+}
+
+// ¿hay una piedra (objeto sin tipo con color) en (x, y)?
+function bsHasStone(board, x, y) {
+  const arr = board.obj_arr && board.obj_arr[x] && board.obj_arr[x][y];
+  return !!arr && arr.some(o => !o.type && (o.c === WGo.B || o.c === WGo.W));
+}
+// marcas (última jugada, CR/TR/SQ/MA/LB, calidad de jugada, posesión…) sobre una piedra descolocada: se dibujan con el
+// mismo desplazamiento que la piedra. Se envuelve el handler EN SU SITIO (la identidad del tipo no cambia, que es con
+// lo que WGo busca el objeto al quitarlo); las marcas en intersecciones vacías no se mueven.
+function bsWrapHandler(h) {
+  if (!h || typeof h !== 'object') return;
+  for (const f of Object.keys(h)) {
+    const layer = h[f];
+    if (!layer || layer._bsWrapped) continue;
+    for (const fn of ['draw', 'clear']) {
+      const orig = layer[fn];
+      if (typeof orig !== 'function') continue;
+      layer[fn] = function (a, b) {
+        if (!bsJitterOn() || !bsHasStone(b, a.x, a.y)) return orig.call(this, a, b);
+        const [dx, dy] = bsJitter(a.x, a.y);
+        this.save(); this.translate(dx * b.fieldWidth, dy * b.fieldHeight);
+        try { return orig.call(this, a, b); } finally { this.restore(); }
+      };
+    }
+    layer._bsWrapped = true;
+  }
+}
+// todo objeto con tipo que entre al tablero pasa por aquí (también los que llegan en una lista)
+if (typeof WGo !== 'undefined' && WGo.Board && !WGo.Board.prototype._bsAddObject) {
+  WGo.Board.prototype._bsAddObject = WGo.Board.prototype.addObject;
+  WGo.Board.prototype.addObject = function (o) {
+    if (o && o.constructor !== Array && o.type) bsWrapHandler(typeof o.type === 'string' ? WGo.Board.drawHandlers[o.type] : o.type);
+    return this._bsAddObject(o);
   };
 }
 
