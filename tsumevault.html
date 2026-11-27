@@ -1300,7 +1300,7 @@
             <div id="bs-target-row">
               <span class="cfg-visual-col-title" style="margin:0">Apply to</span>
               <select class="fsel" id="bs-target"></select>
-              <button class="cfg-nav-btn" id="bs-reset" style="display:none;width:auto;padding:0 8px" title="Remove this section's own style">Use default</button>
+              <button class="cfg-nav-btn" id="bs-reset" style="display:none;width:auto;height:auto;padding:6px 10px;font-family:var(--mono);font-size:9px;letter-spacing:.06em;white-space:nowrap" title="Remove this section's own style">Use default</button>
             </div>
             <div id="bs-target-hint"></div>
             <div class="cfg-visual-row">
@@ -4100,13 +4100,32 @@
       label.classList.toggle('selected', sel);
     }
 
+    // carrusel de piedras: Realistic y Flat (vista previa dibujada aquí) y luego los juegos de stones.json
+    let bsPreviewCache = null;
+    function bsPreviews() {
+      if (bsPreviewCache) return bsPreviewCache;
+      const mk = draw => { const c = document.createElement('canvas'); c.width = c.height = 64; draw(c.getContext('2d')); return c.toDataURL(); };
+      const flat = (fill, stroke) => ctx => {
+        ctx.beginPath(); ctx.arc(32, 32, 28, 0, 2 * Math.PI); ctx.fillStyle = fill; ctx.fill();
+        if (stroke) { ctx.lineWidth = 2; ctx.strokeStyle = stroke; ctx.stroke(); }
+      };
+      const real = (c0, c1) => ctx => {
+        const g = ctx.createRadialGradient(24, 22, 3, 32, 32, 30); g.addColorStop(0, c0); g.addColorStop(1, c1);
+        ctx.beginPath(); ctx.arc(32, 32, 30, 0, 2 * Math.PI); ctx.fillStyle = g; ctx.fill();
+      };
+      return bsPreviewCache = { realistic: [mk(real('#5a5a5a', '#000')), mk(real('#fff', '#b8b8b8'))], flat: [mk(flat('#0d0d0d', '#6b6b6b')), mk(flat('#fff', '#1a1a1a'))] };
+    }
+    function stoneChoices() {
+      const p = bsPreviews();
+      return [{ label: '', name: 'Realistic', black: [p.realistic[0]], white: [p.realistic[1]] },
+              { label: BS_FLAT, name: 'Flat', black: [p.flat[0]], white: [p.flat[1]] },
+              ...stoneSets.map(s => ({ ...s, name: s.label }))];
+    }
     function renderStonesNav() {
-      const nav = document.getElementById('stones-nav');
-      const empty = document.getElementById('stones-nav-empty');
-      renderThemeCombo();   // Realistic y Flat están siempre, aunque no haya stones.json
-      if (!stoneSets.length) { nav.classList.remove('has-stones'); empty.style.display = 'block'; return; }
-      nav.classList.add('has-stones'); empty.style.display = 'none';
-      const selIdx = stoneSets.findIndex(s => s.label === bsCfgStyle().stones);
+      renderThemeCombo();
+      document.getElementById('stones-nav').classList.add('has-stones');
+      document.getElementById('stones-nav-empty').style.display = 'none';
+      const selIdx = stoneChoices().findIndex(s => s.label === bsCfgStyle().stones);
       if (selIdx >= 0) stoneSetIdx = selIdx;
       updateStonesNav();
     }
@@ -4127,15 +4146,14 @@
       if (boardMatch) selectBoard(boardMatch.value);
     });
     function updateStonesNav() {
-      if (!stoneSets.length) return;
-      const set = stoneSets[stoneSetIdx];
+      const set = stoneChoices()[stoneSetIdx] || stoneChoices()[0];
       const pair = document.getElementById('stones-preview-pair');
       const label = document.getElementById('stones-nav-label');
       document.getElementById('stones-preview-black').src = set.black[0];
       document.getElementById('stones-preview-white').src = set.white[0];
       const sel = bsCfgStyle().stones === set.label;
       pair.classList.toggle('selected', sel);
-      label.textContent = set.label + (sel ? ' ✓' : '');
+      label.textContent = set.name + (sel ? ' ✓' : '');
       label.classList.toggle('selected', sel);
     }
 
@@ -4896,18 +4914,16 @@
       selectBoard(boardImages[boardImgIdx].value);
     });
     document.getElementById('stones-nav-prev').addEventListener('click', () => {
-      if (!stoneSets.length) return;
-      stoneSetIdx = (stoneSetIdx - 1 + stoneSets.length) % stoneSets.length;
+      const n = stoneChoices().length;
+      stoneSetIdx = (stoneSetIdx - 1 + n) % n;
       updateStonesNav();
     });
     document.getElementById('stones-nav-next').addEventListener('click', () => {
-      if (!stoneSets.length) return;
-      stoneSetIdx = (stoneSetIdx + 1) % stoneSets.length;
+      stoneSetIdx = (stoneSetIdx + 1) % stoneChoices().length;
       updateStonesNav();
     });
     document.getElementById('stones-preview-pair').addEventListener('click', () => {
-      if (!stoneSets.length) return;
-      selectStoneSet(stoneSets[stoneSetIdx].label);
+      selectStoneSet(stoneChoices()[stoneSetIdx].label);   // '' = realistas, BS_FLAT = planas
     });
 
     document.getElementById('cfg-sync-url').addEventListener('change', e => {

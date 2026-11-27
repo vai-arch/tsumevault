@@ -61,3 +61,9 @@ Estado: **E1, E2 y E3 hechas (27-nov, rama `estilos-tablero`), pendientes de des
 - `tests/test_board_style.js`: 31/31 (migración, modelo, secciones, descolocación fija y acotada, repintado sin recrear, dibujo de las planas, carga única). Mutaciones comprobadas: rompen 1–4 checks cada una.
 - Batería completa sin cambios (server 344, ai 111, clock 80, focus 72, sfx 23, game_viewer 28, page_split 15, archive_page 34).
 - Chrome sin ventana: e2e de estilos 18/18 (migración, E1 al cargar, ⚙ por sección, cambio de pestaña con la misma posición, «Use default», volver a realistas, archivo con y sin estilo propio, móvil) y e2e del archivo 34/34. Capturas de escritorio y móvil revisadas.
+
+## Ajustes tras la primera prueba de Victor (27-nov)
+- «Flat» no se veía: solo estaba en el desplegable, el carrusel ‹ › recorría solo los juegos de imagen. Ahora el carrusel empieza por Realistic y Flat (vista previa dibujada en canvas) y sigue con los de stones.json.
+- Con «Offset stones» algunas piedras se pisaban (0,06 casilla de descolocación; las de imagen ocupan la casilla entera). Ahora: máximo 0,04 y, con la descolocación encendida, las de imagen se dibujan del tamaño de las planas (radio 0,46). Test nuevo: ninguna pareja de vecinas (horizontal, vertical y diagonal) se pisa en todo el 19×19; con 0,06 falla.
+- «Use default» con la letra del resto de ⚙.
+- Validación: test_board_style 33/33, batería completa sin cambios, e2e Chrome con las imágenes reales de img/ 20/20.

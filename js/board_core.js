@@ -79,7 +79,8 @@ function buildStoneHandler(set) {
     stone: {
       draw: function (a, board) {
         const ctx = this;
-        const [x, y] = bsStonePos(a, board), r = board.stoneRadius;   // E3: con la descolocación fija si está activada
+        // E3: con la descolocación fija si está activada; entonces, del tamaño de las planas para que las vecinas no se pisen
+        const [x, y] = bsStonePos(a, board), r = board.stoneRadius * (currentJitter ? BS_FLAT_RADIUS : 1);
         const isBlack = a.c === WGo.B;
         const src = isBlack ? pickVariant(set.black, a.x, a.y) : pickVariant(set.white, a.x, a.y);
         const img = getImg(src);

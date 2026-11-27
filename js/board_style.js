@@ -7,7 +7,8 @@
 //     guardado en localStorage['board_style_v1']. Un estilo = { bg, stones, jitter }:
 //       bg     — color '#rrggbb' o ruta de imagen (como board_background)
 //       stones — '' = realistas (WGo), 'Flat' = planas, o el label de un juego de stones.json
-//       jitter — descolocación fija de las piedras (planas y de imagen), apagada por defecto
+//       jitter — descolocación fija de las piedras (planas y de imagen), apagada por defecto; con ella encendida las
+//                de imagen se dibujan del tamaño de las planas, para que no se pisen
 //     Al cambiar de sección se repinta el MISMO tablero (WGo lee fondo y piedras en cada repintado): no se pierde
 //     la posición. Las claves antiguas (board_background, stone_set_label) se siguen escribiendo con el estilo por
 //     defecto, por compatibilidad.
@@ -19,7 +20,8 @@ const STONE_SET_KEY = 'stone_set_label';
 const BS_SECTIONS = [['problems', 'Problems'], ['games', 'Games'], ['joseki', 'Joseki'], ['play', 'Play'], ['archive', 'Archive']];
 const BS_FLAT = 'Flat';                 // valor de stones para las piedras planas
 const BS_DEFAULT_BG = '#c4943a';
-const BS_JITTER_MAX = 0.06;             // descolocación máxima, en fracción de casilla
+const BS_JITTER_MAX = 0.04;             // descolocación máxima, en fracción de casilla: con piedras de radio
+                                        // BS_FLAT_RADIUS (0,46 casilla) dos vecinas como mucho se tocan, nunca se pisan
 const BS_FLAT_RADIUS = 0.92;            // radio de la piedra plana respecto al de WGo (deja una rendija entre vecinas)
 
 // ── funciones puras ──

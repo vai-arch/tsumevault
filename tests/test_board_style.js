@@ -50,9 +50,16 @@ check('«Use default» quita la excepción', run(`bsWithoutOverride(M2, 'joseki'
 // 3. descolocación fija
 const J = run(`(() => { const out = []; for (let x = 0; x < 19; x++) for (let y = 0; y < 19; y++) out.push(bsJitter(x, y)); return out; })()`);
 check('descolocación: siempre la misma para la misma posición', eq(run('bsJitter(3, 15)'), run('bsJitter(3, 15)')) && eq(run('bsJitter(0, 0)'), run('bsJitter(0, 0)')));
-check('descolocación: dentro del límite en los dos ejes', J.every(([dx, dy]) => Math.abs(dx) <= 0.06 && Math.abs(dy) <= 0.06));
-check('anti-vacío: cambia de una posición a otra y usa todo el rango', new Set(J.map(j => j.join())).size > 340 && Math.max(...J.map(j => Math.abs(j[0]))) > 0.05 && Math.max(...J.map(j => Math.abs(j[1]))) > 0.05);
+check('descolocación: dentro del límite en los dos ejes', J.every(([dx, dy]) => Math.abs(dx) <= 0.04 && Math.abs(dy) <= 0.04));
+check('anti-vacío: cambia de una posición a otra y usa todo el rango', new Set(J.map(j => j.join())).size > 340 && Math.max(...J.map(j => Math.abs(j[0]))) > 0.033 && Math.max(...J.map(j => Math.abs(j[1]))) > 0.033);
 check('descolocación: (x, y) y (y, x) no coinciden', !eq(run('bsJitter(2, 5)'), run('bsJitter(5, 2)')));
+const overlaps = run(`(() => { const R = BS_FLAT_RADIUS / 2, bad = [];   // radio de la piedra en casillas
+  for (let x = 0; x < 19; x++) for (let y = 0; y < 19; y++) for (const [ox, oy] of [[1, 0], [0, 1], [1, 1], [1, -1]]) {
+    const x2 = x + ox, y2 = y + oy; if (x2 > 18 || y2 < 0 || y2 > 18) continue;
+    const [a, b] = bsJitter(x, y), [c, d] = bsJitter(x2, y2);
+    if (Math.hypot(x2 + c - x - a, y2 + d - y - b) < 2 * R - 1e-9) bad.push([x, y, x2, y2]);
+  } return bad; })()`);
+check('descolocación: ninguna pareja de vecinas se pisa en todo el 19×19 (como mucho se tocan)', overlaps.length === 0, JSON.stringify(overlaps.slice(0, 5)));
 
 // 4. aplicar y guardar
 const store = {};
@@ -89,7 +96,9 @@ check('plana con descolocación: se mueve exactamente lo que dice bsJitter', Mat
 check('sombra: en el mismo sitio que la piedra y algo mayor', run('cS.ops[0][1] === cJ.ops[0][1] && cS.ops[0][2] === cJ.ops[0][2] && cS.ops[0][3] > cJ.ops[0][3]'));
 run(`globalThis.IH = buildStoneHandler({ label: 'X', black: ['b.png'], white: ['w.png'] }); getImg = () => ({ complete: true, naturalWidth: 1 });
   globalThis.cI = { drawImage(img, x, y, w) { this.args = [x, y, w]; } }; IH.stone.draw.call(cI, { x: 3, y: 4, c: WGo.B }, BD);`);
-check('piedras de imagen: también con la descolocación fija', Math.abs(run('cI.args[0]') - (160 + run('JJ[0]') * 20 - 10)) < 1e-9);
+check('piedras de imagen con descolocación: se mueven y se dibujan del tamaño de las planas (no se pisan)', Math.abs(run('cI.args[0]') - (160 + run('JJ[0]') * 20 - 9.2)) < 1e-9 && Math.abs(run('cI.args[2]') - 18.4) < 1e-9);
+run(`currentJitter = false; IH.stone.draw.call(cI, { x: 3, y: 4, c: WGo.B }, BD);`);
+check('piedras de imagen sin descolocación: centradas y de tamaño completo, como siempre', run('cI.args[0]') === 150 && run('cI.args[2]') === 20);
 check('buildStoneHandler: null → realistas; Flat → planas', run('buildStoneHandler(null) === WGo.Board.drawHandlers.REALISTIC') && run(`typeof buildStoneHandler({ flat: true }).shadow.draw`) === 'function');
 
 // 7. carga de stones.json / boards.json (una sola vez)
