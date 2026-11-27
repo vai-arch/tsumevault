@@ -1378,16 +1378,9 @@
                 <button id="cfg-srv-refresh" type="button" title="Actualizar" style="margin-left:auto;font-family:var(--mono);font-size:10px;background:transparent;border:1px solid var(--border2);color:var(--dim);border-radius:2px;padding:1px 7px;cursor:pointer;">↻</button></div>
               <div id="cfg-srv-status" style="font-family:var(--mono);font-size:10px;line-height:1.7;color:var(--dim);">—</div>
             </div>
-            <!-- FILTRO MOSTRAR -->
             <div class="cfg-section">
-              <div class="cfg-section-title">Visibilidad</div>
               <label
                 style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--dim);">
-                <input type="checkbox" id="cfg-filter-mostrar" style="accent-color:var(--gold);cursor:pointer;">
-                Mostrar solo lecciones marcadas
-              </label>
-              <label
-                style="display:flex;align-items:center;gap:8px;cursor:pointer;font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:10px;">
                 <input type="checkbox" id="cfg-sound-enabled" style="accent-color:var(--gold);cursor:pointer;">
                 Sonido activado
               </label>
@@ -1643,7 +1636,10 @@
               All sources
             </label>
             </div>
-            <button id="btn-expand-all" style="font-family:var(--mono);font-size:9px;color:var(--dim);background:transparent;border:1px solid var(--border2);border-radius:2px;padding:2px 7px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .15s;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">⊞ All</button>
+            <div style="display:flex;gap:6px;flex-shrink:0;">
+              <button id="btn-edit-mostrar" type="button" title="Editar visibilidad: muestra todos los capítulos con su casilla show" style="font-family:var(--mono);font-size:9px;background:transparent;border:1px solid var(--border2);color:var(--dim);border-radius:2px;padding:2px 7px;cursor:pointer;white-space:nowrap;transition:all .15s;">✎</button>
+              <button id="btn-expand-all" style="font-family:var(--mono);font-size:9px;color:var(--dim);background:transparent;border:1px solid var(--border2);border-radius:2px;padding:2px 7px;cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .15s;" onmouseover="this.style.color='var(--gold)';this.style.borderColor='var(--gold-dim)'" onmouseout="this.style.color='var(--dim)';this.style.borderColor='var(--border2)'">⊞ All</button>
+            </div>
           </div>
         </div>
         <div id="col-list"
@@ -1945,7 +1941,7 @@
     const IDB_STORE = 'kv';
     const DB_KEY = 'tsumeVault_db';
     // ⇢ js/board_core.js #1
-    const FILTER_MOSTRAR_KEY = 'filter_mostrar';
+    const EDIT_MOSTRAR_KEY = 'edit_mostrar';   // VC1: modo editar visibilidad (✎ de Collections)
     // ⇢ js/board_core.js #2
     const TAP_CONFIRM_KEY = 'tap_confirm';
     const PCT_GREEN_KEY = 'pct_green';
@@ -1960,7 +1956,7 @@
 	const SW_VERSION = 'tsumevault-20261127-1302';
 
     // ⇢ js/board_core.js #3
-    let filterMostrar = localStorage.getItem(FILTER_MOSTRAR_KEY) === 'true';
+    let editMostrar = localStorage.getItem(EDIT_MOSTRAR_KEY) === 'true';
     // ⇢ js/board_core.js #4
     if (isNaN(sfxVolume) || sfxVolume < 0 || sfxVolume > 100) sfxVolume = 100;
     let tapConfirm = localStorage.getItem(TAP_CONFIRM_KEY) === 'true';
@@ -3359,7 +3355,7 @@
 	  let rows;
 	  if (type === 'chapter' && chapter_id) rows = dbQuery(`SELECT source,problem_id FROM problems WHERE chapter_id=? AND hidden=0 ORDER BY order_in_chapter`, [chapter_id]);
 	  else if (type === 'collection' && set_id) {
-		if (filterMostrar) {
+		if (!editMostrar) {
 		  rows = dbQuery(`SELECT p.source,p.problem_id FROM problems p JOIN chapters ch ON ch.id=p.chapter_id WHERE p.source=? AND p.set_id=? AND ch.mostrar=1 AND p.hidden=0 ORDER BY p.order_in_chapter`, [source, set_id]);
 		} else {
 		  rows = dbQuery(`SELECT source,problem_id FROM problems WHERE source=? AND set_id=? AND hidden=0 ORDER BY order_in_chapter`, [source, set_id]);
@@ -4293,7 +4289,6 @@
       const tagAdd = document.getElementById('cfg-tag-add'), tagNew = document.getElementById('cfg-tag-new');
       if (!tagAdd.dataset.bound) { tagAdd.dataset.bound = '1'; tagAdd.addEventListener('click', cfgAddTag); }
       if (!tagNew.dataset.bound) { tagNew.dataset.bound = '1'; tagNew.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') { ev.preventDefault(); cfgAddTag(); } }); }
-      document.getElementById('cfg-filter-mostrar').checked = filterMostrar;
       document.getElementById('cfg-sound-enabled').checked = soundEnabled;
       document.getElementById('cfg-sfx-volume').value = sfxVolume;
       document.getElementById('cfg-sfx-volume-val').textContent = sfxVolume + '%';
@@ -4936,11 +4931,6 @@
         alert('Sync error: ' + (lastSyncError.message || lastSyncError));
       }
     });
-    document.getElementById('cfg-filter-mostrar').addEventListener('change', e => {
-      filterMostrar = e.target.checked;
-      localStorage.setItem(FILTER_MOSTRAR_KEY, filterMostrar);
-      applyCollectionFilters();
-    });
     document.getElementById('cfg-sound-enabled').addEventListener('change', e => {
       soundEnabled = e.target.checked;
       localStorage.setItem(SOUND_KEY, soundEnabled);
@@ -5062,7 +5052,7 @@
       // Perf: conteos por (source,set_id) en una consulta cada uno, en vez de un dbQueryOne por coleccion
       const cntMap = (sql, params) => { const m = new Map(); for (const r of dbQuery(sql, params)) m.set(colKey(r.source, r.set_id), r.n); return m; };
       const diffCnt = maxDiff !== '' ? cntMap('SELECT source,set_id,COUNT(*) AS n FROM chapters WHERE diff_avg <= ? GROUP BY source,set_id', [Number(maxDiff)]) : null;
-      const mostrarCnt = filterMostrar ? cntMap('SELECT source,set_id,COUNT(*) AS n FROM chapters WHERE mostrar=1 GROUP BY source,set_id', []) : null;
+      const mostrarCnt = !editMostrar ? cntMap('SELECT source,set_id,COUNT(*) AS n FROM chapters WHERE mostrar=1 GROUP BY source,set_id', []) : null;
       const chapCnt = needsWork ? cntMap('SELECT source,set_id,COUNT(*) AS n FROM chapters GROUP BY source,set_id', []) : null;
       document.querySelectorAll('#col-list .col-item').forEach(item => {
         const key = item.dataset.key;
@@ -5080,7 +5070,7 @@
           if (!hasChapter) hide = true;
         }
         // Filtro mostrar: ocultar colección si ningún chapter tiene mostrar=1
-        if (!hide && filterMostrar) {
+        if (!hide && !editMostrar) {
           const cached = chaptersCache[key];
           if (cached && cached.length > 0) {
             if (!cached.some(ch => ch.mostrar)) hide = true;
@@ -5094,7 +5084,7 @@
           const chapId = ci.querySelector('.chap-mostrar-chk')?.dataset.chapid;
           if (!chapId) return;
           // filtro mostrar
-          if (filterMostrar) {
+          if (!editMostrar) {
             const cached = chaptersCache[key];
             const chap = cached?.find(ch => String(ch.id) === chapId);
             if (chap && !chap.mostrar) { ci.style.display = 'none'; return; }
@@ -5161,6 +5151,27 @@
       await loadCollections();   // renderCollectionsList expande todo (Needs work activo)
     });
     document.getElementById('btn-expand-all').addEventListener('click', expandAllVisible);
+    // VC1: modo editar visibilidad. Nunca cambia la visibilidad de los capítulos: activo, enseña
+    // todos con su casilla show; inactivo, solo los visibles y sin casillas.
+    function paintEditMostrarBtn() {
+      const b = document.getElementById('btn-edit-mostrar');
+      b.style.color = editMostrar ? 'var(--gold)' : 'var(--dim)';
+      b.style.borderColor = editMostrar ? 'var(--gold-dim)' : 'var(--border2)';
+    }
+    document.getElementById('btn-edit-mostrar').addEventListener('click', async () => {
+      editMostrar = !editMostrar;
+      localStorage.setItem(EDIT_MOSTRAR_KEY, editMostrar);
+      paintEditMostrarBtn();
+      for (const item of document.querySelectorAll('#col-list .col-item')) {   // repinta las listas ya abiertas
+        const chapDiv = item.querySelector('.col-chapters');
+        if (!chapDiv || chapDiv.children.length === 0) continue;
+        const col = viewCollections.find(c => colKey(c.source, c.set_id) === item.dataset.key);
+        if (col) await renderChapterList(col, chapDiv);
+      }
+      applyCollectionFilters();
+      populateReviewFilters();
+    });
+    paintEditMostrarBtn();
 
     function fmtDuration(ms) {
       if (ms == null || ms < 0) return '';
@@ -5219,7 +5230,7 @@
           const ci = document.createElement('div'); ci.className = 'chap-item';
           ci.dataset.diffAvg = chap.diff_avg ?? '';
           const maxDiff = document.getElementById('cf-diff').value;
-          if (filterMostrar && !chap.mostrar) { ci.style.display = 'none'; }
+          if (!editMostrar && !chap.mostrar) { ci.style.display = 'none'; }
           else if (maxDiff !== '' && chap.diff_avg != null && chap.diff_avg > Number(maxDiff)) { ci.style.display = 'none'; }
           else if (document.getElementById('cf-needs-work').checked) {
             const csNw = runStats && runStats.by_chapter[chap.id];
@@ -5232,7 +5243,7 @@
           const chapPctColor = cs ? pctColor(cs.pct) : 'var(--dim2)';
           ci.innerHTML = `<span class="chap-name">${esc(chap.name || `Ch ${chap.chapter_num}`)} <span style="color:var(--dim2)">(${esc(diffStr)})</span></span>
         <span class="chap-stats">${chap.visible_problems || chap.problem_count}p <span class="chap-pct" style="color:${chapPctColor}">${chapPctStr}</span></span>
-        ${!filterMostrar ? `<label style="display:flex;align-items:center;gap:3px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);flex-shrink:0;white-space:nowrap;" title="Mostrar esta lección">
+        ${editMostrar ? `<label style="display:flex;align-items:center;gap:3px;cursor:pointer;font-family:var(--mono);font-size:9px;color:var(--dim);flex-shrink:0;white-space:nowrap;" title="Mostrar esta lección">
 		  <input type="checkbox" class="chap-mostrar-chk" data-chapid="${chap.id}" ${chap.mostrar ? 'checked' : ''} style="accent-color:var(--gold);cursor:pointer;">
 		  show
 		</label>` : `<input type="hidden" class="chap-mostrar-chk" data-chapid="${chap.id}">`}
@@ -5246,7 +5257,6 @@
             chap.mostrar = val;
             await saveDB();
             tryAutoSync(true).catch(() => { });
-            if (filterMostrar) applyCollectionFilters();
           });
           ci.querySelector('.chap-btn').addEventListener('click', async e => { e.stopPropagation(); await ensureColSource(col); startRun({ source: col.source, type: 'chapter', chapter_id: chap.id, colName: col.name, chapName: chap.name, chapNum: chap.chapter_num }); });
           ci.querySelector('.chap-free-btn').addEventListener('click', async e => { e.stopPropagation(); await ensureColSource(col); practiceChapterFree(col, chap); });
@@ -5822,7 +5832,7 @@
       const sel = document.getElementById('rv-col');
       sel.innerHTML = '<option value="">All</option>';
       let visibleCols = allCollections;
-      if (filterMostrar) {
+      if (!editMostrar) {
         const visibleSetIds = new Set(
           dbQuery(`SELECT DISTINCT set_id FROM chapters WHERE source=? AND mostrar=1`, [currentSource])
             .map(r => r.set_id)
