@@ -1,7 +1,7 @@
 # WORKPLAN — Estilo de tablero por sección y estilo plano (tipo kifumaster)
 
 Requisito en Notion: «Estilo de tablero por sección y estilo plano tipo kifumaster» (27-nov-2026).
-Estado: **análisis cerrado, pendiente de visto bueno de Victor para empezar E1**.
+Estado: **E1, E2 y E3 hechas (27-nov, rama `estilos-tablero`), pendientes de despliegue y prueba de Victor**.
 
 ## Decisiones (Victor, 27-nov)
 
@@ -48,3 +48,16 @@ Estado: **análisis cerrado, pendiente de visto bueno de Victor para empezar E1*
 - Batería completa (`run_all`) sin cambios en las líneas base.
 - Chrome sin ventana: capturas de cada sección con estilos distintos; cambio de pestaña repinta con el estilo correcto; el archivo aplica su estilo.
 - Checklist manual en portátil y móvil.
+
+## Hecho (27-nov)
+
+- `js/board_style.js` (nuevo, después de `ai_pure.js` en `tsumevault.html` y `archive.html`; en `sw.js`): modelo `board_style_v1`, migración, `bsStyleFor`, `bsApply(sección)` que repinta el MISMO tablero (WGo lee `background` y `stoneHandler` en cada `redraw`), carga única de `boards.json` / `stones.json`, piedras planas y descolocación fija (`bsJitter`, máx. 0,06 casilla, hash de la posición).
+- `board_core.js`: `buildStoneHandler` admite las planas; las piedras de imagen usan la descolocación; `initBoard` aplica las líneas y la sombra del estilo plano.
+- `tsumevault.html`: `switchTab` llama a `bsApply(bsSectionOfTab(pestaña))`; ⚙ con «Apply to», «Use default», «Offset stones», Realistic y Flat siempre en la lista de piedras y 4 fondos lisos nuevos (Sage `#c8d1b0`, Sand, Mist, Ash). `archive.html`/`archive.js`: `bsApply('archive')`.
+- Fallos arreglados de paso: el juego de piedras guardado solo se cargaba al abrir ⚙ (al recargar salían realistas); no había forma de volver a las piedras realistas; el archivo no aplicaba las piedras.
+- La descolocación no afecta a las piedras realistas (las dibuja WGo por su cuenta).
+
+### Validación
+- `tests/test_board_style.js`: 31/31 (migración, modelo, secciones, descolocación fija y acotada, repintado sin recrear, dibujo de las planas, carga única). Mutaciones comprobadas: rompen 1–4 checks cada una.
+- Batería completa sin cambios (server 344, ai 111, clock 80, focus 72, sfx 23, game_viewer 28, page_split 15, archive_page 34).
+- Chrome sin ventana: e2e de estilos 18/18 (migración, E1 al cargar, ⚙ por sección, cambio de pestaña con la misma posición, «Use default», volver a realistas, archivo con y sin estilo propio, móvil) y e2e del archivo 34/34. Capturas de escritorio y móvil revisadas.

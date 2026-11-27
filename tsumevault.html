@@ -810,6 +810,12 @@
       margin-bottom: 12px;
     }
 
+    /* E2: «Apply to» del estilo del tablero */
+    #bs-target-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+    #bs-target-row .fsel { margin-bottom: 0; width: auto; flex: 1; min-width: 0; }
+    #bs-target-hint { font-family: var(--mono); font-size: 8px; color: var(--dim2); margin-bottom: 12px; }
+    #bs-jitter-row { display: flex; align-items: center; gap: 6px; margin-top: 8px; font-family: var(--mono); font-size: 9px; color: var(--dim); cursor: pointer; }
+
     /* cfg two-col layout for board+stones */
     .cfg-visual-row {
       display: grid;
@@ -1288,6 +1294,13 @@
 
           <!-- BOARD + STONES en dos columnas -->
           <div class="cfg-section">
+            <!-- E2: destino de los cambios (estilo por defecto o una sección) -->
+            <div id="bs-target-row">
+              <span class="cfg-visual-col-title" style="margin:0">Apply to</span>
+              <select class="fsel" id="bs-target"></select>
+              <button class="cfg-nav-btn" id="bs-reset" style="display:none;width:auto;padding:0 8px" title="Remove this section's own style">Use default</button>
+            </div>
+            <div id="bs-target-hint"></div>
             <div class="cfg-visual-row">
 
               <!-- Columna izquierda: Board Background -->
@@ -1323,9 +1336,12 @@
                 </div>
                 <div style="margin-top:10px">
                   <select class="fsel" id="stones-theme-sel">
-                    <option value="">— Select theme —</option>
+                    <option value="">Realistic</option>
                   </select>
                 </div>
+                <label id="bs-jitter-row" title="Each stone slightly off-centre, always the same (flat and image stones)">
+                  <input type="checkbox" id="bs-jitter"> Offset stones
+                </label>
               </div>
 
             </div>
@@ -1930,6 +1946,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/sql-wasm.js"></script>
   <script src="js/board_core.js"></script>
   <script src="js/ai_pure.js"></script>
+  <script src="js/board_style.js"></script>
   <script src="js/game_viewer.js"></script>
   <script>
     // ══════════════════════════════════════════════════════════════
@@ -1940,7 +1957,6 @@
     const IDB_STORE = 'kv';
     const DB_KEY = 'tsumeVault_db';
     // ⇢ js/board_core.js #1
-    const STONE_SET_KEY = 'stone_set_label';
     const FILTER_MOSTRAR_KEY = 'filter_mostrar';
     // ⇢ js/board_core.js #2
     const TAP_CONFIRM_KEY = 'tap_confirm';
@@ -3996,49 +4012,60 @@
     // ⇢ js/board_core.js #9
 
     // ── Board background ──
+    // E2/E3 (docs/WORKPLAN_ESTILOS.md): fondos y piedras se eligen para el destino de «Apply to» (estilo por defecto o
+    // una sección); la lista de fondos de imagen y de piedras y el modelo guardado viven en js/board_style.js.
     const BOARD_COLOR_FALLBACKS = [
       { label: 'Classic', value: '#c4943a' },
       { label: 'Dark', value: '#5c3a1e' },
       { label: 'Slate', value: '#6b7b6b' },
       { label: 'Cream', value: '#e8dab0' },
+      { label: 'Sage', value: '#c8d1b0' },     // E3: fondos lisos para el estilo plano
+      { label: 'Sand', value: '#e2cfa0' },
+      { label: 'Mist', value: '#d6d9d2' },
+      { label: 'Ash', value: '#b8b2a4' },
     ];
-    let boardImages = [], boardImgIdx = 0;
-    let stoneSets = [], stoneSetIdx = 0;
+    let boardImgIdx = 0, stoneSetIdx = 0;
+    let bsCfgTarget = 'default';   // destino de los cambios en ⚙: 'default' o una sección de BS_SECTIONS
     let visualConfigLoaded = false;
 
     async function loadVisualConfig() {
-      // Board images
-      try {
-        const r = await fetch('img/boards/boards.json', { signal: AbortSignal.timeout(3000) });
-        if (r.ok) boardImages = (await r.json()).map(item => ({ label: item.label || item.file.replace(/\.[^.]+$/, ''), value: 'img/boards/' + item.file }));
-      } catch (e) { }
-      // Stone sets
-      try {
-        const r = await fetch('img/stones/stones.json', { signal: AbortSignal.timeout(3000) });
-        if (r.ok) {
-          const list = await r.json();
-          stoneSets = list.map(item => ({
-            label: item.label,
-            black: item.black.map(f => 'img/stones/' + f),
-            white: item.white.map(f => 'img/stones/' + f),
-          }));
-        }
-      } catch (e) { }
-      // Restore saved stone set
-      const savedLabel = localStorage.getItem(STONE_SET_KEY);
-      if (savedLabel) {
-        const idx = stoneSets.findIndex(s => s.label === savedLabel);
-        if (idx >= 0) { stoneSetIdx = idx; currentStoneSet = stoneSets[idx]; }
-      }
+      await bsLoadVisual();
       visualConfigLoaded = true;
+    }
+    function bsCfgStyle() { return bsStyleFor(bsModel, bsCfgTarget === 'default' ? null : bsCfgTarget); }
+    // selector «Apply to», botón «Use default» y casilla de descolocación
+    function renderStyleTarget() {
+      const sel = document.getElementById('bs-target');
+      sel.innerHTML = '';
+      const add = (v, t) => { const o = document.createElement('option'); o.value = v; o.textContent = t; o.selected = v === bsCfgTarget; sel.appendChild(o); };
+      add('default', 'All sections (default)');
+      for (const [k, label] of BS_SECTIONS) add(k, label + (bsModel[k] ? ' — own style' : ''));
+      const own = bsCfgTarget !== 'default' && !!bsModel[bsCfgTarget];
+      document.getElementById('bs-reset').style.display = own ? '' : 'none';
+      document.getElementById('bs-target-hint').textContent = bsCfgTarget === 'default' ? 'Sections without their own style use this one'
+        : (own ? 'This section has its own style' : 'Uses the default style — changing it here gives the section its own');
+      document.getElementById('bs-jitter').checked = bsCfgStyle().jitter;
+    }
+    function renderVisualConfig() { renderStyleTarget(); renderColorPills(); renderBoardNav(); renderStonesNav(); }
+    document.getElementById('bs-target').addEventListener('change', e => { bsCfgTarget = e.target.value; renderVisualConfig(); });
+    document.getElementById('bs-reset').addEventListener('click', () => {
+      bsModel = bsWithoutOverride(bsModel, bsCfgTarget); bsSave(); bsApply(); renderVisualConfig();
+    });
+    document.getElementById('bs-jitter').addEventListener('change', e => bsUpdateStyle({ jitter: e.target.checked }));
+    function bsUpdateStyle(patch) {
+      bsModel = bsWithStyle(bsModel, bsCfgTarget, patch);
+      bsSave();
+      bsApply();   // repinta el tablero si el cambio afecta a la sección actual
+      renderVisualConfig();
     }
 
     function renderColorPills() {
       const container = document.getElementById('board-colors');
       container.innerHTML = '';
+      const bg = bsCfgStyle().bg;
       for (const col of BOARD_COLOR_FALLBACKS) {
         const pill = document.createElement('div');
-        pill.className = 'board-pill' + (currentBoardBg === col.value ? ' selected' : '');
+        pill.className = 'board-pill' + (bg === col.value ? ' selected' : '');
         pill.title = col.label;
         const swatch = document.createElement('div');
         swatch.className = 'board-swatch'; swatch.style.background = col.value;
@@ -4055,7 +4082,7 @@
       const nav = document.getElementById('board-img-nav');
       if (!boardImages.length) { nav.classList.remove('has-images'); return; }
       nav.classList.add('has-images');
-      const selIdx = boardImages.findIndex(b => b.value === currentBoardBg);
+      const selIdx = boardImages.findIndex(b => b.value === bsCfgStyle().bg);
       if (selIdx >= 0) boardImgIdx = selIdx;
       updateBoardNav();
     }
@@ -4065,7 +4092,7 @@
       const preview = document.getElementById('board-nav-preview');
       const label = document.getElementById('board-nav-label');
       preview.src = img.value; preview.alt = img.label;
-      const sel = currentBoardBg === img.value;
+      const sel = bsCfgStyle().bg === img.value;
       preview.classList.toggle('selected', sel);
       label.textContent = img.label + (sel ? ' ✓' : '');
       label.classList.toggle('selected', sel);
@@ -4074,29 +4101,27 @@
     function renderStonesNav() {
       const nav = document.getElementById('stones-nav');
       const empty = document.getElementById('stones-nav-empty');
+      renderThemeCombo();   // Realistic y Flat están siempre, aunque no haya stones.json
       if (!stoneSets.length) { nav.classList.remove('has-stones'); empty.style.display = 'block'; return; }
       nav.classList.add('has-stones'); empty.style.display = 'none';
+      const selIdx = stoneSets.findIndex(s => s.label === bsCfgStyle().stones);
+      if (selIdx >= 0) stoneSetIdx = selIdx;
       updateStonesNav();
-      renderThemeCombo();
     }
     function renderThemeCombo() {
       const sel = document.getElementById('stones-theme-sel');
-      sel.innerHTML = '<option value="">— Select theme —</option>';
-      for (const set of stoneSets) {
-        const opt = document.createElement('option');
-        opt.value = set.label;
-        opt.textContent = set.label;
-        opt.selected = currentStoneSet && currentStoneSet.label === set.label;
-        sel.appendChild(opt);
-      }
+      const cur = bsCfgStyle().stones;
+      sel.innerHTML = '';
+      const add = (v, t) => { const opt = document.createElement('option'); opt.value = v; opt.textContent = t; opt.selected = v === cur; sel.appendChild(opt); };
+      add('', 'Realistic');
+      add(BS_FLAT, 'Flat');
+      for (const set of stoneSets) add(set.label, set.label);
     }
     document.getElementById('stones-theme-sel').addEventListener('change', e => {
       const label = e.target.value;
-      if (!label) return;
-      const set = stoneSets.find(s => s.label === label);
-      if (set) selectStoneSet(set);
+      selectStoneSet(label);
       // Aplicar tablero si existe entrada con mismo label
-      const boardMatch = boardImages.find(b => b.label === label);
+      const boardMatch = label && boardImages.find(b => b.label === label);
       if (boardMatch) selectBoard(boardMatch.value);
     });
     function updateStonesNav() {
@@ -4106,34 +4131,14 @@
       const label = document.getElementById('stones-nav-label');
       document.getElementById('stones-preview-black').src = set.black[0];
       document.getElementById('stones-preview-white').src = set.white[0];
-      const sel = currentStoneSet && currentStoneSet.label === set.label;
+      const sel = bsCfgStyle().stones === set.label;
       pair.classList.toggle('selected', sel);
       label.textContent = set.label + (sel ? ' ✓' : '');
       label.classList.toggle('selected', sel);
     }
 
-    function selectBoard(value) {
-      currentBoardBg = value;
-      localStorage.setItem(BOARD_BG_KEY, value);
-      renderColorPills();
-      updateBoardNav();
-      applyBoardBackground();
-    }
-    function selectStoneSet(set) {
-      currentStoneSet = set;
-      localStorage.setItem(STONE_SET_KEY, set.label);
-      updateStonesNav();
-      applyBoardBackground();
-    }
-
-    function applyBoardBackground() {
-      if (!wgoBoard || !currentProblem) return;
-      wgoBoard._globalListenerSet = false;
-      wgoBoard = null;
-      initBoard(currentProblem.size || 19);
-      renderProblem(currentProblem);
-    }
-
+    function selectBoard(value) { bsUpdateStyle({ bg: value }); }
+    function selectStoneSet(label) { bsUpdateStyle({ stones: label || '' }); }   // '' = realistas, BS_FLAT = planas
     async function loadSyncPresets() {
       try {
         const r = await fetch('conf/sync_servers.json', { signal: AbortSignal.timeout(2000) });
@@ -4272,9 +4277,8 @@
       document.getElementById('cfg-sync-url').value = SYNC_SERVER;
       document.getElementById('cfg-sync-token').value = localStorage.getItem(SYNC_TOKEN_KEY) || '';
       if (!visualConfigLoaded) await loadVisualConfig();
-      renderColorPills();
-      renderBoardNav();
-      renderStonesNav();
+      bsCfgTarget = bsSection;   // E2: «Apply to» viene con la sección desde la que abres ⚙
+      renderVisualConfig();
       loadSyncPresets();
       // T23: etiquetas (listeners con guard dataset.bound: el modal persiste)
       renderCfgTags();
@@ -4901,7 +4905,7 @@
     });
     document.getElementById('stones-preview-pair').addEventListener('click', () => {
       if (!stoneSets.length) return;
-      selectStoneSet(stoneSets[stoneSetIdx]);
+      selectStoneSet(stoneSets[stoneSetIdx].label);
     });
 
     document.getElementById('cfg-sync-url').addEventListener('change', e => {
@@ -8618,6 +8622,7 @@
         document.getElementById('board-controls').style.display = '';
         document.getElementById('gm-controls').style.display = 'none';
       }
+      bsApply(bsSectionOfTab(name));   // E2: estilo del tablero de esta sección (repinta sin perder la posición)
     }
     document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
       const name = t.dataset.tab; switchTab(name);

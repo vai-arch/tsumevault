@@ -74,11 +74,12 @@ function pickVariant(list, x, y) { return list[(x * 13 + y * 7) % list.length]; 
 // ⇠ #10 (antes en tsumevault.html, línea 5076)
 function buildStoneHandler(set) {
   if (!set) return WGo.Board.drawHandlers.REALISTIC;
+  if (set.flat) return bsFlatHandler();   // E3: piedras planas (js/board_style.js)
   return {
     stone: {
       draw: function (a, board) {
         const ctx = this;
-        const x = board.getX(a.x), y = board.getY(a.y), r = board.stoneRadius;
+        const [x, y] = bsStonePos(a, board), r = board.stoneRadius;   // E3: con la descolocación fija si está activada
         const isBlack = a.c === WGo.B;
         const src = isBlack ? pickVariant(set.black, a.x, a.y) : pickVariant(set.white, a.x, a.y);
         const img = getImg(src);
@@ -107,6 +108,7 @@ function initBoard(size) {
     stoneHandler: buildStoneHandler(currentStoneSet)
   });
   wgoBoard.setSection(-0.5, -0.5, -0.5, -0.5);
+  bsStyleBoard(wgoBoard);   // E3: líneas y sombra del estilo plano (js/board_style.js); addCustomObject repinta
   wgoBoard.addCustomObject(WGo.Board.coordinates);
   wgoBoard.addEventListener('click', (x, y) => { if (window._boardClickHandler) window._boardClickHandler(x, y); });
   wgoBoard._globalListenerSet = true;
