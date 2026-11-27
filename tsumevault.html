@@ -1181,7 +1181,9 @@
       }
 
       /* FC3: con el botón 🗂 la cabecera no cabía en 390px: botones algo más compactos */
-      #runs-btn, #stats-btn, #lessons-btn { padding: 3px 6px !important; margin-right: 2px !important; font-size: 14px !important; }
+      #runs-btn, #stats-btn, #archive-btn, #lessons-btn { padding: 3px 6px !important; margin-right: 2px !important; font-size: 14px !important; }
+      /* con el botón 棋 tampoco cabía (el ⚙ se salía por la derecha): el selector de colección encoge si hace falta */
+      #source-sel { flex: 0 1 auto; min-width: 0; text-overflow: ellipsis; }
 
       .logo {
         font-size: 10px;
